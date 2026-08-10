@@ -1,8 +1,13 @@
 CATÁLOGO ILUSTRADO DE MATERIAIS ODONTOLÓGICOS — PMF
-Versão 1.1 — 09/08/2026
+Versão 1.2 — 09/08/2026
 
 HISTÓRICO
 ---------
+v1.2 — 09/08/2026
+  - Guia de uso: preenchidos o responsável pelo catálogo e o e-mail
+    de contato (odontomateriaispmf@gmail.com).
+  - Guia de uso: incluída a seção de autoria "Quem fez este guia".
+
 v1.1 — 09/08/2026
   - O quadro lateral esquerdo passou a se chamar "Filtros".
   - Removido o filtro por unidade de pedido (a unidade continua

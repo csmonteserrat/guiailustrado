@@ -243,6 +243,14 @@ button { font: inherit; color: inherit; cursor: pointer; }
   background: var(--superficie); border: 1px dashed var(--borda);
   border-radius: var(--raio-pequeno); padding: 14px 16px;
 }
+.guia-contato a { color: var(--acento); }
+
+.guia-creditos h3 {
+  font-size: 14px; margin: 16px 0 4px;
+  color: var(--texto2); letter-spacing: .02em;
+}
+.guia-creditos ul { margin: 0; padding-left: 22px; }
+.guia-creditos li { margin-bottom: 2px; }
 
 /* ============================= cabeçalho ============================= */
 
