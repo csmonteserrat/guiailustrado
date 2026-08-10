@@ -1,0 +1,20 @@
+CATÁLOGO ILUSTRADO DE MATERIAIS ODONTOLÓGICOS — PMF
+Versão 1.1 — 09/08/2026
+
+HISTÓRICO
+---------
+v1.1 — 09/08/2026
+  - O quadro lateral esquerdo passou a se chamar "Filtros".
+  - Removido o filtro por unidade de pedido (a unidade continua
+    aparecendo em cada item, no modal, na lista e na impressão).
+
+v1 — 09/08/2026
+  - Primeira versão do site: tela de entrada por local de trabalho,
+    guia de uso, três blocos (Rede básica, Exclusivo CEO e Interesse
+    odontológico), busca, filtros, lista de pedido, modo noturno e
+    impressão em três formatos.
+
+COMO ATUALIZAR
+--------------
+Leia o arquivo COMO-ATUALIZAR.md.
+A data mostrada no rodapé fica na primeira linha do app.js.

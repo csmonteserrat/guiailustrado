@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Catálogo ilustrado de materiais odontológicos</title>
+<meta name="description" content="Guia visual dos materiais odontológicos da Secretaria Municipal de Saúde de Florianópolis.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================================================================
+     AVISO DE ARQUIVO LOCAL (aparece só quando o site é aberto por
+     duplo clique no arquivo, sem servidor)
+     ================================================================ -->
+<div id="aviso-arquivo-local" class="tela-aviso" hidden>
+  <div class="aviso-caixa">
+    <h1>O catálogo precisa ser aberto por um endereço da internet</h1>
+    <p>Você abriu o arquivo diretamente do computador. Nesse modo o navegador bloqueia a leitura da
+      lista de produtos por segurança, e por isso nada aparece.</p>
+    <p>Abra o catálogo pelo endereço publicado, ou peça a quem cuida do site para colocá-lo em um servidor.</p>
+    <p class="aviso-detalhe" id="aviso-arquivo-detalhe"></p>
+  </div>
+</div>
+
+<!-- ================================================================
+     TELA DE ENTRADA
+     ================================================================ -->
+<div id="tela-entrada" class="tela-entrada" hidden>
+  <div class="entrada-conteudo">
+    <p class="entrada-eyebrow">Secretaria Municipal de Saúde de Florianópolis</p>
+    <h1 class="entrada-titulo">Catálogo ilustrado de materiais odontológicos</h1>
+    <h2 class="entrada-pergunta">Onde você trabalha?</h2>
+
+    <div class="entrada-cartoes">
+      <button type="button" class="cartao-perfil cartao-perfil--basica" data-perfil="BASICA">
+        <span class="cartao-selo">Rede básica</span>
+        <span class="cartao-nome">Centro de Saúde</span>
+        <span class="cartao-sub">Materiais dos grupos 12 e 13</span>
+      </button>
+
+      <button type="button" class="cartao-perfil cartao-perfil--ceo" data-perfil="CEO">
+        <span class="cartao-selo">CEO</span>
+        <span class="cartao-nome">Centro de Especialidades Odontológicas</span>
+        <span class="cartao-sub">Todos os grupos, incluindo 14 e 15</span>
+      </button>
+    </div>
+
+    <p class="entrada-nota">Você pode trocar depois, a qualquer momento, no topo da página.</p>
+
+    <button type="button" class="btn-contorno btn-guia-entrada" data-abrir-guia>
+      <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.2a2.5 2.5 0 1 1 3.2 2.6c-.6.2-.9.7-.9 1.3v.6"/><circle cx="12" cy="17" r=".9" fill="currentColor" stroke="none"/></svg>
+      Como usar este catálogo
+    </button>
+  </div>
+</div>
+
+<!-- ================================================================
+     GUIA DE USO
+     Todo o texto do guia está no bloco abaixo. Para alterar o guia,
+     basta editar este trecho do HTML — nada mais no site precisa mudar.
+     ================================================================ -->
+<div id="tela-guia" class="tela-guia" role="dialog" aria-modal="true" aria-labelledby="guia-titulo" hidden>
+  <div class="guia-barra">
+    <button type="button" class="btn-solido btn-voltar" data-fechar-guia>
+      <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+      Voltar
+    </button>
+    <span class="guia-barra-titulo">Guia de uso</span>
+  </div>
+
+  <div class="guia-corpo">
+    <!-- INÍCIO DO TEXTO DO GUIA — edite daqui para baixo -->
+    <h1 id="guia-titulo">Como usar este catálogo</h1>
+
+    <p class="guia-destaque">
+      Este catálogo é um <strong>guia visual</strong>. Ele serve para o cirurgião-dentista identificar
+      o material certo pela foto e conferir o código correto.
+      <strong>O pedido em si continua sendo feito no CELK</strong>, no sistema de pedidos da prefeitura.
+      Este site não envia, não registra e não substitui a solicitação no CELK.
+    </p>
+
+    <p class="guia-aviso-foto">
+      <strong>As fotos são meramente ilustrativas.</strong> Elas mostram o tipo de material correspondente
+      ao código, mas a marca, o modelo, a cor e a apresentação do produto efetivamente entregue à unidade
+      podem ser diferentes, já que dependem do resultado de cada processo de compra. Sempre confirme o
+      código e a descrição do item, que são as informações que valem para o pedido.
+    </p>
+
+    <section class="guia-secao">
+      <h2><span class="guia-numero">1</span> Para que serve este catálogo</h2>
+      <p>Para identificar visualmente o material antes de pedir, confirmar o código e a unidade de pedido
+        que serão usados no CELK, e conhecer o que existe disponível na rede. Muita coisa deixa de ser
+        solicitada simplesmente porque o profissional não sabe que existe.</p>
+    </section>
+
+    <section class="guia-secao">
+      <h2><span class="guia-numero">2</span> Como encontrar um material</h2>
+      <ul>
+        <li>Digite parte do nome ou o código na busca do topo. Acentos e maiúsculas não fazem diferença:
+          <em>acido</em> encontra <em>ÁCIDO GEL CONDICIONADOR</em>.</li>
+        <li>Pode digitar palavras soltas em qualquer ordem, como <em>broca diamantada 1012</em>.</li>
+        <li>Use os filtros de especialidade para ver só o que interessa à sua área.</li>
+        <li>Clique na etiqueta de família dentro do card, como <em>Brocas</em> ou <em>Limas de canal</em>,
+          para ver todos os itens semelhantes lado a lado e comparar.</li>
+        <li>Clique no card para abrir a foto ampliada com todos os dados do item.</li>
+      </ul>
+    </section>
+
+    <section class="guia-secao">
+      <h2><span class="guia-numero">3</span> Como usar o código no CELK</h2>
+      <ol>
+        <li>Localize o item no catálogo.</li>
+        <li>Toque em <strong>Copiar código</strong>.</li>
+        <li>Abra o CELK e cole o código no campo de busca do pedido.</li>
+      </ol>
+      <p>A unidade de pedido mostrada aqui é a mesma do sistema. Conferir a unidade antes de lançar evita
+        pedir uma caixa quando se queria uma unidade, e vice-versa.</p>
+    </section>
+
+    <section class="guia-secao">
+      <h2><span class="guia-numero">4</span> Como montar uma lista antes de ir ao sistema</h2>
+      <p>Em cada item há o botão <strong>Adicionar à lista</strong>. A lista fica guardada no próprio
+        aparelho e continua lá se você fechar a página. Dentro dela você ajusta a quantidade de cada item
+        e depois usa:</p>
+      <ul>
+        <li><strong>Copiar lista</strong>, para colar em um e-mail, no WhatsApp ou em um documento;</li>
+        <li><strong>Baixar CSV</strong>, para abrir a lista em uma planilha.</li>
+      </ul>
+      <p>A lista serve como rascunho de conferência. O lançamento continua sendo feito no CELK.</p>
+    </section>
+
+    <section class="guia-secao">
+      <h2><span class="guia-numero">5</span> Os blocos do catálogo e como funciona cada um</h2>
+
+      <div class="guia-bloco guia-bloco--basica">
+        <h3>Rede básica — grupos 12 e 13</h3>
+        <p>Materiais e instrumentais da lista da Odontologia disponíveis para as unidades da rede básica.
+          O cirurgião-dentista lança o pedido diretamente no CELK.</p>
+      </div>
+
+      <div class="guia-bloco guia-bloco--ceo">
+        <h3>Exclusivo CEO — grupos 14 e 15</h3>
+        <p>Materiais que compõem a lista dos Centros de Especialidades Odontológicas. As solicitações são
+          feitas pelas equipes do CEO. Ficam disponíveis aqui para consulta e referência de toda a rede,
+          porque conhecer o que existe ajuda no encaminhamento e na conversa entre os serviços.</p>
+      </div>
+
+      <div class="guia-bloco guia-bloco--coord">
+        <h3>Interesse odontológico — lista da Enfermagem</h3>
+        <p>Materiais que o cirurgião-dentista usa no dia a dia, mas que constam da lista da Enfermagem.
+          O caminho para obtê-los é conversar com o coordenador da unidade de saúde, que faz a requisição
+          pela lista dele. Por isso, nesses itens, o catálogo mostra o código para você informar ao
+          coordenador, e não um lançamento direto no CELK.</p>
+      </div>
+    </section>
+
+    <section class="guia-secao">
+      <h2><span class="guia-numero">6</span> Quando a foto estiver faltando ou o material parecer errado</h2>
+      <p>Se um item aparecer sem foto, com foto que não corresponde ao material, com descrição truncada ou
+        com unidade de pedido diferente da que está no CELK, avise para que a correção entre na próxima
+        atualização. Informe o código do item e o que está errado.</p>
+      <!-- CONTATO DO RESPONSÁVEL PELO CATÁLOGO — edite os dados abaixo -->
+      <p class="guia-contato">
+        <strong>Responsável pelo catálogo:</strong> [nome do responsável]<br>
+        <strong>E-mail:</strong> [email@exemplo.gov.br]<br>
+        <strong>Telefone / ramal:</strong> [telefone]
+      </p>
+    </section>
+    <!-- FIM DO TEXTO DO GUIA -->
+  </div>
+</div>
+
+<!-- ================================================================
+     CATÁLOGO
+     ================================================================ -->
+<div id="app" class="app" hidden>
+
+  <header class="cabecalho">
+    <div class="cabecalho-linha">
+      <div class="marca">
+        <span class="marca-titulo">Catálogo ilustrado de materiais odontológicos</span>
+        <span class="marca-sub">Secretaria Municipal de Saúde de Florianópolis</span>
+      </div>
+
+      <div class="cabecalho-acoes">
+        <button type="button" id="btn-perfil" class="btn-perfil" aria-label="Trocar local de trabalho">
+          <span class="btn-perfil-rotulo">Local</span>
+          <span class="btn-perfil-valor" id="rotulo-perfil">Centro de Saúde</span>
+        </button>
+
+        <div class="menu-wrap">
+          <button type="button" id="btn-imprimir" class="btn-icone" aria-haspopup="true" aria-expanded="false" title="Imprimir" aria-label="Imprimir">
+            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9V4h10v5"/><path d="M7 18H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2"/><path d="M7 15h10v5H7z"/></svg>
+          </button>
+          <div class="menu" id="menu-imprimir" hidden>
+            <button type="button" data-imprimir="completo">Catálogo completo ilustrado</button>
+            <button type="button" data-imprimir="tela">Apenas o que está na tela</button>
+            <button type="button" data-imprimir="lista">Minha lista de pedido</button>
+          </div>
+        </div>
+
+        <button type="button" id="btn-tema" class="btn-icone" title="Modo noturno" aria-label="Alternar modo noturno">
+          <svg class="icone icone-lua" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>
+          <svg class="icone icone-sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg>
+        </button>
+
+        <button type="button" class="btn-icone" data-abrir-guia title="Como usar este catálogo" aria-label="Como usar este catálogo">
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.2a2.5 2.5 0 1 1 3.2 2.6c-.6.2-.9.7-.9 1.3v.6"/><circle cx="12" cy="17" r=".9" fill="currentColor" stroke="none"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="busca-linha">
+      <div class="campo-busca">
+        <svg class="icone icone-busca" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+        <input type="search" id="busca" placeholder="Buscar por nome ou código do material" aria-label="Buscar por nome ou código do material" autocomplete="off">
+        <button type="button" id="btn-limpar-busca" class="btn-limpar-busca" aria-label="Limpar busca" hidden>
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+
+      <div class="alternar-vista" role="group" aria-label="Modo de visualização">
+        <button type="button" class="btn-vista" data-vista="grade" aria-pressed="true" title="Grade" aria-label="Ver em grade">
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/></svg>
+        </button>
+        <button type="button" class="btn-vista" data-vista="lista" aria-pressed="false" title="Lista compacta" aria-label="Ver em lista compacta">
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <nav class="abas" aria-label="Blocos do catálogo">
+      <button type="button" class="aba" data-aba="tudo" aria-pressed="true">Tudo</button>
+      <button type="button" class="aba aba--basica" data-aba="TODOS" aria-pressed="false">Rede básica</button>
+      <button type="button" class="aba aba--ceo" data-aba="CEO" aria-pressed="false">Exclusivo CEO</button>
+      <button type="button" class="aba aba--coord" data-aba="COORDENACAO" aria-pressed="false">Interesse odontológico</button>
+    </nav>
+
+  </header>
+
+  <div class="faixa-filtros" id="faixa-filtros">
+    <div class="grupo-filtro" role="group" aria-label="Tipo de material">
+      <button type="button" class="pilula" data-tipo="Consumo" aria-pressed="false">Consumo</button>
+      <button type="button" class="pilula" data-tipo="Instrumental" aria-pressed="false">Instrumental</button>
+    </div>
+    <div class="separador-filtro filtro-so-celular" aria-hidden="true"></div>
+    <div class="grupo-filtro filtro-so-celular" id="filtros-especialidade-celular" role="group" aria-label="Especialidade"></div>
+  </div>
+
+  <div class="corpo">
+    <aside class="lateral" aria-label="Filtros">
+      <h2 class="lateral-titulo">Filtros</h2>
+      <div id="lista-especialidades" class="lista-especialidades"></div>
+    </aside>
+
+    <main class="principal" id="principal">
+      <div class="barra-estado">
+        <p class="contador" id="contador" role="status" aria-live="polite">Carregando…</p>
+        <div class="fichas" id="fichas-ativas"></div>
+      </div>
+      <div id="secoes"></div>
+    </main>
+  </div>
+
+  <footer class="rodape">
+    <p>Fotos ilustrativas. Marca e apresentação podem variar conforme a compra vigente.</p>
+    <p>GT Padronização de Materiais, Insumos e Equipamentos · Última atualização: <span id="rodape-data"></span></p>
+  </footer>
+
+  <!-- Botão flutuante da lista de pedido -->
+  <button type="button" id="btn-pedido" class="fab-pedido" aria-label="Abrir lista de pedido">
+    <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h2l2 11h10l2-8H7"/><circle cx="10" cy="19.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="17" cy="19.5" r="1.3" fill="currentColor" stroke="none"/></svg>
+    <span>Lista</span>
+    <span class="fab-contagem" id="fab-contagem">0</span>
+  </button>
+</div>
+
+<!-- ================================================================
+     PAINEL DA LISTA DE PEDIDO
+     ================================================================ -->
+<div id="fundo-pedido" class="fundo-escuro" hidden></div>
+<aside id="painel-pedido" class="painel-pedido" role="dialog" aria-modal="false" aria-labelledby="pedido-titulo" hidden>
+  <div class="painel-topo">
+    <h2 id="pedido-titulo">Lista de pedido</h2>
+    <button type="button" id="fechar-pedido" class="btn-icone" aria-label="Fechar lista de pedido">
+      <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="painel-corpo" id="corpo-pedido"></div>
+  <div class="painel-rodape">
+    <button type="button" id="btn-copiar-lista" class="btn-solido">Copiar lista</button>
+    <button type="button" id="btn-baixar-lista" class="btn-contorno">Baixar CSV</button>
+    <button type="button" id="btn-limpar-lista" class="btn-texto-perigo">Limpar lista</button>
+  </div>
+</aside>
+
+<!-- ================================================================
+     MODAL DO PRODUTO
+     ================================================================ -->
+<div id="modal-produto" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-nome" hidden>
+  <div class="modal-caixa">
+    <button type="button" id="fechar-modal" class="btn-icone modal-fechar" aria-label="Fechar">
+      <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="modal-conteudo" id="modal-conteudo"></div>
+  </div>
+</div>
+
+<!-- Aviso antes de imprimir -->
+<div id="modal-impressao" class="modal" role="dialog" aria-modal="true" aria-labelledby="impressao-titulo" hidden>
+  <div class="modal-caixa modal-caixa--estreita">
+    <h2 id="impressao-titulo">Antes de imprimir</h2>
+    <p id="impressao-resumo"></p>
+    <p class="impressao-dica">Para as fotos saírem no papel, deixe ativada a opção
+      <strong>“Gráficos de segundo plano”</strong> ou <strong>“Imagens de fundo”</strong> na janela de
+      impressão do navegador. Para gerar um PDF, escolha <strong>“Salvar como PDF”</strong> no destino.</p>
+    <div class="modal-botoes">
+      <button type="button" id="confirmar-impressao" class="btn-solido">Continuar para a impressão</button>
+      <button type="button" id="cancelar-impressao" class="btn-contorno">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Área usada apenas na impressão -->
+<div id="area-impressao" class="area-impressao" aria-hidden="true"></div>
+
+<div id="aviso-copiado" class="aviso-copiado" role="status" aria-live="polite" hidden></div>
+
+<script src="app.js"></script>
+</body>
+</html>
