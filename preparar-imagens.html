@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preparar imagens do catálogo</title>
+<style>
+:root{
+  --azul:#546de5; --azul-suave:#e8ebfc; --roxo:#574b90;
+  --laranja:#f19066; --laranja-suave:#fdeee7; --verde:#3dc1d3; --verde-suave:#e2f6f9;
+  --texto:#303952; --secundario:#6b7291; --linha:#e2e4ef; --fundo:#f4f5fa;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fundo);color:var(--texto);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.5}
+.wrap{max-width:1040px;margin:0 auto;padding:26px 18px 70px}
+h1{font-size:22px;font-weight:600;margin:0 0 4px}
+h2{font-size:15px;font-weight:600;margin:0 0 10px}
+.sub{color:var(--secundario);font-size:14px;margin-bottom:22px}
+.painel{background:#fff;border:1px solid var(--linha);border-radius:12px;padding:18px;margin-bottom:14px}
+.oculto{display:none !important}
+button{font:inherit;font-size:14px;padding:9px 16px;border-radius:8px;border:none;
+  background:var(--azul);color:#fff;cursor:pointer}
+button:disabled{opacity:.45;cursor:default}
+button.sec{background:#fff;color:var(--texto);border:1px solid var(--linha)}
+button.mini{font-size:12px;padding:5px 10px}
+input[type=text],input[type=search],input[type=number]{font:inherit;font-size:14px;padding:8px 10px;
+  border:1px solid var(--linha);border-radius:8px;background:#fff;color:var(--texto)}
+input[type=file]{display:none}
+.barra{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.espaco{margin-left:auto}
+.progresso{height:9px;background:var(--linha);border-radius:20px;overflow:hidden;margin:10px 0 8px}
+.progresso i{display:block;height:100%;background:var(--verde);width:0;transition:width .4s}
+.numeros{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--secundario)}
+.numeros b{color:var(--texto);font-weight:600}
+#zona{border:2px dashed var(--azul);background:var(--azul-suave);border-radius:12px;
+  padding:38px 20px;text-align:center;cursor:pointer;transition:.15s}
+#zona:hover,#zona.ativo{background:#dde3fb}
+#zona strong{display:block;font-size:16px;margin-bottom:5px}
+#zona span{color:var(--secundario);font-size:13px}
+.fila{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:12px;margin-top:16px}
+.foto{border:1px solid var(--linha);border-radius:10px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+.foto.pendente{border-color:var(--laranja);background:var(--laranja-suave)}
+.foto.pronta{border-color:var(--verde)}
+.foto img{width:100%;display:block;background:#fff;aspect-ratio:1;object-fit:contain}
+.foto .corpo{padding:9px;font-size:12px;flex:1;display:flex;flex-direction:column;gap:6px}
+.foto .cod{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;color:var(--azul)}
+.foto .nome{color:var(--secundario);font-size:11px;line-height:1.35}
+.foto .aviso{color:var(--laranja);font-size:11px}
+.foto .acoes{display:flex;gap:6px;margin-top:auto}
+.fundo-modal{position:fixed;inset:0;background:rgba(48,57,82,.55);display:flex;
+  align-items:flex-start;justify-content:center;padding:24px 14px;z-index:50}
+.modal{background:#fff;border-radius:14px;width:100%;max-width:620px;max-height:88vh;
+  display:flex;flex-direction:column;overflow:hidden}
+.modal header{padding:16px 18px 12px;border-bottom:1px solid var(--linha)}
+.modal header .tit{display:flex;gap:12px;align-items:center;justify-content:space-between}
+.modal .lista{overflow:auto;padding:6px}
+.opcao{padding:10px 12px;border-radius:8px;cursor:pointer;display:flex;gap:10px;align-items:baseline}
+.opcao:hover{background:var(--azul-suave)}
+.opcao .c{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:var(--azul);flex:none}
+.opcao .m{font-size:13px}
+.opcao .t{font-size:11px;color:var(--secundario);margin-left:auto;flex:none;padding-left:10px}
+.opcao.temfoto .m{color:var(--secundario)}
+.vazio{padding:22px;text-align:center;color:var(--secundario);font-size:13px}
+.nota{background:var(--laranja-suave);border-left:3px solid var(--laranja);
+  border-radius:8px;padding:11px 13px;font-size:13px;margin-top:12px}
+.nota.info{background:var(--azul-suave);border-color:var(--azul)}
+.cfg{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:13px;color:var(--secundario)}
+.cfg label{display:flex;gap:7px;align-items:center;cursor:pointer}
+ol{padding-left:20px;font-size:14px;color:var(--secundario);margin:0}
+ol li{margin-bottom:6px}
+code{background:var(--fundo);padding:1px 5px;border-radius:4px;font-size:13px}
+.etiqueta{font-size:11px;padding:2px 8px;border-radius:20px;background:var(--azul-suave);color:var(--azul)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Preparar imagens do catálogo</h1>
+<p class="sub">Envie a foto do jeito que estiver, vincule ao material e a ferramenta salva já no padrão
+do catálogo: 800x800, quadrada, fundo branco e nome do código.
+Tudo acontece dentro deste computador, nenhuma imagem é enviada para a internet.</p>
+
+<div class="painel" id="painelDados">
+  <h2>1. Carregar a lista de materiais</h2>
+  <div id="carregando" class="sub" style="margin:0">Procurando o arquivo produtos.csv...</div>
+  <div id="pedirCsv" class="oculto">
+    <p class="sub" style="margin:0 0 12px">Não encontrei o <code>produtos.csv</code> automaticamente.
+    Isso acontece quando a página é aberta direto do disco. Escolha o arquivo abaixo.</p>
+    <button class="sec" id="btCsv">Escolher o produtos.csv</button>
+    <input type="file" id="entradaCsv" accept=".csv,text/csv">
+  </div>
+</div>
+
+<div class="painel oculto" id="painelProgresso">
+  <div class="barra"><h2 style="margin:0">2. Situação das fotos</h2>
+    <span class="etiqueta espaco" id="origemStatus">ainda não verificado</span></div>
+  <div class="progresso"><i id="barra"></i></div>
+  <div class="numeros" id="numeros"></div>
+  <div class="barra" style="margin-top:12px">
+    <button class="sec mini" id="btVerificar">Verificar quais já têm foto</button>
+    <button class="sec mini" id="btGithub">Repositório do GitHub</button>
+  </div>
+  <div id="cfgGithub" class="oculto" style="margin-top:12px">
+    <div class="cfg">
+      <input type="text" id="ghUser" placeholder="usuário do GitHub" style="width:180px">
+      <input type="text" id="ghRepo" placeholder="nome do repositório" style="width:200px">
+      <input type="text" id="ghPasta" placeholder="pasta" value="imagens" style="width:110px">
+      <button class="mini" id="btSalvarGh">Salvar e verificar</button>
+    </div>
+    <div class="nota info">Com o repositório preenchido, a ferramenta consulta o GitHub e mostra quais
+    materiais já receberam foto, inclusive as enviadas por outras pessoas. É apenas leitura de dados
+    públicos, nenhuma senha é pedida.</div>
+  </div>
+</div>
+
+<div class="painel oculto" id="painelFotos">
+  <h2>3. Enviar as fotos</h2>
+  <div id="zona" role="button" tabindex="0">
+    <strong>Arraste as fotos para cá</strong>
+    <span>Pode ser qualquer nome de arquivo. Aceita JPG, PNG e WEBP, várias de uma vez.</span>
+  </div>
+  <input type="file" id="entrada" multiple accept="image/*">
+
+  <div class="barra" style="margin-top:14px">
+    <div class="cfg">
+      <label><input type="checkbox" id="aparar" checked> Aparar borda vazia</label>
+      <label>Lado <input type="number" id="lado" value="800" min="200" max="2000" step="100" style="width:74px"> px</label>
+    </div>
+    <span class="espaco" style="font-size:13px;color:var(--secundario)" id="resumoFila"></span>
+  </div>
+
+  <div class="barra" style="margin-top:12px">
+    <button id="baixar" disabled>Baixar as fotos vinculadas</button>
+    <button class="sec" id="limpar" disabled>Limpar a fila</button>
+  </div>
+
+  <div class="nota oculto" id="notaFila"></div>
+  <div class="fila" id="fila"></div>
+</div>
+
+<div class="painel">
+  <h2>Como funciona</h2>
+  <ol>
+    <li>A ferramenta lê o <code>produtos.csv</code> e sabe quais materiais ainda estão sem foto.</li>
+    <li>Você arrasta as fotos com qualquer nome. Se o nome já contiver o código, o vínculo é feito sozinho.</li>
+    <li>Para as demais, clique em vincular e busque o material pelo nome, pelo código ou pela família.</li>
+    <li>Baixe o pacote. Os arquivos saem nomeados pelo código, prontos para a pasta <code>imagens</code>.</li>
+    <li>Envie os arquivos para a pasta <code>imagens</code> do repositório no GitHub. A partir daí eles
+        aparecem como concluídos para todos que abrirem esta página.</li>
+  </ol>
+</div>
+
+</div>
+
+<script>
+let PRODUTOS=[];
+let COM_FOTO=new Set();
+let fila=[];
+let proximoId=1;
+
+const $=s=>document.querySelector(s);
+const normalizar=s=>(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+const escapar=s=>(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+/* ---------- leitura do CSV, com separador detectado sozinho ---------- */
+function lerCsv(texto){
+  texto=texto.replace(/^\uFEFF/,'');
+  const corte=texto.indexOf('\n');
+  const primeira=corte>0?texto.slice(0,corte):texto;
+  const sep=(primeira.split(';').length>primeira.split(',').length)?';':',';
+  const linhas=[];let campo='',linha=[],aspas=false;
+  for(let i=0;i<texto.length;i++){
+    const c=texto[i];
+    if(aspas){
+      if(c==='"'&&texto[i+1]==='"'){campo+='"';i++}
+      else if(c==='"')aspas=false;
+      else campo+=c;
+    }else{
+      if(c==='"')aspas=true;
+      else if(c===sep){linha.push(campo);campo=''}
+      else if(c==='\n'){linha.push(campo);linhas.push(linha);linha=[];campo=''}
+      else if(c!=='\r')campo+=c;
+    }
+  }
+  if(campo||linha.length){linha.push(campo);linhas.push(linha)}
+  if(!linhas.length)return [];
+  const cab=linhas.shift().map(h=>normalizar(h.trim()));
+  return linhas.filter(l=>l.some(v=>v.trim())).map(l=>{
+    const o={};cab.forEach((h,i)=>o[h]=(l[i]||'').trim());return o});
+}
+
+function aplicarProdutos(registros){
+  PRODUTOS=registros
+    .filter(r=>r.codigo&&(r.ativo||'SIM').toUpperCase()!=='NAO')
+    .map(r=>({codigo:r.codigo,material:r.material||'',subgrupo:r.subgrupo||'',
+      familia:r.familia||'',especialidade:r.especialidade||'',
+      busca:normalizar([r.codigo,r.material,r.familia,r.especialidade,r.subgrupo].join(' '))}));
+  if(!PRODUTOS.length){alert('O arquivo foi lido, mas não encontrei materiais com código.');return}
+  $('#painelDados').classList.add('oculto');
+  $('#painelProgresso').classList.remove('oculto');
+  $('#painelFotos').classList.remove('oculto');
+  const gh=JSON.parse(localStorage.getItem('gh')||'null');
+  if(gh){$('#ghUser').value=gh.user;$('#ghRepo').value=gh.repo;$('#ghPasta').value=gh.pasta;consultarGithub()}
+  else atualizarProgresso();
+}
+
+fetch('produtos.csv').then(r=>{if(!r.ok)throw 0;return r.text()})
+  .then(t=>aplicarProdutos(lerCsv(t)))
+  .catch(()=>{$('#carregando').classList.add('oculto');$('#pedirCsv').classList.remove('oculto')});
+
+$('#btCsv').onclick=()=>$('#entradaCsv').click();
+$('#entradaCsv').onchange=e=>{
+  const f=e.target.files[0];if(!f)return;
+  const fr=new FileReader();
+  fr.onload=()=>aplicarProdutos(lerCsv(fr.result));
+  fr.readAsText(f,'utf-8');
+};
+
+/* ---------- progresso ---------- */
+function atualizarProgresso(){
+  const total=PRODUTOS.length;
+  const com=PRODUTOS.filter(p=>COM_FOTO.has(p.codigo)).length;
+  const naFila=new Set(fila.filter(f=>f.codigo&&!COM_FOTO.has(f.codigo)).map(f=>f.codigo)).size;
+  const pct=total?Math.round(com/total*100):0;
+  $('#barra').style.width=pct+'%';
+  $('#numeros').innerHTML=
+    '<span><b>'+com+'</b> de <b>'+total+'</b> materiais com foto ('+pct+'%)</span>'+
+    '<span>faltam <b>'+Math.max(0,total-com-naFila)+'</b></span>'+
+    (naFila?'<span>nesta fila: <b>'+naFila+'</b></span>':'');
+}
+
+$('#btVerificar').onclick=async()=>{
+  const bt=$('#btVerificar');bt.disabled=true;
+  const testar=p=>new Promise(res=>{
+    const im=new Image();
+    im.onload=()=>{COM_FOTO.add(p.codigo);res()};
+    im.onerror=()=>res();
+    im.src='imagens/'+p.codigo+'.jpg';
+  });
+  const restantes=[...PRODUTOS];let feitos=0;
+  while(restantes.length){
+    await Promise.all(restantes.splice(0,24).map(testar));
+    feitos=PRODUTOS.length-restantes.length;
+    bt.textContent='Verificando... '+feitos;
+    atualizarProgresso();
+  }
+  bt.textContent='Verificar quais já têm foto';bt.disabled=false;
+  $('#origemStatus').textContent='verificado nesta pasta';
+  desenharFila();
+};
+
+$('#btGithub').onclick=()=>$('#cfgGithub').classList.toggle('oculto');
+$('#btSalvarGh').onclick=()=>{
+  const gh={user:$('#ghUser').value.trim(),repo:$('#ghRepo').value.trim(),
+            pasta:$('#ghPasta').value.trim()||'imagens'};
+  if(!gh.user||!gh.repo){alert('Preencha o usuário e o nome do repositório.');return}
+  localStorage.setItem('gh',JSON.stringify(gh));
+  consultarGithub();
+};
+
+async function consultarGithub(){
+  const gh=JSON.parse(localStorage.getItem('gh')||'null');if(!gh)return;
+  $('#origemStatus').textContent='consultando o GitHub...';
+  try{
+    const r=await fetch('https://api.github.com/repos/'+gh.user+'/'+gh.repo+'/contents/'+gh.pasta);
+    if(!r.ok)throw new Error(r.status);
+    const itens=await r.json();
+    COM_FOTO=new Set(itens.filter(i=>i.type==='file').map(i=>i.name.replace(/\.[^.]+$/,'').trim()));
+    $('#origemStatus').textContent='atualizado pelo GitHub';
+  }catch(e){
+    $('#origemStatus').textContent='não consegui consultar o GitHub';
+  }
+  atualizarProgresso();desenharFila();
+}
+
+/* ---------- recebimento e tratamento das fotos ---------- */
+const MARGEM=0.04, QUALIDADE=0.88, MINIMO=400;
+const zona=$('#zona'), entrada=$('#entrada');
+
+zona.onclick=()=>entrada.click();
+zona.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();entrada.click()}};
+entrada.onchange=e=>{receber([...e.target.files]);e.target.value=''};
+['dragenter','dragover'].forEach(ev=>zona.addEventListener(ev,e=>{e.preventDefault();zona.classList.add('ativo')}));
+['dragleave','drop'].forEach(ev=>zona.addEventListener(ev,e=>{e.preventDefault();zona.classList.remove('ativo')}));
+zona.addEventListener('drop',e=>receber([...e.dataTransfer.files]));
+
+async function receber(arquivos){
+  const imagens=arquivos.filter(f=>/^image\//.test(f.type));
+  const ignorados=arquivos.length-imagens.length;
+  for(const arq of imagens){
+    try{
+      const r=await preparar(arq);
+      fila.push({id:proximoId++,arquivo:arq.name,blob:r.blob,url:r.url,
+                 fraca:r.fraca,original:r.original,codigo:deduzirCodigo(arq.name)});
+    }catch(e){
+      fila.push({id:proximoId++,arquivo:arq.name,erro:true});
+    }
+    desenharFila();
+  }
+  const avisos=[];
+  const semVinculo=fila.filter(f=>!f.codigo&&!f.erro).length;
+  if(semVinculo)avisos.push('<b>'+semVinculo+' foto(s) aguardando vínculo.</b> Clique em vincular em cada uma e busque o material.');
+  if(ignorados)avisos.push(ignorados+' arquivo(s) ignorado(s) por não serem imagens.');
+  const nota=$('#notaFila');
+  nota.innerHTML=avisos.join('<br>');
+  nota.classList.toggle('oculto',!avisos.length);
+}
+
+function deduzirCodigo(nome){
+  const base=nome.replace(/\.[^.]+$/,'').trim();
+  if(PRODUTOS.some(p=>p.codigo===base))return base;
+  for(const n of (base.match(/\d{4,}/g)||[]))
+    if(PRODUTOS.some(p=>p.codigo===n))return n;
+  return null;
+}
+
+function preparar(arquivo){
+  return new Promise((resolve,reject)=>{
+    const url=URL.createObjectURL(arquivo);
+    const img=new Image();
+    img.onerror=()=>{URL.revokeObjectURL(url);reject()};
+    img.onload=()=>{
+      URL.revokeObjectURL(url);
+      const LADO=Math.max(200,Math.min(2000,parseInt($('#lado').value)||800));
+      const fraca=Math.min(img.naturalWidth,img.naturalHeight)<MINIMO;
+
+      // 1) Compor sobre branco: um PNG transparente viraria retângulo preto em JPG
+      const base=document.createElement('canvas');
+      base.width=img.naturalWidth; base.height=img.naturalHeight;
+      const bc=base.getContext('2d');
+      bc.fillStyle='#fff'; bc.fillRect(0,0,base.width,base.height);
+      bc.drawImage(img,0,0);
+
+      // 2) Aparar a borda clara, padronizando o tamanho aparente na grade
+      let corte={x:0,y:0,w:base.width,h:base.height};
+      if($('#aparar').checked){const c=aparar(bc,base.width,base.height);if(c)corte=c}
+
+      // 3) Redimensionar e centralizar no quadrado branco
+      const util=Math.round(LADO*(1-2*MARGEM));
+      const escala=Math.min(util/corte.w,util/corte.h,4);
+      const larg=Math.round(corte.w*escala), alt=Math.round(corte.h*escala);
+      const saida=document.createElement('canvas');
+      saida.width=LADO; saida.height=LADO;
+      const sc=saida.getContext('2d');
+      sc.fillStyle='#fff'; sc.fillRect(0,0,LADO,LADO);
+      sc.imageSmoothingQuality='high';
+      sc.drawImage(base,corte.x,corte.y,corte.w,corte.h,
+                   Math.round((LADO-larg)/2),Math.round((LADO-alt)/2),larg,alt);
+
+      saida.toBlob(blob=>resolve({blob,url:saida.toDataURL('image/jpeg',0.6),fraca,
+        original:img.naturalWidth+'x'+img.naturalHeight}),'image/jpeg',QUALIDADE);
+    };
+    img.src=url;
+  });
+}
+
+function aparar(ctx,w,h,tolerancia=18){
+  const d=ctx.getImageData(0,0,w,h).data;
+  let x0=w,y0=h,x1=0,y1=0,achou=false;
+  const passo=Math.max(1,Math.floor(Math.min(w,h)/600));
+  for(let y=0;y<h;y+=passo)for(let x=0;x<w;x+=passo){
+    const i=(y*w+x)*4;
+    if(!(d[i]>255-tolerancia&&d[i+1]>255-tolerancia&&d[i+2]>255-tolerancia)){
+      achou=true;
+      if(x<x0)x0=x; if(x>x1)x1=x; if(y<y0)y0=y; if(y>y1)y1=y;
+    }
+  }
+  if(!achou)return null;
+  const lw=x1-x0+1, lh=y1-y0+1;
+  if(lw<w*0.12||lh<h*0.12)return null;   // corte exagerado indica fundo escuro
+  const folga=Math.round(Math.max(lw,lh)*0.02);
+  const nx=Math.max(0,x0-folga), ny=Math.max(0,y0-folga);
+  return {x:nx,y:ny,w:Math.min(w-nx,lw+folga*2),h:Math.min(h-ny,lh+folga*2)};
+}
+
+/* ---------- fila ---------- */
+function desenharFila(){
+  const el=$('#fila');el.innerHTML='';
+  fila.forEach(item=>{
+    const div=document.createElement('div');
+    if(item.erro){
+      div.className='foto pendente';
+      div.innerHTML='<div class="corpo"><div class="nome">'+escapar(item.arquivo)+'</div>'+
+        '<div class="aviso">não foi possível abrir esta imagem</div>'+
+        '<div class="acoes"><button class="sec mini" data-remover="'+item.id+'">Remover</button></div></div>';
+      el.appendChild(div);return;
+    }
+    const prod=item.codigo?PRODUTOS.find(p=>p.codigo===item.codigo):null;
+    const jaTinha=prod&&COM_FOTO.has(prod.codigo);
+    div.className='foto '+(prod?'pronta':'pendente');
+    div.innerHTML='<img src="'+item.url+'" alt="">'+
+      '<div class="corpo">'+
+        (prod?'<div class="cod">'+prod.codigo+'</div><div class="nome">'+escapar(prod.material)+'</div>'
+             :'<div class="aviso"><b>aguardando vínculo</b></div><div class="nome">'+escapar(item.arquivo)+'</div>')+
+        (item.fraca?'<div class="aviso">resolução baixa ('+item.original+')</div>':'')+
+        (jaTinha?'<div class="aviso">este material já tem foto publicada, ela será substituída</div>':'')+
+        '<div class="acoes">'+
+          '<button class="'+(prod?'sec ':'')+'mini" data-vincular="'+item.id+'">'+(prod?'Trocar':'Vincular')+'</button>'+
+          '<button class="sec mini" data-remover="'+item.id+'">Remover</button>'+
+        '</div></div>';
+    el.appendChild(div);
+  });
+  const prontas=fila.filter(f=>f.codigo).length;
+  $('#resumoFila').textContent=fila.length?fila.length+' foto(s) na fila, '+prontas+' vinculada(s)':'';
+  $('#baixar').disabled=prontas===0;
+  $('#limpar').disabled=fila.length===0;
+  atualizarProgresso();
+}
+
+document.addEventListener('click',e=>{
+  const alvo=e.target.closest('button');if(!alvo)return;
+  if(alvo.dataset.vincular)abrirSeletor(parseInt(alvo.dataset.vincular));
+  if(alvo.dataset.remover){fila=fila.filter(f=>f.id!==parseInt(alvo.dataset.remover));desenharFila()}
+});
+
+$('#limpar').onclick=()=>{fila=[];desenharFila();$('#notaFila').classList.add('oculto')};
+
+/* ---------- seletor de material ---------- */
+function abrirSeletor(id){
+  const item=fila.find(f=>f.id===id);if(!item)return;
+  const usados=new Set(fila.filter(f=>f.codigo&&f.id!==id).map(f=>f.codigo));
+  const fundo=document.createElement('div');
+  fundo.className='fundo-modal';
+  fundo.innerHTML='<div class="modal">'+
+    '<header><div class="tit"><h2 style="margin:0">A qual material pertence esta foto?</h2>'+
+    '<button class="sec mini" data-fechar="1">Fechar</button></div>'+
+    '<input type="search" id="busca" placeholder="Buscar pelo nome, código ou família" style="width:100%;margin-top:10px" autocomplete="off">'+
+    '<label style="display:flex;gap:7px;align-items:center;font-size:13px;color:#6b7291;margin-top:8px">'+
+    '<input type="checkbox" id="soFaltantes" checked> Mostrar apenas os que ainda não têm foto</label>'+
+    '</header><div class="lista" id="lista"></div></div>';
+  document.body.appendChild(fundo);
+  const campo=fundo.querySelector('#busca'), lista=fundo.querySelector('#lista'),
+        soFalt=fundo.querySelector('#soFaltantes');
+
+  function render(){
+    const termos=normalizar(campo.value).split(/\s+/).filter(Boolean);
+    let base=PRODUTOS;
+    if(soFalt.checked)base=base.filter(p=>!COM_FOTO.has(p.codigo)&&!usados.has(p.codigo));
+    const achados=base.filter(p=>termos.every(t=>p.busca.includes(t))).slice(0,60);
+    lista.innerHTML=achados.length
+      ? achados.map(p=>'<div class="opcao'+(COM_FOTO.has(p.codigo)?' temfoto':'')+'" data-cod="'+p.codigo+'">'+
+          '<span class="c">'+p.codigo+'</span><span class="m">'+escapar(p.material)+'</span>'+
+          '<span class="t">'+escapar(p.familia||p.subgrupo)+'</span></div>').join('')
+      : '<div class="vazio">Nenhum material encontrado. Tente parte do nome, ou desmarque o filtro acima.</div>';
+  }
+  render();campo.focus();
+  campo.oninput=render; soFalt.onchange=render;
+  fundo.addEventListener('click',e=>{
+    if(e.target===fundo||(e.target.dataset&&e.target.dataset.fechar)){fundo.remove();return}
+    const op=e.target.closest('.opcao');
+    if(op){
+      item.codigo=op.dataset.cod;fundo.remove();desenharFila();
+      const restam=fila.filter(f=>!f.codigo&&!f.erro).length;
+      const nota=$('#notaFila');
+      if(!restam)nota.classList.add('oculto');
+      else nota.innerHTML='<b>'+restam+' foto(s) aguardando vínculo.</b>';
+    }
+  });
+  document.addEventListener('keydown',function esc(e){
+    if(e.key==='Escape'){fundo.remove();document.removeEventListener('keydown',esc)}});
+}
+
+/* ---------- ZIP escrito à mão, sem biblioteca externa ---------- */
+const tabelaCRC=(()=>{const t=new Uint32Array(256);
+  for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
+function crc32(b){let c=0xFFFFFFFF;
+  for(let i=0;i<b.length;i++)c=tabelaCRC[(c^b[i])&0xFF]^(c>>>8);return (c^0xFFFFFFFF)>>>0}
+
+$('#baixar').onclick=async()=>{
+  const itens=fila.filter(f=>f.codigo);
+  if(!itens.length)return;
+  const bt=$('#baixar');bt.disabled=true;bt.textContent='Gerando o arquivo...';
+  const partes=[],central=[];let deslocamento=0;
+  const cod=new TextEncoder();
+  for(const item of itens){
+    const nome=cod.encode(item.codigo+'.jpg');
+    const dados=new Uint8Array(await item.blob.arrayBuffer());
+    const crc=crc32(dados);
+    const local=new DataView(new ArrayBuffer(30));
+    local.setUint32(0,0x04034b50,true);local.setUint16(4,20,true);local.setUint16(6,0,true);
+    local.setUint16(8,0,true);local.setUint16(10,0,true);local.setUint16(12,0,true);
+    local.setUint32(14,crc,true);local.setUint32(18,dados.length,true);
+    local.setUint32(22,dados.length,true);local.setUint16(26,nome.length,true);local.setUint16(28,0,true);
+    partes.push(new Uint8Array(local.buffer),nome,dados);
+    const cd=new DataView(new ArrayBuffer(46));
+    cd.setUint32(0,0x02014b50,true);cd.setUint16(4,20,true);cd.setUint16(6,20,true);
+    cd.setUint16(8,0,true);cd.setUint16(10,0,true);cd.setUint16(12,0,true);cd.setUint16(14,0,true);
+    cd.setUint32(16,crc,true);cd.setUint32(20,dados.length,true);cd.setUint32(24,dados.length,true);
+    cd.setUint16(28,nome.length,true);cd.setUint16(30,0,true);cd.setUint16(32,0,true);
+    cd.setUint16(34,0,true);cd.setUint16(36,0,true);cd.setUint32(38,0,true);
+    cd.setUint32(42,deslocamento,true);
+    central.push(new Uint8Array(cd.buffer),nome);
+    deslocamento+=30+nome.length+dados.length;
+  }
+  const tamCentral=central.reduce((s,p)=>s+p.length,0);
+  const fim=new DataView(new ArrayBuffer(22));
+  fim.setUint32(0,0x06054b50,true);fim.setUint16(4,0,true);fim.setUint16(6,0,true);
+  fim.setUint16(8,itens.length,true);fim.setUint16(10,itens.length,true);
+  fim.setUint32(12,tamCentral,true);fim.setUint32(16,deslocamento,true);fim.setUint16(20,0,true);
+  const zip=new Blob([...partes,...central,new Uint8Array(fim.buffer)],{type:'application/zip'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(zip);a.download='imagens-catalogo.zip';a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),4000);
+  bt.textContent='Baixar as fotos vinculadas';bt.disabled=false;
+};
+</script>
+</body>
+</html>
