@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Administração do catálogo</title>
+<style>
+:root{
+  --azul:#546de5; --azul-suave:#e8ebfc; --roxo:#574b90; --roxo-suave:#eae7f5;
+  --laranja:#f19066; --laranja-suave:#fdeee7; --verde:#2f9e6f; --verde-suave:#e4f5ed;
+  --texto:#303952; --secundario:#6b7291; --linha:#e2e4ef; --fundo:#f4f5fa;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fundo);color:var(--texto);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.5}
+.wrap{max-width:940px;margin:0 auto;padding:34px 18px 70px}
+h1{font-size:23px;font-weight:600;margin:0}
+h2{font-size:14px;font-weight:600;margin:0 0 12px;color:var(--secundario);
+   text-transform:uppercase;letter-spacing:.05em;font-size:11.5px}
+.sub{color:var(--secundario);font-size:13.5px}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace}
+
+.topo{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:26px}
+.tag{font-size:11px;padding:3px 10px;border-radius:20px;display:inline-block}
+.t-az{background:var(--azul-suave);color:var(--azul)}
+.t-vd{background:var(--verde-suave);color:var(--verde)}
+.t-lr{background:var(--laranja-suave);color:var(--laranja)}
+.t-ci{background:#f1f2f6;color:var(--secundario)}
+
+/* painel de números */
+.numeros{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:26px}
+.numero{background:#fff;border:1px solid var(--linha);border-radius:12px;padding:14px 16px}
+.numero .v{font-size:24px;font-weight:600;line-height:1.15}
+.numero .r{font-size:11.5px;color:var(--secundario);margin-top:2px}
+.progresso{height:6px;background:var(--linha);border-radius:20px;overflow:hidden;margin-top:9px}
+.progresso i{display:block;height:100%;background:var(--verde);width:0;transition:width .5s}
+
+/* cartões de ferramenta */
+.cartoes{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:14px;margin-bottom:16px}
+a.cartao{display:block;text-decoration:none;color:inherit;background:#fff;
+  border:1px solid var(--linha);border-radius:12px;padding:18px;transition:.15s}
+a.cartao:hover{border-color:var(--azul);transform:translateY(-1px);
+  box-shadow:0 4px 14px rgba(84,109,229,.10)}
+.cartao .ic{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;
+  justify-content:center;font-size:19px;margin-bottom:12px}
+.cartao .tt{font-size:15px;font-weight:600;margin-bottom:4px}
+.cartao .ds{font-size:12.5px;color:var(--secundario)}
+.cartao .pe{font-size:11.5px;color:var(--azul);margin-top:11px;display:inline-block}
+
+.cartao.futuro{background:#fbfbfd;border-style:dashed;cursor:default}
+.cartao.futuro:hover{border-color:var(--linha);transform:none;box-shadow:none}
+.cartao.futuro .tt,.cartao.futuro .ds{color:var(--secundario)}
+
+.painel{background:#fff;border:1px solid var(--linha);border-radius:12px;padding:18px;margin-bottom:14px}
+ol,ul{padding-left:20px;font-size:13.5px;color:var(--secundario);margin:0}
+li{margin-bottom:6px}
+code{background:var(--fundo);padding:1px 5px;border-radius:4px;font-size:12.5px}
+.linhaArq{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid #eef0f6;font-size:13px}
+.linhaArq:last-child{border-bottom:none}
+.linhaArq .nm{flex:1}
+.rodape{margin-top:30px;font-size:12px;color:var(--secundario);text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="topo">
+  <div>
+    <h1>Administração do catálogo</h1>
+    <p class="sub" style="margin:5px 0 0">Ferramentas de manutenção do Catálogo Ilustrado de Materiais
+    Odontológicos · GT Padronização de Materiais, Insumos e Equipamentos</p>
+  </div>
+  <a href="index.html" style="text-decoration:none"><span class="tag t-az">abrir o catálogo</span></a>
+</div>
+
+<!-- ================= NÚMEROS ================= -->
+<h2>Situação atual</h2>
+<div class="numeros" id="numeros">
+  <div class="numero"><div class="v sub" style="font-size:14px;font-weight:400">carregando...</div></div>
+</div>
+
+<!-- ================= FERRAMENTAS ================= -->
+<h2>Ferramentas</h2>
+<div class="cartoes">
+
+  <a class="cartao" href="editor-catalogo/editor-catalogo.html">
+    <div class="ic" style="background:var(--azul-suave);color:var(--azul)">&#9998;</div>
+    <div class="tt">Editor do catálogo</div>
+    <div class="ds">Alterar dados dos materiais, acrescentar itens novos, inativar os que saíram de linha
+    e gerar o pacote de atualização com o histórico das mudanças.</div>
+    <span class="pe">abrir o editor &rarr;</span>
+  </a>
+
+  <a class="cartao" href="preparar-imagens.html">
+    <div class="ic" style="background:var(--verde-suave);color:var(--verde)">&#9635;</div>
+    <div class="tt">Preparar imagens</div>
+    <div class="ds">Padronizar fotos em 800x800 com fundo branco, vincular cada uma ao material
+    correspondente e baixar tudo já nomeado pelo código.</div>
+    <span class="pe">abrir a ferramenta &rarr;</span>
+  </a>
+
+  <a class="cartao" href="editor-catalogo/historico.md">
+    <div class="ic" style="background:var(--roxo-suave);color:var(--roxo)">&#9776;</div>
+    <div class="tt">Histórico de alterações</div>
+    <div class="ds">Registro acumulado de todas as edições feitas na lista de materiais, com data,
+    responsável e detalhamento campo a campo.</div>
+    <span class="pe">ver o arquivo &rarr;</span>
+  </a>
+
+  <div class="cartao futuro">
+    <div class="ic" style="background:#f1f2f6;color:var(--secundario)">&#43;</div>
+    <div class="tt">Espaço para novas funções</div>
+    <div class="ds">Relatório de itens sem foto, conferência de códigos com o CELK, exportações para o GT
+    e o que mais for surgindo.</div>
+    <span class="pe" style="color:var(--secundario)">em aberto</span>
+  </div>
+
+</div>
+
+<!-- ================= FLUXO ================= -->
+<div class="painel">
+  <h2 style="margin-bottom:10px">Como publicar uma atualização</h2>
+  <ol>
+    <li>Faça as alterações no <b>Editor do catálogo</b> e baixe o pacote <span class="mono">.zip</span>.</li>
+    <li>Descompacte. As pastas de dentro são as mesmas do repositório.</li>
+    <li>Envie <span class="mono">produtos.csv</span> para a raiz e
+        <span class="mono">editor-catalogo/historico.md</span> para a pasta do editor.</li>
+    <li>Para fotos novas, use <b>Preparar imagens</b> e envie os arquivos para a pasta
+        <span class="mono">imagens</span>.</li>
+    <li>O site republica sozinho em cerca de um minuto. Confira no endereço público antes de avisar a rede.</li>
+  </ol>
+</div>
+
+<div class="painel">
+  <h2 style="margin-bottom:10px">Arquivos do projeto</h2>
+  <div id="arquivos">
+    <div class="linhaArq"><span class="nm mono">produtos.csv</span>
+      <span class="sub">lista de materiais, na raiz</span><span class="tag t-ci" id="stCsv">verificando</span></div>
+    <div class="linhaArq"><span class="nm mono">imagens/</span>
+      <span class="sub">fotos, nomeadas pelo código</span><span class="tag t-ci" id="stImg">verificando</span></div>
+    <div class="linhaArq"><span class="nm mono">editor-catalogo/historico.md</span>
+      <span class="sub">registro das alterações</span><span class="tag t-ci" id="stLog">verificando</span></div>
+  </div>
+</div>
+
+<div class="rodape">
+  Esta página é apenas um painel de atalhos. Ela não altera nada sozinha:
+  todas as mudanças passam por download e envio manual ao repositório.
+</div>
+
+</div>
+
+<script>
+/* Lê o produtos.csv para mostrar os números do catálogo.
+   Se a página for aberta direto do disco, o navegador bloqueia a leitura
+   e os números simplesmente não aparecem, sem quebrar a página. */
+const $=s=>document.querySelector(s);
+const normalizar=s=>(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+
+function lerCsv(texto){
+  texto=texto.replace(/^\uFEFF/,'');
+  const corte=texto.indexOf('\n');
+  const primeira=corte>0?texto.slice(0,corte):texto;
+  const sep=(primeira.split(';').length>primeira.split(',').length)?';':',';
+  const linhas=[];let campo='',linha=[],aspas=false;
+  for(let i=0;i<texto.length;i++){
+    const c=texto[i];
+    if(aspas){
+      if(c==='"'&&texto[i+1]==='"'){campo+='"';i++}
+      else if(c==='"')aspas=false;
+      else campo+=c;
+    }else{
+      if(c==='"')aspas=true;
+      else if(c===sep){linha.push(campo);campo=''}
+      else if(c==='\n'){linha.push(campo);linhas.push(linha);linha=[];campo=''}
+      else if(c!=='\r')campo+=c;
+    }
+  }
+  if(campo||linha.length){linha.push(campo);linhas.push(linha)}
+  if(!linhas.length)return [];
+  const cab=linhas.shift().map(h=>normalizar(h.trim()).replace(/\s+/g,''));
+  return linhas.filter(l=>l.some(v=>v.trim())).map(l=>{
+    const o={};cab.forEach((h,i)=>o[h]=(l[i]||'').trim());return o});
+}
+
+function cartaoNumero(valor,rotulo,extra){
+  return '<div class="numero"><div class="v">'+valor+'</div><div class="r">'+rotulo+'</div>'+(extra||'')+'</div>';
+}
+
+fetch('produtos.csv').then(r=>{if(!r.ok)throw 0;return r.text()}).then(async t=>{
+  const todos=lerCsv(t);
+  const ativos=todos.filter(r=>r.codigo&&(r.ativo||'SIM').toUpperCase()!=='NAO');
+  const basica=ativos.filter(r=>(r.acesso||'').toUpperCase()==='TODOS').length;
+  const ceo=ativos.filter(r=>(r.acesso||'').toUpperCase()==='CEO').length;
+  const coord=ativos.filter(r=>(r.acesso||'').toUpperCase()==='COORDENACAO').length;
+  const inativos=todos.length-ativos.length;
+  $('#stCsv').textContent=todos.length+' linhas';
+  $('#stCsv').className='tag t-vd';
+
+  $('#numeros').innerHTML=
+    cartaoNumero(ativos.length,'materiais ativos no catálogo')+
+    cartaoNumero(basica,'rede básica, grupos 12 e 13')+
+    cartaoNumero(ceo,'exclusivos do CEO, grupos 14 e 15')+
+    cartaoNumero(coord,'interesse odontológico')+
+    (inativos?cartaoNumero(inativos,'inativos, fora do catálogo'):'')+
+    '<div class="numero" id="cartaoFotos"><div class="v sub" style="font-size:14px;font-weight:400">conferindo fotos...</div></div>';
+
+  // Conferência das fotos, em lotes, para não travar o navegador
+  let com=0;
+  const testar=p=>new Promise(res=>{
+    const im=new Image();
+    im.onload=()=>{com++;res()};im.onerror=()=>res();
+    im.src='imagens/'+p.codigo+'.jpg';
+  });
+  const fila=[...ativos];
+  while(fila.length)await Promise.all(fila.splice(0,24).map(testar));
+  const pct=ativos.length?Math.round(com/ativos.length*100):0;
+  const el=$('#cartaoFotos');
+  if(el)el.innerHTML='<div class="v">'+pct+'%</div><div class="r">'+com+' de '+ativos.length+
+    ' com foto</div><div class="progresso"><i style="width:'+pct+'%"></i></div>';
+  $('#stImg').textContent=com+' fotos';
+  $('#stImg').className='tag '+(pct>=100?'t-vd':'t-lr');
+}).catch(()=>{
+  $('#numeros').innerHTML='<div class="numero" style="grid-column:1/-1"><div class="r">'+
+    'Os números aparecem quando esta página é aberta pelo endereço publicado. '+
+    'Abrindo o arquivo direto do disco, o navegador bloqueia a leitura do produtos.csv.</div></div>';
+  ['stCsv','stImg','stLog'].forEach(id=>{$('#'+id).textContent='não verificado'});
+});
+
+fetch('editor-catalogo/historico.md').then(r=>{if(!r.ok)throw 0;return r.text()}).then(t=>{
+  const n=(t.match(/<!--\s*sessao:/g)||[]).length;
+  $('#stLog').textContent=n+' sessão(ões)';
+  $('#stLog').className='tag '+(n?'t-vd':'t-ci');
+}).catch(()=>{});
+</script>
+</body>
+</html>

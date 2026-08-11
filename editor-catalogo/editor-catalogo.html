@@ -788,13 +788,14 @@ $('#btConferir').onclick=()=>{
         v.problemas.map(escapar).join('<br>')+'</div>':'')+
       (v.avisos.length?'<div class="nota aviso"><b>Atenção:</b><br>'+
         v.avisos.map(escapar).join('<br>')+'</div>':'')+
-      '<div class="nota info"><b>Serão gerados dois arquivos:</b><br>'+
-      '<span class="mono">produtos.csv</span> vai para a raiz do repositório, substituindo o atual.<br>'+
-      '<span class="mono">historico.md</span> vai para a pasta <span class="mono">editor-catalogo</span>, '+
-      'já contendo esta sessão somada a todas as anteriores.</div>'+
+      '<div class="nota info"><b>Será gerado um arquivo .zip</b> contendo:<br>'+
+      '<span class="mono">produtos.csv</span>, que vai para a raiz do repositório, substituindo o atual;<br>'+
+      '<span class="mono">editor-catalogo/historico.md</span>, já com esta sessão somada às anteriores.<br>'+
+      'As pastas dentro do pacote são as mesmas do repositório, então basta descompactar por cima. '+
+      'O pacote também serve para enviar por email.</div>'+
     '</div>'+
     '<footer><span class="espaco"></span><button class="sec" data-fechar="1">Voltar</button>'+
-    '<button id="btBaixar"'+(m.length?'':' disabled')+'>Baixar os dois arquivos</button></footer></div>';
+    '<button id="btBaixar"'+(m.length?'':' disabled')+'>Baixar o pacote .zip</button></footer></div>';
   document.body.appendChild(fundo);
   fundo.addEventListener('click',e=>{
     if(e.target===fundo||(e.target.dataset&&e.target.dataset.fechar))fundo.remove()});
@@ -803,9 +804,78 @@ $('#btConferir').onclick=()=>{
 
 function baixar(nome,conteudo,tipo){
   const a=document.createElement('a');
-  a.href=URL.createObjectURL(new Blob([conteudo],{type:tipo}));
+  a.href=URL.createObjectURL(conteudo instanceof Blob?conteudo:new Blob([conteudo],{type:tipo}));
   a.download=nome;a.click();
   setTimeout(()=>URL.revokeObjectURL(a.href),4000);
+}
+
+/* ---------------------------------------------------------------------
+   ZIP escrito à mão, sem compressão, para não depender de biblioteca.
+   Os caminhos dentro do pacote reproduzem a estrutura do repositório,
+   então basta descompactar por cima da pasta do projeto.
+   --------------------------------------------------------------------- */
+const tabelaCRC=(()=>{const t=new Uint32Array(256);
+  for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
+function crc32(b){let c=0xFFFFFFFF;
+  for(let i=0;i<b.length;i++)c=tabelaCRC[(c^b[i])&0xFF]^(c>>>8);return (c^0xFFFFFFFF)>>>0}
+
+function montarZip(arquivos){
+  const partes=[],central=[];let deslocamento=0;
+  const cod=new TextEncoder();
+  arquivos.forEach(a=>{
+    const nome=cod.encode(a.caminho);
+    const dados=cod.encode(a.conteudo);
+    const crc=crc32(dados);
+    const local=new DataView(new ArrayBuffer(30));
+    local.setUint32(0,0x04034b50,true);local.setUint16(4,20,true);local.setUint16(6,0x0800,true);
+    local.setUint16(8,0,true);local.setUint16(10,0,true);local.setUint16(12,0,true);
+    local.setUint32(14,crc,true);local.setUint32(18,dados.length,true);
+    local.setUint32(22,dados.length,true);local.setUint16(26,nome.length,true);local.setUint16(28,0,true);
+    partes.push(new Uint8Array(local.buffer),nome,dados);
+    const cd=new DataView(new ArrayBuffer(46));
+    cd.setUint32(0,0x02014b50,true);cd.setUint16(4,20,true);cd.setUint16(6,20,true);
+    cd.setUint16(8,0x0800,true);cd.setUint16(10,0,true);cd.setUint16(12,0,true);cd.setUint16(14,0,true);
+    cd.setUint32(16,crc,true);cd.setUint32(20,dados.length,true);cd.setUint32(24,dados.length,true);
+    cd.setUint16(28,nome.length,true);cd.setUint16(30,0,true);cd.setUint16(32,0,true);
+    cd.setUint16(34,0,true);cd.setUint16(36,0,true);cd.setUint32(38,0,true);
+    cd.setUint32(42,deslocamento,true);
+    central.push(new Uint8Array(cd.buffer),nome);
+    deslocamento+=30+nome.length+dados.length;
+  });
+  const tamCentral=central.reduce((s,p)=>s+p.length,0);
+  const fim=new DataView(new ArrayBuffer(22));
+  fim.setUint32(0,0x06054b50,true);fim.setUint16(4,0,true);fim.setUint16(6,0,true);
+  fim.setUint16(8,arquivos.length,true);fim.setUint16(10,arquivos.length,true);
+  fim.setUint32(12,tamCentral,true);fim.setUint32(16,deslocamento,true);fim.setUint16(20,0,true);
+  return new Blob([...partes,...central,new Uint8Array(fim.buffer)],{type:'application/zip'});
+}
+
+function carimbo(){
+  const d=new Date(),p=n=>String(n).padStart(2,'0');
+  return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())+'-'+p(d.getHours())+p(d.getMinutes());
+}
+
+function instrucoesPacote(registro){
+  const L=[];
+  L.push('PACOTE DE ATUALIZACAO DO CATALOGO');
+  L.push('Gerado em: '+new Date().toLocaleString('pt-BR'));
+  if(registro.autor)L.push('Por: '+registro.autor);
+  L.push('Alteracoes nesta sessao: '+registro.alteracoes.length);
+  L.push('Itens no arquivo apos a edicao: '+registro.total);
+  L.push('');
+  L.push('COMO APLICAR');
+  L.push('');
+  L.push('Este pacote reproduz a estrutura de pastas do repositorio.');
+  L.push('Descompacte e envie os arquivos para os mesmos lugares:');
+  L.push('');
+  L.push('  produtos.csv                     -> raiz do repositorio');
+  L.push('  editor-catalogo/historico.md     -> pasta editor-catalogo');
+  L.push('');
+  L.push('Envie sempre os dois juntos: o historico registra exatamente');
+  L.push('as alteracoes contidas neste produtos.csv.');
+  L.push('');
+  L.push('Este arquivo de instrucoes nao precisa ser enviado ao repositorio.');
+  return L.join('\r\n');
 }
 
 function baixarTudo(){
@@ -814,10 +884,14 @@ function baixarTudo(){
     if(v!==null)localStorage.setItem('editor-autor',v.trim());
   }
   const registro=sessaoAtual();
-  baixar('produtos.csv',gerarCsv(),'text/csv;charset=utf-8');
-  setTimeout(()=>baixar('historico.md',gerarHistorico(),'text/markdown;charset=utf-8'),700);
+  const zip=montarZip([
+    {caminho:'produtos.csv',conteudo:gerarCsv()},
+    {caminho:'editor-catalogo/historico.md',conteudo:gerarHistorico()},
+    {caminho:'LEIA-ME-DESTE-PACOTE.txt',conteudo:instrucoesPacote(registro)}
+  ]);
+  baixar('catalogo-atualizado-'+carimbo()+'.zip',zip);
   setTimeout(()=>{
-    if(confirm('Arquivos baixados.\n\nDeseja marcar estas alterações como concluídas?\n\n'+
+    if(confirm('Pacote baixado.\n\nDeseja marcar estas alterações como concluídas?\n\n'+
                'Ao confirmar, a sessão entra no histórico em memória, o estado atual passa a ser '+
                'o novo ponto de partida e a próxima sessão começa em branco.\n\n'+
                'Confirme somente depois de enviar os dois arquivos ao GitHub.')){

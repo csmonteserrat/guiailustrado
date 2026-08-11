@@ -16,14 +16,16 @@ O arquivo de dados, `produtos.csv`, **não fica aqui**: ele permanece na raiz do
 2. Confira, no botão **Histórico**, se aparece a mensagem de que o `historico.md` foi lido. Isso garante que os registros anteriores não serão perdidos.
 3. Faça as alterações: buscar o item, clicar nele, editar e salvar. Use **Novo item** para acrescentar.
 4. Clique em **Conferir e baixar**. Revise a lista de alterações e os avisos.
-5. Serão baixados dois arquivos:
+5. Será baixado um arquivo `.zip` contendo:
    - `produtos.csv`, que substitui o arquivo na **raiz** do repositório;
-   - `historico.md`, que substitui o arquivo **desta pasta**.
-6. Envie os dois ao GitHub. Só depois disso confirme a pergunta de "marcar como concluídas".
+   - `editor-catalogo/historico.md`, que substitui o arquivo **desta pasta**.
+
+   As pastas dentro do pacote são as mesmas do repositório, então basta descompactar por cima da pasta do projeto. O pacote também serve para enviar por email a quem for publicar.
+6. Envie os dois arquivos ao GitHub. Só depois disso confirme a pergunta de "marcar como concluídas".
 
 ## Cuidados
 
-**Envie sempre os dois arquivos juntos.** Se você atualizar só o `produtos.csv`, o histórico fica defasado. Se atualizar só o `historico.md`, ele registra uma alteração que não aconteceu.
+**Envie sempre os dois arquivos do pacote.** Se você atualizar só o `produtos.csv`, o histórico fica defasado. Se atualizar só o `historico.md`, ele registra uma alteração que não aconteceu.
 
 **Prefira inativar a excluir.** Marcar um item como inativo tira ele do catálogo e mantém a linha no arquivo, o que preserva o registro e permite voltar atrás. Excluir apaga a linha de vez.
 
