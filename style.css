@@ -573,7 +573,36 @@ body[data-perfil="CEO"] { --acento: var(--acento-ceo); }
 }
 .modal-caixa--estreita { max-width: 480px; }
 .modal-caixa h2 { font-size: 19px; margin-bottom: 12px; }
-.modal-fechar { position: absolute; top: 12px; right: 12px; background: var(--superficie); }
+
+.modal-fechar {
+  position: absolute; top: 12px; right: 12px; z-index: 3;
+  background: var(--superficie); box-shadow: 0 2px 8px rgba(48, 57, 82, .18);
+}
+.rotulo-fechar { display: none; }
+
+/* No celular o conteúdo é mais alto que a tela, então o botão de fechar
+   vira uma barra presa no topo, que continua visível ao rolar. */
+@media (max-width: 700px) {
+  .modal { padding: 0; align-items: stretch; }
+  .modal-caixa {
+    max-width: none; margin: 0; min-height: 100%;
+    border-radius: 0; padding: 0 16px calc(28px + env(safe-area-inset-bottom));
+  }
+  .modal-caixa--estreita {
+    min-height: auto; margin: auto; align-self: center;
+    border-radius: var(--raio); padding: 24px;
+  }
+  .modal-caixa--estreita .modal-fechar { position: absolute; }
+
+  .modal-fechar {
+    position: sticky; top: 0; z-index: 3;
+    display: flex; align-items: center; justify-content: flex-end; gap: 8px;
+    width: auto; height: 54px; margin: 0 -16px 12px; padding: 0 16px;
+    border: 0; border-bottom: 1px solid var(--borda); border-radius: 0;
+    box-shadow: none; color: var(--texto); font-weight: 700;
+  }
+  .rotulo-fechar { display: inline; }
+}
 .modal-botoes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
 .impressao-dica { font-size: 13px; color: var(--texto2); background: var(--realce-suave); padding: 12px; border-radius: var(--raio-pequeno); }
 
