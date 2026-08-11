@@ -580,28 +580,34 @@ body[data-perfil="CEO"] { --acento: var(--acento-ceo); }
 }
 .rotulo-fechar { display: none; }
 
-/* No celular o conteúdo é mais alto que a tela, então o botão de fechar
-   vira uma barra presa no topo, que continua visível ao rolar. */
+/* No celular a ficha do produto ocupa a tela inteira: a barra de fechar
+   fica presa no topo e apenas o miolo rola por baixo dela. */
 @media (max-width: 700px) {
-  .modal { padding: 0; align-items: stretch; }
-  .modal-caixa {
-    max-width: none; margin: 0; min-height: 100%;
-    border-radius: 0; padding: 0 16px calc(28px + env(safe-area-inset-bottom));
-  }
-  .modal-caixa--estreita {
-    min-height: auto; margin: auto; align-self: center;
-    border-radius: var(--raio); padding: 24px;
-  }
-  .modal-caixa--estreita .modal-fechar { position: absolute; }
+  .modal { padding: 0; }
 
-  .modal-fechar {
-    position: sticky; top: 0; z-index: 3;
+  #modal-produto .modal-caixa {
+    position: fixed; inset: 0;
+    display: flex; flex-direction: column;
+    width: 100%; max-width: none; margin: 0;
+    padding: 0; border-radius: 0;
+    background: var(--superficie);
+  }
+  #modal-produto .modal-fechar {
+    position: static; flex: none;
     display: flex; align-items: center; justify-content: flex-end; gap: 8px;
-    width: auto; height: 54px; margin: 0 -16px 12px; padding: 0 16px;
+    width: 100%; height: 54px; padding: 0 16px;
     border: 0; border-bottom: 1px solid var(--borda); border-radius: 0;
-    box-shadow: none; color: var(--texto); font-weight: 700;
+    box-shadow: none; background: var(--superficie);
+    color: var(--texto); font-weight: 700;
+  }
+  #modal-produto .modal-conteudo {
+    flex: 1; min-height: 0; overflow-y: auto;
+    padding: 16px 16px calc(24px + env(safe-area-inset-bottom));
   }
   .rotulo-fechar { display: inline; }
+
+  /* O aviso antes de imprimir continua sendo uma caixa centralizada. */
+  .modal-caixa--estreita { max-width: none; margin: auto 16px; }
 }
 .modal-botoes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
 .impressao-dica { font-size: 13px; color: var(--texto2); background: var(--realce-suave); padding: 12px; border-radius: var(--raio-pequeno); }

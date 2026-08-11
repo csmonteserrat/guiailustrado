@@ -8,7 +8,7 @@
    1. AJUSTES RÁPIDOS
    Data mostrada no rodapé e nas impressões. Atualize a cada revisão.
    ----------------------------------------------------------------- */
-const DATA_ATUALIZACAO = '10/08/2026';
+const DATA_ATUALIZACAO = '11/08/2026';
 
 /* Textos dos avisos. Podem ser editados livremente. */
 const TEXTOS = {

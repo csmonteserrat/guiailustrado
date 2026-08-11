@@ -1,8 +1,14 @@
 CATÁLOGO ILUSTRADO DE MATERIAIS ODONTOLÓGICOS — PMF
-Versão 1.3 — 10/08/2026
+Versão 1.4 — 11/08/2026
 
 HISTÓRICO
 ---------
+v1.4 — 11/08/2026
+  - Corrigida a ficha do produto no celular: a caixa branca parava na
+    altura da tela e o texto final do aviso aparecia por cima da página
+    de trás. Agora a ficha ocupa a tela inteira, a barra "Fechar" fica
+    presa no topo e só o miolo rola.
+
 v1.3 — 10/08/2026
   - Corrigido o botão de fechar do modal do produto no celular: ele
     saía da tela quando o conteúdo era mais alto que o visor. Agora é
