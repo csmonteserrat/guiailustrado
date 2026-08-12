@@ -152,8 +152,25 @@ input[type=file]{display:none}
 
   <div class="barra">
     <button id="btAnalisar">Analisar agora</button>
+    <button class="sec" id="btAnalisarGh">Analisar pelo GitHub</button>
     <button class="sec" id="btAnalisarPasta">Conferir uma pasta do computador</button>
     <input type="file" id="entradaPasta" webkitdirectory directory multiple>
+  </div>
+
+  <div id="cfgGh" class="oculto" style="margin-top:12px;padding:12px;border:1px solid var(--linha);border-radius:10px;background:#fafbff">
+    <div class="barra">
+      <input type="text" id="ghUser" placeholder="usuário do GitHub" style="width:170px">
+      <span class="sub">/</span>
+      <input type="text" id="ghRepo" placeholder="repositório" style="width:190px">
+      <span class="sub">/</span>
+      <input type="text" id="ghPasta" placeholder="pasta" value="imagens" style="width:110px">
+      <button class="mini" id="btSalvarGh">Salvar e analisar</button>
+      <button class="sec mini" id="btLimparGh">Esquecer</button>
+    </div>
+    <p class="sub" style="margin:9px 0 0">Somente leitura de dados públicos, nenhuma senha é pedida.
+    O repositório precisa ser público. Esta é a forma mais completa de conferência, porque o GitHub
+    informa todos os arquivos da pasta, o que permite descobrir também as imagens que sobraram.
+    A configuração fica salva neste navegador e é a mesma usada pela ferramenta de preparar imagens.</p>
   </div>
 
   <div id="resultado" style="margin-top:14px"></div>
@@ -308,6 +325,93 @@ $('#entradaPasta').onchange=e=>{
   analisar(nomes,'pasta escolhida no computador',true);
 };
 
+/* ---------------------------------------------------------------------
+   Conferência pelo GitHub. A API pública devolve a lista completa de
+   arquivos da pasta, o que permite descobrir tanto o que falta quanto o
+   que sobra, mesmo em hospedagens que não fornecem índice de diretório.
+   --------------------------------------------------------------------- */
+const lerGh=()=>{try{return JSON.parse(localStorage.getItem('gh')||'null')}catch(e){return null}};
+
+$('#btAnalisarGh').onclick=()=>{
+  const gh=lerGh();
+  if(gh){
+    $('#ghUser').value=gh.user;$('#ghRepo').value=gh.repo;$('#ghPasta').value=gh.pasta||'imagens';
+    analisarGithub();
+  }else{
+    $('#cfgGh').classList.remove('oculto');
+    $('#ghUser').focus();
+  }
+};
+$('#btSalvarGh').onclick=()=>{
+  const gh={user:$('#ghUser').value.trim().replace(/^@/,''),
+            repo:$('#ghRepo').value.trim(),
+            pasta:($('#ghPasta').value.trim()||'imagens').replace(/^\/+|\/+$/g,'')};
+  if(!gh.user||!gh.repo){alert('Preencha o usuário e o nome do repositório.');return}
+  localStorage.setItem('gh',JSON.stringify(gh));
+  $('#cfgGh').classList.add('oculto');
+  analisarGithub();
+};
+$('#btLimparGh').onclick=()=>{
+  localStorage.removeItem('gh');
+  $('#ghUser').value='';$('#ghRepo').value='';$('#ghPasta').value='imagens';
+  $('#ghUser').focus();
+};
+
+async function analisarGithub(){
+  const gh=lerGh();
+  if(!gh){$('#cfgGh').classList.remove('oculto');return}
+  if(!PRODUTOS_TODOS.length){
+    $('#resultado').innerHTML='<div class="bloco b-er"><div class="cab"><span class="tt">'+
+      'A lista de materiais não foi carregada. Esta página precisa estar na mesma pasta do '+
+      'produtos.csv e ser aberta por um endereço, não pelo arquivo direto no disco.</span></div></div>';
+    return;
+  }
+  const bt=$('#btAnalisarGh');bt.disabled=true;
+  $('#resultado').innerHTML='<p class="sub">Consultando '+esc(gh.user+'/'+gh.repo)+'...</p>';
+  try{
+    const nomes=await listarGithub(gh);
+    analisar(nomes,'GitHub · '+gh.user+'/'+gh.repo+'/'+gh.pasta,true);
+  }catch(e){
+    const motivo=e&&e.status===404
+      ? 'Não encontrei esse repositório ou essa pasta. Confira o usuário, o nome do repositório e o nome da pasta, e lembre que o repositório precisa ser público.'
+      : e&&e.status===403
+      ? 'O GitHub recusou a consulta por excesso de chamadas. Espere alguns minutos e tente de novo, ou use a análise no servidor.'
+      : 'Não consegui consultar o GitHub. Verifique a conexão e os dados informados.';
+    $('#resultado').innerHTML='<div class="bloco b-er"><div class="cab"><span class="tt">'+
+      esc(motivo)+'</span></div></div>';
+    $('#cfgGh').classList.remove('oculto');
+  }
+  bt.disabled=false;
+}
+
+/* Busca a lista de arquivos da pasta, paginando quando houver muitos. */
+async function listarGithub(gh){
+  const base='https://api.github.com/repos/'+encodeURIComponent(gh.user)+'/'+
+             encodeURIComponent(gh.repo)+'/contents/'+
+             gh.pasta.split('/').map(encodeURIComponent).join('/');
+  const r=await fetch(base,{headers:{'Accept':'application/vnd.github+json'}});
+  if(!r.ok){const err=new Error('http');err.status=r.status;throw err}
+  const itens=await r.json();
+  if(!Array.isArray(itens)){const err=new Error('nao e pasta');err.status=404;throw err}
+  const nomes=itens.filter(i=>i.type==='file').map(i=>i.name);
+
+  // A API devolve no máximo 1000 itens por pasta. Acima disso, usa a árvore do repositório.
+  if(itens.length>=1000){
+    try{
+      const rt=await fetch('https://api.github.com/repos/'+encodeURIComponent(gh.user)+'/'+
+        encodeURIComponent(gh.repo)+'/git/trees/HEAD?recursive=1');
+      if(rt.ok){
+        const t=await rt.json();
+        const prefixo=gh.pasta+'/';
+        const daPasta=(t.tree||[]).filter(n=>n.type==='blob'&&n.path.startsWith(prefixo)&&
+          n.path.slice(prefixo.length).indexOf('/')===-1).map(n=>n.path.slice(prefixo.length));
+        if(daPasta.length>nomes.length)return daPasta;
+      }
+    }catch(e){}
+  }
+  return nomes;
+}
+
 /* Tenta descobrir os arquivos da pasta pelo próprio servidor. */
 async function listarPasta(){
   // a) arquivo opcional com a lista, se alguém quiser mantê-lo
@@ -456,10 +560,11 @@ function analisar(nomesArquivos,origem,listagemCompleta){
       '<p style="margin:0 0 8px">Esta hospedagem não permite listar os arquivos da pasta, então não é '+
       'possível descobrir daqui quais imagens sobraram. A lista acima, de materiais sem imagem, '+
       'é confiável e completa.</p>'+
-      '<p style="margin:0 0 10px" class="sub">Para conferir as sobras, escolha a pasta '+
-      '<span class="mono">imagens</span> do seu computador no botão abaixo. O resultado é o mesmo, '+
-      'desde que a pasta esteja igual à publicada.</p>'+
-      '<button class="sec mini" id="btPastaAqui">Conferir a pasta do computador</button>'+
+      '<p style="margin:0 0 10px" class="sub">Para conferir as sobras, use uma destas duas opções: '+
+      'analisar pelo GitHub, que informa todos os arquivos da pasta do repositório, '+
+      'ou escolher a pasta <span class="mono">imagens</span> do seu computador.</p>'+
+      '<div class="barra"><button class="sec mini" id="btGhAqui">Analisar pelo GitHub</button>'+
+      '<button class="sec mini" id="btPastaAqui">Conferir a pasta do computador</button></div>'+
       '</div></div></div>';
   }
 
@@ -509,6 +614,8 @@ function analisar(nomesArquivos,origem,listagemCompleta){
   if(bt)bt.onclick=()=>baixarRelatorio(dados);
   const btp=$('#btPastaAqui');
   if(btp)btp.onclick=e=>{e.stopPropagation();$('#entradaPasta').click()};
+  const btg=$('#btGhAqui');
+  if(btg)btg.onclick=e=>{e.stopPropagation();$('#btAnalisarGh').click()};
 }
 
 function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
