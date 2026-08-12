@@ -23,7 +23,7 @@ Tudo o que aparece no site vem de **um único arquivo**, o `produtos.csv`, e de 
 1. Abra o arquivo `produtos.csv`.
    - No **Excel**: clique com o botão direito no arquivo, escolha *Abrir com* e depois *Excel*.
    - No **LibreOffice** ou no **Google Planilhas**: abra normalmente. Se aparecer uma janela perguntando sobre a importação, confira que a codificação é **UTF-8** e que o separador é o **ponto e vírgula**.
-2. Vá até a **primeira linha vazia**, no fim da planilha.
+2. Vá até a **primeira linha vazia**, no fim da planilha. Não se preocupe com a ordem: o site coloca tudo em ordem alfabética sozinho, então o item novo aparece no lugar certo mesmo tendo sido digitado por último.
 3. Preencha as colunas, uma a uma:
 
 | Coluna | O que escrever | Exemplo |
@@ -158,6 +158,9 @@ Não coloque espaço depois do ponto e vírgula e escreva cada nome exatamente c
 
 **A lista de famílias está ficando comprida.**
 Isso não atrapalha: o grupo Família vem fechado e tem um campo de busca próprio. Ainda assim, evite criar famílias com um ou dois itens só — quanto mais enxuta a lista, mais útil ela fica para comparar materiais parecidos.
+
+**Em que ordem os materiais aparecem no site?**
+Em ordem alfabética pelo nome, dentro de cada bloco: primeiro os da rede básica, depois os do CEO, depois os de interesse odontológico. A ordem das linhas dentro do `produtos.csv` não influencia em nada, então você pode acrescentar itens novos sempre no fim da planilha. Números dentro do nome são comparados como números, e por isso `Nº 2` vem antes de `Nº 10`, e não depois.
 
 **Um item ficou sem especialidade ou sem família.**
 Ele continua aparecendo normalmente no catálogo, apenas sem as etiquetas. Nenhum item some por falta de classificação.

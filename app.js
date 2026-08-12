@@ -158,7 +158,14 @@ function prepararItens(linhas) {
         observacao: l.observacao || '',
         indice: normalizar([l.codigo, l.material, l.familia, l.especialidade, l.subgrupo].join(' ').replace(/;/g, ' '))
       };
-    });
+    })
+    /* Ordem alfabética pelo nome do material, independente da ordem em
+       que as linhas estão no CSV. Assim um item novo entra no lugar
+       certo da tela, e não no fim da página.
+       "numeric" faz Nº 2 vir antes de Nº 10, e não depois;
+       "sensitivity: base" ignora acentos e maiúsculas, para ÁCIDO ficar
+       junto de ACIDO. */
+    .sort((a, b) => a.material.localeCompare(b.material, 'pt-BR', { numeric: true, sensitivity: 'base' }));
 }
 
 /* -----------------------------------------------------------------

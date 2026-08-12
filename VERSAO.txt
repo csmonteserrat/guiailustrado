@@ -1,8 +1,18 @@
 CATÁLOGO ILUSTRADO DE MATERIAIS ODONTOLÓGICOS — PMF
-Versão 1.6 — 12/08/2026
+Versão 1.7 — 12/08/2026
 
 HISTÓRICO
 ---------
+v1.7 — 12/08/2026
+  - Os materiais passaram a aparecer em ordem alfabética pelo nome,
+    dentro de cada bloco, em vez de seguirem a ordem das linhas do
+    produtos.csv. Itens novos podem ser acrescentados no fim da
+    planilha que entram no lugar certo da tela.
+  - A ordenação vale também para a impressão.
+  - Números dentro do nome são comparados como números (Nº 2 antes
+    de Nº 10) e acentos não atrapalham (ÁCIDO junto de ACIDO).
+  - O produtos.csv não foi alterado.
+
 v1.6 — 12/08/2026
   - A coluna "familia" passou a aceitar mais de um valor por item,
     separados por ponto e vírgula, igual à coluna "especialidade".
