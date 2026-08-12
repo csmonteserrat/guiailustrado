@@ -131,6 +131,7 @@ label.rot{display:block;font-size:11px;color:var(--secundario);margin-bottom:3px
         <input type="search" id="busca" placeholder="Buscar por nome, código, tag ou família" style="flex:2;min-width:220px">
         <select id="fBloco" style="flex:1;min-width:150px"></select>
         <select id="fTag" style="flex:1;min-width:150px"></select>
+        <select id="fFamilia" style="flex:1;min-width:150px"></select>
         <select id="fSituacao" style="flex:1;min-width:150px">
           <option value="">Todas as situações</option>
           <option value="ativos">Somente ativos</option>
@@ -149,7 +150,7 @@ label.rot{display:block;font-size:11px;color:var(--secundario);margin-bottom:3px
         <th>Material</th>
         <th style="width:74px">Unidade</th>
         <th style="width:118px">Bloco</th>
-        <th style="width:190px">Tags</th>
+        <th style="width:210px">Família e tags</th>
         <th style="width:64px"></th>
       </tr></thead>
       <tbody id="corpoTabela"></tbody>
@@ -328,8 +329,15 @@ function verificarRascunho(){
    VALORES DISTINTOS E FILTROS
    ===================================================================== */
 const distintos=col=>[...new Set(ITENS.map(i=>(i[col]||'').trim()).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'pt-BR'));
-const tagsDe=it=>(it.especialidade||'').split(';').map(t=>t.trim()).filter(Boolean);
-const todasTags=()=>[...new Set(ITENS.flatMap(tagsDe))].sort((a,b)=>a.localeCompare(b,'pt-BR'));
+/* Campos que aceitam mais de um valor na mesma célula, separados por ponto e vírgula. */
+const MULTIVALOR=['especialidade','familia'];
+const valoresDe=(it,col)=>(it[col]||'').split(';').map(t=>t.trim()).filter(Boolean);
+const todosValores=col=>[...new Set(ITENS.flatMap(i=>valoresDe(i,col)))].sort((a,b)=>a.localeCompare(b,'pt-BR'));
+
+const tagsDe=it=>valoresDe(it,'especialidade');
+const todasTags=()=>todosValores('especialidade');
+const familiasDe=it=>valoresDe(it,'familia');
+const todasFamilias=()=>todosValores('familia');
 
 /* ---------------------------------------------------------------------
    No arquivo, o número do grupo e o nome do subgrupo ficam em colunas
@@ -395,8 +403,11 @@ function montarFiltros(){
   const tag=$('#fTag');
   tag.innerHTML='<option value="">Todas as tags</option>'+
     todasTags().map(t=>'<option>'+escapar(t)+'</option>').join('');
+  const fam=$('#fFamilia');
+  fam.innerHTML='<option value="">Todas as famílias</option>'+
+    todasFamilias().map(f=>'<option>'+escapar(f)+'</option>').join('');
 }
-['#busca','#fBloco','#fTag','#fSituacao'].forEach(s=>{
+['#busca','#fBloco','#fTag','#fFamilia','#fSituacao'].forEach(s=>{
   document.addEventListener('input',e=>{if(e.target.matches(s))desenhar()});
   document.addEventListener('change',e=>{if(e.target.matches(s))desenhar()});
 });
@@ -422,15 +433,17 @@ function corBloco(it){
    ===================================================================== */
 function filtrados(){
   const termos=normalizar($('#busca').value).split(/\s+/).filter(Boolean);
-  const bloco=$('#fBloco').value, tag=$('#fTag').value, sit=$('#fSituacao').value;
+  const bloco=$('#fBloco').value, tag=$('#fTag').value,
+        fam=$('#fFamilia').value, sit=$('#fSituacao').value;
   return ITENS.filter(it=>{
     if(bloco&&(it.subgrupo||'')!==bloco)return false;
     if(tag&&!tagsDe(it).includes(tag))return false;
+    if(fam&&!familiasDe(it).includes(fam))return false;
     const ativo=(it.ativo||'SIM').toUpperCase()!=='NAO';
     if(sit==='ativos'&&!ativo)return false;
     if(sit==='inativos'&&ativo)return false;
     if(sit==='alterados'&&!situacao(it))return false;
-    if(sit==='semtag'&&tagsDe(it).length&&(it.familia||'').trim())return false;
+    if(sit==='semtag'&&tagsDe(it).length&&familiasDe(it).length)return false;
     if(termos.length){
       const alvo=normalizar([it.codigo,it.material,it.familia,it.especialidade,it.subgrupo].join(' '));
       if(!termos.every(t=>alvo.includes(t)))return false;
@@ -455,7 +468,7 @@ function desenhar(){
         (inativo?' <span class="tag t-ci">inativo</span>':'')+'</td>'+
       '<td class="sub">'+escapar((it.unidade||'').split(' - ')[0])+'</td>'+
       '<td><span class="tag '+corBloco(it)+'">'+escapar(juntarGrupo(it.grupo,it.subgrupo))+'</span></td>'+
-      '<td class="sub">'+escapar(tags.join(', '))+'</td>'+
+      '<td class="sub">'+escapar(familiasDe(it).concat(tags).join(', '))+'</td>'+
       '<td style="text-align:right;color:var(--azul)">editar</td></tr>';
   }).join('');
   $('#rodapeTabela').textContent=lista.length>limite
@@ -488,7 +501,22 @@ function abrirEdicao(id,novo){
   const it=novo?novo:ITENS.find(i=>i.__id===id);
   if(!it)return;
   const trabalho=Object.assign({},it);
-  let tags=tagsDe(it);
+
+  /* Valores dos campos que aceitam mais de uma opção. */
+  const multi={especialidade:valoresDe(it,'especialidade'),familia:valoresDe(it,'familia')};
+
+  /* Monta um campo de fichas: os valores escolhidos viram etiquetas removíveis
+     e a lista abaixo permite acrescentar um existente ou criar um novo. */
+  function campoFichas(col,titulo,singular){
+    return '<div><label class="rot">'+titulo+'</label>'+
+      '<div class="fichas" id="fichas-'+col+'"></div>'+
+      '<div class="barra" style="margin-top:7px">'+
+      '<select data-add="'+col+'" style="flex:1">'+
+        '<option value="">adicionar '+singular+' existente...</option>'+
+        todosValores(col).map(v=>'<option>'+escapar(v)+'</option>').join('')+
+        '<option value="__novo">criar '+(singular==='tag'?'uma tag nova':'uma família nova')+'...</option>'+
+      '</select></div></div>';
+  }
 
   const fundo=document.createElement('div');
   fundo.className='fundo-modal';
@@ -509,12 +537,8 @@ function abrirEdicao(id,novo){
         '<div><label class="rot">Tipo</label>'+seletor('tipo',it.tipo||'',distintos('tipo'))+'</div>'+
       '</div>'+
       '<div class="nota info oculto" id="notaAuto" style="margin-top:-4px"></div>'+
-      '<div><label class="rot">Família</label>'+seletor('familia',it.familia||'',distintos('familia'))+'</div>'+
-      '<div><label class="rot">Tags</label><div class="fichas" id="fichas"></div>'+
-        '<div class="barra" style="margin-top:7px">'+
-        '<select id="tagNova" style="flex:1"><option value="">adicionar tag existente...</option>'+
-          todasTags().map(t=>'<option>'+escapar(t)+'</option>').join('')+
-          '<option value="__novo">criar uma tag nova...</option></select></div></div>'+
+      campoFichas('familia','Família','família')+
+      campoFichas('especialidade','Tags','tag')+
       '<div><label class="rot">Observação</label><textarea data-campo="observacao">'+escapar(it.observacao||'')+'</textarea></div>'+
       '<div><label class="rot">Situação</label>'+
         '<div class="barra"><label class="barra" style="gap:6px;cursor:pointer">'+
@@ -531,22 +555,45 @@ function abrirEdicao(id,novo){
   '</div>';
   document.body.appendChild(fundo);
 
-  function desenharFichas(){
-    fundo.querySelector('#fichas').innerHTML=tags.length
-      ? tags.map((t,i)=>'<span class="ficha">'+escapar(t)+'<b data-tag="'+i+'">✕</b></span>').join('')
-      : '<span class="sub">nenhuma tag</span>';
+  const VAZIO={especialidade:'nenhuma tag',familia:'nenhuma família'};
+  const NOVO={especialidade:'Nome da nova tag:',familia:'Nome da nova família:'};
+
+  function desenharFichas(col){
+    const cols=col?[col]:MULTIVALOR;
+    cols.forEach(c=>{
+      const alvo=fundo.querySelector('#fichas-'+c);
+      if(!alvo)return;
+      alvo.innerHTML=multi[c].length
+        ? multi[c].map((v,i)=>'<span class="ficha">'+escapar(v)+
+            '<b data-remover-valor="'+c+':'+i+'">✕</b></span>').join('')
+        : '<span class="sub">'+VAZIO[c]+'</span>';
+    });
   }
   desenharFichas();
 
-  fundo.querySelector('#fichas').addEventListener('click',e=>{
-    if(e.target.dataset.tag!==undefined){tags.splice(parseInt(e.target.dataset.tag),1);desenharFichas()}});
+  // remover uma ficha
+  fundo.addEventListener('click',e=>{
+    const alvo=e.target.dataset&&e.target.dataset.removerValor;
+    if(!alvo)return;
+    const [col,i]=alvo.split(':');
+    multi[col].splice(parseInt(i),1);
+    desenharFichas(col);
+  });
 
-  fundo.querySelector('#tagNova').onchange=e=>{
-    let v=e.target.value;
-    if(v==='__novo'){v=(prompt('Nome da nova tag:')||'').trim();if(!v){e.target.value='';return}}
-    if(v&&!tags.includes(v))tags.push(v);
-    e.target.value='';desenharFichas();
-  };
+  // acrescentar uma ficha, existente ou nova
+  fundo.querySelectorAll('[data-add]').forEach(sel=>{
+    sel.onchange=e=>{
+      const col=sel.dataset.add;
+      let v=sel.value;
+      if(v==='__novo'){v=(prompt(NOVO[col])||'').trim();if(!v){sel.value='';return}}
+      if(v&&!multi[col].includes(v)){
+        multi[col].push(v);
+        if(![...sel.options].some(o=>o.textContent===v))
+          sel.insertBefore(Object.assign(document.createElement('option'),{textContent:v}),sel.lastElementChild);
+      }
+      sel.value='';desenharFichas(col);
+    };
+  });
 
   fundo.addEventListener('change',e=>{
     if(e.target.tagName!=='SELECT'||!e.target.dataset.campo)return;
@@ -616,7 +663,7 @@ function abrirEdicao(id,novo){
       }
       trabalho[el.dataset.campo]=el.value.trim();
     });
-    trabalho.especialidade=tags.join(';');
+    MULTIVALOR.forEach(c=>trabalho[c]=multi[c].join(';'));
     const sit=fundo.querySelector('input[name=sit]:checked');
     if(sit)trabalho.ativo=sit.value;
     if(!trabalho.codigo){alert('O código não pode ficar vazio.');return}
@@ -795,7 +842,7 @@ function validar(){
   mudancas().forEach(m=>{
     if(m.tipo==='novo'){
       if(!tagsDe(m.item).length)avisos.push('O novo item '+m.item.codigo+' está sem tag');
-      if(!(m.item.familia||'').trim())avisos.push('O novo item '+m.item.codigo+' está sem família');
+      if(!familiasDe(m.item).length)avisos.push('O novo item '+m.item.codigo+' está sem família');
       avisos.push('O novo item '+m.item.codigo+' precisa da foto '+m.item.codigo+'.jpg para aparecer ilustrado');
     }
     m.campos.forEach(cp=>{if(cp.campo==='codigo')
