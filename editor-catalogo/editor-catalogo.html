@@ -358,6 +358,34 @@ function subgruposDisponiveis(){
   return [...vistos.keys()].sort((a,b)=>vistos.get(a).localeCompare(vistos.get(b),'pt-BR'));
 }
 
+/* ---------------------------------------------------------------------
+   Acesso e tipo são consequência do subgrupo: todo item do grupo 15 é
+   de acesso CEO e do tipo Consumo, por exemplo. Em vez de fixar essa
+   regra no código, ela é deduzida do próprio arquivo, olhando o valor
+   predominante entre os itens já classificados naquele subgrupo. Assim,
+   se um subgrupo novo for criado, o editor aprende sozinho o padrão.
+   Os campos continuam editáveis: isto é preenchimento, não travamento.
+   --------------------------------------------------------------------- */
+function padraoDoSubgrupo(subgrupo){
+  const alvo=(subgrupo||'').trim();
+  if(!alvo)return null;
+  const conta={acesso:{},tipo:{}};
+  ITENS.forEach(i=>{
+    if((i.subgrupo||'').trim()!==alvo)return;
+    ['acesso','tipo'].forEach(c=>{
+      const v=(i[c]||'').trim();
+      if(v)conta[c][v]=(conta[c][v]||0)+1;
+    });
+  });
+  const maior=o=>{
+    const chaves=Object.keys(o);
+    if(!chaves.length)return null;
+    return chaves.sort((a,b)=>o[b]-o[a])[0];
+  };
+  const r={acesso:maior(conta.acesso),tipo:maior(conta.tipo)};
+  return (r.acesso||r.tipo)?r:null;
+}
+
 function montarFiltros(){
   const bloco=$('#fBloco');
   // o filtro mostra o rótulo combinado, mas continua filtrando pela coluna subgrupo
@@ -480,6 +508,7 @@ function abrirEdicao(id,novo){
         '<div><label class="rot">Acesso</label>'+seletor('acesso',it.acesso||'',distintos('acesso'))+'</div>'+
         '<div><label class="rot">Tipo</label>'+seletor('tipo',it.tipo||'',distintos('tipo'))+'</div>'+
       '</div>'+
+      '<div class="nota info oculto" id="notaAuto" style="margin-top:-4px"></div>'+
       '<div><label class="rot">Família</label>'+seletor('familia',it.familia||'',distintos('familia'))+'</div>'+
       '<div><label class="rot">Tags</label><div class="fichas" id="fichas"></div>'+
         '<div class="barra" style="margin-top:7px">'+
@@ -520,8 +549,10 @@ function abrirEdicao(id,novo){
   };
 
   fundo.addEventListener('change',e=>{
-    if(e.target.tagName==='SELECT'&&e.target.dataset.campo&&e.target.value==='__novo'){
-      const campo=e.target.dataset.campo;
+    if(e.target.tagName!=='SELECT'||!e.target.dataset.campo)return;
+    const campo=e.target.dataset.campo;
+
+    if(e.target.value==='__novo'){
       const pergunta=campo==='__subgrupo'
         ? 'Novo subgrupo, no formato "número - nome".\nExemplo: 16 - Odontologia Preventiva'
         : 'Novo valor para '+rotulo(campo)+':';
@@ -531,6 +562,33 @@ function abrirEdicao(id,novo){
       else e.target.value=(campo==='__subgrupo'
         ? juntarGrupo(trabalho.grupo,trabalho.subgrupo)
         : (trabalho[campo]||''));
+    }
+
+    // Ao escolher o subgrupo, acesso e tipo são preenchidos conforme o padrão
+    // dos demais itens daquele subgrupo. Continuam editáveis.
+    if(campo==='__subgrupo'){
+      const p=padraoDoSubgrupo(separarGrupo(e.target.value).subgrupo);
+      const avisos=[];
+      if(p)['acesso','tipo'].forEach(c=>{
+        if(!p[c])return;
+        const sel=fundo.querySelector('[data-campo="'+c+'"]');
+        if(!sel)return;
+        if(sel.value===p[c])return;
+        if(![...sel.options].some(o=>o.value===p[c]||o.textContent===p[c])){
+          const op=document.createElement('option');op.textContent=p[c];
+          sel.insertBefore(op,sel.lastElementChild);
+        }
+        sel.value=p[c];
+        avisos.push(rotulo(c)+': '+p[c]);
+      });
+      const nota=fundo.querySelector('#notaAuto');
+      if(nota){
+        if(avisos.length){
+          nota.textContent='Preenchido automaticamente conforme os demais itens deste subgrupo — '+
+            avisos.join(' · ')+'. Você pode alterar se for um caso diferente.';
+          nota.classList.remove('oculto');
+        }else nota.classList.add('oculto');
+      }
     }
   });
 
