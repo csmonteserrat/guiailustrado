@@ -740,6 +740,11 @@ function lerHistorico(texto){
   while((m=re.exec(texto))!==null){
     try{blocos.push(JSON.parse(m[1]))}catch(e){}
   }
+  /* O arquivo é gravado com a sessão mais recente no topo, mas aqui a lista
+     é mantida da mais antiga para a mais nova, que é a ordem em que as
+     sessões são acrescentadas. Ordenar pela data evita depender da ordem
+     do arquivo e corrige históricos que tenham sido gravados fora de ordem. */
+  blocos.sort((a,b)=>String(a.data||'').localeCompare(String(b.data||'')));
   return blocos;
 }
 
@@ -866,7 +871,12 @@ function abrirHistorico(){
   const blocoHtml=(s,numero,pendente)=>{
     const contagem={};
     s.alteracoes.forEach(a=>contagem[a.tipo]=(contagem[a.tipo]||0)+1);
-    return '<div style="border:1px solid var(--linha);border-radius:10px;margin-bottom:10px;overflow:hidden">'+
+    /* flex:none é essencial: o corpo do modal é um contêiner flexível em
+       coluna e, sem isso, blocos com muitas alterações são comprimidos e
+       o conteúdo excedente fica cortado, dando a impressão de que apenas
+       algumas alterações foram registradas. */
+    return '<div style="flex:none;border:1px solid var(--linha);border-radius:10px;'+
+      'margin-bottom:10px;overflow:hidden">'+
       '<div style="padding:10px 12px;background:'+(pendente?'var(--verde-suave)':'#fafbff')+
         ';border-bottom:1px solid var(--linha);display:flex;gap:10px;align-items:center;flex-wrap:wrap">'+
         '<b style="font-size:13px">'+(pendente?'Sessão atual, ainda não baixada':'Sessão '+numero)+'</b>'+
