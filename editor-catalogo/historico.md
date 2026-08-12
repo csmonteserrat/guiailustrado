@@ -4,10 +4,21 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 3  
-Última atualização: 12/08/2026, 15:08
+Total de sessões registradas: 4  
+Última atualização: 12/08/2026, 18:51
 
 ---
+
+## 12/08/2026, 18:51 — Caio
+
+Sessão 4 · 1 alteração(ões) · 528 itens no arquivo após a edição
+
+**Resumo:** 1 inativado
+
+- **[INATIVADO]** `4150655` FIO DE SUTURA SEDA Nº 4 - 0
+    - Situação: "SIM" → "NAO"
+
+<!-- sessao:{"data":"2026-08-12T21:51:08.546Z","autor":"Caio","total":528,"alteracoes":[{"tipo":"inativado","codigo":"4150655","material":"FIO DE SUTURA SEDA Nº 4 - 0","campos":[{"campo":"ativo","de":"SIM","para":"NAO"}]}]} -->
 
 ## 12/08/2026, 15:08 — Caio Borges
 
@@ -30,9 +41,71 @@ Sessão 3 · 1 alteração(ões) · 528 itens no arquivo após a edição
 
 <!-- sessao:{"data":"2026-08-12T18:08:05.847Z","autor":"Caio Borges","total":528,"alteracoes":[{"tipo":"excluido","codigo":"4150831","material":"PEDRA MONTADA TRONCO CONICA 0,42MM PARA","campos":[],"dados":{"codigo":"4150831","material":"PEDRA MONTADA TRONCO CONICA 0,42MM PARA","unidade":"U - Unidade","grupo":"14","subgrupo":"CEO Instrumental","acesso":"CEO","tipo":"Instrumental","especialidade":"Prótese","familia":"Pontas de desgaste","imagem":"4150831.jpg","ativo":"SIM"}}]} -->
 
+## 12/08/2026, 14:55 — Caio Borges
+
+Sessão 2 · 6 alteração(ões) · 529 itens no arquivo após a edição
+
+**Resumo:** 2 editado · 1 novo · 3 excluído
+
+- **[EDITADO]** `4150738` MATRIZ DE AÇO TOFFLEMIRE (COM 12 TIRAS)
+    - Material: "MATRIZ DE AÇO TOFFLEMERI (COM 12 TIRAS)" → "MATRIZ DE AÇO TOFFLEMIRE (COM 12 TIRAS)"
+- **[EDITADO]** `4151077` PONTA DE PAPEL ABSORVENTE Nº 25
+    - Código: "VERIFICAR" → "4151077"
+    - Arquivo da imagem: "VERIFICAR.jpg" → "4151077.jpg"
+- **[NOVO]** `4151195` ALAVANCA APEXO (KIT COM 3 PEÇAS)
+    - Código: 4151195
+    - Material: ALAVANCA APEXO (KIT COM 3 PEÇAS)
+    - Unidade de pedido: KI - Kit
+    - Grupo: 14
+    - Subgrupo: CEO Instrumental
+    - Acesso: CEO
+    - Tipo: Instrumental
+    - Tags: Cirurgia
+    - Família: Alavancas
+    - Arquivo da imagem: 4151195.jpg
+    - Situação: SIM
+- **[EXCLUÍDO]** `4150724` RESINA FOTOPOLIMERIZAVEL COR A4 ESMALTE
+    - Código: 4150724
+    - Material: RESINA FOTOPOLIMERIZAVEL COR A4 ESMALTE
+    - Unidade de pedido: U - Unidade
+    - Grupo: 13
+    - Subgrupo: Odontologia
+    - Acesso: TODOS
+    - Tipo: Consumo
+    - Tags: Dentística
+    - Família: Resinas restauradoras
+    - Arquivo da imagem: 4150724.jpg
+    - Situação: SIM
+- **[EXCLUÍDO]** `4150851` POSICIONADOR DE FILME RX INFANTIL
+    - Código: 4150851
+    - Material: POSICIONADOR DE FILME RX INFANTIL
+    - Unidade de pedido: U - Unidade
+    - Grupo: 14
+    - Subgrupo: CEO Instrumental
+    - Acesso: CEO
+    - Tipo: Instrumental
+    - Tags: Radiologia
+    - Família: Radiologia
+    - Arquivo da imagem: 4150851.jpg
+    - Situação: SIM
+- **[EXCLUÍDO]** `4150779` ALAVANCA TIPO APEXO Nº 304
+    - Código: 4150779
+    - Material: ALAVANCA TIPO APEXO Nº 304
+    - Unidade de pedido: U - Unidade
+    - Grupo: 14
+    - Subgrupo: CEO Instrumental
+    - Acesso: CEO
+    - Tipo: Instrumental
+    - Tags: Cirurgia
+    - Família: Alavancas
+    - Arquivo da imagem: 4150779.jpg
+    - Situação: SIM
+
+<!-- sessao:{"data":"2026-08-12T17:55:13.180Z","autor":"Caio Borges","total":529,"alteracoes":[{"tipo":"editado","codigo":"4150738","material":"MATRIZ DE AÇO TOFFLEMIRE (COM 12 TIRAS)","campos":[{"campo":"material","de":"MATRIZ DE AÇO TOFFLEMERI (COM 12 TIRAS)","para":"MATRIZ DE AÇO TOFFLEMIRE (COM 12 TIRAS)"}]},{"tipo":"editado","codigo":"4151077","material":"PONTA DE PAPEL ABSORVENTE Nº 25","campos":[{"campo":"codigo","de":"VERIFICAR","para":"4151077"},{"campo":"imagem","de":"VERIFICAR.jpg","para":"4151077.jpg"}]},{"tipo":"novo","codigo":"4151195","material":"ALAVANCA APEXO (KIT COM 3 PEÇAS)","campos":[],"dados":{"codigo":"4151195","material":"ALAVANCA APEXO (KIT COM 3 PEÇAS)","unidade":"KI - Kit","grupo":"14","subgrupo":"CEO Instrumental","acesso":"CEO","tipo":"Instrumental","especialidade":"Cirurgia","familia":"Alavancas","imagem":"4151195.jpg","ativo":"SIM"}},{"tipo":"excluido","codigo":"4150724","material":"RESINA FOTOPOLIMERIZAVEL COR A4 ESMALTE","campos":[],"dados":{"codigo":"4150724","material":"RESINA FOTOPOLIMERIZAVEL COR A4 ESMALTE","unidade":"U - Unidade","grupo":"13","subgrupo":"Odontologia","acesso":"TODOS","tipo":"Consumo","especialidade":"Dentística","familia":"Resinas restauradoras","imagem":"4150724.jpg","ativo":"SIM"}},{"tipo":"excluido","codigo":"4150851","material":"POSICIONADOR DE FILME RX INFANTIL","campos":[],"dados":{"codigo":"4150851","material":"POSICIONADOR DE FILME RX INFANTIL","unidade":"U - Unidade","grupo":"14","subgrupo":"CEO Instrumental","acesso":"CEO","tipo":"Instrumental","especialidade":"Radiologia","familia":"Radiologia","imagem":"4150851.jpg","ativo":"SIM"}},{"tipo":"excluido","codigo":"4150779","material":"ALAVANCA TIPO APEXO Nº 304","campos":[],"dados":{"codigo":"4150779","material":"ALAVANCA TIPO APEXO Nº 304","unidade":"U - Unidade","grupo":"14","subgrupo":"CEO Instrumental","acesso":"CEO","tipo":"Instrumental","especialidade":"Cirurgia","familia":"Alavancas","imagem":"4150779.jpg","ativo":"SIM"}}]} -->
+
 ## 12/08/2026, 11:22 — Caio Borges
 
-Sessão 2 · 20 alteração(ões) · 531 itens no arquivo após a edição
+Sessão 1 · 20 alteração(ões) · 531 itens no arquivo após a edição
 
 **Resumo:** 15 editado · 4 novo · 1 excluído
 
@@ -131,65 +204,3 @@ Sessão 2 · 20 alteração(ões) · 531 itens no arquivo após a edição
     - Situação: SIM
 
 <!-- sessao:{"data":"2026-08-12T14:22:25.041Z","autor":"Caio Borges","total":531,"alteracoes":[{"tipo":"editado","codigo":"4150498","material":"ÁGUA OXIGENADA 3% 10 VOLUMES (FRASCO 1L)","campos":[{"campo":"material","de":"ÁGUA OXIGENADA 3% 10 VOLUMES 1L","para":"ÁGUA OXIGENADA 3% 10 VOLUMES (FRASCO 1L)"}]},{"tipo":"editado","codigo":"4150513","material":"ANESTÉSICO INJ MEPIVACAÍNA 2% COM VASOC EPINEFRINA 1:100.000 (CAIXA COM 50 TUBETES)","campos":[{"campo":"material","de":"ANESTÉSICO INJ MEPIVACAÍNA 2% COM VASOC EPINEFRINA 1:100.000 (CX/ 50 TUBETES)","para":"ANESTÉSICO INJ MEPIVACAÍNA 2% COM VASOC EPINEFRINA 1:100.000 (CAIXA COM 50 TUBETES)"}]},{"tipo":"editado","codigo":"4150128","material":"AVENTAL DESCARTAVEL GRAMATURA 40 (PACOTE COM 10 UNID) TAMANHO G","campos":[{"campo":"material","de":"AVENTAL DESCARTAVEL GRAMATURA 40 (PCT C/ 10 UNID) TAMANHO G","para":"AVENTAL DESCARTAVEL GRAMATURA 40 (PACOTE COM 10 UNID) TAMANHO G"}]},{"tipo":"editado","codigo":"4151158","material":"CAMPO CIRURG DESC TNT 50 X 50 CM (EMBALAGEM COM 50 UNIDADES)","campos":[{"campo":"material","de":"CAMPO CIRURG DESC TNT 50X50 CM - EMBALAGEM COM 50 UN","para":"CAMPO CIRURG DESC TNT 50 X 50 CM (EMBALAGEM COM 50 UNIDADES)"}]},{"tipo":"editado","codigo":"4150629","material":"CUNHA DE MADEIRA SORTIDA (PACOTE COM 100 UNIDADES)","campos":[{"campo":"material","de":"CUNHA DE MADEIRA SORTIDA PCT C/ 100 UNI","para":"CUNHA DE MADEIRA SORTIDA (PACOTE COM 100 UNIDADES)"}]},{"tipo":"editado","codigo":"4150976","material":"ESPELHO DE MÃO","campos":[{"campo":"material","de":"ESPELHO BUCAL COM CABO","para":"ESPELHO DE MÃO"},{"campo":"especialidade","de":"Diagnóstico","para":"Diagnóstico;Uso geral"}]},{"tipo":"editado","codigo":"4150937","material":"LIMA FLEXOFILE 15/21 MM (CARTELA COM 6 UNIDADES)","campos":[{"campo":"material","de":"LIMA FLEXOFILE 15/21 MM (CARTELA C/ 6 UNIDADES)","para":"LIMA FLEXOFILE 15/21 MM (CARTELA COM 6 UNIDADES)"}]},{"tipo":"editado","codigo":"4150920","material":"LIMA FLEXOFILE 20/21 MM (CARTELA COM 6 UNIDADES)","campos":[{"campo":"material","de":"LIMA FLEXOFILE 20/21 MM (CARTELA C/ 6 UNIDADES)","para":"LIMA FLEXOFILE 20/21 MM (CARTELA COM 6 UNIDADES)"}]},{"tipo":"editado","codigo":"4150738","material":"MATRIZ DE AÇO TOFFLEMERI (COM 12 TIRAS)","campos":[{"campo":"material","de":"MATRIZ DE AÇO TOFFLEMERI (C/ 12 TIRAS)","para":"MATRIZ DE AÇO TOFFLEMERI (COM 12 TIRAS)"}]},{"tipo":"editado","codigo":"4150744","material":"PAPEL DETECTOR (BLOCO COM 12 FOLHAS)","campos":[{"campo":"material","de":"PAPEL DETECTOR (BLOCO C/ 12 FOLHAS)","para":"PAPEL DETECTOR (BLOCO COM 12 FOLHAS)"}]},{"tipo":"editado","codigo":"4150700","material":"PROTETOR DESCARTAVEL TIPO BABADOR (PACOTE COM 100 UNIDADES)","campos":[{"campo":"material","de":"PROTETOR DESCARTAVEL TIPO BABADOR (PACT/ 100 UNID)","para":"PROTETOR DESCARTAVEL TIPO BABADOR (PACOTE COM 100 UNIDADES)"}]},{"tipo":"editado","codigo":"4150718","material":"ROLETE DENTAL DE ALGODÃO (COM 100 UNIDADES)","campos":[{"campo":"material","de":"ROLETE DENTAL DE ALGODÃO (C/100UNI)","para":"ROLETE DENTAL DE ALGODÃO (COM 100 UNIDADES)"}]},{"tipo":"editado","codigo":"4150714","material":"SACO PLASTICO TIPO SACOLE (PACOTE COM 100 UNIDADES)","campos":[{"campo":"material","de":"SACO PLASTICO TIPO SACOLE (PACOTE COM 100UN)","para":"SACO PLASTICO TIPO SACOLE (PACOTE COM 100 UNIDADES)"}]},{"tipo":"editado","codigo":"4151117","material":"SOLUCAO DE HIPOCLORITO DE SODIO 5% 1L","campos":[{"campo":"grupo","de":"15","para":"13"},{"campo":"subgrupo","de":"CEO","para":"Odontologia"},{"campo":"acesso","de":"CEO","para":"TODOS"}]},{"tipo":"editado","codigo":"4150709","material":"SUGADOR CIRURGICO ESTERIL DESCARTAVEL (CAIXA COM 40 UNIDADES)","campos":[{"campo":"material","de":"SUGADOR CIRURGICO ESTERIL DESCARTAVEL (CX/ 40UNID)","para":"SUGADOR CIRURGICO ESTERIL DESCARTAVEL (CAIXA COM 40 UNIDADES)"}]},{"tipo":"novo","codigo":"4151188","material":"ABRITEC ADULTO (COM 2 UNIDADES)","campos":[],"dados":{"codigo":"4151188","material":"ABRITEC ADULTO (COM 2 UNIDADES)","unidade":"U - Unidade","grupo":"13","subgrupo":"Odontologia","acesso":"TODOS","tipo":"Consumo","especialidade":"Dentística","familia":"Auxiliares de abertura","imagem":"4151188.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4151189","material":"AGULHA GENGIVAL LONGA 27 G DESCARTÁVEL (CAIXA COM 100 UNIDADES)","campos":[],"dados":{"codigo":"4151189","material":"AGULHA GENGIVAL LONGA 27 G DESCARTÁVEL (CAIXA COM 100 UNIDADES)","unidade":"CA - Caixa","grupo":"13","subgrupo":"Odontologia","acesso":"TODOS","tipo":"Consumo","especialidade":"Anestesia;Cirurgia","familia":"Anestesia","imagem":"4151189.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4151187","material":"KIT CIRÚRGICO DESCATÁVEL ESTÉRIL (AVENTAL + PANO DE CAMPO)","campos":[],"dados":{"codigo":"4151187","material":"KIT CIRÚRGICO DESCATÁVEL ESTÉRIL (AVENTAL + PANO DE CAMPO)","unidade":"KI - Kit","grupo":"15","subgrupo":"CEO","acesso":"CEO","tipo":"Consumo","especialidade":"Cirurgia;Biossegurança","familia":"Descartáveis e barreiras","imagem":"4151187.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4151192","material":"PLÁSTICO BOLHA (BOBINA)","campos":[],"dados":{"codigo":"4151192","material":"PLÁSTICO BOLHA (BOBINA)","unidade":"U - Unidade","grupo":"15","subgrupo":"CEO","acesso":"CEO","tipo":"Consumo","especialidade":"Prótese","familia":"Equipamentos de laboratório","imagem":"4151192.jpg","ativo":"SIM"}},{"tipo":"excluido","codigo":"4150777","material":"ALAVANCA TIPO APEXO Nº 303","campos":[],"dados":{"codigo":"4150777","material":"ALAVANCA TIPO APEXO Nº 303","unidade":"U - Unidade","grupo":"14","subgrupo":"CEO Instrumental","acesso":"CEO","tipo":"Instrumental","especialidade":"Cirurgia","familia":"Alavancas","imagem":"4150777.jpg","ativo":"SIM"}}]} -->
-
-## 12/08/2026, 14:55 — Caio Borges
-
-Sessão 1 · 6 alteração(ões) · 529 itens no arquivo após a edição
-
-**Resumo:** 2 editado · 1 novo · 3 excluído
-
-- **[EDITADO]** `4150738` MATRIZ DE AÇO TOFFLEMIRE (COM 12 TIRAS)
-    - Material: "MATRIZ DE AÇO TOFFLEMERI (COM 12 TIRAS)" → "MATRIZ DE AÇO TOFFLEMIRE (COM 12 TIRAS)"
-- **[EDITADO]** `4151077` PONTA DE PAPEL ABSORVENTE Nº 25
-    - Código: "VERIFICAR" → "4151077"
-    - Arquivo da imagem: "VERIFICAR.jpg" → "4151077.jpg"
-- **[NOVO]** `4151195` ALAVANCA APEXO (KIT COM 3 PEÇAS)
-    - Código: 4151195
-    - Material: ALAVANCA APEXO (KIT COM 3 PEÇAS)
-    - Unidade de pedido: KI - Kit
-    - Grupo: 14
-    - Subgrupo: CEO Instrumental
-    - Acesso: CEO
-    - Tipo: Instrumental
-    - Tags: Cirurgia
-    - Família: Alavancas
-    - Arquivo da imagem: 4151195.jpg
-    - Situação: SIM
-- **[EXCLUÍDO]** `4150724` RESINA FOTOPOLIMERIZAVEL COR A4 ESMALTE
-    - Código: 4150724
-    - Material: RESINA FOTOPOLIMERIZAVEL COR A4 ESMALTE
-    - Unidade de pedido: U - Unidade
-    - Grupo: 13
-    - Subgrupo: Odontologia
-    - Acesso: TODOS
-    - Tipo: Consumo
-    - Tags: Dentística
-    - Família: Resinas restauradoras
-    - Arquivo da imagem: 4150724.jpg
-    - Situação: SIM
-- **[EXCLUÍDO]** `4150851` POSICIONADOR DE FILME RX INFANTIL
-    - Código: 4150851
-    - Material: POSICIONADOR DE FILME RX INFANTIL
-    - Unidade de pedido: U - Unidade
-    - Grupo: 14
-    - Subgrupo: CEO Instrumental
-    - Acesso: CEO
-    - Tipo: Instrumental
-    - Tags: Radiologia
-    - Família: Radiologia
-    - Arquivo da imagem: 4150851.jpg
-    - Situação: SIM
-- **[EXCLUÍDO]** `4150779` ALAVANCA TIPO APEXO Nº 304
-    - Código: 4150779
-    - Material: ALAVANCA TIPO APEXO Nº 304
-    - Unidade de pedido: U - Unidade
-    - Grupo: 14
-    - Subgrupo: CEO Instrumental
-    - Acesso: CEO
-    - Tipo: Instrumental
-    - Tags: Cirurgia
-    - Família: Alavancas
-    - Arquivo da imagem: 4150779.jpg
-    - Situação: SIM
-
-<!-- sessao:{"data":"2026-08-12T17:55:13.180Z","autor":"Caio Borges","total":529,"alteracoes":[{"tipo":"editado","codigo":"4150738","material":"MATRIZ DE AÇO TOFFLEMIRE (COM 12 TIRAS)","campos":[{"campo":"material","de":"MATRIZ DE AÇO TOFFLEMERI (COM 12 TIRAS)","para":"MATRIZ DE AÇO TOFFLEMIRE (COM 12 TIRAS)"}]},{"tipo":"editado","codigo":"4151077","material":"PONTA DE PAPEL ABSORVENTE Nº 25","campos":[{"campo":"codigo","de":"VERIFICAR","para":"4151077"},{"campo":"imagem","de":"VERIFICAR.jpg","para":"4151077.jpg"}]},{"tipo":"novo","codigo":"4151195","material":"ALAVANCA APEXO (KIT COM 3 PEÇAS)","campos":[],"dados":{"codigo":"4151195","material":"ALAVANCA APEXO (KIT COM 3 PEÇAS)","unidade":"KI - Kit","grupo":"14","subgrupo":"CEO Instrumental","acesso":"CEO","tipo":"Instrumental","especialidade":"Cirurgia","familia":"Alavancas","imagem":"4151195.jpg","ativo":"SIM"}},{"tipo":"excluido","codigo":"4150724","material":"RESINA FOTOPOLIMERIZAVEL COR A4 ESMALTE","campos":[],"dados":{"codigo":"4150724","material":"RESINA FOTOPOLIMERIZAVEL COR A4 ESMALTE","unidade":"U - Unidade","grupo":"13","subgrupo":"Odontologia","acesso":"TODOS","tipo":"Consumo","especialidade":"Dentística","familia":"Resinas restauradoras","imagem":"4150724.jpg","ativo":"SIM"}},{"tipo":"excluido","codigo":"4150851","material":"POSICIONADOR DE FILME RX INFANTIL","campos":[],"dados":{"codigo":"4150851","material":"POSICIONADOR DE FILME RX INFANTIL","unidade":"U - Unidade","grupo":"14","subgrupo":"CEO Instrumental","acesso":"CEO","tipo":"Instrumental","especialidade":"Radiologia","familia":"Radiologia","imagem":"4150851.jpg","ativo":"SIM"}},{"tipo":"excluido","codigo":"4150779","material":"ALAVANCA TIPO APEXO Nº 304","campos":[],"dados":{"codigo":"4150779","material":"ALAVANCA TIPO APEXO Nº 304","unidade":"U - Unidade","grupo":"14","subgrupo":"CEO Instrumental","acesso":"CEO","tipo":"Instrumental","especialidade":"Cirurgia","familia":"Alavancas","imagem":"4150779.jpg","ativo":"SIM"}}]} -->
