@@ -4,10 +4,72 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 1  
-Última atualização: 12/08/2026, 11:22
+Total de sessões registradas: 2  
+Última atualização: 12/08/2026, 14:55
 
 ---
+
+## 12/08/2026, 14:55 — Caio Borges
+
+Sessão 2 · 6 alteração(ões) · 529 itens no arquivo após a edição
+
+**Resumo:** 2 editado · 1 novo · 3 excluído
+
+- **[EDITADO]** `4150738` MATRIZ DE AÇO TOFFLEMIRE (COM 12 TIRAS)
+    - Material: "MATRIZ DE AÇO TOFFLEMERI (COM 12 TIRAS)" → "MATRIZ DE AÇO TOFFLEMIRE (COM 12 TIRAS)"
+- **[EDITADO]** `4151077` PONTA DE PAPEL ABSORVENTE Nº 25
+    - Código: "VERIFICAR" → "4151077"
+    - Arquivo da imagem: "VERIFICAR.jpg" → "4151077.jpg"
+- **[NOVO]** `4151195` ALAVANCA APEXO (KIT COM 3 PEÇAS)
+    - Código: 4151195
+    - Material: ALAVANCA APEXO (KIT COM 3 PEÇAS)
+    - Unidade de pedido: KI - Kit
+    - Grupo: 14
+    - Subgrupo: CEO Instrumental
+    - Acesso: CEO
+    - Tipo: Instrumental
+    - Tags: Cirurgia
+    - Família: Alavancas
+    - Arquivo da imagem: 4151195.jpg
+    - Situação: SIM
+- **[EXCLUÍDO]** `4150724` RESINA FOTOPOLIMERIZAVEL COR A4 ESMALTE
+    - Código: 4150724
+    - Material: RESINA FOTOPOLIMERIZAVEL COR A4 ESMALTE
+    - Unidade de pedido: U - Unidade
+    - Grupo: 13
+    - Subgrupo: Odontologia
+    - Acesso: TODOS
+    - Tipo: Consumo
+    - Tags: Dentística
+    - Família: Resinas restauradoras
+    - Arquivo da imagem: 4150724.jpg
+    - Situação: SIM
+- **[EXCLUÍDO]** `4150851` POSICIONADOR DE FILME RX INFANTIL
+    - Código: 4150851
+    - Material: POSICIONADOR DE FILME RX INFANTIL
+    - Unidade de pedido: U - Unidade
+    - Grupo: 14
+    - Subgrupo: CEO Instrumental
+    - Acesso: CEO
+    - Tipo: Instrumental
+    - Tags: Radiologia
+    - Família: Radiologia
+    - Arquivo da imagem: 4150851.jpg
+    - Situação: SIM
+- **[EXCLUÍDO]** `4150779` ALAVANCA TIPO APEXO Nº 304
+    - Código: 4150779
+    - Material: ALAVANCA TIPO APEXO Nº 304
+    - Unidade de pedido: U - Unidade
+    - Grupo: 14
+    - Subgrupo: CEO Instrumental
+    - Acesso: CEO
+    - Tipo: Instrumental
+    - Tags: Cirurgia
+    - Família: Alavancas
+    - Arquivo da imagem: 4150779.jpg
+    - Situação: SIM
+
+<!-- sessao:{"data":"2026-08-12T17:55:13.180Z","autor":"Caio Borges","total":529,"alteracoes":[{"tipo":"editado","codigo":"4150738","material":"MATRIZ DE AÇO TOFFLEMIRE (COM 12 TIRAS)","campos":[{"campo":"material","de":"MATRIZ DE AÇO TOFFLEMERI (COM 12 TIRAS)","para":"MATRIZ DE AÇO TOFFLEMIRE (COM 12 TIRAS)"}]},{"tipo":"editado","codigo":"4151077","material":"PONTA DE PAPEL ABSORVENTE Nº 25","campos":[{"campo":"codigo","de":"VERIFICAR","para":"4151077"},{"campo":"imagem","de":"VERIFICAR.jpg","para":"4151077.jpg"}]},{"tipo":"novo","codigo":"4151195","material":"ALAVANCA APEXO (KIT COM 3 PEÇAS)","campos":[],"dados":{"codigo":"4151195","material":"ALAVANCA APEXO (KIT COM 3 PEÇAS)","unidade":"KI - Kit","grupo":"14","subgrupo":"CEO Instrumental","acesso":"CEO","tipo":"Instrumental","especialidade":"Cirurgia","familia":"Alavancas","imagem":"4151195.jpg","ativo":"SIM"}},{"tipo":"excluido","codigo":"4150724","material":"RESINA FOTOPOLIMERIZAVEL COR A4 ESMALTE","campos":[],"dados":{"codigo":"4150724","material":"RESINA FOTOPOLIMERIZAVEL COR A4 ESMALTE","unidade":"U - Unidade","grupo":"13","subgrupo":"Odontologia","acesso":"TODOS","tipo":"Consumo","especialidade":"Dentística","familia":"Resinas restauradoras","imagem":"4150724.jpg","ativo":"SIM"}},{"tipo":"excluido","codigo":"4150851","material":"POSICIONADOR DE FILME RX INFANTIL","campos":[],"dados":{"codigo":"4150851","material":"POSICIONADOR DE FILME RX INFANTIL","unidade":"U - Unidade","grupo":"14","subgrupo":"CEO Instrumental","acesso":"CEO","tipo":"Instrumental","especialidade":"Radiologia","familia":"Radiologia","imagem":"4150851.jpg","ativo":"SIM"}},{"tipo":"excluido","codigo":"4150779","material":"ALAVANCA TIPO APEXO Nº 304","campos":[],"dados":{"codigo":"4150779","material":"ALAVANCA TIPO APEXO Nº 304","unidade":"U - Unidade","grupo":"14","subgrupo":"CEO Instrumental","acesso":"CEO","tipo":"Instrumental","especialidade":"Cirurgia","familia":"Alavancas","imagem":"4150779.jpg","ativo":"SIM"}}]} -->
 
 ## 12/08/2026, 11:22 — Caio Borges
 
