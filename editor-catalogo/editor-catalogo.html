@@ -331,10 +331,39 @@ const distintos=col=>[...new Set(ITENS.map(i=>(i[col]||'').trim()).filter(Boolea
 const tagsDe=it=>(it.especialidade||'').split(';').map(t=>t.trim()).filter(Boolean);
 const todasTags=()=>[...new Set(ITENS.flatMap(tagsDe))].sort((a,b)=>a.localeCompare(b,'pt-BR'));
 
+/* ---------------------------------------------------------------------
+   No arquivo, o número do grupo e o nome do subgrupo ficam em colunas
+   separadas. Na tela de edição eles aparecem como um campo único, no
+   formato "12 - Odontologia Instrumental", e são separados de volta na
+   hora de salvar. Isso evita que alguém escolha um subgrupo e esqueça
+   de ajustar o número do grupo, deixando as duas colunas em desacordo.
+   --------------------------------------------------------------------- */
+function juntarGrupo(grupo,subgrupo){
+  grupo=(grupo||'').trim();subgrupo=(subgrupo||'').trim();
+  if(!subgrupo)return '';
+  return grupo?grupo+' - '+subgrupo:subgrupo;
+}
+function separarGrupo(valor){
+  const v=(valor||'').trim();
+  const m=v.match(/^(\d+)\s*[-–—]\s*(.+)$/);
+  return m?{grupo:m[1],subgrupo:m[2].trim()}:{grupo:'',subgrupo:v};
+}
+/* Lista de subgrupos existentes, já no formato combinado e sem repetição. */
+function subgruposDisponiveis(){
+  const vistos=new Map();
+  ITENS.forEach(i=>{
+    const rotulo=juntarGrupo(i.grupo,i.subgrupo);
+    if(rotulo&&!vistos.has(rotulo))vistos.set(rotulo,(i.grupo||'').padStart(4,'0')+rotulo);
+  });
+  return [...vistos.keys()].sort((a,b)=>vistos.get(a).localeCompare(vistos.get(b),'pt-BR'));
+}
+
 function montarFiltros(){
   const bloco=$('#fBloco');
+  // o filtro mostra o rótulo combinado, mas continua filtrando pela coluna subgrupo
   bloco.innerHTML='<option value="">Todos os blocos</option>'+
-    distintos('subgrupo').map(s=>'<option>'+escapar(s)+'</option>').join('');
+    subgruposDisponiveis().map(s=>'<option value="'+escapar(separarGrupo(s).subgrupo)+'">'+
+      escapar(s)+'</option>').join('');
   const tag=$('#fTag');
   tag.innerHTML='<option value="">Todas as tags</option>'+
     todasTags().map(t=>'<option>'+escapar(t)+'</option>').join('');
@@ -397,7 +426,7 @@ function desenhar(){
         (sit==='editado'?' <span class="tag t-az">editado</span>':'')+
         (inativo?' <span class="tag t-ci">inativo</span>':'')+'</td>'+
       '<td class="sub">'+escapar((it.unidade||'').split(' - ')[0])+'</td>'+
-      '<td><span class="tag '+corBloco(it)+'">'+escapar(it.subgrupo||'')+'</span></td>'+
+      '<td><span class="tag '+corBloco(it)+'">'+escapar(juntarGrupo(it.grupo,it.subgrupo))+'</span></td>'+
       '<td class="sub">'+escapar(tags.join(', '))+'</td>'+
       '<td style="text-align:right;color:var(--azul)">editar</td></tr>';
   }).join('');
@@ -446,14 +475,12 @@ function abrirEdicao(id,novo){
       '</div>'+
       '<div><label class="rot">Material</label><input data-campo="material" value="'+escapar(it.material||'')+'"></div>'+
       '<div class="grade3">'+
-        '<div><label class="rot">Subgrupo</label>'+seletor('subgrupo',it.subgrupo||'',distintos('subgrupo'))+'</div>'+
+        '<div><label class="rot">Subgrupo</label>'+
+          seletor('__subgrupo',juntarGrupo(it.grupo,it.subgrupo),subgruposDisponiveis())+'</div>'+
         '<div><label class="rot">Acesso</label>'+seletor('acesso',it.acesso||'',distintos('acesso'))+'</div>'+
         '<div><label class="rot">Tipo</label>'+seletor('tipo',it.tipo||'',distintos('tipo'))+'</div>'+
       '</div>'+
-      '<div class="grade2">'+
-        '<div><label class="rot">Grupo</label><input data-campo="grupo" value="'+escapar(it.grupo||'')+'"></div>'+
-        '<div><label class="rot">Família</label>'+seletor('familia',it.familia||'',distintos('familia'))+'</div>'+
-      '</div>'+
+      '<div><label class="rot">Família</label>'+seletor('familia',it.familia||'',distintos('familia'))+'</div>'+
       '<div><label class="rot">Tags</label><div class="fichas" id="fichas"></div>'+
         '<div class="barra" style="margin-top:7px">'+
         '<select id="tagNova" style="flex:1"><option value="">adicionar tag existente...</option>'+
@@ -494,10 +521,16 @@ function abrirEdicao(id,novo){
 
   fundo.addEventListener('change',e=>{
     if(e.target.tagName==='SELECT'&&e.target.dataset.campo&&e.target.value==='__novo'){
-      const v=(prompt('Novo valor para '+rotulo(e.target.dataset.campo)+':')||'').trim();
+      const campo=e.target.dataset.campo;
+      const pergunta=campo==='__subgrupo'
+        ? 'Novo subgrupo, no formato "número - nome".\nExemplo: 16 - Odontologia Preventiva'
+        : 'Novo valor para '+rotulo(campo)+':';
+      const v=(prompt(pergunta)||'').trim();
       if(v){const op=document.createElement('option');op.textContent=v;op.selected=true;
         e.target.insertBefore(op,e.target.lastElementChild)}
-      else e.target.value=trabalho[e.target.dataset.campo]||'';
+      else e.target.value=(campo==='__subgrupo'
+        ? juntarGrupo(trabalho.grupo,trabalho.subgrupo)
+        : (trabalho[campo]||''));
     }
   });
 
@@ -516,7 +549,14 @@ function abrirEdicao(id,novo){
 
   fundo.querySelector('#btSalvar').onclick=()=>{
     fundo.querySelectorAll('[data-campo]').forEach(el=>{
-      if(el.value!=='__novo')trabalho[el.dataset.campo]=el.value.trim();
+      if(el.value==='__novo')return;
+      if(el.dataset.campo==='__subgrupo'){
+        // devolve o número para a coluna grupo e o nome para a coluna subgrupo
+        const p=separarGrupo(el.value);
+        trabalho.grupo=p.grupo;trabalho.subgrupo=p.subgrupo;
+        return;
+      }
+      trabalho[el.dataset.campo]=el.value.trim();
     });
     trabalho.especialidade=tags.join(';');
     const sit=fundo.querySelector('input[name=sit]:checked');
