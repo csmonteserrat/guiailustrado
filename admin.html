@@ -364,7 +364,9 @@ function analisar(nomesArquivos,origem){
     else orfaos.push(n);
   });
 
-  const semFoto=ativos.filter(p=>!mapa[p.codigo]);
+  const semFotoAtivos=ativos.filter(p=>!mapa[p.codigo]);
+  const semFotoInativos=PRODUTOS_TODOS.filter(p=>(p.ativo||'SIM').toUpperCase()==='NAO'&&!mapa[p.codigo]);
+  const semFoto=semFotoAtivos.concat(semFotoInativos);
   const inativosComFoto=PRODUTOS_TODOS.filter(p=>(p.ativo||'SIM').toUpperCase()==='NAO'&&mapa[p.codigo]);
   const foraDoPadrao=[],duplicados=[];
   Object.keys(mapa).forEach(cod=>{
@@ -378,31 +380,40 @@ function analisar(nomesArquivos,origem){
     });
   });
 
-  const comFoto=ativos.length-semFoto.length;
+  const comFoto=ativos.length-semFotoAtivos.length;
   const pct=ativos.length?Math.round(comFoto/ativos.length*100):0;
 
-  const bloco=(classe,qt,titulo,itens,aberto)=>
+  const bloco=(classe,qt,titulo,itens,aberto,acao)=>
     '<div class="bloco"><div class="cab '+classe+'" data-abrir>'+
     '<span class="qt">'+qt+'</span><span class="tt">'+titulo+'</span>'+
     (itens.length?'<span class="seta">'+(aberto?'ocultar':'ver a lista')+'</span>':'')+'</div>'+
-    (itens.length?'<div class="conteudo'+(aberto?'':' oculto')+'">'+itens.join('')+'</div>':'')+'</div>';
+    (itens.length?'<div class="conteudo'+(aberto?'':' oculto')+'">'+itens.join('')+
+      (acao?'<div class="item" style="background:#fafbff"><button class="sec mini" data-lista="'+acao+
+        '">Baixar esta lista em CSV</button></div>':'')+'</div>':'')+'</div>';
 
   const linha=(cd,txt,obs)=>'<div class="item"><span class="cd">'+esc(cd)+'</span>'+
     '<span>'+esc(txt)+'</span>'+(obs?'<span class="obs">'+esc(obs)+'</span>':'')+'</div>';
 
   let html='<p class="sub" style="margin:0 0 12px">Origem da lista de arquivos: '+esc(origem)+
-    ' · '+arquivos.length+' imagem(ns) encontrada(s)</p>';
+    ' · '+arquivos.length+' imagem(ns) encontrada(s) · '+PRODUTOS_TODOS.length+' linha(s) no produtos.csv</p>';
 
   html+=bloco(pct>=100?'b-ok':'b-nt',pct+'%',
     'do catálogo ilustrado, '+comFoto+' de '+ativos.length+' materiais ativos com foto',[]);
 
+  // ---- Lista 1: materiais do CSV sem imagem correspondente ----
   html+=bloco(semFoto.length?'b-al':'b-ok',semFoto.length,
-    semFoto.length===1?'material ativo sem foto':'materiais ativos sem foto',
-    semFoto.slice(0,600).map(p=>linha(p.codigo,p.material,p.familia||p.subgrupo)));
+    semFoto.length===1?'material do produtos.csv sem imagem na pasta'
+                      :'materiais do produtos.csv sem imagem na pasta',
+    semFoto.map(p=>linha(p.codigo,p.material,
+      ((p.ativo||'SIM').toUpperCase()==='NAO'?'inativo · ':'')+(p.familia||p.subgrupo||''))),
+    true,'semfoto');
 
+  // ---- Lista 2: imagens sem material correspondente no CSV ----
   html+=bloco(orfaos.length?'b-al':'b-ok',orfaos.length,
-    orfaos.length===1?'imagem sem material correspondente':'imagens sem material correspondente',
-    orfaos.map(n=>linha(n.replace(/\.[^.]+$/,''),n,'nenhum código igual no produtos.csv')));
+    orfaos.length===1?'imagem na pasta sem material correspondente no produtos.csv'
+                     :'imagens na pasta sem material correspondente no produtos.csv',
+    orfaos.map(n=>linha(n.replace(/\.[^.]+$/,''),n,'código não existe no produtos.csv')),
+    true,'orfaos');
 
   if(duplicados.length)
     html+=bloco('b-er',duplicados.length,'código(s) com mais de um arquivo de imagem',
@@ -414,7 +425,7 @@ function analisar(nomesArquivos,origem){
 
   if(inativosComFoto.length)
     html+=bloco('b-nt',inativosComFoto.length,'imagem(ns) de materiais inativos',
-      inativosComFoto.map(p=>linha(p.codigo,p.material,'material fora do catálogo')));
+      inativosComFoto.map(p=>linha(p.codigo,p.material,'material fora do catálogo, o arquivo pode ser removido')));
 
   if(outros.length)
     html+=bloco('b-nt',outros.length,'arquivo(s) que não são imagens na pasta',
@@ -423,11 +434,11 @@ function analisar(nomesArquivos,origem){
   const problemas=semFoto.length+orfaos.length+duplicados.length+foraDoPadrao.length;
   if(!problemas)
     html+='<div class="bloco b-ok"><div class="cab"><span class="tt">'+
-      'Nenhuma inconsistência encontrada. Todos os materiais ativos têm foto e todos os arquivos '+
-      'correspondem a um material.</span></div></div>';
+      'Nenhuma inconsistência encontrada. Todos os materiais têm imagem e todos os arquivos '+
+      'correspondem a um material do produtos.csv.</span></div></div>';
 
   html+='<div class="barra" style="margin-top:12px">'+
-    '<button class="sec mini" id="btBaixarRel">Baixar relatório em CSV</button>'+
+    '<button class="sec mini" id="btBaixarRel">Baixar relatório completo em CSV</button>'+
     '<span class="sub">útil para dividir o trabalho de coletar as fotos que faltam</span></div>';
 
   $('#resultado').innerHTML=html;
@@ -442,26 +453,50 @@ function analisar(nomesArquivos,origem){
     };
   });
 
+  const dados={semFoto,orfaos,duplicados,foraDoPadrao,inativosComFoto,origem};
+  $('#resultado').querySelectorAll('[data-lista]').forEach(bt=>{
+    bt.onclick=e=>{e.stopPropagation();baixarLista(bt.dataset.lista,dados)};
+  });
   const bt=$('#btBaixarRel');
-  if(bt)bt.onclick=()=>baixarRelatorio({semFoto,orfaos,duplicados,foraDoPadrao,inativosComFoto,origem});
+  if(bt)bt.onclick=()=>baixarRelatorio(dados);
 }
 
 function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
 
-function baixarRelatorio(d){
-  const campo=v=>{v=String(v==null?'':v);return /[",;\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v};
-  const L=['tipo,codigo,material,familia,subgrupo,arquivo,observacao'];
-  d.semFoto.forEach(p=>L.push(['material sem foto',p.codigo,p.material,p.familia,p.subgrupo,'',''].map(campo).join(',')));
-  d.orfaos.forEach(n=>L.push(['imagem sem material','','','','',n,'nenhum código igual no produtos.csv'].map(campo).join(',')));
-  d.duplicados.forEach(x=>L.push(['código com mais de um arquivo',x.cod,'','','',x.lista.join(' | '),'o site usa apenas o .jpg'].map(campo).join(',')));
-  d.foraDoPadrao.forEach(f=>L.push(['nome fora do padrão',f.cod,'','','',f.nome,f.motivos.join('; ')].map(campo).join(',')));
-  d.inativosComFoto.forEach(p=>L.push(['imagem de material inativo',p.codigo,p.material,p.familia,p.subgrupo,p.codigo+'.jpg',''].map(campo).join(',')));
+function baixarCsv(nomeBase,linhas){
   const dt=new Date(),p2=n=>String(n).padStart(2,'0');
-  const nome='conferencia-imagens-'+dt.getFullYear()+'-'+p2(dt.getMonth()+1)+'-'+p2(dt.getDate())+'.csv';
+  const nome=nomeBase+'-'+dt.getFullYear()+'-'+p2(dt.getMonth()+1)+'-'+p2(dt.getDate())+'.csv';
   const a=document.createElement('a');
-  a.href=URL.createObjectURL(new Blob(['\uFEFF'+L.join('\r\n')+'\r\n'],{type:'text/csv;charset=utf-8'}));
+  a.href=URL.createObjectURL(new Blob(['\uFEFF'+linhas.join('\r\n')+'\r\n'],{type:'text/csv;charset=utf-8'}));
   a.download=nome;a.click();
   setTimeout(()=>URL.revokeObjectURL(a.href),4000);
+}
+const campoCsv=v=>{v=String(v==null?'':v);return /[",;\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v};
+
+/* Baixa apenas uma das listas, no formato mais útil para aquele uso. */
+function baixarLista(qual,d){
+  if(qual==='semfoto'){
+    const L=['codigo,material,familia,especialidade,subgrupo,unidade,situacao,arquivo_esperado'];
+    d.semFoto.forEach(p=>L.push([p.codigo,p.material,p.familia,p.especialidade,p.subgrupo,p.unidade,
+      (p.ativo||'SIM').toUpperCase()==='NAO'?'inativo':'ativo',p.codigo+'.jpg'].map(campoCsv).join(',')));
+    baixarCsv('materiais-sem-imagem',L);
+  }else if(qual==='orfaos'){
+    const L=['arquivo,codigo_no_nome,observacao'];
+    d.orfaos.forEach(n=>L.push([n,n.replace(/\.[^.]+$/,''),
+      'código não existe no produtos.csv'].map(campoCsv).join(',')));
+    baixarCsv('imagens-sem-material',L);
+  }
+}
+
+function baixarRelatorio(d){
+  const L=['tipo,codigo,material,familia,subgrupo,arquivo,observacao'];
+  d.semFoto.forEach(p=>L.push(['material sem imagem',p.codigo,p.material,p.familia,p.subgrupo,
+    p.codigo+'.jpg',(p.ativo||'SIM').toUpperCase()==='NAO'?'material inativo':''].map(campoCsv).join(',')));
+  d.orfaos.forEach(n=>L.push(['imagem sem material','','','','',n,'código não existe no produtos.csv'].map(campoCsv).join(',')));
+  d.duplicados.forEach(x=>L.push(['código com mais de um arquivo',x.cod,'','','',x.lista.join(' | '),'o site usa apenas o .jpg'].map(campoCsv).join(',')));
+  d.foraDoPadrao.forEach(f=>L.push(['nome fora do padrão',f.cod,'','','',f.nome,f.motivos.join('; ')].map(campoCsv).join(',')));
+  d.inativosComFoto.forEach(p=>L.push(['imagem de material inativo',p.codigo,p.material,p.familia,p.subgrupo,p.codigo+'.jpg','o arquivo pode ser removido'].map(campoCsv).join(',')));
+  baixarCsv('conferencia-imagens',L);
 }
 </script>
 </body>
