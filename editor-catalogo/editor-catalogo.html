@@ -237,8 +237,9 @@ function aplicar(dados,nome){
   if(nome)arquivoNome=nome;
   $('#painelCarregar').classList.add('oculto');
   $('#editor').classList.remove('oculto');
-  montarFiltros();desenhar();
-  verificarRascunho();
+  montarFiltros();
+  verificarRascunho();   // antes de desenhar, senão o próprio desenhar grava um rascunho novo
+  desenhar();
 }
 
 /* O editor fica em /editor-catalogo/, então o produtos.csv está na pasta acima.
@@ -272,28 +273,55 @@ $('#entradaCsv').onchange=e=>{
 };
 
 /* ---- rascunho local, para não perder trabalho ao fechar sem querer ---- */
-function salvarRascunho(){
-  try{localStorage.setItem(CHAVE,JSON.stringify(
-    {quando:new Date().toISOString(),colunas:COLUNAS,itens:ITENS,originais:ORIGINAIS,excluidos:EXCLUIDOS}))}catch(e){}
+/* O rascunho existe apenas para proteger trabalho em andamento. Se não há
+   nenhuma alteração pendente, não gravamos nada e apagamos o que houver,
+   para que o editor não avise sobre um rascunho vazio na próxima abertura. */
+function salvarRascunho(jaCalculado){
+  try{
+    const m=jaCalculado||mudancas();
+    if(!m.length){localStorage.removeItem(CHAVE);return}
+    localStorage.setItem(CHAVE,JSON.stringify(
+      {quando:new Date().toISOString(),colunas:COLUNAS,itens:ITENS,
+       originais:ORIGINAIS,excluidos:EXCLUIDOS}));
+  }catch(e){}
 }
+
+/* Conta as alterações de um rascunho salvo sem alterar o estado atual. */
+function alteracoesDoRascunho(r){
+  if(!r||!r.itens||!r.colunas)return 0;
+  let n=(r.excluidos||[]).length;
+  r.itens.forEach(it=>{
+    const o=(r.originais||{})[it.__id];
+    if(!o){n++;return}
+    if(r.colunas.some(c=>(o[c]||'')!==(it[c]||'')))n++;
+  });
+  return n;
+}
+
 function verificarRascunho(){
   let r=null;try{r=JSON.parse(localStorage.getItem(CHAVE)||'null')}catch(e){}
-  if(!r||!r.itens)return;
+  const total=alteracoesDoRascunho(r);
+  if(!total){localStorage.removeItem(CHAVE);return}   // rascunho vazio ou inválido: descarta em silêncio
   const caixa=$('#restaurar');
   const quando=new Date(r.quando).toLocaleString('pt-BR');
-  caixa.innerHTML='Encontrei alterações não baixadas de '+quando+'. '+
+  caixa.innerHTML='Encontrei '+total+' alteração(ões) não baixada(s), de '+quando+'. '+
     '<button class="mini" id="btRestaurar" style="margin-left:8px">Restaurar</button> '+
     '<button class="sec mini" id="btDescartar">Descartar</button>';
   caixa.classList.remove('oculto');
   $('#painelCarregar').classList.remove('oculto');
+  $('#editor').classList.add('oculto');
   $('#btRestaurar').onclick=()=>{
     COLUNAS=r.colunas;ITENS=r.itens;ORIGINAIS=r.originais;EXCLUIDOS=r.excluidos||[];
     proximoId=Math.max(0,...ITENS.map(i=>i.__id||0))+1;
-    caixa.classList.add('oculto');$('#painelCarregar').classList.add('oculto');
+    caixa.classList.add('oculto');
+    $('#painelCarregar').classList.add('oculto');$('#editor').classList.remove('oculto');
     montarFiltros();desenhar();
   };
-  $('#btDescartar').onclick=()=>{localStorage.removeItem(CHAVE);
-    caixa.classList.add('oculto');$('#painelCarregar').classList.add('oculto')};
+  $('#btDescartar').onclick=()=>{
+    localStorage.removeItem(CHAVE);
+    caixa.classList.add('oculto');
+    $('#painelCarregar').classList.add('oculto');$('#editor').classList.remove('oculto');
+  };
 }
 
 /* =====================================================================
@@ -379,7 +407,7 @@ function desenhar(){
   const m=mudancas();
   $('#contagem').textContent=ITENS.length+' itens no arquivo'+
     (m.length?' · '+m.length+' alteração(ões) pendente(s)':' · nenhuma alteração pendente');
-  salvarRascunho();
+  salvarRascunho(m);
 }
 
 $('#corpoTabela').addEventListener('click',e=>{
