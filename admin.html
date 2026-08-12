@@ -146,26 +146,14 @@ input[type=file]{display:none}
 <!-- ================= CONFERÊNCIA DE IMAGENS ================= -->
 <h2>Conferência de imagens</h2>
 <div class="painel" id="painelConferencia">
-  <p class="sub" style="margin:0 0 12px">Compara a lista de materiais com os arquivos da pasta
-  <span class="mono">imagens</span> e aponta materiais sem foto, arquivos sem material correspondente
-  e nomes fora do padrão.</p>
+  <p class="sub" style="margin:0 0 12px">Compara o <span class="mono">produtos.csv</span> com os arquivos
+  da pasta <span class="mono">imagens</span> deste mesmo servidor e aponta materiais sem imagem,
+  arquivos sem material correspondente e nomes fora do padrão.</p>
 
   <div class="barra">
-    <button id="btAnalisarGh">Analisar pelo GitHub</button>
-    <button class="sec" id="btAnalisarPasta">Analisar uma pasta do computador</button>
-    <button class="sec mini" id="btConfigGh">Configurar repositório</button>
+    <button id="btAnalisar">Analisar agora</button>
+    <button class="sec" id="btAnalisarPasta">Conferir uma pasta do computador</button>
     <input type="file" id="entradaPasta" webkitdirectory directory multiple>
-  </div>
-
-  <div id="cfgGh" class="oculto" style="margin-top:12px">
-    <div class="barra">
-      <input type="text" id="ghUser" placeholder="usuário do GitHub" style="width:180px">
-      <input type="text" id="ghRepo" placeholder="nome do repositório" style="width:200px">
-      <input type="text" id="ghPasta" placeholder="pasta" value="imagens" style="width:110px">
-      <button class="mini" id="btSalvarGh">Salvar</button>
-    </div>
-    <p class="sub" style="margin:8px 0 0">Apenas leitura de dados públicos, nenhuma senha é pedida.
-    A configuração é a mesma usada pela ferramenta de preparar imagens.</p>
   </div>
 
   <div id="resultado" style="margin-top:14px"></div>
@@ -292,59 +280,105 @@ fetch('editor-catalogo/historico.md').then(r=>{if(!r.ok)throw 0;return r.text()}
 /* =====================================================================
    CONFERÊNCIA DE IMAGENS
    ---------------------------------------------------------------------
-   Uma página estática não consegue listar os arquivos de uma pasta.
-   Por isso a lista de imagens vem de uma destas duas origens:
-     - a API pública do GitHub, que devolve o conteúdo da pasta do repositório;
-     - uma pasta escolhida pelo usuário no próprio computador.
+   A conferência roda direto no servidor onde o site está hospedado,
+   por caminhos relativos. Funciona em qualquer hospedagem, sem
+   configuração e sem depender de serviço externo.
+
+   As duas listas são obtidas de formas diferentes, por uma limitação
+   dos navegadores:
+
+   1) Materiais sem imagem: para cada código do produtos.csv tentamos
+      carregar imagens/CODIGO.jpg. O que não carregar está sem imagem.
+      Confiável em qualquer servidor.
+
+   2) Imagens sem material: exige saber quais arquivos existem na pasta,
+      e o navegador não consegue listar uma pasta do servidor sozinho.
+      Tentamos ler o índice da pasta, que alguns servidores fornecem, e
+      também um arquivo opcional imagens/lista.json. Quando nenhum dos
+      dois existe, a página avisa e oferece a conferência pela pasta do
+      próprio computador, que dá o mesmo resultado.
    ===================================================================== */
-/* Reaproveita a configuração da ferramenta de preparar imagens. */
-const lerGh=()=>{try{return JSON.parse(localStorage.getItem('gh')||'null')}catch(e){return null}};
 
-$('#btConfigGh').onclick=()=>{
-  const gh=lerGh();
-  if(gh){$('#ghUser').value=gh.user;$('#ghRepo').value=gh.repo;$('#ghPasta').value=gh.pasta}
-  $('#cfgGh').classList.toggle('oculto');
-};
-$('#btSalvarGh').onclick=()=>{
-  const gh={user:$('#ghUser').value.trim(),repo:$('#ghRepo').value.trim(),
-            pasta:$('#ghPasta').value.trim()||'imagens'};
-  if(!gh.user||!gh.repo){alert('Preencha o usuário e o nome do repositório.');return}
-  localStorage.setItem('gh',JSON.stringify(gh));
-  $('#cfgGh').classList.add('oculto');
-  analisarGithub();
-};
-
-$('#btAnalisarGh').onclick=()=>analisarGithub();
+$('#btAnalisar').onclick=()=>analisarServidor();
 $('#btAnalisarPasta').onclick=()=>$('#entradaPasta').click();
 $('#entradaPasta').onchange=e=>{
-  const nomes=[...e.target.files].map(f=>f.name);
+  const nomes=[...e.target.files].map(f=>f.name).filter(n=>n&&!n.startsWith('.'));
   e.target.value='';
   if(!nomes.length){alert('Nenhum arquivo encontrado nessa pasta.');return}
-  analisar(nomes,'pasta escolhida no computador');
+  analisar(nomes,'pasta escolhida no computador',true);
 };
 
-async function analisarGithub(){
-  const gh=lerGh();
-  if(!gh){
-    $('#resultado').innerHTML='<div class="nota-aviso bloco b-al"><div class="cab">'+
-      '<span class="tt">Configure o repositório primeiro, no botão ao lado.</span></div></div>';
-    $('#cfgGh').classList.remove('oculto');return;
-  }
-  $('#resultado').innerHTML='<p class="sub">Consultando o GitHub...</p>';
+/* Tenta descobrir os arquivos da pasta pelo próprio servidor. */
+async function listarPasta(){
+  // a) arquivo opcional com a lista, se alguém quiser mantê-lo
   try{
-    const r=await fetch('https://api.github.com/repos/'+gh.user+'/'+gh.repo+'/contents/'+gh.pasta);
-    if(!r.ok)throw new Error(r.status);
-    const itens=await r.json();
-    analisar(itens.filter(i=>i.type==='file').map(i=>i.name),
-             'GitHub · '+gh.user+'/'+gh.repo+'/'+gh.pasta);
-  }catch(e){
-    $('#resultado').innerHTML='<div class="bloco b-er"><div class="cab">'+
-      '<span class="tt">Não consegui consultar o GitHub. Verifique o usuário, o repositório e a pasta, '+
-      'e lembre que o repositório precisa ser público para esta consulta funcionar.</span></div></div>';
-  }
+    const r=await fetch('imagens/lista.json',{cache:'no-store'});
+    if(r.ok){
+      const j=await r.json();
+      const arr=Array.isArray(j)?j:(j.arquivos||j.files);
+      if(Array.isArray(arr)&&arr.length)
+        return arr.map(x=>typeof x==='string'?x:(x.name||x.nome)).filter(Boolean);
+    }
+  }catch(e){}
+  // b) índice de diretório, quando o servidor o fornece
+  try{
+    const r=await fetch('imagens/',{cache:'no-store'});
+    if(!r.ok)return null;
+    const txt=await r.text();
+    if(!/<a\s/i.test(txt))return null;
+    const nomes=[];
+    const re=/href="([^"?#]+)"/gi;let m;
+    while((m=re.exec(txt))!==null){
+      let n=decodeURIComponent(m[1].split('/').pop().trim());
+      if(n&&!n.startsWith('.')&&n!=='..'&&/\.[a-z0-9]{2,5}$/i.test(n)&&!nomes.includes(n))nomes.push(n);
+    }
+    return nomes.length?nomes:null;
+  }catch(e){return null}
 }
 
-function analisar(nomesArquivos,origem){
+/* Verifica, material por material, se a imagem existe no servidor. */
+function verificarImagens(produtos,aoAndar){
+  return new Promise(async resolve=>{
+    const existentes=[];
+    const testar=p=>new Promise(res=>{
+      const im=new Image();
+      im.onload=()=>{existentes.push(p.codigo+'.jpg');res()};
+      im.onerror=()=>res();
+      im.src='imagens/'+encodeURIComponent(p.codigo)+'.jpg';
+    });
+    const fila=[...produtos];const total=fila.length;
+    while(fila.length){
+      await Promise.all(fila.splice(0,24).map(testar));
+      if(aoAndar)aoAndar(total-fila.length,total);
+    }
+    resolve(existentes);
+  });
+}
+
+async function analisarServidor(){
+  if(!PRODUTOS_TODOS.length){
+    $('#resultado').innerHTML='<div class="bloco b-er"><div class="cab"><span class="tt">'+
+      'A lista de materiais não foi carregada. Esta página precisa estar na mesma pasta do '+
+      'produtos.csv e ser aberta por um endereço, não pelo arquivo direto no disco.</span></div></div>';
+    return;
+  }
+  const bt=$('#btAnalisar');bt.disabled=true;
+  $('#resultado').innerHTML='<p class="sub">Lendo a pasta imagens...</p>';
+
+  const listados=await listarPasta();
+
+  const existentes=await verificarImagens(PRODUTOS_TODOS,(feito,total)=>{
+    $('#resultado').innerHTML='<p class="sub">Conferindo material '+feito+' de '+total+'...</p>';
+  });
+  bt.disabled=false;
+
+  // Com a listagem, sabemos o que falta e o que sobra.
+  // Sem ela, sabemos com precisão o que falta, mas não o que sobra.
+  if(listados)analisar(listados,'pasta imagens deste servidor',true);
+  else analisar(existentes,'pasta imagens deste servidor',false);
+}
+
+function analisar(nomesArquivos,origem,listagemCompleta){
   if(!PRODUTOS_TODOS.length){
     $('#resultado').innerHTML='<div class="bloco b-er"><div class="cab"><span class="tt">'+
       'A lista de materiais não foi carregada. Abra esta página pelo endereço publicado.</span></div></div>';
@@ -409,17 +443,31 @@ function analisar(nomesArquivos,origem){
     true,'semfoto');
 
   // ---- Lista 2: imagens sem material correspondente no CSV ----
-  html+=bloco(orfaos.length?'b-al':'b-ok',orfaos.length,
-    orfaos.length===1?'imagem na pasta sem material correspondente no produtos.csv'
-                     :'imagens na pasta sem material correspondente no produtos.csv',
-    orfaos.map(n=>linha(n.replace(/\.[^.]+$/,''),n,'código não existe no produtos.csv')),
-    true,'orfaos');
+  if(listagemCompleta){
+    html+=bloco(orfaos.length?'b-al':'b-ok',orfaos.length,
+      orfaos.length===1?'imagem na pasta sem material correspondente no produtos.csv'
+                       :'imagens na pasta sem material correspondente no produtos.csv',
+      orfaos.map(n=>linha(n.replace(/\.[^.]+$/,''),n,'código não existe no produtos.csv')),
+      true,'orfaos');
+  }else{
+    html+='<div class="bloco b-nt"><div class="cab"><span class="qt">?</span>'+
+      '<span class="tt">imagens sem material correspondente</span></div>'+
+      '<div class="conteudo"><div class="item" style="display:block">'+
+      '<p style="margin:0 0 8px">Esta hospedagem não permite listar os arquivos da pasta, então não é '+
+      'possível descobrir daqui quais imagens sobraram. A lista acima, de materiais sem imagem, '+
+      'é confiável e completa.</p>'+
+      '<p style="margin:0 0 10px" class="sub">Para conferir as sobras, escolha a pasta '+
+      '<span class="mono">imagens</span> do seu computador no botão abaixo. O resultado é o mesmo, '+
+      'desde que a pasta esteja igual à publicada.</p>'+
+      '<button class="sec mini" id="btPastaAqui">Conferir a pasta do computador</button>'+
+      '</div></div></div>';
+  }
 
-  if(duplicados.length)
+  if(duplicados.length&&listagemCompleta)
     html+=bloco('b-er',duplicados.length,'código(s) com mais de um arquivo de imagem',
       duplicados.map(d=>linha(d.cod,d.lista.join('  ·  '),'o site usa apenas o .jpg')));
 
-  if(foraDoPadrao.length)
+  if(foraDoPadrao.length&&listagemCompleta)
     html+=bloco('b-er',foraDoPadrao.length,'arquivo(s) com nome fora do padrão',
       foraDoPadrao.map(f=>linha(f.cod,f.nome,f.motivos.join(', '))));
 
@@ -427,12 +475,12 @@ function analisar(nomesArquivos,origem){
     html+=bloco('b-nt',inativosComFoto.length,'imagem(ns) de materiais inativos',
       inativosComFoto.map(p=>linha(p.codigo,p.material,'material fora do catálogo, o arquivo pode ser removido')));
 
-  if(outros.length)
+  if(outros.length&&listagemCompleta)
     html+=bloco('b-nt',outros.length,'arquivo(s) que não são imagens na pasta',
       outros.map(n=>linha('—',n,'')));
 
   const problemas=semFoto.length+orfaos.length+duplicados.length+foraDoPadrao.length;
-  if(!problemas)
+  if(!problemas&&listagemCompleta)
     html+='<div class="bloco b-ok"><div class="cab"><span class="tt">'+
       'Nenhuma inconsistência encontrada. Todos os materiais têm imagem e todos os arquivos '+
       'correspondem a um material do produtos.csv.</span></div></div>';
@@ -459,6 +507,8 @@ function analisar(nomesArquivos,origem){
   });
   const bt=$('#btBaixarRel');
   if(bt)bt.onclick=()=>baixarRelatorio(dados);
+  const btp=$('#btPastaAqui');
+  if(btp)btp.onclick=e=>{e.stopPropagation();$('#entradaPasta').click()};
 }
 
 function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
