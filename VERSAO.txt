@@ -1,8 +1,14 @@
 CATÁLOGO ILUSTRADO DE MATERIAIS ODONTOLÓGICOS — PMF
-Versão 1.5 — 11/08/2026
+Versão 1.6 — 12/08/2026
 
 HISTÓRICO
 ---------
+v1.6 — 12/08/2026
+  - A coluna "familia" passou a aceitar mais de um valor por item,
+    separados por ponto e vírgula, igual à coluna "especialidade".
+    Quem tem um valor só continua funcionando exatamente como antes.
+  - O produtos.csv não foi alterado.
+
 v1.5 — 11/08/2026
   - O quadro "Filtros" passou a ter dois grupos que abrem e fecham:
     Especialidade (aberto) e Família (fechado, com busca própria).

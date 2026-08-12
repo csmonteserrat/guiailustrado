@@ -36,7 +36,7 @@ Tudo o que aparece no site vem de **um único arquivo**, o `produtos.csv`, e de 
 | `acesso` | Quem solicita o item | `TODOS`, `CEO` ou `COORDENACAO` |
 | `tipo` | `Consumo` ou `Instrumental` | `Consumo` |
 | `especialidade` | Uma ou mais, separadas por **ponto e vírgula** | `Cirurgia;Odontopediatria` |
-| `familia` | **Um só** valor, o tipo de objeto | `Brocas` |
+| `familia` | Uma ou mais, separadas por **ponto e vírgula** | `Brocas` ou `Brocas;Pontas de desgaste` |
 | `imagem` | O nome do arquivo da foto, sempre o código com `.jpg` | `4150488.jpg` |
 | `observacao` | Opcional. Um recado curto sobre o item | `Embalagem com 3 seringas` |
 | `ativo` | `SIM` para aparecer no site | `SIM` |
@@ -49,7 +49,7 @@ Tudo o que aparece no site vem de **um único arquivo**, o `produtos.csv`, e de 
 
 - **O código é texto, não número.** Se o Excel apagar um zero da frente do código, formate a coluna como *Texto* antes de digitar.
 - **Não mude os nomes das colunas** da primeira linha.
-- Se o nome do material tiver vírgula ou ponto e vírgula, a planilha coloca aspas sozinha ao salvar. Isso é normal e está certo.
+- Se o nome do material tiver vírgula, ou se `especialidade` e `familia` tiverem mais de um valor, a planilha coloca aspas sozinha ao salvar. Isso é normal e está certo.
 - Escreva `acesso` sem acento e em maiúsculas: `COORDENACAO`, e não `Coordenação`.
 
 ---
@@ -148,6 +148,13 @@ Isso é esperado. Por segurança, o navegador não deixa um arquivo aberto diret
 
 **Criei uma especialidade ou uma família nova e ela não aparece no filtro.**
 As duas listas do quadro **Filtros**, à esquerda, são montadas sozinhas a partir do `produtos.csv`: qualquer nome novo nas colunas `especialidade` ou `familia` vira uma opção assim que houver pelo menos um item ativo usando aquele nome. Confira se o nome foi escrito exatamente igual em todos os itens, com os mesmos acentos e maiúsculas. Lembre que `especialidade` aceita vários valores separados por ponto e vírgula, enquanto `familia` aceita apenas um.
+
+**Como coloco duas famílias no mesmo item.**
+Separe os nomes com ponto e vírgula, do mesmo jeito que já se faz na coluna `especialidade`. O item passa a aparecer nos dois filtros e mostra duas etiquetas no card.
+
+Como o ponto e vírgula também é o separador das colunas do arquivo, o valor precisa estar **entre aspas** quando tiver mais de uma família. Se você estiver editando pelo Excel, LibreOffice ou Google Planilhas, basta digitar `Brocas;Pontas de desgaste` dentro da célula e as aspas são acrescentadas sozinhas na hora de salvar. Se estiver editando o arquivo direto no Bloco de Notas ou pelo GitHub, escreva você mesmo: `"Brocas;Pontas de desgaste"`.
+
+Não coloque espaço depois do ponto e vírgula e escreva cada nome exatamente como ele já aparece nos outros itens, senão o site cria uma família nova em vez de reaproveitar a existente.
 
 **A lista de famílias está ficando comprida.**
 Isso não atrapalha: o grupo Família vem fechado e tem um campo de busca próprio. Ainda assim, evite criar famílias com um ou dois itens só — quanto mais enxuta a lista, mais útil ela fica para comparar materiais parecidos.

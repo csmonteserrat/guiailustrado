@@ -8,7 +8,7 @@
    1. AJUSTES RÁPIDOS
    Data mostrada no rodapé e nas impressões. Atualize a cada revisão.
    ----------------------------------------------------------------- */
-const DATA_ATUALIZACAO = '11/08/2026';
+const DATA_ATUALIZACAO = '12/08/2026';
 
 /* Textos dos avisos. Podem ser editados livremente. */
 const TEXTOS = {
@@ -153,10 +153,10 @@ function prepararItens(linhas) {
         acesso: BLOCOS[acesso] ? acesso : 'TODOS',
         tipo: l.tipo || '',
         especialidades,
-        familia: (l.familia || '').trim(),
+        familias: (l.familia || '').split(';').map(s => s.trim()).filter(Boolean),
         imagem: l.imagem || (l.codigo ? l.codigo + '.jpg' : ''),
         observacao: l.observacao || '',
-        indice: normalizar([l.codigo, l.material, l.familia, l.especialidade, l.subgrupo].join(' '))
+        indice: normalizar([l.codigo, l.material, l.familia, l.especialidade, l.subgrupo].join(' ').replace(/;/g, ' '))
       };
     });
 }
@@ -169,7 +169,10 @@ function prepararItens(linhas) {
 function passaNosFiltros(item, ignorar) {
   if (estado.tipos.size && !estado.tipos.has(item.tipo)) return false;
 
-  if (ignorar !== 'familia' && estado.familias.size && !estado.familias.has(item.familia)) return false;
+  if (ignorar !== 'familia' && estado.familias.size) {
+    const alguma = item.familias.some(f => estado.familias.has(f));
+    if (!alguma) return false;
+  }
 
   if (ignorar !== 'especialidade' && estado.especialidades.size) {
     const algum = item.especialidades.some(e => estado.especialidades.has(e));
@@ -226,10 +229,10 @@ function selosDoItem(item) {
 
 function etiquetas(item) {
   let html = '';
-  if (item.familia) {
-    html += `<button type="button" class="etiqueta etiqueta--familia" data-familia="${escapar(item.familia)}"
-      title="Ver todos os itens de ${escapar(item.familia)}">${escapar(item.familia)}</button>`;
-  }
+  item.familias.forEach(f => {
+    html += `<button type="button" class="etiqueta etiqueta--familia" data-familia="${escapar(f)}"
+      title="Ver todos os itens de ${escapar(f)}">${escapar(f)}</button>`;
+  });
   item.especialidades.forEach(e => {
     html += `<button type="button" class="etiqueta" data-especialidade="${escapar(e)}">${escapar(e)}</button>`;
   });
@@ -280,7 +283,7 @@ function linhaHTML(item) {
         <span class="codigo">${escapar(item.codigo)}</span>
         <span class="unidade">${escapar(item.unidade)}</span>
         <span class="selo selo--${b.classe}">${escapar(b.selo)}</span>
-        ${item.familia ? `<button type="button" class="etiqueta etiqueta--familia" data-familia="${escapar(item.familia)}">${escapar(item.familia)}</button>` : ''}
+        ${item.familias.map(f => `<button type="button" class="etiqueta etiqueta--familia" data-familia="${escapar(f)}">${escapar(f)}</button>`).join('')}
       </div>
     </div>
     <div class="linha-acoes">
@@ -415,7 +418,7 @@ function desenharFiltrosLaterais(visiveis) {
     ).join('') || '<p class="aviso-lista">Nenhuma especialidade no resultado atual.</p>';
 
   /* --- família --- */
-  const porFamilia = contar(visiveis, 'familia', i => [i.familia]);
+  const porFamilia = contar(visiveis, 'familia', i => i.familias);
   const busca = normalizar(estado.buscaFamilia);
   const familias = emOrdem(porFamilia).filter(f => !busca || normalizar(f).includes(busca));
 
