@@ -1,8 +1,20 @@
 CATÁLOGO ILUSTRADO DE MATERIAIS ODONTOLÓGICOS — PMF
-Versão 1.4 — 11/08/2026
+Versão 1.5 — 11/08/2026
 
 HISTÓRICO
 ---------
+v1.5 — 11/08/2026
+  - O quadro "Filtros" passou a ter dois grupos que abrem e fecham:
+    Especialidade (aberto) e Família (fechado, com busca própria).
+  - Família virou filtro de seleção múltipla, em ordem alfabética.
+    Clicar na etiqueta de família dentro de um card agora SOMA à
+    seleção, em vez de substituí-la.
+  - No celular os filtros saíram da faixa de pílulas e passaram para um
+    painel que desliza, aberto pelo botão "Filtros".
+  - Botão "Limpar filtros" no pé do quadro, visível só quando há algum
+    filtro aplicado.
+  - O produtos.csv não foi alterado.
+
 v1.4 — 11/08/2026
   - Corrigida a ficha do produto no celular: a caixa branca parava na
     altura da tela e o texto final do aviso aparecia por cima da página

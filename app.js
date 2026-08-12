@@ -46,7 +46,8 @@ const CHAVES = {
   vista: 'pmf.catalogo.vista',
   tema: 'pmf.catalogo.tema',
   lista: 'pmf.catalogo.lista',
-  verCEO: 'pmf.catalogo.verCEO'
+  verCEO: 'pmf.catalogo.verCEO',
+  grupos: 'pmf.catalogo.grupos'
 };
 
 /* -----------------------------------------------------------------
@@ -59,7 +60,9 @@ const estado = {
   busca: '',
   tipos: new Set(),
   especialidades: new Set(),
-  familia: '',
+  familias: new Set(),
+  buscaFamilia: '',
+  gruposAbertos: { especialidade: true, familia: false },
   vista: 'grade',
   verCEO: false,         // no perfil rede básica, mostrar também o bloco do CEO
   lista: {}              // { codigo: quantidade }
@@ -161,11 +164,14 @@ function prepararItens(linhas) {
 /* -----------------------------------------------------------------
    4. FILTRAGEM
    ----------------------------------------------------------------- */
-function passaNosFiltros(item, ignorarEspecialidade) {
+/* "ignorar" permite contar quantos itens cada opção traria sem que ela
+   própria entre na conta, que é o número mostrado ao lado de cada filtro. */
+function passaNosFiltros(item, ignorar) {
   if (estado.tipos.size && !estado.tipos.has(item.tipo)) return false;
-  if (estado.familia && item.familia !== estado.familia) return false;
 
-  if (!ignorarEspecialidade && estado.especialidades.size) {
+  if (ignorar !== 'familia' && estado.familias.size && !estado.familias.has(item.familia)) return false;
+
+  if (ignorar !== 'especialidade' && estado.especialidades.size) {
     const algum = item.especialidades.some(e => estado.especialidades.has(e));
     if (!algum) return false;
   }
@@ -370,37 +376,68 @@ function desenhar() {
   $('#secoes').innerHTML = html;
   $('#contador').textContent = contagem + (contagem === 1 ? ' item encontrado' : ' itens encontrados');
 
-  desenharEspecialidades(visiveis);
+  desenharFiltrosLaterais(visiveis);
   desenharFichas();
   atualizarContagemPedido();
 }
 
 function temFiltro() {
-  return estado.tipos.size || estado.especialidades.size || estado.familia;
+  return estado.tipos.size || estado.especialidades.size || estado.familias.size;
 }
 
-function desenharEspecialidades(visiveis) {
-  /* Contagem por especialidade, considerando todos os filtros menos ela mesma. */
+/* Uma opção da barra lateral, seja de especialidade ou de família. */
+function opcaoHTML(nome, contagem, ativa, atributo) {
+  return `<button type="button" class="item-opcao" data-${atributo}="${escapar(nome)}" aria-pressed="${ativa}">
+    <span class="item-opcao-nome">${escapar(nome)}</span><span class="contagem">${contagem}</span>
+  </button>`;
+}
+
+/* Conta quantos itens cada opção traria, sem que o próprio grupo entre
+   na conta. Assim o número ao lado nunca fica zerado sem motivo. */
+function contar(visiveis, ignorar, pegarValores) {
   const contagens = new Map();
   estado.itens.forEach(item => {
     if (!visiveis.includes(item.acesso)) return;
-    if (!passaNosFiltros(item, true)) return;
-    item.especialidades.forEach(e => contagens.set(e, (contagens.get(e) || 0) + 1));
+    if (!passaNosFiltros(item, ignorar)) return;
+    pegarValores(item).forEach(v => { if (v) contagens.set(v, (contagens.get(v) || 0) + 1); });
   });
+  return contagens;
+}
 
-  const ordenadas = Array.from(contagens.keys()).sort((a, b) => a.localeCompare(b, 'pt-BR'));
+function desenharFiltrosLaterais(visiveis) {
+  const emOrdem = mapa => Array.from(mapa.keys()).sort((a, b) => a.localeCompare(b, 'pt-BR'));
 
-  $('#lista-especialidades').innerHTML = ordenadas.map(e => {
-    const ativa = estado.especialidades.has(e);
-    return `<button type="button" class="item-especialidade" data-especialidade="${escapar(e)}" aria-pressed="${ativa}">
-      <span>${escapar(e)}</span><span class="contagem">${contagens.get(e)}</span>
-    </button>`;
-  }).join('') || '<p class="unidade">Nenhuma especialidade no resultado atual.</p>';
+  /* --- especialidade --- */
+  const porEspecialidade = contar(visiveis, 'especialidade', i => i.especialidades);
+  $('#lista-especialidades').innerHTML =
+    emOrdem(porEspecialidade).map(e =>
+      opcaoHTML(e, porEspecialidade.get(e), estado.especialidades.has(e), 'especialidade')
+    ).join('') || '<p class="aviso-lista">Nenhuma especialidade no resultado atual.</p>';
 
-  $('#filtros-especialidade-celular').innerHTML = ordenadas.map(e => {
-    const ativa = estado.especialidades.has(e);
-    return `<button type="button" class="pilula" data-especialidade="${escapar(e)}" aria-pressed="${ativa}">${escapar(e)} <span class="contagem">${contagens.get(e)}</span></button>`;
-  }).join('');
+  /* --- família --- */
+  const porFamilia = contar(visiveis, 'familia', i => [i.familia]);
+  const busca = normalizar(estado.buscaFamilia);
+  const familias = emOrdem(porFamilia).filter(f => !busca || normalizar(f).includes(busca));
+
+  $('#lista-familias').innerHTML =
+    familias.map(f => opcaoHTML(f, porFamilia.get(f), estado.familias.has(f), 'familia')).join('') ||
+    `<p class="aviso-lista">${busca ? 'Nenhuma família com esse nome.' : 'Nenhuma família no resultado atual.'}</p>`;
+
+  /* --- estado dos grupos e do botão de limpar --- */
+  aplicarGrupo('especialidade');
+  aplicarGrupo('familia');
+
+  const total = estado.tipos.size + estado.especialidades.size + estado.familias.size;
+  $('#limpar-filtros-lateral').hidden = !total;
+  const marcador = $('#contagem-filtros');
+  marcador.textContent = total;
+  marcador.hidden = !total;
+}
+
+function aplicarGrupo(nome) {
+  const aberto = estado.gruposAbertos[nome];
+  $(`[data-grupo="${nome}"]`).setAttribute('aria-expanded', String(aberto));
+  $('#grupo-' + nome).hidden = !aberto;
 }
 
 function desenharFichas() {
@@ -413,7 +450,7 @@ function desenharFichas() {
 
   estado.tipos.forEach(t => fichas.push(ficha(t, 'tipo', t)));
   estado.especialidades.forEach(e => fichas.push(ficha(e, 'especialidade', e)));
-  if (estado.familia) fichas.push(ficha('Família: ' + estado.familia, 'familia', estado.familia));
+  estado.familias.forEach(f => fichas.push(ficha(f, 'familia', f)));
 
   if (fichas.length > 1) {
     fichas.push('<button type="button" class="ficha ficha-limpar" id="ficha-limpar">Limpar filtros</button>');
@@ -811,23 +848,40 @@ function ligarEventos() {
   /* --- filtros de tipo --- */
   $('#faixa-filtros').addEventListener('click', e => {
     const btn = e.target.closest('button');
-    if (!btn) return;
-    if (btn.dataset.tipo) {
-      estado.tipos.has(btn.dataset.tipo) ? estado.tipos.delete(btn.dataset.tipo) : estado.tipos.add(btn.dataset.tipo);
-      btn.setAttribute('aria-pressed', String(estado.tipos.has(btn.dataset.tipo)));
-    } else if (btn.dataset.especialidade) {
-      alternarEspecialidade(btn.dataset.especialidade);
-    }
+    if (!btn || !btn.dataset.tipo) return;
+    estado.tipos.has(btn.dataset.tipo) ? estado.tipos.delete(btn.dataset.tipo) : estado.tipos.add(btn.dataset.tipo);
+    btn.setAttribute('aria-pressed', String(estado.tipos.has(btn.dataset.tipo)));
     desenhar();
   });
 
-  /* --- lateral de especialidades --- */
-  $('#lista-especialidades').addEventListener('click', e => {
-    const btn = e.target.closest('[data-especialidade]');
+  /* --- barra lateral de filtros --- */
+  $('#lateral').addEventListener('click', e => {
+    const btn = e.target.closest('button');
     if (!btn) return;
-    alternarEspecialidade(btn.dataset.especialidade);
+
+    if (btn.dataset.grupo) {
+      const g = btn.dataset.grupo;
+      estado.gruposAbertos[g] = !estado.gruposAbertos[g];
+      guardar(CHAVES.grupos, estado.gruposAbertos);
+      aplicarGrupo(g);
+      if (estado.gruposAbertos.familia && g === 'familia') $('#busca-familia').focus();
+      return;
+    }
+    if (btn.id === 'limpar-filtros-lateral') { limparFiltros(); desenhar(); return; }
+    if (btn.id === 'fechar-filtros') { fecharFiltros(); return; }
+    if (btn.dataset.especialidade) { alternarEspecialidade(btn.dataset.especialidade); desenhar(); return; }
+    if (btn.dataset.familia) { alternarFamilia(btn.dataset.familia); desenhar(); return; }
+  });
+
+  /* A busca de família filtra só a lista de opções, não o catálogo. */
+  $('#busca-familia').addEventListener('input', e => {
+    estado.buscaFamilia = e.target.value;
     desenhar();
   });
+
+  /* --- painel de filtros no celular --- */
+  $('#btn-filtros').addEventListener('click', abrirFiltros);
+  $('#fundo-filtros').addEventListener('click', fecharFiltros);
 
   /* --- fichas de filtro ativo --- */
   $('#fichas-ativas').addEventListener('click', e => {
@@ -840,7 +894,7 @@ function ligarEventos() {
       $$('[data-tipo]').forEach(p => p.setAttribute('aria-pressed', String(estado.tipos.has(p.dataset.tipo))));
     }
     if (removerFiltro === 'especialidade') estado.especialidades.delete(valor);
-    if (removerFiltro === 'familia') estado.familia = '';
+    if (removerFiltro === 'familia') estado.familias.delete(valor);
     desenhar();
   });
 
@@ -857,7 +911,7 @@ function ligarEventos() {
       limparFiltros(); desenhar(); return;
     }
     if (alvo.dataset.familia) {
-      estado.familia = estado.familia === alvo.dataset.familia ? '' : alvo.dataset.familia;
+      alternarFamilia(alvo.dataset.familia);
       desenhar(); window.scrollTo({ top: 0, behavior: 'smooth' }); return;
     }
     if (alvo.dataset.especialidade) { alternarEspecialidade(alvo.dataset.especialidade); desenhar(); return; }
@@ -876,7 +930,7 @@ function ligarEventos() {
     if (alvo.dataset.adicionar) adicionarNaLista(alvo.dataset.adicionar);
     /* Clicar numa etiqueta dentro do modal filtra o catálogo e fecha o modal. */
     if (alvo.dataset.familia) {
-      estado.familia = alvo.dataset.familia;
+      alternarFamilia(alvo.dataset.familia);
       fecharModal(); desenhar(); window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     if (alvo.dataset.especialidade) {
@@ -948,6 +1002,7 @@ function ligarEventos() {
     else if (!$('#modal-impressao').hidden) $('#modal-impressao').hidden = true;
     else if (!$('#painel-pedido').hidden) fecharPedido();
     else if (!$('#tela-guia').hidden) $('#tela-guia').hidden = true;
+    else if (document.body.classList.contains('filtros-abertos')) fecharFiltros();
     else if (!menu.hidden) menu.hidden = true;
   });
 
@@ -971,11 +1026,25 @@ function alternarEspecialidade(e) {
   estado.especialidades.has(e) ? estado.especialidades.delete(e) : estado.especialidades.add(e);
 }
 
+function alternarFamilia(f) {
+  estado.familias.has(f) ? estado.familias.delete(f) : estado.familias.add(f);
+}
+
 function limparFiltros() {
   estado.tipos.clear();
   estado.especialidades.clear();
-  estado.familia = '';
+  estado.familias.clear();
   $$('[data-tipo]').forEach(p => p.setAttribute('aria-pressed', 'false'));
+}
+
+function abrirFiltros() {
+  document.body.classList.add('filtros-abertos');
+  $('#fundo-filtros').hidden = false;
+  $('#fechar-filtros').focus();
+}
+function fecharFiltros() {
+  document.body.classList.remove('filtros-abertos');
+  $('#fundo-filtros').hidden = true;
 }
 
 function abrirPedido() {
@@ -1004,6 +1073,7 @@ function iniciar() {
   aplicarVista(ler(CHAVES.vista, 'grade'));
   estado.lista = ler(CHAVES.lista, {}) || {};
   estado.verCEO = ler(CHAVES.verCEO, false);
+  estado.gruposAbertos = Object.assign({ especialidade: true, familia: false }, ler(CHAVES.grupos, {}));
 
   fetch('produtos.csv', { cache: 'no-cache' })
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })

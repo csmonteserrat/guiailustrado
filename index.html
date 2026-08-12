@@ -263,18 +263,54 @@
   </header>
 
   <div class="faixa-filtros" id="faixa-filtros">
+    <button type="button" id="btn-filtros" class="pilula pilula--abrir-filtros so-celular" aria-label="Abrir filtros">
+      <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+      Filtros
+      <span class="contagem-filtros" id="contagem-filtros" hidden>0</span>
+    </button>
+    <div class="separador-filtro so-celular" aria-hidden="true"></div>
     <div class="grupo-filtro" role="group" aria-label="Tipo de material">
       <button type="button" class="pilula" data-tipo="Consumo" aria-pressed="false">Consumo</button>
       <button type="button" class="pilula" data-tipo="Instrumental" aria-pressed="false">Instrumental</button>
     </div>
-    <div class="separador-filtro filtro-so-celular" aria-hidden="true"></div>
-    <div class="grupo-filtro filtro-so-celular" id="filtros-especialidade-celular" role="group" aria-label="Especialidade"></div>
   </div>
 
   <div class="corpo">
-    <aside class="lateral" aria-label="Filtros">
-      <h2 class="lateral-titulo">Filtros</h2>
-      <div id="lista-especialidades" class="lista-especialidades"></div>
+    <div id="fundo-filtros" class="fundo-escuro" hidden></div>
+
+    <aside class="lateral" id="lateral" aria-label="Filtros">
+      <div class="lateral-topo">
+        <h2 class="lateral-titulo">Filtros</h2>
+        <button type="button" id="fechar-filtros" class="btn-icone so-celular" aria-label="Fechar filtros">
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+
+      <div class="grupo-lateral">
+        <button type="button" class="cabecalho-grupo" data-grupo="especialidade" aria-expanded="true" aria-controls="grupo-especialidade">
+          <span>Especialidade</span>
+          <svg class="icone seta" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="corpo-grupo" id="grupo-especialidade">
+          <div id="lista-especialidades" class="lista-opcoes"></div>
+        </div>
+      </div>
+
+      <div class="grupo-lateral">
+        <button type="button" class="cabecalho-grupo" data-grupo="familia" aria-expanded="false" aria-controls="grupo-familia">
+          <span>Família</span>
+          <svg class="icone seta" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="corpo-grupo" id="grupo-familia" hidden>
+          <div class="campo-busca campo-busca--pequeno">
+            <svg class="icone icone-busca" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+            <input type="search" id="busca-familia" placeholder="Buscar família" aria-label="Buscar família" autocomplete="off">
+          </div>
+          <div id="lista-familias" class="lista-opcoes lista-opcoes--rolagem"></div>
+        </div>
+      </div>
+
+      <button type="button" id="limpar-filtros-lateral" class="btn-contorno btn-limpar-lateral" hidden>Limpar filtros</button>
     </aside>
 
     <main class="principal" id="principal">

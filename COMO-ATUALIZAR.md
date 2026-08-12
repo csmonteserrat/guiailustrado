@@ -146,8 +146,11 @@ Essa data aparece no rodapé do site e no cabeçalho de todas as páginas impres
 **Abri o `index.html` com dois cliques e o site aparece só com um aviso.**
 Isso é esperado. Por segurança, o navegador não deixa um arquivo aberto direto do computador ler outro arquivo, e o catálogo precisa ler o `produtos.csv`. Use o endereço publicado do catálogo.
 
-**Criei uma especialidade nova e ela não aparece no filtro.**
-Ela aparece sozinha assim que houver pelo menos um item ativo com aquele nome na coluna `especialidade`. Confira se o nome foi escrito exatamente igual em todos os itens, com os mesmos acentos e maiúsculas, e se você separou com ponto e vírgula.
+**Criei uma especialidade ou uma família nova e ela não aparece no filtro.**
+As duas listas do quadro **Filtros**, à esquerda, são montadas sozinhas a partir do `produtos.csv`: qualquer nome novo nas colunas `especialidade` ou `familia` vira uma opção assim que houver pelo menos um item ativo usando aquele nome. Confira se o nome foi escrito exatamente igual em todos os itens, com os mesmos acentos e maiúsculas. Lembre que `especialidade` aceita vários valores separados por ponto e vírgula, enquanto `familia` aceita apenas um.
+
+**A lista de famílias está ficando comprida.**
+Isso não atrapalha: o grupo Família vem fechado e tem um campo de busca próprio. Ainda assim, evite criar famílias com um ou dois itens só — quanto mais enxuta a lista, mais útil ela fica para comparar materiais parecidos.
 
 **Um item ficou sem especialidade ou sem família.**
 Ele continua aparecendo normalmente no catálogo, apenas sem as etiquetas. Nenhum item some por falta de classificação.
