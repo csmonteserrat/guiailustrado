@@ -59,6 +59,32 @@ code{background:var(--fundo);padding:1px 5px;border-radius:4px;font-size:12.5px}
 .linhaArq:last-child{border-bottom:none}
 .linhaArq .nm{flex:1}
 .rodape{margin-top:30px;font-size:12px;color:var(--secundario);text-align:center}
+
+/* conferência de imagens */
+button{font:inherit;font-size:13.5px;padding:8px 14px;border-radius:8px;border:none;
+  background:var(--azul);color:#fff;cursor:pointer}
+button:disabled{opacity:.45;cursor:default}
+button.sec{background:#fff;color:var(--texto);border:1px solid var(--linha)}
+button.mini{font-size:12px;padding:5px 10px}
+input[type=text]{font:inherit;font-size:13px;padding:7px 9px;border:1px solid var(--linha);
+  border-radius:8px;background:#fff;color:var(--texto)}
+input[type=file]{display:none}
+.barra{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.oculto{display:none !important}
+.bloco{border:1px solid var(--linha);border-radius:10px;margin-bottom:10px;overflow:hidden}
+.bloco>.cab{padding:10px 13px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;cursor:pointer}
+.bloco>.cab .qt{font-weight:600;font-size:15px}
+.bloco>.cab .tt{font-size:13.5px}
+.bloco>.cab .seta{margin-left:auto;color:var(--secundario);font-size:12px}
+.bloco .conteudo{border-top:1px solid var(--linha);max-height:270px;overflow:auto;background:#fff}
+.bloco .item{padding:7px 13px;font-size:12.5px;border-bottom:1px solid #f2f4f8;display:flex;gap:9px}
+.bloco .item:last-child{border-bottom:none}
+.bloco .item .cd{font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--azul);flex:none}
+.bloco .item .obs{margin-left:auto;color:var(--secundario);font-size:11.5px;flex:none;padding-left:10px}
+.b-ok{background:var(--verde-suave)} .b-ok .qt{color:var(--verde)}
+.b-al{background:var(--laranja-suave)} .b-al .qt{color:var(--laranja)}
+.b-er{background:#fbe9ef} .b-er .qt{color:#c44569}
+.b-nt{background:#f7f8fc} .b-nt .qt{color:var(--secundario)}
 </style>
 </head>
 <body>
@@ -117,6 +143,34 @@ code{background:var(--fundo);padding:1px 5px;border-radius:4px;font-size:12.5px}
 
 </div>
 
+<!-- ================= CONFERÊNCIA DE IMAGENS ================= -->
+<h2>Conferência de imagens</h2>
+<div class="painel" id="painelConferencia">
+  <p class="sub" style="margin:0 0 12px">Compara a lista de materiais com os arquivos da pasta
+  <span class="mono">imagens</span> e aponta materiais sem foto, arquivos sem material correspondente
+  e nomes fora do padrão.</p>
+
+  <div class="barra">
+    <button id="btAnalisarGh">Analisar pelo GitHub</button>
+    <button class="sec" id="btAnalisarPasta">Analisar uma pasta do computador</button>
+    <button class="sec mini" id="btConfigGh">Configurar repositório</button>
+    <input type="file" id="entradaPasta" webkitdirectory directory multiple>
+  </div>
+
+  <div id="cfgGh" class="oculto" style="margin-top:12px">
+    <div class="barra">
+      <input type="text" id="ghUser" placeholder="usuário do GitHub" style="width:180px">
+      <input type="text" id="ghRepo" placeholder="nome do repositório" style="width:200px">
+      <input type="text" id="ghPasta" placeholder="pasta" value="imagens" style="width:110px">
+      <button class="mini" id="btSalvarGh">Salvar</button>
+    </div>
+    <p class="sub" style="margin:8px 0 0">Apenas leitura de dados públicos, nenhuma senha é pedida.
+    A configuração é a mesma usada pela ferramenta de preparar imagens.</p>
+  </div>
+
+  <div id="resultado" style="margin-top:14px"></div>
+</div>
+
 <!-- ================= FLUXO ================= -->
 <div class="painel">
   <h2 style="margin-bottom:10px">Como publicar uma atualização</h2>
@@ -155,6 +209,7 @@ code{background:var(--fundo);padding:1px 5px;border-radius:4px;font-size:12.5px}
    Se a página for aberta direto do disco, o navegador bloqueia a leitura
    e os números simplesmente não aparecem, sem quebrar a página. */
 const $=s=>document.querySelector(s);
+let PRODUTOS_TODOS=[];   // lista completa do produtos.csv, incluindo inativos
 const normalizar=s=>(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 
 function lerCsv(texto){
@@ -188,8 +243,9 @@ function cartaoNumero(valor,rotulo,extra){
 }
 
 fetch('produtos.csv').then(r=>{if(!r.ok)throw 0;return r.text()}).then(async t=>{
-  const todos=lerCsv(t);
-  const ativos=todos.filter(r=>r.codigo&&(r.ativo||'SIM').toUpperCase()!=='NAO');
+  const todos=lerCsv(t).filter(r=>r.codigo);
+  PRODUTOS_TODOS=todos;
+  const ativos=todos.filter(r=>(r.ativo||'SIM').toUpperCase()!=='NAO');
   const basica=ativos.filter(r=>(r.acesso||'').toUpperCase()==='TODOS').length;
   const ceo=ativos.filter(r=>(r.acesso||'').toUpperCase()==='CEO').length;
   const coord=ativos.filter(r=>(r.acesso||'').toUpperCase()==='COORDENACAO').length;
@@ -232,6 +288,181 @@ fetch('editor-catalogo/historico.md').then(r=>{if(!r.ok)throw 0;return r.text()}
   $('#stLog').textContent=n+' sessão(ões)';
   $('#stLog').className='tag '+(n?'t-vd':'t-ci');
 }).catch(()=>{});
+
+/* =====================================================================
+   CONFERÊNCIA DE IMAGENS
+   ---------------------------------------------------------------------
+   Uma página estática não consegue listar os arquivos de uma pasta.
+   Por isso a lista de imagens vem de uma destas duas origens:
+     - a API pública do GitHub, que devolve o conteúdo da pasta do repositório;
+     - uma pasta escolhida pelo usuário no próprio computador.
+   ===================================================================== */
+/* Reaproveita a configuração da ferramenta de preparar imagens. */
+const lerGh=()=>{try{return JSON.parse(localStorage.getItem('gh')||'null')}catch(e){return null}};
+
+$('#btConfigGh').onclick=()=>{
+  const gh=lerGh();
+  if(gh){$('#ghUser').value=gh.user;$('#ghRepo').value=gh.repo;$('#ghPasta').value=gh.pasta}
+  $('#cfgGh').classList.toggle('oculto');
+};
+$('#btSalvarGh').onclick=()=>{
+  const gh={user:$('#ghUser').value.trim(),repo:$('#ghRepo').value.trim(),
+            pasta:$('#ghPasta').value.trim()||'imagens'};
+  if(!gh.user||!gh.repo){alert('Preencha o usuário e o nome do repositório.');return}
+  localStorage.setItem('gh',JSON.stringify(gh));
+  $('#cfgGh').classList.add('oculto');
+  analisarGithub();
+};
+
+$('#btAnalisarGh').onclick=()=>analisarGithub();
+$('#btAnalisarPasta').onclick=()=>$('#entradaPasta').click();
+$('#entradaPasta').onchange=e=>{
+  const nomes=[...e.target.files].map(f=>f.name);
+  e.target.value='';
+  if(!nomes.length){alert('Nenhum arquivo encontrado nessa pasta.');return}
+  analisar(nomes,'pasta escolhida no computador');
+};
+
+async function analisarGithub(){
+  const gh=lerGh();
+  if(!gh){
+    $('#resultado').innerHTML='<div class="nota-aviso bloco b-al"><div class="cab">'+
+      '<span class="tt">Configure o repositório primeiro, no botão ao lado.</span></div></div>';
+    $('#cfgGh').classList.remove('oculto');return;
+  }
+  $('#resultado').innerHTML='<p class="sub">Consultando o GitHub...</p>';
+  try{
+    const r=await fetch('https://api.github.com/repos/'+gh.user+'/'+gh.repo+'/contents/'+gh.pasta);
+    if(!r.ok)throw new Error(r.status);
+    const itens=await r.json();
+    analisar(itens.filter(i=>i.type==='file').map(i=>i.name),
+             'GitHub · '+gh.user+'/'+gh.repo+'/'+gh.pasta);
+  }catch(e){
+    $('#resultado').innerHTML='<div class="bloco b-er"><div class="cab">'+
+      '<span class="tt">Não consegui consultar o GitHub. Verifique o usuário, o repositório e a pasta, '+
+      'e lembre que o repositório precisa ser público para esta consulta funcionar.</span></div></div>';
+  }
+}
+
+function analisar(nomesArquivos,origem){
+  if(!PRODUTOS_TODOS.length){
+    $('#resultado').innerHTML='<div class="bloco b-er"><div class="cab"><span class="tt">'+
+      'A lista de materiais não foi carregada. Abra esta página pelo endereço publicado.</span></div></div>';
+    return;
+  }
+  const ativos=PRODUTOS_TODOS.filter(p=>(p.ativo||'SIM').toUpperCase()!=='NAO');
+  const porCodigo={};PRODUTOS_TODOS.forEach(p=>porCodigo[p.codigo]=p);
+
+  // Agrupa os arquivos pelo código deduzido do nome
+  const arquivos=nomesArquivos.filter(n=>/\.(jpe?g|png|webp|gif|bmp|tiff?)$/i.test(n));
+  const outros=nomesArquivos.filter(n=>!/\.(jpe?g|png|webp|gif|bmp|tiff?)$/i.test(n));
+  const mapa={};   // codigo -> [nomes]
+  const orfaos=[];
+  arquivos.forEach(n=>{
+    const base=n.replace(/\.[^.]+$/,'').trim();
+    if(porCodigo[base])(mapa[base]=mapa[base]||[]).push(n);
+    else orfaos.push(n);
+  });
+
+  const semFoto=ativos.filter(p=>!mapa[p.codigo]);
+  const inativosComFoto=PRODUTOS_TODOS.filter(p=>(p.ativo||'SIM').toUpperCase()==='NAO'&&mapa[p.codigo]);
+  const foraDoPadrao=[],duplicados=[];
+  Object.keys(mapa).forEach(cod=>{
+    const lista=mapa[cod];
+    if(lista.length>1)duplicados.push({cod,lista});
+    lista.forEach(n=>{
+      const motivos=[];
+      if(!/\.jpg$/.test(n))motivos.push(/\.jpg$/i.test(n)?'extensão em maiúsculas':'não é .jpg');
+      if(/\s/.test(n))motivos.push('tem espaço no nome');
+      if(motivos.length)foraDoPadrao.push({nome:n,cod,motivos});
+    });
+  });
+
+  const comFoto=ativos.length-semFoto.length;
+  const pct=ativos.length?Math.round(comFoto/ativos.length*100):0;
+
+  const bloco=(classe,qt,titulo,itens,aberto)=>
+    '<div class="bloco"><div class="cab '+classe+'" data-abrir>'+
+    '<span class="qt">'+qt+'</span><span class="tt">'+titulo+'</span>'+
+    (itens.length?'<span class="seta">'+(aberto?'ocultar':'ver a lista')+'</span>':'')+'</div>'+
+    (itens.length?'<div class="conteudo'+(aberto?'':' oculto')+'">'+itens.join('')+'</div>':'')+'</div>';
+
+  const linha=(cd,txt,obs)=>'<div class="item"><span class="cd">'+esc(cd)+'</span>'+
+    '<span>'+esc(txt)+'</span>'+(obs?'<span class="obs">'+esc(obs)+'</span>':'')+'</div>';
+
+  let html='<p class="sub" style="margin:0 0 12px">Origem da lista de arquivos: '+esc(origem)+
+    ' · '+arquivos.length+' imagem(ns) encontrada(s)</p>';
+
+  html+=bloco(pct>=100?'b-ok':'b-nt',pct+'%',
+    'do catálogo ilustrado, '+comFoto+' de '+ativos.length+' materiais ativos com foto',[]);
+
+  html+=bloco(semFoto.length?'b-al':'b-ok',semFoto.length,
+    semFoto.length===1?'material ativo sem foto':'materiais ativos sem foto',
+    semFoto.slice(0,600).map(p=>linha(p.codigo,p.material,p.familia||p.subgrupo)));
+
+  html+=bloco(orfaos.length?'b-al':'b-ok',orfaos.length,
+    orfaos.length===1?'imagem sem material correspondente':'imagens sem material correspondente',
+    orfaos.map(n=>linha(n.replace(/\.[^.]+$/,''),n,'nenhum código igual no produtos.csv')));
+
+  if(duplicados.length)
+    html+=bloco('b-er',duplicados.length,'código(s) com mais de um arquivo de imagem',
+      duplicados.map(d=>linha(d.cod,d.lista.join('  ·  '),'o site usa apenas o .jpg')));
+
+  if(foraDoPadrao.length)
+    html+=bloco('b-er',foraDoPadrao.length,'arquivo(s) com nome fora do padrão',
+      foraDoPadrao.map(f=>linha(f.cod,f.nome,f.motivos.join(', '))));
+
+  if(inativosComFoto.length)
+    html+=bloco('b-nt',inativosComFoto.length,'imagem(ns) de materiais inativos',
+      inativosComFoto.map(p=>linha(p.codigo,p.material,'material fora do catálogo')));
+
+  if(outros.length)
+    html+=bloco('b-nt',outros.length,'arquivo(s) que não são imagens na pasta',
+      outros.map(n=>linha('—',n,'')));
+
+  const problemas=semFoto.length+orfaos.length+duplicados.length+foraDoPadrao.length;
+  if(!problemas)
+    html+='<div class="bloco b-ok"><div class="cab"><span class="tt">'+
+      'Nenhuma inconsistência encontrada. Todos os materiais ativos têm foto e todos os arquivos '+
+      'correspondem a um material.</span></div></div>';
+
+  html+='<div class="barra" style="margin-top:12px">'+
+    '<button class="sec mini" id="btBaixarRel">Baixar relatório em CSV</button>'+
+    '<span class="sub">útil para dividir o trabalho de coletar as fotos que faltam</span></div>';
+
+  $('#resultado').innerHTML=html;
+
+  $('#resultado').querySelectorAll('[data-abrir]').forEach(cab=>{
+    cab.onclick=()=>{
+      const c=cab.parentElement.querySelector('.conteudo');
+      if(!c)return;
+      c.classList.toggle('oculto');
+      const s=cab.querySelector('.seta');
+      if(s)s.textContent=c.classList.contains('oculto')?'ver a lista':'ocultar';
+    };
+  });
+
+  const bt=$('#btBaixarRel');
+  if(bt)bt.onclick=()=>baixarRelatorio({semFoto,orfaos,duplicados,foraDoPadrao,inativosComFoto,origem});
+}
+
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+
+function baixarRelatorio(d){
+  const campo=v=>{v=String(v==null?'':v);return /[",;\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v};
+  const L=['tipo,codigo,material,familia,subgrupo,arquivo,observacao'];
+  d.semFoto.forEach(p=>L.push(['material sem foto',p.codigo,p.material,p.familia,p.subgrupo,'',''].map(campo).join(',')));
+  d.orfaos.forEach(n=>L.push(['imagem sem material','','','','',n,'nenhum código igual no produtos.csv'].map(campo).join(',')));
+  d.duplicados.forEach(x=>L.push(['código com mais de um arquivo',x.cod,'','','',x.lista.join(' | '),'o site usa apenas o .jpg'].map(campo).join(',')));
+  d.foraDoPadrao.forEach(f=>L.push(['nome fora do padrão',f.cod,'','','',f.nome,f.motivos.join('; ')].map(campo).join(',')));
+  d.inativosComFoto.forEach(p=>L.push(['imagem de material inativo',p.codigo,p.material,p.familia,p.subgrupo,p.codigo+'.jpg',''].map(campo).join(',')));
+  const dt=new Date(),p2=n=>String(n).padStart(2,'0');
+  const nome='conferencia-imagens-'+dt.getFullYear()+'-'+p2(dt.getMonth()+1)+'-'+p2(dt.getDate())+'.csv';
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob(['\uFEFF'+L.join('\r\n')+'\r\n'],{type:'text/csv;charset=utf-8'}));
+  a.download=nome;a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),4000);
+}
 </script>
 </body>
 </html>
