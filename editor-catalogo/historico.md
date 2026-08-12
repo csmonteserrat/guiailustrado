@@ -4,9 +4,109 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 0  
-Última atualização: ainda não houve edição pelo editor
+Total de sessões registradas: 1  
+Última atualização: 12/08/2026, 11:22
 
 ---
 
-_Nenhuma sessão registrada até o momento. O primeiro registro aparecerá aqui depois da primeira edição feita pelo editor._
+## 12/08/2026, 11:22 — Caio Borges
+
+Sessão 1 · 20 alteração(ões) · 531 itens no arquivo após a edição
+
+**Resumo:** 15 editado · 4 novo · 1 excluído
+
+- **[EDITADO]** `4150498` ÁGUA OXIGENADA 3% 10 VOLUMES (FRASCO 1L)
+    - Material: "ÁGUA OXIGENADA 3% 10 VOLUMES 1L" → "ÁGUA OXIGENADA 3% 10 VOLUMES (FRASCO 1L)"
+- **[EDITADO]** `4150513` ANESTÉSICO INJ MEPIVACAÍNA 2% COM VASOC EPINEFRINA 1:100.000 (CAIXA COM 50 TUBETES)
+    - Material: "ANESTÉSICO INJ MEPIVACAÍNA 2% COM VASOC EPINEFRINA 1:100.000 (CX/ 50 TUBETES)" → "ANESTÉSICO INJ MEPIVACAÍNA 2% COM VASOC EPINEFRINA 1:100.000 (CAIXA COM 50 TUBETES)"
+- **[EDITADO]** `4150128` AVENTAL DESCARTAVEL GRAMATURA 40 (PACOTE COM 10 UNID) TAMANHO G
+    - Material: "AVENTAL DESCARTAVEL GRAMATURA 40 (PCT C/ 10 UNID) TAMANHO G" → "AVENTAL DESCARTAVEL GRAMATURA 40 (PACOTE COM 10 UNID) TAMANHO G"
+- **[EDITADO]** `4151158` CAMPO CIRURG DESC TNT 50 X 50 CM (EMBALAGEM COM 50 UNIDADES)
+    - Material: "CAMPO CIRURG DESC TNT 50X50 CM - EMBALAGEM COM 50 UN" → "CAMPO CIRURG DESC TNT 50 X 50 CM (EMBALAGEM COM 50 UNIDADES)"
+- **[EDITADO]** `4150629` CUNHA DE MADEIRA SORTIDA (PACOTE COM 100 UNIDADES)
+    - Material: "CUNHA DE MADEIRA SORTIDA PCT C/ 100 UNI" → "CUNHA DE MADEIRA SORTIDA (PACOTE COM 100 UNIDADES)"
+- **[EDITADO]** `4150976` ESPELHO DE MÃO
+    - Material: "ESPELHO BUCAL COM CABO" → "ESPELHO DE MÃO"
+    - Tags: "Diagnóstico" → "Diagnóstico;Uso geral"
+- **[EDITADO]** `4150937` LIMA FLEXOFILE 15/21 MM (CARTELA COM 6 UNIDADES)
+    - Material: "LIMA FLEXOFILE 15/21 MM (CARTELA C/ 6 UNIDADES)" → "LIMA FLEXOFILE 15/21 MM (CARTELA COM 6 UNIDADES)"
+- **[EDITADO]** `4150920` LIMA FLEXOFILE 20/21 MM (CARTELA COM 6 UNIDADES)
+    - Material: "LIMA FLEXOFILE 20/21 MM (CARTELA C/ 6 UNIDADES)" → "LIMA FLEXOFILE 20/21 MM (CARTELA COM 6 UNIDADES)"
+- **[EDITADO]** `4150738` MATRIZ DE AÇO TOFFLEMERI (COM 12 TIRAS)
+    - Material: "MATRIZ DE AÇO TOFFLEMERI (C/ 12 TIRAS)" → "MATRIZ DE AÇO TOFFLEMERI (COM 12 TIRAS)"
+- **[EDITADO]** `4150744` PAPEL DETECTOR (BLOCO COM 12 FOLHAS)
+    - Material: "PAPEL DETECTOR (BLOCO C/ 12 FOLHAS)" → "PAPEL DETECTOR (BLOCO COM 12 FOLHAS)"
+- **[EDITADO]** `4150700` PROTETOR DESCARTAVEL TIPO BABADOR (PACOTE COM 100 UNIDADES)
+    - Material: "PROTETOR DESCARTAVEL TIPO BABADOR (PACT/ 100 UNID)" → "PROTETOR DESCARTAVEL TIPO BABADOR (PACOTE COM 100 UNIDADES)"
+- **[EDITADO]** `4150718` ROLETE DENTAL DE ALGODÃO (COM 100 UNIDADES)
+    - Material: "ROLETE DENTAL DE ALGODÃO (C/100UNI)" → "ROLETE DENTAL DE ALGODÃO (COM 100 UNIDADES)"
+- **[EDITADO]** `4150714` SACO PLASTICO TIPO SACOLE (PACOTE COM 100 UNIDADES)
+    - Material: "SACO PLASTICO TIPO SACOLE (PACOTE COM 100UN)" → "SACO PLASTICO TIPO SACOLE (PACOTE COM 100 UNIDADES)"
+- **[EDITADO]** `4151117` SOLUCAO DE HIPOCLORITO DE SODIO 5% 1L
+    - Grupo: "15" → "13"
+    - Subgrupo: "CEO" → "Odontologia"
+    - Acesso: "CEO" → "TODOS"
+- **[EDITADO]** `4150709` SUGADOR CIRURGICO ESTERIL DESCARTAVEL (CAIXA COM 40 UNIDADES)
+    - Material: "SUGADOR CIRURGICO ESTERIL DESCARTAVEL (CX/ 40UNID)" → "SUGADOR CIRURGICO ESTERIL DESCARTAVEL (CAIXA COM 40 UNIDADES)"
+- **[NOVO]** `4151188` ABRITEC ADULTO (COM 2 UNIDADES)
+    - Código: 4151188
+    - Material: ABRITEC ADULTO (COM 2 UNIDADES)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 13
+    - Subgrupo: Odontologia
+    - Acesso: TODOS
+    - Tipo: Consumo
+    - Tags: Dentística
+    - Família: Auxiliares de abertura
+    - Arquivo da imagem: 4151188.jpg
+    - Situação: SIM
+- **[NOVO]** `4151189` AGULHA GENGIVAL LONGA 27 G DESCARTÁVEL (CAIXA COM 100 UNIDADES)
+    - Código: 4151189
+    - Material: AGULHA GENGIVAL LONGA 27 G DESCARTÁVEL (CAIXA COM 100 UNIDADES)
+    - Unidade de pedido: CA - Caixa
+    - Grupo: 13
+    - Subgrupo: Odontologia
+    - Acesso: TODOS
+    - Tipo: Consumo
+    - Tags: Anestesia;Cirurgia
+    - Família: Anestesia
+    - Arquivo da imagem: 4151189.jpg
+    - Situação: SIM
+- **[NOVO]** `4151187` KIT CIRÚRGICO DESCATÁVEL ESTÉRIL (AVENTAL + PANO DE CAMPO)
+    - Código: 4151187
+    - Material: KIT CIRÚRGICO DESCATÁVEL ESTÉRIL (AVENTAL + PANO DE CAMPO)
+    - Unidade de pedido: KI - Kit
+    - Grupo: 15
+    - Subgrupo: CEO
+    - Acesso: CEO
+    - Tipo: Consumo
+    - Tags: Cirurgia;Biossegurança
+    - Família: Descartáveis e barreiras
+    - Arquivo da imagem: 4151187.jpg
+    - Situação: SIM
+- **[NOVO]** `4151192` PLÁSTICO BOLHA (BOBINA)
+    - Código: 4151192
+    - Material: PLÁSTICO BOLHA (BOBINA)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 15
+    - Subgrupo: CEO
+    - Acesso: CEO
+    - Tipo: Consumo
+    - Tags: Prótese
+    - Família: Equipamentos de laboratório
+    - Arquivo da imagem: 4151192.jpg
+    - Situação: SIM
+- **[EXCLUÍDO]** `4150777` ALAVANCA TIPO APEXO Nº 303
+    - Código: 4150777
+    - Material: ALAVANCA TIPO APEXO Nº 303
+    - Unidade de pedido: U - Unidade
+    - Grupo: 14
+    - Subgrupo: CEO Instrumental
+    - Acesso: CEO
+    - Tipo: Instrumental
+    - Tags: Cirurgia
+    - Família: Alavancas
+    - Arquivo da imagem: 4150777.jpg
+    - Situação: SIM
+
+<!-- sessao:{"data":"2026-08-12T14:22:25.041Z","autor":"Caio Borges","total":531,"alteracoes":[{"tipo":"editado","codigo":"4150498","material":"ÁGUA OXIGENADA 3% 10 VOLUMES (FRASCO 1L)","campos":[{"campo":"material","de":"ÁGUA OXIGENADA 3% 10 VOLUMES 1L","para":"ÁGUA OXIGENADA 3% 10 VOLUMES (FRASCO 1L)"}]},{"tipo":"editado","codigo":"4150513","material":"ANESTÉSICO INJ MEPIVACAÍNA 2% COM VASOC EPINEFRINA 1:100.000 (CAIXA COM 50 TUBETES)","campos":[{"campo":"material","de":"ANESTÉSICO INJ MEPIVACAÍNA 2% COM VASOC EPINEFRINA 1:100.000 (CX/ 50 TUBETES)","para":"ANESTÉSICO INJ MEPIVACAÍNA 2% COM VASOC EPINEFRINA 1:100.000 (CAIXA COM 50 TUBETES)"}]},{"tipo":"editado","codigo":"4150128","material":"AVENTAL DESCARTAVEL GRAMATURA 40 (PACOTE COM 10 UNID) TAMANHO G","campos":[{"campo":"material","de":"AVENTAL DESCARTAVEL GRAMATURA 40 (PCT C/ 10 UNID) TAMANHO G","para":"AVENTAL DESCARTAVEL GRAMATURA 40 (PACOTE COM 10 UNID) TAMANHO G"}]},{"tipo":"editado","codigo":"4151158","material":"CAMPO CIRURG DESC TNT 50 X 50 CM (EMBALAGEM COM 50 UNIDADES)","campos":[{"campo":"material","de":"CAMPO CIRURG DESC TNT 50X50 CM - EMBALAGEM COM 50 UN","para":"CAMPO CIRURG DESC TNT 50 X 50 CM (EMBALAGEM COM 50 UNIDADES)"}]},{"tipo":"editado","codigo":"4150629","material":"CUNHA DE MADEIRA SORTIDA (PACOTE COM 100 UNIDADES)","campos":[{"campo":"material","de":"CUNHA DE MADEIRA SORTIDA PCT C/ 100 UNI","para":"CUNHA DE MADEIRA SORTIDA (PACOTE COM 100 UNIDADES)"}]},{"tipo":"editado","codigo":"4150976","material":"ESPELHO DE MÃO","campos":[{"campo":"material","de":"ESPELHO BUCAL COM CABO","para":"ESPELHO DE MÃO"},{"campo":"especialidade","de":"Diagnóstico","para":"Diagnóstico;Uso geral"}]},{"tipo":"editado","codigo":"4150937","material":"LIMA FLEXOFILE 15/21 MM (CARTELA COM 6 UNIDADES)","campos":[{"campo":"material","de":"LIMA FLEXOFILE 15/21 MM (CARTELA C/ 6 UNIDADES)","para":"LIMA FLEXOFILE 15/21 MM (CARTELA COM 6 UNIDADES)"}]},{"tipo":"editado","codigo":"4150920","material":"LIMA FLEXOFILE 20/21 MM (CARTELA COM 6 UNIDADES)","campos":[{"campo":"material","de":"LIMA FLEXOFILE 20/21 MM (CARTELA C/ 6 UNIDADES)","para":"LIMA FLEXOFILE 20/21 MM (CARTELA COM 6 UNIDADES)"}]},{"tipo":"editado","codigo":"4150738","material":"MATRIZ DE AÇO TOFFLEMERI (COM 12 TIRAS)","campos":[{"campo":"material","de":"MATRIZ DE AÇO TOFFLEMERI (C/ 12 TIRAS)","para":"MATRIZ DE AÇO TOFFLEMERI (COM 12 TIRAS)"}]},{"tipo":"editado","codigo":"4150744","material":"PAPEL DETECTOR (BLOCO COM 12 FOLHAS)","campos":[{"campo":"material","de":"PAPEL DETECTOR (BLOCO C/ 12 FOLHAS)","para":"PAPEL DETECTOR (BLOCO COM 12 FOLHAS)"}]},{"tipo":"editado","codigo":"4150700","material":"PROTETOR DESCARTAVEL TIPO BABADOR (PACOTE COM 100 UNIDADES)","campos":[{"campo":"material","de":"PROTETOR DESCARTAVEL TIPO BABADOR (PACT/ 100 UNID)","para":"PROTETOR DESCARTAVEL TIPO BABADOR (PACOTE COM 100 UNIDADES)"}]},{"tipo":"editado","codigo":"4150718","material":"ROLETE DENTAL DE ALGODÃO (COM 100 UNIDADES)","campos":[{"campo":"material","de":"ROLETE DENTAL DE ALGODÃO (C/100UNI)","para":"ROLETE DENTAL DE ALGODÃO (COM 100 UNIDADES)"}]},{"tipo":"editado","codigo":"4150714","material":"SACO PLASTICO TIPO SACOLE (PACOTE COM 100 UNIDADES)","campos":[{"campo":"material","de":"SACO PLASTICO TIPO SACOLE (PACOTE COM 100UN)","para":"SACO PLASTICO TIPO SACOLE (PACOTE COM 100 UNIDADES)"}]},{"tipo":"editado","codigo":"4151117","material":"SOLUCAO DE HIPOCLORITO DE SODIO 5% 1L","campos":[{"campo":"grupo","de":"15","para":"13"},{"campo":"subgrupo","de":"CEO","para":"Odontologia"},{"campo":"acesso","de":"CEO","para":"TODOS"}]},{"tipo":"editado","codigo":"4150709","material":"SUGADOR CIRURGICO ESTERIL DESCARTAVEL (CAIXA COM 40 UNIDADES)","campos":[{"campo":"material","de":"SUGADOR CIRURGICO ESTERIL DESCARTAVEL (CX/ 40UNID)","para":"SUGADOR CIRURGICO ESTERIL DESCARTAVEL (CAIXA COM 40 UNIDADES)"}]},{"tipo":"novo","codigo":"4151188","material":"ABRITEC ADULTO (COM 2 UNIDADES)","campos":[],"dados":{"codigo":"4151188","material":"ABRITEC ADULTO (COM 2 UNIDADES)","unidade":"U - Unidade","grupo":"13","subgrupo":"Odontologia","acesso":"TODOS","tipo":"Consumo","especialidade":"Dentística","familia":"Auxiliares de abertura","imagem":"4151188.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4151189","material":"AGULHA GENGIVAL LONGA 27 G DESCARTÁVEL (CAIXA COM 100 UNIDADES)","campos":[],"dados":{"codigo":"4151189","material":"AGULHA GENGIVAL LONGA 27 G DESCARTÁVEL (CAIXA COM 100 UNIDADES)","unidade":"CA - Caixa","grupo":"13","subgrupo":"Odontologia","acesso":"TODOS","tipo":"Consumo","especialidade":"Anestesia;Cirurgia","familia":"Anestesia","imagem":"4151189.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4151187","material":"KIT CIRÚRGICO DESCATÁVEL ESTÉRIL (AVENTAL + PANO DE CAMPO)","campos":[],"dados":{"codigo":"4151187","material":"KIT CIRÚRGICO DESCATÁVEL ESTÉRIL (AVENTAL + PANO DE CAMPO)","unidade":"KI - Kit","grupo":"15","subgrupo":"CEO","acesso":"CEO","tipo":"Consumo","especialidade":"Cirurgia;Biossegurança","familia":"Descartáveis e barreiras","imagem":"4151187.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4151192","material":"PLÁSTICO BOLHA (BOBINA)","campos":[],"dados":{"codigo":"4151192","material":"PLÁSTICO BOLHA (BOBINA)","unidade":"U - Unidade","grupo":"15","subgrupo":"CEO","acesso":"CEO","tipo":"Consumo","especialidade":"Prótese","familia":"Equipamentos de laboratório","imagem":"4151192.jpg","ativo":"SIM"}},{"tipo":"excluido","codigo":"4150777","material":"ALAVANCA TIPO APEXO Nº 303","campos":[],"dados":{"codigo":"4150777","material":"ALAVANCA TIPO APEXO Nº 303","unidade":"U - Unidade","grupo":"14","subgrupo":"CEO Instrumental","acesso":"CEO","tipo":"Instrumental","especialidade":"Cirurgia","familia":"Alavancas","imagem":"4150777.jpg","ativo":"SIM"}}]} -->
