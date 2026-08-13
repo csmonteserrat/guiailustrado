@@ -306,6 +306,14 @@ function filtrados(){
       if(!termos.every(t=>alvo.includes(t)))return false;
     }
     return true;
+  })
+  /* A ordem de exibição é alfabética pelo nome do material, independente de
+     como o produtos.csv esteja organizado. localeCompare com 'pt-BR' trata
+     acentos corretamente, deixando "Água" junto de "Agulha" e não no fim.
+     O código serve de desempate quando dois materiais têm o mesmo nome. */
+  .sort((a,b)=>{
+    const n=a.material.localeCompare(b.material,'pt-BR',{sensitivity:'base',numeric:true});
+    return n!==0?n:a.codigo.localeCompare(b.codigo,'pt-BR',{numeric:true});
   });
 }
 
