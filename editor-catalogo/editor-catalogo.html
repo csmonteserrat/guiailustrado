@@ -179,6 +179,30 @@ select{appearance:none;background-image:none;padding-right:13px}
   .nav{flex:1;min-width:74px;margin-bottom:0}
   .nav.saida{margin-top:0;padding-top:11px;border-top:none;border-left:1px solid rgba(255,255,255,.25)}
 }
+
+/* ---- histórico dentro do editor: linha do tempo ---- */
+.linhaTempo{position:relative;padding-left:22px}
+.linhaTempo:before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:var(--borda)}
+.marco{position:relative;margin-bottom:16px}
+.marco:last-child{margin-bottom:4px}
+.marco .ponto{position:absolute;left:-22px;top:4px;width:12px;height:12px;border-radius:20px;
+  background:#fff;border:3px solid var(--corn)}
+.altHist{margin-top:8px;background:var(--neutro);border-radius:14px;padding:10px 12px}
+.topoHist{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.etHist{font-size:10px;padding:3px 10px;border-radius:20px;flex:none;align-self:flex-start;white-space:nowrap}
+.campoHist{font-size:11.5px;color:var(--secundario);margin-top:2px}
+.campoHist .de{text-decoration:line-through;opacity:.6}
+.campoHist .para{color:var(--texto)}
+.longoHist{margin-top:5px}
+.longoHist .rot{font-size:10px;color:var(--secundario)}
+.txtHist{background:#fff;border-radius:12px;padding:9px 11px;font-size:11.5px;line-height:1.6;
+  margin-top:3px;position:relative;white-space:pre-wrap}
+.txtHist.recolhido{max-height:58px;overflow:hidden}
+.txtHist.recolhido:after{content:"";position:absolute;left:0;right:0;bottom:0;height:24px;
+  background:linear-gradient(transparent,#fff)}
+.longoHist .verHist{font-size:10.5px;color:var(--corn);margin-top:3px;cursor:pointer;display:inline-block}
+.linkCompleto{display:inline-block;font-size:11.5px;padding:9px 18px;border-radius:20px;
+  background:#fff;box-shadow:var(--sombra);color:var(--corn);text-decoration:none}
 </style>
 </head>
 <body>
@@ -189,7 +213,7 @@ select{appearance:none;background-image:none;padding-right:13px}
   <a class="nav ativo" href="../editor-catalogo/editor-catalogo.html"><span class="ic">&#9998;</span><span class="tx">Editor</span></a>
   <a class="nav" href="../descritivos/descritivos.html"><span class="ic">&#9776;</span><span class="tx">Pregão</span></a>
   <a class="nav" href="../preparar-imagens.html"><span class="ic">&#9634;</span><span class="tx">Imagens</span></a>
-  <a class="nav" href="../editor-catalogo/historico.md"><span class="ic">&#9711;</span><span class="tx">Histórico</span></a>
+  <a class="nav" href="historico.html"><span class="ic">&#9711;</span><span class="tx">Histórico</span></a>
   <a class="nav saida" href="../index.html"><span class="ic">&#8599;</span><span class="tx">Catálogo</span></a>
 </nav>
 <div class="coluna">
@@ -1152,69 +1176,117 @@ function validar(){
 }
 
 /* =====================================================================
-   TELA DE HISTÓRICO
+   TELA DE HISTÓRICO DENTRO DO EDITOR
+   ---------------------------------------------------------------------
+   Aqui mostramos apenas a sessão em andamento e as duas mais recentes já
+   registradas, em linha do tempo. O histórico completo, com filtros e
+   agrupamento por material, fica na página historico.html.
    ===================================================================== */
+function corDoTipo(t){
+  const m={novo:'var(--curacao)',editado:'var(--corn)',inativado:'var(--secundario)',
+           reativado:'var(--curacao)',excluido:'var(--sawtooth)',descritivo:'var(--corallite)'};
+  return m[t]||'var(--secundario)';
+}
+function fundoDoTipo(t){
+  const m={novo:'var(--curacao-suave)',editado:'var(--corn-suave)',inativado:'var(--neutro)',
+           reativado:'var(--curacao-suave)',excluido:'var(--sawtooth-suave)',
+           descritivo:'var(--corallite-suave)'};
+  return m[t]||'var(--neutro)';
+}
+
+/* Um campo alterado. Textos longos entram recolhidos, com opção de abrir. */
+let contadorTexto=0;
+function campoHistorico(c){
+  const para=c.para||'', de=c.de||'';
+  if(para.length>90||de.length>140){
+    const id='hx'+(++contadorTexto);
+    return '<div class="longoHist"><div class="rot">'+escapar(rotulo(c.campo))+
+      (de?' · texto substituído':'')+'</div>'+
+      '<div class="txtHist recolhido" id="'+id+'">'+escapar(para||de)+'</div>'+
+      '<span class="verHist" data-ver="'+id+'">ver texto completo</span></div>';
+  }
+  return '<div class="campoHist">'+escapar(rotulo(c.campo))+': '+
+    '<span class="de">'+escapar(de||'vazio')+'</span> → '+
+    '<span class="para">'+escapar(para||'vazio')+'</span></div>';
+}
+
+function alteracaoHistorico(a){
+  const campos=(a.campos&&a.campos.length)
+    ? a.campos.map(campoHistorico).join('')
+    : '<div class="campoHist">'+(a.tipo==='novo'?'item acrescentado ao arquivo':'linha removida do arquivo')+'</div>';
+  return '<div class="altHist">'+
+    '<div class="topoHist">'+
+      '<span class="etHist" style="background:'+fundoDoTipo(a.tipo)+';color:'+corDoTipo(a.tipo)+'">'+
+      NOMES_TIPO[a.tipo][0]+'</span>'+
+      '<span class="mono" style="font-size:11.5px;color:var(--corn)">'+escapar(a.codigo||'')+'</span>'+
+      '<span style="font-size:12px">'+escapar(a.material||'')+'</span></div>'+
+    '<div style="margin-top:3px">'+campos+'</div></div>';
+}
+
+function marcoHistorico(s,numero,pendente){
+  const alt=s.alteracoes||[];
+  return '<div class="marco">'+
+    '<span class="ponto" style="border-color:'+
+      corDoTipo(alt.length?alt[0].tipo:'editado')+'"></span>'+
+    '<div class="barra" style="gap:9px;align-items:baseline">'+
+      '<b style="font-size:12.5px">'+(pendente?'Sessão atual':'Sessão '+numero)+'</b>'+
+      '<span class="sub" style="font-size:11px">'+
+        (pendente?'ainda não baixada':escapar(dataLegivel(s.data))+(s.autor?' · '+escapar(s.autor):''))+
+      '</span>'+
+      '<span class="espaco sub" style="font-size:10.5px">'+alt.length+' alteração(ões)</span></div>'+
+    alt.map(alteracaoHistorico).join('')+
+  '</div>';
+}
+
 function abrirHistorico(){
   const atual=sessaoAtual();
-  const todas=HISTORICO.slice().reverse();
+  const pendente=atual.alteracoes.length>0;
+  const ultimas=HISTORICO.slice(-2).reverse();   // as duas mais recentes já registradas
+  contadorTexto=0;
+
   const fundo=document.createElement('div');
   fundo.className='fundo-modal';
-
-  const blocoHtml=(s,numero,pendente)=>{
-    const contagem={};
-    s.alteracoes.forEach(a=>contagem[a.tipo]=(contagem[a.tipo]||0)+1);
-    /* flex:none é essencial: o corpo do modal é um contêiner flexível em
-       coluna e, sem isso, blocos com muitas alterações são comprimidos e
-       o conteúdo excedente fica cortado, dando a impressão de que apenas
-       algumas alterações foram registradas. */
-    return '<div style="flex:none;border:1px solid var(--linha);border-radius:10px;'+
-      'margin-bottom:10px;overflow:hidden">'+
-      '<div style="padding:10px 12px;background:'+(pendente?'var(--verde-suave)':'#fafbff')+
-        ';border-bottom:1px solid var(--linha);display:flex;gap:10px;align-items:center;flex-wrap:wrap">'+
-        '<b style="font-size:13px">'+(pendente?'Sessão atual, ainda não baixada':'Sessão '+numero)+'</b>'+
-        '<span class="sub">'+dataLegivel(s.data)+(s.autor?' · '+escapar(s.autor):'')+'</span>'+
-        '<span class="espaco sub">'+s.alteracoes.length+' alteração(ões) · '+s.total+' itens</span></div>'+
-      (s.alteracoes.length
-        ? '<div style="padding:4px 0">'+s.alteracoes.map(a=>
-            '<div class="mudanca"><span class="tag '+NOMES_TIPO[a.tipo][1]+'" style="flex:none">'+
-            NOMES_TIPO[a.tipo][0]+'</span><div><div style="font-size:12.5px">'+
-            '<span class="mono" style="color:var(--azul)">'+escapar(a.codigo)+'</span> '+escapar(a.material)+'</div>'+
-            (a.campos&&a.campos.length
-              ? a.campos.map(c=>'<div class="diff">'+rotulo(c.campo)+': <span class="de">'+
-                  escapar(c.de||'vazio')+'</span> → <span class="para">'+escapar(c.para||'vazio')+'</span></div>').join('')
-              : '<div class="diff">'+(a.tipo==='novo'?'item acrescentado ao arquivo':
-                 a.tipo==='excluido'?'linha removida do arquivo':'')+'</div>')+
-            '</div></div>').join('')+'</div>'
-        : '<div class="sub" style="padding:12px">nenhuma alteração nesta sessão</div>')+
-      '</div>';
-  };
-
-  fundo.innerHTML='<div class="modal" style="max-width:820px">'+
+  fundo.innerHTML='<div class="modal" style="max-width:720px">'+
     '<header><div><h2 style="margin:0">Histórico de alterações</h2>'+
     '<div class="sub">'+(historicoCarregado
-        ? HISTORICO.length+' sessão(ões) registrada(s) em historico.md'
+        ? (HISTORICO.length
+            ? HISTORICO.length+' sessão(ões) registrada(s)'+
+              (HISTORICO.length>2?', mostrando as duas mais recentes':'')
+            : 'nenhuma sessão registrada ainda')
         : 'não consegui ler o historico.md automaticamente')+'</div></div>'+
     '<button class="sec mini" data-fechar="1">Fechar</button></header>'+
-    '<div class="corpo" style="max-height:66vh;overflow:auto">'+
+    '<div class="corpo" style="max-height:64vh;overflow:auto">'+
       (!historicoCarregado
-        ? '<div class="nota aviso">O arquivo <span class="mono">historico.md</span> não foi encontrado. '+
-          'Isso é normal na primeira vez, ou ao abrir a página direto do disco. '+
-          'Se já existir um histórico no repositório, carregue-o antes de baixar, para não perder os registros anteriores.'+
-          '<div style="margin-top:9px"><button class="sec mini" id="btImportar">Carregar historico.md</button></div></div>'
+        ? '<div class="nota aviso" style="flex:none">O arquivo <span class="mono">historico.md</span> não foi '+
+          'encontrado. Isso é normal na primeira vez, ou ao abrir a página direto do disco. Se já existir um '+
+          'histórico no repositório, carregue-o antes de baixar, para não perder os registros anteriores.'+
+          '<div style="margin-top:9px"><button class="mini plana" id="btImportar">Carregar historico.md</button></div></div>'
         : '')+
-      (mudancas().length?blocoHtml(atual,0,true):'')+
-      (todas.length?todas.map((s,i)=>blocoHtml(s,HISTORICO.length-i,false)).join('')
-        :(historicoCarregado?'<div class="sub">Nenhuma sessão registrada ainda.</div>':''))+
+      (pendente||ultimas.length
+        ? '<div class="linhaTempo" style="flex:none">'+
+          (pendente?marcoHistorico(atual,0,true):'')+
+          ultimas.map((s,i)=>marcoHistorico(s,HISTORICO.length-i,false)).join('')+
+          '</div>'
+        : '<div class="sub">Nada foi alterado nesta sessão e não há registros anteriores.</div>')+
+      '<div style="text-align:center;margin-top:2px;flex:none">'+
+        '<a class="linkCompleto" href="historico.html">ver o histórico completo &rarr;</a></div>'+
     '</div>'+
     '<footer>'+
-      '<button class="sec mini" id="btAutor">Meu nome nos registros</button>'+
+      '<button class="mini plana" id="btAutor">Meu nome nos registros</button>'+
       '<span class="espaco"></span>'+
-      (historicoCarregado?'<button class="sec mini" id="btImportar2">Recarregar arquivo</button>':'')+
+      (historicoCarregado?'<button class="mini plana" id="btImportar2">Recarregar arquivo</button>':'')+
       '<button class="sec" data-fechar="1">Fechar</button></footer></div>';
   document.body.appendChild(fundo);
 
   fundo.addEventListener('click',e=>{
     if(e.target===fundo||(e.target.dataset&&e.target.dataset.fechar))fundo.remove()});
+  fundo.querySelectorAll('[data-ver]').forEach(el=>{
+    el.onclick=()=>{
+      const alvo=fundo.querySelector('#'+el.dataset.ver);
+      const recolhido=alvo.classList.toggle('recolhido');
+      el.textContent=recolhido?'ver texto completo':'recolher texto';
+    };
+  });
   const imp=fundo.querySelector('#btImportar'), imp2=fundo.querySelector('#btImportar2');
   if(imp)imp.onclick=()=>{fundo.remove();importarHistorico()};
   if(imp2)imp2.onclick=()=>{fundo.remove();importarHistorico()};

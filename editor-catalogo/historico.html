@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Histórico de alterações</title>
+<style>
+:root{
+  --corn:#546de5;        --corn-suave:#eceffd;
+  --corallite:#574b90;   --corallite-suave:#eeecf5;
+  --sawtooth:#f19066;    --sawtooth-suave:#fdefe8;
+  --curacao:#3dc1d3;     --curacao-suave:#e6f7fa;
+  --peach:#f3a683;
+  --geranium:#cf6a87;    --geranium-suave:#fbeef1;
+  --texto:#303952;
+  --secundario:#596275;
+  --fundo:#eef3f9;
+  --neutro:#f7f8fa;
+  --borda:#eef2f6;
+  --sombra:0 6px 22px rgba(48,57,82,.07);
+  --raio:20px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fundo);color:var(--texto);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.5}
+h1{font-size:17px;font-weight:600;margin:0}
+.sub{color:var(--secundario);font-size:11.5px}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace}
+.oculto{display:none !important}
+.espaco{margin-left:auto}
+.barra{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+
+/* barra lateral */
+.app{display:flex;gap:16px;padding:16px;max-width:1240px;margin:0 auto;align-items:flex-start}
+.lateral{width:82px;flex:none;background:var(--curacao);border-radius:24px;padding:16px 10px;
+  position:sticky;top:16px;z-index:30}
+.marca{text-align:center;color:#fff;font-size:10px;line-height:1.3;opacity:.9;margin-bottom:14px}
+.marca b{display:block;font-size:12px;font-weight:600;opacity:1}
+.nav{display:block;text-decoration:none;text-align:center;padding:11px 4px;border-radius:16px;
+  margin-bottom:6px;color:rgba(255,255,255,.85);transition:.15s}
+.nav:hover{background:rgba(255,255,255,.15)}
+.nav .ic{font-size:17px;line-height:1.2}
+.nav .tx{font-size:9px;margin-top:3px;display:block}
+.nav.ativo{background:#fff;color:var(--curacao);box-shadow:var(--sombra)}
+.nav.saida{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.25)}
+.coluna{flex:1;min-width:0;padding-bottom:30px}
+@media(max-width:820px){
+  .app{flex-direction:column;padding:12px}
+  .lateral{width:100%;position:static;display:flex;gap:6px;overflow-x:auto;padding:10px;border-radius:20px}
+  .marca{display:none}
+  .nav{flex:1;min-width:74px;margin-bottom:0}
+  .nav.saida{margin-top:0;padding-top:11px;border-top:none;border-left:1px solid rgba(255,255,255,.25)}
+}
+
+/* controles */
+.pilula{font:inherit;font-size:11.5px;padding:8px 14px;border-radius:20px;border:none;cursor:pointer;
+  background:#fff;color:var(--secundario);box-shadow:var(--sombra);white-space:nowrap}
+.pilula[aria-pressed="true"]{background:var(--corn);color:#fff}
+.pilula.plana{box-shadow:none;background:var(--neutro);font-size:11px;padding:8px 13px}
+
+/* sessões */
+.sessao{background:#fff;border-radius:16px;box-shadow:var(--sombra);margin-bottom:10px;overflow:hidden}
+.cabSessao{padding:12px 16px;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;cursor:pointer}
+.sessao.aberta .cabSessao{background:var(--neutro)}
+.cabSessao b{font-size:13px}
+.alt{padding:10px 16px;border-top:1px solid var(--borda)}
+.alt .topo{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.alt .cod{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px;color:var(--corn)}
+.alt .nome{font-size:12.5px}
+.et{font-size:10px;padding:3px 10px;border-radius:20px;flex:none;align-self:flex-start;white-space:nowrap}
+.campo{font-size:11.5px;color:var(--secundario);margin-top:2px}
+.campo .de{text-decoration:line-through;opacity:.6}
+.campo .para{color:var(--texto)}
+.longo{margin-top:5px}
+.longo .r{font-size:10px;color:var(--secundario)}
+.longo .txt{background:var(--neutro);border-radius:12px;padding:9px 11px;font-size:11.5px;
+  line-height:1.6;margin-top:3px;position:relative;white-space:pre-wrap}
+.longo .txt.recolhido{max-height:58px;overflow:hidden}
+.longo .txt.recolhido:after{content:"";position:absolute;left:0;right:0;bottom:0;height:24px;
+  background:linear-gradient(transparent,var(--neutro))}
+.longo .ver{font-size:10.5px;color:var(--corn);margin-top:3px;cursor:pointer;display:inline-block}
+.vazio{background:#fff;border-radius:16px;box-shadow:var(--sombra);padding:34px 20px;
+  text-align:center;color:var(--secundario);font-size:13px}
+.rodape{margin-top:16px;font-size:11px;color:var(--secundario);text-align:center}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <nav class="lateral">
+    <div class="marca"><b>Admin</b>catálogo</div>
+    <a class="nav" href="../admin.html"><span class="ic">&#9635;</span><span class="tx">Painel</span></a>
+    <a class="nav" href="editor-catalogo.html"><span class="ic">&#9998;</span><span class="tx">Editor</span></a>
+    <a class="nav" href="../descritivos/descritivos.html"><span class="ic">&#9776;</span><span class="tx">Pregão</span></a>
+    <a class="nav" href="../preparar-imagens.html"><span class="ic">&#9634;</span><span class="tx">Imagens</span></a>
+    <a class="nav ativo" href="historico.html"><span class="ic">&#9711;</span><span class="tx">Histórico</span></a>
+    <a class="nav saida" href="../index.html"><span class="ic">&#8599;</span><span class="tx">Catálogo</span></a>
+  </nav>
+
+  <div class="coluna">
+
+    <div class="barra" style="margin-bottom:13px">
+      <div>
+        <h1>Histórico de alterações</h1>
+        <div class="sub" id="resumo">carregando o arquivo...</div>
+      </div>
+      <div class="barra espaco">
+        <button class="pilula" id="btRecarregar">Recarregar</button>
+        <button class="pilula" id="btImportar">Abrir um arquivo</button>
+        <input type="file" id="entradaArquivo" accept=".md,.txt,text/plain" style="display:none">
+      </div>
+    </div>
+
+    <div class="barra" style="margin-bottom:13px" id="filtros"></div>
+
+    <div id="lista"></div>
+
+    <div class="rodape">
+      Este registro é gerado automaticamente pelo editor do catálogo, no arquivo
+      <span class="mono">historico.md</span>. Não edite o arquivo à mão.
+    </div>
+
+  </div>
+</div>
+
+<script>
+/* =====================================================================
+   Página de consulta do histórico. Lê o mesmo historico.md gravado pelo
+   editor: o texto é legível no GitHub, e ao final de cada sessão há um
+   comentário HTML com os dados exatos, que é o que esta página usa.
+   ===================================================================== */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+let SESSOES=[];      // da mais recente para a mais antiga
+let filtro='todas';
+let abertas={};      // número da sessão -> aberta
+
+/* rótulos e cores por tipo de alteração */
+const TIPOS={
+  novo:['novo','var(--curacao)','var(--curacao-suave)'],
+  editado:['editado','var(--corn)','var(--corn-suave)'],
+  inativado:['inativado','var(--secundario)','var(--neutro)'],
+  reativado:['reativado','var(--curacao)','var(--curacao-suave)'],
+  excluido:['excluído','var(--sawtooth)','var(--sawtooth-suave)'],
+  descritivo:['descritivo','var(--corallite)','var(--corallite-suave)']
+};
+const ROTULOS={codigo:'Código',material:'Material',unidade:'Unidade de pedido',grupo:'Grupo',
+  subgrupo:'Subgrupo',acesso:'Acesso',tipo:'Tipo',especialidade:'Tags',familia:'Família',
+  imagem:'Arquivo da imagem',observacao:'Observação',ativo:'Situação',
+  nome_pregao:'Nome para o pregão',descritivo:'Descritivo',unidade_compra:'Unidade de compra'};
+const rotulo=c=>ROTULOS[c]||c;
+const dadosTipo=t=>TIPOS[t]||[t,'var(--secundario)','var(--neutro)'];
+
+function lerHistorico(texto){
+  const blocos=[];
+  const re=/<!--\s*sessao:(\{[\s\S]*?\})\s*-->/g;
+  let m;
+  while((m=re.exec(texto))!==null){
+    try{blocos.push(JSON.parse(m[1]))}catch(e){}
+  }
+  blocos.sort((a,b)=>String(b.data||'').localeCompare(String(a.data||'')));  // mais recente primeiro
+  return blocos;
+}
+
+function dataLegivel(iso){
+  try{return new Date(iso).toLocaleString('pt-BR',{dateStyle:'short',timeStyle:'short'})}
+  catch(e){return iso}
+}
+
+async function carregar(){
+  $('#resumo').textContent='carregando o arquivo...';
+  try{
+    const r=await fetch('historico.md?t='+Date.now());
+    if(!r.ok)throw 0;
+    aplicar(lerHistorico(await r.text()));
+  }catch(e){
+    $('#lista').innerHTML='<div class="vazio">Não consegui ler o arquivo '+
+      '<span class="mono">historico.md</span>.<br>'+
+      '<span style="font-size:12px">Esta página precisa ser aberta pelo endereço publicado. '+
+      'Se estiver abrindo do disco, use o botão <b>Abrir um arquivo</b>.</span></div>';
+    $('#resumo').textContent='arquivo não encontrado';
+    $('#filtros').innerHTML='';
+  }
+}
+
+function aplicar(blocos){
+  SESSOES=blocos;
+  /* Abre a mais recente e deixa as demais recolhidas, para a página
+     começar curta mesmo com muitas sessões registradas. */
+  abertas={};
+  if(SESSOES.length)abertas[numero(0)]=true;
+  montarFiltros();desenhar();
+}
+
+/* A numeração cresce da mais antiga para a mais nova. */
+const numero=i=>SESSOES.length-i;
+
+$('#btRecarregar').onclick=carregar;
+$('#btImportar').onclick=()=>$('#entradaArquivo').click();
+$('#entradaArquivo').onchange=e=>{
+  const f=e.target.files[0];if(!f)return;
+  const fr=new FileReader();
+  fr.onload=()=>aplicar(lerHistorico(fr.result));
+  fr.readAsText(f,'utf-8');
+  e.target.value='';
+};
+
+function montarFiltros(){
+  const opcoes=[['todas','Todas as sessões'],['descritivo','Descritivos'],['editado','Editados'],
+    ['excluido','Excluídos'],['material','Por material']];
+  $('#filtros').innerHTML=
+    opcoes.map(([k,t])=>'<button class="pilula" data-f="'+k+'" aria-pressed="'+(filtro===k)+'">'+t+'</button>').join('')+
+    '<span class="espaco barra">'+
+    '<button class="pilula plana" id="btTudo">expandir tudo</button>'+
+    '<button class="pilula plana" id="btNada">recolher tudo</button></span>';
+  $('#filtros').querySelectorAll('[data-f]').forEach(b=>{
+    b.onclick=()=>{filtro=b.dataset.f;montarFiltros();desenhar()};
+  });
+  const t=$('#btTudo'), n=$('#btNada');
+  if(t)t.onclick=()=>{SESSOES.forEach((s,i)=>abertas[numero(i)]=true);desenhar()};
+  if(n)n.onclick=()=>{abertas={};desenhar()};
+}
+
+/* ---------- desenho dos campos alterados ---------- */
+let idLongo=0;
+function campoHtml(c){
+  const para=c.para||'', de=c.de||'';
+  if(para.length>90||de.length>140){
+    const id='lg'+(++idLongo);
+    return '<div class="longo"><div class="r">'+esc(rotulo(c.campo))+
+      (de?' · texto substituído':'')+'</div>'+
+      '<div class="txt recolhido" id="'+id+'">'+esc(para||de)+'</div>'+
+      '<span class="ver" data-ver="'+id+'">ver texto completo</span></div>';
+  }
+  return '<div class="campo">'+esc(rotulo(c.campo))+': '+
+    '<span class="de">'+esc(de||'vazio')+'</span> → '+
+    '<span class="para">'+esc(para||'vazio')+'</span></div>';
+}
+
+function alteracaoHtml(a){
+  const [nome,cor,fundo]=dadosTipo(a.tipo);
+  const campos=(a.campos&&a.campos.length)
+    ? a.campos.map(campoHtml).join('')
+    : '<div class="campo">'+(a.tipo==='novo'?'item acrescentado ao arquivo':'linha removida do arquivo')+'</div>';
+  return '<div class="alt"><div class="topo">'+
+    '<span class="et" style="background:'+fundo+';color:'+cor+'">'+nome+'</span>'+
+    '<span class="cod">'+esc(a.codigo||'')+'</span>'+
+    '<span class="nome">'+esc(a.material||'')+'</span></div>'+
+    '<div style="margin-top:3px">'+campos+'</div></div>';
+}
+
+/* ---------- visão por sessão ---------- */
+function desenharSessoes(){
+  const lista=SESSOES.map((s,i)=>({
+    s, n:numero(i),
+    alt:(s.alteracoes||[]).filter(a=>filtro==='todas'||a.tipo===filtro)
+  })).filter(x=>x.alt.length);
+
+  if(!lista.length)return '<div class="vazio">Nenhuma alteração deste tipo no histórico.</div>';
+
+  return lista.map(({s,n,alt})=>{
+    const ab=!!abertas[n];
+    return '<div class="sessao'+(ab?' aberta':'')+'">'+
+      '<div class="cabSessao" data-ses="'+n+'">'+
+        '<b>Sessão '+n+'</b>'+
+        '<span class="sub">'+esc(dataLegivel(s.data))+(s.autor?' · '+esc(s.autor):'')+'</span>'+
+        '<span class="espaco sub">'+alt.length+' alteração(ões)'+
+          (s.total?' · '+s.total+' itens':'')+'</span>'+
+        '<span class="sub" style="font-size:10px">'+(ab?'▲':'▼')+'</span>'+
+      '</div>'+
+      (ab?alt.map(alteracaoHtml).join(''):'')+
+    '</div>';
+  }).join('');
+}
+
+/* ---------- visão por material ---------- */
+function desenharPorMaterial(){
+  const porItem=new Map();
+  SESSOES.forEach((s,i)=>(s.alteracoes||[]).forEach(a=>{
+    const chave=a.codigo||a.material||'?';
+    if(!porItem.has(chave))porItem.set(chave,{codigo:a.codigo,material:a.material,ev:[]});
+    const reg=porItem.get(chave);
+    if(a.material)reg.material=a.material;   // guarda o nome mais recente
+    reg.ev.push({s,n:numero(i),a});
+  }));
+  if(!porItem.size)return '<div class="vazio">Nenhuma alteração registrada no histórico.</div>';
+
+  const itens=[...porItem.values()].sort((a,b)=>
+    (a.material||'').localeCompare(b.material||'','pt-BR',{sensitivity:'base',numeric:true}));
+
+  return itens.map(it=>'<div class="sessao">'+
+    '<div class="cabSessao" style="cursor:default;background:var(--neutro)">'+
+      '<span class="cod" style="font-size:12px">'+esc(it.codigo||'')+'</span>'+
+      '<b>'+esc(it.material||'')+'</b>'+
+      '<span class="espaco sub">'+it.ev.length+' alteração(ões)</span></div>'+
+    it.ev.map(e=>{
+      const [nome,cor,fundo]=dadosTipo(e.a.tipo);
+      const campos=(e.a.campos&&e.a.campos.length)
+        ? e.a.campos.map(campoHtml).join('')
+        : '<div class="campo">'+(e.a.tipo==='novo'?'item acrescentado ao arquivo':'linha removida do arquivo')+'</div>';
+      return '<div class="alt"><div class="topo">'+
+        '<span class="et" style="background:'+fundo+';color:'+cor+'">'+nome+'</span>'+
+        '<span class="sub">Sessão '+e.n+' · '+esc(dataLegivel(e.s.data))+
+        (e.s.autor?' · '+esc(e.s.autor):'')+'</span></div>'+
+        '<div style="margin-top:3px">'+campos+'</div></div>';
+    }).join('')+'</div>').join('');
+}
+
+function desenhar(){
+  idLongo=0;
+  $('#lista').innerHTML=filtro==='material'?desenharPorMaterial():desenharSessoes();
+
+  const total=SESSOES.reduce((n,s)=>n+(s.alteracoes||[]).length,0);
+  $('#resumo').textContent=SESSOES.length+' sessão(ões) · '+total+' alteração(ões)'+
+    (SESSOES.length?' · última em '+dataLegivel(SESSOES[0].data):'');
+
+  $('#lista').querySelectorAll('[data-ses]').forEach(el=>{
+    el.onclick=()=>{const n=el.dataset.ses;abertas[n]=!abertas[n];desenhar()};
+  });
+  $('#lista').querySelectorAll('[data-ver]').forEach(el=>{
+    el.onclick=()=>{
+      const alvo=document.getElementById(el.dataset.ver);
+      const recolhido=alvo.classList.toggle('recolhido');
+      el.textContent=recolhido?'ver texto completo':'recolher texto';
+    };
+  });
+}
+
+carregar();
+</script>
+</body>
+</html>
