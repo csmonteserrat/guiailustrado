@@ -5,218 +5,275 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Administração do catálogo</title>
 <style>
+/* =====================================================================
+   Identidade visual: superfícies brancas arredondadas flutuando sobre
+   fundo claro, sombras suaves no lugar de bordas, pílulas para ações e
+   filtros. Paleta Russian do Flat UI Colors com neutros.
+   Para mudar as cores do sistema, altere apenas este bloco.
+   ===================================================================== */
 :root{
-  --azul:#546de5; --azul-suave:#e8ebfc; --roxo:#574b90; --roxo-suave:#eae7f5;
-  --laranja:#f19066; --laranja-suave:#fdeee7; --verde:#2f9e6f; --verde-suave:#e4f5ed;
-  --texto:#303952; --secundario:#6b7291; --linha:#e2e4ef; --fundo:#f4f5fa;
+  --corn:#546de5;        --corn-suave:#eceffd;      /* rede básica, grupos 12 e 13 */
+  --corallite:#574b90;   --corallite-suave:#eeecf5; /* CEO, grupos 14 e 15 */
+  --sawtooth:#f19066;    --sawtooth-suave:#fdefe8;  /* interesse odontológico */
+  --curacao:#3dc1d3;     --curacao-suave:#e6f7fa;   /* ferramentas administrativas */
+  --peach:#f3a683;                                   /* ação principal */
+  --geranium:#cf6a87;    --geranium-suave:#fbeef1;  /* erro */
+  --summer:#f5cd79;                                  /* destaque de busca */
+
+  --texto:#303952;       /* Biscay */
+  --secundario:#596275;  /* Pencil Lead */
+  --fundo:#eef3f9;
+  --neutro:#f7f8fa;
+  --borda:#eef2f6;
+  --sombra:0 6px 22px rgba(48,57,82,.07);
+  --sombra-alta:0 12px 34px rgba(48,57,82,.12);
+  --raio:20px;
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--fundo);color:var(--texto);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.5}
-.wrap{max-width:940px;margin:0 auto;padding:34px 18px 70px}
-h1{font-size:23px;font-weight:600;margin:0}
-h2{font-size:14px;font-weight:600;margin:0 0 12px;color:var(--secundario);
-   text-transform:uppercase;letter-spacing:.05em;font-size:11.5px}
-.sub{color:var(--secundario);font-size:13.5px}
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.45}
+h1{font-size:19px;font-weight:600;margin:0}
+h2{font-size:14px;font-weight:600;margin:0 0 12px}
+.sub{color:var(--secundario);font-size:12px}
 .mono{font-family:ui-monospace,Menlo,Consolas,monospace}
+.oculto{display:none !important}
+.espaco{margin-left:auto}
+.barra{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
 
-.topo{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:26px}
-.tag{font-size:11px;padding:3px 10px;border-radius:20px;display:inline-block}
-.t-az{background:var(--azul-suave);color:var(--azul)}
-.t-vd{background:var(--verde-suave);color:var(--verde)}
-.t-lr{background:var(--laranja-suave);color:var(--laranja)}
-.t-ci{background:#f1f2f6;color:var(--secundario)}
+/* ---------- estrutura ---------- */
+.app{display:flex;gap:16px;padding:16px;max-width:1240px;margin:0 auto;align-items:flex-start}
+.lateral{width:82px;flex:none;background:var(--curacao);border-radius:24px;padding:16px 10px;
+  position:sticky;top:16px}
+.marca{text-align:center;color:#fff;font-size:10px;line-height:1.3;opacity:.9;margin-bottom:14px}
+.marca b{display:block;font-size:12px;font-weight:600;opacity:1}
+.nav{display:block;text-decoration:none;text-align:center;padding:11px 4px;border-radius:16px;
+  margin-bottom:6px;color:rgba(255,255,255,.85);transition:.15s}
+.nav:hover{background:rgba(255,255,255,.15)}
+.nav .ic{font-size:17px;line-height:1.2}
+.nav .tx{font-size:9px;margin-top:3px;display:block}
+.nav.ativo{background:#fff;color:var(--curacao);box-shadow:var(--sombra)}
+.nav.saida{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.25);border-radius:0 0 16px 16px}
+.conteudo{flex:1;min-width:0}
 
-/* painel de números */
-.numeros{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:26px}
-.numero{background:#fff;border:1px solid var(--linha);border-radius:12px;padding:14px 16px}
-.numero .v{font-size:24px;font-weight:600;line-height:1.15}
-.numero .r{font-size:11.5px;color:var(--secundario);margin-top:2px}
-.progresso{height:6px;background:var(--linha);border-radius:20px;overflow:hidden;margin-top:9px}
-.progresso i{display:block;height:100%;background:var(--verde);width:0;transition:width .5s}
+@media(max-width:820px){
+  .app{flex-direction:column;padding:12px}
+  .lateral{width:100%;position:static;display:flex;gap:6px;overflow-x:auto;padding:10px;border-radius:20px}
+  .marca{display:none}
+  .nav{flex:1;min-width:74px;margin-bottom:0}
+  .nav.saida{margin-top:0;padding-top:11px;border-top:none;border-left:1px solid rgba(255,255,255,.25)}
+}
 
-/* cartões de ferramenta */
-.cartoes{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:14px;margin-bottom:16px}
-a.cartao{display:block;text-decoration:none;color:inherit;background:#fff;
-  border:1px solid var(--linha);border-radius:12px;padding:18px;transition:.15s}
-a.cartao:hover{border-color:var(--azul);transform:translateY(-1px);
-  box-shadow:0 4px 14px rgba(84,109,229,.10)}
-.cartao .ic{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;
-  justify-content:center;font-size:19px;margin-bottom:12px}
-.cartao .tt{font-size:15px;font-weight:600;margin-bottom:4px}
-.cartao .ds{font-size:12.5px;color:var(--secundario)}
-.cartao .pe{font-size:11.5px;color:var(--azul);margin-top:11px;display:inline-block}
+/* ---------- cartões ---------- */
+.cartao{background:#fff;border-radius:var(--raio);padding:16px 18px;box-shadow:var(--sombra)}
+.cabecalho{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
 
-.cartao.futuro{background:#fbfbfd;border-style:dashed;cursor:default}
-.cartao.futuro:hover{border-color:var(--linha);transform:none;box-shadow:none}
-.cartao.futuro .tt,.cartao.futuro .ds{color:var(--secundario)}
+/* pílulas e botões */
+button,.pilula{font:inherit;font-size:12.5px;padding:9px 17px;border-radius:20px;border:none;
+  background:#fff;color:var(--texto);cursor:pointer;box-shadow:var(--sombra);text-decoration:none;
+  display:inline-block;white-space:nowrap}
+button.principal,.pilula.principal{background:var(--peach);color:#fff}
+button.acento{background:var(--curacao);color:#fff}
+button:disabled{opacity:.5;cursor:default}
+button.mini{font-size:11.5px;padding:6px 13px}
+button.plana{box-shadow:none;background:var(--neutro)}
+input[type=text]{font:inherit;font-size:12.5px;padding:9px 13px;border:none;border-radius:14px;
+  background:var(--neutro);color:var(--texto)}
+input[type=file]{display:none}
 
-.painel{background:#fff;border:1px solid var(--linha);border-radius:12px;padding:18px;margin-bottom:14px}
-ol,ul{padding-left:20px;font-size:13.5px;color:var(--secundario);margin:0}
-li{margin-bottom:6px}
-code{background:var(--fundo);padding:1px 5px;border-radius:4px;font-size:12.5px}
-.linhaArq{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid #eef0f6;font-size:13px}
+/* números */
+.numeros{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:11px;margin-bottom:12px}
+.numero{background:#fff;border-radius:var(--raio);padding:14px 16px;box-shadow:var(--sombra)}
+.numero .v{font-size:22px;font-weight:600;line-height:1.15}
+.numero .r{font-size:10.5px;color:var(--secundario);margin-top:2px}
+.progresso{height:6px;background:var(--borda);border-radius:20px;overflow:hidden;margin-top:9px}
+.progresso i{display:block;height:100%;background:var(--curacao);width:0;transition:width .5s}
+
+/* ferramentas */
+.ferramentas{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:12px;margin-bottom:12px}
+a.ferr{display:block;text-decoration:none;color:inherit;background:#fff;border-radius:var(--raio);
+  padding:16px 18px;box-shadow:var(--sombra);transition:.16s}
+a.ferr:hover{transform:translateY(-2px);box-shadow:var(--sombra-alta)}
+.ferr .ic{width:36px;height:36px;border-radius:13px;display:flex;align-items:center;
+  justify-content:center;font-size:16px;margin-bottom:10px}
+.ferr .tt{font-size:13.5px;font-weight:600;margin-bottom:3px}
+.ferr .ds{font-size:11px;color:var(--secundario);line-height:1.55}
+.ferr .pe{font-size:11px;margin-top:10px;display:inline-block}
+.ferr.futuro{background:#fbfcfd;box-shadow:none;border:1px dashed #dfe6ee;cursor:default}
+.ferr.futuro:hover{transform:none;box-shadow:none}
+.ferr.futuro .tt,.ferr.futuro .ds{color:var(--secundario)}
+
+/* conferência */
+.bloco{border-radius:16px;margin-bottom:10px;overflow:hidden;background:var(--neutro)}
+.bloco>.cab{padding:11px 14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;cursor:pointer}
+.bloco>.cab .qt{font-weight:600;font-size:15px}
+.bloco>.cab .tt{font-size:12.5px}
+.bloco>.cab .seta{margin-left:auto;color:var(--secundario);font-size:11px}
+.bloco .conteudo2{background:#fff;border-radius:14px;margin:0 8px 8px;max-height:270px;overflow:auto}
+.bloco .item{padding:8px 13px;font-size:12px;border-bottom:1px solid var(--borda);display:flex;gap:9px}
+.bloco .item:last-child{border-bottom:none}
+.bloco .item .cd{font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--corn);flex:none}
+.bloco .item .obs{margin-left:auto;color:var(--secundario);font-size:11px;flex:none;padding-left:10px}
+.b-ok{background:var(--curacao-suave)} .b-ok .qt{color:var(--curacao)}
+.b-al{background:var(--sawtooth-suave)} .b-al .qt{color:var(--sawtooth)}
+.b-er{background:var(--geranium-suave)} .b-er .qt{color:var(--geranium)}
+.b-nt{background:var(--neutro)} .b-nt .qt{color:var(--secundario)}
+
+.tag{font-size:10.5px;padding:3px 10px;border-radius:20px;display:inline-block;white-space:nowrap}
+.t-az{background:var(--corn-suave);color:var(--corn)}
+.t-vd{background:var(--curacao-suave);color:var(--curacao)}
+.t-lr{background:var(--sawtooth-suave);color:var(--sawtooth)}
+.t-ci{background:var(--neutro);color:var(--secundario)}
+
+ol{padding-left:19px;font-size:12.5px;color:var(--secundario);margin:0}
+ol li{margin-bottom:6px}
+code{background:var(--neutro);padding:1px 6px;border-radius:6px;font-size:12px}
+.linhaArq{display:flex;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--borda);font-size:12.5px}
 .linhaArq:last-child{border-bottom:none}
 .linhaArq .nm{flex:1}
-.rodape{margin-top:30px;font-size:12px;color:var(--secundario);text-align:center}
-
-/* conferência de imagens */
-button{font:inherit;font-size:13.5px;padding:8px 14px;border-radius:8px;border:none;
-  background:var(--azul);color:#fff;cursor:pointer}
-button:disabled{opacity:.45;cursor:default}
-button.sec{background:#fff;color:var(--texto);border:1px solid var(--linha)}
-button.mini{font-size:12px;padding:5px 10px}
-input[type=text]{font:inherit;font-size:13px;padding:7px 9px;border:1px solid var(--linha);
-  border-radius:8px;background:#fff;color:var(--texto)}
-input[type=file]{display:none}
-.barra{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
-.oculto{display:none !important}
-.bloco{border:1px solid var(--linha);border-radius:10px;margin-bottom:10px;overflow:hidden}
-.bloco>.cab{padding:10px 13px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;cursor:pointer}
-.bloco>.cab .qt{font-weight:600;font-size:15px}
-.bloco>.cab .tt{font-size:13.5px}
-.bloco>.cab .seta{margin-left:auto;color:var(--secundario);font-size:12px}
-.bloco .conteudo{border-top:1px solid var(--linha);max-height:270px;overflow:auto;background:#fff}
-.bloco .item{padding:7px 13px;font-size:12.5px;border-bottom:1px solid #f2f4f8;display:flex;gap:9px}
-.bloco .item:last-child{border-bottom:none}
-.bloco .item .cd{font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--azul);flex:none}
-.bloco .item .obs{margin-left:auto;color:var(--secundario);font-size:11.5px;flex:none;padding-left:10px}
-.b-ok{background:var(--verde-suave)} .b-ok .qt{color:var(--verde)}
-.b-al{background:var(--laranja-suave)} .b-al .qt{color:var(--laranja)}
-.b-er{background:#fbe9ef} .b-er .qt{color:#c44569}
-.b-nt{background:#f7f8fc} .b-nt .qt{color:var(--secundario)}
+.rodape{margin-top:18px;font-size:11px;color:var(--secundario);text-align:center;padding-bottom:10px}
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="app">
 
-<div class="topo">
-  <div>
-    <h1>Administração do catálogo</h1>
-    <p class="sub" style="margin:5px 0 0">Ferramentas de manutenção do Catálogo Ilustrado de Materiais
-    Odontológicos · GT Padronização de Materiais, Insumos e Equipamentos</p>
-  </div>
-  <a href="index.html" style="text-decoration:none"><span class="tag t-az">abrir o catálogo</span></a>
-</div>
+  <!-- ================= BARRA LATERAL ================= -->
+  <nav class="lateral">
+    <div class="marca"><b>Admin</b>catálogo</div>
+    <a class="nav ativo" href="admin.html"><span class="ic">&#9635;</span><span class="tx">Painel</span></a>
+    <a class="nav" href="editor-catalogo/editor-catalogo.html"><span class="ic">&#9998;</span><span class="tx">Editor</span></a>
+    <a class="nav" href="descritivos/descritivos.html"><span class="ic">&#9776;</span><span class="tx">Pregão</span></a>
+    <a class="nav" href="preparar-imagens.html"><span class="ic">&#9634;</span><span class="tx">Imagens</span></a>
+    <a class="nav" href="editor-catalogo/historico.md"><span class="ic">&#9711;</span><span class="tx">Histórico</span></a>
+    <a class="nav saida" href="index.html"><span class="ic">&#8599;</span><span class="tx">Catálogo</span></a>
+  </nav>
 
-<!-- ================= NÚMEROS ================= -->
-<h2>Situação atual</h2>
-<div class="numeros" id="numeros">
-  <div class="numero"><div class="v sub" style="font-size:14px;font-weight:400">carregando...</div></div>
-</div>
+  <div class="conteudo">
 
-<!-- ================= FERRAMENTAS ================= -->
-<h2>Ferramentas</h2>
-<div class="cartoes">
-
-  <a class="cartao" href="editor-catalogo/editor-catalogo.html">
-    <div class="ic" style="background:var(--azul-suave);color:var(--azul)">&#9998;</div>
-    <div class="tt">Editor do catálogo</div>
-    <div class="ds">Alterar dados dos materiais, acrescentar itens novos, inativar os que saíram de linha
-    e gerar o pacote de atualização com o histórico das mudanças.</div>
-    <span class="pe">abrir o editor &rarr;</span>
-  </a>
-
-  <a class="cartao" href="preparar-imagens.html">
-    <div class="ic" style="background:var(--verde-suave);color:var(--verde)">&#9635;</div>
-    <div class="tt">Preparar imagens</div>
-    <div class="ds">Padronizar fotos em 800x800 com fundo branco, vincular cada uma ao material
-    correspondente e baixar tudo já nomeado pelo código.</div>
-    <span class="pe">abrir a ferramenta &rarr;</span>
-  </a>
-
-  <a class="cartao" href="descritivos/descritivos.html">
-    <div class="ic" style="background:var(--laranja-suave);color:var(--laranja)">&#9776;</div>
-    <div class="tt">Descritivos para pregão</div>
-    <div class="ds">Consultar os descritivos técnicos que compõem os pregões, o nome de cada
-    material no edital, a unidade de compra e a data da última revisão.</div>
-    <span class="pe">abrir a consulta &rarr;</span>
-  </a>
-
-  <a class="cartao" href="editor-catalogo/historico.md">
-    <div class="ic" style="background:var(--roxo-suave);color:var(--roxo)">&#9998;</div>
-    <div class="tt">Histórico de alterações</div>
-    <div class="ds">Registro acumulado de todas as edições feitas na lista de materiais e nos
-    descritivos, com data, responsável e detalhamento campo a campo.</div>
-    <span class="pe">ver o arquivo &rarr;</span>
-  </a>
-
-  <div class="cartao futuro">
-    <div class="ic" style="background:#f1f2f6;color:var(--secundario)">&#43;</div>
-    <div class="tt">Espaço para novas funções</div>
-    <div class="ds">Relatório de itens sem foto, conferência de códigos com o CELK, exportações para o GT
-    e o que mais for surgindo.</div>
-    <span class="pe" style="color:var(--secundario)">em aberto</span>
-  </div>
-
-</div>
-
-<!-- ================= CONFERÊNCIA DE IMAGENS ================= -->
-<h2>Conferência de imagens</h2>
-<div class="painel" id="painelConferencia">
-  <p class="sub" style="margin:0 0 12px">Compara o <span class="mono">produtos.csv</span> com os arquivos
-  da pasta <span class="mono">imagens</span> deste mesmo servidor e aponta materiais sem imagem,
-  arquivos sem material correspondente e nomes fora do padrão.</p>
-
-  <div class="barra">
-    <button id="btAnalisar">Analisar agora</button>
-    <button class="sec" id="btAnalisarGh">Analisar pelo GitHub</button>
-    <button class="sec" id="btAnalisarPasta">Conferir uma pasta do computador</button>
-    <input type="file" id="entradaPasta" webkitdirectory directory multiple>
-  </div>
-
-  <div id="cfgGh" class="oculto" style="margin-top:12px;padding:12px;border:1px solid var(--linha);border-radius:10px;background:#fafbff">
-    <div class="barra">
-      <input type="text" id="ghUser" placeholder="usuário do GitHub" style="width:170px">
-      <span class="sub">/</span>
-      <input type="text" id="ghRepo" placeholder="repositório" style="width:190px">
-      <span class="sub">/</span>
-      <input type="text" id="ghPasta" placeholder="pasta" value="imagens" style="width:110px">
-      <button class="mini" id="btSalvarGh">Salvar e analisar</button>
-      <button class="sec mini" id="btLimparGh">Esquecer</button>
+    <div class="cabecalho">
+      <div>
+        <h1>Administração do catálogo</h1>
+        <p class="sub" style="margin:3px 0 0">GT Padronização de Materiais, Insumos e Equipamentos</p>
+      </div>
+      <a class="pilula principal" href="index.html">abrir o catálogo</a>
     </div>
-    <p class="sub" style="margin:9px 0 0">Somente leitura de dados públicos, nenhuma senha é pedida.
-    O repositório precisa ser público. Esta é a forma mais completa de conferência, porque o GitHub
-    informa todos os arquivos da pasta, o que permite descobrir também as imagens que sobraram.
-    A configuração fica salva neste navegador e é a mesma usada pela ferramenta de preparar imagens.</p>
+
+    <!-- ================= NÚMEROS ================= -->
+    <div class="numeros" id="numeros">
+      <div class="numero"><div class="r">carregando a situação atual...</div></div>
+    </div>
+
+    <!-- ================= FERRAMENTAS ================= -->
+    <div class="ferramentas">
+
+      <a class="ferr" href="editor-catalogo/editor-catalogo.html">
+        <div class="ic" style="background:var(--corn-suave);color:var(--corn)">&#9998;</div>
+        <div class="tt">Editor do catálogo</div>
+        <div class="ds">Alterar dados dos materiais, acrescentar itens novos, inativar os que saíram
+        de linha e gerar o pacote de atualização com o histórico das mudanças.</div>
+        <span class="pe" style="color:var(--corn)">abrir o editor &rarr;</span>
+      </a>
+
+      <a class="ferr" href="descritivos/descritivos.html">
+        <div class="ic" style="background:var(--corallite-suave);color:var(--corallite)">&#9776;</div>
+        <div class="tt">Descritivos para pregão</div>
+        <div class="ds">Consultar os descritivos técnicos que compõem os pregões, o nome de cada
+        material no edital, a unidade de compra e a data da última revisão.</div>
+        <span class="pe" style="color:var(--corallite)">abrir a consulta &rarr;</span>
+      </a>
+
+      <a class="ferr" href="preparar-imagens.html">
+        <div class="ic" style="background:var(--curacao-suave);color:var(--curacao)">&#9634;</div>
+        <div class="tt">Preparar imagens</div>
+        <div class="ds">Padronizar fotos em 800x800 com fundo branco, vincular cada uma ao material
+        correspondente e baixar tudo já nomeado pelo código.</div>
+        <span class="pe" style="color:var(--curacao)">abrir a ferramenta &rarr;</span>
+      </a>
+
+      <a class="ferr" href="editor-catalogo/historico.md">
+        <div class="ic" style="background:var(--sawtooth-suave);color:var(--sawtooth)">&#9711;</div>
+        <div class="tt">Histórico de alterações</div>
+        <div class="ds">Registro acumulado de todas as edições feitas na lista de materiais e nos
+        descritivos, com data, responsável e detalhamento campo a campo.</div>
+        <span class="pe" style="color:var(--sawtooth)">ver o arquivo &rarr;</span>
+      </a>
+
+      <div class="ferr futuro">
+        <div class="ic" style="background:var(--neutro);color:var(--secundario)">&#43;</div>
+        <div class="tt">Espaço para novas funções</div>
+        <div class="ds">Conferência de códigos com o CELK, exportações para o GT e o que mais
+        for surgindo.</div>
+        <span class="pe">em aberto</span>
+      </div>
+
+    </div>
+
+    <!-- ================= CONFERÊNCIA DE IMAGENS ================= -->
+    <div class="cartao" id="painelConferencia" style="margin-bottom:12px">
+      <h2>Conferência de imagens</h2>
+      <p class="sub" style="margin:0 0 13px">Compara o <span class="mono">produtos.csv</span> com os
+      arquivos da pasta <span class="mono">imagens</span> e aponta materiais sem imagem, arquivos sem
+      material correspondente e nomes fora do padrão.</p>
+
+      <div class="barra">
+        <button class="acento" id="btAnalisar">Analisar agora</button>
+        <button id="btAnalisarGh">Analisar pelo GitHub</button>
+        <button id="btAnalisarPasta">Conferir uma pasta do computador</button>
+        <input type="file" id="entradaPasta" webkitdirectory directory multiple>
+      </div>
+
+      <div id="cfgGh" class="oculto" style="margin-top:13px;padding:14px;border-radius:16px;background:var(--neutro)">
+        <div class="barra">
+          <input type="text" id="ghUser" placeholder="usuário do GitHub" style="width:170px">
+          <span class="sub">/</span>
+          <input type="text" id="ghRepo" placeholder="repositório" style="width:190px">
+          <span class="sub">/</span>
+          <input type="text" id="ghPasta" placeholder="pasta" value="imagens" style="width:110px">
+          <button class="mini acento" id="btSalvarGh">Salvar e analisar</button>
+          <button class="mini plana" id="btLimparGh">Esquecer</button>
+        </div>
+        <p class="sub" style="margin:10px 0 0">Somente leitura de dados públicos, nenhuma senha é pedida.
+        O repositório precisa ser público. Esta é a forma mais completa de conferência, porque o GitHub
+        informa todos os arquivos da pasta, o que permite descobrir também as imagens que sobraram.
+        A configuração fica salva neste navegador e é a mesma usada pela ferramenta de preparar imagens.</p>
+      </div>
+
+      <div id="resultado" style="margin-top:14px"></div>
+    </div>
+
+    <!-- ================= FLUXO E ARQUIVOS ================= -->
+    <div class="barra" style="align-items:stretch;gap:12px">
+      <div class="cartao" style="flex:1.4;min-width:280px">
+        <h2>Como publicar uma atualização</h2>
+        <ol>
+          <li>Faça as alterações no <b>Editor do catálogo</b> e baixe o pacote <code>.zip</code>.</li>
+          <li>Descompacte. As pastas de dentro são as mesmas do repositório.</li>
+          <li>Envie cada arquivo para o lugar indicado. Só os arquivos alterados são gerados.</li>
+          <li>Para fotos novas, use <b>Preparar imagens</b> e envie os arquivos para a pasta <code>imagens</code>.</li>
+          <li>O site republica sozinho em cerca de um minuto. Confira no endereço público antes de avisar a rede.</li>
+        </ol>
+      </div>
+
+      <div class="cartao" style="flex:1;min-width:250px">
+        <h2>Arquivos do projeto</h2>
+        <div id="arquivos">
+          <div class="linhaArq"><span class="nm mono">produtos.csv</span>
+            <span class="tag t-ci" id="stCsv">verificando</span></div>
+          <div class="linhaArq"><span class="nm mono">imagens/</span>
+            <span class="tag t-ci" id="stImg">verificando</span></div>
+          <div class="linhaArq"><span class="nm mono">descritivos/descritivos.csv</span>
+            <span class="tag t-ci" id="stDesc">verificando</span></div>
+          <div class="linhaArq"><span class="nm mono">editor-catalogo/historico.md</span>
+            <span class="tag t-ci" id="stLog">verificando</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rodape">
+      Esta página é apenas um painel de atalhos. Ela não altera nada sozinha:
+      todas as mudanças passam por download e envio manual ao repositório.
+    </div>
+
   </div>
-
-  <div id="resultado" style="margin-top:14px"></div>
-</div>
-
-<!-- ================= FLUXO ================= -->
-<div class="painel">
-  <h2 style="margin-bottom:10px">Como publicar uma atualização</h2>
-  <ol>
-    <li>Faça as alterações no <b>Editor do catálogo</b> e baixe o pacote <span class="mono">.zip</span>.</li>
-    <li>Descompacte. As pastas de dentro são as mesmas do repositório.</li>
-    <li>Envie <span class="mono">produtos.csv</span> para a raiz e
-        <span class="mono">editor-catalogo/historico.md</span> para a pasta do editor.</li>
-    <li>Para fotos novas, use <b>Preparar imagens</b> e envie os arquivos para a pasta
-        <span class="mono">imagens</span>.</li>
-    <li>O site republica sozinho em cerca de um minuto. Confira no endereço público antes de avisar a rede.</li>
-  </ol>
-</div>
-
-<div class="painel">
-  <h2 style="margin-bottom:10px">Arquivos do projeto</h2>
-  <div id="arquivos">
-    <div class="linhaArq"><span class="nm mono">produtos.csv</span>
-      <span class="sub">lista de materiais, na raiz</span><span class="tag t-ci" id="stCsv">verificando</span></div>
-    <div class="linhaArq"><span class="nm mono">imagens/</span>
-      <span class="sub">fotos, nomeadas pelo código</span><span class="tag t-ci" id="stImg">verificando</span></div>
-    <div class="linhaArq"><span class="nm mono">descritivos/descritivos.csv</span>
-      <span class="sub">descritivos para pregão</span><span class="tag t-ci" id="stDesc">verificando</span></div>
-    <div class="linhaArq"><span class="nm mono">editor-catalogo/historico.md</span>
-      <span class="sub">registro das alterações</span><span class="tag t-ci" id="stLog">verificando</span></div>
-  </div>
-</div>
-
-<div class="rodape">
-  Esta página é apenas um painel de atalhos. Ela não altera nada sozinha:
-  todas as mudanças passam por download e envio manual ao repositório.
-</div>
-
 </div>
 
 <script>
@@ -253,8 +310,9 @@ function lerCsv(texto){
     const o={};cab.forEach((h,i)=>o[h]=(l[i]||'').trim());return o});
 }
 
-function cartaoNumero(valor,rotulo,extra){
-  return '<div class="numero"><div class="v">'+valor+'</div><div class="r">'+rotulo+'</div>'+(extra||'')+'</div>';
+function cartaoNumero(valor,rotulo,extra,cor){
+  return '<div class="numero"><div class="v"'+(cor?' style="color:'+cor+'"':'')+'>'+valor+
+    '</div><div class="r">'+rotulo+'</div>'+(extra||'')+'</div>';
 }
 
 fetch('produtos.csv').then(r=>{if(!r.ok)throw 0;return r.text()}).then(async t=>{
@@ -269,11 +327,11 @@ fetch('produtos.csv').then(r=>{if(!r.ok)throw 0;return r.text()}).then(async t=>
   $('#stCsv').className='tag t-vd';
 
   $('#numeros').innerHTML=
-    cartaoNumero(ativos.length,'materiais ativos no catálogo')+
-    cartaoNumero(basica,'rede básica, grupos 12 e 13')+
-    cartaoNumero(ceo,'exclusivos do CEO, grupos 14 e 15')+
-    cartaoNumero(coord,'interesse odontológico')+
-    (inativos?cartaoNumero(inativos,'inativos, fora do catálogo'):'')+
+    cartaoNumero(ativos.length,'materiais ativos no catálogo','','var(--texto)')+
+    cartaoNumero(basica,'rede básica, grupos 12 e 13','','var(--corn)')+
+    cartaoNumero(ceo,'exclusivos do CEO, grupos 14 e 15','','var(--corallite)')+
+    cartaoNumero(coord,'interesse odontológico','','var(--sawtooth)')+
+    (inativos?cartaoNumero(inativos,'inativos, fora do catálogo','','var(--secundario)'):'')+
     '<div class="numero" id="cartaoFotos"><div class="v sub" style="font-size:14px;font-weight:400">conferindo fotos...</div></div>';
 
   // Conferência das fotos, em lotes, para não travar o navegador
@@ -287,8 +345,8 @@ fetch('produtos.csv').then(r=>{if(!r.ok)throw 0;return r.text()}).then(async t=>
   while(fila.length)await Promise.all(fila.splice(0,24).map(testar));
   const pct=ativos.length?Math.round(com/ativos.length*100):0;
   const el=$('#cartaoFotos');
-  if(el)el.innerHTML='<div class="v">'+pct+'%</div><div class="r">'+com+' de '+ativos.length+
-    ' com foto</div><div class="progresso"><i style="width:'+pct+'%"></i></div>';
+  if(el)el.innerHTML='<div class="v" style="color:var(--curacao)">'+pct+'%</div><div class="r">'+
+    com+' de '+ativos.length+' com foto</div><div class="progresso"><i style="width:'+pct+'%"></i></div>';
   $('#stImg').textContent=com+' fotos';
   $('#stImg').className='tag '+(pct>=100?'t-vd':'t-lr');
 }).catch(()=>{
@@ -542,8 +600,8 @@ function analisar(nomesArquivos,origem,listagemCompleta){
     '<div class="bloco"><div class="cab '+classe+'" data-abrir>'+
     '<span class="qt">'+qt+'</span><span class="tt">'+titulo+'</span>'+
     (itens.length?'<span class="seta">'+(aberto?'ocultar':'ver a lista')+'</span>':'')+'</div>'+
-    (itens.length?'<div class="conteudo'+(aberto?'':' oculto')+'">'+itens.join('')+
-      (acao?'<div class="item" style="background:#fafbff"><button class="sec mini" data-lista="'+acao+
+    (itens.length?'<div class="conteudo2'+(aberto?'':' oculto')+'">'+itens.join('')+
+      (acao?'<div class="item" style="background:#fafbff"><button class="mini plana" data-lista="'+acao+
         '">Baixar esta lista em CSV</button></div>':'')+'</div>':'')+'</div>';
 
   const linha=(cd,txt,obs)=>'<div class="item"><span class="cd">'+esc(cd)+'</span>'+
@@ -573,15 +631,15 @@ function analisar(nomesArquivos,origem,listagemCompleta){
   }else{
     html+='<div class="bloco b-nt"><div class="cab"><span class="qt">?</span>'+
       '<span class="tt">imagens sem material correspondente</span></div>'+
-      '<div class="conteudo"><div class="item" style="display:block">'+
+      '<div class="conteudo2"><div class="item" style="display:block">'+
       '<p style="margin:0 0 8px">Esta hospedagem não permite listar os arquivos da pasta, então não é '+
       'possível descobrir daqui quais imagens sobraram. A lista acima, de materiais sem imagem, '+
       'é confiável e completa.</p>'+
       '<p style="margin:0 0 10px" class="sub">Para conferir as sobras, use uma destas duas opções: '+
       'analisar pelo GitHub, que informa todos os arquivos da pasta do repositório, '+
       'ou escolher a pasta <span class="mono">imagens</span> do seu computador.</p>'+
-      '<div class="barra"><button class="sec mini" id="btGhAqui">Analisar pelo GitHub</button>'+
-      '<button class="sec mini" id="btPastaAqui">Conferir a pasta do computador</button></div>'+
+      '<div class="barra"><button class="mini plana" id="btGhAqui">Analisar pelo GitHub</button>'+
+      '<button class="mini plana" id="btPastaAqui">Conferir a pasta do computador</button></div>'+
       '</div></div></div>';
   }
 
@@ -608,14 +666,14 @@ function analisar(nomesArquivos,origem,listagemCompleta){
       'correspondem a um material do produtos.csv.</span></div></div>';
 
   html+='<div class="barra" style="margin-top:12px">'+
-    '<button class="sec mini" id="btBaixarRel">Baixar relatório completo em CSV</button>'+
+    '<button class="mini plana" id="btBaixarRel">Baixar relatório completo em CSV</button>'+
     '<span class="sub">útil para dividir o trabalho de coletar as fotos que faltam</span></div>';
 
   $('#resultado').innerHTML=html;
 
   $('#resultado').querySelectorAll('[data-abrir]').forEach(cab=>{
     cab.onclick=()=>{
-      const c=cab.parentElement.querySelector('.conteudo');
+      const c=cab.parentElement.querySelector('.conteudo2');
       if(!c)return;
       c.classList.toggle('oculto');
       const s=cab.querySelector('.seta');
