@@ -252,7 +252,9 @@
 4150675,HIDROXIDO CALCIO PO 10G,U - Unidade,13,Odontologia,TODOS,Consumo,Endodontia,Soluções e medicamentos,4150675.jpg,,SIM
 4150510,HOLEMBACK Nº 3S,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Dentística,Instrumental de inserção,4150510.jpg,,SIM
 4150819,INSERTO (PONTA) P/ JET SONIC DA GNATUS,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Periodontia,Insertos de ultrassom,4150819.jpg,,SIM
-4150614,"INSERTO JET LAXIS SONIC T1, T2 E T3",U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Periodontia,Insertos de ultrassom,4150614.jpg,,SIM
+4150614,"INSERTO JET LAXIS SONIC T1, T2 E T3",U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Periodontia,Insertos de ultrassom,4150614.jpg,"T1-S: Remoção de tártaro supragengival em toda a superfície do dente e na região interdental
+T2-S: Remoção de tártaro supragengival, subgengival e região interdental
+T3-S: Remoção de tártaro pesado e supragengival",SIM
 4150624,INSERTO P/ AP ULTRASSOM ORTUS G1,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Periodontia,Insertos de ultrassom,4150624.jpg,,SIM
 4150620,"INSERTO P/ AP ULTRASSOM ORTUS G1,G2,G4 (KIT)",KI - Kit,12,Odontologia Instrumental,TODOS,Instrumental,Periodontia,Insertos de ultrassom,4150620.jpg,,SIM
 4150627,INSERTO P/ AP ULTRASSOM ORTUS G2,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Periodontia,Insertos de ultrassom,4150627.jpg,,SIM
@@ -267,9 +269,9 @@
 4150630,INSERTO PARA ULTRASSOM ORIGINAL PERIO SUB PROFINEO,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Periodontia,Insertos de ultrassom,4150630.jpg,,SIM
 4150632,INSERTO PARA ULTRASSOM ORIGINAL PERIO SUPRA Nº02 SONIC MAX PLUS,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Periodontia,Insertos de ultrassom,4150632.jpg,,SIM
 4150634,INSERTO PARA ULTRASSOM ORIGINAL PERIO SUPRA PROFINEO,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Periodontia,Insertos de ultrassom,4150634.jpg,,SIM
-4150639,INSERTO PARA ULTRASSOM ORIGINAL T1-S MODELO JETLAXIS SONIC LED,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Periodontia,Insertos de ultrassom,4150639.jpg,,SIM
-4150640,INSERTO PARA ULTRASSOM ORIGINAL T3-S MODELO JETLAXIS SONIC LED,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Periodontia,Insertos de ultrassom,4150640.jpg,,SIM
-4150642,INSERTO PARA ULTRASSOM ORIGINAL T4-S MODELO JETLAXIS SONIC LED,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Periodontia,Insertos de ultrassom,4150642.jpg,,SIM
+4150639,INSERTO PARA ULTRASSOM ORIGINAL T1-S MODELO JETLAXIS SONIC LED,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Periodontia,Insertos de ultrassom,4150639.jpg,T1-S: Remoção de tártaro supragengival em toda a superfície do dente e na região interdental,SIM
+4150640,INSERTO PARA ULTRASSOM ORIGINAL T3-S MODELO JETLAXIS SONIC LED,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Periodontia,Insertos de ultrassom,4150640.jpg,T3-S: Remoção de tártaro pesado e supragengival,SIM
+4150642,INSERTO PARA ULTRASSOM ORIGINAL T4-S MODELO JETLAXIS SONIC LED,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Periodontia,Insertos de ultrassom,4150642.jpg,T4-S: Remoção de tártaro subgengival,SIM
 4150618,INSERTO PARA ULTRASSOM ORIGINAL UNIVERSAL Nº01 SONIC MAX PLUS,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Periodontia,Insertos de ultrassom,4150618.jpg,,SIM
 4150616,IONOMERO DE VIDRO PARA RESTAURACAO PÓ + LIQUIDO (KIT),KI - Kit,13,Odontologia,TODOS,Consumo,Dentística,Cimentos,4150616.jpg,,SIM
 4150644,KIT DE FANTOCHES DE SAUDE BUCAL (CONJ C/ 6 PECAS),KI - Kit,12,Odontologia Instrumental,TODOS,Instrumental,"Prevenção;Odontopediatria",Material educativo,4150644.jpg,,SIM

@@ -4,10 +4,29 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 5  
-Última atualização: 13/08/2026, 09:26
+Total de sessões registradas: 6  
+Última atualização: 13/08/2026, 16:56
 
 ---
+
+## 13/08/2026, 16:56 — Caio Borges
+
+Sessão 6 · 4 alteração(ões) · 528 itens no arquivo após a edição
+
+**Resumo:** 4 editado
+
+- **[EDITADO]** `4150614` INSERTO JET LAXIS SONIC T1, T2 E T3
+    - Observação: "" → "T1-S: Remoção de tártaro supragengival em toda a superfície do dente e na região interdental
+T2-S: Remoção de tártaro supragengival, subgengival e região interdental
+T3-S: Remoção de tártaro pesado e supragengival"
+- **[EDITADO]** `4150639` INSERTO PARA ULTRASSOM ORIGINAL T1-S MODELO JETLAXIS SONIC LED
+    - Observação: "" → "T1-S: Remoção de tártaro supragengival em toda a superfície do dente e na região interdental"
+- **[EDITADO]** `4150640` INSERTO PARA ULTRASSOM ORIGINAL T3-S MODELO JETLAXIS SONIC LED
+    - Observação: "" → "T3-S: Remoção de tártaro pesado e supragengival"
+- **[EDITADO]** `4150642` INSERTO PARA ULTRASSOM ORIGINAL T4-S MODELO JETLAXIS SONIC LED
+    - Observação: "" → "T4-S: Remoção de tártaro subgengival"
+
+<!-- sessao:{"data":"2026-08-13T19:56:10.705Z","autor":"Caio Borges","total":528,"alteracoes":[{"tipo":"editado","codigo":"4150614","material":"INSERTO JET LAXIS SONIC T1, T2 E T3","campos":[{"campo":"observacao","de":"","para":"T1-S: Remoção de tártaro supragengival em toda a superfície do dente e na região interdental\nT2-S: Remoção de tártaro supragengival, subgengival e região interdental\nT3-S: Remoção de tártaro pesado e supragengival"}]},{"tipo":"editado","codigo":"4150639","material":"INSERTO PARA ULTRASSOM ORIGINAL T1-S MODELO JETLAXIS SONIC LED","campos":[{"campo":"observacao","de":"","para":"T1-S: Remoção de tártaro supragengival em toda a superfície do dente e na região interdental"}]},{"tipo":"editado","codigo":"4150640","material":"INSERTO PARA ULTRASSOM ORIGINAL T3-S MODELO JETLAXIS SONIC LED","campos":[{"campo":"observacao","de":"","para":"T3-S: Remoção de tártaro pesado e supragengival"}]},{"tipo":"editado","codigo":"4150642","material":"INSERTO PARA ULTRASSOM ORIGINAL T4-S MODELO JETLAXIS SONIC LED","campos":[{"campo":"observacao","de":"","para":"T4-S: Remoção de tártaro subgengival"}]}]} -->
 
 ## 13/08/2026, 09:26 — Caio Borges
 
