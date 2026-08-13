@@ -64,13 +64,35 @@ input,select{font:inherit;font-size:13px;padding:8px 10px;border:1px solid var(-
 .seta{color:var(--secundario);font-size:11px;flex:none;width:14px;text-align:center}
 
 /* detalhe */
-.detalhe{background:#fafbff;border-top:1px solid var(--linha);padding:14px 16px 16px 78px;
+.detalhe{background:#fafbff;border-top:1px solid var(--linha);padding:16px;
   display:flex;gap:18px}
-@media(max-width:760px){.detalhe{padding-left:16px;flex-direction:column;gap:12px}}
+@media(max-width:760px){.detalhe{flex-direction:column;gap:14px}}
 .detalhe .col1{flex:1;min-width:0}
 .detalhe .col2{flex:2;min-width:0;border-left:1px solid var(--linha);padding-left:18px}
 @media(max-width:760px){.detalhe .col2{border-left:none;border-top:1px solid var(--linha);
   padding-left:0;padding-top:12px}}
+
+/* foto ampliada dentro do detalhe */
+.fotoGrande{width:100%;max-width:230px;aspect-ratio:1;border-radius:10px;border:1px solid var(--linha);
+  background:#fff;object-fit:contain;display:block;cursor:zoom-in}
+.fotoGrande:hover{border-color:var(--azul)}
+.semfotoGrande{width:100%;max-width:230px;aspect-ratio:1;border-radius:10px;border:1px dashed var(--linha);
+  background:#fff;display:flex;align-items:center;justify-content:center;flex-direction:column;
+  gap:6px;color:#9aa1b8;font-size:26px}
+.semfotoGrande span{font-size:11px;color:var(--secundario)}
+.legendaFoto{font-size:10.5px;color:var(--secundario);margin-top:7px;max-width:230px;line-height:1.4}
+
+/* visualizador em tela cheia */
+.lightbox{position:fixed;inset:0;background:rgba(48,57,82,.86);z-index:60;display:flex;
+  align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
+.lightbox img{max-width:min(90vw,760px);max-height:82vh;background:#fff;border-radius:12px;
+  padding:10px;box-shadow:0 10px 40px rgba(0,0,0,.3)}
+.lightbox .info{position:absolute;left:0;right:0;bottom:18px;text-align:center;color:#fff;
+  font-size:12.5px;padding:0 20px;text-shadow:0 1px 3px rgba(0,0,0,.5)}
+.lightbox .info .cod{font-family:ui-monospace,Menlo,Consolas,monospace;opacity:.85}
+.lightbox .fechar{position:absolute;top:16px;right:18px;color:#fff;font-size:14px;
+  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);padding:6px 13px;
+  border-radius:20px;cursor:pointer}
 .secao{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:9px;
   color:var(--secundario)}
 .secao.pregao{color:var(--azul)}
@@ -371,11 +393,65 @@ function desenhar(){
   el.querySelectorAll('.linha').forEach(l=>{
     l.onclick=()=>{aberto=(aberto===l.dataset.cod?null:l.dataset.cod);desenhar()};
   });
+
+  el.querySelectorAll('[data-ampliar]').forEach(img=>{
+    img.onclick=e=>{e.stopPropagation();ampliar(img.dataset.ampliar)};
+  });
+}
+
+/* ---------------------------------------------------------------------
+   Visualizador da foto em tamanho grande. Fecha ao clicar em qualquer
+   lugar ou com a tecla Esc, e permite passar para o item seguinte e o
+   anterior da listagem com as setas do teclado.
+   --------------------------------------------------------------------- */
+function ampliar(codigo){
+  const lista=filtrados();
+  let i=lista.findIndex(x=>x.codigo===codigo);
+  if(i===-1)return;
+
+  const caixa=document.createElement('div');
+  caixa.className='lightbox';
+  document.body.appendChild(caixa);
+  document.body.style.overflow='hidden';
+
+  function mostrar(){
+    const it=lista[i];
+    caixa.innerHTML='<span class="fechar">fechar</span>'+
+      '<img src="../imagens/'+encodeURIComponent(it.imagem)+'" alt="'+esc(it.material)+'" '+
+      'onerror="this.style.display=\'none\'">'+
+      '<div class="info"><div>'+esc(it.nomePregao||it.material)+'</div>'+
+      '<div class="cod">'+esc(it.codigo)+
+      (lista.length>1?' · '+(i+1)+' de '+lista.length+' · use as setas para navegar':'')+'</div></div>';
+  }
+  mostrar();
+
+  function fechar(){
+    caixa.remove();
+    document.body.style.overflow='';
+    document.removeEventListener('keydown',tecla);
+  }
+  function tecla(e){
+    if(e.key==='Escape')fechar();
+    else if(e.key==='ArrowRight'&&i<lista.length-1){i++;mostrar()}
+    else if(e.key==='ArrowLeft'&&i>0){i--;mostrar()}
+  }
+  caixa.onclick=fechar;
+  document.addEventListener('keydown',tecla);
 }
 
 function detalhe(it,termos){
   const campo=(r,v)=>'<div class="campo"><div class="r">'+r+'</div><div class="v">'+v+'</div></div>';
   return '<div class="detalhe">'+
+    /* Coluna da foto: ampliada aqui e clicável para abrir em tamanho grande. */
+    '<div style="flex:none">'+
+      '<img class="fotoGrande" src="../imagens/'+encodeURIComponent(it.imagem)+'" '+
+        'alt="'+esc(it.material)+'" data-ampliar="'+esc(it.codigo)+'" '+
+        'title="clique para ampliar" '+
+        'onerror="this.outerHTML=\'<div class=&quot;semfotoGrande&quot;>&#9635;'+
+        '<span>sem foto cadastrada</span></div>\'">'+
+      '<div class="legendaFoto">Foto ilustrativa. A marca e a apresentação do produto entregue '+
+        'podem variar conforme a compra vigente.</div>'+
+    '</div>'+
     '<div class="col1">'+
       '<div class="secao">Do catálogo</div>'+
       campo('Unidade de pedido',esc(it.unidade)||'—')+
