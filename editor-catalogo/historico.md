@@ -4,10 +4,26 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 4  
-Última atualização: 12/08/2026, 18:51
+Total de sessões registradas: 5  
+Última atualização: 13/08/2026, 09:26
 
 ---
+
+## 13/08/2026, 09:26 — Caio Borges
+
+Sessão 5 · 1 alteração(ões) · 528 itens no arquivo após a edição
+
+**Resumo:** 1 descritivo
+
+- **[DESCRITIVO]** `4151188` ABRITEC ADULTO (COM 2 UNIDADES)
+    - Nome para o pregão: "" → "ABRIDOR DE BOCA TIPO ABRITEC ADULTO"
+    - Descritivo: "" → "Composição: 100% silicone. Possui bordas arredondadas. Medidas: 40 x 30 x 20 mm.
+ Indicação: auxiliar na abertura de boca do paciente, proporcionado maior conforto e facilitando o desempenho dos procedimentos odontológicos pelo profissional.
+ Autoclavável.
+ Apresentação: embalagem plástica com 2 unidades, com dados de identificação, lote, procedência, garantia, certificações (fabricado de acordo com padrões internacionais de qualidade, normas da ABNT) e registro na ANVISA."
+    - Unidade de compra: "" → "Embalagem com 2 unidades"
+
+<!-- sessao:{"data":"2026-08-13T12:26:11.838Z","autor":"Caio Borges","total":528,"alteracoes":[{"tipo":"descritivo","codigo":"4151188","material":"ABRITEC ADULTO (COM 2 UNIDADES)","campos":[{"campo":"nome_pregao","de":"","para":"ABRIDOR DE BOCA TIPO ABRITEC ADULTO"},{"campo":"descritivo","de":"","para":"Composição: 100% silicone. Possui bordas arredondadas. Medidas: 40 x 30 x 20 mm.\n Indicação: auxiliar na abertura de boca do paciente, proporcionado maior conforto e facilitando o desempenho dos procedimentos odontológicos pelo profissional.\n Autoclavável.\n Apresentação: embalagem plástica com 2 unidades, com dados de identificação, lote, procedência, garantia, certificações (fabricado de acordo com padrões internacionais de qualidade, normas da ABNT) e registro na ANVISA."},{"campo":"unidade_compra","de":"","para":"Embalagem com 2 unidades"}]}]} -->
 
 ## 12/08/2026, 18:51 — Caio
 
