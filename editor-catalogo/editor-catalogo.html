@@ -211,6 +211,7 @@ select{appearance:none;background-image:none;padding-right:13px}
   <div class="marca"><b>Admin</b>catálogo</div>
   <a class="nav" href="../admin.html"><span class="ic">&#9635;</span><span class="tx">Painel</span></a>
   <a class="nav ativo" href="../editor-catalogo/editor-catalogo.html"><span class="ic">&#9998;</span><span class="tx">Editor</span></a>
+  <a class="nav" href="comparar-celk.html"><span class="ic">&#8646;</span><span class="tx">CELK</span></a>
   <a class="nav" href="../descritivos/descritivos.html"><span class="ic">&#9776;</span><span class="tx">Pregão</span></a>
   <a class="nav" href="../preparar-imagens.html"><span class="ic">&#9634;</span><span class="tx">Imagens</span></a>
   <a class="nav" href="historico.html"><span class="ic">&#9711;</span><span class="tx">Histórico</span></a>
@@ -369,7 +370,75 @@ function aplicar(dados,nome){
   $('#editor').classList.remove('oculto');
   montarFiltros();
   verificarRascunho();   // antes de desenhar, senão o próprio desenhar grava um rascunho novo
+  aplicarImportacaoCelk();
   desenhar();
+}
+
+/* =====================================================================
+   IMPORTAÇÃO VINDA DO COMPARADOR DO CELK
+   ---------------------------------------------------------------------
+   A página comparar-celk.html deixa as alterações aprovadas guardadas no
+   navegador. Aqui elas são aplicadas à sessão atual, exatamente como se
+   tivessem sido digitadas item a item, e a origem fica registrada para
+   entrar no histórico.
+   ===================================================================== */
+const CHAVE_IMPORTACAO='editor-catalogo-importacao-celk';
+let ORIGEM_SESSAO='';
+
+function aplicarImportacaoCelk(){
+  let pacote=null;
+  try{pacote=JSON.parse(localStorage.getItem(CHAVE_IMPORTACAO)||'null')}catch(e){}
+  if(!pacote||!pacote.alteracoes||!pacote.alteracoes.length)return;
+  localStorage.removeItem(CHAVE_IMPORTACAO);   // aplica uma vez só
+
+  const acharItem=cod=>ITENS.find(i=>(i.codigo||'').trim()===String(cod).trim());
+  let feitas=0, ignoradas=0;
+
+  pacote.alteracoes.forEach(a=>{
+    const it=acharItem(a.codigo);
+    if(a.tipo==='novo'){
+      if(it){ignoradas++;return}          // já existe: alguém acrescentou nesse meio tempo
+      const novo={__id:proximoId++};
+      COLUNAS.forEach(c=>novo[c]='');
+      novo.codigo=a.codigo;
+      novo.material=(a.celk&&a.celk.material)||a.material||'';
+      novo.unidade=(a.celk&&a.celk.unidade)||'';
+      novo.grupo=(a.celk&&a.celk.grupo)||'';
+      novo.subgrupo=(a.celk&&a.celk.subgrupo)||'';
+      /* Acesso e tipo saem do padrão dos demais itens do mesmo subgrupo. */
+      const padrao=padraoDoSubgrupo(novo.subgrupo);
+      if(padrao){if(padrao.acesso)novo.acesso=padrao.acesso;if(padrao.tipo)novo.tipo=padrao.tipo}
+      if(COLUNAS.includes('imagem'))novo.imagem=novo.codigo+'.jpg';
+      novo.ativo='SIM';
+      ITENS.push(novo);feitas++;
+      return;
+    }
+    if(!it){ignoradas++;return}
+    if(a.tipo==='reativar'){it.ativo='SIM';feitas++}
+    else if(a.tipo==='ausente'){it.ativo='NAO';feitas++}
+    else if(a.tipo==='descricao'){it.material=a.para;feitas++}
+    else if(a.tipo==='unidade'){it.unidade=a.para;feitas++}
+    else if(a.tipo==='subgrupo'){
+      const p=separarGrupo(a.para);
+      it.grupo=p.grupo;it.subgrupo=p.subgrupo;
+      const padrao=padraoDoSubgrupo(p.subgrupo);
+      if(padrao){if(padrao.acesso)it.acesso=padrao.acesso;if(padrao.tipo)it.tipo=padrao.tipo}
+      feitas++;
+    }
+  });
+
+  ORIGEM_SESSAO=pacote.origem||'';
+  montarFiltros();
+
+  const caixa=document.createElement('div');
+  caixa.className='nota info';
+  caixa.style.cssText='margin-bottom:12px';
+  caixa.innerHTML='<b>'+feitas+' alteração(ões) trazidas do comparador do CELK</b>'+
+    (ignoradas?' · '+ignoradas+' ignorada(s) por já não se aplicarem':'')+
+    '<br><span class="sub">origem: '+escapar(pacote.origem||'')+
+    '. Revise abaixo e use <b>Conferir e baixar</b> quando estiver de acordo.</span>';
+  const alvo=$('#editor');
+  if(alvo)alvo.insertBefore(caixa,alvo.firstChild);
 }
 
 /* O editor fica em /editor-catalogo/, então o produtos.csv está na pasta acima.

@@ -6,6 +6,9 @@ Esta pasta contém a ferramenta de edição da lista de materiais e o registro d
 |---|---|
 | `editor-catalogo.html` | A ferramenta de edição. Abre no navegador. |
 | `historico.md` | O registro acumulado de todas as alterações. Pode ser lido direto aqui no GitHub. |
+| `historico.html` | Página de consulta do histórico, com filtros por tipo e agrupamento por material. |
+| `comparar-celk.html` | Compara os relatórios de listagem do CELK com o catálogo e aponta as diferenças. |
+| `lib/` | Biblioteca de leitura de PDF, usada apenas pelo comparador. Não precisa ser editada. |
 | `LEIA-ME.md` | Este arquivo. |
 
 O arquivo de dados, `produtos.csv`, **não fica aqui**: ele permanece na raiz do repositório, porque é lido pelo site do catálogo.
@@ -40,3 +43,24 @@ Cada edição gera um bloco no `historico.md` com data, autor, resumo e o detalh
 Ao final de cada bloco há um comentário técnico entre `<!--` e `-->`, invisível na leitura formatada. É ele que permite ao editor reconstruir o histórico com precisão. Não apague esses comentários.
 
 O nome do autor é perguntado na primeira vez que você baixa os arquivos e fica salvo no navegador. Cada pessoa que editar terá o próprio nome registrado nas sessões que fizer.
+
+
+## Comparar com o CELK
+
+A página `comparar-celk.html` lê os relatórios de listagem de produtos exportados do CELK e mostra o que mudou desde a última atualização do catálogo.
+
+Envie de um a quatro relatórios, um por subgrupo. A ferramenta reconhece sozinha qual subgrupo cada arquivo contém e **compara apenas os subgrupos enviados**, para que os materiais dos demais não sejam apontados como ausentes por engano.
+
+As divergências vêm separadas por tipo, cada uma com uma sugestão de ação e uma caixa de seleção:
+
+* **Códigos novos no CELK**, que serão acrescentados ao catálogo.
+* **Itens inativos que voltaram a aparecer** no relatório.
+* **Códigos ausentes no CELK**, que talvez devam ser inativados.
+* **Mudança de subgrupo**, quando o item migrou de grupo.
+* **Descrição ou unidade diferente** entre o CELK e o catálogo.
+
+Nada é aplicado automaticamente. O CELK também tem erros de cadastro, e há casos em que o catálogo está certo e o relatório errado, então a decisão é sempre de quem mantém o catálogo. Por isso as alterações mais arriscadas, como adotar uma descrição do CELK sobre uma correção já feita, vêm desmarcadas.
+
+Ao aplicar, as alterações entram na sessão atual do editor e seguem o caminho normal de conferência e download. O histórico registra a origem, com a data de emissão do relatório e quem o emitiu, dados que vêm do rodapé do próprio PDF.
+
+**Quando o CELK passar a exportar em CSV ou Excel**, a leitura fica mais confiável e a pasta `lib/` deixa de ser necessária. O resto da ferramenta continua igual.

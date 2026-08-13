@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comparar com o CELK</title>
+<style>
+:root{
+  --corn:#546de5;        --corn-suave:#eceffd;
+  --corallite:#574b90;   --corallite-suave:#eeecf5;
+  --sawtooth:#f19066;    --sawtooth-suave:#fdefe8;
+  --curacao:#3dc1d3;     --curacao-suave:#e6f7fa;
+  --peach:#f3a683;
+  --geranium:#cf6a87;    --geranium-suave:#fbeef1;
+  --texto:#303952;       --secundario:#596275;
+  --fundo:#eef3f9;       --neutro:#f7f8fa;      --borda:#eef2f6;
+  --sombra:0 6px 22px rgba(48,57,82,.07);
+  --sombra-alta:0 12px 34px rgba(48,57,82,.12);
+  --raio:20px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fundo);color:var(--texto);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.5}
+h1{font-size:17px;font-weight:600;margin:0}
+h2{font-size:14px;font-weight:600;margin:0}
+.sub{color:var(--secundario);font-size:11.5px}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace}
+.oculto{display:none !important}
+.espaco{margin-left:auto}
+.barra{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+
+/* barra lateral */
+.app{display:flex;gap:16px;padding:16px;max-width:1240px;margin:0 auto;align-items:flex-start}
+.lateral{width:82px;flex:none;background:var(--curacao);border-radius:24px;padding:16px 10px;
+  position:sticky;top:16px;z-index:30}
+.marca{text-align:center;color:#fff;font-size:10px;line-height:1.3;opacity:.9;margin-bottom:14px}
+.marca b{display:block;font-size:12px;font-weight:600;opacity:1}
+.nav{display:block;text-decoration:none;text-align:center;padding:11px 4px;border-radius:16px;
+  margin-bottom:6px;color:rgba(255,255,255,.85);transition:.15s}
+.nav:hover{background:rgba(255,255,255,.15)}
+.nav .ic{font-size:17px;line-height:1.2}
+.nav .tx{font-size:9px;margin-top:3px;display:block}
+.nav.ativo{background:#fff;color:var(--curacao);box-shadow:var(--sombra)}
+.nav.saida{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.25)}
+.coluna{flex:1;min-width:0;padding-bottom:30px}
+@media(max-width:820px){
+  .app{flex-direction:column;padding:12px}
+  .lateral{width:100%;position:static;display:flex;gap:6px;overflow-x:auto;padding:10px;border-radius:20px}
+  .marca{display:none}
+  .nav{flex:1;min-width:74px;margin-bottom:0}
+  .nav.saida{margin-top:0;padding-top:11px;border-top:none;border-left:1px solid rgba(255,255,255,.25)}
+}
+
+button{font:inherit;font-size:12.5px;padding:9px 17px;border-radius:20px;border:none;
+  background:#fff;color:var(--texto);box-shadow:var(--sombra);cursor:pointer;white-space:nowrap}
+button.principal{background:var(--peach);color:#fff}
+button.acento{background:var(--curacao);color:#fff}
+button.plana{box-shadow:none;background:var(--neutro);font-size:11.5px;padding:7px 13px}
+button:disabled{opacity:.5;cursor:default}
+
+/* zona de arraste */
+#zona{background:#fff;border:2px dashed var(--curacao);border-radius:24px;padding:26px 20px;
+  text-align:center;cursor:pointer;box-shadow:var(--sombra);transition:.15s}
+#zona:hover,#zona.ativo{background:var(--curacao-suave)}
+#zona .ic{font-size:26px;color:var(--curacao);margin-bottom:7px}
+#zona strong{display:block;font-size:13.5px;margin-bottom:3px}
+
+.cartao{background:#fff;border-radius:var(--raio);box-shadow:var(--sombra);overflow:hidden;margin-bottom:12px}
+.arq{display:flex;gap:11px;align-items:center;padding:11px 14px;border-top:1px solid var(--borda)}
+.arq .ic{width:32px;height:32px;flex:none;border-radius:11px;display:flex;align-items:center;
+  justify-content:center;font-size:13px}
+.aviso{border-radius:16px;padding:11px 13px;font-size:11.5px;border-left:3px solid;margin-bottom:12px}
+.a-info{background:var(--curacao-suave);border-color:var(--curacao)}
+.a-alerta{background:var(--sawtooth-suave);border-color:var(--sawtooth)}
+.a-erro{background:var(--geranium-suave);border-color:var(--geranium)}
+
+/* blocos de divergência */
+.bloco{background:#fff;border-radius:18px;box-shadow:var(--sombra);margin-bottom:11px;overflow:hidden}
+.cabBloco{padding:12px 15px;display:flex;gap:11px;align-items:center;flex-wrap:wrap;cursor:pointer}
+.cabBloco .qt{font-size:17px;font-weight:600}
+.cabBloco .tt{font-size:12.5px;font-weight:600}
+.item{display:flex;gap:11px;padding:10px 15px;border-top:1px solid var(--borda)}
+.cx{width:17px;height:17px;flex:none;border-radius:6px;border:1.5px solid #cbd3de;background:#fff;
+  color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center;margin-top:2px;cursor:pointer}
+.cx.marc{background:var(--corn);border-color:var(--corn)}
+.acao{font-size:10.5px;color:var(--secundario);flex:none;align-self:center;padding-left:8px}
+.det{font-size:10.5px;color:var(--secundario);margin-top:2px}
+.et{font-size:10px;padding:3px 10px;border-radius:20px;flex:none;align-self:flex-start;white-space:nowrap}
+.vazio{background:#fff;border-radius:var(--raio);box-shadow:var(--sombra);padding:34px 20px;
+  text-align:center;color:var(--secundario);font-size:13px}
+.progresso{height:6px;background:var(--borda);border-radius:20px;overflow:hidden;margin-top:9px}
+.progresso i{display:block;height:100%;background:var(--curacao);width:0;transition:width .3s}
+
+.fundo-modal{position:fixed;inset:0;background:rgba(48,57,82,.45);backdrop-filter:blur(2px);
+  display:flex;align-items:flex-start;justify-content:center;padding:24px 14px;z-index:50;overflow:auto}
+.modal{background:#fff;border-radius:24px;width:100%;max-width:700px;overflow:hidden;
+  box-shadow:var(--sombra-alta)}
+.modal header,.modal footer{padding:15px 18px;border-bottom:1px solid var(--borda)}
+.modal footer{border-bottom:none;border-top:1px solid var(--borda);display:flex;gap:8px;align-items:center}
+.modal .corpo{padding:16px 18px}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <nav class="lateral">
+    <div class="marca"><b>Admin</b>catálogo</div>
+    <a class="nav" href="../admin.html"><span class="ic">&#9635;</span><span class="tx">Painel</span></a>
+    <a class="nav" href="editor-catalogo.html"><span class="ic">&#9998;</span><span class="tx">Editor</span></a>
+    <a class="nav ativo" href="comparar-celk.html"><span class="ic">&#8646;</span><span class="tx">CELK</span></a>
+    <a class="nav" href="../descritivos/descritivos.html"><span class="ic">&#9776;</span><span class="tx">Pregão</span></a>
+    <a class="nav" href="../preparar-imagens.html"><span class="ic">&#9634;</span><span class="tx">Imagens</span></a>
+    <a class="nav" href="historico.html"><span class="ic">&#9711;</span><span class="tx">Histórico</span></a>
+    <a class="nav saida" href="../index.html"><span class="ic">&#8599;</span><span class="tx">Catálogo</span></a>
+  </nav>
+
+  <div class="coluna">
+
+    <div style="margin-bottom:13px">
+      <h1>Comparar com o CELK</h1>
+      <p class="sub" style="margin:3px 0 0">Envie os relatórios de listagem de produtos e veja o que
+      mudou desde a última atualização do catálogo. Nada é enviado para a internet: os arquivos são
+      lidos neste computador.</p>
+    </div>
+
+    <!-- ETAPA 1: envio -->
+    <div id="etapaEnvio">
+      <div id="zona" role="button" tabindex="0">
+        <div class="ic">&#8679;</div>
+        <strong>Arraste os relatórios em PDF</strong>
+        <span class="sub">um por subgrupo · pode enviar de 1 a 4 de uma vez</span>
+      </div>
+      <input type="file" id="entrada" accept="application/pdf,.pdf" multiple style="display:none">
+
+      <div id="listaArquivos"></div>
+      <div id="avisoEnvio"></div>
+      <div class="barra" style="margin-top:13px">
+        <span class="sub" id="statusCsv">carregando o produtos.csv...</span>
+        <span class="espaco"></span>
+        <button class="plana" id="btLimpar" disabled>Limpar</button>
+        <button class="principal" id="btComparar" disabled>Comparar com o catálogo</button>
+      </div>
+    </div>
+
+    <!-- ETAPA 2: divergências -->
+    <div id="etapaResultado" class="oculto"></div>
+
+  </div>
+</div>
+
+<script type="module">
+/* =====================================================================
+   COMPARADOR DE RELATÓRIOS DO CELK
+   ---------------------------------------------------------------------
+   Lê os PDFs de listagem de produtos, compara com o produtos.csv e monta
+   uma lista de divergências para aprovação item a item. Nada é aplicado
+   automaticamente: o CELK também tem erros de cadastro, e a decisão sobre
+   o que é correção e o que é regressão precisa ser de quem mantém o
+   catálogo. As alterações aprovadas são gravadas em um rascunho que o
+   editor carrega na sessão atual.
+
+   A biblioteca de leitura de PDF fica em lib/, dentro do próprio projeto,
+   para a página funcionar sem internet e sem depender de serviço externo.
+   ===================================================================== */
+import * as pdfjs from './lib/pdf.min.mjs';
+pdfjs.GlobalWorkerOptions.workerSrc='./lib/pdf.worker.min.mjs';
+
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const normalizar=s=>(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+  .replace(/\s+/g,' ').trim().toUpperCase();
+
+/* ---------------------------------------------------------------------
+   Leitura do PDF
+   --------------------------------------------------------------------- */
+const UNIDADES=['SER','EST','PCT','UN','BL','CA','CT','PC','KI','FR','CX','U'];
+/* Como o CSV guarda a unidade por extenso, precisamos da correspondência. */
+const UNIDADE_LONGA={U:'U - Unidade',CA:'CA - Caixa',CT:'CT - Cartela',PC:'PC - Pacote',
+  KI:'KI - Kit',FR:'FR - Frasco',SER:'SER - Seringa',EST:'EST - Estojo',BL:'BL - Bloco',
+  CX:'CX - Caixa',UN:'UN - Unidade',PCT:'PCT - Pacote'};
+
+function agruparLinhas(itens){
+  const linhas=[];
+  itens.forEach(it=>{
+    if(!it.str||!it.str.trim())return;
+    const x=it.transform[4], y=it.transform[5];
+    let alvo=linhas.find(l=>Math.abs(l.y-y)<3);
+    if(!alvo){alvo={y,cels:[]};linhas.push(alvo)}
+    alvo.cels.push({x,str:it.str});
+  });
+  linhas.forEach(l=>l.cels.sort((a,b)=>a.x-b.x));
+  linhas.sort((a,b)=>b.y-a.y);
+  return linhas;
+}
+const textoDaLinha=l=>l.cels.map(c=>c.str).join(' ').replace(/\s+/g,' ').trim();
+
+/* A unidade fica grudada no fim da descrição, sem separador confiável. */
+function separarUnidade(texto){
+  const t=(texto||'').replace(/\s+/g,' ').trim();
+  for(const u of UNIDADES){
+    const m=t.match(new RegExp('^(.*?)\\s*'+u+'$'));
+    if(m&&m[1].trim())return {material:m[1].trim(),unidade:u};
+  }
+  return {material:t,unidade:''};
+}
+
+/* O PDF entrega cada linha da tabela como um bloco único de texto. Por isso
+   a separação das colunas usa o marcador "( 689613796 ) MATERIAIS" como
+   ponto de corte, e não a posição horizontal. */
+function analisarPagina(itens,estado){
+  const MARCADOR=/\(\s*\d{5,}\s*\)\s*MATERIAIS/;
+  let dentroDaTabela=false;         // reiniciado a cada página
+
+  agruparLinhas(itens).forEach(l=>{
+    const txt=textoDaLinha(l);
+
+    let m=txt.match(/SubGrupo:\s*\(\s*(\d+)\s*\)\s*(.+?)\s+Tipo Produto:/i);
+    if(m)estado.subgrupo={grupo:m[1],nome:m[2].trim()};
+
+    m=txt.match(/Emitido por\s+(.+?)\s+em\s+(\d{2}\/\d{2}\/\d{4})/i);
+    if(m&&!estado.emissao)estado.emissao={por:m[1].trim(),em:m[2]};
+
+    if(/^Produto\b/.test(txt)&&/Grupo Produto/.test(txt)){
+      const c=l.cels.find(c=>/^Grupo Produto$/.test(c.str.trim()));
+      if(c)estado.colunaGrupo=c.x;
+      dentroDaTabela=true;
+      return;
+    }
+    /* Sem esta guarda, o cabeçalho da página seguinte seria colado como
+       continuação da descrição do último item da página anterior. */
+    if(!estado.subgrupo||!dentroDaTabela)return;
+
+    const marca=txt.match(MARCADOR);
+    if(marca){
+      const esquerda=txt.slice(0,marca.index);
+      const mc=esquerda.match(/^\(\s*([^)]*?)\s*\)\s*(.*)$/);
+      if(!mc)return;
+      const sep=separarUnidade(mc[2]);
+      estado.registros.push({codigo:mc[1].trim(),material:sep.material,unidade:sep.unidade,
+        grupo:estado.subgrupo.grupo,subgrupo:estado.subgrupo.nome});
+    }else if(estado.registros.length&&estado.colunaGrupo){
+      const resto=l.cels.filter(c=>c.x<estado.colunaGrupo-10).map(c=>c.str)
+        .join(' ').replace(/\s+/g,' ').trim();
+      if(!resto||/^(CENTRAL DE ABASTECIMENTO|Página|Unidade:|Ordenação:|Produto)/i.test(resto))return;
+      const u=estado.registros[estado.registros.length-1];
+      /* Palavra partida no fim da linha: junta sem espaço, mantendo o hífen. */
+      u.material=(/-$/.test(u.material)?u.material+resto:u.material+' '+resto)
+        .replace(/\s+/g,' ').trim();
+    }
+  });
+  return estado;
+}
+
+async function lerPdf(arquivo){
+  const dados=new Uint8Array(await arquivo.arrayBuffer());
+  const doc=await pdfjs.getDocument({data:dados}).promise;
+  const estado={registros:[],subgrupo:null,emissao:null,colunaGrupo:null};
+  for(let p=1;p<=doc.numPages;p++){
+    const pagina=await doc.getPage(p);
+    analisarPagina((await pagina.getTextContent()).items,estado);
+  }
+  return {nome:arquivo.name,paginas:doc.numPages,...estado};
+}
+
+/* ---------------------------------------------------------------------
+   Leitura do catálogo
+   --------------------------------------------------------------------- */
+function lerCsv(texto){
+  texto=texto.replace(/^\uFEFF/,'');
+  const corte=texto.indexOf('\n');
+  const primeira=corte>0?texto.slice(0,corte):texto;
+  const sep=(primeira.split(';').length>primeira.split(',').length)?';':',';
+  const linhas=[];let campo='',linha=[],aspas=false;
+  for(let i=0;i<texto.length;i++){
+    const c=texto[i];
+    if(aspas){
+      if(c==='"'&&texto[i+1]==='"'){campo+='"';i++}
+      else if(c==='"')aspas=false;
+      else campo+=c;
+    }else{
+      if(c==='"')aspas=true;
+      else if(c===sep){linha.push(campo);campo=''}
+      else if(c==='\n'){linha.push(campo);linhas.push(linha);linha=[];campo=''}
+      else if(c!=='\r')campo+=c;
+    }
+  }
+  if(campo||linha.length){linha.push(campo);linhas.push(linha)}
+  if(!linhas.length)return {colunas:[],registros:[]};
+  const colunas=linhas.shift().map(h=>normalizar(h).toLowerCase().replace(/\s+/g,''));
+  const registros=linhas.filter(l=>l.some(v=>v.trim())).map(l=>{
+    const o={};colunas.forEach((h,i)=>o[h]=(l[i]||'').trim());return o});
+  return {colunas,registros};
+}
+
+let CATALOGO=[], COLUNAS=[];
+(async()=>{
+  for(const caminho of ['../produtos.csv','produtos.csv']){
+    try{
+      const r=await fetch(caminho+'?t='+Date.now());
+      if(!r.ok)continue;
+      const d=lerCsv(await r.text());
+      CATALOGO=d.registros.filter(x=>x.codigo);COLUNAS=d.colunas;
+      $('#statusCsv').textContent=CATALOGO.length+' itens carregados do produtos.csv';
+      atualizarBotao();return;
+    }catch(e){}
+  }
+  $('#statusCsv').innerHTML='<span style="color:var(--geranium)">não consegui ler o produtos.csv · '+
+    'abra esta página pelo endereço publicado</span>';
+})();
+
+/* ---------------------------------------------------------------------
+   Envio dos arquivos
+   --------------------------------------------------------------------- */
+let RELATORIOS=[];
+const zona=$('#zona'), entrada=$('#entrada');
+zona.onclick=()=>entrada.click();
+zona.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();entrada.click()}};
+entrada.onchange=e=>{receber([...e.target.files]);e.target.value=''};
+['dragenter','dragover'].forEach(ev=>zona.addEventListener(ev,e=>{e.preventDefault();zona.classList.add('ativo')}));
+['dragleave','drop'].forEach(ev=>zona.addEventListener(ev,e=>{e.preventDefault();zona.classList.remove('ativo')}));
+zona.addEventListener('drop',e=>receber([...e.dataTransfer.files]));
+$('#btLimpar').onclick=()=>{RELATORIOS=[];desenharArquivos()};
+
+async function receber(arquivos){
+  const pdfs=arquivos.filter(f=>/\.pdf$/i.test(f.name)||f.type==='application/pdf');
+  if(!pdfs.length){alert('Envie os relatórios em PDF.');return}
+  for(const f of pdfs){
+    if(RELATORIOS.some(r=>r.nome===f.name))continue;
+    try{
+      const r=await lerPdf(f);
+      RELATORIOS.push(r);
+    }catch(e){
+      RELATORIOS.push({nome:f.name,erro:true,registros:[]});
+    }
+    desenharArquivos();
+  }
+}
+
+function desenharArquivos(){
+  const el=$('#listaArquivos');
+  if(!RELATORIOS.length){el.innerHTML='';$('#avisoEnvio').innerHTML='';atualizarBotao();return}
+  el.innerHTML='<div class="cartao" style="margin-top:12px">'+
+    '<div style="padding:12px 14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">'+
+      '<b style="font-size:12.5px">'+RELATORIOS.length+' relatório(s) carregado(s)</b>'+
+      (emissao()?'<span class="sub">emitido em '+esc(emissao().em)+' por '+esc(emissao().por)+'</span>':'')+
+    '</div>'+
+    RELATORIOS.map((r,i)=>{
+      const ok=!r.erro&&r.subgrupo&&r.registros.length;
+      return '<div class="arq">'+
+        '<span class="ic" style="background:'+(ok?'var(--curacao-suave)':'var(--geranium-suave)')+
+          ';color:'+(ok?'var(--curacao)':'var(--geranium)')+'">'+(ok?'&#10003;':'!')+'</span>'+
+        '<div style="flex:1;min-width:0">'+
+          '<div style="font-size:12px">'+esc(r.nome)+'</div>'+
+          '<div class="sub">'+(ok
+            ? 'subgrupo ( '+esc(r.subgrupo.grupo)+' ) '+esc(r.subgrupo.nome)+' · '+
+              r.registros.length+' itens em '+r.paginas+' páginas'
+            : 'não consegui reconhecer este arquivo como um relatório de listagem de produtos')+
+          '</div></div>'+
+        '<button class="plana" data-remover="'+i+'">remover</button></div>';
+    }).join('')+'</div>';
+  el.querySelectorAll('[data-remover]').forEach(b=>{
+    b.onclick=()=>{RELATORIOS.splice(parseInt(b.dataset.remover),1);desenharArquivos()};
+  });
+
+  const grupos=[...new Set(RELATORIOS.filter(r=>r.subgrupo).map(r=>r.subgrupo.grupo))].sort();
+  const repetidos=RELATORIOS.filter(r=>r.subgrupo)
+    .map(r=>r.subgrupo.grupo).filter((g,i,a)=>a.indexOf(g)!==i);
+  let avisos='';
+  if(repetidos.length)
+    avisos+='<div class="aviso a-erro">Há mais de um relatório do subgrupo '+esc(repetidos[0])+
+      '. Remova o repetido antes de comparar.</div>';
+  else if(grupos.length)
+    avisos+='<div class="aviso a-info">A comparação vai cobrir '+
+      (grupos.length===1?'apenas o subgrupo ':'os subgrupos ')+grupos.join(', ')+'. '+
+      (grupos.length<4
+        ? 'Os materiais dos demais subgrupos não serão avaliados, então nada será apontado como ausente neles.'
+        : 'Como os quatro subgrupos estão presentes, a comparação cobre o catálogo inteiro.')+'</div>';
+  $('#avisoEnvio').innerHTML=avisos;
+  atualizarBotao();
+}
+const emissao=()=>{const r=RELATORIOS.find(r=>r.emissao);return r?r.emissao:null};
+function atualizarBotao(){
+  const validos=RELATORIOS.filter(r=>r.subgrupo&&r.registros.length);
+  const repetidos=validos.map(r=>r.subgrupo.grupo).filter((g,i,a)=>a.indexOf(g)!==i);
+  $('#btComparar').disabled=!validos.length||!!repetidos.length||!CATALOGO.length;
+  $('#btLimpar').disabled=!RELATORIOS.length;
+}
+
+/* ---------------------------------------------------------------------
+   Comparação
+   --------------------------------------------------------------------- */
+let DIVERGENCIAS=[], GRUPOS_LIDOS=[], IRREGULARES=[];
+
+$('#btComparar').onclick=()=>{comparar();};
+
+function comparar(){
+  const validos=RELATORIOS.filter(r=>r.subgrupo&&r.registros.length);
+  GRUPOS_LIDOS=[...new Set(validos.map(r=>r.subgrupo.grupo))];
+  const doCelk=[].concat(...validos.map(r=>r.registros));
+
+  /* Códigos que o CELK trouxe fora do padrão numérico. Não dá para casar
+     com o catálogo com segurança, então viram alerta de conferência. */
+  IRREGULARES=doCelk.filter(r=>!/^\d+$/.test(r.codigo));
+  const celk={};doCelk.filter(r=>/^\d+$/.test(r.codigo)).forEach(r=>celk[r.codigo]=r);
+
+  /* Só comparamos os itens do catálogo cujo subgrupo veio em algum relatório. */
+  const noEscopo=CATALOGO.filter(r=>GRUPOS_LIDOS.includes((r.grupo||'').trim()));
+  const cat={};noEscopo.forEach(r=>cat[r.codigo]=r);
+
+  DIVERGENCIAS=[];
+  let seq=0;
+  const nova=(tipo,dados)=>DIVERGENCIAS.push(Object.assign({id:'d'+(++seq),tipo},dados));
+
+  Object.keys(celk).forEach(cod=>{
+    const c=celk[cod], a=cat[cod];
+    if(!a){
+      /* Pode ser um item que existe no catálogo mas fora do escopo lido,
+         o que indicaria mudança de subgrupo. */
+      const foraDoEscopo=CATALOGO.find(r=>r.codigo===cod);
+      if(foraDoEscopo){
+        nova('subgrupo',{codigo:cod,material:foraDoEscopo.material,
+          de:foraDoEscopo.grupo+' - '+foraDoEscopo.subgrupo,
+          para:c.grupo+' - '+c.subgrupo,celk:c,marcado:true});
+      }else{
+        nova('novo',{codigo:cod,material:c.material,celk:c,marcado:true});
+      }
+      return;
+    }
+    if((a.ativo||'SIM').toUpperCase()==='NAO'){
+      nova('reativar',{codigo:cod,material:a.material,celk:c,catalogo:a,marcado:false});
+      return;
+    }
+    if((a.grupo||'').trim()!==c.grupo){
+      nova('subgrupo',{codigo:cod,material:a.material,de:a.grupo+' - '+a.subgrupo,
+        para:c.grupo+' - '+c.subgrupo,celk:c,catalogo:a,marcado:true});
+    }
+    if(normalizar(a.material)!==normalizar(c.material)){
+      nova('descricao',{codigo:cod,de:a.material,para:c.material,celk:c,catalogo:a,marcado:false});
+    }
+    const longa=UNIDADE_LONGA[c.unidade];
+    if(longa&&longa!==(a.unidade||'').trim()){
+      nova('unidade',{codigo:cod,material:a.material,de:a.unidade,para:longa,
+        celk:c,catalogo:a,marcado:true});
+    }
+  });
+
+  noEscopo.forEach(a=>{
+    if((a.ativo||'SIM').toUpperCase()==='NAO')return;
+    if(!celk[a.codigo])nova('ausente',{codigo:a.codigo,material:a.material,catalogo:a,marcado:false});
+  });
+
+  desenharResultado(doCelk.length);
+}
+
+/* ---------------------------------------------------------------------
+   Apresentação das divergências
+   --------------------------------------------------------------------- */
+const TIPOS={
+  novo:{titulo:'Códigos novos no CELK',sub:'ainda não existem no catálogo · serão acrescentados como itens novos',
+        cor:'var(--curacao)',fundo:'var(--curacao-suave)',acao:'acrescentar'},
+  reativar:{titulo:'Itens inativos que voltaram a aparecer',sub:'estão no CELK, mas foram inativados no catálogo',
+        cor:'var(--curacao)',fundo:'var(--curacao-suave)',acao:'reativar'},
+  ausente:{titulo:'Códigos ausentes no CELK',sub:'estão no catálogo mas não vieram em nenhum relatório enviado',
+        cor:'var(--sawtooth)',fundo:'var(--sawtooth-suave)',acao:'inativar'},
+  subgrupo:{titulo:'Mudança de subgrupo',sub:'o item aparece em outro subgrupo no CELK',
+        cor:'var(--corallite)',fundo:'var(--corallite-suave)',acao:'mover'},
+  descricao:{titulo:'Descrição diferente',sub:'o texto no CELK não confere com o do catálogo',
+        cor:'var(--corn)',fundo:'var(--corn-suave)',acao:'adotar o CELK'},
+  unidade:{titulo:'Unidade de pedido diferente',sub:'a unidade no CELK não confere com a do catálogo',
+        cor:'var(--corn)',fundo:'var(--corn-suave)',acao:'adotar o CELK'}
+};
+const ORDEM=['novo','reativar','ausente','subgrupo','descricao','unidade'];
+let recolhidos={};
+
+function desenharResultado(totalCelk){
+  $('#etapaEnvio').classList.add('oculto');
+  const el=$('#etapaResultado');
+  el.classList.remove('oculto');
+
+  const marcadas=DIVERGENCIAS.filter(d=>d.marcado).length;
+  let html='<div class="barra" style="margin-bottom:13px">'+
+    '<div><h2>Divergências encontradas</h2>'+
+    '<div class="sub">'+totalCelk+' itens nos relatórios · '+
+      CATALOGO.filter(r=>(r.ativo||'SIM').toUpperCase()!=='NAO').length+' ativos no catálogo · '+
+      DIVERGENCIAS.length+' divergência(s) · <b id="contMarc">'+marcadas+'</b> selecionada(s)</div></div>'+
+    '<div class="barra espaco">'+
+      '<button class="plana" id="btVoltar">Trocar os relatórios</button>'+
+      '<button class="plana" id="btTodas">Marcar todas</button>'+
+      '<button class="plana" id="btNenhuma">Desmarcar todas</button>'+
+      '<button class="principal" id="btAplicar">Aplicar as selecionadas</button></div></div>';
+
+  if(IRREGULARES.length){
+    html+='<div class="bloco"><div class="cabBloco" style="background:var(--geranium-suave)">'+
+      '<span class="qt" style="color:var(--geranium)">'+IRREGULARES.length+'</span>'+
+      '<div><div class="tt">Precisa de conferência manual</div>'+
+      '<div class="sub">o CELK trouxe registro sem código numérico</div></div></div>'+
+      IRREGULARES.map(r=>'<div class="item"><div style="flex:1">'+
+        '<div style="font-size:12px">'+esc(r.material)+'</div>'+
+        '<div class="det">no relatório do subgrupo '+esc(r.grupo)+', o código veio como '+
+        '<span class="mono" style="background:var(--geranium-suave);padding:1px 6px;border-radius:6px">'+
+        esc(r.codigo)+'</span> em vez de um número. É um cadastro irregular no próprio CELK: '+
+        'confirme lá antes de tratar como item ausente aqui.</div></div></div>').join('')+'</div>';
+  }
+
+  if(!DIVERGENCIAS.length){
+    html+='<div class="vazio">Nenhuma divergência entre os relatórios enviados e o catálogo.<br>'+
+      '<span style="font-size:12px">Os subgrupos comparados estão em dia.</span></div>';
+  }else{
+    ORDEM.forEach(tipo=>{
+      const lista=DIVERGENCIAS.filter(d=>d.tipo===tipo);
+      if(!lista.length)return;
+      const t=TIPOS[tipo], aberto=!recolhidos[tipo];
+      html+='<div class="bloco"><div class="cabBloco" style="background:'+t.fundo+'" data-tipo="'+tipo+'">'+
+        '<span class="qt" style="color:'+t.cor+'">'+lista.length+'</span>'+
+        '<div><div class="tt">'+t.titulo+'</div><div class="sub">'+t.sub+'</div></div>'+
+        '<span class="espaco sub">'+(aberto?'ocultar':'ver a lista')+'</span></div>'+
+        (aberto?lista.map(d=>itemHtml(d,t)).join(''):'')+'</div>';
+    });
+  }
+  el.innerHTML=html;
+
+  el.querySelectorAll('[data-tipo]').forEach(c=>{
+    c.onclick=()=>{recolhidos[c.dataset.tipo]=!recolhidos[c.dataset.tipo];desenharResultado(totalCelk)};
+  });
+  el.querySelectorAll('[data-cx]').forEach(c=>{
+    c.onclick=e=>{
+      e.stopPropagation();
+      const d=DIVERGENCIAS.find(x=>x.id===c.dataset.cx);
+      d.marcado=!d.marcado;
+      c.classList.toggle('marc',d.marcado);
+      c.innerHTML=d.marcado?'&#10003;':'';
+      $('#contMarc').textContent=DIVERGENCIAS.filter(x=>x.marcado).length;
+    };
+  });
+  $('#btVoltar').onclick=()=>{$('#etapaResultado').classList.add('oculto');
+    $('#etapaEnvio').classList.remove('oculto')};
+  $('#btTodas').onclick=()=>{DIVERGENCIAS.forEach(d=>d.marcado=true);desenharResultado(totalCelk)};
+  $('#btNenhuma').onclick=()=>{DIVERGENCIAS.forEach(d=>d.marcado=false);desenharResultado(totalCelk)};
+  $('#btAplicar').onclick=()=>confirmarAplicacao();
+}
+
+function itemHtml(d,t){
+  const cx='<span class="cx'+(d.marcado?' marc':'')+'" data-cx="'+d.id+'" role="checkbox" '+
+    'aria-checked="'+d.marcado+'">'+(d.marcado?'&#10003;':'')+'</span>';
+  let corpo='';
+  if(d.tipo==='descricao'){
+    corpo='<div style="font-size:12px"><span class="mono" style="color:var(--corn)">'+esc(d.codigo)+'</span></div>'+
+      '<div style="font-size:11.5px;margin-top:4px"><span class="sub">catálogo</span> '+esc(d.de)+'</div>'+
+      '<div style="font-size:11.5px"><span class="sub">CELK</span> '+esc(d.para)+'</div>'+
+      '<div class="det">deixe desmarcado para manter o texto do catálogo</div>';
+  }else if(d.tipo==='unidade'||d.tipo==='subgrupo'){
+    corpo='<div style="font-size:12px"><span class="mono" style="color:var(--corn)">'+esc(d.codigo)+
+      '</span> '+esc(d.material||'')+'</div>'+
+      '<div class="det">'+esc(d.de||'vazio')+' &rarr; '+esc(d.para)+'</div>';
+  }else{
+    const c=d.celk||{};
+    const det=d.tipo==='novo'
+      ? '( '+esc(c.grupo)+' ) '+esc(c.subgrupo)+' · unidade '+esc(UNIDADE_LONGA[c.unidade]||c.unidade||'—')
+      : d.tipo==='reativar'
+      ? 'inativo no catálogo, presente no relatório do subgrupo '+esc(c.grupo)
+      : 'no catálogo em ( '+esc((d.catalogo||{}).grupo)+' ) '+esc((d.catalogo||{}).subgrupo);
+    corpo='<div style="font-size:12px"><span class="mono" style="color:var(--corn)">'+esc(d.codigo)+
+      '</span> '+esc(d.material||'')+'</div><div class="det">'+det+'</div>';
+  }
+  return '<div class="item">'+cx+'<div style="flex:1;min-width:0">'+corpo+'</div>'+
+    '<span class="acao">'+t.acao+'</span></div>';
+}
+
+/* ---------------------------------------------------------------------
+   Aplicação: grava um rascunho que o editor carrega
+   --------------------------------------------------------------------- */
+const CHAVE_IMPORTACAO='editor-catalogo-importacao-celk';
+
+function confirmarAplicacao(){
+  const sel=DIVERGENCIAS.filter(d=>d.marcado);
+  if(!sel.length){alert('Nenhuma divergência selecionada.');return}
+  const e=emissao();
+  const origem='relatório do CELK'+(e?' emitido em '+e.em+(e.por?' por '+e.por:''):'')+
+    ', subgrupo(s) '+GRUPOS_LIDOS.join(', ');
+  const novos=sel.filter(d=>d.tipo==='novo').length;
+
+  const fundo=document.createElement('div');
+  fundo.className='fundo-modal';
+  fundo.innerHTML='<div class="modal">'+
+    '<header><h2>Conferir antes de aplicar</h2>'+
+    '<div class="sub">'+sel.length+' alteração(ões) entram na sessão atual do editor</div></header>'+
+    '<div class="corpo" style="max-height:46vh;overflow:auto;padding:0">'+
+      sel.map(d=>{
+        const t=TIPOS[d.tipo];
+        return '<div class="item">'+
+          '<span class="et" style="background:'+t.fundo+';color:'+t.cor+'">'+t.acao+'</span>'+
+          '<div><div style="font-size:12px"><span class="mono" style="color:var(--corn)">'+
+          esc(d.codigo)+'</span> '+esc(d.material||d.de||'')+'</div>'+
+          (d.tipo==='descricao'||d.tipo==='unidade'||d.tipo==='subgrupo'
+            ? '<div class="det">'+esc(d.de||'vazio')+' &rarr; '+esc(d.para)+'</div>':'')+
+          '</div></div>';
+      }).join('')+
+    '</div>'+
+    '<div class="corpo" style="background:var(--neutro)">'+
+      '<div class="sub" style="text-transform:uppercase;letter-spacing:.05em;margin-bottom:7px">Como ficará no histórico</div>'+
+      '<div style="background:#fff;border-radius:14px;padding:12px 14px;font-size:11.5px;line-height:1.65;box-shadow:var(--sombra)">'+
+        '<b>origem:</b> '+esc(origem)+'</div>'+
+      (novos?'<div class="aviso a-alerta" style="margin:12px 0 0">Os '+novos+
+        ' item(ns) novo(s) entram sem tag, sem família e sem foto. Eles aparecem no catálogo com o '+
+        'quadro de foto pendente até serem completados no editor.</div>':'')+
+    '</div>'+
+    '<footer><span class="sub">as alterações ainda passam pela conferência do editor antes do download</span>'+
+    '<span class="espaco"></span><button class="plana" data-fechar="1">Voltar</button>'+
+    '<button class="principal" id="btConfirmar">Aplicar ao editor</button></footer></div>';
+  document.body.appendChild(fundo);
+  fundo.addEventListener('click',ev=>{
+    if(ev.target===fundo||(ev.target.dataset&&ev.target.dataset.fechar))fundo.remove()});
+  fundo.querySelector('#btConfirmar').onclick=()=>{gravarImportacao(sel,origem);fundo.remove()};
+}
+
+function gravarImportacao(sel,origem){
+  /* O editor é quem sabe montar o CSV e o histórico. Aqui gravamos apenas as
+     instruções, que ele aplica ao abrir. */
+  const pacote={
+    quando:new Date().toISOString(),
+    origem,
+    grupos:GRUPOS_LIDOS,
+    alteracoes:sel.map(d=>({
+      tipo:d.tipo,
+      codigo:d.codigo,
+      material:d.material||'',
+      de:d.de||'',
+      para:d.para||'',
+      celk:d.celk?{material:d.celk.material,unidade:UNIDADE_LONGA[d.celk.unidade]||d.celk.unidade||'',
+                   grupo:d.celk.grupo,subgrupo:d.celk.subgrupo}:null
+    }))
+  };
+  try{
+    localStorage.setItem(CHAVE_IMPORTACAO,JSON.stringify(pacote));
+  }catch(e){
+    alert('Não consegui guardar as alterações neste navegador.');return;
+  }
+  const fundo=document.createElement('div');
+  fundo.className='fundo-modal';
+  fundo.innerHTML='<div class="modal" style="max-width:520px">'+
+    '<header><h2>Alterações prontas</h2>'+
+    '<div class="sub">'+sel.length+' alteração(ões) aguardando o editor</div></header>'+
+    '<div class="corpo"><p style="margin:0 0 12px;font-size:12.5px;line-height:1.6">'+
+    'Abra o editor do catálogo para revisar e baixar o pacote. As alterações entram '+
+    'na sessão atual e o histórico já registra que vieram do relatório do CELK.</p>'+
+    '<div class="aviso a-info" style="margin:0">Enquanto você não abrir o editor, nada foi alterado '+
+    'no catálogo. Se preferir, pode voltar e revisar as seleções.</div></div>'+
+    '<footer><span class="espaco"></span><button class="plana" data-fechar="1">Depois</button>'+
+    '<a href="editor-catalogo.html"><button class="principal">Abrir o editor</button></a></footer></div>';
+  document.body.appendChild(fundo);
+  fundo.addEventListener('click',ev=>{
+    if(ev.target===fundo||(ev.target.dataset&&ev.target.dataset.fechar))fundo.remove()});
+}
+</script>
+</body>
+</html>
