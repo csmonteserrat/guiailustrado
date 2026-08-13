@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Descritivos para pregão</title>
+<style>
+:root{
+  --azul:#546de5; --azul-suave:#e8ebfc; --roxo:#574b90; --roxo-suave:#eae7f5;
+  --laranja:#f19066; --laranja-suave:#fdeee7; --verde:#2f9e6f; --verde-suave:#e4f5ed;
+  --texto:#303952; --secundario:#6b7291; --linha:#e2e4ef; --fundo:#f4f5fa;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fundo);color:var(--texto);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.45}
+.wrap{max-width:1080px;margin:0 auto;padding:20px 16px 70px}
+h1{font-size:20px;font-weight:600;margin:0}
+.sub{color:var(--secundario);font-size:12px}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace}
+.oculto{display:none !important}
+button{font:inherit;font-size:13px;padding:8px 13px;border-radius:8px;border:none;
+  background:var(--azul);color:#fff;cursor:pointer}
+button.sec{background:#fff;color:var(--texto);border:1px solid var(--linha)}
+button.mini{font-size:11.5px;padding:5px 10px}
+a.botao{text-decoration:none;display:inline-block}
+input,select{font:inherit;font-size:13px;padding:8px 10px;border:1px solid var(--linha);
+  border-radius:8px;background:#fff;color:var(--texto)}
+.barra{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.espaco{margin-left:auto}
+.tag{font-size:10.5px;padding:2px 8px;border-radius:20px;display:inline-block;white-space:nowrap}
+.t-az{background:var(--azul-suave);color:var(--azul)}
+.t-rx{background:var(--roxo-suave);color:var(--roxo)}
+.t-vd{background:var(--verde-suave);color:var(--verde)}
+.t-lr{background:var(--laranja-suave);color:var(--laranja)}
+.t-ci{background:#f1f2f6;color:var(--secundario)}
+
+.cabecalho{position:sticky;top:0;z-index:20;background:var(--fundo);padding-top:4px}
+.painel{background:#fff;border:1px solid var(--linha);border-radius:12px;padding:14px 16px;margin-bottom:12px}
+
+/* alternador de modo de busca */
+.alterna{display:flex;border:1px solid var(--linha);border-radius:8px;overflow:hidden;font-size:12px}
+.alterna span{padding:8px 12px;cursor:pointer;color:var(--secundario);background:#fff;white-space:nowrap}
+.alterna span+span{border-left:1px solid var(--linha)}
+.alterna span[aria-pressed="true"]{background:var(--azul-suave);color:var(--azul)}
+
+/* lista */
+.lista{background:#fff;border:1px solid var(--linha);border-radius:12px;overflow:hidden}
+.item{border-bottom:1px solid #eef0f6}
+.item:last-child{border-bottom:none}
+.linha{display:flex;gap:12px;padding:10px 14px;align-items:center;cursor:pointer}
+.linha:hover{background:#fafbff}
+.item.aberto .linha{background:#fafbff}
+.foto{width:52px;height:52px;flex:none;border-radius:7px;background:var(--fundo);
+  border:1px solid #eef0f6;object-fit:contain;display:block}
+.semfoto{width:52px;height:52px;flex:none;border-radius:7px;background:var(--fundo);
+  border:1px solid #eef0f6;display:flex;align-items:center;justify-content:center;
+  color:#9aa1b8;font-size:16px}
+.nome{font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.meta{display:flex;gap:7px;align-items:center;margin-top:3px;flex-wrap:wrap}
+.trecho{font-size:11px;color:var(--secundario);margin-top:4px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.trecho mark{background:#fff3cd;color:inherit;padding:0 1px;border-radius:2px}
+.dir{flex:none;text-align:right}
+.seta{color:var(--secundario);font-size:11px;flex:none;width:14px;text-align:center}
+
+/* detalhe */
+.detalhe{background:#fafbff;border-top:1px solid var(--linha);padding:14px 16px 16px 78px;
+  display:flex;gap:18px}
+@media(max-width:760px){.detalhe{padding-left:16px;flex-direction:column;gap:12px}}
+.detalhe .col1{flex:1;min-width:0}
+.detalhe .col2{flex:2;min-width:0;border-left:1px solid var(--linha);padding-left:18px}
+@media(max-width:760px){.detalhe .col2{border-left:none;border-top:1px solid var(--linha);
+  padding-left:0;padding-top:12px}}
+.secao{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:9px;
+  color:var(--secundario)}
+.secao.pregao{color:var(--azul)}
+.campo{margin-bottom:10px}
+.campo .r{font-size:10px;color:var(--secundario);text-transform:uppercase;
+  letter-spacing:.04em;margin-bottom:2px}
+.campo .v{font-size:12.5px}
+.texto{background:#fff;border:1px solid var(--linha);border-radius:8px;padding:10px 12px;
+  font-size:12.5px;line-height:1.6;white-space:pre-wrap}
+.texto mark{background:#fff3cd;padding:0 1px;border-radius:2px}
+.vazio{padding:30px 16px;text-align:center;color:var(--secundario);font-size:13px}
+.aviso{border-left:3px solid var(--laranja);background:var(--laranja-suave);
+  border-radius:8px;padding:11px 13px;font-size:12.5px;margin-bottom:12px}
+.rodape{margin-top:22px;font-size:11.5px;color:var(--secundario);text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="cabecalho">
+  <div class="painel">
+    <div class="barra">
+      <div>
+        <h1>Descritivos para pregão</h1>
+        <div class="sub" id="contagem">carregando...</div>
+      </div>
+      <div class="barra espaco">
+        <button class="sec" id="btExportar">Exportar</button>
+        <a class="botao" href="../editor-catalogo/editor-catalogo.html"><button>Abrir o editor</button></a>
+      </div>
+    </div>
+
+    <div class="barra" style="margin-top:11px">
+      <input type="search" id="busca" placeholder="Buscar por nome ou código" style="flex:1;min-width:200px">
+      <div class="alterna" id="modo">
+        <span data-modo="titulos" aria-pressed="true">Títulos</span>
+        <span data-modo="texto" aria-pressed="false">Descritivos</span>
+      </div>
+    </div>
+
+    <div class="barra" style="margin-top:8px">
+      <select id="fBloco" style="flex:1;min-width:150px"></select>
+      <select id="fFamilia" style="flex:1;min-width:150px"></select>
+      <select id="fSituacao" style="flex:1;min-width:150px">
+        <option value="">Com e sem descritivo</option>
+        <option value="ok">Somente com descritivo</option>
+        <option value="pendente">Somente pendentes</option>
+        <option value="proprio">Com nome próprio no pregão</option>
+      </select>
+      <label class="sub barra" style="gap:6px;cursor:pointer;white-space:nowrap">
+        <input type="checkbox" id="fInativos" style="width:auto"> mostrar inativos
+      </label>
+    </div>
+  </div>
+</div>
+
+<div id="alerta"></div>
+<div class="lista" id="lista"><div class="vazio">Carregando os materiais...</div></div>
+<div class="sub" id="rodapeLista" style="margin-top:8px"></div>
+
+<div class="rodape">
+  Esta página é apenas de consulta. As alterações são feitas no editor do catálogo.<br>
+  Materiais da lista da Enfermagem não entram aqui, por não serem objeto dos pregões da odontologia.
+</div>
+
+</div>
+
+<script>
+/* =====================================================================
+   Página de consulta dos descritivos de pregão.
+   Lê dois arquivos: o produtos.csv, na raiz, com os dados do catálogo,
+   e o descritivos.csv, nesta pasta, com o texto de cada descritivo.
+   A ligação entre os dois é o código do material.
+   Nada é gravado aqui: a edição fica concentrada no editor do catálogo.
+   ===================================================================== */
+const $=s=>document.querySelector(s);
+const normalizar=s=>(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+const esc=s=>String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+let ITENS=[];            // materiais da odontologia, já cruzados com o descritivo
+let modo='titulos';
+let aberto=null;
+
+/* ---------- leitura de CSV ---------- */
+function lerCsv(texto){
+  texto=texto.replace(/^\uFEFF/,'');
+  const corte=texto.indexOf('\n');
+  const primeira=corte>0?texto.slice(0,corte):texto;
+  const sep=(primeira.split(';').length>primeira.split(',').length)?';':',';
+  const linhas=[];let campo='',linha=[],aspas=false;
+  for(let i=0;i<texto.length;i++){
+    const c=texto[i];
+    if(aspas){
+      if(c==='"'&&texto[i+1]==='"'){campo+='"';i++}
+      else if(c==='"')aspas=false;
+      else campo+=c;
+    }else{
+      if(c==='"')aspas=true;
+      else if(c===sep){linha.push(campo);campo=''}
+      else if(c==='\n'){linha.push(campo);linhas.push(linha);linha=[];campo=''}
+      else if(c!=='\r')campo+=c;
+    }
+  }
+  if(campo||linha.length){linha.push(campo);linhas.push(linha)}
+  if(!linhas.length)return [];
+  const cab=linhas.shift().map(h=>normalizar(h.trim()).replace(/\s+/g,''));
+  return linhas.filter(l=>l.some(v=>v.trim())).map(l=>{
+    const o={};cab.forEach((h,i)=>o[h]=(l[i]||'').trim());return o});
+}
+
+const valoresDe=(it,col)=>(it[col]||'').split(';').map(t=>t.trim()).filter(Boolean);
+
+/* ---------- carregamento ---------- */
+Promise.all([
+  fetch('../produtos.csv').then(r=>{if(!r.ok)throw new Error('produtos');return r.text()}),
+  fetch('descritivos.csv').then(r=>r.ok?r.text():'')       // ausente é aceitável: tudo fica pendente
+]).then(([tp,td])=>{
+  const produtos=lerCsv(tp).filter(r=>r.codigo);
+  const desc={};
+  lerCsv(td).forEach(d=>{if(d.codigo)desc[d.codigo]=d});
+
+  /* Somente materiais da odontologia. Os da lista da Enfermagem,
+     marcados com acesso COORDENACAO, não são objeto destes pregões. */
+  ITENS=produtos.filter(p=>(p.acesso||'').toUpperCase()!=='COORDENACAO').map(p=>{
+    const d=desc[p.codigo]||{};
+    const descritivo=(d.descritivo||'').trim();
+    return {
+      codigo:p.codigo,
+      material:p.material||'',
+      unidade:p.unidade||'',
+      subgrupo:p.subgrupo||'',
+      grupo:p.grupo||'',
+      acesso:(p.acesso||'').toUpperCase(),
+      tipo:p.tipo||'',
+      familias:valoresDe(p,'familia'),
+      tags:valoresDe(p,'especialidade'),
+      observacao:p.observacao||'',
+      imagem:p.imagem||(p.codigo+'.jpg'),
+      ativo:(p.ativo||'SIM').toUpperCase()!=='NAO',
+      nomePregao:(d.nome_pregao||'').trim(),
+      descritivo:descritivo,
+      unidadeCompra:(d.unidade_compra||'').trim(),
+      modificadoEm:(d.modificado_em||'').trim(),
+      modificadoPor:(d.modificado_por||'').trim(),
+      temDescritivo:!!descritivo
+    };
+  });
+
+  if(!Object.keys(desc).length)
+    $('#alerta').innerHTML='<div class="aviso">Não encontrei o arquivo '+
+      '<span class="mono">descritivos.csv</span> nesta pasta. Os materiais aparecem listados, '+
+      'todos como pendentes. Os descritivos são preenchidos pelo editor do catálogo.</div>';
+
+  montarFiltros();desenhar();
+}).catch(()=>{
+  $('#lista').innerHTML='<div class="vazio">Não consegui carregar o <span class="mono">produtos.csv</span>. '+
+    'Esta página precisa ser aberta pelo endereço publicado, e não pelo arquivo direto no disco.</div>';
+  $('#contagem').textContent='';
+});
+
+/* ---------- filtros ---------- */
+function rotuloBloco(it){return it.grupo?it.grupo+' - '+it.subgrupo:it.subgrupo}
+
+function montarFiltros(){
+  const blocos=new Map();
+  ITENS.forEach(i=>{if(i.subgrupo&&!blocos.has(i.subgrupo))blocos.set(i.subgrupo,rotuloBloco(i))});
+  $('#fBloco').innerHTML='<option value="">Todos os blocos</option>'+
+    [...blocos.entries()].sort((a,b)=>a[1].localeCompare(b[1],'pt-BR'))
+      .map(([v,r])=>'<option value="'+esc(v)+'">'+esc(r)+'</option>').join('');
+  const fam=[...new Set(ITENS.flatMap(i=>i.familias))].sort((a,b)=>a.localeCompare(b,'pt-BR'));
+  $('#fFamilia').innerHTML='<option value="">Todas as famílias</option>'+
+    fam.map(f=>'<option>'+esc(f)+'</option>').join('');
+}
+
+['#busca','#fBloco','#fFamilia','#fSituacao','#fInativos'].forEach(sel=>{
+  document.addEventListener('input',e=>{if(e.target.matches(sel))desenhar()});
+  document.addEventListener('change',e=>{if(e.target.matches(sel))desenhar()});
+});
+
+document.querySelectorAll('#modo span').forEach(el=>{
+  el.onclick=()=>{
+    modo=el.dataset.modo;
+    document.querySelectorAll('#modo span').forEach(x=>
+      x.setAttribute('aria-pressed',x.dataset.modo===modo));
+    $('#busca').placeholder=modo==='titulos'
+      ? 'Buscar por nome ou código'
+      : 'Buscar dentro do texto dos descritivos';
+    desenhar();
+  };
+});
+
+function filtrados(){
+  const termos=normalizar($('#busca').value).split(/\s+/).filter(Boolean);
+  const bloco=$('#fBloco').value, fam=$('#fFamilia').value,
+        sit=$('#fSituacao').value, inativos=$('#fInativos').checked;
+  return ITENS.filter(it=>{
+    if(!inativos&&!it.ativo)return false;
+    if(bloco&&it.subgrupo!==bloco)return false;
+    if(fam&&!it.familias.includes(fam))return false;
+    if(sit==='ok'&&!it.temDescritivo)return false;
+    if(sit==='pendente'&&it.temDescritivo)return false;
+    if(sit==='proprio'&&!it.nomePregao)return false;
+    if(termos.length){
+      /* No modo títulos, a busca cobre nome, código, nome de pregão e classificação.
+         No modo descritivos, procura dentro do texto, que é o que permite
+         localizar redações semelhantes e padronizá-las. */
+      const alvo=modo==='texto'
+        ? normalizar(it.descritivo)
+        : normalizar([it.codigo,it.material,it.nomePregao,it.familias.join(' '),
+                      it.tags.join(' '),it.subgrupo].join(' '));
+      if(!termos.every(t=>alvo.includes(t)))return false;
+    }
+    return true;
+  });
+}
+
+/* Destaca os termos buscados dentro de um texto, respeitando acentuação. */
+function destacar(texto,termos){
+  if(!termos.length)return esc(texto);
+  const alvo=normalizar(texto);
+  const marcas=[];
+  termos.forEach(t=>{
+    let i=alvo.indexOf(t);
+    while(i!==-1){marcas.push([i,i+t.length]);i=alvo.indexOf(t,i+t.length)}
+  });
+  if(!marcas.length)return esc(texto);
+  marcas.sort((a,b)=>a[0]-b[0]);
+  const juntas=[];
+  marcas.forEach(m=>{
+    const u=juntas[juntas.length-1];
+    if(u&&m[0]<=u[1])u[1]=Math.max(u[1],m[1]);else juntas.push(m.slice());
+  });
+  let saida='',pos=0;
+  juntas.forEach(([a,b])=>{
+    saida+=esc(texto.slice(pos,a))+'<mark>'+esc(texto.slice(a,b))+'</mark>';pos=b;
+  });
+  return saida+esc(texto.slice(pos));
+}
+
+/* Trecho do descritivo em torno do primeiro termo encontrado. */
+function trechoRelevante(texto,termos){
+  if(!termos.length)return texto.slice(0,160);
+  const alvo=normalizar(texto);
+  let i=-1;
+  for(const t of termos){const p=alvo.indexOf(t);if(p!==-1&&(i===-1||p<i))i=p}
+  if(i===-1)return texto.slice(0,160);
+  const ini=Math.max(0,i-60);
+  return (ini?'... ':'')+texto.slice(ini,ini+170)+(ini+170<texto.length?' ...':'');
+}
+
+/* ---------- desenho ---------- */
+function desenhar(){
+  const lista=filtrados();
+  const termos=normalizar($('#busca').value).split(/\s+/).filter(Boolean);
+  const el=$('#lista');
+  if(!lista.length){
+    el.innerHTML='<div class="vazio">Nenhum material encontrado.<br>'+
+      '<span style="font-size:12px">Tente parte do nome, o código, ou alterne o modo de busca.</span></div>';
+  }else{
+    el.innerHTML=lista.map(it=>{
+      const c=it.acesso==='CEO'?'t-rx':'t-az';
+      const aberta=aberto===it.codigo;
+      return '<div class="item'+(aberta?' aberto':'')+'">'+
+        '<div class="linha" data-cod="'+esc(it.codigo)+'">'+
+          '<img class="foto" src="../imagens/'+encodeURIComponent(it.imagem)+'" alt="" loading="lazy" '+
+            'onerror="this.outerHTML=\'<div class=&quot;semfoto&quot;>&#9635;</div>\'">'+
+          '<div style="flex:1;min-width:0">'+
+            '<div class="nome">'+(modo==='titulos'?destacar(it.material,termos):esc(it.material))+'</div>'+
+            '<div class="meta">'+
+              '<span class="mono" style="font-size:11.5px;color:var(--'+(it.acesso==='CEO'?'roxo':'azul')+')">'+
+                esc(it.codigo)+'</span>'+
+              '<span class="tag '+c+'">'+esc(rotuloBloco(it))+'</span>'+
+              (it.nomePregao?'<span class="sub">nome próprio no pregão</span>':'')+
+              (!it.ativo?'<span class="tag t-ci">inativo</span>':'')+
+            '</div>'+
+            (modo==='texto'&&it.descritivo
+              ? '<div class="trecho">'+destacar(trechoRelevante(it.descritivo,termos),termos)+'</div>':'')+
+          '</div>'+
+          '<div class="dir">'+
+            '<span class="tag '+(it.temDescritivo?'t-vd':'t-lr')+'">'+
+              (it.temDescritivo?'descritivo ok':'pendente')+'</span>'+
+            (it.modificadoEm?'<div class="sub" style="font-size:10px;margin-top:4px">'+
+              esc(it.modificadoEm)+(it.modificadoPor?' · '+esc(it.modificadoPor):'')+'</div>':'')+
+          '</div>'+
+          '<span class="seta">'+(aberta?'▲':'▼')+'</span>'+
+        '</div>'+
+        (aberta?detalhe(it,termos):'')+
+      '</div>';
+    }).join('');
+  }
+
+  const total=ITENS.filter(i=>i.ativo).length;
+  const comDesc=ITENS.filter(i=>i.ativo&&i.temDescritivo).length;
+  $('#contagem').textContent=total+' materiais da odontologia · '+comDesc+' com descritivo · '+
+    (total-comDesc)+' pendentes';
+  $('#rodapeLista').textContent='mostrando '+lista.length+' de '+ITENS.length+' itens';
+
+  el.querySelectorAll('.linha').forEach(l=>{
+    l.onclick=()=>{aberto=(aberto===l.dataset.cod?null:l.dataset.cod);desenhar()};
+  });
+}
+
+function detalhe(it,termos){
+  const campo=(r,v)=>'<div class="campo"><div class="r">'+r+'</div><div class="v">'+v+'</div></div>';
+  return '<div class="detalhe">'+
+    '<div class="col1">'+
+      '<div class="secao">Do catálogo</div>'+
+      campo('Unidade de pedido',esc(it.unidade)||'—')+
+      campo('Tipo',esc(it.tipo)||'—')+
+      campo('Famílias',it.familias.length?esc(it.familias.join(' · ')):'—')+
+      campo('Tags',it.tags.length?esc(it.tags.join(' · ')):'—')+
+      (it.observacao?campo('Observação',esc(it.observacao)):'')+
+    '</div>'+
+    '<div class="col2">'+
+      '<div class="secao pregao">Para o pregão</div>'+
+      campo('Nome para o pregão',it.nomePregao
+        ? esc(it.nomePregao)
+        : esc(it.material)+' <span class="sub">(igual ao catálogo)</span>')+
+      '<div class="campo"><div class="r">Descritivo</div>'+
+        (it.descritivo
+          ? '<div class="texto">'+(modo==='texto'?destacar(it.descritivo,termos):esc(it.descritivo))+'</div>'
+          : '<div class="texto" style="color:var(--laranja)">Descritivo ainda não preenchido. '+
+            'Abra o editor do catálogo para acrescentar.</div>')+
+      '</div>'+
+      '<div class="barra" style="gap:18px;align-items:flex-start">'+
+        campo('Unidade de compra',esc(it.unidadeCompra)||'—')+
+        campo('Última modificação do descritivo',it.modificadoEm
+          ? esc(it.modificadoEm)+(it.modificadoPor?' · '+esc(it.modificadoPor):'')
+          : '—')+
+      '</div>'+
+    '</div>'+
+  '</div>';
+}
+
+/* ---------- exportação ---------- */
+$('#btExportar').onclick=()=>{
+  const lista=filtrados();
+  if(!lista.length){alert('Não há itens na listagem atual para exportar.');return}
+  const campo=v=>{v=String(v==null?'':v);return /[",;\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v};
+  const L=['codigo,nome_pregao,descritivo,unidade_compra,unidade_pedido,subgrupo,familias,tags,modificado_em,modificado_por'];
+  lista.forEach(it=>L.push([it.codigo,it.nomePregao||it.material,it.descritivo,it.unidadeCompra,
+    it.unidade,rotuloBloco(it),it.familias.join('; '),it.tags.join('; '),
+    it.modificadoEm,it.modificadoPor].map(campo).join(',')));
+  const d=new Date(),p=n=>String(n).padStart(2,'0');
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob(['\uFEFF'+L.join('\r\n')+'\r\n'],{type:'text/csv;charset=utf-8'}));
+  a.download='descritivos-'+d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())+'.csv';
+  a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),4000);
+};
+</script>
+</body>
+</html>

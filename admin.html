@@ -125,11 +125,19 @@ input[type=file]{display:none}
     <span class="pe">abrir a ferramenta &rarr;</span>
   </a>
 
+  <a class="cartao" href="descritivos/descritivos.html">
+    <div class="ic" style="background:var(--laranja-suave);color:var(--laranja)">&#9776;</div>
+    <div class="tt">Descritivos para pregão</div>
+    <div class="ds">Consultar os descritivos técnicos que compõem os pregões, o nome de cada
+    material no edital, a unidade de compra e a data da última revisão.</div>
+    <span class="pe">abrir a consulta &rarr;</span>
+  </a>
+
   <a class="cartao" href="editor-catalogo/historico.md">
-    <div class="ic" style="background:var(--roxo-suave);color:var(--roxo)">&#9776;</div>
+    <div class="ic" style="background:var(--roxo-suave);color:var(--roxo)">&#9998;</div>
     <div class="tt">Histórico de alterações</div>
-    <div class="ds">Registro acumulado de todas as edições feitas na lista de materiais, com data,
-    responsável e detalhamento campo a campo.</div>
+    <div class="ds">Registro acumulado de todas as edições feitas na lista de materiais e nos
+    descritivos, com data, responsável e detalhamento campo a campo.</div>
     <span class="pe">ver o arquivo &rarr;</span>
   </a>
 
@@ -197,6 +205,8 @@ input[type=file]{display:none}
       <span class="sub">lista de materiais, na raiz</span><span class="tag t-ci" id="stCsv">verificando</span></div>
     <div class="linhaArq"><span class="nm mono">imagens/</span>
       <span class="sub">fotos, nomeadas pelo código</span><span class="tag t-ci" id="stImg">verificando</span></div>
+    <div class="linhaArq"><span class="nm mono">descritivos/descritivos.csv</span>
+      <span class="sub">descritivos para pregão</span><span class="tag t-ci" id="stDesc">verificando</span></div>
     <div class="linhaArq"><span class="nm mono">editor-catalogo/historico.md</span>
       <span class="sub">registro das alterações</span><span class="tag t-ci" id="stLog">verificando</span></div>
   </div>
@@ -285,8 +295,15 @@ fetch('produtos.csv').then(r=>{if(!r.ok)throw 0;return r.text()}).then(async t=>
   $('#numeros').innerHTML='<div class="numero" style="grid-column:1/-1"><div class="r">'+
     'Os números aparecem quando esta página é aberta pelo endereço publicado. '+
     'Abrindo o arquivo direto do disco, o navegador bloqueia a leitura do produtos.csv.</div></div>';
-  ['stCsv','stImg','stLog'].forEach(id=>{$('#'+id).textContent='não verificado'});
+  ['stCsv','stImg','stLog','stDesc'].forEach(id=>{const e=$('#'+id);if(e)e.textContent='não verificado'});
 });
+
+fetch('descritivos/descritivos.csv').then(r=>{if(!r.ok)throw 0;return r.text()}).then(t=>{
+  const linhas=lerCsv(t).filter(r=>r.codigo);
+  const com=linhas.filter(r=>(r.descritivo||'').trim()).length;
+  $('#stDesc').textContent=com+' de '+linhas.length+' preenchidos';
+  $('#stDesc').className='tag '+(com?(com===linhas.length?'t-vd':'t-lr'):'t-ci');
+}).catch(()=>{$('#stDesc').textContent='não encontrado';});
 
 fetch('editor-catalogo/historico.md').then(r=>{if(!r.ok)throw 0;return r.text()}).then(t=>{
   const n=(t.match(/<!--\s*sessao:/g)||[]).length;

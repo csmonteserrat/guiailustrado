@@ -138,6 +138,8 @@ label.rot{display:block;font-size:11px;color:var(--secundario);margin-bottom:3px
           <option value="inativos">Somente inativos</option>
           <option value="alterados">Somente alterados nesta sessão</option>
           <option value="semtag">Sem tag ou sem família</option>
+          <option value="comdesc">Com descritivo de pregão</option>
+          <option value="semdesc">Sem descritivo de pregão</option>
         </select>
       </div>
     </div>
@@ -181,6 +183,7 @@ const escapar=s=>(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g
    mas em toda a interface ela é apresentada como "Tags", como no site. */
 const ROTULOS={codigo:'Código',material:'Material',unidade:'Unidade de pedido',grupo:'Grupo',
   subgrupo:'Subgrupo',acesso:'Acesso',tipo:'Tipo',especialidade:'Tags',familia:'Família',
+  nome_pregao:'Nome para o pregão',descritivo:'Descritivo',unidade_compra:'Unidade de compra',
   imagem:'Arquivo da imagem',observacao:'Observação',ativo:'Situação'};
 const rotulo=c=>ROTULOS[c]||c;
 
@@ -247,6 +250,36 @@ function aplicar(dados,nome){
    Tentamos os dois caminhos, para funcionar também se alguém mover o arquivo. */
 const CAMINHOS_CSV=['../produtos.csv','produtos.csv'];
 const CAMINHO_LOG='historico.md';
+const CAMINHOS_DESC=['../descritivos/descritivos.csv','descritivos.csv'];
+
+/* ---------------------------------------------------------------------
+   Descritivos de pregão. Ficam em arquivo próprio, ligado ao catálogo
+   pelo código do material, e só valem para materiais da odontologia.
+   --------------------------------------------------------------------- */
+const COLUNAS_DESC=['codigo','nome_pregao','descritivo','unidade_compra','modificado_em','modificado_por'];
+let DESCRITIVOS={};        // codigo -> registro
+let DESC_ORIGINAIS={};     // cópia como estava no arquivo
+let descCarregado=false;
+
+async function carregarDescritivos(){
+  for(const caminho of CAMINHOS_DESC){
+    try{
+      const r=await fetch(caminho+'?t='+Date.now());
+      if(!r.ok)continue;
+      const dados=lerCsv(await r.text());
+      dados.registros.forEach(d=>{if(d.codigo)DESCRITIVOS[d.codigo]=d});
+      descCarregado=true;
+      break;
+    }catch(e){}
+  }
+  DESC_ORIGINAIS={};
+  Object.keys(DESCRITIVOS).forEach(c=>DESC_ORIGINAIS[c]=Object.assign({},DESCRITIVOS[c]));
+}
+
+const descDe=codigo=>DESCRITIVOS[codigo]||{};
+const temDescritivo=codigo=>!!(descDe(codigo).descritivo||'').trim();
+/* Materiais da lista da Enfermagem não entram nos pregões da odontologia. */
+const aceitaDescritivo=it=>(it.acesso||'').toUpperCase()!=='COORDENACAO';
 
 async function tentarCarregar(){
   for(const caminho of CAMINHOS_CSV){
@@ -255,11 +288,13 @@ async function tentarCarregar(){
       if(!r.ok)continue;
       const t=await r.text();
       await carregarHistorico();
+      await carregarDescritivos();
       aplicar(lerCsv(t),'produtos.csv');
       return;
     }catch(e){}
   }
   await carregarHistorico();
+  await carregarDescritivos();
   $('#procurando').classList.add('oculto');
   $('#pedirCsv').classList.remove('oculto');
 }
@@ -280,10 +315,12 @@ $('#entradaCsv').onchange=e=>{
 function salvarRascunho(jaCalculado){
   try{
     const m=jaCalculado||mudancas();
-    if(!m.length){localStorage.removeItem(CHAVE);return}
+    const md=mudancasDescritivo();
+    if(!m.length&&!md.length){localStorage.removeItem(CHAVE);return}
     localStorage.setItem(CHAVE,JSON.stringify(
       {quando:new Date().toISOString(),colunas:COLUNAS,itens:ITENS,
-       originais:ORIGINAIS,excluidos:EXCLUIDOS}));
+       originais:ORIGINAIS,excluidos:EXCLUIDOS,
+       descritivos:DESCRITIVOS,descOriginais:DESC_ORIGINAIS}));
   }catch(e){}
 }
 
@@ -295,6 +332,12 @@ function alteracoesDoRascunho(r){
     const o=(r.originais||{})[it.__id];
     if(!o){n++;return}
     if(r.colunas.some(c=>(o[c]||'')!==(it[c]||'')))n++;
+  });
+  // alterações nos descritivos também contam
+  const dA=r.descritivos||{}, dO=r.descOriginais||{};
+  new Set(Object.keys(dA).concat(Object.keys(dO))).forEach(cod=>{
+    const a=dA[cod]||{}, b=dO[cod]||{};
+    if(['nome_pregao','descritivo','unidade_compra'].some(c=>(a[c]||'').trim()!==(b[c]||'').trim()))n++;
   });
   return n;
 }
@@ -313,6 +356,7 @@ function verificarRascunho(){
   $('#editor').classList.add('oculto');
   $('#btRestaurar').onclick=()=>{
     COLUNAS=r.colunas;ITENS=r.itens;ORIGINAIS=r.originais;EXCLUIDOS=r.excluidos||[];
+    if(r.descritivos){DESCRITIVOS=r.descritivos;DESC_ORIGINAIS=r.descOriginais||{}}
     proximoId=Math.max(0,...ITENS.map(i=>i.__id||0))+1;
     caixa.classList.add('oculto');
     $('#painelCarregar').classList.add('oculto');$('#editor').classList.remove('oculto');
@@ -444,6 +488,8 @@ function filtrados(){
     if(sit==='inativos'&&ativo)return false;
     if(sit==='alterados'&&!situacao(it))return false;
     if(sit==='semtag'&&tagsDe(it).length&&familiasDe(it).length)return false;
+    if(sit==='comdesc'&&!temDescritivo((it.codigo||'').trim()))return false;
+    if(sit==='semdesc'&&(temDescritivo((it.codigo||'').trim())||!aceitaDescritivo(it)))return false;
     if(termos.length){
       const alvo=normalizar([it.codigo,it.material,it.familia,it.especialidade,it.subgrupo].join(' '));
       if(!termos.every(t=>alvo.includes(t)))return false;
@@ -465,7 +511,8 @@ function desenhar(){
       '<td class="material"><span class="nome">'+escapar(it.material)+'</span>'+
         (sit==='novo'?' <span class="tag t-vd">novo</span>':'')+
         (sit==='editado'?' <span class="tag t-az">editado</span>':'')+
-        (inativo?' <span class="tag t-ci">inativo</span>':'')+'</td>'+
+        (inativo?' <span class="tag t-ci">inativo</span>':'')+
+        (temDescritivo((it.codigo||'').trim())?' <span class="tag t-lr">descritivo</span>':'')+'</td>'+
       '<td class="sub">'+escapar((it.unidade||'').split(' - ')[0])+'</td>'+
       '<td><span class="tag '+corBloco(it)+'">'+escapar(juntarGrupo(it.grupo,it.subgrupo))+'</span></td>'+
       '<td class="sub">'+escapar(familiasDe(it).concat(tags).join(', '))+'</td>'+
@@ -474,9 +521,11 @@ function desenhar(){
   $('#rodapeTabela').textContent=lista.length>limite
     ? 'mostrando os primeiros '+limite+' de '+lista.length+' itens, refine a busca para ver os demais'
     : 'mostrando '+lista.length+' de '+ITENS.length+' itens';
-  const m=mudancas();
+  const m=mudancas(), md=mudancasDescritivo();
+  const totalAlt=m.length+md.length;
   $('#contagem').textContent=ITENS.length+' itens no arquivo'+
-    (m.length?' · '+m.length+' alteração(ões) pendente(s)':' · nenhuma alteração pendente');
+    (totalAlt?' · '+totalAlt+' alteração(ões) pendente(s)'+
+      (md.length?' ('+md.length+' em descritivos)':''):' · nenhuma alteração pendente');
   salvarRascunho(m);
 }
 
@@ -504,6 +553,43 @@ function abrirEdicao(id,novo){
 
   /* Valores dos campos que aceitam mais de uma opção. */
   const multi={especialidade:valoresDe(it,'especialidade'),familia:valoresDe(it,'familia')};
+
+  /* Cópia de trabalho do descritivo de pregão deste material. */
+  const d=Object.assign({codigo:it.codigo||'',nome_pregao:'',descritivo:'',
+    unidade_compra:'',modificado_em:'',modificado_por:''},descDe(it.codigo));
+
+  /* Bloco do descritivo, exibido apenas para materiais da odontologia. */
+  function secaoDescritivo(item,dsc){
+    if(!aceitaDescritivo(item))
+      return '<div class="nota info" style="margin-top:6px">Este material pertence à lista da '+
+        'Enfermagem, então não recebe descritivo de pregão da odontologia.</div>';
+    const unidades=[...new Set(Object.values(DESCRITIVOS)
+      .map(x=>(x.unidade_compra||'').trim()).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'pt-BR'));
+    return '<div style="border-top:2px solid var(--azul-suave);margin-top:4px;padding-top:12px">'+
+      '<div class="barra" style="margin-bottom:10px">'+
+        '<span style="font-size:12px;color:var(--azul);text-transform:uppercase;letter-spacing:.05em">'+
+        'Descritivo para pregão</span>'+
+        '<span class="sub" style="font-size:11px">gravado em descritivos/descritivos.csv</span></div>'+
+      '<div style="margin-bottom:11px"><label class="rot">Nome para o pregão</label>'+
+        '<input data-desc="nome_pregao" value="'+escapar(dsc.nome_pregao||'')+'" '+
+        'placeholder="'+escapar(item.material||'')+'">'+
+        '<div class="sub" style="font-size:11px;margin-top:3px">deixe em branco para usar o mesmo nome do catálogo</div></div>'+
+      '<div style="margin-bottom:11px"><label class="rot">Descritivo</label>'+
+        '<textarea data-desc="descritivo" style="min-height:130px;line-height:1.55">'+
+        escapar(dsc.descritivo||'')+'</textarea></div>'+
+      '<div class="grade2">'+
+        '<div><label class="rot">Unidade de compra</label>'+
+          '<input data-desc="unidade_compra" list="lista-unidade-compra" value="'+
+          escapar(dsc.unidade_compra||'')+'" placeholder="ex.: CX 100 UN">'+
+          '<datalist id="lista-unidade-compra">'+
+          unidades.map(u=>'<option value="'+escapar(u)+'">').join('')+'</datalist></div>'+
+        '<div><label class="rot">Última modificação do descritivo</label>'+
+          '<div class="sub" style="padding:8px 0;font-size:12px">'+
+          (dsc.modificado_em?escapar(dsc.modificado_em)+(dsc.modificado_por?' · '+escapar(dsc.modificado_por):'')
+            :'nunca modificado')+
+          '<br><span style="font-size:11px">atualiza sozinho ao salvar uma alteração aqui</span></div></div>'+
+      '</div></div>';
+  }
 
   /* Monta um campo de fichas: os valores escolhidos viram etiquetas removíveis
      e a lista abaixo permite acrescentar um existente ou criar um novo. */
@@ -540,6 +626,7 @@ function abrirEdicao(id,novo){
       campoFichas('familia','Família','família')+
       campoFichas('especialidade','Tags','tag')+
       '<div><label class="rot">Observação</label><textarea data-campo="observacao">'+escapar(it.observacao||'')+'</textarea></div>'+
+      secaoDescritivo(it,d)+
       '<div><label class="rot">Situação</label>'+
         '<div class="barra"><label class="barra" style="gap:6px;cursor:pointer">'+
         '<input type="radio" name="sit" value="SIM" style="width:auto"'+((it.ativo||'SIM').toUpperCase()!=='NAO'?' checked':'')+'> Ativo</label>'+
@@ -672,6 +759,31 @@ function abrirEdicao(id,novo){
     if(repetido&&!confirm('Já existe outro item com o código '+trabalho.codigo+
         ' ("'+repetido.material+'"). Salvar mesmo assim?'))return;
     if(COLUNAS.includes('imagem'))trabalho.imagem=trabalho.codigo+'.jpg';
+
+    /* Descritivo de pregão. A data e o autor só são carimbados quando algum
+       campo do descritivo realmente mudou, para que uma correção de tag não
+       altere o registro de modificação do pregão. */
+    if(aceitaDescritivo(trabalho)){
+      const novoD=Object.assign({},d,{codigo:trabalho.codigo});
+      fundo.querySelectorAll('[data-desc]').forEach(el=>{
+        novoD[el.dataset.desc]=el.value.trim();
+      });
+      const antigoD=descDe(it.codigo);
+      const mudou=['nome_pregao','descritivo','unidade_compra']
+        .some(c=>(novoD[c]||'')!==((antigoD[c]||'').trim()));
+      const temConteudo=['nome_pregao','descritivo','unidade_compra'].some(c=>(novoD[c]||'').trim());
+      if(mudou){
+        novoD.modificado_em=dataCurta(new Date());
+        novoD.modificado_por=autorAtual();
+      }
+      // Se o código mudou, o descritivo acompanha o material
+      if(it.codigo&&it.codigo!==trabalho.codigo)delete DESCRITIVOS[it.codigo];
+      if(temConteudo||mudou||DESCRITIVOS[trabalho.codigo])DESCRITIVOS[trabalho.codigo]=novoD;
+    }else if(it.codigo&&DESCRITIVOS[it.codigo]){
+      // material passou para a lista da Enfermagem: o descritivo deixa de valer
+      delete DESCRITIVOS[it.codigo];
+    }
+
     if(novo){ITENS.push(trabalho)}
     else{Object.assign(it,trabalho)}
     fundo.remove();montarFiltros();desenhar();
@@ -706,6 +818,70 @@ function mudancas(){
   });
   EXCLUIDOS.forEach(it=>lista.push({tipo:'excluido',item:it,campos:[]}));
   return lista;
+}
+
+/* Data no formato usado no arquivo de descritivos. */
+function dataCurta(d){
+  const p=n=>String(n).padStart(2,'0');
+  return p(d.getDate())+'/'+p(d.getMonth()+1)+'/'+d.getFullYear();
+}
+const autorAtual=()=>(localStorage.getItem('editor-autor')||'').trim();
+
+/* ---------------------------------------------------------------------
+   Alterações feitas nos descritivos de pregão nesta sessão. São apuradas
+   separadamente das do catálogo, para que o pacote de download só inclua
+   o arquivo que realmente mudou.
+   --------------------------------------------------------------------- */
+const CAMPOS_DESC=['nome_pregao','descritivo','unidade_compra'];
+function mudancasDescritivo(){
+  const lista=[];
+  const codigos=new Set(Object.keys(DESCRITIVOS).concat(Object.keys(DESC_ORIGINAIS)));
+  codigos.forEach(cod=>{
+    const atual=DESCRITIVOS[cod], antigo=DESC_ORIGINAIS[cod];
+    const material=(ITENS.find(i=>(i.codigo||'').trim()===cod)||{}).material||'';
+    const preenchido=o=>CAMPOS_DESC.some(c=>((o||{})[c]||'').trim());
+    if(atual&&!antigo){
+      if(preenchido(atual))
+        lista.push({tipo:'descritivo',codigo:cod,material,
+          campos:CAMPOS_DESC.filter(c=>(atual[c]||'').trim())
+            .map(c=>({campo:c,de:'',para:atual[c]}))});
+      return;
+    }
+    if(!atual&&antigo){
+      if(preenchido(antigo))
+        lista.push({tipo:'descritivo',codigo:cod,material,
+          campos:CAMPOS_DESC.filter(c=>(antigo[c]||'').trim())
+            .map(c=>({campo:c,de:antigo[c],para:''}))});
+      return;
+    }
+    if(!atual||!antigo)return;
+    const campos=[];
+    CAMPOS_DESC.forEach(c=>{
+      if((antigo[c]||'').trim()!==(atual[c]||'').trim())
+        campos.push({campo:c,de:antigo[c]||'',para:atual[c]||''});
+    });
+    if(campos.length)lista.push({tipo:'descritivo',codigo:cod,material,campos});
+  });
+  return lista;
+}
+
+/* Gera o descritivos.csv na mesma ordem do catálogo, o que facilita
+   conferir o arquivo em uma planilha. */
+function gerarDescritivosCsv(){
+  const linhas=[COLUNAS_DESC.join(',')];
+  const vistos=new Set();
+  const escrever=(cod,d)=>linhas.push(
+    COLUNAS_DESC.map(c=>campoCsv(c==='codigo'?cod:(d[c]||''))).join(','));
+  ITENS.forEach(it=>{
+    const cod=(it.codigo||'').trim();
+    if(!cod||vistos.has(cod)||!DESCRITIVOS[cod])return;
+    vistos.add(cod);escrever(cod,DESCRITIVOS[cod]);
+  });
+  Object.keys(DESCRITIVOS).forEach(cod=>{
+    if(vistos.has(cod))return;
+    escrever(cod,DESCRITIVOS[cod]);
+  });
+  return '\uFEFF'+linhas.join('\r\n')+'\r\n';
 }
 
 /* =====================================================================
@@ -770,6 +946,8 @@ function sessaoAtual(){
     data:new Date().toISOString(),
     autor:(localStorage.getItem('editor-autor')||'').trim(),
     total:ITENS.length,
+    /* O histórico é único: registra alterações do catálogo e dos descritivos
+       na mesma sessão, cada uma identificada pelo seu tipo. */
     alteracoes:mudancas().map(x=>({
       tipo:x.tipo,
       codigo:x.item.codigo||'',
@@ -778,7 +956,12 @@ function sessaoAtual(){
       dados:(x.tipo==='novo'||x.tipo==='excluido')
         ? COLUNAS.reduce((o,c)=>{if((x.item[c]||'').trim())o[c]=x.item[c];return o},{})
         : undefined
-    }))
+    })).concat(mudancasDescritivo().map(x=>({
+      tipo:'descritivo',
+      codigo:x.codigo,
+      material:x.material,
+      campos:x.campos.map(c=>({campo:c.campo,de:c.de,para:c.para}))
+    })))
   };
 }
 
@@ -944,23 +1127,35 @@ document.addEventListener('click',e=>{
    CONFERÊNCIA E DOWNLOAD
    ===================================================================== */
 const NOMES_TIPO={novo:['novo','t-vd'],editado:['editado','t-az'],inativado:['inativado','t-ci'],
+                  descritivo:['descritivo','t-lr'],
                   reativado:['reativado','t-vd'],excluido:['excluído','t-lr']};
 
 $('#btConferir').onclick=()=>{
-  const m=mudancas(), v=validar();
+  /* A lista de conferência mistura as alterações do catálogo e as dos
+     descritivos, na ordem em que foram feitas por item, para que a pessoa
+     veja em um lugar só tudo o que será gravado. */
+  const mCat=mudancas();
+  const mDesc=mudancasDescritivo().map(x=>({tipo:'descritivo',
+    item:{codigo:x.codigo,material:x.material},campos:x.campos}));
+  const m=mCat.concat(mDesc);
+  const v=validar();
+  const arquivos=arquivosDoPacote();
   const fundo=document.createElement('div');
   fundo.className='fundo-modal';
   fundo.innerHTML='<div class="modal">'+
     '<header><div><h2 style="margin:0">Conferir antes de baixar</h2>'+
-    '<div class="sub">'+(m.length?m.length+' alteração(ões) nesta sessão':'nenhuma alteração nesta sessão')+'</div></div>'+
+    '<div class="sub">'+(m.length
+        ? m.length+' alteração(ões) nesta sessão'+
+          (mCat.length&&mDesc.length?' · '+mCat.length+' no catálogo, '+mDesc.length+' em descritivos':'')
+        : 'nenhuma alteração nesta sessão')+'</div></div>'+
     '<button class="sec mini" data-fechar="1">Fechar</button></header>'+
     '<div class="corpo">'+
-      (m.length?'<div style="border:1px solid var(--linha);border-radius:10px;max-height:40vh;overflow:auto">'+
+      (m.length?'<div style="flex:none;border:1px solid var(--linha);border-radius:10px;max-height:40vh;overflow:auto">'+
         m.map(x=>{
           const [nome,cls]=NOMES_TIPO[x.tipo];
           const det=x.campos.length
             ? x.campos.map(c=>'<div class="diff">'+rotulo(c.campo)+': <span class="de">'+
-                escapar(c.de||'vazio')+'</span> → <span class="para">'+escapar(c.para||'vazio')+'</span></div>').join('')
+                escapar(resumir(c.de))+'</span> → <span class="para">'+escapar(resumir(c.para))+'</span></div>').join('')
             : '<div class="diff">'+(x.tipo==='novo'?'item acrescentado ao arquivo':'linha removida do arquivo')+'</div>';
           return '<div class="mudanca"><span class="tag '+cls+'" style="flex:none">'+nome+'</span>'+
             '<div><div style="font-size:12.5px"><span class="mono" style="color:var(--azul)">'+
@@ -971,19 +1166,29 @@ $('#btConferir').onclick=()=>{
         v.problemas.map(escapar).join('<br>')+'</div>':'')+
       (v.avisos.length?'<div class="nota aviso"><b>Atenção:</b><br>'+
         v.avisos.map(escapar).join('<br>')+'</div>':'')+
-      '<div class="nota info"><b>Será gerado um arquivo .zip</b> contendo:<br>'+
-      '<span class="mono">produtos.csv</span>, que vai para a raiz do repositório, substituindo o atual;<br>'+
-      '<span class="mono">editor-catalogo/historico.md</span>, já com esta sessão somada às anteriores.<br>'+
-      'As pastas dentro do pacote são as mesmas do repositório, então basta descompactar por cima. '+
-      'O pacote também serve para enviar por email.</div>'+
+      (arquivos.length
+        ? '<div class="nota info"><b>Será gerado um .zip com '+
+          (arquivos.length===1?'este arquivo':'estes '+arquivos.length+' arquivos')+':</b><br>'+
+          arquivos.map(a=>'<span class="mono">'+escapar(a.caminho)+'</span> — '+
+            escapar(a.rotulo.split(', ').slice(1).join(', '))).join('<br>')+
+          '<br>Só os arquivos alterados são gerados. As pastas dentro do pacote são as mesmas do '+
+          'repositório, então basta descompactar por cima. O pacote também serve para enviar por email.</div>'
+        : '')+
     '</div>'+
     '<footer><span class="espaco"></span><button class="sec" data-fechar="1">Voltar</button>'+
-    '<button id="btBaixar"'+(m.length?'':' disabled')+'>Baixar o pacote .zip</button></footer></div>';
+    '<button id="btBaixar"'+(arquivos.length?'':' disabled')+'>Baixar o pacote .zip</button></footer></div>';
   document.body.appendChild(fundo);
   fundo.addEventListener('click',e=>{
     if(e.target===fundo||(e.target.dataset&&e.target.dataset.fechar))fundo.remove()});
   fundo.querySelector('#btBaixar').onclick=()=>{baixarTudo();fundo.remove()};
 };
+
+/* Textos de descritivo são longos: na conferência mostramos só o começo. */
+function resumir(v){
+  v=String(v==null?'':v);
+  if(!v)return 'vazio';
+  return v.length>90?v.slice(0,90)+'...':v;
+}
 
 function baixar(nome,conteudo,tipo){
   const a=document.createElement('a');
@@ -1038,27 +1243,46 @@ function carimbo(){
   return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())+'-'+p(d.getHours())+p(d.getMinutes());
 }
 
-function instrucoesPacote(registro){
+function instrucoesPacote(registro,arquivos){
   const L=[];
   L.push('PACOTE DE ATUALIZACAO DO CATALOGO');
   L.push('Gerado em: '+new Date().toLocaleString('pt-BR'));
   if(registro.autor)L.push('Por: '+registro.autor);
   L.push('Alteracoes nesta sessao: '+registro.alteracoes.length);
-  L.push('Itens no arquivo apos a edicao: '+registro.total);
+  L.push('Itens no catalogo apos a edicao: '+registro.total);
   L.push('');
   L.push('COMO APLICAR');
   L.push('');
-  L.push('Este pacote reproduz a estrutura de pastas do repositorio.');
-  L.push('Descompacte e envie os arquivos para os mesmos lugares:');
+  L.push('Este pacote reproduz a estrutura de pastas do repositorio,');
+  L.push('entao basta descompactar por cima da pasta do projeto.');
   L.push('');
-  L.push('  produtos.csv                     -> raiz do repositorio');
-  L.push('  editor-catalogo/historico.md     -> pasta editor-catalogo');
+  L.push('Arquivos incluidos nesta atualizacao:');
+  (arquivos||[]).forEach(a=>L.push('  '+a.caminho));
   L.push('');
-  L.push('Envie sempre os dois juntos: o historico registra exatamente');
-  L.push('as alteracoes contidas neste produtos.csv.');
+  L.push('Somente os arquivos alterados sao gerados. Se voce editou apenas');
+  L.push('descritivos, o produtos.csv nao vem no pacote, e vice-versa.');
+  L.push('Envie ao repositorio todos os arquivos listados acima, juntos.');
   L.push('');
   L.push('Este arquivo de instrucoes nao precisa ser enviado ao repositorio.');
   return L.join('\r\n');
+}
+
+/* Lista apenas os arquivos que realmente mudaram nesta sessão.
+   Assim uma edição só de tags não gera o arquivo de descritivos, e uma
+   edição só de descritivo não gera o produtos.csv. O histórico entra
+   sempre que houver qualquer alteração, porque ele registra as duas coisas. */
+function arquivosDoPacote(){
+  const lista=[];
+  if(mudancas().length)
+    lista.push({caminho:'produtos.csv',conteudo:gerarCsv(),
+                rotulo:'produtos.csv, na raiz do repositório'});
+  if(mudancasDescritivo().length)
+    lista.push({caminho:'descritivos/descritivos.csv',conteudo:gerarDescritivosCsv(),
+                rotulo:'descritivos/descritivos.csv, na pasta dos descritivos'});
+  if(lista.length)
+    lista.push({caminho:'editor-catalogo/historico.md',conteudo:gerarHistorico(),
+                rotulo:'editor-catalogo/historico.md, o registro das alterações'});
+  return lista;
 }
 
 function baixarTudo(){
@@ -1066,27 +1290,28 @@ function baixarTudo(){
     const v=prompt('Seu nome, para constar no histórico de alterações:','');
     if(v!==null)localStorage.setItem('editor-autor',v.trim());
   }
+  const arquivos=arquivosDoPacote();
+  if(!arquivos.length){alert('Não há alterações para baixar.');return}
   const registro=sessaoAtual();
-  const zip=montarZip([
-    {caminho:'produtos.csv',conteudo:gerarCsv()},
-    {caminho:'editor-catalogo/historico.md',conteudo:gerarHistorico()},
-    {caminho:'LEIA-ME-DESTE-PACOTE.txt',conteudo:instrucoesPacote(registro)}
-  ]);
+  const zip=montarZip(arquivos.map(a=>({caminho:a.caminho,conteudo:a.conteudo}))
+    .concat([{caminho:'LEIA-ME-DESTE-PACOTE.txt',conteudo:instrucoesPacote(registro,arquivos)}]));
   baixar('catalogo-atualizado-'+carimbo()+'.zip',zip);
   setTimeout(()=>{
     if(confirm('Pacote baixado.\n\nDeseja marcar estas alterações como concluídas?\n\n'+
                'Ao confirmar, a sessão entra no histórico em memória, o estado atual passa a ser '+
                'o novo ponto de partida e a próxima sessão começa em branco.\n\n'+
-               'Confirme somente depois de enviar os dois arquivos ao GitHub.')){
+               'Confirme somente depois de enviar os arquivos ao GitHub.')){
       HISTORICO.push(registro);
       ORIGINAIS={};ITENS.forEach(it=>ORIGINAIS[it.__id]=Object.assign({},it));
+      DESC_ORIGINAIS={};
+      Object.keys(DESCRITIVOS).forEach(c=>DESC_ORIGINAIS[c]=Object.assign({},DESCRITIVOS[c]));
       EXCLUIDOS=[];localStorage.removeItem(CHAVE);desenhar();
     }
   },1400);
 }
 
 window.addEventListener('beforeunload',e=>{
-  if(mudancas().length){e.preventDefault();e.returnValue=''}
+  if(mudancas().length||mudancasDescritivo().length){e.preventDefault();e.returnValue=''}
 });
 </script>
 </body>
