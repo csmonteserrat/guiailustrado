@@ -80,6 +80,16 @@ input[type=text]{font:inherit;font-size:12.5px;padding:9px 13px;border:none;bord
   background:var(--neutro);color:var(--texto)}
 input[type=file]{display:none}
 
+
+/* anéis de progresso */
+.aneis{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:12px;margin-bottom:12px}
+.anel{background:#fff;border-radius:var(--raio);padding:16px 18px;box-shadow:var(--sombra)}
+.anel .titulo{font-size:12.5px;color:var(--secundario);margin-bottom:10px}
+.anel .corpo{display:flex;align-items:center;gap:18px}
+.anel .lado{font-size:12.5px;line-height:1.9;min-width:0}
+.anel .lado b{font-weight:600}
+.anel svg{flex:none}
+
 /* números */
 .numeros{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:11px;margin-bottom:12px}
 .numero{background:#fff;border-radius:var(--raio);padding:14px 16px;box-shadow:var(--sombra)}
@@ -157,10 +167,13 @@ code{background:var(--neutro);padding:1px 6px;border-radius:6px;font-size:12px}
       <a class="pilula principal" href="index.html">abrir o catálogo</a>
     </div>
 
-    <!-- ================= NÚMEROS ================= -->
-    <div class="numeros" id="numeros">
-      <div class="numero"><div class="r">carregando a situação atual...</div></div>
+    <!-- ================= ANÉIS DE PROGRESSO ================= -->
+    <div class="aneis" id="aneis">
+      <div class="cartao"><div class="sub">carregando a situação atual...</div></div>
     </div>
+
+    <!-- ================= NÚMEROS ================= -->
+    <div class="numeros" id="numeros"></div>
 
     <!-- ================= FERRAMENTAS ================= -->
     <div class="ferramentas">
@@ -310,6 +323,38 @@ function lerCsv(texto){
     const o={};cab.forEach((h,i)=>o[h]=(l[i]||'').trim());return o});
 }
 
+/* ---------------------------------------------------------------------
+   Anel de progresso desenhado em SVG. O traço é um círculo cujo
+   stroke-dasharray é a circunferência inteira e o stroke-dashoffset
+   esconde a parte que falta, o que produz o arco preenchido.
+   --------------------------------------------------------------------- */
+function anelSvg(pct,cor,texto,sub){
+  const T=112, R=T/2-9, C=2*Math.PI*R;
+  return '<svg viewBox="0 0 '+T+' '+T+'" width="'+T+'" height="'+T+'" role="img" '+
+    'aria-label="'+pct+' por cento '+sub+'">'+
+    '<circle cx="'+T/2+'" cy="'+T/2+'" r="'+R+'" fill="none" stroke="var(--borda)" stroke-width="11"/>'+
+    '<circle cx="'+T/2+'" cy="'+T/2+'" r="'+R+'" fill="none" stroke="'+cor+'" stroke-width="11" '+
+      'stroke-linecap="round" stroke-dasharray="'+C+'" stroke-dashoffset="'+(C*(1-pct/100))+'" '+
+      'transform="rotate(-90 '+T/2+' '+T/2+')"/>'+
+    '<text x="'+T/2+'" y="'+(T/2+1)+'" text-anchor="middle" font-size="21" font-weight="600" '+
+      'fill="var(--texto)" font-family="inherit">'+texto+'</text>'+
+    '<text x="'+T/2+'" y="'+(T/2+18)+'" text-anchor="middle" font-size="10.5" '+
+      'fill="var(--secundario)" font-family="inherit">'+sub+'</text></svg>';
+}
+
+/* Esqueleto do cartão, exibido enquanto a contagem não termina. */
+function cartaoAnel(id,titulo,carregando){
+  return '<div class="anel" id="anel-'+id+'"><div class="titulo">'+titulo+'</div>'+
+    '<div class="corpo"><div class="sub">'+carregando+'</div></div></div>';
+}
+
+function desenharAnel(id,titulo,pct,cor,sub,lado){
+  const el=document.getElementById('anel-'+id);
+  if(!el)return;
+  el.innerHTML='<div class="titulo">'+titulo+'</div>'+
+    '<div class="corpo">'+anelSvg(pct,cor,pct+'%',sub)+'<div class="lado">'+lado+'</div></div>';
+}
+
 function cartaoNumero(valor,rotulo,extra,cor){
   return '<div class="numero"><div class="v"'+(cor?' style="color:'+cor+'"':'')+'>'+valor+
     '</div><div class="r">'+rotulo+'</div>'+(extra||'')+'</div>';
@@ -331,10 +376,15 @@ fetch('produtos.csv').then(r=>{if(!r.ok)throw 0;return r.text()}).then(async t=>
     cartaoNumero(basica,'rede básica, grupos 12 e 13','','var(--corn)')+
     cartaoNumero(ceo,'exclusivos do CEO, grupos 14 e 15','','var(--corallite)')+
     cartaoNumero(coord,'interesse odontológico','','var(--sawtooth)')+
-    (inativos?cartaoNumero(inativos,'inativos, fora do catálogo','','var(--secundario)'):'')+
-    '<div class="numero" id="cartaoFotos"><div class="v sub" style="font-size:14px;font-weight:400">conferindo fotos...</div></div>';
+    (inativos?cartaoNumero(inativos,'inativos, fora do catálogo','','var(--secundario)'):'');
 
-  // Conferência das fotos, em lotes, para não travar o navegador
+  /* Os dois anéis mostram o quanto de cada frente já está pronto:
+     as fotos do catálogo e os descritivos de pregão. */
+  $('#aneis').innerHTML=
+    cartaoAnel('fotos','Catálogo ilustrado','conferindo as fotos...')+
+    cartaoAnel('desc','Descritivos para pregão','lendo o arquivo...');
+
+  // ---- fotos: testa material por material, em lotes ----
   let com=0;
   const testar=p=>new Promise(res=>{
     const im=new Image();
@@ -344,24 +394,37 @@ fetch('produtos.csv').then(r=>{if(!r.ok)throw 0;return r.text()}).then(async t=>
   const fila=[...ativos];
   while(fila.length)await Promise.all(fila.splice(0,24).map(testar));
   const pct=ativos.length?Math.round(com/ativos.length*100):0;
-  const el=$('#cartaoFotos');
-  if(el)el.innerHTML='<div class="v" style="color:var(--curacao)">'+pct+'%</div><div class="r">'+
-    com+' de '+ativos.length+' com foto</div><div class="progresso"><i style="width:'+pct+'%"></i></div>';
+  desenharAnel('fotos','Catálogo ilustrado',pct,'var(--curacao)','com foto',
+    '<b>'+com+'</b> de '+ativos.length+' materiais<br><b>'+(ativos.length-com)+'</b> fotos a coletar');
   $('#stImg').textContent=com+' fotos';
   $('#stImg').className='tag '+(pct>=100?'t-vd':'t-lr');
+
+  // ---- descritivos: lidos do arquivo próprio ----
+  try{
+    const r=await fetch('descritivos/descritivos.csv?t='+Date.now());
+    if(!r.ok)throw 0;
+    const desc={};
+    lerCsv(await r.text()).forEach(d=>{if(d.codigo)desc[d.codigo]=d});
+    /* Materiais da lista da Enfermagem não recebem descritivo de pregão,
+       então ficam fora da conta para o número não parecer pior do que é. */
+    const alvo=ativos.filter(p=>(p.acesso||'').toUpperCase()!=='COORDENACAO');
+    const preenchidos=alvo.filter(p=>((desc[p.codigo]||{}).descritivo||'').trim()).length;
+    const pd=alvo.length?Math.round(preenchidos/alvo.length*100):0;
+    desenharAnel('desc','Descritivos para pregão',pd,'var(--corallite)','preenchidos',
+      '<b>'+preenchidos+'</b> de '+alvo.length+' materiais<br><b>'+(alvo.length-preenchidos)+'</b> descritivos a redigir');
+    $('#stDesc').textContent=preenchidos+' de '+alvo.length+' preenchidos';
+    $('#stDesc').className='tag '+(preenchidos?(preenchidos===alvo.length?'t-vd':'t-lr'):'t-ci');
+  }catch(e){
+    desenharAnel('desc','Descritivos para pregão',0,'var(--corallite)','preenchidos',
+      'arquivo <span class="mono">descritivos.csv</span> não encontrado');
+    $('#stDesc').textContent='não encontrado';
+  }
 }).catch(()=>{
   $('#numeros').innerHTML='<div class="numero" style="grid-column:1/-1"><div class="r">'+
     'Os números aparecem quando esta página é aberta pelo endereço publicado. '+
     'Abrindo o arquivo direto do disco, o navegador bloqueia a leitura do produtos.csv.</div></div>';
   ['stCsv','stImg','stLog','stDesc'].forEach(id=>{const e=$('#'+id);if(e)e.textContent='não verificado'});
 });
-
-fetch('descritivos/descritivos.csv').then(r=>{if(!r.ok)throw 0;return r.text()}).then(t=>{
-  const linhas=lerCsv(t).filter(r=>r.codigo);
-  const com=linhas.filter(r=>(r.descritivo||'').trim()).length;
-  $('#stDesc').textContent=com+' de '+linhas.length+' preenchidos';
-  $('#stDesc').className='tag '+(com?(com===linhas.length?'t-vd':'t-lr'):'t-ci');
-}).catch(()=>{$('#stDesc').textContent='não encontrado';});
 
 fetch('editor-catalogo/historico.md').then(r=>{if(!r.ok)throw 0;return r.text()}).then(t=>{
   const n=(t.match(/<!--\s*sessao:/g)||[]).length;

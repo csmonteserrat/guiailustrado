@@ -597,6 +597,13 @@ function filtrados(){
       if(!termos.every(t=>alvo.includes(t)))return false;
     }
     return true;
+  })
+  /* A ordem de exibição é sempre alfabética pelo nome do material, seja qual
+     for a ordem do produtos.csv. localeCompare com 'pt-BR' trata acentos, e
+     numeric faz a numeração das brocas e limas ordenar como número. */
+  .sort((a,b)=>{
+    const n=(a.material||'').localeCompare(b.material||'','pt-BR',{sensitivity:'base',numeric:true});
+    return n!==0?n:(a.codigo||'').localeCompare(b.codigo||'','pt-BR',{numeric:true});
   });
 }
 
