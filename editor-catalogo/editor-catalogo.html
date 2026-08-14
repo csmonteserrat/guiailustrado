@@ -332,7 +332,7 @@ const escapar=s=>(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g
    mas em toda a interface ela é apresentada como "Tags", como no site. */
 const ROTULOS={codigo:'Código',material:'Material',unidade:'Unidade de pedido',grupo:'Grupo',
   subgrupo:'Subgrupo',acesso:'Acesso',tipo:'Tipo',especialidade:'Tags',familia:'Família',
-  nome_pregao:'Nome no descritivo',descritivo:'Descritivo',unidade_compra:'Unidade de compra',
+  nome_descritivo:'Nome no descritivo',nome_pregao:'Nome no descritivo',descritivo:'Descritivo',unidade_compra:'Unidade de compra',
   imagem:'Arquivo da imagem',observacao:'Observação',ativo:'Situação'};
 const rotulo=c=>ROTULOS[c]||c;
 
@@ -473,7 +473,7 @@ const CAMINHOS_DESC=['../descritivos/descritivos.csv','descritivos.csv'];
    Descritivos. Ficam em arquivo próprio, ligado ao catálogo
    pelo código do material, e só valem para materiais da odontologia.
    --------------------------------------------------------------------- */
-const COLUNAS_DESC=['codigo','nome_pregao','descritivo','unidade_compra','modificado_em','modificado_por'];
+const COLUNAS_DESC=['codigo','nome_descritivo','descritivo','unidade_compra','modificado_em','modificado_por'];
 let DESCRITIVOS={};        // codigo -> registro
 let DESC_ORIGINAIS={};     // cópia como estava no arquivo
 let descCarregado=false;
@@ -484,7 +484,14 @@ async function carregarDescritivos(){
       const r=await fetch(caminho+'?t='+Date.now());
       if(!r.ok)continue;
       const dados=lerCsv(await r.text());
-      dados.registros.forEach(d=>{if(d.codigo)DESCRITIVOS[d.codigo]=d});
+      dados.registros.forEach(d=>{
+        if(!d.codigo)return;
+        /* Arquivos gerados antes da renomeação usavam nome_pregao. */
+        if(d.nome_pregao!==undefined&&d.nome_descritivo===undefined)
+          d.nome_descritivo=d.nome_pregao;
+        delete d.nome_pregao;
+        DESCRITIVOS[d.codigo]=d;
+      });
       descCarregado=true;
       break;
     }catch(e){}
@@ -554,7 +561,7 @@ function alteracoesDoRascunho(r){
   const dA=r.descritivos||{}, dO=r.descOriginais||{};
   new Set(Object.keys(dA).concat(Object.keys(dO))).forEach(cod=>{
     const a=dA[cod]||{}, b=dO[cod]||{};
-    if(['nome_pregao','descritivo','unidade_compra'].some(c=>(a[c]||'').trim()!==(b[c]||'').trim()))n++;
+    if(['nome_descritivo','descritivo','unidade_compra'].some(c=>(a[c]||'').trim()!==(b[c]||'').trim()))n++;
   });
   return n;
 }
@@ -779,7 +786,7 @@ function abrirEdicao(id,novo){
   const multi={especialidade:valoresDe(it,'especialidade'),familia:valoresDe(it,'familia')};
 
   /* Cópia de trabalho do descritivo deste material. */
-  const d=Object.assign({codigo:it.codigo||'',nome_pregao:'',descritivo:'',
+  const d=Object.assign({codigo:it.codigo||'',nome_descritivo:'',descritivo:'',
     unidade_compra:'',modificado_em:'',modificado_por:''},descDe(it.codigo));
 
   /* Segundo cartão: o descritivo. Só existe para materiais da
@@ -800,7 +807,7 @@ function abrirEdicao(id,novo){
 
     const corpo=
       '<div><label class="rot">Nome no descritivo</label>'+
-        '<input data-desc="nome_pregao" value="'+escapar(dsc.nome_pregao||'')+'" '+
+        '<input data-desc="nome_descritivo" value="'+escapar(dsc.nome_descritivo||'')+'" '+
         'placeholder="'+escapar(item.material||'')+'">'+
         '<div class="sub" style="font-size:11px;margin-top:4px">deixe em branco para usar o mesmo nome do catálogo</div></div>'+
       '<div><label class="rot">Descritivo</label>'+
@@ -1027,9 +1034,9 @@ function abrirEdicao(id,novo){
         novoD[el.dataset.desc]=el.value.trim();
       });
       const antigoD=descDe(it.codigo);
-      const mudou=['nome_pregao','descritivo','unidade_compra']
+      const mudou=['nome_descritivo','descritivo','unidade_compra']
         .some(c=>(novoD[c]||'')!==((antigoD[c]||'').trim()));
-      const temConteudo=['nome_pregao','descritivo','unidade_compra'].some(c=>(novoD[c]||'').trim());
+      const temConteudo=['nome_descritivo','descritivo','unidade_compra'].some(c=>(novoD[c]||'').trim());
       if(mudou){
         novoD.modificado_em=dataCurta(new Date());
         novoD.modificado_por=autorAtual();
@@ -1090,7 +1097,7 @@ const autorAtual=()=>(localStorage.getItem('editor-autor')||'').trim();
    separadamente das do catálogo, para que o pacote de download só inclua
    o arquivo que realmente mudou.
    --------------------------------------------------------------------- */
-const CAMPOS_DESC=['nome_pregao','descritivo','unidade_compra'];
+const CAMPOS_DESC=['nome_descritivo','descritivo','unidade_compra'];
 function mudancasDescritivo(){
   const lista=[];
   const codigos=new Set(Object.keys(DESCRITIVOS).concat(Object.keys(DESC_ORIGINAIS)));
@@ -1620,7 +1627,7 @@ window.addEventListener('beforeunload',e=>{
   if(mudancas().length||mudancasDescritivo().length){e.preventDefault();e.returnValue=''}
 });
 </script>
-<div id="versaoPagina" style="text-align:center;font-size:10px;color:var(--secundario);opacity:.7;padding:14px 0 4px">editor · versão 2026-08-14b</div>
+<div id="versaoPagina" style="text-align:center;font-size:10px;color:var(--secundario);opacity:.7;padding:14px 0 4px">editor · versão 2026-08-14c</div>
 </div>
 </div>
 </body>

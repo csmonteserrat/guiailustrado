@@ -45,4 +45,8 @@ O histórico é único e fica em `editor-catalogo/historico.md`, registrando as 
 
 ## Preenchimento em massa
 
-O `descritivos.csv` pode ser aberto no Excel ou LibreOffice para preencher vários descritivos de uma vez. Se fizer isso, salve como **CSV UTF-8 (delimitado por vírgulas)** e mantenha as colunas na mesma ordem. Ao preencher pela planilha, lembre de escrever também a data e o nome no formato usado pelo editor, já que o preenchimento automático só acontece na edição pela página.
+O `descritivos.csv` pode ser aberto no Excel ou LibreOffice para preencher vários descritivos de uma vez. Se fizer isso, salve como **CSV UTF-8 (delimitado por vírgulas)** e mantenha as colunas na mesma ordem:
+
+`codigo`, `nome_descritivo`, `descritivo`, `unidade_compra`, `modificado_em`, `modificado_por`
+
+A coluna `nome_descritivo` já se chamou `nome_pregao`. Arquivos antigos com o nome anterior continuam sendo lidos normalmente, e passam a usar o nome novo assim que forem gravados pelo editor. Ao preencher pela planilha, lembre de escrever também a data e o nome no formato usado pelo editor, já que o preenchimento automático só acontece na edição pela página.

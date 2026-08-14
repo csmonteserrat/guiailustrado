@@ -340,7 +340,8 @@ Promise.all([
       observacao:p.observacao||'',
       imagem:p.imagem||(p.codigo+'.jpg'),
       ativo:(p.ativo||'SIM').toUpperCase()!=='NAO',
-      nomePregao:(d.nome_pregao||'').trim(),
+      /* nome_pregao é o nome antigo da coluna, aceito para não quebrar arquivos anteriores. */
+      nomePregao:(d.nome_descritivo||d.nome_pregao||'').trim(),
       descritivo:descritivo,
       unidadeCompra:(d.unidade_compra||'').trim(),
       modificadoEm:(d.modificado_em||'').trim(),
@@ -602,7 +603,7 @@ $('#btExportar').onclick=()=>{
   const lista=filtrados();
   if(!lista.length){alert('Não há itens na listagem atual para exportar.');return}
   const campo=v=>{v=String(v==null?'':v);return /[",;\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v};
-  const L=['codigo,nome_pregao,descritivo,unidade_compra,unidade_pedido,subgrupo,familias,tags,modificado_em,modificado_por'];
+  const L=['codigo,nome_descritivo,descritivo,unidade_compra,unidade_pedido,subgrupo,familias,tags,modificado_em,modificado_por'];
   lista.forEach(it=>L.push([it.codigo,it.nomePregao||it.material,it.descritivo,it.unidadeCompra,
     it.unidade,rotuloBloco(it),it.familias.join('; '),it.tags.join('; '),
     it.modificadoEm,it.modificadoPor].map(campo).join(',')));
@@ -614,7 +615,7 @@ $('#btExportar').onclick=()=>{
   setTimeout(()=>URL.revokeObjectURL(a.href),4000);
 };
 </script>
-<div id="versaoPagina" style="text-align:center;font-size:10px;color:var(--secundario);opacity:.7;padding:14px 0 4px">descritivos · versão 2026-08-14b</div>
+<div id="versaoPagina" style="text-align:center;font-size:10px;color:var(--secundario);opacity:.7;padding:14px 0 4px">descritivos · versão 2026-08-14c</div>
 </div>
 </div>
 </body>
