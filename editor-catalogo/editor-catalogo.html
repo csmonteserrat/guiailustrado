@@ -203,6 +203,27 @@ select{appearance:none;background-image:none;padding-right:13px}
 .longoHist .verHist{font-size:10.5px;color:var(--corn);margin-top:3px;cursor:pointer;display:inline-block}
 .linkCompleto{display:inline-block;font-size:11.5px;padding:9px 18px;border-radius:20px;
   background:#fff;box-shadow:var(--sombra);color:var(--corn);text-decoration:none}
+
+/* ---- modal de edição em dois cartões ---- */
+.modalEdicao{max-width:660px;background:var(--fundo)}
+.modalEdicao header,.modalEdicao footer{background:#fff}
+.corpoEdicao{padding:14px;gap:12px;background:var(--fundo);max-height:70vh;overflow:auto}
+.cartaoEdicao{flex:none;background:#fff;border-radius:18px;box-shadow:var(--sombra);overflow:hidden}
+.cabCartao{padding:12px 16px;display:flex;gap:11px;align-items:center;flex-wrap:wrap}
+.icCartao{width:30px;height:30px;flex:none;border-radius:10px;color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:14px}
+.ttCartao{font-size:12.5px;font-weight:600}
+.selCartao{margin-left:auto;font-size:9.5px;padding:3px 10px;border-radius:20px;white-space:nowrap}
+.arqCartao{font-size:9.5px;background:#fff;padding:3px 9px;border-radius:20px;white-space:nowrap}
+.cabCartao .selCartao+.arqCartao{margin-left:0}
+.cabCartao .arqCartao:first-of-type{margin-left:auto}
+.corpoCartao{padding:15px 16px;display:flex;flex-direction:column;gap:12px}
+.corpoCartao .nota{margin-top:0}
+@media(max-width:640px){
+  .corpoEdicao{padding:11px}
+  .cabCartao{gap:9px}
+  .arqCartao{display:none}
+}
 </style>
 </head>
 <body>
@@ -760,24 +781,29 @@ function abrirEdicao(id,novo){
   const d=Object.assign({codigo:it.codigo||'',nome_pregao:'',descritivo:'',
     unidade_compra:'',modificado_em:'',modificado_por:''},descDe(it.codigo));
 
-  /* Bloco do descritivo, exibido apenas para materiais da odontologia. */
+  /* Segundo cartão: o descritivo de pregão. Só existe para materiais da
+     odontologia, já que os da lista da Enfermagem não entram nestes pregões. */
   function secaoDescritivo(item,dsc){
     if(!aceitaDescritivo(item))
-      return '<div class="nota info" style="margin-top:6px">Este material pertence à lista da '+
-        'Enfermagem, então não recebe descritivo de pregão da odontologia.</div>';
+      return '<section class="cartaoEdicao">'+
+        '<div class="cabCartao" style="background:var(--neutro)">'+
+          '<span class="icCartao" style="background:var(--secundario)">&#9776;</span>'+
+          '<div><div class="ttCartao" style="color:var(--secundario)">Descritivo para pregão</div>'+
+          '<div class="sub" style="font-size:10.5px">não se aplica a este material</div></div></div>'+
+        '<div class="corpoCartao"><div class="sub" style="font-size:12px">Este material pertence à '+
+        'lista da Enfermagem, então não recebe descritivo de pregão da odontologia.</div></div></section>';
+
     const unidades=[...new Set(Object.values(DESCRITIVOS)
       .map(x=>(x.unidade_compra||'').trim()).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'pt-BR'));
-    return '<div style="border-top:2px solid var(--azul-suave);margin-top:4px;padding-top:12px">'+
-      '<div class="barra" style="margin-bottom:10px">'+
-        '<span style="font-size:12px;color:var(--azul);text-transform:uppercase;letter-spacing:.05em">'+
-        'Descritivo para pregão</span>'+
-        '<span class="sub" style="font-size:11px">gravado em descritivos/descritivos.csv</span></div>'+
-      '<div style="margin-bottom:11px"><label class="rot">Nome para o pregão</label>'+
+    const preenchido=!!(dsc.descritivo||'').trim();
+
+    const corpo=
+      '<div><label class="rot">Nome para o pregão</label>'+
         '<input data-desc="nome_pregao" value="'+escapar(dsc.nome_pregao||'')+'" '+
         'placeholder="'+escapar(item.material||'')+'">'+
-        '<div class="sub" style="font-size:11px;margin-top:3px">deixe em branco para usar o mesmo nome do catálogo</div></div>'+
-      '<div style="margin-bottom:11px"><label class="rot">Descritivo</label>'+
-        '<textarea data-desc="descritivo" style="min-height:130px;line-height:1.55">'+
+        '<div class="sub" style="font-size:11px;margin-top:4px">deixe em branco para usar o mesmo nome do catálogo</div></div>'+
+      '<div><label class="rot">Descritivo</label>'+
+        '<textarea data-desc="descritivo" style="min-height:130px;line-height:1.6">'+
         escapar(dsc.descritivo||'')+'</textarea></div>'+
       '<div class="grade2">'+
         '<div><label class="rot">Unidade de compra</label>'+
@@ -785,12 +811,23 @@ function abrirEdicao(id,novo){
           escapar(dsc.unidade_compra||'')+'" placeholder="ex.: CX 100 UN">'+
           '<datalist id="lista-unidade-compra">'+
           unidades.map(u=>'<option value="'+escapar(u)+'">').join('')+'</datalist></div>'+
-        '<div><label class="rot">Última modificação do descritivo</label>'+
-          '<div class="sub" style="padding:8px 0;font-size:12px">'+
+        '<div><label class="rot">Última modificação</label>'+
+          '<div class="sub" style="padding:9px 0;font-size:12px">'+
           (dsc.modificado_em?escapar(dsc.modificado_em)+(dsc.modificado_por?' · '+escapar(dsc.modificado_por):'')
             :'nunca modificado')+
           '<br><span style="font-size:11px">atualiza sozinho ao salvar uma alteração aqui</span></div></div>'+
-      '</div></div>';
+      '</div>';
+
+    return '<section class="cartaoEdicao">'+
+      '<div class="cabCartao" style="background:var(--corallite-suave)">'+
+        '<span class="icCartao" style="background:var(--corallite)">&#9776;</span>'+
+        '<div><div class="ttCartao" style="color:var(--corallite)">Descritivo para pregão</div>'+
+        '<div class="sub" style="font-size:10.5px">o que compõe o edital de compra</div></div>'+
+        '<span class="selCartao" style="background:'+(preenchido?'var(--curacao-suave)':'var(--sawtooth-suave)')+
+        ';color:'+(preenchido?'var(--curacao)':'var(--sawtooth)')+'">'+
+        (preenchido?'preenchido':'pendente')+'</span>'+
+        '<span class="arqCartao mono" style="color:var(--corallite)">descritivos.csv</span></div>'+
+      '<div class="corpoCartao">'+corpo+'</div></section>';
   }
 
   /* Monta um campo de fichas: os valores escolhidos viram etiquetas removíveis
@@ -808,11 +845,20 @@ function abrirEdicao(id,novo){
 
   const fundo=document.createElement('div');
   fundo.className='fundo-modal';
-  fundo.innerHTML='<div class="modal">'+
-    '<header><div><h2 style="margin:0">'+(novo?'Novo item':'Editar item')+'</h2>'+
-    '<div class="sub">as alterações ficam guardadas até você baixar o arquivo</div></div>'+
-    '<button class="sec mini" data-fechar="1">Fechar</button></header>'+
-    '<div class="corpo">'+
+  /* O modal é dividido em dois cartões: os dados do catálogo, gravados no
+     produtos.csv, e o descritivo de pregão, gravado em descritivos.csv. A
+     separação é visual e explícita, porque são dois arquivos diferentes e
+     nem sempre os dois entram no pacote de download. */
+  const cartao=(cor,fundoCor,icone,titulo,legenda,arquivo,corpo)=>
+    '<section class="cartaoEdicao">'+
+      '<div class="cabCartao" style="background:'+fundoCor+'">'+
+        '<span class="icCartao" style="background:'+cor+'">'+icone+'</span>'+
+        '<div><div class="ttCartao" style="color:'+cor+'">'+titulo+'</div>'+
+        '<div class="sub" style="font-size:10.5px">'+legenda+'</div></div>'+
+        '<span class="arqCartao mono" style="color:'+cor+'">'+arquivo+'</span></div>'+
+      '<div class="corpoCartao">'+corpo+'</div></section>';
+
+  const corpoCatalogo=
       '<div class="grade2">'+
         '<div><label class="rot">Código</label><input class="mono" data-campo="codigo" value="'+escapar(it.codigo||'')+'"></div>'+
         '<div><label class="rot">Unidade de pedido</label>'+seletor('unidade',it.unidade||'',distintos('unidade'))+'</div>'+
@@ -828,15 +874,24 @@ function abrirEdicao(id,novo){
       campoFichas('familia','Família','família')+
       campoFichas('especialidade','Tags','tag')+
       '<div><label class="rot">Observação</label><textarea data-campo="observacao">'+escapar(it.observacao||'')+'</textarea></div>'+
-      secaoDescritivo(it,d)+
       '<div><label class="rot">Situação</label>'+
         '<div class="barra"><label class="barra" style="gap:6px;cursor:pointer">'+
         '<input type="radio" name="sit" value="SIM" style="width:auto"'+((it.ativo||'SIM').toUpperCase()!=='NAO'?' checked':'')+'> Ativo</label>'+
         '<label class="barra" style="gap:6px;cursor:pointer;margin-left:16px">'+
         '<input type="radio" name="sit" value="NAO" style="width:auto"'+((it.ativo||'').toUpperCase()==='NAO'?' checked':'')+
         '> Inativo, some do catálogo e permanece no arquivo</label></div></div>'+
-      '<div class="nota info" id="avisoCodigo" style="margin-top:2px">A foto deste item é o arquivo '+
-        '<span class="mono">'+escapar((it.codigo||'')+'.jpg')+'</span>. Se você alterar o código, renomeie também a imagem.</div>'+
+      '<div class="nota info" id="avisoCodigo">A foto deste item é o arquivo '+
+        '<span class="mono">'+escapar((it.codigo||'')+'.jpg')+'</span>. Se você alterar o código, renomeie também a imagem.</div>';
+
+  fundo.innerHTML='<div class="modal modalEdicao">'+
+    '<header><div><h2 style="margin:0">'+(novo?'Novo item':'Editar item')+'</h2>'+
+    '<div class="sub">'+(novo?'as alterações ficam guardadas até você baixar o pacote'
+      :'<span class="mono">'+escapar(it.codigo||'')+'</span> · '+escapar((it.material||'').toLowerCase()))+'</div></div>'+
+    '<button class="sec mini" data-fechar="1">Fechar</button></header>'+
+    '<div class="corpo corpoEdicao">'+
+      cartao('var(--corn)','var(--corn-suave)','&#9636;','Dados do catálogo',
+             'o que o dentista vê ao procurar o material','produtos.csv',corpoCatalogo)+
+      secaoDescritivo(it,d)+
     '</div>'+
     '<footer>'+(novo?'':'<button class="perigo" id="btExcluir">Excluir do arquivo</button>')+
       '<span class="espaco"></span><button class="sec" data-fechar="1">Cancelar</button>'+
