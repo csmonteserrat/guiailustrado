@@ -251,10 +251,11 @@ function cardHTML(item) {
   const naLista = estado.lista[item.codigo] ? ' na-lista' : '';
   return `<article class="card card--${b.classe}" data-codigo="${escapar(item.codigo)}">
     <button type="button" class="card-foto" data-abrir="${escapar(item.codigo)}" aria-label="Ampliar foto de ${escapar(item.material)}">
+      <span class="card-selo-foto selo selo--${b.classe}">${escapar(b.selo)}</span>
       ${molduraFoto(item)}
     </button>
     <div class="card-corpo">
-      <div class="card-selos">${selosDoItem(item)}</div>
+      <div class="card-selos">${item.subgrupo ? `<span class="selo selo--neutro">${escapar(item.subgrupo)}</span>` : ''}</div>
       <h3 class="card-nome"><button type="button" data-abrir="${escapar(item.codigo)}">${escapar(item.material)}</button></h3>
       <div class="linha-codigo">
         <span class="codigo">${escapar(item.codigo)}</span>

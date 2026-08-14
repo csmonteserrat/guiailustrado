@@ -1,8 +1,26 @@
 CATÁLOGO ILUSTRADO DE MATERIAIS ODONTOLÓGICOS — PMF
-Versão 1.7 — 12/08/2026
+Versão 2.0 — 12/08/2026
 
 HISTÓRICO
 ---------
+v2.0 — 12/08/2026
+  MUDANÇA APENAS VISUAL. Nenhuma funcionalidade foi alterada.
+  - Nova identidade: superfícies brancas arredondadas sobre fundo
+    branco, separadas por sombra suave em vez de borda; cantos de
+    20px; campos sem borda com fundo cinza levíssimo; mais respiro.
+  - Nova paleta (Russian, Flat UI Colors):
+      Rede básica ......... Blue Curacao   #3dc1d3
+      Exclusivo CEO ....... Deep Rose      #c44569
+      Interesse odont. .... Summertime     #f5cd79
+      Acento da interface . Cornflower     #546de5
+  - O acento deixou de mudar conforme o perfil escolhido: cor de ação
+    e cor de bloco passaram a ser coisas separadas.
+  - No card, o selo do bloco saiu de baixo da foto e passou para cima
+    dela, no canto superior esquerdo.
+  - As duas vistas foram mantidas: grade com foto grande e lista
+    compacta com linha.
+  - O produtos.csv não foi alterado.
+
 v1.7 — 12/08/2026
   - Os materiais passaram a aparecer em ordem alfabética pelo nome,
     dentro de cada bloco, em vez de seguirem a ordem das linhas do
