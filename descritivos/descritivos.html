@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Descritivos para pregão</title>
+<title>Descritivos</title>
 <style>
 :root{
   --corn:#546de5;        --corn-suave:#eceffd;      /* rede básica, grupos 12 e 13 */
@@ -116,7 +116,7 @@ input,select{font:inherit;font-size:13px;padding:8px 10px;border:1px solid var(-
   border-radius:20px;cursor:pointer}
 .secao{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:9px;
   color:var(--secundario)}
-.secao.pregao{color:var(--azul)}
+.secao.descritivo{color:var(--azul)}
 .campo{margin-bottom:10px}
 .campo .r{font-size:10px;color:var(--secundario);text-transform:uppercase;
   letter-spacing:.04em;margin-bottom:2px}
@@ -212,7 +212,7 @@ select{appearance:none;background-image:none;padding-right:13px}
   <a class="nav" href="../admin.html"><span class="ic">&#9635;</span><span class="tx">Painel</span></a>
   <a class="nav" href="../editor-catalogo/editor-catalogo.html"><span class="ic">&#9998;</span><span class="tx">Editor</span></a>
   <a class="nav" href="../editor-catalogo/comparar-celk.html"><span class="ic">&#8646;</span><span class="tx">CELK</span></a>
-  <a class="nav ativo" href="../descritivos/descritivos.html"><span class="ic">&#9776;</span><span class="tx">Pregão</span></a>
+  <a class="nav ativo" href="../descritivos/descritivos.html"><span class="ic">&#9776;</span><span class="tx">Descritivos</span></a>
   <a class="nav" href="../preparar-imagens.html"><span class="ic">&#9634;</span><span class="tx">Imagens</span></a>
   <a class="nav" href="../editor-catalogo/historico.html"><span class="ic">&#9711;</span><span class="tx">Histórico</span></a>
   <a class="nav saida" href="../index.html"><span class="ic">&#8599;</span><span class="tx">Catálogo</span></a>
@@ -224,7 +224,7 @@ select{appearance:none;background-image:none;padding-right:13px}
   <div class="painel">
     <div class="barra">
       <div>
-        <h1>Descritivos para pregão</h1>
+        <h1>Descritivos</h1>
         <div class="sub" id="contagem">carregando...</div>
       </div>
       <div class="barra espaco">
@@ -248,7 +248,7 @@ select{appearance:none;background-image:none;padding-right:13px}
         <option value="">Com e sem descritivo</option>
         <option value="ok">Somente com descritivo</option>
         <option value="pendente">Somente pendentes</option>
-        <option value="proprio">Com nome próprio no pregão</option>
+        <option value="proprio">Com nome próprio no descritivo</option>
       </select>
       <label class="sub barra" style="gap:6px;cursor:pointer;white-space:nowrap">
         <input type="checkbox" id="fInativos" style="width:auto"> mostrar inativos
@@ -263,14 +263,14 @@ select{appearance:none;background-image:none;padding-right:13px}
 
 <div class="rodape">
   Esta página é apenas de consulta. As alterações são feitas no editor do catálogo.<br>
-  Materiais da lista da Enfermagem não entram aqui, por não serem objeto dos pregões da odontologia.
+  Materiais da lista da Enfermagem não entram aqui, por não serem objeto dos empenhos da odontologia.
 </div>
 
 </div>
 
 <script>
 /* =====================================================================
-   Página de consulta dos descritivos de pregão.
+   Página de consulta dos descritivos.
    Lê dois arquivos: o produtos.csv, na raiz, com os dados do catálogo,
    e o descritivos.csv, nesta pasta, com o texto de cada descritivo.
    A ligação entre os dois é o código do material.
@@ -323,7 +323,7 @@ Promise.all([
   lerCsv(td).forEach(d=>{if(d.codigo)desc[d.codigo]=d});
 
   /* Somente materiais da odontologia. Os da lista da Enfermagem,
-     marcados com acesso COORDENACAO, não são objeto destes pregões. */
+     marcados com acesso COORDENACAO, não são objeto destes empenhos. */
   ITENS=produtos.filter(p=>(p.acesso||'').toUpperCase()!=='COORDENACAO').map(p=>{
     const d=desc[p.codigo]||{};
     const descritivo=(d.descritivo||'').trim();
@@ -404,7 +404,7 @@ function filtrados(){
     if(sit==='pendente'&&it.temDescritivo)return false;
     if(sit==='proprio'&&!it.nomePregao)return false;
     if(termos.length){
-      /* No modo títulos, a busca cobre nome, código, nome de pregão e classificação.
+      /* No modo títulos, a busca cobre nome, código, nome no descritivo e classificação.
          No modo descritivos, procura dentro do texto, que é o que permite
          localizar redações semelhantes e padronizá-las. */
       const alvo=modo==='texto'
@@ -481,7 +481,7 @@ function desenhar(){
               '<span class="mono" style="font-size:11.5px;color:var(--'+(it.acesso==='CEO'?'roxo':'azul')+')">'+
                 esc(it.codigo)+'</span>'+
               '<span class="tag '+c+'">'+esc(rotuloBloco(it))+'</span>'+
-              (it.nomePregao?'<span class="sub">nome próprio no pregão</span>':'')+
+              (it.nomePregao?'<span class="sub">nome próprio no descritivo</span>':'')+
               (!it.ativo?'<span class="tag t-ci">inativo</span>':'')+
             '</div>'+
             (modo==='texto'&&it.descritivo
@@ -577,8 +577,8 @@ function detalhe(it,termos){
       (it.observacao?campo('Observação',esc(it.observacao)):'')+
     '</div>'+
     '<div class="col2">'+
-      '<div class="secao pregao">Para o pregão</div>'+
-      campo('Nome para o pregão',it.nomePregao
+      '<div class="secao descritivo">Descritivo</div>'+
+      campo('Nome no descritivo',it.nomePregao
         ? esc(it.nomePregao)
         : esc(it.material)+' <span class="sub">(igual ao catálogo)</span>')+
       '<div class="campo"><div class="r">Descritivo</div>'+
@@ -614,6 +614,7 @@ $('#btExportar').onclick=()=>{
   setTimeout(()=>URL.revokeObjectURL(a.href),4000);
 };
 </script>
+<div id="versaoPagina" style="text-align:center;font-size:10px;color:var(--secundario);opacity:.7;padding:14px 0 4px">descritivos · versão 2026-08-14b</div>
 </div>
 </div>
 </body>

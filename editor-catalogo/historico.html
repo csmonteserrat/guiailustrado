@@ -92,7 +92,7 @@ h1{font-size:17px;font-weight:600;margin:0}
     <a class="nav" href="../admin.html"><span class="ic">&#9635;</span><span class="tx">Painel</span></a>
     <a class="nav" href="editor-catalogo.html"><span class="ic">&#9998;</span><span class="tx">Editor</span></a>
   <a class="nav" href="comparar-celk.html"><span class="ic">&#8646;</span><span class="tx">CELK</span></a>
-    <a class="nav" href="../descritivos/descritivos.html"><span class="ic">&#9776;</span><span class="tx">Pregão</span></a>
+    <a class="nav" href="../descritivos/descritivos.html"><span class="ic">&#9776;</span><span class="tx">Descritivos</span></a>
     <a class="nav" href="../preparar-imagens.html"><span class="ic">&#9634;</span><span class="tx">Imagens</span></a>
     <a class="nav ativo" href="historico.html"><span class="ic">&#9711;</span><span class="tx">Histórico</span></a>
     <a class="nav saida" href="../index.html"><span class="ic">&#8599;</span><span class="tx">Catálogo</span></a>
@@ -149,7 +149,7 @@ const TIPOS={
 const ROTULOS={codigo:'Código',material:'Material',unidade:'Unidade de pedido',grupo:'Grupo',
   subgrupo:'Subgrupo',acesso:'Acesso',tipo:'Tipo',especialidade:'Tags',familia:'Família',
   imagem:'Arquivo da imagem',observacao:'Observação',ativo:'Situação',
-  nome_pregao:'Nome para o pregão',descritivo:'Descritivo',unidade_compra:'Unidade de compra'};
+  nome_pregao:'Nome no descritivo',descritivo:'Descritivo',unidade_compra:'Unidade de compra'};
 const rotulo=c=>ROTULOS[c]||c;
 const dadosTipo=t=>TIPOS[t]||[t,'var(--secundario)','var(--neutro)'];
 
@@ -330,5 +330,6 @@ function desenhar(){
 
 carregar();
 </script>
+<div id="versaoPagina" style="text-align:center;font-size:10px;color:var(--secundario);opacity:.7;padding:14px 0 4px">histórico · versão 2026-08-14b</div>
 </body>
 </html>

@@ -234,7 +234,7 @@ select{appearance:none;background-image:none;padding-right:13px}
   <a class="nav" href="../admin.html"><span class="ic">&#9635;</span><span class="tx">Painel</span></a>
   <a class="nav ativo" href="../editor-catalogo/editor-catalogo.html"><span class="ic">&#9998;</span><span class="tx">Editor</span></a>
   <a class="nav" href="comparar-celk.html"><span class="ic">&#8646;</span><span class="tx">CELK</span></a>
-  <a class="nav" href="../descritivos/descritivos.html"><span class="ic">&#9776;</span><span class="tx">Pregão</span></a>
+  <a class="nav" href="../descritivos/descritivos.html"><span class="ic">&#9776;</span><span class="tx">Descritivos</span></a>
   <a class="nav" href="../preparar-imagens.html"><span class="ic">&#9634;</span><span class="tx">Imagens</span></a>
   <a class="nav" href="historico.html"><span class="ic">&#9711;</span><span class="tx">Histórico</span></a>
   <a class="nav saida" href="../index.html"><span class="ic">&#8599;</span><span class="tx">Catálogo</span></a>
@@ -287,8 +287,8 @@ select{appearance:none;background-image:none;padding-right:13px}
           <option value="inativos">Somente inativos</option>
           <option value="alterados">Somente alterados nesta sessão</option>
           <option value="semtag">Sem tag ou sem família</option>
-          <option value="comdesc">Com descritivo de pregão</option>
-          <option value="semdesc">Sem descritivo de pregão</option>
+          <option value="comdesc">Com descritivo</option>
+          <option value="semdesc">Sem descritivo</option>
         </select>
       </div>
     </div>
@@ -332,7 +332,7 @@ const escapar=s=>(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g
    mas em toda a interface ela é apresentada como "Tags", como no site. */
 const ROTULOS={codigo:'Código',material:'Material',unidade:'Unidade de pedido',grupo:'Grupo',
   subgrupo:'Subgrupo',acesso:'Acesso',tipo:'Tipo',especialidade:'Tags',familia:'Família',
-  nome_pregao:'Nome para o pregão',descritivo:'Descritivo',unidade_compra:'Unidade de compra',
+  nome_pregao:'Nome no descritivo',descritivo:'Descritivo',unidade_compra:'Unidade de compra',
   imagem:'Arquivo da imagem',observacao:'Observação',ativo:'Situação'};
 const rotulo=c=>ROTULOS[c]||c;
 
@@ -470,7 +470,7 @@ const CAMINHO_LOG='historico.md';
 const CAMINHOS_DESC=['../descritivos/descritivos.csv','descritivos.csv'];
 
 /* ---------------------------------------------------------------------
-   Descritivos de pregão. Ficam em arquivo próprio, ligado ao catálogo
+   Descritivos. Ficam em arquivo próprio, ligado ao catálogo
    pelo código do material, e só valem para materiais da odontologia.
    --------------------------------------------------------------------- */
 const COLUNAS_DESC=['codigo','nome_pregao','descritivo','unidade_compra','modificado_em','modificado_por'];
@@ -495,7 +495,7 @@ async function carregarDescritivos(){
 
 const descDe=codigo=>DESCRITIVOS[codigo]||{};
 const temDescritivo=codigo=>!!(descDe(codigo).descritivo||'').trim();
-/* Materiais da lista da Enfermagem não entram nos pregões da odontologia. */
+/* Materiais da lista da Enfermagem não entram nos empenhos da odontologia. */
 const aceitaDescritivo=it=>(it.acesso||'').toUpperCase()!=='COORDENACAO';
 
 async function tentarCarregar(){
@@ -778,28 +778,28 @@ function abrirEdicao(id,novo){
   /* Valores dos campos que aceitam mais de uma opção. */
   const multi={especialidade:valoresDe(it,'especialidade'),familia:valoresDe(it,'familia')};
 
-  /* Cópia de trabalho do descritivo de pregão deste material. */
+  /* Cópia de trabalho do descritivo deste material. */
   const d=Object.assign({codigo:it.codigo||'',nome_pregao:'',descritivo:'',
     unidade_compra:'',modificado_em:'',modificado_por:''},descDe(it.codigo));
 
-  /* Segundo cartão: o descritivo de pregão. Só existe para materiais da
-     odontologia, já que os da lista da Enfermagem não entram nestes pregões. */
+  /* Segundo cartão: o descritivo. Só existe para materiais da
+     odontologia, já que os da lista da Enfermagem não entram nestes empenhos. */
   function secaoDescritivo(item,dsc){
     if(!aceitaDescritivo(item))
       return '<section class="cartaoEdicao">'+
         '<div class="cabCartao" style="background:var(--neutro)">'+
           '<span class="icCartao" style="background:var(--secundario)">&#9776;</span>'+
-          '<div><div class="ttCartao" style="color:var(--secundario)">Descritivo para pregão</div>'+
+          '<div><div class="ttCartao" style="color:var(--secundario)">Descritivo</div>'+
           '<div class="sub" style="font-size:10.5px">não se aplica a este material</div></div></div>'+
         '<div class="corpoCartao"><div class="sub" style="font-size:12px">Este material pertence à '+
-        'lista da Enfermagem, então não recebe descritivo de pregão da odontologia.</div></div></section>';
+        'lista da Enfermagem, então não recebe descritivo da odontologia.</div></div></section>';
 
     const unidades=[...new Set(Object.values(DESCRITIVOS)
       .map(x=>(x.unidade_compra||'').trim()).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'pt-BR'));
     const preenchido=!!(dsc.descritivo||'').trim();
 
     const corpo=
-      '<div><label class="rot">Nome para o pregão</label>'+
+      '<div><label class="rot">Nome no descritivo</label>'+
         '<input data-desc="nome_pregao" value="'+escapar(dsc.nome_pregao||'')+'" '+
         'placeholder="'+escapar(item.material||'')+'">'+
         '<div class="sub" style="font-size:11px;margin-top:4px">deixe em branco para usar o mesmo nome do catálogo</div></div>'+
@@ -822,8 +822,8 @@ function abrirEdicao(id,novo){
     return '<section class="cartaoEdicao">'+
       '<div class="cabCartao" style="background:var(--corallite-suave)">'+
         '<span class="icCartao" style="background:var(--corallite)">&#9776;</span>'+
-        '<div><div class="ttCartao" style="color:var(--corallite)">Descritivo para pregão</div>'+
-        '<div class="sub" style="font-size:10.5px">o que compõe o edital de compra</div></div>'+
+        '<div><div class="ttCartao" style="color:var(--corallite)">Descritivo</div>'+
+        '<div class="sub" style="font-size:10.5px">o que compõe os empenhos e as licitações</div></div>'+
         '<span class="selCartao" style="background:'+(preenchido?'var(--curacao-suave)':'var(--sawtooth-suave)')+
         ';color:'+(preenchido?'var(--curacao)':'var(--sawtooth)')+'">'+
         (preenchido?'preenchido':'pendente')+'</span>'+
@@ -847,7 +847,7 @@ function abrirEdicao(id,novo){
   const fundo=document.createElement('div');
   fundo.className='fundo-modal';
   /* O modal é dividido em dois cartões: os dados do catálogo, gravados no
-     produtos.csv, e o descritivo de pregão, gravado em descritivos.csv. A
+     produtos.csv, e o descritivo, gravado em descritivos.csv. A
      separação é visual e explícita, porque são dois arquivos diferentes e
      nem sempre os dois entram no pacote de download. */
   const cartao=(cor,fundoCor,icone,titulo,legenda,arquivo,corpo)=>
@@ -1018,9 +1018,9 @@ function abrirEdicao(id,novo){
         ' ("'+repetido.material+'"). Salvar mesmo assim?'))return;
     if(COLUNAS.includes('imagem'))trabalho.imagem=trabalho.codigo+'.jpg';
 
-    /* Descritivo de pregão. A data e o autor só são carimbados quando algum
+    /* Descritivo. A data e o autor só são carimbados quando algum
        campo do descritivo realmente mudou, para que uma correção de tag não
-       altere o registro de modificação do pregão. */
+       altere o registro de modificação do descritivo. */
     if(aceitaDescritivo(trabalho)){
       const novoD=Object.assign({},d,{codigo:trabalho.codigo});
       fundo.querySelectorAll('[data-desc]').forEach(el=>{
@@ -1086,7 +1086,7 @@ function dataCurta(d){
 const autorAtual=()=>(localStorage.getItem('editor-autor')||'').trim();
 
 /* ---------------------------------------------------------------------
-   Alterações feitas nos descritivos de pregão nesta sessão. São apuradas
+   Alterações feitas nos descritivos nesta sessão. São apuradas
    separadamente das do catálogo, para que o pacote de download só inclua
    o arquivo que realmente mudou.
    --------------------------------------------------------------------- */
@@ -1620,6 +1620,7 @@ window.addEventListener('beforeunload',e=>{
   if(mudancas().length||mudancasDescritivo().length){e.preventDefault();e.returnValue=''}
 });
 </script>
+<div id="versaoPagina" style="text-align:center;font-size:10px;color:var(--secundario);opacity:.7;padding:14px 0 4px">editor · versão 2026-08-14b</div>
 </div>
 </div>
 </body>

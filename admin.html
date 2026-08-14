@@ -108,9 +108,6 @@ a.ferr:hover{transform:translateY(-2px);box-shadow:var(--sombra-alta)}
 .ferr .tt{font-size:13.5px;font-weight:600;margin-bottom:3px}
 .ferr .ds{font-size:11px;color:var(--secundario);line-height:1.55}
 .ferr .pe{font-size:11px;margin-top:10px;display:inline-block}
-.ferr.futuro{background:#fbfcfd;box-shadow:none;border:1px dashed #dfe6ee;cursor:default}
-.ferr.futuro:hover{transform:none;box-shadow:none}
-.ferr.futuro .tt,.ferr.futuro .ds{color:var(--secundario)}
 
 /* conferência */
 .bloco{border-radius:16px;margin-bottom:10px;overflow:hidden;background:var(--neutro)}
@@ -152,7 +149,7 @@ code{background:var(--neutro);padding:1px 6px;border-radius:6px;font-size:12px}
     <a class="nav ativo" href="admin.html"><span class="ic">&#9635;</span><span class="tx">Painel</span></a>
     <a class="nav" href="editor-catalogo/editor-catalogo.html"><span class="ic">&#9998;</span><span class="tx">Editor</span></a>
   <a class="nav" href="editor-catalogo/comparar-celk.html"><span class="ic">&#8646;</span><span class="tx">CELK</span></a>
-    <a class="nav" href="descritivos/descritivos.html"><span class="ic">&#9776;</span><span class="tx">Pregão</span></a>
+    <a class="nav" href="descritivos/descritivos.html"><span class="ic">&#9776;</span><span class="tx">Descritivos</span></a>
     <a class="nav" href="preparar-imagens.html"><span class="ic">&#9634;</span><span class="tx">Imagens</span></a>
     <a class="nav" href="editor-catalogo/historico.html"><span class="ic">&#9711;</span><span class="tx">Histórico</span></a>
     <a class="nav saida" href="index.html"><span class="ic">&#8599;</span><span class="tx">Catálogo</span></a>
@@ -197,9 +194,9 @@ code{background:var(--neutro);padding:1px 6px;border-radius:6px;font-size:12px}
 
       <a class="ferr" href="descritivos/descritivos.html">
         <div class="ic" style="background:var(--corallite-suave);color:var(--corallite)">&#9776;</div>
-        <div class="tt">Descritivos para pregão</div>
-        <div class="ds">Consultar os descritivos técnicos que compõem os pregões, o nome de cada
-        material no edital, a unidade de compra e a data da última revisão.</div>
+        <div class="tt">Descritivos</div>
+        <div class="ds">Consultar os descritivos técnicos que compõem os empenhos e as licitações,
+        o nome de cada material, a unidade de compra e a data da última revisão.</div>
         <span class="pe" style="color:var(--corallite)">abrir a consulta &rarr;</span>
       </a>
 
@@ -218,14 +215,6 @@ code{background:var(--neutro);padding:1px 6px;border-radius:6px;font-size:12px}
         descritivos, com data, responsável e detalhamento campo a campo.</div>
         <span class="pe" style="color:var(--sawtooth)">abrir o histórico &rarr;</span>
       </a>
-
-      <div class="ferr futuro">
-        <div class="ic" style="background:var(--neutro);color:var(--secundario)">&#43;</div>
-        <div class="tt">Espaço para novas funções</div>
-        <div class="ds">Conferência de códigos com o CELK, exportações para o GT e o que mais
-        for surgindo.</div>
-        <span class="pe">em aberto</span>
-      </div>
 
     </div>
 
@@ -388,10 +377,10 @@ fetch('produtos.csv').then(r=>{if(!r.ok)throw 0;return r.text()}).then(async t=>
     (inativos?cartaoNumero(inativos,'inativos, fora do catálogo','','var(--secundario)'):'');
 
   /* Os dois anéis mostram o quanto de cada frente já está pronto:
-     as fotos do catálogo e os descritivos de pregão. */
+     as fotos do catálogo e os descritivos. */
   $('#aneis').innerHTML=
     cartaoAnel('fotos','Catálogo ilustrado','conferindo as fotos...')+
-    cartaoAnel('desc','Descritivos para pregão','lendo o arquivo...');
+    cartaoAnel('desc','Descritivos','lendo o arquivo...');
 
   // ---- fotos: testa material por material, em lotes ----
   let com=0;
@@ -414,17 +403,17 @@ fetch('produtos.csv').then(r=>{if(!r.ok)throw 0;return r.text()}).then(async t=>
     if(!r.ok)throw 0;
     const desc={};
     lerCsv(await r.text()).forEach(d=>{if(d.codigo)desc[d.codigo]=d});
-    /* Materiais da lista da Enfermagem não recebem descritivo de pregão,
+    /* Materiais da lista da Enfermagem não recebem descritivo,
        então ficam fora da conta para o número não parecer pior do que é. */
     const alvo=ativos.filter(p=>(p.acesso||'').toUpperCase()!=='COORDENACAO');
     const preenchidos=alvo.filter(p=>((desc[p.codigo]||{}).descritivo||'').trim()).length;
     const pd=alvo.length?Math.round(preenchidos/alvo.length*100):0;
-    desenharAnel('desc','Descritivos para pregão',pd,'var(--corallite)','preenchidos',
+    desenharAnel('desc','Descritivos',pd,'var(--corallite)','preenchidos',
       '<b>'+preenchidos+'</b> de '+alvo.length+' materiais<br><b>'+(alvo.length-preenchidos)+'</b> descritivos a redigir');
     $('#stDesc').textContent=preenchidos+' de '+alvo.length+' preenchidos';
     $('#stDesc').className='tag '+(preenchidos?(preenchidos===alvo.length?'t-vd':'t-lr'):'t-ci');
   }catch(e){
-    desenharAnel('desc','Descritivos para pregão',0,'var(--corallite)','preenchidos',
+    desenharAnel('desc','Descritivos',0,'var(--corallite)','preenchidos',
       'arquivo <span class="mono">descritivos.csv</span> não encontrado');
     $('#stDesc').textContent='não encontrado';
   }
@@ -803,5 +792,6 @@ function baixarRelatorio(d){
   baixarCsv('conferencia-imagens',L);
 }
 </script>
+<div id="versaoPagina" style="text-align:center;font-size:10px;color:var(--secundario);opacity:.7;padding:14px 0 4px">painel · versão 2026-08-14b</div>
 </body>
 </html>
