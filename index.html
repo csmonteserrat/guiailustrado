@@ -87,6 +87,7 @@
       código e a descrição do item, que são as informações que valem para o pedido.
     </p>
 
+    <!-- ============================================================ -->
     <section class="guia-secao">
       <h2><span class="guia-numero">1</span> Para que serve este catálogo</h2>
       <p>Para identificar visualmente o material antes de pedir, confirmar o código e a unidade de pedido
@@ -94,44 +95,317 @@
         solicitada simplesmente porque o profissional não sabe que existe.</p>
     </section>
 
+    <!-- ============================================================ -->
     <section class="guia-secao">
-      <h2><span class="guia-numero">2</span> Como encontrar um material</h2>
+      <h2><span class="guia-numero">2</span> Escolher onde você trabalha</h2>
+      <p>Na primeira vez que você abre o catálogo, ele pergunta em que tipo de unidade você atende.
+        Isso não bloqueia nada: apenas define o que aparece primeiro na tela.</p>
+
+      <div class="demo">
+        <span class="demo-rotulo">Exemplo</span>
+        <div class="entrada-cartoes">
+          <span class="cartao-perfil cartao-perfil--basica">
+            <span class="cartao-selo">Rede básica</span>
+            <span class="cartao-nome">Centro de Saúde</span>
+            <span class="cartao-sub">Materiais dos grupos 12 e 13</span>
+          </span>
+          <span class="cartao-perfil cartao-perfil--ceo">
+            <span class="cartao-selo">CEO</span>
+            <span class="cartao-nome">Centro de Especialidades</span>
+            <span class="cartao-sub">Todos os grupos, incluindo 14 e 15</span>
+          </span>
+        </div>
+      </div>
+
+      <p>Escolhendo <strong>Centro de Saúde</strong>, os materiais exclusivos do CEO ficam recolhidos numa
+        seção à parte, que você abre quando quiser. Escolhendo <strong>Centro de Especialidades</strong>,
+        tudo aparece de uma vez. A escolha fica guardada no aparelho e pode ser trocada a qualquer momento
+        pelo botão <strong>Local</strong>, no alto da página.</p>
+    </section>
+
+    <!-- ============================================================ -->
+    <section class="guia-secao">
+      <h2><span class="guia-numero">3</span> Como ler um material</h2>
+      <p>Cada material aparece num cartão. Todas as partes numeradas abaixo respondem ao toque.</p>
+
+      <div class="demo">
+        <span class="demo-rotulo">Exemplo</span>
+        <div class="demo-com-legenda">
+          <div class="demo-peca">
+            <article class="card card--basica">
+              <span class="card-foto">
+                <span class="card-selo-foto selo selo--basica">Rede básica <span class="demo-num demo-num--solto">2</span></span>
+                <span class="moldura">
+                  <img src="imagens/4150488.jpg" alt=""
+                       onerror="this.style.display='none';this.nextElementSibling.hidden=false;">
+                  <span class="sem-foto" hidden>
+                    <span>Foto de exemplo</span>
+                  </span>
+                  <span class="demo-num demo-num--foto">1</span>
+                </span>
+              </span>
+              <div class="card-corpo">
+                <div class="card-selos"><span class="selo selo--neutro">Odontologia <span class="demo-num demo-num--solto">3</span></span></div>
+                <h3 class="card-nome">ABRIDOR DE BOCA EXPANDEX ADULTO <span class="demo-num demo-num--solto">4</span></h3>
+                <div class="linha-codigo">
+                  <span class="codigo">4150488</span>
+                  <span class="unidade">U - Unidade</span><span class="demo-num demo-num--solto">5</span>
+                </div>
+                <div class="card-etiquetas">
+                  <span class="etiqueta">Auxiliares de abertura</span>
+                  <span class="etiqueta">Cirurgia</span><span class="demo-num demo-num--solto">6</span>
+                </div>
+              </div>
+              <div class="card-acoes">
+                <span class="btn-copiar"><span class="rotulo">Copiar código</span><span class="demo-num demo-num--solto">7</span></span>
+                <span class="btn-adicionar">+<span class="demo-num demo-num--solto">8</span></span>
+              </div>
+            </article>
+          </div>
+
+          <ol class="demo-legenda">
+            <li><span class="demo-num">1</span><span><strong>A foto.</strong> É ilustrativa. Toque nela
+              para abrir a ficha completa com a imagem ampliada.</span></li>
+            <li><span class="demo-num">2</span><span><strong>O selo colorido sobre a foto.</strong> Diz a
+              que bloco o material pertence, ou seja, quem faz a solicitação dele.</span></li>
+            <li><span class="demo-num">3</span><span><strong>O subgrupo.</strong> É a classificação que o
+              próprio CELK usa para o item.</span></li>
+            <li><span class="demo-num">4</span><span><strong>O nome.</strong> Vem escrito exatamente como
+              aparece no sistema, para você reconhecê-lo na hora do pedido.</span></li>
+            <li><span class="demo-num">5</span><span><strong>O código e a unidade.</strong> O código é o
+              que se usa no CELK. A unidade avisa se o pedido é por unidade, caixa, pacote e assim por
+              diante — conferir isso evita pedir uma caixa quando se queria uma peça.</span></li>
+            <li><span class="demo-num">6</span><span><strong>As etiquetas.</strong> São clicáveis. A
+              primeira é a família, que reúne materiais do mesmo tipo; as seguintes são as especialidades.
+              Tocar numa delas filtra o catálogo por ela.</span></li>
+            <li><span class="demo-num">7</span><span><strong>Copiar código.</strong> Põe o número na área
+              de transferência do aparelho, pronto para colar no CELK.</span></li>
+            <li><span class="demo-num">8</span><span><strong>O botão de mais.</strong> Guarda o item na sua
+              lista de conferência, explicada mais adiante.</span></li>
+          </ol>
+        </div>
+      </div>
+
+      <p>Quando um material ainda não tiver foto cadastrada, no lugar dela aparece um quadro cinza avisando
+        disso. O item continua funcionando normalmente, e o código segue válido.</p>
+    </section>
+
+    <!-- ============================================================ -->
+    <section class="guia-secao">
+      <h2><span class="guia-numero">4</span> Duas formas de ver a lista</h2>
+      <p>No alto da página, ao lado da busca, há um par de botões que alterna entre as duas formas de
+        exibir os materiais. A escolha fica guardada para as próximas visitas.</p>
+
+      <div class="demo">
+        <span class="demo-rotulo">Procure por este par de botões</span>
+        <div class="alternar-vista demo-centro">
+          <span class="btn-vista" aria-pressed="true"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/></svg></span>
+          <span class="btn-vista"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></span>
+        </div>
+      </div>
+
+      <div class="demo-par">
+        <div class="demo-caixa">
+          <h3><span class="demo-icone"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/></svg></span> Grade</h3>
+          <p>Foto grande, um cartão por material. É a melhor opção quando você sabe qual instrumento
+            precisa, mas não lembra o nome exato dele.</p>
+        </div>
+        <div class="demo-caixa">
+          <h3><span class="demo-icone"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></span> Lista compacta</h3>
+          <p>Foto pequena e uma linha por material. Cabe bem mais coisa na tela, o que ajuda quando você
+            vai conferir vários códigos seguidos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <section class="guia-secao">
+      <h2><span class="guia-numero">5</span> Buscar um material</h2>
+      <p>O campo de busca fica sempre visível no alto, mesmo quando você rola a página. Ele procura
+        ao mesmo tempo no nome, no código, na família e na especialidade.</p>
+
       <ul>
-        <li>Digite parte do nome ou o código na busca do topo. Acentos e maiúsculas não fazem diferença:
-          <em>acido</em> encontra <em>ÁCIDO GEL CONDICIONADOR</em>.</li>
-        <li>Pode digitar palavras soltas em qualquer ordem, como <em>broca diamantada 1012</em>.</li>
-        <li>Use os filtros de especialidade para ver só o que interessa à sua área.</li>
-        <li>Clique na etiqueta de família dentro do card, como <em>Brocas</em> ou <em>Limas de canal</em>,
-          para ver todos os itens semelhantes lado a lado e comparar.</li>
-        <li>Clique no card para abrir a foto ampliada com todos os dados do item.</li>
+        <li><strong>Acentos e maiúsculas não importam.</strong> Digitar <em>acido</em> encontra
+          <em>ÁCIDO GEL CONDICIONADOR</em>.</li>
+        <li><strong>Palavras soltas, em qualquer ordem.</strong> Digitar <em>broca diamantada 1012</em>
+          encontra o item mesmo que as palavras estejam separadas no nome.</li>
+        <li><strong>O código também serve.</strong> Se você já tem o número em mãos, digite-o para
+          conferir de que material se trata.</li>
+        <li><strong>Pedaços de palavra funcionam.</strong> <em>endo</em> traz os materiais de endodontia.</li>
+      </ul>
+
+      <p>Se nada for encontrado, o catálogo mostra um aviso com um botão para limpar de uma vez a busca
+        e todos os filtros aplicados.</p>
+    </section>
+
+    <!-- ============================================================ -->
+    <section class="guia-secao">
+      <h2><span class="guia-numero">6</span> Filtrar</h2>
+      <p>Os filtros servem para reduzir a lista antes de procurar. Eles se somam: quanto mais você marca,
+        mais estreito fica o resultado.</p>
+
+      <h3>Abas de bloco</h3>
+      <p>Logo abaixo da busca ficam as abas <strong>Tudo</strong>, <strong>Rede básica</strong>,
+        <strong>Exclusivo CEO</strong> e <strong>Interesse odontológico</strong>. Elas mostram apenas um
+        bloco de cada vez.</p>
+
+      <h3>Tipo de material</h3>
+      <div class="demo">
+        <span class="demo-rotulo">Exemplo</span>
+        <div class="demo-barra">
+          <span class="pilula" aria-pressed="true">Consumo</span>
+          <span class="pilula">Instrumental</span>
+        </div>
+      </div>
+      <p>Separa o que se gasta do que se esteriliza e reutiliza.</p>
+
+      <h3>Especialidade e família</h3>
+      <p>No computador, essas duas listas ficam no quadro <strong>Filtros</strong>, à esquerda. No celular,
+        elas abrem num painel pelo botão <strong>Filtros</strong>, que mostra um número quando há algo
+        marcado.</p>
+      <ul>
+        <li><strong>Especialidade</strong> responde "para que serve": Endodontia, Cirurgia, Prótese e assim
+          por diante. Um mesmo material pode pertencer a várias.</li>
+        <li><strong>Família</strong> responde "que objeto é este": Brocas, Limas de canal, Fórceps. Como a
+          lista é longa, esse grupo vem fechado e tem um campo de busca próprio.</li>
+        <li>O <strong>número ao lado de cada opção</strong> mostra quantos materiais você encontraria ao
+          marcá-la, já considerando os outros filtros ativos.</li>
+      </ul>
+
+      <h3>Fichas do que está marcado</h3>
+      <div class="demo">
+        <span class="demo-rotulo">Exemplo</span>
+        <div class="fichas">
+          <span class="ficha">Endodontia<span class="x">×</span></span>
+          <span class="ficha">Limas de canal<span class="x">×</span></span>
+          <span class="ficha ficha-limpar">Limpar filtros</span>
+        </div>
+      </div>
+      <p>Acima da lista de materiais aparece uma ficha para cada filtro ativo. Tocar no × remove aquele
+        filtro sozinho, e <strong>Limpar filtros</strong> remove todos de uma vez.</p>
+    </section>
+
+    <!-- ============================================================ -->
+    <section class="guia-secao">
+      <h2><span class="guia-numero">7</span> Abrir a ficha do material</h2>
+      <p>Tocar na foto ou no nome abre a ficha completa, com a imagem ampliada e todos os dados: código,
+        unidade de pedido, grupo, subgrupo, tipo, família e especialidades. Dentro dela também estão os
+        botões de copiar e de adicionar à lista, e as etiquetas continuam clicáveis.</p>
+      <p>Para fechar, use o botão <strong>Fechar</strong> no alto, toque fora da ficha, ou aperte a tecla
+        Esc no computador.</p>
+    </section>
+
+    <!-- ============================================================ -->
+    <section class="guia-secao">
+      <h2><span class="guia-numero">8</span> Copiar o código e usar no CELK</h2>
+      <p>Este é o gesto mais repetido no uso diário, e por isso o botão é grande e fica sempre à vista.</p>
+
+      <div class="demo">
+        <span class="demo-rotulo">Exemplo</span>
+        <div class="demo-com-legenda">
+          <div class="demo-peca">
+            <span class="btn-copiar"><span class="rotulo">Copiar código</span></span>
+          </div>
+          <ol class="demo-passos demo-legenda">
+            <li>Localize o material no catálogo.</li>
+            <li>Toque em <strong>Copiar código</strong>. O botão fica verde por um instante e a palavra
+              muda para <em>Copiado</em>, confirmando que deu certo.</li>
+            <li>Abra o CELK e cole o número no campo de busca do pedido.</li>
+          </ol>
+        </div>
+      </div>
+
+      <p>A unidade de pedido mostrada aqui é a mesma do sistema. Conferi-la antes de lançar evita pedir
+        uma caixa quando se queria uma unidade, e vice-versa.</p>
+    </section>
+
+    <!-- ============================================================ -->
+    <section class="guia-secao">
+      <h2><span class="guia-numero">9</span> Montar uma lista antes de ir ao sistema</h2>
+      <p>O botão <strong>+</strong> de cada material guarda o item numa lista de conferência. O botão
+        flutuante <strong>Lista</strong>, no canto inferior, mostra quantos itens você já juntou e abre o
+        painel.</p>
+
+      <p>Dentro do painel você pode:</p>
+      <ul>
+        <li><strong>Ajustar a quantidade</strong> de cada item com os botões de menos e mais, ou digitando
+          o número direto.</li>
+        <li><strong>Remover</strong> um item pelo × ao lado dele.</li>
+        <li><strong>Copiar lista</strong>, para colar num e-mail, no WhatsApp ou num documento.</li>
+        <li><strong>Baixar CSV</strong>, para abrir a lista numa planilha.</li>
+        <li><strong>Limpar lista</strong>, que apaga tudo depois de pedir confirmação.</li>
+      </ul>
+
+      <p>A lista se divide sozinha em dois grupos: <strong>Para lançar no CELK</strong> e
+        <strong>Para solicitar ao coordenador</strong>, porque os caminhos são diferentes. Ela fica
+        guardada no próprio aparelho e continua lá se você fechar a página. É um rascunho de conferência:
+        o lançamento continua sendo feito no CELK.</p>
+    </section>
+
+    <!-- ============================================================ -->
+    <section class="guia-secao">
+      <h2><span class="guia-numero">10</span> Imprimir</h2>
+      <p>O botão da impressora, no alto da página, oferece três opções:</p>
+
+      <div class="demo">
+        <span class="demo-rotulo">Procure por este botão</span>
+        <span class="btn-icone demo-centro"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9V4h10v5"/><path d="M7 18H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2"/><path d="M7 15h10v5H7z"/></svg></span>
+      </div>
+
+      <ul>
+        <li><strong>Catálogo completo ilustrado.</strong> Todos os materiais, com foto, separados por
+          subgrupo, cada seção começando em página nova.</li>
+        <li><strong>Apenas o que está na tela.</strong> Imprime só o resultado da busca e dos filtros que
+          você aplicou. Útil para levar ao consultório a lista de uma especialidade.</li>
+        <li><strong>Minha lista de pedido.</strong> Imprime a lista de conferência em forma de tabela, com
+          as quantidades.</li>
+      </ul>
+      <p>Antes de imprimir, o catálogo avisa quantos itens e quantas páginas serão geradas, para você não
+        mandar 44 páginas para a impressora sem querer.</p>
+      <p class="guia-destaque"><strong>Para as fotos saírem no papel</strong>, deixe ativada a opção
+        <strong>Gráficos de segundo plano</strong> ou <strong>Imagens de fundo</strong> na janela de
+        impressão do navegador. Para gerar um PDF em vez de imprimir, escolha <strong>Salvar como
+        PDF</strong> no destino.</p>
+      <p>Todas as páginas impressas trazem no alto o nome do catálogo e a data da última atualização, e os
+        itens do CEO e da coordenação vêm marcados ao lado do código.</p>
+    </section>
+
+    <!-- ============================================================ -->
+    <section class="guia-secao">
+      <h2><span class="guia-numero">11</span> Os botões do alto da página</h2>
+      <ul class="demo-botoes">
+        <li>
+          <span class="btn-perfil">
+            <span class="btn-perfil-rotulo">Local</span>
+            <span class="btn-perfil-valor">Centro de Saúde</span>
+          </span>
+          <span><strong>Local.</strong> Mostra onde você trabalha e troca entre Centro de Saúde e Centro
+            de Especialidades com um toque.</span>
+        </li>
+        <li>
+          <span class="btn-icone"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9V4h10v5"/><path d="M7 18H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2"/><path d="M7 15h10v5H7z"/></svg></span>
+          <span><strong>Impressora.</strong> Abre as três opções de impressão.</span>
+        </li>
+        <li>
+          <span class="btn-icone"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg></span>
+          <span><strong>Lua.</strong> Passa para o modo noturno, de fundo escuro, mais confortável em
+            ambiente com pouca luz.</span>
+        </li>
+        <li>
+          <span class="btn-icone"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg></span>
+          <span><strong>Sol.</strong> É o mesmo botão, já no modo noturno: tocando nele você volta ao modo
+            claro. Na primeira visita o catálogo segue a preferência do próprio aparelho.</span>
+        </li>
+        <li>
+          <span class="btn-icone"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.2a2.5 2.5 0 1 1 3.2 2.6c-.6.2-.9.7-.9 1.3v.6"/><circle cx="12" cy="17" r=".9" fill="currentColor" stroke="none"/></svg></span>
+          <span><strong>Interrogação.</strong> Traz você de volta a este guia.</span>
+        </li>
       </ul>
     </section>
 
+    <!-- ============================================================ -->
     <section class="guia-secao">
-      <h2><span class="guia-numero">3</span> Como usar o código no CELK</h2>
-      <ol>
-        <li>Localize o item no catálogo.</li>
-        <li>Toque em <strong>Copiar código</strong>.</li>
-        <li>Abra o CELK e cole o código no campo de busca do pedido.</li>
-      </ol>
-      <p>A unidade de pedido mostrada aqui é a mesma do sistema. Conferir a unidade antes de lançar evita
-        pedir uma caixa quando se queria uma unidade, e vice-versa.</p>
-    </section>
-
-    <section class="guia-secao">
-      <h2><span class="guia-numero">4</span> Como montar uma lista antes de ir ao sistema</h2>
-      <p>Em cada item há o botão <strong>Adicionar à lista</strong>. A lista fica guardada no próprio
-        aparelho e continua lá se você fechar a página. Dentro dela você ajusta a quantidade de cada item
-        e depois usa:</p>
-      <ul>
-        <li><strong>Copiar lista</strong>, para colar em um e-mail, no WhatsApp ou em um documento;</li>
-        <li><strong>Baixar CSV</strong>, para abrir a lista em uma planilha.</li>
-      </ul>
-      <p>A lista serve como rascunho de conferência. O lançamento continua sendo feito no CELK.</p>
-    </section>
-
-    <section class="guia-secao">
-      <h2><span class="guia-numero">5</span> Os blocos do catálogo e como funciona cada um</h2>
+      <h2><span class="guia-numero">12</span> Os blocos do catálogo e como funciona cada um</h2>
 
       <div class="guia-bloco guia-bloco--basica">
         <h3>Rede básica — grupos 12 e 13</h3>
@@ -155,8 +429,9 @@
       </div>
     </section>
 
+    <!-- ============================================================ -->
     <section class="guia-secao">
-      <h2><span class="guia-numero">6</span> Quando a foto estiver faltando ou o material parecer errado</h2>
+      <h2><span class="guia-numero">13</span> Quando a foto estiver faltando ou o material parecer errado</h2>
       <p>Se um item aparecer sem foto, com foto que não corresponde ao material, com descrição truncada ou
         com unidade de pedido diferente da que está no CELK, avise para que a correção entre na próxima
         atualização. Informe o código do item e o que está errado.</p>

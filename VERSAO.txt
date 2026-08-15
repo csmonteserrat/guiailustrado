@@ -1,8 +1,20 @@
 CATÁLOGO ILUSTRADO DE MATERIAIS ODONTOLÓGICOS — PMF
-Versão 2.0 — 12/08/2026
+Versão 2.1 — 14/08/2026
 
 HISTÓRICO
 ---------
+v2.1 — 14/08/2026
+  - Guia de uso reescrito e ilustrado: passou de 6 para 14 seções,
+    cobrindo perfil de acesso, anatomia do card com 8 pontos
+    numerados, as duas vistas, busca, filtros, ficha ampliada, copiar
+    código, lista de pedido, impressão, botões do topo e os blocos.
+  - As ilustrações são montadas com as classes reais do site (.card,
+    .selo, .pilula, .btn-copiar e as demais), e não com imagens. Por
+    isso acompanham sozinhas qualquer mudança futura de visual.
+  - Os ícones do alternador de vista, da impressora e dos botões do
+    topo aparecem no guia, copiados do index.html.
+  - O produtos.csv não foi alterado.
+
 v2.0 — 12/08/2026
   MUDANÇA APENAS VISUAL. Nenhuma funcionalidade foi alterada.
   - Nova identidade: superfícies brancas arredondadas sobre fundo

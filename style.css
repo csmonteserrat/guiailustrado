@@ -823,6 +823,87 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .lista-opcoes--rolagem { max-height: none; }
 }
 
+/* =================================================================
+   ILUSTRAÇÕES DO GUIA
+   -----------------------------------------------------------------
+   Este bloco NÃO define cores nem formatos próprios. Ele só organiza
+   na página pedaços do site montados com as classes reais (.card,
+   .selo, .btn-copiar, .pilula, .codigo e as demais).
+   Por isso, quando o visual do catálogo mudar, as ilustrações do guia
+   mudam junto, sem ninguém precisar refazer desenho nenhum.
+   ================================================================= */
+
+/* Moldura que envolve cada exemplo */
+.demo {
+  position: relative;
+  background: var(--campo);
+  border-radius: var(--raio);
+  padding: 18px;
+  margin: 14px 0;
+}
+.demo-rotulo {
+  display: block;
+  font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--texto2); margin-bottom: 12px;
+}
+
+/* Exemplo à esquerda, explicação numerada à direita */
+.demo-com-legenda { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; }
+.demo-peca { width: 200px; flex: none; }
+.demo-legenda { flex: 1; min-width: 220px; margin: 0; padding: 0; list-style: none; }
+.demo-legenda li { display: flex; gap: 10px; margin-bottom: 10px; font-size: 14px; line-height: 1.45; }
+
+/* Bolinha numerada que aponta a parte comentada */
+.demo-num {
+  display: grid; place-items: center;
+  width: 22px; height: 22px; flex: none;
+  border-radius: 50%; background: var(--acento); color: #fff;
+  font-size: 12px; font-weight: 600; font-family: var(--fonte);
+}
+[data-tema="escuro"] .demo-num { color: #1f2537; }
+.demo-num--solto { margin-left: 6px; vertical-align: middle; }
+
+/* Dois exemplos lado a lado, para comparar */
+.demo-par { display: grid; gap: 14px; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .demo-par { grid-template-columns: 1fr 1fr; } }
+.demo-caixa { background: var(--superficie); border-radius: var(--raio); padding: 14px; box-shadow: var(--sombra); }
+.demo-caixa h3 { display: flex; align-items: center; gap: 8px; font-size: 14px; margin-bottom: 10px; }
+.demo-caixa p { margin: 10px 0 0; font-size: 13px; color: var(--texto2); }
+
+/* Passo a passo com o exemplo dentro */
+.demo-passos { margin: 0; padding-left: 22px; }
+.demo-passos li { margin-bottom: 8px; }
+
+/* Barra de exemplo do topo do site */
+.demo-barra { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+/* Foto de exemplo dentro dos cards do guia */
+.demo .moldura { background: var(--moldura-foto); }
+.demo .grade { grid-template-columns: 1fr; }
+
+/* Número sobre a foto do exemplo */
+.demo-num--foto { position: absolute; top: 8px; right: 8px; z-index: 2; }
+.demo .moldura { position: relative; }
+.demo .card-nome, .demo .btn-copiar, .demo .btn-adicionar { pointer-events: none; }
+.demo .btn-adicionar { font-size: 18px; }
+
+/* Um único elemento centralizado dentro da moldura de exemplo */
+.demo-centro { display: inline-flex; }
+.demo .btn-icone, .demo .alternar-vista, .demo .btn-perfil { pointer-events: none; }
+
+/* Ícone à frente do título de um exemplo */
+.demo-icone { display: inline-flex; color: var(--acento); }
+
+/* Lista de botões do topo, cada um com o ícone real ao lado da explicação */
+.demo-botoes { list-style: none; margin: 0; padding: 0; }
+.demo-botoes li {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 12px 0; border-bottom: 1px solid var(--borda);
+  font-size: 14px; line-height: 1.45;
+}
+.demo-botoes li:last-child { border-bottom: 0; }
+.demo-botoes .btn-icone, .demo-botoes .btn-perfil { flex: none; pointer-events: none; }
+
 /* ============================= impressão ============================= */
 
 .area-impressao { display: none; }

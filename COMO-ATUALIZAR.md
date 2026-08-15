@@ -12,8 +12,8 @@ Tudo o que aparece no site vem de **um único arquivo**, o `produtos.csv`, e de 
 |---|---|---|
 | `produtos.csv` | A lista de todos os materiais | **Sim, sempre** |
 | `imagens/` | As fotos, uma para cada material | **Sim, sempre** |
-| `index.html` | O texto do guia de uso e o contato do responsável | Só quando quiser mudar o guia |
-| `style.css` | As cores e a aparência | Raramente |
+| `index.html` | O texto do guia de uso, as ilustrações dele e o contato do responsável | Só quando quiser mudar o guia |
+| `style.css` | As cores e a aparência (todas as cores ficam no bloco do topo do arquivo) | Raramente |
 | `app.js` | O funcionamento do site e a data da última atualização | Raramente |
 
 ---
@@ -126,6 +126,13 @@ O texto do guia de uso está dentro do arquivo `index.html`, em um trecho marcad
 Você pode alterar as frases livremente dentro desse trecho. O nome, o e-mail e o telefone do responsável estão no fim dele, marcados com um comentário próprio.
 
 Não apague os sinais `<` e `>` nem o que estiver escrito entre eles, como `<p>` e `</p>`. Eles são as marcações que organizam o texto na tela.
+
+**Sobre as ilustrações do guia.** Os exemplos que aparecem ali — o cartão de material com os números, as pílulas de filtro, os botões do topo — não são imagens. São pedaços do próprio site, montados com as mesmas classes que a listagem usa. Por isso, quando você mudar cor, formato ou tamanho no `style.css`, o guia muda junto sozinho, e não existe figura nenhuma para refazer.
+
+Duas exceções, que precisariam de ajuste manual:
+
+- Se você **trocar o desenho de algum ícone** no site, o ícone equivalente dentro do guia continua com o desenho antigo, porque ali ele é uma cópia. Procure pelo trecho `<svg` dentro da seção correspondente do guia e substitua.
+- O cartão de exemplo usa a foto do item **4150488**. Se essa foto sair da pasta `imagens`, o exemplo mostra um quadro cinza escrito "Foto de exemplo", sem quebrar nada. Para usar outro material como exemplo, troque o nome do arquivo, o código e o nome do produto naquele trecho.
 
 ---
 
