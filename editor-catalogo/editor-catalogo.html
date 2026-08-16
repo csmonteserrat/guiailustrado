@@ -1451,13 +1451,68 @@ const NOMES_TIPO={novo:['novo','t-vd'],editado:['editado','t-az'],inativado:['in
                   descritivo:['descritivo','t-lr'],
                   reativado:['reativado','t-vd'],excluido:['excluído','t-lr']};
 
-$('#btConferir').onclick=()=>{
+/* =====================================================================
+   DESFAZER UMA ALTERAÇÃO NA CONFERÊNCIA
+   ---------------------------------------------------------------------
+   A conferência é o último ponto antes de a alteração virar permanente.
+   Se ali você vê algo que não queria ter feito, precisa poder tirar dali
+   mesmo, sem sair procurando o material na lista para corrigir à mão.
+
+   Desfazer devolve o material exatamente ao que estava no arquivo, e a
+   linha some da conferência. Nada é enviado a lugar nenhum: só a sessão
+   em andamento é alterada.
+   ===================================================================== */
+const TEXTO_DESFAZER={
+  novo:'Remover o item que você criou nesta sessão?\n\nO que foi digitado nele será perdido.',
+  editado:'Desfazer as alterações deste material?\n\nEle volta a ser exatamente o que está no arquivo.',
+  inativado:'Voltar este material para ativo?',
+  reativado:'Voltar este material para inativo?',
+  excluido:'Trazer este material de volta para o catálogo?',
+  descritivo:'Desfazer as alterações no descritivo deste material?\n\nO texto digitado será perdido.'
+};
+
+/* Os identificadores são atribuídos na ordem em que o arquivo foi lido,
+   então reinserir mantendo a ordem crescente devolve a linha ao lugar
+   de onde ela saiu. */
+function reinserirNaOrdem(item){
+  let i=ITENS.findIndex(x=>x.__id>item.__id);
+  if(i<0)i=ITENS.length;
+  ITENS.splice(i,0,item);
+}
+
+function desfazerItem(id){
+  const idn=+id;
+  const original=ORIGINAIS[idn];
+
+  const iEx=EXCLUIDOS.findIndex(x=>x.__id===idn);
+  if(iEx>=0){
+    const removido=EXCLUIDOS.splice(iEx,1)[0];
+    reinserirNaOrdem(Object.assign({},original||removido,{__id:idn}));
+    return true;
+  }
+  const i=ITENS.findIndex(x=>x.__id===idn);
+  if(i<0)return false;
+  if(!original){ITENS.splice(i,1);return true}      /* era um item novo desta sessão */
+  ITENS[i]=Object.assign({},original,{__id:idn});
+  return true;
+}
+
+function desfazerDescritivo(codigo){
+  const original=DESC_ORIGINAIS[codigo];
+  if(original)DESCRITIVOS[codigo]=Object.assign({},original);
+  else delete DESCRITIVOS[codigo];
+  return true;
+}
+
+$('#btConferir').onclick=()=>abrirConferencia();
+
+function abrirConferencia(){
   /* A lista de conferência mistura as alterações do catálogo e as dos
      descritivos, na ordem em que foram feitas por item, para que a pessoa
      veja em um lugar só tudo o que será gravado. */
   const mCat=mudancas();
   const mDesc=mudancasDescritivo().map(x=>({tipo:'descritivo',
-    item:{codigo:x.codigo,material:x.material},campos:x.campos}));
+    item:{codigo:x.codigo,material:x.material,__id:null},campos:x.campos}));
   const m=mCat.concat(mDesc);
   const v=validar();
   const arquivos=arquivosDoPacote();
@@ -1478,9 +1533,14 @@ $('#btConferir').onclick=()=>{
             ? x.campos.map(c=>'<div class="diff">'+rotulo(c.campo)+': <span class="de">'+
                 escapar(resumir(c.de))+'</span> → <span class="para">'+escapar(resumir(c.para))+'</span></div>').join('')
             : '<div class="diff">'+(x.tipo==='novo'?'item acrescentado ao arquivo':'linha removida do arquivo')+'</div>';
+          const alvo=x.tipo==='descritivo'
+            ? 'data-desfazer-desc="'+escapar(x.item.codigo||'')+'"'
+            : 'data-desfazer="'+x.item.__id+'"';
           return '<div class="mudanca"><span class="tag '+cls+'" style="flex:none">'+nome+'</span>'+
-            '<div><div style="font-size:12.5px"><span class="mono" style="color:var(--azul)">'+
-            escapar(x.item.codigo||'')+'</span> '+escapar(x.item.material||'')+'</div>'+det+'</div></div>';
+            '<div style="min-width:0"><div style="font-size:12.5px"><span class="mono" style="color:var(--azul)">'+
+            escapar(x.item.codigo||'')+'</span> '+escapar(x.item.material||'')+'</div>'+det+'</div>'+
+            '<button class="sec mini" '+alvo+' data-tipo="'+x.tipo+'" '+
+            'style="margin-left:auto;align-self:flex-start;flex:none">desfazer</button></div>';
         }).join('')+'</div>'
       :'<div class="sub">Nada foi alterado ainda. Não há o que registrar no histórico.</div>')+
       (v.problemas.length?'<div class="nota erro"><b>Corrija antes de publicar:</b><br>'+
@@ -1504,10 +1564,32 @@ $('#btConferir').onclick=()=>{
       'Publicar no site</button></footer></div>';
   document.body.appendChild(fundo);
   fundo.addEventListener('click',e=>{
-    if(e.target===fundo||(e.target.dataset&&e.target.dataset.fechar))fundo.remove()});
+    if(e.target===fundo||(e.target.dataset&&e.target.dataset.fechar)){fundo.remove();return}
+
+    const bt=e.target.closest('button');
+    if(!bt)return;
+    const ehDesc=bt.dataset.desfazerDesc!==undefined;
+    if(!ehDesc&&bt.dataset.desfazer===undefined)return;
+
+    const tipo=bt.dataset.tipo||'editado';
+    if(!confirm(TEXTO_DESFAZER[tipo]||'Desfazer esta alteração?'))return;
+
+    const ok=ehDesc?desfazerDescritivo(bt.dataset.desfazerDesc):desfazerItem(bt.dataset.desfazer);
+    if(!ok){alert('Não localizei essa alteração para desfazer.');return}
+
+    salvarRascunho();
+    /* As listas de filtro são remontadas, mas o que estava escolhido é
+       devolvido: desfazer não deve mexer no que a pessoa está vendo. */
+    const escolhido={b:$('#fBloco').value,t:$('#fTag').value,f:$('#fFamilia').value};
+    montarFiltros();
+    $('#fBloco').value=escolhido.b;$('#fTag').value=escolhido.t;$('#fFamilia').value=escolhido.f;
+    desenhar();
+    fundo.remove();
+    abrirConferencia();   /* reabre já sem a linha desfeita */
+  });
   fundo.querySelector('#btBaixar').onclick=()=>{baixarTudo();fundo.remove()};
   fundo.querySelector('#btPublicar').onclick=()=>{fundo.remove();publicarSessao()};
-};
+}
 
 /* A publicação direta só é oferecida quando o motor está presente e há
    chave cadastrada. Sem isso, o caminho continua sendo o pacote .zip. */
@@ -2261,7 +2343,7 @@ window.addEventListener('beforeunload',e=>{
   if(mudancas().length||mudancasDescritivo().length){e.preventDefault();e.returnValue=''}
 });
 </script>
-<div id="versaoPagina" style="text-align:center;font-size:10px;color:var(--secundario);opacity:.7;padding:14px 0 4px">editor · versão 2026-08-16b</div>
+<div id="versaoPagina" style="text-align:center;font-size:10px;color:var(--secundario);opacity:.7;padding:14px 0 4px">editor · versão 2026-08-16c</div>
 </div>
 </div>
 </body>
