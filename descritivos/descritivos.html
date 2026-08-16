@@ -63,6 +63,7 @@ input,select{font:inherit;font-size:13px;padding:8px 10px;border:1px solid var(-
 .detalhe{background:#fafbff;border-top:1px solid var(--linha);padding:16px;
   display:flex;gap:18px}
 @media(max-width:760px){.detalhe{flex-direction:column;gap:14px}}
+
 .detalhe .col1{flex:1;min-width:0}
 .detalhe .col2{flex:2;min-width:0;border-left:1px solid var(--linha);padding-left:18px}
 @media(max-width:760px){.detalhe .col2{border-left:none;border-top:1px solid var(--linha);
@@ -157,6 +158,28 @@ select{appearance:none;background-image:none;padding-right:13px}
 /* ---- barra lateral de navegação ---- */
 
 .wrap{max-width:none;margin:0;padding:0 0 30px}
+
+/* ---------------------- celular ----------------------
+   A faixa do topo deixa de grudar: com título, busca, alternador e três
+   filtros empilhados, ela tomava quase toda a altura da tela e sobrava
+   uma fresta para a lista. O nome do material passa a quebrar em duas
+   linhas em vez de ser cortado, e a foto encolhe para dar espaço a ele. */
+@media(max-width:640px){
+  .cabecalho{position:static}
+  .alterna{width:100%}
+  .alterna span{flex:1;text-align:center}
+  .foto,.semfoto{width:40px;height:40px}
+  .linha{padding:10px;gap:9px}
+  .nome{white-space:normal;font-size:13px;line-height:1.35}
+  .trecho{white-space:normal}
+  /* O status "pendente" ou "descritivo ok" é a informação principal
+     desta página: em vez de sumir, ele desce para baixo do nome,
+     alinhado com o texto. */
+  .linha{flex-wrap:wrap}
+  .dir{flex:1 1 100%;text-align:left;margin-top:5px;padding-left:49px}
+  .seta{align-self:flex-start;margin-top:4px}
+  .wrap{padding-left:0;padding-right:0}
+}
 </style>
 </head>
 <body>
@@ -569,7 +592,7 @@ $('#btExportar').onclick=()=>{
   setTimeout(()=>URL.revokeObjectURL(a.href),4000);
 };
 </script>
-<div id="versaoPagina">descritivos · versão 2026-08-16a</div>
+<div id="versaoPagina">descritivos · versão 2026-08-16b</div>
 </div>
 </div>
 </body>

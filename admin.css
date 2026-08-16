@@ -96,6 +96,17 @@ h2{font-size:14px;font-weight:600;margin:0 0 12px}
     border-left:1px solid rgba(255,255,255,.25)}
 }
 
+/* ===================== celular =====================
+   Campos e seletores das barras de ferramentas costumam ter largura
+   mínima pensada para tela larga. Numa tela estreita, essa mínima é o
+   que empurra a página para além da borda e faz tudo aparecer cortado.
+   Aqui cada um passa a ocupar a linha inteira. */
+@media(max-width:640px){
+  .barra{gap:8px}
+  .barra>input,.barra>select{flex:1 1 100%;min-width:0;width:100%}
+  img{max-width:100%}
+}
+
 /* NÃO coloque aqui .cartao nem .cabecalho: essas duas classes têm
    sentidos diferentes em cada página. No painel, .cabecalho é a linha
    do título; no editor e nos descritivos, é a faixa que gruda no topo.

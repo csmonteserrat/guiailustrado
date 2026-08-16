@@ -179,6 +179,25 @@ select{appearance:none;background-image:none;padding-right:13px}
   .cabCartao{gap:9px}
   .arqCartao{display:none}
 }
+
+/* ---------------------- celular ----------------------
+   A tabela tem larguras fixas somando mais de 500px, o que empurrava a
+   página inteira para além da borda da tela. No celular ela mostra só
+   o código e o material: as demais colunas continuam disponíveis ao
+   abrir o item, que é o gesto natural ali de qualquer forma.
+   A faixa do topo também deixa de grudar, porque numa tela pequena ela
+   ocupava quase toda a altura e sobrava uma fresta para a lista. */
+@media(max-width:640px){
+  .cabecalho{position:static}
+  .rolagem{max-height:none;overflow-x:auto}
+  .tabela th:nth-child(3),.tabela td:nth-child(3),
+  .tabela th:nth-child(4),.tabela td:nth-child(4),
+  .tabela th:nth-child(5),.tabela td:nth-child(5){display:none}
+  .tabela th:first-child{width:78px}
+  .tabela th:last-child{width:44px}
+  .tabela td,.tabela th{padding:8px 7px}
+  .wrap{padding-bottom:40px}
+}
 </style>
 </head>
 <body>
@@ -2297,7 +2316,7 @@ window.addEventListener('beforeunload',e=>{
   if(mudancas().length||mudancasDescritivo().length){e.preventDefault();e.returnValue=''}
 });
 </script>
-<div id="versaoPagina">editor · versão 2026-08-16d</div>
+<div id="versaoPagina">editor · versão 2026-08-16e</div>
 </div>
 </div>
 </body>
