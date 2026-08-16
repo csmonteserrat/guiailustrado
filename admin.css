@@ -96,9 +96,11 @@ h2{font-size:14px;font-weight:600;margin:0 0 12px}
     border-left:1px solid rgba(255,255,255,.25)}
 }
 
-/* ============================ superfícies ============================ */
-.cartao{background:#fff;border-radius:var(--raio);padding:16px 18px;box-shadow:var(--sombra)}
-.cabecalho{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
+/* NÃO coloque aqui .cartao nem .cabecalho: essas duas classes têm
+   sentidos diferentes em cada página. No painel, .cabecalho é a linha
+   do título; no editor e nos descritivos, é a faixa que gruda no topo.
+   Regras com o mesmo nome e sentidos diferentes quebram a página que
+   não esperava por elas. */
 
 /* ========================= botões e campos ========================= */
 button,.pilula{font:inherit;font-size:12.5px;padding:9px 17px;border-radius:20px;border:none;
@@ -110,8 +112,9 @@ button:disabled{opacity:.5;cursor:default}
 button.mini,.pilula.mini{font-size:11.5px;padding:6px 13px}
 button.plana,.pilula.plana{box-shadow:none;background:var(--neutro)}
 
-input[type=text],input[type=search],input[type=number]{font:inherit;font-size:12.5px;padding:9px 13px;
-  border:none;border-radius:14px;background:var(--neutro);color:var(--texto)}
+/* Só o essencial em campos. Regras como input[type=text] não entram
+   aqui: por serem seletor de atributo, venceriam o "input,select" que
+   cada página escreve, mesmo estando neste arquivo, que vem antes. */
 input[type=file]{display:none}
 
 /* ============================= etiquetas ============================= */

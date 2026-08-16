@@ -10,6 +10,14 @@
    etiquetas) fica em admin.css. Aqui ficam só as regras desta
    página. */
 
+/* ---------- cartões e cabeçalho desta página ---------- */
+.cartao{background:#fff;border-radius:var(--raio);padding:16px 18px;box-shadow:var(--sombra)}
+.cabecalho{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
+
+/* ---------- campos ---------- */
+input[type=text]{font:inherit;font-size:12.5px;padding:9px 13px;border:none;border-radius:14px;
+  background:var(--neutro);color:var(--texto)}
+
 /* anéis de progresso */
 .aneis{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:12px;margin-bottom:12px}
 .anel{background:#fff;border-radius:var(--raio);padding:16px 18px;box-shadow:var(--sombra)}
@@ -967,6 +975,6 @@ $('#btConferirRepo').onclick=async ()=>{
   }
 })();
 </script>
-<div id="versaoPagina">painel · versão 2026-08-16c</div>
+<div id="versaoPagina">painel · versão 2026-08-16d</div>
 </body>
 </html>
