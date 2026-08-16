@@ -1,0 +1,128 @@
+/* =====================================================================
+   IDENTIDADE VISUAL DAS PÁGINAS ADMINISTRATIVAS
+   ---------------------------------------------------------------------
+   Arquivo único, lido por todas as páginas do painel:
+
+     admin.html                        preparar-imagens.html
+     editor-catalogo/editor-catalogo.html   editor-catalogo/historico.html
+     editor-catalogo/comparar-celk.html     descritivos/descritivos.html
+     tutoriais.html
+
+   Antes, este bloco estava copiado dentro de cada uma delas. Foi assim
+   que a página de imagens acabou com um fundo diferente e uma largura
+   diferente das demais, o que fazia a barra lateral saltar de lugar ao
+   navegar. Com um arquivo só, isso não volta a acontecer, e a página de
+   tutoriais acompanha sozinha qualquer mudança de visual.
+
+   PARA MUDAR AS CORES DO PAINEL, ALTERE APENAS O BLOCO :root ABAIXO.
+
+   Cada página continua tendo o próprio <style> para o que é só dela.
+   Como ele vem depois deste arquivo, qualquer regra de página vence a
+   daqui: é assim que as diferenças propositais são feitas.
+   ===================================================================== */
+
+:root{
+  /* ---- cores dos blocos do catálogo ---- */
+  --corn:#546de5;        --corn-suave:#eceffd;      /* rede básica, grupos 12 e 13 */
+  --corallite:#574b90;   --corallite-suave:#eeecf5; /* CEO, grupos 14 e 15 */
+  --sawtooth:#f19066;    --sawtooth-suave:#fdefe8;  /* interesse odontológico */
+  --curacao:#3dc1d3;     --curacao-suave:#e6f7fa;   /* ferramentas administrativas */
+  --peach:#f3a683;                                  /* ação principal */
+  --geranium:#cf6a87;    --geranium-suave:#fbeef1;  /* erro */
+  --summer:#f5cd79;                                 /* destaque de busca */
+
+  /* Apelidos antigos, mantidos porque várias páginas ainda os usam.
+     Não crie regras novas com estes nomes. */
+  --azul:var(--corn);            --azul-suave:var(--corn-suave);
+  --roxo:var(--corallite);       --roxo-suave:var(--corallite-suave);
+  --laranja:var(--sawtooth);     --laranja-suave:var(--sawtooth-suave);
+  --verde:var(--curacao);        --verde-suave:var(--curacao-suave);
+  --vermelho:var(--geranium);    --vermelho-suave:var(--geranium-suave);
+
+  /* ---- neutros ---- */
+  --texto:#303952;       /* Biscay */
+  --secundario:#596275;  /* Pencil Lead */
+  --fundo:#eef3f9;
+  --neutro:#f7f8fa;
+  --borda:#eef2f6;
+  --linha:#eef2f6;
+
+  /* ---- forma ---- */
+  --sombra:0 6px 22px rgba(48,57,82,.07);
+  --sombra-alta:0 12px 34px rgba(48,57,82,.12);
+  --raio:20px;
+}
+
+/* ============================== base ============================== */
+*{box-sizing:border-box}
+body{margin:0;background:var(--fundo);color:var(--texto);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.45}
+h1{font-size:19px;font-weight:600;margin:0}
+h2{font-size:14px;font-weight:600;margin:0 0 12px}
+.sub{color:var(--secundario);font-size:12px}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace}
+.oculto{display:none !important}
+.espaco{margin-left:auto}
+.barra{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+
+/* ===================== estrutura da página =====================
+   A largura máxima precisa ser a mesma em todas as páginas: como o
+   conjunto é centralizado, qualquer diferença faz a barra lateral
+   mudar de lugar ao navegar de uma para outra. */
+.app{display:flex;gap:16px;padding:16px;max-width:1240px;margin:0 auto;align-items:flex-start}
+.lateral{width:82px;flex:none;background:var(--curacao);border-radius:24px;padding:16px 10px;
+  position:sticky;top:16px;z-index:30}
+.marca{text-align:center;color:#fff;font-size:10px;line-height:1.3;opacity:.9;margin-bottom:14px}
+.marca b{display:block;font-size:12px;font-weight:600;opacity:1}
+.nav{display:block;text-decoration:none;text-align:center;padding:11px 4px;border-radius:16px;
+  margin-bottom:6px;color:rgba(255,255,255,.85);transition:.15s}
+.nav:hover{background:rgba(255,255,255,.15)}
+.nav .ic{font-size:17px;line-height:1.2}
+.nav .tx{font-size:9px;margin-top:3px;display:block}
+.nav.ativo{background:#fff;color:var(--curacao);box-shadow:var(--sombra)}
+.nav.saida{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.25);
+  border-radius:0 0 16px 16px}
+
+/* As duas páginas mais antigas chamam a coluna de conteúdo de .conteudo
+   e as demais de .coluna. As duas valem. */
+.conteudo,.coluna{flex:1;min-width:0}
+
+@media(max-width:820px){
+  .app{flex-direction:column;padding:12px}
+  .lateral{width:100%;position:static;display:flex;gap:6px;overflow-x:auto;padding:10px;border-radius:20px}
+  .marca{display:none}
+  .nav{flex:1;min-width:74px;margin-bottom:0}
+  .nav.saida{margin-top:0;padding-top:11px;border-top:none;border-radius:16px;
+    border-left:1px solid rgba(255,255,255,.25)}
+}
+
+/* ============================ superfícies ============================ */
+.cartao{background:#fff;border-radius:var(--raio);padding:16px 18px;box-shadow:var(--sombra)}
+.cabecalho{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
+
+/* ========================= botões e campos ========================= */
+button,.pilula{font:inherit;font-size:12.5px;padding:9px 17px;border-radius:20px;border:none;
+  background:#fff;color:var(--texto);cursor:pointer;box-shadow:var(--sombra);text-decoration:none;
+  display:inline-block;white-space:nowrap}
+button.principal,.pilula.principal{background:var(--peach);color:#fff}
+button.acento,.pilula.acento{background:var(--curacao);color:#fff}
+button:disabled{opacity:.5;cursor:default}
+button.mini,.pilula.mini{font-size:11.5px;padding:6px 13px}
+button.plana,.pilula.plana{box-shadow:none;background:var(--neutro)}
+
+input[type=text],input[type=search],input[type=number]{font:inherit;font-size:12.5px;padding:9px 13px;
+  border:none;border-radius:14px;background:var(--neutro);color:var(--texto)}
+input[type=file]{display:none}
+
+/* ============================= etiquetas ============================= */
+.tag{font-size:10.5px;padding:3px 10px;border-radius:20px;display:inline-block;white-space:nowrap}
+.t-az{background:var(--corn-suave);color:var(--corn)}
+.t-rx{background:var(--corallite-suave);color:var(--corallite)}
+.t-lr{background:var(--sawtooth-suave);color:var(--sawtooth)}
+.t-vd{background:var(--curacao-suave);color:var(--curacao)}
+.t-vm{background:var(--geranium-suave);color:var(--geranium)}
+.t-ci{background:var(--neutro);color:var(--secundario)}
+
+/* ====================== marcador de versão ======================
+   Aparece no pé de todas as páginas administrativas. */
+#versaoPagina{text-align:center;font-size:10px;color:var(--secundario);opacity:.7;padding:14px 0 4px}
