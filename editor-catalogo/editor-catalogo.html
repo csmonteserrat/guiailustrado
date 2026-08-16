@@ -312,6 +312,7 @@ select{appearance:none;background-image:none;padding-right:13px}
 
 </div>
 
+<script src="../publicar.js"></script>
 <script>
 /* =====================================================================
    ESTADO
@@ -1456,7 +1457,7 @@ $('#btConferir').onclick=()=>{
   const fundo=document.createElement('div');
   fundo.className='fundo-modal';
   fundo.innerHTML='<div class="modal">'+
-    '<header><div><h2 style="margin:0">Conferir antes de baixar</h2>'+
+    '<header><div><h2 style="margin:0">Conferir antes de publicar</h2>'+
     '<div class="sub">'+(m.length
         ? m.length+' alteração(ões) nesta sessão'+
           (mCat.length&&mDesc.length?' · '+mCat.length+' no catálogo, '+mDesc.length+' em descritivos':'')
@@ -1489,12 +1490,23 @@ $('#btConferir').onclick=()=>{
         : '')+
     '</div>'+
     '<footer><span class="espaco"></span><button class="sec" data-fechar="1">Voltar</button>'+
-    '<button id="btBaixar"'+(arquivos.length?'':' disabled')+'>Baixar o pacote .zip</button></footer></div>';
+    '<button class="sec" id="btBaixar"'+(arquivos.length?'':' disabled')+'>Baixar o pacote .zip</button>'+
+    '<button id="btPublicar"'+(arquivos.length&&podePublicar()?'':' disabled')+
+      ' title="'+(podePublicar()?'envia os arquivos direto ao repositório'
+                               :'cadastre a chave de publicação no painel de administração')+'">'+
+      'Publicar no site</button></footer></div>';
   document.body.appendChild(fundo);
   fundo.addEventListener('click',e=>{
     if(e.target===fundo||(e.target.dataset&&e.target.dataset.fechar))fundo.remove()});
   fundo.querySelector('#btBaixar').onclick=()=>{baixarTudo();fundo.remove()};
+  fundo.querySelector('#btPublicar').onclick=()=>{fundo.remove();publicarSessao()};
 };
+
+/* A publicação direta só é oferecida quando o motor está presente e há
+   chave cadastrada. Sem isso, o caminho continua sendo o pacote .zip. */
+function podePublicar(){
+  return typeof Publicar!=='undefined'&&Publicar.temChave();
+}
 
 /* Textos de descritivo são longos: na conferência mostramos só o começo. */
 function resumir(v){
@@ -1623,11 +1635,466 @@ function baixarTudo(){
   },1400);
 }
 
+/* =====================================================================
+   PUBLICAÇÃO DIRETA NO REPOSITÓRIO
+   ---------------------------------------------------------------------
+   O caminho do pacote .zip continua existindo e não depende de nada
+   daqui. Esta parte só acrescenta um atalho: enviar os mesmos arquivos
+   direto ao GitHub.
+
+   Regra que orienta todo o resto: nada do que foi digitado pode ser
+   perdido. Por isso o arquivo enviado nunca é o que está na tela, e sim
+   a versão que está no repositório neste instante com as linhas desta
+   sessão reaplicadas por cima, uma a uma. Se outra pessoa mexeu em
+   materiais diferentes, as duas edições se somam sem perguntar nada.
+   Só quando o mesmo campo do mesmo material foi alterado pelos dois é
+   que aparece uma escolha.
+
+   Enquanto a publicação não termina, a tela do editor não é limpa nem
+   recarregada: uma recusa do GitHub deixa tudo exatamente como estava.
+   ===================================================================== */
+const ARQ_CSV='produtos.csv';
+const ARQ_DESC='descritivos/descritivos.csv';
+const ARQ_LOG='editor-catalogo/historico.md';
+
+const chaveDecisao=(arq,cod,campo)=>arq+'|'+cod+'|'+campo;
+
+function gerarCsvDe(colunas,registros){
+  const linhas=[colunas.join(',')];
+  registros.forEach(r=>linhas.push(colunas.map(c=>campoCsv(r[c])).join(',')));
+  return '﻿'+linhas.join('\r\n')+'\r\n';
+}
+
+/* Aplica uma decisão tomada na tela de conflito. Sem decisão, vale o
+   que foi digitado nesta sessão. */
+function valorEscolhido(decisoes,arq,cod,campo,meu,dele){
+  const d=decisoes&&decisoes.get(chaveDecisao(arq,cod,campo));
+  if(!d)return meu;
+  if(d.escolha==='dele')return dele;
+  if(d.escolha==='texto')return d.texto;
+  return meu;
+}
+
+/* ---------------------------------------------------------------------
+   Fusão do produtos.csv
+   --------------------------------------------------------------------- */
+function mesclarProdutos(textoRemoto,decisoes){
+  const remoto=lerCsv(textoRemoto);
+  const colunas=remoto.colunas.length?remoto.colunas:COLUNAS.slice();
+  const porCodigo=new Map();
+  const ordem=[];
+  remoto.registros.forEach(r=>{
+    const c=(r.codigo||'').trim();
+    if(!porCodigo.has(c))ordem.push(c);
+    porCodigo.set(c,Object.assign({},r));
+  });
+
+  const conflitos=[],somadas=[],avisos=[];
+
+  mudancas().forEach(m=>{
+    const original=ORIGINAIS[m.item.__id];
+    const codBase=((original||m.item).codigo||'').trim();
+    const codNovo=(m.item.codigo||'').trim();
+    const nome=m.item.material||'';
+
+    if(m.tipo==='excluido'){
+      if(porCodigo.has(codBase)){porCodigo.delete(codBase);somadas.push(codBase)}
+      return;
+    }
+    if(m.tipo==='novo'){
+      if(porCodigo.has(codNovo)){
+        avisos.push('O código '+codNovo+' já existe no repositório. O item que você criou não foi '+
+                    'acrescentado de novo, para não duplicar a linha.');
+        return;
+      }
+      const linha={};
+      colunas.forEach(c=>linha[c]=m.item[c]||'');
+      porCodigo.set(codNovo,linha);ordem.push(codNovo);somadas.push(codNovo);
+      return;
+    }
+
+    /* editado, inativado ou reativado */
+    let linha=porCodigo.get(codBase);
+    if(!linha){
+      /* Alguém apagou a linha enquanto você editava. A sua versão volta,
+         porque perder o que foi digitado é pior do que reinserir. */
+      linha={};colunas.forEach(c=>linha[c]=m.item[c]||'');
+      porCodigo.set(codNovo||codBase,linha);
+      ordem.push(codNovo||codBase);
+      avisos.push('A linha do código '+codBase+' não estava mais no repositório e foi reinserida '+
+                  'com as suas alterações.');
+      return;
+    }
+    linha=Object.assign({},linha);
+
+    m.campos.forEach(cp=>{
+      const dele=(linha[cp.campo]||'').trim();
+      const meuDe=(cp.de||'').trim();
+      if(dele===meuDe){                       /* ninguém mexeu: soma direta */
+        linha[cp.campo]=cp.para;
+      }else if(dele===(cp.para||'').trim()){  /* já está igual ao meu */
+        linha[cp.campo]=cp.para;
+      }else{
+        const escolhido=valorEscolhido(decisoes,ARQ_CSV,codBase,cp.campo,cp.para,linha[cp.campo]);
+        if(decisoes&&decisoes.has(chaveDecisao(ARQ_CSV,codBase,cp.campo))){
+          linha[cp.campo]=escolhido;
+        }else{
+          conflitos.push({arquivo:ARQ_CSV,codigo:codBase,material:nome,campo:cp.campo,
+                          rotulo:rotulo(cp.campo),meu:cp.para,dele:linha[cp.campo]||''});
+        }
+      }
+    });
+
+    porCodigo.delete(codBase);
+    const destino=(linha.codigo||codNovo||codBase).trim();
+    porCodigo.set(destino,linha);
+    if(destino!==codBase){
+      const i=ordem.indexOf(codBase);
+      if(i>=0)ordem[i]=destino;else ordem.push(destino);
+    }
+    somadas.push(destino);
+  });
+
+  const registros=[];
+  const escritos=new Set();
+  ordem.forEach(c=>{if(porCodigo.has(c)&&!escritos.has(c)){escritos.add(c);registros.push(porCodigo.get(c))}});
+  porCodigo.forEach((v,c)=>{if(!escritos.has(c)){escritos.add(c);registros.push(v)}});
+
+  return {texto:gerarCsvDe(colunas,registros),conflitos,somadas,avisos,total:registros.length};
+}
+
+/* ---------------------------------------------------------------------
+   Fusão do descritivos.csv
+   --------------------------------------------------------------------- */
+function mesclarDescritivos(textoRemoto,decisoes){
+  const remoto=lerCsv(textoRemoto);
+  const colunas=COLUNAS_DESC.slice();
+  const porCodigo=new Map();
+  const ordem=[];
+  remoto.registros.forEach(r=>{
+    if(r.nome_pregao!==undefined&&r.nome_descritivo===undefined)r.nome_descritivo=r.nome_pregao;
+    delete r.nome_pregao;
+    const c=(r.codigo||'').trim();
+    if(!c)return;
+    if(!porCodigo.has(c))ordem.push(c);
+    porCodigo.set(c,Object.assign({},r));
+  });
+
+  const conflitos=[],avisos=[];
+
+  mudancasDescritivo().forEach(m=>{
+    const cod=(m.codigo||'').trim();
+    let linha=porCodigo.get(cod);
+    if(!linha){
+      linha={codigo:cod};
+      porCodigo.set(cod,linha);ordem.push(cod);
+    }else{
+      linha=Object.assign({},linha);
+    }
+    let mexeu=false;
+    m.campos.forEach(cp=>{
+      const dele=(linha[cp.campo]||'').trim();
+      const meuDe=(cp.de||'').trim();
+      if(dele===meuDe||dele===(cp.para||'').trim()){
+        linha[cp.campo]=cp.para;mexeu=true;
+      }else if(decisoes&&decisoes.has(chaveDecisao(ARQ_DESC,cod,cp.campo))){
+        linha[cp.campo]=valorEscolhido(decisoes,ARQ_DESC,cod,cp.campo,cp.para,linha[cp.campo]);
+        mexeu=true;
+      }else{
+        conflitos.push({arquivo:ARQ_DESC,codigo:cod,material:m.material||'',campo:cp.campo,
+                        rotulo:rotulo(cp.campo),meu:cp.para,dele:linha[cp.campo]||''});
+      }
+    });
+    /* A data e o autor só mudam quando algum campo do descritivo mudou. */
+    if(mexeu){
+      const atual=DESCRITIVOS[cod]||{};
+      linha.modificado_em=atual.modificado_em||dataCurta(new Date());
+      linha.modificado_por=atual.modificado_por||autorAtual();
+    }
+    porCodigo.set(cod,linha);
+  });
+
+  const registros=[];
+  ordem.forEach(c=>{if(porCodigo.has(c))registros.push(porCodigo.get(c))});
+  return {texto:gerarCsvDe(colunas,registros),conflitos,avisos,total:registros.length};
+}
+
+/* ---------------------------------------------------------------------
+   Fusão do historico.md
+   O histórico é sempre acréscimo: as duas listas de sessões são
+   juntadas e reordenadas por data. Sessões iguais não se repetem.
+   --------------------------------------------------------------------- */
+function gerarHistoricoDe(todas){
+  const L=[];
+  L.push('# Histórico de alterações do catálogo');
+  L.push('');
+  L.push('Registro automático das edições feitas no `produtos.csv` pelo editor do catálogo.');
+  L.push('As sessões aparecem da mais recente para a mais antiga.');
+  L.push('Não edite este arquivo à mão: ele é lido e reescrito pelo editor.');
+  L.push('');
+  L.push('Total de sessões registradas: '+todas.length+'  ');
+  L.push('Última atualização: '+dataLegivel(todas[todas.length-1].data));
+  L.push('');
+  L.push('---');
+  L.push('');
+  todas.slice().reverse().forEach((s,i)=>L.push(blocoTexto(s,todas.length-i)));
+  return L.join('\n');
+}
+
+function mesclarHistorico(textoRemoto,registroDaSessao){
+  const remotas=lerHistorico(textoRemoto||'');
+  const mapa=new Map();
+  remotas.concat(HISTORICO).concat([registroDaSessao]).forEach(s=>{
+    if(!s)return;
+    const k=(s.data||'')+'|'+(s.autor||'');
+    if(!mapa.has(k))mapa.set(k,s);
+  });
+  const todas=[...mapa.values()].sort((a,b)=>String(a.data||'').localeCompare(String(b.data||'')));
+  return {texto:gerarHistoricoDe(todas),sessoes:todas.length,novas:todas.length-remotas.length};
+}
+
+/* ---------------------------------------------------------------------
+   Montagem: lê o repositório e devolve o que será enviado
+   --------------------------------------------------------------------- */
+async function montarPublicacao(decisoes,registroDaSessao){
+  const alvos=arquivosDoPacote().map(a=>a.caminho);
+  const saida=[],conflitos=[],avisos=[];
+
+  if(alvos.includes('produtos.csv')){
+    const r=await Publicar.obterTexto(ARQ_CSV);
+    const m=mesclarProdutos(r.texto,decisoes);
+    conflitos.push(...m.conflitos);avisos.push(...m.avisos);
+    saida.push({caminho:ARQ_CSV,texto:m.texto,sha:r.sha,
+                mensagem:Publicar.mensagem('Editor',ARQ_CSV,mudancas().length),
+                resumo:m.total+' materiais no arquivo'});
+  }
+  if(alvos.includes('descritivos/descritivos.csv')){
+    const r=await Publicar.obterTexto(ARQ_DESC);
+    const m=mesclarDescritivos(r.texto,decisoes);
+    conflitos.push(...m.conflitos);avisos.push(...m.avisos);
+    saida.push({caminho:ARQ_DESC,texto:m.texto,sha:r.sha,
+                mensagem:Publicar.mensagem('Editor',ARQ_DESC,mudancasDescritivo().length,'descritivo'),
+                resumo:m.total+' linhas no arquivo'});
+  }
+  if(alvos.includes('editor-catalogo/historico.md')){
+    const r=await Publicar.obterTexto(ARQ_LOG);
+    const m=mesclarHistorico(r.texto,registroDaSessao);
+    saida.push({caminho:ARQ_LOG,texto:m.texto,sha:r.sha,
+                mensagem:'Editor: registra a sessão no histórico',
+                resumo:m.sessoes+' sessões registradas'});
+  }
+  return {saida,conflitos,avisos};
+}
+
+/* ---------------------------------------------------------------------
+   Tela de conflito. Só aparece quando o mesmo campo do mesmo material
+   foi alterado dos dois lados.
+   --------------------------------------------------------------------- */
+function telaConflito(conflitos,quem){
+  return new Promise(resolve=>{
+    const fundo=document.createElement('div');
+    fundo.className='fundo-modal';
+    const bloco=(c,i)=>{
+      const id='cf'+i;
+      return '<div class="mudanca" style="display:block" data-i="'+i+'">'+
+        '<div style="font-size:12.5px;margin-bottom:6px"><span class="mono" style="color:var(--azul)">'+
+        escapar(c.codigo)+'</span> '+escapar(c.material)+' — <b>'+escapar(c.rotulo)+'</b>'+
+        (quem&&quem[c.arquivo]?'<div class="sub">alterado '+escapar(quem[c.arquivo].quando)+
+          ' por '+escapar(quem[c.arquivo].nome)+'</div>':'')+'</div>'+
+        '<div class="diff"><b>A versão dele:</b> <span class="de">'+escapar(resumir(c.dele))+'</span></div>'+
+        '<div class="diff"><b>A sua versão:</b> <span class="para">'+escapar(resumir(c.meu))+'</span></div>'+
+        '<div class="barra" style="margin-top:8px;gap:6px">'+
+          '<button class="sec mini" data-esc="minha" data-i="'+i+'">Manter a minha</button>'+
+          '<button class="sec mini" data-esc="dele" data-i="'+i+'">Manter a dele</button>'+
+          '<button class="sec mini" data-esc="juntar" data-i="'+i+'">Editar juntando as duas</button>'+
+          '<span class="sub" id="'+id+'st">sem escolha</span>'+
+        '</div>'+
+        '<textarea id="'+id+'tx" class="oculto" rows="5" style="width:100%;margin-top:7px"></textarea>'+
+      '</div>';
+    };
+    fundo.innerHTML='<div class="modal">'+
+      '<header><div><h2 style="margin:0">Alguém publicou enquanto você editava</h2>'+
+      '<div class="sub">'+conflitos.length+' campo(s) alterado(s) pelos dois. Escolha o que fica. '+
+      'Nada foi enviado ainda, e nada do que você digitou foi perdido.</div></div>'+
+      '<button class="sec mini" data-cancelar="1">Fechar</button></header>'+
+      '<div class="corpo">'+conflitos.map(bloco).join('')+'</div>'+
+      '<footer><span class="espaco"></span>'+
+      '<button class="sec" data-cancelar="1">Cancelar a publicação</button>'+
+      '<button id="btResolver" disabled>Publicar com estas escolhas</button></footer></div>';
+    document.body.appendChild(fundo);
+
+    const decisoes=new Map();
+    const atualizar=()=>{
+      fundo.querySelector('#btResolver').disabled=decisoes.size<conflitos.length;
+    };
+    fundo.addEventListener('click',e=>{
+      const b=e.target.closest('button');
+      if(!b)return;
+      if(b.dataset.cancelar){fundo.remove();resolve(null);return}
+      if(b.id==='btResolver'){
+        conflitos.forEach((c,i)=>{
+          const d=decisoes.get(i);
+          if(d&&d.escolha==='juntar')
+            d.texto=fundo.querySelector('#cf'+i+'tx').value;
+        });
+        const saida=new Map();
+        conflitos.forEach((c,i)=>{
+          const d=decisoes.get(i);
+          saida.set(chaveDecisao(c.arquivo,c.codigo,c.campo),
+                    d.escolha==='juntar'?{escolha:'texto',texto:d.texto}:{escolha:d.escolha});
+        });
+        fundo.remove();resolve(saida);return;
+      }
+      if(b.dataset.esc){
+        const i=+b.dataset.i,c=conflitos[i];
+        const tx=fundo.querySelector('#cf'+i+'tx');
+        const st=fundo.querySelector('#cf'+i+'st');
+        if(b.dataset.esc==='juntar'){
+          tx.classList.remove('oculto');
+          if(!tx.value)tx.value=c.meu+'\n'+c.dele;
+          decisoes.set(i,{escolha:'juntar'});
+          st.textContent='texto combinado';
+        }else{
+          tx.classList.add('oculto');
+          decisoes.set(i,{escolha:b.dataset.esc});
+          st.textContent=b.dataset.esc==='minha'?'fica a sua':'fica a dele';
+        }
+        atualizar();
+      }
+    });
+  });
+}
+
+/* ---------------------------------------------------------------------
+   Envio
+   --------------------------------------------------------------------- */
+function painelPublicacao(html,tipo){
+  let el=$('#avisoPublicacao');
+  if(!el){
+    el=document.createElement('div');
+    el.id='avisoPublicacao';
+    el.style.cssText='position:fixed;left:50%;transform:translateX(-50%);bottom:18px;z-index:60;'+
+      'max-width:min(620px,92vw);padding:13px 17px;border-radius:14px;box-shadow:0 12px 34px rgba(0,0,0,.18);'+
+      'font-size:12.5px;line-height:1.5;background:#fff';
+    document.body.appendChild(el);
+  }
+  el.style.borderLeft='5px solid '+(tipo==='erro'?'var(--vermelho,#cf6a87)':
+                                    tipo==='ok'?'var(--verde,#3dc1d3)':'var(--secundario,#596275)');
+  el.innerHTML=html+' <button class="sec mini" style="margin-left:8px" '+
+               'onclick="this.parentNode.remove()">fechar</button>';
+  return el;
+}
+
+async function publicarSessao(){
+  if(typeof Publicar==='undefined'){
+    alert('O arquivo publicar.js não foi carregado. Confira se ele está na raiz do repositório.');
+    return;
+  }
+  if(!Publicar.temChave()){
+    alert('Nenhuma chave de publicação está cadastrada neste navegador.\n\n'+
+          'Cadastre no painel de administração, em admin.html, ou use o pacote .zip.');
+    return;
+  }
+  const v=validar();
+  if(v.problemas.length){
+    alert('Corrija antes de publicar:\n\n'+v.problemas.join('\n'));
+    return;
+  }
+  if(!arquivosDoPacote().length){alert('Não há alterações para publicar.');return}
+  if(!autorAtual()){
+    const nome=prompt('Seu nome, para constar no histórico de alterações:','');
+    if(nome===null)return;
+    localStorage.setItem('editor-autor',nome.trim());
+  }
+
+  /* O registro da sessão é congelado agora: se a publicação demorar, a
+     data continua sendo a do momento em que você mandou publicar. */
+  const registro=sessaoAtual();
+  let decisoes=null;
+  painelPublicacao('Lendo o repositório...','info');
+
+  for(let tentativa=0;tentativa<3;tentativa++){
+    let montagem;
+    try{
+      montagem=await montarPublicacao(decisoes,registro);
+    }catch(e){
+      painelPublicacao('<b>Não publiquei.</b> '+escapar(e.message||'Erro ao ler o repositório.')+
+                       ' Nada do que você digitou foi perdido: o pacote .zip continua disponível.','erro');
+      return;
+    }
+
+    if(montagem.conflitos.length){
+      const quem={};
+      for(const arq of [...new Set(montagem.conflitos.map(c=>c.arquivo))]){
+        try{quem[arq]=await Publicar.ultimoCommit(arq)}catch(e){}
+      }
+      const escolhas=await telaConflito(montagem.conflitos,quem);
+      if(!escolhas){painelPublicacao('Publicação cancelada. Nada foi enviado.','info');return}
+      decisoes=escolhas;
+      continue;
+    }
+
+    painelPublicacao('Enviando '+montagem.saida.length+' arquivo(s)...','info');
+    const enviados=[];
+    let conflitoTardio=false;
+    try{
+      for(const arq of montagem.saida){
+        const r=await Publicar.enviar({caminho:arq.caminho,texto:arq.texto,sha:arq.sha,
+                                       mensagem:arq.mensagem});
+        enviados.push({caminho:arq.caminho,conferido:r.conferido,resumo:arq.resumo});
+      }
+    }catch(e){
+      if(e.tipo==='conflito'&&tentativa<2){conflitoTardio=true}
+      else{
+        const parcial=enviados.length
+          ? ' <b>'+enviados.length+' arquivo(s) já tinham sido enviados</b>, e o restante não. '+
+            'Tente publicar de novo: o que já foi enviado não será duplicado.'
+          : ' Nada foi enviado.';
+        painelPublicacao('<b>A publicação parou.</b> '+escapar(e.message||'Erro no envio.')+parcial+
+                         ' Suas alterações continuam na tela.','erro');
+        return;
+      }
+    }
+    if(conflitoTardio){
+      painelPublicacao('Alguém publicou neste instante. Refazendo a junção...','info');
+      continue;
+    }
+
+    /* Sucesso. Só agora a sessão é fechada e a tela volta ao ponto de
+       partida, com o histórico já contendo esta sessão. */
+    const semConferir=enviados.filter(e=>e.conferido===false);
+    const naoVerificados=enviados.filter(e=>e.conferido===null).length;
+
+    HISTORICO.push(registro);
+    historicoCarregado=true;
+    ORIGINAIS={};ITENS.forEach(it=>ORIGINAIS[it.__id]=Object.assign({},it));
+    DESC_ORIGINAIS={};
+    Object.keys(DESCRITIVOS).forEach(c=>DESC_ORIGINAIS[c]=Object.assign({},DESCRITIVOS[c]));
+    EXCLUIDOS=[];localStorage.removeItem(CHAVE);desenhar();
+
+    if(semConferir.length){
+      painelPublicacao('<b>Publicado, mas confira.</b> O conteúdo gravado de '+
+        semConferir.map(e=>escapar(e.caminho)).join(', ')+' não confere com o que foi enviado. '+
+        'Abra o arquivo no GitHub antes de avisar a rede.','erro');
+    }else{
+      painelPublicacao('<b>Publicado.</b> '+
+        enviados.map(e=>'<span class="mono">'+escapar(e.caminho)+'</span>').join(', ')+
+        '. Conteúdo conferido byte a byte'+
+        (naoVerificados?' (em '+(enviados.length-naoVerificados)+' de '+enviados.length+' arquivos)':'')+
+        '. O site republica sozinho em cerca de um minuto.'+
+        (montagem.avisos.length?'<br><br>'+montagem.avisos.map(escapar).join('<br>'):''),'ok');
+    }
+    return;
+  }
+  painelPublicacao('Não consegui publicar: o repositório mudou três vezes durante a tentativa. '+
+                   'Tente de novo em instantes.','erro');
+}
+
 window.addEventListener('beforeunload',e=>{
   if(mudancas().length||mudancasDescritivo().length){e.preventDefault();e.returnValue=''}
 });
 </script>
-<div id="versaoPagina" style="text-align:center;font-size:10px;color:var(--secundario);opacity:.7;padding:14px 0 4px">editor · versão 2026-08-14c</div>
+<div id="versaoPagina" style="text-align:center;font-size:10px;color:var(--secundario);opacity:.7;padding:14px 0 4px">editor · versão 2026-08-16a</div>
 </div>
 </div>
 </body>
