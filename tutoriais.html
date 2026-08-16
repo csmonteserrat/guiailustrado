@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tutoriais do painel</title>
+<link rel="stylesheet" href="admin.css">
+<style>
+/* Identidade comum (cores, estrutura, barra lateral, botões e
+   etiquetas) fica em admin.css. Aqui ficam só as regras desta página.
+
+   COMO ACRESCENTAR UM TUTORIAL
+   Copie um <section class="secao" id="algum-id"> com o seu <h2> e
+   escreva o conteúdo. O índice da esquerda se monta sozinho a partir
+   dos títulos: não é preciso mexer em mais nada.
+
+   As ilustrações usam as classes reais das ferramentas, vindas do
+   admin.css. Quando o visual do painel mudar ali, elas mudam junto,
+   e não existe figura nenhuma para refazer. */
+
+.tudo{display:flex;gap:18px;align-items:flex-start}
+
+/* ---------- índice ---------- */
+.indice{width:210px;flex:none;position:sticky;top:16px;max-height:calc(100vh - 32px);
+  overflow-y:auto;background:#fff;border-radius:var(--raio);box-shadow:var(--sombra);padding:14px 12px}
+.indice .grupo{font-size:9.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--secundario);
+  margin:12px 0 4px;padding:0 8px}
+.indice .grupo:first-child{margin-top:0}
+.indice a{display:block;text-decoration:none;color:var(--texto);font-size:12px;line-height:1.35;
+  padding:7px 8px;border-radius:10px}
+.indice a:hover{background:var(--neutro)}
+.indice a.aqui{background:var(--curacao-suave);color:var(--curacao)}
+
+/* ---------- conteúdo ---------- */
+.texto{flex:1;min-width:0}
+.secao{background:#fff;border-radius:var(--raio);box-shadow:var(--sombra);
+  padding:20px 22px;margin-bottom:14px;scroll-margin-top:16px}
+.secao h2{font-size:16px;margin:0 0 3px;display:flex;gap:9px;align-items:baseline}
+.secao h2 .n{width:22px;height:22px;flex:none;border-radius:50%;background:var(--curacao-suave);
+  color:var(--curacao);font-size:11px;display:inline-flex;align-items:center;justify-content:center;
+  align-self:center}
+.secao .chamada{color:var(--secundario);font-size:12.5px;margin:0 0 14px;padding-left:31px}
+.secao p{font-size:13px;line-height:1.65;margin:0 0 11px;max-width:74ch}
+.secao ul,.secao ol{font-size:13px;line-height:1.65;margin:0 0 11px;padding-left:20px;max-width:74ch}
+.secao li{margin-bottom:5px}
+.secao h3{font-size:13px;margin:18px 0 7px}
+.secao code{background:var(--neutro);padding:1px 6px;border-radius:6px;font-size:12px;
+  font-family:ui-monospace,Menlo,Consolas,monospace}
+
+/* ---------- ilustrações ---------- */
+.demo{background:var(--neutro);border-radius:16px;padding:14px;margin:0 0 14px}
+.demo .rot{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--secundario);
+  display:block;margin-bottom:9px}
+.demo .par{display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap}
+.demo .peca{flex:none;max-width:100%}
+.demo .peca.larga{flex:1 1 260px}
+.legenda{flex:1 1 240px;margin:0;padding:0;list-style:none;min-width:0}
+.legenda li{display:flex;gap:9px;font-size:12.5px;line-height:1.5;margin-bottom:9px}
+.legenda li:last-child{margin-bottom:0}
+.num{width:19px;height:19px;flex:none;border-radius:50%;background:var(--corn);color:#fff;
+  font-size:10.5px;display:inline-flex;align-items:center;justify-content:center}
+.num.solto{width:17px;height:17px;font-size:9.5px;vertical-align:middle;margin-left:5px}
+
+/* peças de exemplo montadas com as classes reais */
+.exCartao{background:#fff;border-radius:var(--raio);box-shadow:var(--sombra);padding:13px 15px;
+  font-size:12px;max-width:280px}
+.exCampo{background:var(--neutro);border-radius:14px;height:34px}
+.exLinha{display:flex;gap:8px;align-items:center;padding:8px 0;font-size:12px;
+  border-bottom:1px solid var(--borda)}
+.exLinha:last-child{border-bottom:none}
+
+.aviso{border-left:3px solid var(--sawtooth);background:var(--sawtooth-suave);border-radius:14px;
+  padding:12px 14px;font-size:12.5px;line-height:1.6;margin:0 0 12px;max-width:74ch}
+.aviso.bom{border-color:var(--curacao);background:var(--curacao-suave)}
+.aviso.serio{border-color:var(--geranium);background:var(--geranium-suave)}
+.aviso b{font-weight:600}
+
+.passos{counter-reset:p;list-style:none;padding-left:0;max-width:74ch}
+.passos li{counter-increment:p;position:relative;padding-left:30px;margin-bottom:9px;font-size:13px;line-height:1.6}
+.passos li:before{content:counter(p);position:absolute;left:0;top:1px;width:21px;height:21px;
+  border-radius:50%;background:var(--neutro);color:var(--secundario);font-size:11px;
+  display:flex;align-items:center;justify-content:center}
+
+.atalho{display:inline-block;background:var(--neutro);border-radius:8px;padding:2px 8px;
+  font-size:11.5px;font-family:ui-monospace,Menlo,Consolas,monospace}
+
+@media(max-width:900px){
+  .tudo{flex-direction:column}
+  .indice{width:100%;position:static;max-height:none}
+  .indice a{display:inline-block;font-size:11.5px}
+  .indice .grupo{padding:0}
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <nav class="lateral">
+    <div class="marca"><b>Admin</b>catálogo</div>
+    <a class="nav" href="admin.html"><span class="ic">&#9635;</span><span class="tx">Painel</span></a>
+    <a class="nav" href="editor-catalogo/editor-catalogo.html"><span class="ic">&#9998;</span><span class="tx">Editor</span></a>
+    <a class="nav" href="editor-catalogo/comparar-celk.html"><span class="ic">&#8646;</span><span class="tx">CELK</span></a>
+    <a class="nav" href="descritivos/descritivos.html"><span class="ic">&#9776;</span><span class="tx">Descritivos</span></a>
+    <a class="nav" href="preparar-imagens.html"><span class="ic">&#9634;</span><span class="tx">Imagens</span></a>
+    <a class="nav" href="editor-catalogo/historico.html"><span class="ic">&#9711;</span><span class="tx">Histórico</span></a>
+    <a class="nav ativo" href="tutoriais.html"><span class="ic">&#9432;</span><span class="tx">Tutoriais</span></a>
+    <a class="nav saida" href="index.html"><span class="ic">&#8599;</span><span class="tx">Catálogo</span></a>
+  </nav>
+
+  <div class="coluna">
+    <div class="cabecalho" style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px">
+      <div>
+        <h1>Tutoriais do painel</h1>
+        <p class="sub" style="margin:3px 0 0">Como usar cada ferramenta da administração do catálogo</p>
+      </div>
+    </div>
+
+    <div class="tudo">
+      <nav class="indice" id="indice" aria-label="Índice dos tutoriais"></nav>
+
+      <div class="texto" id="texto">
+
+<!-- ================================================================
+     COMEÇAR
+     ================================================================ -->
+<section class="secao" data-grupo="Começar" id="visao-geral">
+  <h2><span class="n">1</span> Visão geral</h2>
+  <p class="chamada">O que é este painel e o que cada ferramenta faz.</p>
+
+  <p>O catálogo que os dentistas da rede acessam é um site de consulta: ele mostra a foto, o nome,
+    o código e a unidade de pedido de cada material. Este painel é o outro lado — é onde a lista é
+    mantida.</p>
+
+  <p>Tudo o que aparece no catálogo vem de dois arquivos de dados e de uma pasta de fotos:</p>
+
+  <ul>
+    <li><code>produtos.csv</code>, a lista de materiais, com código, nome, unidade, bloco, tags e famílias;</li>
+    <li><code>descritivos/descritivos.csv</code>, os textos técnicos que compõem os empenhos, ligados
+      ao material pelo código;</li>
+    <li><code>imagens/</code>, uma foto por material, nomeada com o código.</li>
+  </ul>
+
+  <p>As ferramentas do painel existem para você nunca precisar abrir esses arquivos à mão:</p>
+
+  <div class="demo">
+    <span class="rot">as ferramentas</span>
+    <div class="par">
+      <ul class="legenda" style="flex:1 1 100%">
+        <li><span class="num">1</span><span><b>Painel.</b> A tela de entrada. Mostra quantos materiais
+          existem, quantos já têm foto e quantos já têm descritivo, e é onde fica a chave de publicação.</span></li>
+        <li><span class="num">2</span><span><b>Editor.</b> Onde a lista é alterada: corrigir um nome,
+          acrescentar um material, inativar o que saiu de linha, escrever descritivos.</span></li>
+        <li><span class="num">3</span><span><b>CELK.</b> Compara os relatórios do sistema da prefeitura
+          com o catálogo e aponta o que está diferente.</span></li>
+        <li><span class="num">4</span><span><b>Descritivos.</b> Consulta dos textos técnicos, com busca
+          dentro do próprio texto. Não edita.</span></li>
+        <li><span class="num">5</span><span><b>Imagens.</b> Padroniza as fotos em 800 por 800 e envia
+          para a pasta certa, já nomeadas pelo código.</span></li>
+        <li><span class="num">6</span><span><b>Histórico.</b> Todas as alterações já feitas, com data,
+          responsável e o que mudou em cada campo.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>O caminho de uma alteração</h3>
+  <ol class="passos">
+    <li>Você altera o que precisa no <b>Editor</b>.</li>
+    <li>Confere a lista de alterações antes de gravar, e desfaz o que não era para estar ali.</li>
+    <li>Publica. O site se reconstrói sozinho em cerca de um minuto.</li>
+    <li>O que foi feito fica registrado no <b>Histórico</b>, no seu nome.</li>
+  </ol>
+
+  <div class="aviso bom"><b>Nada é publicado sem você mandar.</b> Enquanto você edita, as alterações
+    ficam guardadas apenas no seu navegador. Fechar a página sem publicar não altera o catálogo, e o
+    que você digitou continua lá quando voltar.</div>
+</section>
+
+<section class="secao" data-grupo="Começar" id="chave">
+  <h2><span class="n">2</span> A chave de publicação</h2>
+  <p class="chamada">O que é, como cadastrar e o que fazer quando ela falha.</p>
+
+  <p>A chave é o que permite ao painel gravar as alterações direto no repositório, sem baixar e
+    reenviar arquivos à mão. Ela é criada uma vez no GitHub e distribuída para quem edita.</p>
+
+  <p><b>Se você recebeu a chave de alguém do GT</b>, não precisa saber nada de GitHub: é só colar e
+    testar. O passo a passo completo de criação está no arquivo <code>COMO-ATUALIZAR.md</code>, na
+    seção 6.</p>
+
+  <div class="demo">
+    <span class="rot">no painel</span>
+    <div class="par">
+      <div class="peca larga">
+        <div class="exCartao" style="max-width:none">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:9px">
+            <b style="font-size:12.5px">Chave de publicação</b>
+            <span class="tag t-vd">chave ativa <span class="num solto">3</span></span>
+          </div>
+          <div class="exCampo" style="margin-bottom:8px"></div>
+          <div class="barra">
+            <span class="pilula acento mini">Testar chave</span>
+            <span class="pilula mini plana">Remover chave</span>
+            <span class="num solto">2</span>
+          </div>
+          <div class="barra" style="margin-top:8px">
+            <span class="sub" style="font-size:11px">Seu nome:</span>
+            <span class="exCampo" style="display:inline-block;width:110px;height:26px"></span>
+            <span class="num solto">4</span>
+          </div>
+        </div>
+      </div>
+      <ol class="legenda">
+        <li><span class="num">1</span><span><b>O campo da chave.</b> Cole aqui o texto que começa com
+          <code>github_pat_</code>. Ele fica guardado só neste navegador e nunca é gravado em arquivo
+          nenhum do projeto.</span></li>
+        <li><span class="num">2</span><span><b>Testar chave.</b> Pergunta ao GitHub se a chave vale e
+          se ela pode gravar. <b>Remover chave</b> apaga a chave deste navegador — use em computador
+          compartilhado, ao terminar.</span></li>
+        <li><span class="num">3</span><span><b>O selo.</b> Verde quer dizer que está tudo certo. Se
+          aparecer em outra cor, a mensagem abaixo explica o que houve.</span></li>
+        <li><span class="num">4</span><span><b>Seu nome.</b> É ele que aparece no histórico como autor
+          das alterações. Preencha antes de publicar pela primeira vez.</span></li>
+      </ol>
+    </div>
+  </div>
+
+  <h3>Quando o teste acusa erro</h3>
+  <ul>
+    <li><b>"O GitHub não reconheceu esta chave"</b> — quase sempre é cópia incompleta. Copie de novo
+      pelo botão de cópia, não selecionando com o mouse.</li>
+    <li><b>"A chave funciona mas não tem permissão para escrever"</b> — ela foi criada sem a permissão
+      de conteúdo, ou sem incluir este repositório. Quem criou consegue corrigir sem gerar outra.</li>
+    <li><b>"Não consegui falar com o GitHub"</b> — bloqueio de rede ou falta de conexão. Se acontecer
+      sempre na mesma unidade, a publicação direta não funciona ali, e o caminho é baixar o pacote
+      e enviar à mão.</li>
+  </ul>
+
+  <div class="aviso serio"><b>A chave é uma senha.</b> Não mande por e-mail institucional, não coloque
+    em documento compartilhado e nunca dentro de um arquivo do projeto — o repositório é público, e o
+    GitHub cancela sozinho qualquer chave que apareça nele. Ela vale no máximo 366 dias; quando vencer,
+    a publicação para até alguém gerar outra.</div>
+</section>
+
+<!-- ================================================================
+     FERRAMENTAS
+     ================================================================ -->
+<section class="secao" data-grupo="Ferramentas" id="painel">
+  <h2><span class="n">3</span> Painel</h2>
+  <p class="chamada">A tela de entrada: situação do catálogo e conferência das fotos.</p>
+
+  <p>O painel não altera nada. Ele mostra onde o trabalho está e leva às ferramentas.</p>
+
+  <h3>Os anéis e os números</h3>
+  <p>No alto, dois anéis mostram o quanto do catálogo já está ilustrado e o quanto já tem descritivo
+    escrito. Abaixo deles, os números repartem a lista por bloco: rede básica, exclusivo do CEO e
+    interesse odontológico.</p>
+  <p>Vale saber o que entra na conta dos descritivos: <b>materiais da lista da Enfermagem não contam</b>,
+    porque não são objeto dos empenhos da odontologia.</p>
+
+  <h3>Conferência de imagens</h3>
+  <p>Compara o <code>produtos.csv</code> com os arquivos da pasta de fotos e aponta quatro coisas:
+    material sem foto, foto sem material correspondente, código com mais de um arquivo e nome fora do
+    padrão. Há três formas de conferir:</p>
+  <ul>
+    <li><b>Analisar agora</b> — usa o que a própria página consegue ver. É o mais rápido.</li>
+    <li><b>Analisar pelo GitHub</b> — pergunta ao repositório a lista completa de arquivos. É a mais
+      confiável, porque também encontra as fotos que sobraram.</li>
+    <li><b>Conferir uma pasta do computador</b> — para quando você tem as fotos numa pasta local e
+      quer saber o que falta antes de enviar.</li>
+  </ul>
+
+  <h3>Arquivos do projeto</h3>
+  <p>A lista dos três arquivos de dados com a situação de cada um. O botão <b>Conferir no repositório</b>
+    mostra a versão publicada de cada um, o tamanho, quem enviou por último e quando. É só leitura:
+    nada é gravado.</p>
+</section>
+
+<section class="secao" data-grupo="Ferramentas" id="editor">
+  <h2><span class="n">4</span> Editor do catálogo</h2>
+  <p class="chamada">Onde a lista de materiais é realmente alterada.</p>
+
+  <p>O editor abre com a lista inteira. Você busca o material, clica nele, altera e salva. As
+    alterações vão se acumulando numa <b>sessão</b>, que só vira realidade quando você publica.</p>
+
+  <h3>Encontrar o material</h3>
+  <p>A busca aceita nome, código, tag ou família, e os seletores ao lado filtram por bloco, tag,
+    família e situação. A lista mostra os primeiros 400 itens: se o que você procura não aparecer,
+    refine a busca.</p>
+
+  <h3>A janela de edição</h3>
+  <p>Ao clicar num material, abre uma janela com dois cartões. O de cima traz os dados do catálogo —
+    o que o dentista vê. O de baixo, o descritivo — o texto técnico do empenho.</p>
+
+  <div class="demo">
+    <span class="rot">os campos do catálogo</span>
+    <div class="par">
+      <ul class="legenda" style="flex:1 1 100%">
+        <li><span class="num">1</span><span><b>Código.</b> O número usado no CELK. Se você mudar o
+          código, <b>a foto precisa ser renomeada também</b>, porque o nome do arquivo é o código.
+          O editor avisa quando isso acontece.</span></li>
+        <li><span class="num">2</span><span><b>Material.</b> O nome como aparece no CELK. É por ele que
+          a lista é ordenada no site.</span></li>
+        <li><span class="num">3</span><span><b>Unidade de pedido.</b> Unidade, caixa, pacote, kit,
+          frasco ou cartela. É o que evita pedir uma caixa quando se queria uma peça.</span></li>
+        <li><span class="num">4</span><span><b>Bloco e acesso.</b> Definem em que seção do catálogo o
+          material aparece e quem faz a solicitação dele.</span></li>
+        <li><span class="num">5</span><span><b>Tags e família.</b> Aceitam mais de um valor. A família
+          reúne materiais do mesmo tipo; as tags são as especialidades. As duas viram filtros no site.</span></li>
+        <li><span class="num">6</span><span><b>Observação.</b> Um recado curto que aparece em itálico no
+          cartão do material. Serve para o que ajuda na hora de pedir: o que vem na embalagem, se é
+          autoclavável, para que serve cada ponta de um conjunto.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Inativar ou excluir</h3>
+  <div class="aviso"><b>Prefira inativar.</b> Inativar tira o material do catálogo e mantém a linha no
+    arquivo: o registro se preserva e dá para voltar atrás. Excluir apaga a linha de vez. Use excluir
+    apenas quando a linha estiver errada de origem, como uma duplicata.</div>
+
+  <h3>O rascunho automático</h3>
+  <p>O que você altera é guardado no navegador a cada mudança. Se a página fechar, se a bateria acabar
+    ou se você clicar sem querer em outro lugar, o editor oferece retomar de onde parou. O rascunho é
+    limpo depois que você publica.</p>
+</section>
+
+<section class="secao" data-grupo="Ferramentas" id="celk">
+  <h2><span class="n">5</span> Comparar com o CELK</h2>
+  <p class="chamada">Descobrir o que mudou no sistema da prefeitura desde a última atualização.</p>
+
+  <p>Você exporta do CELK os relatórios de listagem de produtos, em PDF, e envia de um a quatro deles,
+    um por subgrupo. A ferramenta reconhece sozinha qual subgrupo cada arquivo contém e <b>compara
+    apenas os subgrupos enviados</b>, para que os materiais dos outros não sejam apontados como
+    ausentes por engano.</p>
+
+  <p>As diferenças vêm separadas por tipo, cada uma com uma sugestão de ação e uma caixa de seleção:</p>
+  <ul>
+    <li><b>Códigos novos no CELK</b>, que provavelmente devem entrar no catálogo.</li>
+    <li><b>Itens inativos que voltaram a aparecer</b> no relatório.</li>
+    <li><b>Códigos ausentes no CELK</b>, que talvez devam ser inativados.</li>
+    <li><b>Mudança de subgrupo</b>, quando o item migrou de grupo.</li>
+    <li><b>Descrição ou unidade diferente</b> entre o sistema e o catálogo.</li>
+  </ul>
+
+  <div class="aviso"><b>Nada é aplicado sozinho.</b> O CELK também tem erros de cadastro, e há casos em
+    que o catálogo está certo e o relatório errado. Por isso as alterações mais arriscadas, como adotar
+    uma descrição do CELK por cima de uma correção já feita à mão, vêm desmarcadas.</div>
+
+  <p>Ao aplicar, as alterações entram na sessão do editor e seguem o caminho normal: conferir, desfazer
+    o que não couber e publicar. O histórico registra a origem, com a data de emissão do relatório e
+    quem o emitiu, dados lidos do rodapé do próprio PDF.</p>
+</section>
+
+<section class="secao" data-grupo="Ferramentas" id="descritivos">
+  <h2><span class="n">6</span> Descritivos</h2>
+  <p class="chamada">Consulta dos textos técnicos que compõem os empenhos.</p>
+
+  <p>Esta página é <b>somente de consulta</b>. O preenchimento acontece no editor, na mesma janela onde
+    se editam os dados do material.</p>
+
+  <h3>Os dois modos de busca</h3>
+  <p>O botão ao lado do campo alterna entre eles, e a diferença é grande:</p>
+  <ul>
+    <li><b>Títulos</b> procura no nome, no código, no nome usado no descritivo e na classificação.</li>
+    <li><b>Descritivos</b> procura <b>dentro do texto</b>. É o que serve para padronizar redação:
+      buscar por <code>aço inoxidável</code> ou <code>estéril</code> mostra todos os descritivos que
+      usam o termo, com o trecho em destaque.</li>
+  </ul>
+
+  <h3>O que consta em cada item</h3>
+  <ul>
+    <li><b>Nome no descritivo.</b> Só é preenchido quando a redação do empenho exige um nome diferente
+      do usado no catálogo. Em branco, vale o nome do catálogo.</li>
+    <li><b>Unidade de compra.</b> Diferente da unidade de pedido: a de pedido é como o dentista
+      solicita, a de compra é como o material é adquirido na licitação.</li>
+    <li><b>Data e autor da última modificação.</b> Mudam apenas quando algum campo do descritivo muda.
+      Corrigir uma tag no catálogo não altera esse registro.</li>
+  </ul>
+
+  <p>O botão <b>Exportar</b> gera um CSV com os itens que estiverem na listagem no momento, respeitando
+    busca e filtros. Serve para levar a redação pronta ao processo de compra.</p>
+</section>
+
+<section class="secao" data-grupo="Ferramentas" id="imagens">
+  <h2><span class="n">7</span> Preparar imagens</h2>
+  <p class="chamada">Padronizar as fotos e enviá-las já nomeadas pelo código.</p>
+
+  <p>Todas as fotos do catálogo são quadradas, de 800 por 800 pixels, com fundo branco. É isso que
+    mantém os cartões alinhados. Esta ferramenta faz a padronização no próprio navegador.</p>
+
+  <ol class="passos">
+    <li>A página lê o <code>produtos.csv</code> e já sabe quais materiais ainda estão sem foto.</li>
+    <li>Você arrasta as fotos, com qualquer nome de arquivo. Se o nome contiver o código, o vínculo é
+      feito sozinho.</li>
+    <li>Para as demais, clique em <b>Vincular</b> e busque o material pelo nome, código ou família.</li>
+    <li>Clique em <b>Publicar as fotos no site</b>. Elas vão direto para a pasta de imagens, já
+      nomeadas pelo código.</li>
+  </ol>
+
+  <p>A opção <b>Aparar borda vazia</b>, ligada por padrão, remove o excesso de fundo branco ao redor do
+    produto antes de redimensionar. É o que faz materiais pequenos, como uma broca, ocuparem o cartão
+    de forma parecida com materiais grandes.</p>
+
+  <div class="aviso"><b>Ao conferir no site, use <span class="atalho">Ctrl + Shift + R</span></b>
+    (no Mac, <span class="atalho">Cmd + Shift + R</span>). Sem isso o navegador mostra a foto antiga
+    que guardou na memória, e parece que a publicação falhou.</div>
+
+  <p>Se uma foto falhar no envio, ela continua na fila, pronta para nova tentativa — você não precisa
+    arrastar tudo de novo.</p>
+</section>
+
+<section class="secao" data-grupo="Ferramentas" id="historico">
+  <h2><span class="n">8</span> Histórico</h2>
+  <p class="chamada">Tudo o que já foi alterado, com data, responsável e detalhe campo a campo.</p>
+
+  <p>Cada publicação vira uma <b>sessão</b> no histórico, com quem fez, quando, e a lista das
+    alterações. Dentro de cada uma, o detalhamento mostra o valor anterior e o novo, campo por campo.</p>
+
+  <p>Os filtros no alto separam por tipo — descritivos, editados, excluídos — e há ainda o
+    agrupamento <b>Por material</b>, que reúne todas as alterações de um mesmo código ao longo do
+    tempo. É o modo útil quando a pergunta é "por que este item está assim?".</p>
+
+  <p>O histórico é gravado no arquivo <code>editor-catalogo/historico.md</code>, que também pode ser
+    lido direto no GitHub. <b>Não edite esse arquivo à mão</b>: ele é lido e reescrito pelo editor a
+    cada publicação.</p>
+
+  <p>A data que aparece no cabeçalho do catálogo impresso vem daqui: é a da última sessão que alterou
+    a lista de materiais. Sessões que mexeram só em descritivos não contam, porque não mudam nada do
+    que sai no papel.</p>
+</section>
+
+<!-- ================================================================
+     PUBLICAR
+     ================================================================ -->
+<section class="secao" data-grupo="Publicar" id="conferir">
+  <h2><span class="n">9</span> Conferir e desfazer</h2>
+  <p class="chamada">O último ponto antes de a alteração virar permanente.</p>
+
+  <p>No editor, o botão <b>Conferir e publicar</b> abre a lista completa do que será gravado: cada
+    material alterado, com o valor anterior e o novo, lado a lado.</p>
+
+  <div class="demo">
+    <span class="rot">uma linha da conferência</span>
+    <div class="par">
+      <div class="peca larga">
+        <div class="exCartao" style="max-width:none">
+          <div style="display:flex;gap:9px;align-items:flex-start">
+            <span class="tag t-az" style="flex:none">editado</span>
+            <div style="min-width:0;flex:1">
+              <div style="font-size:12px"><span class="mono" style="color:var(--corn)">4150614</span>
+                INSERTO JET LAXIS SONIC</div>
+              <div class="sub" style="font-size:11px;margin-top:3px">Observação: vazio &rarr; T1-S: remoção
+                de tártaro supragengival</div>
+            </div>
+            <span class="pilula mini plana" style="flex:none">desfazer <span class="num solto">1</span></span>
+          </div>
+        </div>
+      </div>
+      <ul class="legenda">
+        <li><span class="num">1</span><span><b>Desfazer.</b> Devolve o material ao que está no arquivo e
+          tira a linha da conferência. A janela se reabre já sem ela.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <p>O que cada tipo faz ao desfazer:</p>
+  <ul>
+    <li><b>Excluído</b> — o material volta ao catálogo, na posição original.</li>
+    <li><b>Novo</b> — o item que você criou é removido.</li>
+    <li><b>Editado</b> — todos os campos voltam ao que estão no arquivo.</li>
+    <li><b>Inativado</b> ou <b>reativado</b> — volta à situação anterior.</li>
+    <li><b>Descritivo</b> — o texto volta ao original, ou some, se não existia antes.</li>
+  </ul>
+
+  <p>Confira também os avisos que aparecem nessa janela. Eles não impedem a publicação, mas apontam
+    coisas que costumam passar batido: item novo sem tag ou sem família, código alterado sem a foto
+    correspondente ter sido renomeada, material novo ainda sem foto.</p>
+
+  <div class="aviso bom"><b>Publicar envia só o que mudou.</b> Se você editou apenas descritivos, o
+    <code>produtos.csv</code> nem é tocado. Antes de gravar, o conteúdo é conferido byte a byte contra
+    o que o GitHub devolveu.</div>
+</section>
+
+<section class="secao" data-grupo="Publicar" id="dois-editando">
+  <h2><span class="n">10</span> Quando duas pessoas editam</h2>
+  <p class="chamada">Como o sistema evita que uma sobrescreva o trabalho da outra.</p>
+
+  <p>Somos quatro no GT, e mais cedo ou mais tarde duas pessoas vão editar ao mesmo tempo. O sistema
+    foi feito para essa situação não dar prejuízo.</p>
+
+  <p><b>O arquivo enviado nunca é o que está na sua tela.</b> É a versão que está no repositório
+    naquele instante, com as suas linhas reaplicadas por cima, uma a uma, identificadas pelo código do
+    material. Daí decorre tudo o mais:</p>
+
+  <ul>
+    <li>Você mexeu no material X e a outra pessoa no Y: <b>as duas edições se somam</b>, sem perguntar
+      nada.</li>
+    <li>A outra pessoa apagou a linha que você editou: <b>a sua volta</b>, com um aviso. Nada do que
+      você digitou se perde.</li>
+    <li>Os dois mexeram <b>no mesmo campo do mesmo material</b>: aí, e só aí, aparece a tela de
+      escolha.</li>
+  </ul>
+
+  <h3>A tela de escolha</h3>
+  <p>Ela mostra os dois valores e há quanto tempo o outro publicou, lido do próprio commit. Três
+    opções por conflito: <b>manter a minha</b>, <b>manter a dele</b> ou <b>editar juntando as duas</b>,
+    que abre um campo com os dois textos para você redigir o final.</p>
+
+  <h3>O aviso no topo</h3>
+  <p>Enquanto o editor está aberto, uma consulta a cada dois minutos verifica se alguém publicou. Se
+    sim, aparece uma faixa no alto da página. O botão <b>Atualizar e ver alterações</b> mostra o que
+    mudou desde que você carregou a página, e marca os materiais em que <b>você também mexeu</b> —
+    assim você sabe, antes de publicar, se vai encontrar a tela de escolha.</p>
+
+  <div class="aviso">Como todos publicam com a mesma chave, o histórico do GitHub registra sempre a
+    conta dona dela, e não a pessoa. Por isso a faixa diz "alguém do GT" em vez de um nome, e por isso
+    <b>preencher o seu nome no painel importa</b>: é o único registro de quem fez o quê.</div>
+</section>
+
+<section class="secao" data-grupo="Publicar" id="plano-b">
+  <h2><span class="n">11</span> O pacote .zip, plano B</h2>
+  <p class="chamada">O que fazer quando a rede bloqueia o GitHub.</p>
+
+  <p>Se a rede da unidade bloquear o acesso, ou se a chave estiver vencida, a publicação direta não
+    funciona — mas o trabalho não se perde. O botão <b>Baixar o pacote .zip</b> continua em todas as
+    ferramentas e não depende de chave nenhuma.</p>
+
+  <ol class="passos">
+    <li>Clique em <b>Baixar o pacote .zip</b>. Ele traz apenas os arquivos que mudaram na sessão.</li>
+    <li>Descompacte. As pastas de dentro são as mesmas do repositório.</li>
+    <li>Envie cada arquivo ao GitHub, pelo navegador, no lugar indicado.</li>
+    <li><b>Só depois de enviar</b>, confirme no editor a pergunta de marcar as alterações como
+      concluídas.</li>
+  </ol>
+
+  <div class="aviso serio"><b>Envie sempre todos os arquivos do pacote.</b> Se você atualizar só o
+    <code>produtos.csv</code>, o histórico fica defasado. Se atualizar só o histórico, ele registra uma
+    alteração que não aconteceu.</div>
+
+  <p>O pacote também serve para mandar por e-mail a quem for publicar, quando quem edita e quem publica
+    não são a mesma pessoa.</p>
+</section>
+
+      </div>
+    </div>
+
+    <div id="versaoPagina">tutoriais · versão 2026-08-16a</div>
+  </div>
+</div>
+
+<script>
+/* =====================================================================
+   O índice se monta a partir das seções: para acrescentar um tutorial
+   basta escrever a seção, com um id e um data-grupo. Nada aqui precisa
+   ser alterado.
+   ===================================================================== */
+(function(){
+  const secoes=[...document.querySelectorAll('.secao')];
+  const indice=document.getElementById('indice');
+  let grupoAtual='';
+  let html='';
+  secoes.forEach(s=>{
+    const grupo=s.dataset.grupo||'';
+    if(grupo&&grupo!==grupoAtual){
+      html+='<div class="grupo">'+grupo+'</div>';
+      grupoAtual=grupo;
+    }
+    const titulo=s.querySelector('h2');
+    const texto=titulo?titulo.textContent.replace(/^\s*\d+\s*/,'').trim():s.id;
+    html+='<a href="#'+s.id+'" data-para="'+s.id+'">'+texto+'</a>';
+  });
+  indice.innerHTML=html;
+
+  /* Marca no índice a seção que está sendo lida. */
+  const links=new Map([...indice.querySelectorAll('a')].map(a=>[a.dataset.para,a]));
+  const marcar=id=>{
+    links.forEach(a=>a.classList.remove('aqui'));
+    const a=links.get(id);
+    if(a)a.classList.add('aqui');
+  };
+  if('IntersectionObserver' in window){
+    const vistas=new Set();
+    const obs=new IntersectionObserver(entradas=>{
+      entradas.forEach(e=>e.isIntersecting?vistas.add(e.target.id):vistas.delete(e.target.id));
+      const primeira=secoes.find(s=>vistas.has(s.id));
+      if(primeira)marcar(primeira.id);
+    },{rootMargin:'-10% 0px -70% 0px'});
+    secoes.forEach(s=>obs.observe(s));
+  }
+  if(location.hash)marcar(location.hash.slice(1));
+})();
+</script>
+</body>
+</html>
