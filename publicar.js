@@ -178,7 +178,8 @@ async function obterTexto(caminho){
    tela de conflito, em vez de estimar. */
 async function ultimoCommit(caminho){
   var e=API+'/repos/'+CFG.dono+'/'+CFG.nome+'/commits?per_page=1&sha='+
-        encodeURIComponent(CFG.ramo)+'&path='+encodeURIComponent(caminho);
+        encodeURIComponent(CFG.ramo)+
+        (caminho?'&path='+encodeURIComponent(caminho):'');
   var r=await requisitar(e,{headers:cabecalhos(),cache:'no-store'});
   if(!r.ok)return null;
   var j=await r.json();
@@ -249,7 +250,7 @@ async function enviar(op){
 function tempoRelativo(data){
   var s=(Date.now()-data.getTime())/1000;
   if(s<0)return 'agora';
-  if(s<600)return 'há poucos minutos';
+  if(s<120)return 'há poucos minutos';
   if(s<3600)return 'há '+Math.round(s/60)+' minutos';
   if(s<86400){var h=Math.round(s/3600);return 'há '+h+(h===1?' hora':' horas')}
   var d=Math.round(s/86400);

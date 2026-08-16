@@ -262,6 +262,12 @@ select{appearance:none;background-image:none;padding-right:13px}
 <!-- ================= EDITOR ================= -->
 <div id="editor" class="oculto">
 
+  <div id="faixaVigia" class="oculto" style="display:flex;align-items:center;gap:10px;
+       background:#fdefe8;border-radius:14px;padding:11px 16px;margin-bottom:12px;font-size:13px;color:#7a4a1c">
+    <span id="faixaVigiaTexto"></span>
+    <button class="sec mini" id="btVerAlteracoes" style="margin-left:auto;white-space:nowrap">Atualizar e ver alterações</button>
+  </div>
+
   <div class="cabecalho">
     <div class="painel">
       <div class="barra">
@@ -395,6 +401,7 @@ function aplicar(dados,nome){
   verificarRascunho();   // antes de desenhar, senão o próprio desenhar grava um rascunho novo
   aplicarImportacaoCelk();
   desenhar();
+  iniciarVigia();
 }
 
 /* =====================================================================
@@ -2072,6 +2079,10 @@ async function publicarSessao(){
     Object.keys(DESCRITIVOS).forEach(c=>DESC_ORIGINAIS[c]=Object.assign({},DESCRITIVOS[c]));
     EXCLUIDOS=[];localStorage.removeItem(CHAVE);desenhar();
 
+    /* O que acabei de publicar não deve disparar o aviso para mim mesmo. */
+    try{const c=await Publicar.ultimoCommit('');if(c)shaVisto=c.sha}catch(e){}
+    esconderFaixa();
+
     if(semConferir.length){
       painelPublicacao('<b>Publicado, mas confira.</b> O conteúdo gravado de '+
         semConferir.map(e=>escapar(e.caminho)).join(', ')+' não confere com o que foi enviado. '+
@@ -2090,11 +2101,167 @@ async function publicarSessao(){
                    'Tente de novo em instantes.','erro');
 }
 
+/* =====================================================================
+   AVISO DE PUBLICAÇÃO EM ANDAMENTO
+   ---------------------------------------------------------------------
+   De dois em dois minutos, uma consulta pergunta ao GitHub qual foi o
+   último commit do repositório. Se mudou, a faixa aparece.
+
+   A faixa não interrompe nada e não altera a sessão: ela só antecipa,
+   enquanto ainda dá tempo de decidir, a informação que hoje só chegaria
+   na hora de publicar. A consulta para quando a aba está em segundo
+   plano, para não gastar chamada à toa.
+
+   O nome de quem publicou não é mostrado de propósito: como todo o GT
+   publica com a mesma chave, o commit sai sempre no nome da conta dona
+   dela, e dizer esse nome seria pior do que não dizer nenhum.
+   ===================================================================== */
+let shaVisto=null, vigiaTimer=null;
+
+function esconderFaixa(){$('#faixaVigia').classList.add('oculto')}
+
+async function olharRepositorio(){
+  if(typeof Publicar==='undefined')return;
+  try{
+    const c=await Publicar.ultimoCommit('');
+    if(!c)return;
+    if(shaVisto===null){shaVisto=c.sha;return}   /* primeira leitura: só marca o ponto de partida */
+    if(c.sha===shaVisto){esconderFaixa();return}
+    $('#faixaVigiaTexto').innerHTML='<b>Alguém do GT publicou '+escapar(c.quando)+'.</b> '+
+      'As suas alterações continuam aqui.';
+    $('#faixaVigia').classList.remove('oculto');
+  }catch(e){ /* rede fora do ar não é motivo para atrapalhar quem está editando */ }
+}
+
+function iniciarVigia(){
+  if(vigiaTimer||typeof Publicar==='undefined')return;
+  olharRepositorio();
+  vigiaTimer=setInterval(()=>{if(!document.hidden)olharRepositorio()},120000);
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)olharRepositorio()});
+}
+
+/* Relê o repositório e mostra o que mudou desde a versão que esta
+   página carregou. Somente leitura: a sessão não é tocada. */
+async function verAlteracoesRemotas(){
+  const bt=$('#btVerAlteracoes');
+  const rotulo0=bt.textContent;
+  bt.disabled=true;bt.textContent='Lendo...';
+  try{
+    const linhas=[];
+
+    /* ---- catálogo ---- */
+    const rc=await Publicar.obterTexto(ARQ_CSV);
+    const remoto=lerCsv(rc.texto);
+    const base=new Map();
+    Object.keys(ORIGINAIS).forEach(id=>{
+      const o=ORIGINAIS[id];const c=(o.codigo||'').trim();if(c)base.set(c,o);
+    });
+    const meus=new Map();
+    mudancas().forEach(m=>{
+      const c=((ORIGINAIS[m.item.__id]||m.item).codigo||'').trim();
+      meus.set(c,new Set(m.campos.map(x=>x.campo)));
+    });
+    const vistos=new Set();
+    remoto.registros.forEach(r=>{
+      const c=(r.codigo||'').trim();if(!c)return;
+      vistos.add(c);
+      const b=base.get(c);
+      if(!b){linhas.push({tipo:'acrescentado',codigo:c,material:r.material||'',campos:[]});return}
+      const campos=[];
+      COLUNAS.forEach(col=>{
+        if(((b[col]||'').trim())!==((r[col]||'').trim()))
+          campos.push({campo:col,de:b[col]||'',para:r[col]||''});
+      });
+      if(campos.length){
+        const meusCampos=meus.get(c);
+        const bate=meusCampos?campos.filter(x=>meusCampos.has(x.campo)).map(x=>x.campo):[];
+        linhas.push({tipo:'editado',codigo:c,material:r.material||b.material||'',campos,bate});
+      }
+    });
+    base.forEach((b,c)=>{if(!vistos.has(c))linhas.push({tipo:'removido',codigo:c,material:b.material||'',campos:[]})});
+
+    /* ---- descritivos ---- */
+    try{
+      const rd=await Publicar.obterTexto(ARQ_DESC);
+      const remD=lerCsv(rd.texto);
+      const meusDesc=new Map();
+      mudancasDescritivo().forEach(m=>meusDesc.set(m.codigo,new Set(m.campos.map(x=>x.campo))));
+      remD.registros.forEach(r=>{
+        const c=(r.codigo||'').trim();if(!c)return;
+        if(r.nome_pregao!==undefined&&r.nome_descritivo===undefined)r.nome_descritivo=r.nome_pregao;
+        const b=DESC_ORIGINAIS[c]||{};
+        const campos=[];
+        CAMPOS_DESC.forEach(col=>{
+          if(((b[col]||'').trim())!==((r[col]||'').trim()))
+            campos.push({campo:col,de:b[col]||'',para:r[col]||''});
+        });
+        if(campos.length){
+          const mc=meusDesc.get(c);
+          const bate=mc?campos.filter(x=>mc.has(x.campo)).map(x=>x.campo):[];
+          const it=ITENS.find(i=>(i.codigo||'').trim()===c);
+          linhas.push({tipo:'descritivo',codigo:c,material:(it&&it.material)||'',campos,bate});
+        }
+      });
+    }catch(e){}
+
+    const colidem=linhas.filter(l=>l.bate&&l.bate.length);
+    const rotuloTipo={acrescentado:['acrescentado','t-vd'],editado:['editado','t-az'],
+                      removido:['removido','t-ci'],descritivo:['descritivo','t-rx']};
+
+    const fundo=document.createElement('div');
+    fundo.className='fundo-modal';
+    fundo.innerHTML='<div class="modal">'+
+      '<header><div><h2 style="margin:0">O que mudou no repositório</h2>'+
+      '<div class="sub">'+(linhas.length
+        ? linhas.length+' material(is) alterado(s) desde a versão que esta página carregou'
+        : 'nada mudou além do que você já tem aqui')+'</div></div>'+
+      '<button class="sec mini" data-fechar="1">Fechar</button></header>'+
+      '<div class="corpo">'+
+        (colidem.length
+          ? '<div class="nota aviso"><b>'+colidem.length+' desses materiais você também alterou nesta '+
+            'sessão, no mesmo campo.</b><br>Ao publicar, esses casos vão abrir a tela de escolha. '+
+            'Os demais serão somados sozinhos.</div>'
+          : linhas.length
+            ? '<div class="nota info">Nenhum deles é material que você alterou. Ao publicar, as duas '+
+              'edições serão somadas sozinhas, sem perguntar nada.</div>'
+            : '')+
+        (linhas.length?'<div style="flex:none;border:1px solid var(--linha);border-radius:10px;max-height:46vh;overflow:auto">'+
+          linhas.map(l=>{
+            const [nome,cls]=rotuloTipo[l.tipo]||['alterado','t-ci'];
+            const det=l.campos.length
+              ? l.campos.map(c=>'<div class="diff">'+rotulo(c.campo)+': <span class="de">'+
+                  escapar(resumir(c.de))+'</span> → <span class="para">'+escapar(resumir(c.para))+
+                  '</span>'+((l.bate||[]).includes(c.campo)?' <b>(você também mexeu aqui)</b>':'')+'</div>').join('')
+              : '<div class="diff">'+(l.tipo==='acrescentado'?'item novo no repositório'
+                                                             :'linha que não está mais no repositório')+'</div>';
+            return '<div class="mudanca"><span class="tag '+cls+'" style="flex:none">'+nome+'</span>'+
+              '<div><div style="font-size:12.5px"><span class="mono" style="color:var(--azul)">'+
+              escapar(l.codigo)+'</span> '+escapar(l.material)+'</div>'+det+'</div></div>';
+          }).join('')+'</div>':'')+
+      '</div>'+
+      '<footer><span class="espaco"></span><button class="sec" data-fechar="1">Fechar</button></footer></div>';
+    document.body.appendChild(fundo);
+    fundo.addEventListener('click',e=>{
+      if(e.target===fundo||(e.target.dataset&&e.target.dataset.fechar))fundo.remove()});
+
+    /* Visto: a faixa só volta a aparecer se alguém publicar de novo. */
+    const c=await Publicar.ultimoCommit('');
+    if(c)shaVisto=c.sha;
+    esconderFaixa();
+  }catch(e){
+    alert('Não consegui ler o repositório agora.\n\n'+(e.message||'')+
+          '\n\nSuas alterações continuam aqui, intactas.');
+  }
+  bt.disabled=false;bt.textContent=rotulo0;
+}
+
+$('#btVerAlteracoes').onclick=verAlteracoesRemotas;
+
 window.addEventListener('beforeunload',e=>{
   if(mudancas().length||mudancasDescritivo().length){e.preventDefault();e.returnValue=''}
 });
 </script>
-<div id="versaoPagina" style="text-align:center;font-size:10px;color:var(--secundario);opacity:.7;padding:14px 0 4px">editor · versão 2026-08-16a</div>
+<div id="versaoPagina" style="text-align:center;font-size:10px;color:var(--secundario);opacity:.7;padding:14px 0 4px">editor · versão 2026-08-16b</div>
 </div>
 </div>
 </body>
