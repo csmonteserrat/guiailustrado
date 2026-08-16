@@ -6,9 +6,50 @@
 
 /* -----------------------------------------------------------------
    1. AJUSTES RÁPIDOS
-   Data mostrada no rodapé e nas impressões. Atualize a cada revisão.
+   Versão do site, mostrada no rodapé, no mesmo padrão das páginas
+   administrativas: ano-mês-dia e uma letra para cada entrega do dia.
+   Atualize a cada revisão.
    ----------------------------------------------------------------- */
-const DATA_ATUALIZACAO = '14/08/2026';
+const VERSAO_SITE = '2026-08-16c';
+
+/* Data mostrada no cabeçalho das impressões. Não é a data da versão do
+   site, e sim a da última vez que a lista de materiais mudou de fato.
+   Ela é lida do histórico do editor, e só na hora de imprimir: assim
+   quem apenas consulta o catálogo não baixa o arquivo de histórico.
+   Sessões que mexeram somente em descritivos não contam, porque não
+   alteram nada do que sai impresso. */
+let DATA_CATALOGO = '';
+let dataCatalogoBuscada = false;
+
+async function carregarDataDoCatalogo() {
+  if (dataCatalogoBuscada) return DATA_CATALOGO;
+  dataCatalogoBuscada = true;
+  try {
+    const r = await fetch('editor-catalogo/historico.md?t=' + Date.now());
+    if (!r.ok) return DATA_CATALOGO;
+    const texto = await r.text();
+    const re = /<!--\s*sessao:(\{[\s\S]*?\})\s*-->/g;
+    let m, maisRecente = null;
+    while ((m = re.exec(texto)) !== null) {
+      let s;
+      try { s = JSON.parse(m[1]); } catch (e) { continue; }
+      if (!s || !s.data) continue;
+      const mexeuNaLista = (s.alteracoes || []).some(a => a.tipo !== 'descritivo');
+      if (!mexeuNaLista) continue;
+      if (!maisRecente || String(s.data) > String(maisRecente)) maisRecente = s.data;
+    }
+    if (maisRecente) {
+      const d = new Date(maisRecente);
+      if (!isNaN(d)) {
+        const p = n => String(n).padStart(2, '0');
+        DATA_CATALOGO = p(d.getDate()) + '/' + p(d.getMonth() + 1) + '/' + d.getFullYear();
+      }
+    }
+  } catch (e) {
+    /* Sem histórico legível, a linha da data não é impressa. */
+  }
+  return DATA_CATALOGO;
+}
 
 /* Textos dos avisos. Podem ser editados livremente. */
 const TEXTOS = {
@@ -677,7 +718,8 @@ function cabecalhoImpressao(subtitulo) {
   return `<div class="imp-cabecalho">
     <div class="imp-titulo">${TEXTOS.tituloCatalogo}</div>
     <div class="imp-linha">${TEXTOS.gt}</div>
-    <div class="imp-linha">Última atualização: ${DATA_ATUALIZACAO}${subtitulo ? ' · ' + escapar(subtitulo) : ''}</div>
+    <div class="imp-linha">${DATA_CATALOGO ? 'Última atualização: ' + DATA_CATALOGO : ''}${
+      DATA_CATALOGO && subtitulo ? ' · ' : ''}${subtitulo ? escapar(subtitulo) : ''}</div>
   </div>`;
 }
 
@@ -751,7 +793,8 @@ function montarImpressao(modo) {
   return itens.length;
 }
 
-function prepararImpressao(modo) {
+async function prepararImpressao(modo) {
+  await carregarDataDoCatalogo();
   const total = montarImpressao(modo);
   if (!total) {
     mostrarAviso(modo === 'lista' ? 'A lista está vazia' : 'Não há itens para imprimir');
@@ -1073,7 +1116,7 @@ function fecharPedido() {
    12. PARTIDA
    ----------------------------------------------------------------- */
 function iniciar() {
-  $('#rodape-data').textContent = DATA_ATUALIZACAO;
+  $('#rodape-data').textContent = VERSAO_SITE;
 
   /* Tema: respeita a preferência do sistema na primeira visita,
      mas a escolha manual guardada tem prioridade. */

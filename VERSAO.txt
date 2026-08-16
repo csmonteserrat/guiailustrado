@@ -1,8 +1,22 @@
 CATÁLOGO ILUSTRADO DE MATERIAIS ODONTOLÓGICOS — PMF
-Versão 2.1 — 14/08/2026
+Versão 2.2 — 16/08/2026
 
 HISTÓRICO
 ---------
+v2.2 — 16/08/2026
+  - O cabeçalho das páginas impressas passou a mostrar a data da
+    última alteração real na lista de materiais, lida sozinha do
+    editor-catalogo/historico.md. Antes mostrava a data da versão
+    do site, escrita à mão. Sessões que mexeram apenas em
+    descritivos são ignoradas, por não alterarem o que sai
+    impresso. A leitura acontece somente ao imprimir, para que
+    quem apenas consulta o catálogo não baixe o histórico.
+  - O rodapé do site deixou de dizer "Última atualização" e passou
+    a dizer "versão", no mesmo padrão das páginas administrativas
+    (2026-08-16c). Antes as duas informações tinham o mesmo rótulo
+    e podiam divergir.
+  - O produtos.csv não foi alterado.
+
 v2.1 — 14/08/2026
   - Guia de uso reescrito e ilustrado: passou de 6 para 14 seções,
     cobrindo perfil de acesso, anatomia do card com 8 pontos
@@ -92,4 +106,7 @@ v1 — 09/08/2026
 COMO ATUALIZAR
 --------------
 Leia o arquivo COMO-ATUALIZAR.md.
-A data mostrada no rodapé fica na primeira linha do app.js.
+A versão mostrada no rodapé fica nas primeiras linhas do app.js,
+em VERSAO_SITE, no padrão ano-mês-dia mais uma letra por entrega
+do dia. A data do catálogo impresso não é escrita à mão: vem do
+editor-catalogo/historico.md.

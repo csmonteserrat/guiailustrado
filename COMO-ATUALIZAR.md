@@ -22,7 +22,7 @@ Tudo o que aparece no site vem de **um único arquivo**, o `produtos.csv`, e de 
 
 1. Abra o arquivo `produtos.csv`.
    - No **Excel**: clique com o botão direito no arquivo, escolha *Abrir com* e depois *Excel*.
-   - No **LibreOffice** ou no **Google Planilhas**: abra normalmente. Se aparecer uma janela perguntando sobre a importação, confira que a codificação é **UTF-8** e que o separador é o **ponto e vírgula**.
+   - No **LibreOffice** ou no **Google Planilhas**: abra normalmente. Se aparecer uma janela perguntando sobre a importação, confira que a codificação é **UTF-8** e que o separador é a **vírgula**. Não marque o ponto e vírgula como separador: ele é usado *dentro* das colunas `especialidade` e `familia`, e marcá-lo parte esses valores em colunas erradas.
 2. Vá até a **primeira linha vazia**, no fim da planilha. Não se preocupe com a ordem: o site coloca tudo em ordem alfabética sozinho, então o item novo aparece no lugar certo mesmo tendo sido digitado por último.
 3. Preencha as colunas, uma a uma:
 
@@ -49,6 +49,7 @@ Tudo o que aparece no site vem de **um único arquivo**, o `produtos.csv`, e de 
 
 - **O código é texto, não número.** Se o Excel apagar um zero da frente do código, formate a coluna como *Texto* antes de digitar.
 - **Não mude os nomes das colunas** da primeira linha.
+- **O arquivo é separado por vírgula e gravado em UTF-8 com BOM.** Ao salvar pelo Excel, escolha *CSV UTF-8 (delimitado por vírgulas)*. Trocar o separador por ponto e vírgula faz o site parar de ler a lista.
 - Se o nome do material tiver vírgula, ou se `especialidade` e `familia` tiverem mais de um valor, a planilha coloca aspas sozinha ao salvar. Isso é normal e está certo.
 - Escreva `acesso` sem acento e em maiúsculas: `COORDENACAO`, e não `Coordenação`.
 
@@ -113,7 +114,72 @@ O caminho depende de onde o catálogo está hospedado. No caso do GitHub Pages:
 
 ---
 
-## 6. Mudar o texto do guia ou o contato do responsável
+## 6. A chave de publicação
+
+A chave é o que permite que o painel de administração envie as alterações direto ao repositório, sem baixar e reenviar arquivos à mão. Ela é criada no GitHub, na conta dona do repositório, e vale por no máximo **366 dias**. Quando vencer, é só repetir este passo a passo e distribuir a chave nova.
+
+Cada pessoa do GT guarda a chave no próprio navegador, pelo painel. **Quem apenas recebeu a chave de alguém não precisa fazer nada aqui**: basta colar no painel e clicar em *Testar chave*, como está no passo 6.2.
+
+### 6.1. Criar a chave
+
+Faça isto entrando no GitHub com a conta dona do repositório, a `csmonteserrat`.
+
+1. Abra este endereço, que já chega com quase tudo preenchido:
+
+   ```
+   https://github.com/settings/personal-access-tokens/new?name=Catalogo+GT+Materiais&expires_in=366&contents=write
+   ```
+
+   Se preferir navegar pelos menus: sua foto no canto superior direito → **Settings** → na coluna da esquerda, bem embaixo, **Developer settings** → **Personal access tokens** → **Fine-grained tokens** → **Generate new token**.
+
+2. Confira o que veio preenchido: *Token name* como `Catalogo GT Materiais` e *Expiration* em 366 dias. **Anote a data de vencimento na agenda.** Quando ela chegar, a publicação para de funcionar até alguém criar outra chave.
+
+3. Em **Repository access**, marque a opção do meio, **Only select repositories**. Abre uma caixa de seleção logo abaixo: clique nela e escolha `guiailustrado`.
+
+4. Em **Permissions** → **Repository permissions**, procure a linha **Contents** na lista, que é longa e está em ordem alfabética. No menu à direita, escolha **Read and write**.
+
+   A linha *Metadata* fica marcada como *Read-only* sozinha. É normal e obrigatório, pode deixar.
+
+   Não marque mais nada. Só Contents.
+
+5. Role até o fim e clique em **Generate token**.
+
+6. A chave aparece **uma única vez**, numa faixa verde no topo: um texto longo começando com `github_pat_`. Copie pelo botão de cópia ao lado. Se sair da página sem copiar, não há como recuperar — mas também não é problema: apague essa chave e gere outra.
+
+### 6.2. Cadastrar a chave no painel
+
+Abra o painel de administração, em `admin.html`, e vá ao cartão **Chave de publicação**. Cole a chave no campo, clique em **Testar chave** e preencha também o campo do seu nome.
+
+Se aparecer o selo verde *chave ativa*, dizendo em nome de qual conta ela publica, está tudo certo. A chave fica guardada apenas naquele navegador.
+
+### 6.3. Quando o teste acusa erro
+
+| O que aparece | O que fazer |
+|---|---|
+| *O GitHub não reconheceu esta chave* | Quase sempre é cópia incompleta. Copie de novo pelo botão de cópia, não selecionando com o mouse. |
+| *A chave funciona mas não tem permissão para escrever* | Faltou o passo 6.1.3 ou o 6.1.4. Dá para corrigir sem criar outra: em **Fine-grained tokens**, clique no nome da chave e ajuste. |
+| *Não consegui falar com o GitHub* | Bloqueio da rede ou falta de conexão. Se acontecer sempre na mesma unidade, a publicação direta não funciona ali, e o caminho continua sendo baixar o pacote e enviar à mão. |
+
+### 6.4. Passar a chave para as outras pessoas do GT
+
+A chave é uma senha. **Não mande por e-mail institucional nem coloque em documento compartilhado.**
+
+O mais seguro é digitar você mesmo no computador de cada pessoa, uma vez, e clicar em Testar. Se precisar mandar à distância, use mensagem privada e apague a mensagem depois que a pessoa confirmar que colou.
+
+Dois combinados com o grupo:
+
+- **Em computador compartilhado, clique em Remover chave ao terminar.**
+- **Cada pessoa preenche o campo do nome no painel.** Como todos publicam com a mesma chave, as alterações aparecem no GitHub sempre no nome da conta dona dela. Esse campo é o único registro de quem fez o quê.
+
+### 6.5. Cancelar uma chave
+
+Se a chave vazar, se alguém sair do GT ou se você simplesmente quiser trocar: no GitHub, em **Settings** → **Developer settings** → **Personal access tokens** → **Fine-grained tokens**, clique em **Delete** ao lado do nome dela. Ela para de funcionar na hora, em todos os computadores.
+
+Depois é só criar outra pelo passo 6.1 e distribuir de novo. Nada do que já foi publicado é afetado.
+
+---
+
+## 7. Mudar o texto do guia ou o contato do responsável
 
 O texto do guia de uso está dentro do arquivo `index.html`, em um trecho marcado assim:
 
@@ -136,19 +202,23 @@ Duas exceções, que precisariam de ajuste manual:
 
 ---
 
-## 7. Atualizar a data mostrada no rodapé
+## 8. Atualizar a versão mostrada no rodapé
 
-Abra o arquivo `app.js` e, logo nas primeiras linhas, altere a data:
+Abra o arquivo `app.js` e, logo nas primeiras linhas, altere a versão:
 
 ```
-const DATA_ATUALIZACAO = '09/08/2026';
+const VERSAO_SITE = '2026-08-16c';
 ```
 
-Essa data aparece no rodapé do site e no cabeçalho de todas as páginas impressas.
+O padrão é ano-mês-dia, mais uma letra para cada entrega feita no mesmo dia: a primeira do dia é `a`, a segunda é `b`, e assim por diante. É o mesmo padrão que aparece no rodapé das páginas administrativas.
+
+Isso identifica a **versão do site**, ou seja, quando o visual ou o funcionamento mudaram. Não tem relação com a lista de materiais.
+
+**A data do catálogo impresso é outra coisa e não precisa ser atualizada à mão.** No cabeçalho das páginas impressas aparece a data da última vez que a lista de materiais mudou de fato, lida sozinha do `editor-catalogo/historico.md`. Sessões que mexeram apenas em descritivos não contam, porque não alteram nada do que sai impresso.
 
 ---
 
-## 8. Perguntas frequentes
+## 9. Perguntas frequentes
 
 **Abri o `index.html` com dois cliques e o site aparece só com um aviso.**
 Isso é esperado. Por segurança, o navegador não deixa um arquivo aberto direto do computador ler outro arquivo, e o catálogo precisa ler o `produtos.csv`. Use o endereço publicado do catálogo.
