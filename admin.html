@@ -235,12 +235,22 @@ code{background:var(--neutro);padding:1px 6px;border-radius:6px;font-size:12px}
       <div class="cartao" style="flex:1.4;min-width:280px">
         <h2>Como publicar uma atualização</h2>
         <ol>
-          <li>Faça as alterações no <b>Editor do catálogo</b> e baixe o pacote <code>.zip</code>.</li>
-          <li>Descompacte. As pastas de dentro são as mesmas do repositório.</li>
-          <li>Envie cada arquivo para o lugar indicado. Só os arquivos alterados são gerados.</li>
-          <li>Para fotos novas, use <b>Preparar imagens</b> e envie os arquivos para a pasta <code>imagens</code>.</li>
-          <li>O site republica sozinho em cerca de um minuto. Confira no endereço público antes de avisar a rede.</li>
+          <li>Faça as alterações no <b>Editor do catálogo</b>, ou trate as fotos em
+            <b>Preparar imagens</b>.</li>
+          <li>Confira a lista do que será gravado e desfaça o que não era para estar ali.</li>
+          <li>Clique em <b>Publicar</b>. Os arquivos vão direto ao repositório, e só os que
+            mudaram.</li>
+          <li>O site republica sozinho em cerca de um minuto. Confira no endereço público antes de
+            avisar a rede.</li>
         </ol>
+        <p class="sub" style="margin:11px 0 0">Publicar exige a chave cadastrada acima. Sem ela, ou
+          se a rede bloquear o GitHub, o botão de baixar o pacote <code>.zip</code> continua em todas
+          as ferramentas e leva ao mesmo resultado, enviando os arquivos à mão.</p>
+        <div class="barra" style="margin-top:12px">
+          <a class="pilula mini plana" href="tutoriais.html#conferir">conferir e desfazer</a>
+          <a class="pilula mini plana" href="tutoriais.html#dois-editando">quando dois editam</a>
+          <a class="pilula mini plana" href="tutoriais.html#plano-b">o pacote .zip</a>
+        </div>
       </div>
 
       <div class="cartao" style="flex:1;min-width:250px">
@@ -266,8 +276,9 @@ code{background:var(--neutro);padding:1px 6px;border-radius:6px;font-size:12px}
     </div>
 
     <div class="rodape">
-      Esta página é apenas um painel de atalhos. Ela não altera nada sozinha:
-      todas as mudanças passam por download e envio manual ao repositório.
+      Este painel mostra a situação do catálogo e leva às ferramentas. Ele não altera a lista de
+      materiais: quem faz isso são o editor e o preparador de imagens.
+      Em dúvida sobre alguma ferramenta, veja os <a href="tutoriais.html">tutoriais</a>.
     </div>
 
   </div>
@@ -976,6 +987,6 @@ $('#btConferirRepo').onclick=async ()=>{
   }
 })();
 </script>
-<div id="versaoPagina">painel · versão 2026-08-16e</div>
+<div id="versaoPagina">painel · versão 2026-08-16f</div>
 </body>
 </html>
