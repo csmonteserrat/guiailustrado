@@ -322,6 +322,13 @@ code{background:var(--neutro);padding:1px 6px;border-radius:6px;font-size:12px}
           <div class="linhaArq"><span class="nm mono">editor-catalogo/historico.md</span>
             <span class="tag t-ci" id="stLog">verificando</span></div>
         </div>
+
+        <div class="barra" style="margin-top:13px">
+          <button class="mini plana" id="btConferirRepo">Conferir no repositório</button>
+        </div>
+        <p class="sub" style="margin:9px 0 0;font-size:11px">Mostra a versão que está publicada e quem
+        a enviou por último. Somente leitura: nada é gravado.</p>
+        <div id="repoResultado" style="margin-top:10px"></div>
       </div>
     </div>
 
@@ -333,6 +340,7 @@ code{background:var(--neutro);padding:1px 6px;border-radius:6px;font-size:12px}
   </div>
 </div>
 
+<script src="publicar.js"></script>
 <script>
 /* Lê o produtos.csv para mostrar os números do catálogo.
    Se a página for aberta direto do disco, o navegador bloqueia a leitura
@@ -980,6 +988,49 @@ $('#btAjudaChave').onclick=()=>{
   $('#btAjudaChave').textContent=fechado?'fechar a explicação':'como conseguir a chave';
 };
 
+/* ---------------------------------------------------------------------
+   Conferência do que está publicado. É a primeira utilidade do motor de
+   publicação e serve também para comprovar que a chave lê o repositório.
+   Nenhuma gravação acontece aqui.
+   --------------------------------------------------------------------- */
+const ARQUIVOS_DADOS=['produtos.csv','descritivos/descritivos.csv','editor-catalogo/historico.md'];
+
+$('#btConferirRepo').onclick=async ()=>{
+  const alvo=$('#repoResultado');
+  if(typeof Publicar==='undefined'){
+    alvo.innerHTML='<div class="bloco b-er"><div class="cab" style="cursor:default"><span class="tt">'+
+      'O arquivo <span class="mono">publicar.js</span> não foi carregado. Confira se ele está na raiz '+
+      'do repositório, junto do admin.html.</span></div></div>';
+    return;
+  }
+  const bt=$('#btConferirRepo');bt.disabled=true;
+  alvo.innerHTML='<p class="sub">Consultando o repositório...</p>';
+  try{
+    const linhas=[];
+    for(const caminho of ARQUIVOS_DADOS){
+      const s=await Publicar.situacao(caminho);
+      const c=s.existe?await Publicar.ultimoCommit(caminho):null;
+      linhas.push('<div class="item"><span class="cd">'+
+        (s.existe?s.sha.slice(0,7):'—')+'</span><span>'+esc(caminho)+'</span>'+
+        '<span class="obs">'+(s.existe
+          ? Publicar.tamanhoLegivel(s.tamanho)+(c?' · '+esc(c.nome)+', '+esc(c.quando):'')
+          : 'não existe no repositório')+'</span></div>');
+    }
+    alvo.innerHTML='<div class="bloco b-ok"><div class="cab" style="cursor:default">'+
+      '<span class="tt">Leitura do repositório <span class="mono">'+
+      esc(Publicar.cfg.dono+'/'+Publicar.cfg.nome)+'</span> concluída. '+
+      'O código curto à esquerda identifica a versão publicada de cada arquivo.</span></div>'+
+      '<div class="conteudo2">'+linhas.join('')+'</div></div>';
+  }catch(e){
+    const extra=e.tipo==='sem-chave'
+      ? ' Esta conferência funciona sem chave em repositório público; se apareceu esta mensagem, '+
+        'houve outro problema.' : '';
+    alvo.innerHTML='<div class="bloco b-er"><div class="cab" style="cursor:default"><span class="tt">'+
+      esc(e.message||'Não consegui consultar o repositório.')+extra+'</span></div></div>';
+  }
+  bt.disabled=false;
+};
+
 /* Ao abrir o painel, mostra a situação da chave já cadastrada. */
 (function iniciarChave(){
   const t=lerToken();
@@ -992,6 +1043,6 @@ $('#btAjudaChave').onclick=()=>{
   }
 })();
 </script>
-<div id="versaoPagina" style="text-align:center;font-size:10px;color:var(--secundario);opacity:.7;padding:14px 0 4px">painel · versão 2026-08-16a</div>
+<div id="versaoPagina" style="text-align:center;font-size:10px;color:var(--secundario);opacity:.7;padding:14px 0 4px">painel · versão 2026-08-16b</div>
 </body>
 </html>
