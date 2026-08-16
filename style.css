@@ -42,6 +42,14 @@
   --texto2: #596275;
   --fundo: #ffffff;
   --superficie: #ffffff;
+
+  /* Fundo da listagem do catálogo, atrás dos cartões.
+     É um pouco mais escuro que a superfície branca deles, para que os
+     cartões se destaquem sem depender só da sombra.
+     Vale apenas para a listagem: a tela de entrada, a de aviso e o guia
+     de uso continuam usando --fundo, porque são telas de leitura e
+     ficam melhores brancas. */
+  --pagina: #f1f4f9;
   --campo: #f7f8fa;
   --borda: #eef2f6;
 
@@ -83,6 +91,9 @@
   --texto2: #b0b8ce;
   --fundo: #262d42;
   --superficie: #313a54;
+  /* No modo noturno o contraste já vem do cartão ser mais claro que a
+     página, então a listagem usa o mesmo fundo das demais telas. */
+  --pagina: #262d42;
   --campo: #3a4460;
   --borda: #3f4a68;
 
@@ -107,7 +118,7 @@ body {
   font-size: 15px;
   line-height: 1.5;
   color: var(--texto);
-  background: var(--fundo);
+  background: var(--pagina);
   -webkit-font-smoothing: antialiased;
 }
 

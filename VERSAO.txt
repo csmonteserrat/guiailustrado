@@ -1,8 +1,21 @@
 CATÁLOGO ILUSTRADO DE MATERIAIS ODONTOLÓGICOS — PMF
-Versão 2.3 — 16/08/2026
+Versão 2.4 — 16/08/2026
 
 HISTÓRICO
 ---------
+v2.4 — 16/08/2026
+  - No modo dia, o fundo da listagem deixou de ser branco e passou a
+    ser #f1f4f9, um cinza levemente azulado. Os cartões continuam
+    brancos e agora se destacam por diferença de cor, e não apenas
+    pela sombra.
+  - A mudança vale só para a listagem. A tela de entrada, a de aviso
+    e o guia de uso continuam brancos, por serem telas de leitura.
+    Para isso foi criada a variável --pagina, separada de --fundo.
+  - O modo noturno não mudou: nele o contraste já vinha do cartão ser
+    mais claro que a página.
+  - A impressão não mudou: continua saindo em fundo branco.
+  - O produtos.csv não foi alterado.
+
 v2.3 — 16/08/2026
   - Corrigido o defeito de diagramação do guia de uso: a lista de
     passos da seção 8 herdava o layout em colunas da legenda das

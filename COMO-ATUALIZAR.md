@@ -14,7 +14,8 @@ Tudo o que aparece no site vem de **um único arquivo**, o `produtos.csv`, e de 
 | `imagens/` | As fotos, uma para cada material | **Sim, sempre** |
 | `index.html` | O texto do guia de uso, as ilustrações dele e o contato do responsável | Só quando quiser mudar o guia |
 | `style.css` | As cores e a aparência (todas as cores ficam no bloco do topo do arquivo) | Raramente |
-| `app.js` | O funcionamento do site e a data da última atualização | Raramente |
+| `app.js` | O funcionamento do site e a versão mostrada no rodapé | Raramente |
+| `publicar.js` | O envio das alterações ao repositório, usado pelas páginas administrativas | Não |
 
 ---
 
