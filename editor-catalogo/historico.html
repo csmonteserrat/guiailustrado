@@ -107,8 +107,6 @@ h1{font-size:17px;font-weight:600;margin:0}
       </div>
       <div class="barra espaco">
         <button class="pilula" id="btRecarregar">Recarregar</button>
-        <button class="pilula" id="btImportar">Abrir um arquivo</button>
-        <input type="file" id="entradaArquivo" accept=".md,.txt,text/plain" style="display:none">
       </div>
     </div>
 
@@ -178,8 +176,9 @@ async function carregar(){
   }catch(e){
     $('#lista').innerHTML='<div class="vazio">Não consegui ler o arquivo '+
       '<span class="mono">historico.md</span>.<br>'+
-      '<span style="font-size:12px">Esta página precisa ser aberta pelo endereço publicado. '+
-      'Se estiver abrindo do disco, use o botão <b>Abrir um arquivo</b>.</span></div>';
+      '<span style="font-size:12px">Esta página precisa ser aberta pelo endereço publicado do '+
+      'catálogo. Abrindo o arquivo direto do computador, o navegador bloqueia a leitura por '+
+      'segurança.</span></div>';
     $('#resumo').textContent='arquivo não encontrado';
     $('#filtros').innerHTML='';
   }
@@ -198,14 +197,6 @@ function aplicar(blocos){
 const numero=i=>SESSOES.length-i;
 
 $('#btRecarregar').onclick=carregar;
-$('#btImportar').onclick=()=>$('#entradaArquivo').click();
-$('#entradaArquivo').onchange=e=>{
-  const f=e.target.files[0];if(!f)return;
-  const fr=new FileReader();
-  fr.onload=()=>aplicar(lerHistorico(fr.result));
-  fr.readAsText(f,'utf-8');
-  e.target.value='';
-};
 
 function montarFiltros(){
   const opcoes=[['todas','Todas as sessões'],['descritivo','Descritivos'],['editado','Editados'],
@@ -330,6 +321,6 @@ function desenhar(){
 
 carregar();
 </script>
-<div id="versaoPagina" style="text-align:center;font-size:10px;color:var(--secundario);opacity:.7;padding:14px 0 4px">histórico · versão 2026-08-14c</div>
+<div id="versaoPagina" style="text-align:center;font-size:10px;color:var(--secundario);opacity:.7;padding:14px 0 4px">histórico · versão 2026-08-16a</div>
 </body>
 </html>
