@@ -218,6 +218,52 @@ code{background:var(--neutro);padding:1px 6px;border-radius:6px;font-size:12px}
 
     </div>
 
+    <!-- ================= CHAVE DE PUBLICAÇÃO ================= -->
+    <div class="cartao" id="painelChave" style="margin-bottom:12px">
+      <div class="cabecalho" style="margin-bottom:8px">
+        <h2 style="margin:0">Chave de publicação</h2>
+        <span class="tag t-ci" id="chaveSelo">nenhuma chave cadastrada</span>
+      </div>
+
+      <p class="sub" style="margin:0 0 13px">A chave permite que as ferramentas enviem as alterações
+      direto ao repositório, sem baixar e reenviar arquivos à mão. Ela fica guardada somente
+      <b>neste navegador</b> e nunca é gravada em nenhum arquivo do projeto.</p>
+
+      <div class="barra">
+        <input type="password" id="chaveToken" placeholder="cole aqui a chave" style="flex:1;min-width:210px"
+               autocomplete="off" spellcheck="false">
+        <button class="mini plana" id="btVerChave" title="mostrar ou ocultar">mostrar</button>
+        <button class="acento" id="btTestarChave">Testar chave</button>
+        <button class="mini plana" id="btRemoverChave">Remover chave</button>
+      </div>
+
+      <div class="barra" style="margin-top:9px">
+        <span class="sub">Seu nome, para constar no histórico:</span>
+        <input type="text" id="chaveAutor" placeholder="nome e sobrenome" style="width:230px">
+        <button class="mini plana" id="btSalvarAutor">Guardar nome</button>
+      </div>
+
+      <div id="chaveResultado" style="margin-top:13px"></div>
+
+      <div id="chaveAjuda" class="oculto" style="margin-top:13px;padding:14px;border-radius:16px;background:var(--neutro)">
+        <p class="sub" style="margin:0 0 8px"><b>Se você recebeu a chave de alguém do GT:</b>
+        basta colar no campo acima e clicar em <b>Testar chave</b>. Não é preciso ter conta no GitHub.</p>
+        <p class="sub" style="margin:0 0 8px"><b>Se é você quem cria a chave:</b> no GitHub, clique na
+        sua foto no canto superior direito e siga por <b>Settings</b> &rarr; <b>Developer settings</b>
+        &rarr; <b>Personal access tokens</b> &rarr; <b>Fine-grained tokens</b> &rarr;
+        <b>Generate new token</b>. Em <i>Repository access</i> escolha <i>Only select repositories</i>
+        e marque <span class="mono">guiailustrado</span>. Em <i>Permissions</i>, marque
+        <b>Contents: Read and write</b>. Guarde a chave no momento em que ela aparecer: o GitHub
+        não mostra de novo.</p>
+        <p class="sub" style="margin:0"><b>Cuidados.</b> A chave é como uma senha: não coloque em
+        e-mail aberto, em documento compartilhado nem dentro de nenhum arquivo do projeto — se ela
+        for parar no repositório, o GitHub a cancela sozinho. Em computador de uso comum, clique em
+        <b>Remover chave</b> ao terminar.</p>
+      </div>
+
+      <button class="mini plana" id="btAjudaChave" style="margin-top:11px">como conseguir a chave</button>
+    </div>
+
     <!-- ================= CONFERÊNCIA DE IMAGENS ================= -->
     <div class="cartao" id="painelConferencia" style="margin-bottom:12px">
       <h2>Conferência de imagens</h2>
@@ -791,7 +837,161 @@ function baixarRelatorio(d){
   d.inativosComFoto.forEach(p=>L.push(['imagem de material inativo',p.codigo,p.material,p.familia,p.subgrupo,p.codigo+'.jpg','o arquivo pode ser removido'].map(campoCsv).join(',')));
   baixarCsv('conferencia-imagens',L);
 }
+
+/* =====================================================================
+   CHAVE DE PUBLICAÇÃO
+   A chave (personal access token do GitHub) fica apenas no localStorage
+   deste navegador. Ela nunca é escrita em arquivo do projeto: o
+   repositório é público, e uma chave versionada é cancelada pelo próprio
+   GitHub assim que detectada.
+   Esta seção só cadastra e confere a chave. O envio de arquivos é feito
+   pelas ferramentas, em etapa posterior.
+   ===================================================================== */
+const REPO_DONO='csmonteserrat';
+const REPO_NOME='guiailustrado';
+const CHAVE_TOKEN='gh-token';
+const CHAVE_AUTOR='editor-autor';   // mesma chave usada pelo editor
+
+const lerToken=()=>localStorage.getItem(CHAVE_TOKEN)||'';
+const cabecalhoAuth=t=>({'Accept':'application/vnd.github+json',
+                         'Authorization':'Bearer '+t,
+                         'X-GitHub-Api-Version':'2022-11-28'});
+
+function selo(texto,classe){
+  const el=$('#chaveSelo');
+  el.textContent=texto;
+  el.className='tag '+(classe||'t-ci');
+}
+
+function avisoChave(html,tipo){
+  $('#chaveResultado').innerHTML='<div class="bloco b-'+(tipo||'nt')+
+    '"><div class="cab" style="cursor:default"><span class="tt">'+html+'</span></div></div>';
+}
+
+/* Mostra a validade só quando o GitHub a informa. O cabeçalho de
+   expiração nem sempre chega ao JavaScript, e nesse caso é melhor não
+   dizer nada do que arriscar uma data errada. */
+function textoValidade(cabecalhos){
+  const bruto=cabecalhos.get('github-authentication-token-expiration');
+  if(!bruto)return '';
+  const data=new Date(bruto.replace(' ','T').replace(' ',''));
+  if(isNaN(data))return '';
+  const dias=Math.round((data-new Date())/86400000);
+  const quando=data.toLocaleDateString('pt-BR');
+  if(dias<0)  return ' A chave venceu em '+quando+'.';
+  if(dias<=30)return ' <b>Atenção: a chave vence em '+quando+', daqui a '+dias+
+                     ' dia(s).</b> Peça uma chave nova antes disso.';
+  return ' Válida até '+quando+'.';
+}
+
+async function testarChave(silencioso){
+  const token=$('#chaveToken').value.trim();
+  if(!token){
+    if(!silencioso)avisoChave('Cole a chave no campo acima antes de testar.','al');
+    return false;
+  }
+  const bt=$('#btTestarChave');bt.disabled=true;
+  if(!silencioso)avisoChave('Consultando o GitHub...','nt');
+  try{
+    const r=await fetch('https://api.github.com/user',{headers:cabecalhoAuth(token)});
+    if(r.status===401){
+      selo('chave inválida','t-lr');
+      avisoChave('O GitHub não reconheceu esta chave. Ela pode ter sido copiada pela metade, '+
+                 'já ter vencido ou ter sido cancelada. Peça uma chave nova a quem a criou.','er');
+      return false;
+    }
+    if(!r.ok){
+      selo('não foi possível conferir','t-ci');
+      avisoChave('O GitHub respondeu com o erro '+r.status+'. Tente de novo em alguns minutos.','er');
+      return false;
+    }
+    const conta=await r.json();
+    const validade=textoValidade(r.headers);
+
+    /* Confere se a chave realmente pode escrever neste repositório.
+       Autenticada, a resposta do repositório traz o bloco permissions. */
+    let podeEscrever=null;
+    try{
+      const rr=await fetch('https://api.github.com/repos/'+REPO_DONO+'/'+REPO_NOME,
+                           {headers:cabecalhoAuth(token)});
+      if(rr.ok){const j=await rr.json();podeEscrever=!!(j.permissions&&j.permissions.push)}
+    }catch(e){}
+
+    localStorage.setItem(CHAVE_TOKEN,token);
+
+    if(podeEscrever===false){
+      selo('sem permissão de escrita','t-lr');
+      avisoChave('A chave funciona e pertence à conta <b>'+esc(conta.login)+'</b>, mas ela '+
+                 '<b>não tem permissão para escrever</b> em '+REPO_DONO+'/'+REPO_NOME+'. '+
+                 'Quem criou a chave precisa marcar <b>Contents: Read and write</b> e incluir '+
+                 'este repositório.'+validade,'er');
+      return false;
+    }
+    selo('chave ativa','t-vd');
+    avisoChave('Chave confirmada. Ela publica em nome da conta <b>'+esc(conta.login)+'</b>'+
+               (podeEscrever?', com permissão de escrita neste repositório':'')+'.'+validade+
+               ' A chave ficou guardada neste navegador.','ok');
+    return true;
+  }catch(e){
+    selo('sem acesso ao GitHub','t-lr');
+    avisoChave('Não consegui falar com o GitHub. Isso costuma ser bloqueio da rede ou falta de '+
+               'conexão. Se acontecer sempre nesta unidade, a publicação direta não vai funcionar '+
+               'aqui e o caminho continua sendo baixar o pacote e enviar à mão.','er');
+    return false;
+  }finally{
+    bt.disabled=false;
+  }
+}
+
+$('#btTestarChave').onclick=()=>testarChave(false);
+
+$('#btVerChave').onclick=()=>{
+  const c=$('#chaveToken');
+  const escondido=c.type==='password';
+  c.type=escondido?'text':'password';
+  $('#btVerChave').textContent=escondido?'ocultar':'mostrar';
+};
+
+$('#btRemoverChave').onclick=()=>{
+  if(!lerToken()&&!$('#chaveToken').value){
+    avisoChave('Não há chave guardada neste navegador.','nt');return;
+  }
+  if(!confirm('Remover a chave deste navegador?\n\nAs ferramentas voltam a exigir o download do '+
+              'pacote. Nada do que já foi publicado é afetado.'))return;
+  localStorage.removeItem(CHAVE_TOKEN);
+  $('#chaveToken').value='';
+  $('#chaveToken').type='password';
+  $('#btVerChave').textContent='mostrar';
+  selo('nenhuma chave cadastrada','t-ci');
+  avisoChave('Chave removida deste navegador.','nt');
+};
+
+$('#btSalvarAutor').onclick=()=>{
+  const v=$('#chaveAutor').value.trim();
+  if(!v){alert('Escreva o seu nome.');return}
+  localStorage.setItem(CHAVE_AUTOR,v);
+  avisoChave('Nome guardado. Ele passa a constar nas alterações que você registrar no histórico.','ok');
+};
+
+$('#btAjudaChave').onclick=()=>{
+  const a=$('#chaveAjuda');
+  const fechado=a.classList.contains('oculto');
+  a.classList.toggle('oculto');
+  $('#btAjudaChave').textContent=fechado?'fechar a explicação':'como conseguir a chave';
+};
+
+/* Ao abrir o painel, mostra a situação da chave já cadastrada. */
+(function iniciarChave(){
+  const t=lerToken();
+  const autor=localStorage.getItem(CHAVE_AUTOR)||'';
+  if(autor)$('#chaveAutor').value=autor;
+  if(t){
+    $('#chaveToken').value=t;
+    selo('conferindo a chave...','t-ci');
+    testarChave(true);
+  }
+})();
 </script>
-<div id="versaoPagina" style="text-align:center;font-size:10px;color:var(--secundario);opacity:.7;padding:14px 0 4px">painel · versão 2026-08-14b</div>
+<div id="versaoPagina" style="text-align:center;font-size:10px;color:var(--secundario);opacity:.7;padding:14px 0 4px">painel · versão 2026-08-16a</div>
 </body>
 </html>
