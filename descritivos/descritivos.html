@@ -174,10 +174,13 @@ select{appearance:none;background-image:none;padding-right:13px}
   .trecho{white-space:normal}
   /* O status "pendente" ou "descritivo ok" é a informação principal
      desta página: em vez de sumir, ele desce para baixo do nome,
-     alinhado com o texto. */
-  .linha{flex-wrap:wrap}
-  .dir{flex:1 1 100%;text-align:left;margin-top:5px;padding-left:49px}
-  .seta{align-self:flex-start;margin-top:4px}
+     alinhado com o texto.
+     A ordem explícita mantém a seta na primeira linha, à direita do
+     nome. Sem ela, a seta era empurrada para uma terceira linha, já
+     que o status ocupa a segunda inteira. */
+  .linha{flex-wrap:wrap;align-items:flex-start}
+  .seta{order:3;align-self:center;padding-left:4px}
+  .dir{order:4;flex:1 1 100%;text-align:left;margin-top:4px;padding-left:49px}
   .wrap{padding-left:0;padding-right:0}
 }
 </style>
@@ -592,7 +595,7 @@ $('#btExportar').onclick=()=>{
   setTimeout(()=>URL.revokeObjectURL(a.href),4000);
 };
 </script>
-<div id="versaoPagina">descritivos · versão 2026-08-16b</div>
+<div id="versaoPagina">descritivos · versão 2026-08-16c</div>
 </div>
 </div>
 </body>
