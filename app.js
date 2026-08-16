@@ -10,7 +10,7 @@
    administrativas: ano-mês-dia e uma letra para cada entrega do dia.
    Atualize a cada revisão.
    ----------------------------------------------------------------- */
-const VERSAO_SITE = '2026-08-16c';
+const VERSAO_SITE = '2026-08-16d';
 
 /* Data mostrada no cabeçalho das impressões. Não é a data da versão do
    site, e sim a da última vez que a lista de materiais mudou de fato.

@@ -235,7 +235,12 @@ button { font: inherit; color: inherit; cursor: pointer; }
   border-bottom: 1px solid var(--borda);
 }
 .guia-barra-titulo { font-weight: 700; }
-.guia-corpo { max-width: 760px; margin: 0 auto; padding: 28px 20px 80px; }
+/* O guia aproveita a tela larga, mas o texto corrido continua com uma
+   medida confortável de leitura: quem ganha espaço são as ilustrações,
+   que mostram cartão e legenda lado a lado. */
+.guia-corpo { max-width: min(1080px, 94vw); margin: 0 auto; padding: 28px 24px 80px; }
+.guia-secao > p, .guia-secao > ul, .guia-secao > ol,
+.guia-corpo > p { max-width: 74ch; }
 .guia-corpo h1 { font-size: clamp(22px, 4vw, 30px); margin-bottom: 20px; }
 .guia-corpo p, .guia-corpo li { color: var(--texto); }
 .guia-corpo ul, .guia-corpo ol { padding-left: 22px; }
@@ -850,6 +855,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 /* Exemplo à esquerda, explicação numerada à direita */
 .demo-com-legenda { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; }
 .demo-peca { width: 200px; flex: none; }
+@media (min-width: 900px) { .demo-peca { width: 240px; } }
 .demo-legenda { flex: 1; min-width: 220px; margin: 0; padding: 0; list-style: none; }
 .demo-legenda li { display: flex; gap: 10px; margin-bottom: 10px; font-size: 14px; line-height: 1.45; }
 
@@ -871,8 +877,12 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .demo-caixa p { margin: 10px 0 0; font-size: 13px; color: var(--texto2); }
 
 /* Passo a passo com o exemplo dentro */
-.demo-passos { margin: 0; padding-left: 22px; }
-.demo-passos li { margin-bottom: 8px; }
+/* Os passos numerados também recebem .demo-legenda para herdar a largura,
+   mas não a diagramação dela: ali cada li é uma caixa flexível, o que
+   partiria o texto corrido em colunas. Aqui ele volta a ser um item de
+   lista comum. */
+.demo-passos { margin: 0; padding-left: 22px; list-style: decimal; }
+.demo-passos li { display: list-item; gap: 0; margin-bottom: 8px; }
 
 /* Barra de exemplo do topo do site */
 .demo-barra { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }

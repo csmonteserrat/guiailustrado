@@ -1,8 +1,21 @@
 CATÁLOGO ILUSTRADO DE MATERIAIS ODONTOLÓGICOS — PMF
-Versão 2.2 — 16/08/2026
+Versão 2.3 — 16/08/2026
 
 HISTÓRICO
 ---------
+v2.3 — 16/08/2026
+  - Corrigido o defeito de diagramação do guia de uso: a lista de
+    passos da seção 8 herdava o layout em colunas da legenda das
+    ilustrações, e o texto corrido saía quebrado em blocos soltos.
+  - O guia passou a ocupar até 1080px de largura, em vez de 760px.
+    O texto corrido continua com medida confortável de leitura; quem
+    ganha espaço são as ilustrações, e o cartão de exemplo fica maior
+    em telas a partir de 900px.
+  - A anatomia do cartão passou de 8 para 9 pontos, com a inclusão da
+    observação, que aparece em alguns materiais e não estava
+    explicada em lugar nenhum. A seção 7 também passou a citá-la.
+  - O produtos.csv não foi alterado.
+
 v2.2 — 16/08/2026
   - O cabeçalho das páginas impressas passou a mostrar a data da
     última alteração real na lista de materiais, lida sozinha do

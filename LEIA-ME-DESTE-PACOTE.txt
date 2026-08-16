@@ -1,0 +1,51 @@
+PACOTE 10 - GUIA DE USO: DEFEITO, LARGURA E OBSERVACAO
+Gerado em 16/08/2026
+Inclui tudo o que estava no pacote 09, que nao precisa mais ser enviado.
+
+ARQUIVOS INCLUIDOS (todos na RAIZ do repositorio)
+
+  index.html    md5 49d56ccbd4de60645104833f401f8cb1
+  style.css     md5 602d48aa53c7ac8f4c4a2fcf016e54f6
+  app.js        md5 e337bd1b3625715acb7e4e8d8fa6ea13   versao do site 2026-08-16d
+  VERSAO.txt    md5 ac4dbcaae2854b02d7fff06b73327e56
+  COMO-ATUALIZAR.md  md5 5352dd8e73a81e992f7b86148fc05516   (vinha do pacote 09)
+
+1. DEFEITO DE DIAGRAMACAO CORRIGIDO
+
+  Na secao 8 do guia, "Copiar o codigo e usar no CELK", o texto dos
+  passos saia quebrado em blocos soltos, como se fossem colunas.
+
+  Causa: a lista de passos usa as classes demo-passos e demo-legenda
+  juntas. A segunda existe para as legendas das ilustracoes, onde
+  cada item e uma caixa flexivel com o numero de um lado e o texto do
+  outro. Aplicada a um texto corrido, ela transformava cada pedaco da
+  frase, cada negrito e cada italico, num bloco separado.
+
+  Correcao no style.css: demo-passos volta a ser lista comum,
+  numerada, com o texto fluindo normalmente.
+
+2. LARGURA DO GUIA
+
+  Era 760px fixos, o que deixava muito espaco vazio em tela grande.
+  Passou para ate 1080px, ou 94% da largura em telas menores.
+
+  O texto corrido continua com medida confortavel de leitura, de 74
+  caracteres: quem ganha o espaco novo sao as ilustracoes, que
+  mostram cartao e legenda lado a lado. O cartao de exemplo tambem
+  ficou maior, de 200 para 240px, em telas a partir de 900px.
+
+3. A OBSERVACAO PASSOU A SER EXPLICADA
+
+  A anatomia do cartao foi de 8 para 9 pontos. O numero 6 agora e a
+  observacao, que aparece em italico em alguns materiais e nao
+  estava explicada em lugar nenhum do guia. Etiquetas, copiar codigo
+  e botao de mais viraram 7, 8 e 9.
+
+  O cartao de exemplo passou a mostrar uma observacao, para o leitor
+  reconhecer o que e.
+
+  A secao 7, da ficha do material, tambem passou a cita-la.
+
+COMO APLICAR
+
+  Envie os cinco arquivos para a raiz do repositorio.
