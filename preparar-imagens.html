@@ -234,10 +234,12 @@ Tudo acontece dentro deste computador, nenhuma imagem é enviada para a internet
   </div>
 
   <div class="barra" style="margin-top:12px">
-    <button class="principal" id="baixar" disabled>Baixar as fotos vinculadas</button>
+    <button class="principal" id="publicar" disabled>Publicar as fotos no site</button>
+    <button class="sec" id="baixar" disabled>Baixar as fotos vinculadas</button>
     <button class="sec" id="limpar" disabled>Limpar a fila</button>
   </div>
 
+  <div class="nota oculto" id="notaPublicacao"></div>
   <div class="nota oculto" id="notaFila"></div>
   <div class="fila" id="fila"></div>
 </div>
@@ -248,14 +250,19 @@ Tudo acontece dentro deste computador, nenhuma imagem é enviada para a internet
     <li>A ferramenta lê o <code>produtos.csv</code> e sabe quais materiais ainda estão sem foto.</li>
     <li>Você arrasta as fotos com qualquer nome. Se o nome já contiver o código, o vínculo é feito sozinho.</li>
     <li>Para as demais, clique em vincular e busque o material pelo nome, pelo código ou pela família.</li>
-    <li>Baixe o pacote. Os arquivos saem nomeados pelo código, prontos para a pasta <code>imagens</code>.</li>
-    <li>Envie os arquivos para a pasta <code>imagens</code> do repositório no GitHub. A partir daí eles
-        aparecem como concluídos para todos que abrirem esta página.</li>
+    <li>Clique em <b>Publicar as fotos no site</b>. Elas vão direto para a pasta <code>imagens</code>
+        do repositório, já nomeadas pelo código, e o site republica sozinho.</li>
+    <li>Se preferir enviar à mão, ou se a chave de publicação não estiver cadastrada, use
+        <b>Baixar as fotos vinculadas</b>: o pacote sai com os arquivos já nomeados, prontos para a
+        pasta <code>imagens</code>.</li>
+    <li>Publicadas de um jeito ou de outro, elas aparecem como concluídas para todos que abrirem
+        esta página.</li>
   </ol>
 </div>
 
 </div>
 
+<script src="publicar.js"></script>
 <script>
 let PRODUTOS=[];
 let COM_FOTO=new Set();
@@ -508,6 +515,11 @@ function desenharFila(){
   $('#resumoFila').textContent=fila.length?fila.length+' foto(s) na fila, '+prontas+' vinculada(s)':'';
   $('#baixar').disabled=prontas===0;
   $('#limpar').disabled=fila.length===0;
+  const bp=$('#publicar');
+  bp.disabled=prontas===0||!podePublicar();
+  bp.title=podePublicar()
+    ? 'envia as fotos direto para a pasta imagens do repositório'
+    : 'cadastre a chave de publicação no painel de administração';
   atualizarProgresso();
 }
 
@@ -607,8 +619,102 @@ $('#baixar').onclick=async()=>{
   setTimeout(()=>URL.revokeObjectURL(a.href),4000);
   bt.textContent='Baixar as fotos vinculadas';bt.disabled=false;
 };
+
+/* =====================================================================
+   PUBLICAÇÃO DIRETA DAS FOTOS
+   ---------------------------------------------------------------------
+   Cada foto vai para imagens/CODIGO.jpg, já com o nome certo, em base64.
+   O download do pacote .zip continua ao lado e não depende disto.
+
+   Fotos são arquivos inteiros: não existe fusão possível entre duas
+   versões da mesma imagem. Quando alguém tiver substituído a mesma foto
+   no meio do caminho, a sua entra por cima e o aviso diz o que houve.
+   A versão anterior continua no histórico do repositório.
+   ===================================================================== */
+function podePublicar(){
+  return typeof Publicar!=='undefined'&&Publicar.temChave();
+}
+
+function avisoPublicacao(html,tipo){
+  const el=$('#notaPublicacao');
+  el.classList.remove('oculto');
+  el.style.borderLeft='5px solid '+(tipo==='erro'?'#cf6a87':tipo==='ok'?'#3dc1d3':'#596275');
+  el.innerHTML=html;
+}
+
+$('#publicar').onclick=async()=>{
+  if(!podePublicar()){
+    alert('Nenhuma chave de publicação está cadastrada neste navegador.\n\n'+
+          'Cadastre no painel de administração, em admin.html, ou baixe o pacote .zip.');
+    return;
+  }
+  const itens=fila.filter(f=>f.codigo);
+  if(!itens.length)return;
+
+  const jaExistem=itens.filter(i=>COM_FOTO.has(i.codigo)).length;
+  if(!confirm('Publicar '+itens.length+' foto(s) na pasta imagens do repositório?'+
+              (jaExistem?'\n\n'+jaExistem+' delas substituem fotos que já estão publicadas. '+
+                          'As versões antigas continuam guardadas no histórico do GitHub.':'')+
+              '\n\nO site republica sozinho em cerca de um minuto.'))return;
+
+  const bt=$('#publicar'),bd=$('#baixar');
+  bt.disabled=true;bd.disabled=true;
+  const enviados=[],falhas=[];
+
+  for(let i=0;i<itens.length;i++){
+    const item=itens[i];
+    const caminho='imagens/'+item.codigo+'.jpg';
+    bt.textContent='Enviando '+(i+1)+' de '+itens.length+'...';
+    avisoPublicacao('Enviando <span class="mono">'+escapar(caminho)+'</span> ('+(i+1)+
+                    ' de '+itens.length+').','info');
+    try{
+      const bytes=new Uint8Array(await item.blob.arrayBuffer());
+      let sha=null;
+      try{const s=await Publicar.situacao(caminho);sha=s.existe?s.sha:null}catch(e){}
+      let r;
+      try{
+        r=await Publicar.enviar({caminho:caminho,bytes:bytes,sha:sha,
+              mensagem:Publicar.mensagem('Imagens',caminho)});
+      }catch(e){
+        /* Alguém trocou a mesma foto entre a leitura e o envio: relê o
+           sha e tenta uma vez mais. */
+        if(e.tipo!=='conflito')throw e;
+        const s2=await Publicar.situacao(caminho);
+        r=await Publicar.enviar({caminho:caminho,bytes:bytes,sha:s2.existe?s2.sha:null,
+              mensagem:Publicar.mensagem('Imagens',caminho)});
+      }
+      enviados.push({codigo:item.codigo,caminho:caminho,conferido:r.conferido,id:item.id});
+      COM_FOTO.add(item.codigo);
+    }catch(e){
+      falhas.push({codigo:item.codigo,motivo:e.message||'erro no envio'});
+    }
+  }
+
+  /* Só as fotos realmente enviadas saem da fila. O que falhou continua
+     ali, pronto para nova tentativa, sem precisar arrastar de novo. */
+  const idsEnviados=new Set(enviados.map(e=>e.id));
+  fila=fila.filter(f=>!idsEnviados.has(f.id));
+
+  bt.textContent='Publicar as fotos no site';
+  desenharFila();
+
+  const semConferir=enviados.filter(e=>e.conferido===false);
+  if(falhas.length||semConferir.length){
+    avisoPublicacao(
+      (enviados.length?'<b>'+enviados.length+' foto(s) publicada(s).</b> ':'')+
+      (falhas.length?'<br><b>'+falhas.length+' não foi(ram) enviada(s)</b> e continuam na fila:<br>'+
+        falhas.map(f=>escapar(f.codigo+' — '+f.motivo)).join('<br>'):'')+
+      (semConferir.length?'<br><b>Confira no GitHub:</b> o conteúdo gravado de '+
+        semConferir.map(e=>escapar(e.caminho)).join(', ')+' não confere com o que foi enviado.':''),
+      'erro');
+  }else{
+    avisoPublicacao('<b>'+enviados.length+' foto(s) publicada(s)</b>, conferida(s) byte a byte e já '+
+      'nomeada(s) pelo código. O site republica sozinho em cerca de um minuto. '+
+      'Pressione Ctrl+Shift+R ao conferir, para o navegador não mostrar a foto antiga da memória.','ok');
+  }
+};
 </script>
-<div id="versaoPagina" style="text-align:center;font-size:10px;color:var(--secundario);opacity:.7;padding:14px 0 4px">preparar imagens · versão 2026-08-14b</div>
+<div id="versaoPagina" style="text-align:center;font-size:10px;color:var(--secundario);opacity:.7;padding:14px 0 4px">preparar imagens · versão 2026-08-16a</div>
 </div>
 </div>
 </body>
