@@ -2064,10 +2064,13 @@ async function publicarSessao(){
     return;
   }
   if(!arquivosDoPacote().length){alert('Não há alterações para publicar.');return}
+  /* O nome é escolhido no painel, numa lista com o pessoal do GT. Aqui
+     ele só é cobrado, porque publicar sem autor deixa o histórico sem
+     saber quem fez o quê. */
   if(!autorAtual()){
-    const nome=prompt('Seu nome, para constar no histórico de alterações:','');
-    if(nome===null)return;
-    localStorage.setItem('editor-autor',nome.trim());
+    alert('Antes de publicar, escolha o seu nome no painel de administração, no cartão '+
+          '"Chave de publicação".\n\nÉ ele que identifica quem fez cada alteração no histórico.');
+    return;
   }
 
   /* O registro da sessão é congelado agora: se a publicação demorar, a
@@ -2317,7 +2320,7 @@ window.addEventListener('beforeunload',e=>{
   if(mudancas().length||mudancasDescritivo().length){e.preventDefault();e.returnValue=''}
 });
 </script>
-<div id="versaoPagina">editor · versão 2026-08-16f</div>
+<div id="versaoPagina">editor · versão 2026-08-16g</div>
 </div>
 </div>
 </body>

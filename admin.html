@@ -15,7 +15,7 @@
 .cabecalho{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
 
 /* ---------- campos ---------- */
-input[type=text]{font:inherit;font-size:12.5px;padding:9px 13px;border:none;border-radius:14px;
+input[type=text],select{font:inherit;font-size:12.5px;padding:9px 13px;border:none;border-radius:14px;
   background:var(--neutro);color:var(--texto)}
 
 /* anéis de progresso */
@@ -171,9 +171,19 @@ code{background:var(--neutro);padding:1px 6px;border-radius:6px;font-size:12px}
       </div>
 
       <div class="barra" style="margin-top:9px">
-        <span class="sub">Seu nome, para constar no histórico:</span>
-        <input type="text" id="chaveAutor" placeholder="nome e sobrenome" style="width:230px">
-        <button class="mini plana" id="btSalvarAutor">Guardar nome</button>
+        <span class="sub">Quem está publicando <b>(obrigatório)</b>:</span>
+        <select id="chaveAutor" style="min-width:250px">
+          <option value="">escolha o seu nome</option>
+          <option>Ana Carolina Oliveira Peres</option>
+          <option>Caio César Borges de Oliveira</option>
+          <option>Ihan Vitor Cardoso</option>
+          <option>Maria Nazaré Gallotti M. Goulart</option>
+          <option>Miguel Cardoso Nora</option>
+          <option>Valeska Maddalozzo Pivatto</option>
+          <option value="__outro">Outro nome...</option>
+        </select>
+        <input type="text" id="chaveAutorOutro" class="oculto" placeholder="nome e sobrenome"
+               style="width:220px" autocomplete="off">
       </div>
 
       <div id="chaveResultado" style="margin-top:13px"></div>
@@ -842,6 +852,15 @@ async function testarChave(silencioso){
     if(!silencioso)avisoChave('Cole a chave no campo acima antes de testar.','al');
     return false;
   }
+  /* Na conferência automática da abertura o nome não é cobrado: só
+     quando alguém clica em Testar chave, que é quando a chave passa a
+     valer neste navegador. */
+  if(!silencioso&&!guardarNome()){
+    avisoChave('Escolha o seu nome na lista antes de cadastrar a chave. É ele que identifica '+
+               'quem publicou cada alteração.','al');
+    $('#chaveAutor').focus();
+    return false;
+  }
   const bt=$('#btTestarChave');bt.disabled=true;
   if(!silencioso)avisoChave('Consultando o GitHub...','nt');
   try{
@@ -880,9 +899,11 @@ async function testarChave(silencioso){
       return false;
     }
     selo('chave ativa','t-vd');
+    const quem=nomeAtual();
     avisoChave('Chave confirmada. Ela publica em nome da conta <b>'+esc(conta.login)+'</b>'+
                (podeEscrever?', com permissão de escrita neste repositório':'')+'.'+validade+
-               ' A chave ficou guardada neste navegador.','ok');
+               ' A chave ficou guardada neste navegador'+
+               (quem?', e as suas alterações entram no histórico como <b>'+esc(quem)+'</b>':'')+'.','ok');
     return true;
   }catch(e){
     selo('sem acesso ao GitHub','t-lr');
@@ -918,12 +939,35 @@ $('#btRemoverChave').onclick=()=>{
   avisoChave('Chave removida deste navegador.','nt');
 };
 
-$('#btSalvarAutor').onclick=()=>{
-  const v=$('#chaveAutor').value.trim();
-  if(!v){alert('Escreva o seu nome.');return}
-  localStorage.setItem(CHAVE_AUTOR,v);
-  avisoChave('Nome guardado. Ele passa a constar nas alterações que você registrar no histórico.','ok');
+/* ---------------------------------------------------------------------
+   Quem está publicando
+   Como todo o GT usa a mesma chave, o commit sai sempre em nome da conta
+   dona dela. Este campo é o único registro de quem fez o quê, e por isso
+   é obrigatório. A lista traz os nomes do grupo; "Outro nome" abre um
+   campo livre, para quem entrar depois sem precisar alterar a página.
+   --------------------------------------------------------------------- */
+const NOMES_DO_GT=[...$('#chaveAutor').options]
+  .map(o=>o.value).filter(v=>v&&v!=='__outro');
+
+function nomeAtual(){
+  const escolhido=$('#chaveAutor').value;
+  if(escolhido==='__outro')return $('#chaveAutorOutro').value.trim();
+  return escolhido.trim();
+}
+
+function guardarNome(){
+  const n=nomeAtual();
+  if(n)localStorage.setItem(CHAVE_AUTOR,n);
+  return n;
+}
+
+$('#chaveAutor').onchange=()=>{
+  const outro=$('#chaveAutor').value==='__outro';
+  $('#chaveAutorOutro').classList.toggle('oculto',!outro);
+  if(outro)$('#chaveAutorOutro').focus();
+  guardarNome();
 };
+$('#chaveAutorOutro').oninput=guardarNome;
 
 $('#btAjudaChave').onclick=()=>{
   const a=$('#chaveAjuda');
@@ -978,15 +1022,28 @@ $('#btConferirRepo').onclick=async ()=>{
 /* Ao abrir o painel, mostra a situação da chave já cadastrada. */
 (function iniciarChave(){
   const t=lerToken();
-  const autor=localStorage.getItem(CHAVE_AUTOR)||'';
-  if(autor)$('#chaveAutor').value=autor;
+  const autor=(localStorage.getItem(CHAVE_AUTOR)||'').trim();
+  if(autor){
+    if(NOMES_DO_GT.includes(autor)){
+      $('#chaveAutor').value=autor;
+    }else{
+      /* Nome de fora da lista, guardado antes ou digitado em Outro. */
+      $('#chaveAutor').value='__outro';
+      $('#chaveAutorOutro').value=autor;
+      $('#chaveAutorOutro').classList.remove('oculto');
+    }
+  }
   if(t){
     $('#chaveToken').value=t;
     selo('conferindo a chave...','t-ci');
-    testarChave(true);
+    testarChave(true).then(()=>{
+      if(!autor)
+        avisoChave('A chave está cadastrada, mas <b>falta escolher o seu nome</b> na lista acima. '+
+                   'Sem ele, não há como saber depois quem fez cada alteração.','al');
+    });
   }
 })();
 </script>
-<div id="versaoPagina">painel · versão 2026-08-16f</div>
+<div id="versaoPagina">painel · versão 2026-08-16g</div>
 </body>
 </html>
