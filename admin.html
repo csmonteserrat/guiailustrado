@@ -39,9 +39,9 @@ input[type=text],select{font:inherit;font-size:12.5px;padding:9px 13px;border:no
 .ola .oi{font-size:19px;font-weight:600;line-height:1.2}
 .ola .dizer{font-size:12px;color:var(--secundario);margin-top:4px;line-height:1.5}
 .ola .risco{width:1px;align-self:stretch;background:var(--borda);margin:4px 0}
-.ola .par{display:flex;align-items:center;gap:13px}
-.ola .par .lado{font-size:11.5px;line-height:1.6;color:var(--secundario)}
-.ola .par .lado b{color:var(--texto);font-weight:600}
+.ola .par{display:flex;align-items:center;gap:11px}
+.ola .par .lado{font-size:12px;line-height:1.65;color:var(--secundario)}
+.ola .par .lado b{font-weight:600}
 .ola .par svg{flex:none}
 
 @media(max-width:820px){
@@ -359,9 +359,8 @@ function lerCsv(texto){
    esconde a parte que falta, o que produz o arco preenchido.
    --------------------------------------------------------------------- */
 function anelSvg(pct,cor,texto,sub){
-  /* O desenho continua o mesmo; só é exibido menor, porque agora divide
-     o cartão com a saudação. */
-  const T=112, R=T/2-9, C=2*Math.PI*R, EXIBE=70;
+  /* O desenho continua o mesmo; muda só o tamanho de exibição. */
+  const T=112, R=T/2-9, C=2*Math.PI*R, EXIBE=96;
   return '<svg viewBox="0 0 '+T+' '+T+'" width="'+EXIBE+'" height="'+EXIBE+'" role="img" '+
     'aria-label="'+pct+' por cento '+sub+'">'+
     '<circle cx="'+T/2+'" cy="'+T/2+'" r="'+R+'" fill="none" stroke="var(--borda)" stroke-width="11"/>'+
@@ -369,7 +368,7 @@ function anelSvg(pct,cor,texto,sub){
       'stroke-linecap="round" stroke-dasharray="'+C+'" stroke-dashoffset="'+(C*(1-pct/100))+'" '+
       'transform="rotate(-90 '+T/2+' '+T/2+')"/>'+
     '<text x="'+T/2+'" y="'+(T/2+1)+'" text-anchor="middle" font-size="21" font-weight="600" '+
-      'fill="var(--texto)" font-family="inherit">'+texto+'</text>'+
+      'fill="'+cor+'" font-family="inherit">'+texto+'</text>'+
     '<text x="'+T/2+'" y="'+(T/2+18)+'" text-anchor="middle" font-size="10.5" '+
       'fill="var(--secundario)" font-family="inherit">'+sub+'</text></svg>';
 }
@@ -379,8 +378,11 @@ function anelSvg(pct,cor,texto,sub){
 function desenharAnel(id,titulo,pct,cor,sub,lado){
   const el=document.getElementById('anel-'+id);
   if(!el)return;
+  /* Cada anel tem a própria cor, aplicada ao arco, ao número e ao
+     título: no cartão compartilhado, é a cor que diz de que frente
+     cada um está falando. */
   el.innerHTML=anelSvg(pct,cor,pct+'%',sub)+
-    '<div class="lado">'+titulo+'<br>'+lado+'</div>';
+    '<div class="lado"><b style="color:'+cor+'">'+titulo+'</b><br>'+lado+'</div>';
 }
 
 function cartaoNumero(valor,rotulo,extra,cor){
@@ -1178,6 +1180,6 @@ $('#btConferirRepo').onclick=async ()=>{
   }
 })();
 </script>
-<div id="versaoPagina">painel · versão 2026-08-18a</div>
+<div id="versaoPagina">painel · versão 2026-08-18b</div>
 </body>
 </html>
