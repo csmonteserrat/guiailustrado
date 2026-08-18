@@ -18,14 +18,36 @@
 input[type=text],select{font:inherit;font-size:12.5px;padding:9px 13px;border:none;border-radius:14px;
   background:var(--neutro);color:var(--texto)}
 
-/* anéis de progresso */
-.aneis{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:12px;margin-bottom:12px}
-.anel{background:#fff;border-radius:var(--raio);padding:16px 18px;box-shadow:var(--sombra)}
-.anel .titulo{font-size:12.5px;color:var(--secundario);margin-bottom:10px}
-.anel .corpo{display:flex;align-items:center;gap:18px}
-.anel .lado{font-size:12.5px;line-height:1.9;min-width:0}
-.anel .lado b{font-weight:600}
-.anel svg{flex:none}
+/* ---------- saudação e anéis, no mesmo cartão ----------
+   O disco é um pouco MAIOR que a figura e começa abaixo do queixo:
+   assim ele aparece atrás dos ombros e a cabeça fica por cima da borda
+   de cima. O pé do disco é cortado pelo quadro, o que faz a pessoa
+   parecer apoiada no cartão em vez de flutuando dentro de um círculo.
+   As ilustrações estão todas no mesmo enquadramento, em ilustracoes/,
+   com 344 por 440 pixels. */
+.ola{background:#fff;border-radius:var(--raio);box-shadow:var(--sombra);
+  display:flex;align-items:center;gap:20px;padding:14px 20px;flex-wrap:wrap;margin-bottom:12px}
+.ola .retrato{position:relative;flex:none;overflow:hidden;width:114px;height:138px}
+.ola .disco{position:absolute;left:0;right:0;height:114px;top:41px;border-radius:50%;
+  background:var(--texto)}
+.ola .retrato img{position:absolute;left:50%;bottom:0;transform:translateX(-50%);
+  height:138px;width:auto;display:block}
+.ola .iniciais{position:absolute;left:0;right:0;height:114px;top:41px;border-radius:50%;
+  background:var(--texto);color:#fff;font-size:34px;font-weight:600;
+  display:flex;align-items:center;justify-content:center}
+.ola .quem{min-width:200px}
+.ola .oi{font-size:19px;font-weight:600;line-height:1.2}
+.ola .dizer{font-size:12px;color:var(--secundario);margin-top:4px;line-height:1.5}
+.ola .risco{width:1px;align-self:stretch;background:var(--borda);margin:4px 0}
+.ola .par{display:flex;align-items:center;gap:13px}
+.ola .par .lado{font-size:11.5px;line-height:1.6;color:var(--secundario)}
+.ola .par .lado b{color:var(--texto);font-weight:600}
+.ola .par svg{flex:none}
+
+@media(max-width:820px){
+  .ola{gap:14px;padding:14px}
+  .ola .risco{display:none}
+}
 
 /* números */
 .numeros{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:11px;margin-bottom:12px}
@@ -98,9 +120,20 @@ code{background:var(--neutro);padding:1px 6px;border-radius:6px;font-size:12px}
       <a class="pilula principal" href="index.html">abrir o catálogo</a>
     </div>
 
-    <!-- ================= ANÉIS DE PROGRESSO ================= -->
-    <div class="aneis" id="aneis">
-      <div class="cartao"><div class="sub">carregando a situação atual...</div></div>
+    <!-- ============ SAUDAÇÃO E ANÉIS DE PROGRESSO ============ -->
+    <div class="ola">
+      <div class="retrato">
+        <span class="disco"></span>
+        <img id="olaFoto" alt="" class="oculto">
+        <div class="iniciais oculto" id="olaIniciais"></div>
+      </div>
+      <div class="quem">
+        <div class="oi" id="olaOi">Olá</div>
+        <div class="dizer" id="olaDizer"></div>
+      </div>
+      <div class="risco"></div>
+      <div class="par" id="anel-fotos"><div class="sub">conferindo as fotos...</div></div>
+      <div class="par" id="anel-desc"><div class="sub">lendo o arquivo...</div></div>
     </div>
 
     <!-- ================= NÚMEROS ================= -->
@@ -172,16 +205,7 @@ code{background:var(--neutro);padding:1px 6px;border-radius:6px;font-size:12px}
 
       <div class="barra" style="margin-top:9px">
         <span class="sub">Quem está publicando <b>(obrigatório)</b>:</span>
-        <select id="chaveAutor" style="min-width:250px">
-          <option value="">escolha o seu nome</option>
-          <option>Ana Carolina Oliveira Peres</option>
-          <option>Caio César Borges de Oliveira</option>
-          <option>Ihan Vitor Cardoso</option>
-          <option>Maria Nazaré Gallotti M. Goulart</option>
-          <option>Miguel Cardoso Nora</option>
-          <option>Valeska Maddalozzo Pivatto</option>
-          <option value="__outro">Outro nome...</option>
-        </select>
+        <select id="chaveAutor" style="min-width:250px"></select>
         <input type="text" id="chaveAutorOutro" class="oculto" placeholder="nome e sobrenome"
                style="width:220px" autocomplete="off">
       </div>
@@ -335,8 +359,10 @@ function lerCsv(texto){
    esconde a parte que falta, o que produz o arco preenchido.
    --------------------------------------------------------------------- */
 function anelSvg(pct,cor,texto,sub){
-  const T=112, R=T/2-9, C=2*Math.PI*R;
-  return '<svg viewBox="0 0 '+T+' '+T+'" width="'+T+'" height="'+T+'" role="img" '+
+  /* O desenho continua o mesmo; só é exibido menor, porque agora divide
+     o cartão com a saudação. */
+  const T=112, R=T/2-9, C=2*Math.PI*R, EXIBE=70;
+  return '<svg viewBox="0 0 '+T+' '+T+'" width="'+EXIBE+'" height="'+EXIBE+'" role="img" '+
     'aria-label="'+pct+' por cento '+sub+'">'+
     '<circle cx="'+T/2+'" cy="'+T/2+'" r="'+R+'" fill="none" stroke="var(--borda)" stroke-width="11"/>'+
     '<circle cx="'+T/2+'" cy="'+T/2+'" r="'+R+'" fill="none" stroke="'+cor+'" stroke-width="11" '+
@@ -348,17 +374,13 @@ function anelSvg(pct,cor,texto,sub){
       'fill="var(--secundario)" font-family="inherit">'+sub+'</text></svg>';
 }
 
-/* Esqueleto do cartão, exibido enquanto a contagem não termina. */
-function cartaoAnel(id,titulo,carregando){
-  return '<div class="anel" id="anel-'+id+'"><div class="titulo">'+titulo+'</div>'+
-    '<div class="corpo"><div class="sub">'+carregando+'</div></div></div>';
-}
-
+/* Os dois anéis agora moram dentro do cartão da saudação, então cada um
+   é só o gráfico mais duas linhas de texto ao lado. */
 function desenharAnel(id,titulo,pct,cor,sub,lado){
   const el=document.getElementById('anel-'+id);
   if(!el)return;
-  el.innerHTML='<div class="titulo">'+titulo+'</div>'+
-    '<div class="corpo">'+anelSvg(pct,cor,pct+'%',sub)+'<div class="lado">'+lado+'</div></div>';
+  el.innerHTML=anelSvg(pct,cor,pct+'%',sub)+
+    '<div class="lado">'+titulo+'<br>'+lado+'</div>';
 }
 
 function cartaoNumero(valor,rotulo,extra,cor){
@@ -385,10 +407,8 @@ fetch('produtos.csv').then(r=>{if(!r.ok)throw 0;return r.text()}).then(async t=>
     (inativos?cartaoNumero(inativos,'inativos, fora do catálogo','','var(--secundario)'):'');
 
   /* Os dois anéis mostram o quanto de cada frente já está pronto:
-     as fotos do catálogo e os descritivos. */
-  $('#aneis').innerHTML=
-    cartaoAnel('fotos','Catálogo ilustrado','conferindo as fotos...')+
-    cartaoAnel('desc','Descritivos','lendo o arquivo...');
+     as fotos do catálogo e os descritivos. Eles ficam no cartão da
+     saudação, e são preenchidos por desenharAnel logo abaixo. */
 
   // ---- fotos: testa material por material, em lotes ----
   let com=0;
@@ -401,7 +421,7 @@ fetch('produtos.csv').then(r=>{if(!r.ok)throw 0;return r.text()}).then(async t=>
   while(fila.length)await Promise.all(fila.splice(0,24).map(testar));
   const pct=ativos.length?Math.round(com/ativos.length*100):0;
   desenharAnel('fotos','Catálogo ilustrado',pct,'var(--curacao)','com foto',
-    '<b>'+com+'</b> de '+ativos.length+' materiais<br><b>'+(ativos.length-com)+'</b> fotos a coletar');
+    '<b>'+(ativos.length-com)+'</b> fotos a coletar');
   $('#stImg').textContent=com+' fotos';
   $('#stImg').className='tag '+(pct>=100?'t-vd':'t-lr');
 
@@ -417,12 +437,12 @@ fetch('produtos.csv').then(r=>{if(!r.ok)throw 0;return r.text()}).then(async t=>
     const preenchidos=alvo.filter(p=>((desc[p.codigo]||{}).descritivo||'').trim()).length;
     const pd=alvo.length?Math.round(preenchidos/alvo.length*100):0;
     desenharAnel('desc','Descritivos',pd,'var(--corallite)','preenchidos',
-      '<b>'+preenchidos+'</b> de '+alvo.length+' materiais<br><b>'+(alvo.length-preenchidos)+'</b> descritivos a redigir');
+      '<b>'+(alvo.length-preenchidos)+'</b> descritivos a redigir');
     $('#stDesc').textContent=preenchidos+' de '+alvo.length+' preenchidos';
     $('#stDesc').className='tag '+(preenchidos?(preenchidos===alvo.length?'t-vd':'t-lr'):'t-ci');
   }catch(e){
     desenharAnel('desc','Descritivos',0,'var(--corallite)','preenchidos',
-      'arquivo <span class="mono">descritivos.csv</span> não encontrado');
+      'arquivo não encontrado');
     $('#stDesc').textContent='não encontrado';
   }
 }).catch(()=>{
@@ -946,8 +966,29 @@ $('#btRemoverChave').onclick=()=>{
    é obrigatório. A lista traz os nomes do grupo; "Outro nome" abre um
    campo livre, para quem entrar depois sem precisar alterar a página.
    --------------------------------------------------------------------- */
-const NOMES_DO_GT=[...$('#chaveAutor').options]
-  .map(o=>o.value).filter(v=>v&&v!=='__outro');
+/* =====================================================================
+   O PESSOAL DO GT
+   ---------------------------------------------------------------------
+   Fonte única: daqui saem a lista do seletor, a flexão da saudação e o
+   arquivo da ilustração. Para acrescentar alguém, escreva uma linha.
+     tratamento: 'o' para bem-vindo, 'a' para bem-vinda
+     ilustracao: nome do arquivo em ilustracoes/, sem a extensão.
+                 Deixe vazio enquanto não houver: aparecem as iniciais.
+   ===================================================================== */
+const PESSOAS=[
+  {nome:'Ana Carolina Oliveira Peres',      tratamento:'a', ilustracao:'ana'},
+  {nome:'Caio César Borges de Oliveira',    tratamento:'o', ilustracao:'caio'},
+  {nome:'Ihan Vitor Cardoso',               tratamento:'o', ilustracao:'ihan'},
+  {nome:'Maria Nazaré Gallotti M. Goulart', tratamento:'a', ilustracao:''},
+  {nome:'Miguel Cardoso Nora',              tratamento:'o', ilustracao:''},
+  {nome:'Valeska Maddalozzo Pivatto',       tratamento:'a', ilustracao:''}
+];
+const NOMES_DO_GT=PESSOAS.map(p=>p.nome);
+const fichaDe=nome=>PESSOAS.find(p=>p.nome===nome)||null;
+
+$('#chaveAutor').innerHTML='<option value="">escolha o seu nome</option>'+
+  PESSOAS.map(p=>'<option>'+esc(p.nome)+'</option>').join('')+
+  '<option value="__outro">Outro nome...</option>';
 
 function nomeAtual(){
   const escolhido=$('#chaveAutor').value;
@@ -958,7 +999,99 @@ function nomeAtual(){
 function guardarNome(){
   const n=nomeAtual();
   if(n)localStorage.setItem(CHAVE_AUTOR,n);
+  atualizarSaudacao();
   return n;
+}
+
+/* ---------------------------------------------------------------------
+   A saudação do topo
+   O primeiro nome basta: "Oi, Caio" soa como gente, "Oi, Caio César
+   Borges de Oliveira" soa como repartição. Quem não está na lista do GT
+   recebe a frase que não flexiona, porque não há como saber o
+   tratamento de alguém que acabou de digitar o próprio nome.
+   --------------------------------------------------------------------- */
+function atualizarSaudacao(){
+  const nome=(localStorage.getItem(CHAVE_AUTOR)||'').trim();
+  const oi=$('#olaOi'), foto=$('#olaFoto'), iniciais=$('#olaIniciais');
+
+  if(!nome){
+    oi.textContent='Olá';
+    $('#olaDizer').innerHTML='Escolha o seu nome no cartão <b>Chave de publicação</b>, '+
+      'mais abaixo, para o painel saber quem é você.';
+    foto.classList.add('oculto');
+    iniciais.textContent='?';
+    iniciais.classList.remove('oculto');
+    return;
+  }
+
+  const primeiro=nome.split(' ')[0];
+  const ficha=fichaDe(nome);
+  oi.textContent=ficha
+    ? 'Oi, '+primeiro+'. Bem-vind'+ficha.tratamento+' de volta.'
+    : 'Que bom te ver de volta, '+primeiro;
+
+  if(ficha&&ficha.ilustracao){
+    foto.src='ilustracoes/'+ficha.ilustracao+'.png';
+    foto.alt='';
+    foto.classList.remove('oculto');
+    iniciais.classList.add('oculto');
+    /* Se o arquivo não existir, volta para as iniciais em vez de deixar
+       o ícone de imagem quebrada. */
+    foto.onerror=()=>{foto.classList.add('oculto');iniciais.classList.remove('oculto')};
+  }else{
+    foto.classList.add('oculto');
+    const partes=nome.split(/\s+/).filter(Boolean);
+    iniciais.textContent=((partes[0]||'?')[0]+(partes.length>1?partes[partes.length-1][0]:'')).toUpperCase();
+    iniciais.classList.remove('oculto');
+  }
+  contarUltimaPublicacao(nome);
+}
+
+/* Lê o histórico e diz quando foi a última publicação da pessoa, e se
+   alguém publicou depois dela. É a informação que mais falta ao abrir o
+   painel: se o que está no ar ainda é o que você deixou. */
+async function contarUltimaPublicacao(nome){
+  const alvo=$('#olaDizer');
+  alvo.textContent='';
+  try{
+    const r=await fetch('editor-catalogo/historico.md?t='+Date.now());
+    if(!r.ok)throw 0;
+    const texto=await r.text();
+    const re=/<!--\s*sessao:(\{[\s\S]*?\})\s*-->/g;
+    const sessoes=[];
+    let m;
+    while((m=re.exec(texto))!==null){
+      try{const s=JSON.parse(m[1]); if(s&&s.data)sessoes.push(s)}catch(e){}
+    }
+    if(!sessoes.length)return;
+    sessoes.sort((a,b)=>String(a.data).localeCompare(String(b.data)));
+
+    /* A comparação é pelo primeiro nome, sem acento e sem maiúsculas.
+       O histórico antigo tem "Caio" e "Caio Borges" na mesma pessoa,
+       de quando o nome era digitado à mão; exigir o nome completo
+       faria o painel dizer que ninguém nunca publicou.
+       Se um dia entrarem duas pessoas com o mesmo primeiro nome, isto
+       precisa passar a considerar o sobrenome. */
+    const primeiroDe=t=>normalizar((t||'').trim().split(/\s+/)[0]||'');
+    const eu=primeiroDe(nome);
+    const minhas=sessoes.filter(s=>primeiroDe(s.autor)===eu);
+    if(!minhas.length){
+      alvo.textContent='Você ainda não publicou nenhuma alteração por aqui.';
+      return;
+    }
+    const ultima=minhas[minhas.length-1];
+    const d=new Date(ultima.data);
+    const p=n=>String(n).padStart(2,'0');
+    const quando=p(d.getDate())+'/'+p(d.getMonth()+1)+', às '+p(d.getHours())+'h'+p(d.getMinutes());
+    const depois=sessoes.filter(s=>String(s.data)>String(ultima.data)&&primeiroDe(s.autor)!==eu);
+    const outros=[...new Set(depois.map(s=>(s.autor||'').trim().split(/\s+/)[0]).filter(Boolean))];
+    alvo.innerHTML='Sua última publicação foi em <b>'+esc(quando)+'</b>.'+
+      (outros.length
+        ? '<br>Depois disso, '+esc(outros.join(' e '))+' public'+(outros.length>1?'aram':'ou')+'.'
+        : '<br>Ninguém publicou desde então.');
+  }catch(e){
+    /* Sem histórico legível, a linha simplesmente não aparece. */
+  }
 }
 
 $('#chaveAutor').onchange=()=>{
@@ -1033,6 +1166,7 @@ $('#btConferirRepo').onclick=async ()=>{
       $('#chaveAutorOutro').classList.remove('oculto');
     }
   }
+  atualizarSaudacao();
   if(t){
     $('#chaveToken').value=t;
     selo('conferindo a chave...','t-ci');
@@ -1044,6 +1178,6 @@ $('#btConferirRepo').onclick=async ()=>{
   }
 })();
 </script>
-<div id="versaoPagina">painel · versão 2026-08-16g</div>
+<div id="versaoPagina">painel · versão 2026-08-18a</div>
 </body>
 </html>
