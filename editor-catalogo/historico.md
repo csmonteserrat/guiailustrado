@@ -4,10 +4,23 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 6  
-Última atualização: 13/08/2026, 16:56
+Total de sessões registradas: 7  
+Última atualização: 19/08/2026, 14:35
 
 ---
+
+## 19/08/2026, 14:35 — Caio César Borges de Oliveira
+
+Sessão 7 · 2 alteração(ões) · 528 itens no arquivo após a edição
+
+**Resumo:** 2 inativado
+
+- **[INATIVADO]** `4150647` KIT P/ APARELHO ULTRASSOM DABI ATLANTE PROFI NEO US - COMPLETO
+    - Situação: "SIM" → "NAO"
+- **[INATIVADO]** `4150617` KIT PONTEIRAS (TIPS) ULTRASSOM P/ PROFI NEO US DABI ATLANTE
+    - Situação: "SIM" → "NAO"
+
+<!-- sessao:{"data":"2026-08-19T17:35:50.659Z","autor":"Caio César Borges de Oliveira","total":528,"alteracoes":[{"tipo":"inativado","codigo":"4150647","material":"KIT P/ APARELHO ULTRASSOM DABI ATLANTE PROFI NEO US - COMPLETO","campos":[{"campo":"ativo","de":"SIM","para":"NAO"}]},{"tipo":"inativado","codigo":"4150617","material":"KIT PONTEIRAS (TIPS) ULTRASSOM P/ PROFI NEO US DABI ATLANTE","campos":[{"campo":"ativo","de":"SIM","para":"NAO"}]}]} -->
 
 ## 13/08/2026, 16:56 — Caio Borges
 
@@ -35,7 +48,7 @@ Sessão 5 · 1 alteração(ões) · 528 itens no arquivo após a edição
 **Resumo:** 1 descritivo
 
 - **[DESCRITIVO]** `4151188` ABRITEC ADULTO (COM 2 UNIDADES)
-    - Nome para o pregão: "" → "ABRIDOR DE BOCA TIPO ABRITEC ADULTO"
+    - Nome no descritivo: "" → "ABRIDOR DE BOCA TIPO ABRITEC ADULTO"
     - Descritivo: "" → "Composição: 100% silicone. Possui bordas arredondadas. Medidas: 40 x 30 x 20 mm.
  Indicação: auxiliar na abertura de boca do paciente, proporcionado maior conforto e facilitando o desempenho dos procedimentos odontológicos pelo profissional.
  Autoclavável.
