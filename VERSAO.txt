@@ -1,8 +1,27 @@
 CATÁLOGO ILUSTRADO DE MATERIAIS ODONTOLÓGICOS — PMF
-Versão 2.4 — 16/08/2026
+Versão 2.5 — 20/08/2026
 
 HISTÓRICO
 ---------
+v2.5 — 20/08/2026
+  - 60 materiais que estavam sem tags e sem família foram
+    classificados, e 35 deles ganharam também acesso e tipo, que
+    estavam em branco.
+  - Corrigido um efeito disso que estava no ar: 30 instrumentais do
+    CEO apareciam na Rede básica, porque acesso em branco é lido
+    como TODOS pelo site.
+  - A grafia do subgrupo foi padronizada: ODONTOLOGIA e CEO
+    INSTRUMENTAL, que vinham assim do CELK, passaram a Odontologia e
+    CEO Instrumental. Antes o arquivo tinha as duas grafias, e elas
+    se separavam nos filtros e na impressão.
+  - A família "Instrumental de cera" passou a se chamar "Escultura em
+    cera" e reúne agora também as ceras, e não só os instrumentos.
+  - Famílias novas: Amálgama e Alicates.
+  - Especialidade nova: Ortodontia, nos três alicates.
+  - RESINA FOTOPOLIMERIZAVEL COR A4 ESMALTE ERRADA (4150724) foi
+    inativada: o nome indica erro de cadastro e ela duplica a 4150726.
+  - Tudo isso está registrado no historico.md, na sessão 12.
+
 v2.4 — 16/08/2026
   - No modo dia, o fundo da listagem deixou de ser branco e passou a
     ser #f1f4f9, um cinza levemente azulado. Os cartões continuam
