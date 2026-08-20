@@ -416,7 +416,7 @@
 4150672,PORTA AGULHA MAYO HEGAR COM WIDEA 14CM,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Cirurgia,Instrumental cirúrgico,4150672.jpg,,SIM
 4150839,PORTA AGULHA MAYO HEGAR COM WIDEA 15CM,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Cirurgia,Instrumental cirúrgico,4150839.jpg,,SIM
 4150673,PORTA ALGODAO DE INOX UNIDADE CENTRO DE ESPECIALIDADES ODONTOLOGICAS Emitido por MIGUEL CARDOSO NORA em 20/08/2026 - 10:04 BRT | CELK SAÚDE v3.1.336.1 - CELK SISTEMAS LTDA,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Uso geral,Caixas e recipientes,4150673.jpg,,SIM
-4150840,PORTA AMALGAMA MICRO PEDIATRICO INOX,U - Unidade,14,CEO Instrumental,CEO,Instrumental,"Dentística;Odontopediatria",Instrumental de inserção,4150840.jpg,,SIM
+4150840,PORTA AMALGAMA MICRO PEDIATRICO INOX,U - Unidade,14,CEO Instrumental,CEO,Instrumental,"Dentística;Odontopediatria","Instrumental de inserção;Amálgama",4150840.jpg,,SIM
 4150676,PORTA MATRIZ IVORY Nº 8,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Dentística,"Matrizes, tiras e acabamento",4150676.jpg,,SIM
 4150678,PORTA MATRIZ TOFFLEMIRE,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Dentística,"Matrizes, tiras e acabamento",4150678.jpg,,SIM
 4150680,PORTA RESIDUO,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Uso geral,Caixas e recipientes,4150680.jpg,,SIM
@@ -511,7 +511,7 @@
 4150847,TESOURA METZEMBAUM,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Cirurgia,Instrumental cirúrgico,4150847.jpg,,SIM
 4150848,TESOURA PARA CORTE DE FIO DE AÇO Nº 12,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Cirurgia,Instrumental cirúrgico,4150848.jpg,,SIM
 4150710,TESTE DE VITALIDADE PULPAR SPRAY,U - Unidade,13,Odontologia,TODOS,Consumo,"Endodontia;Diagnóstico",Soluções e medicamentos,4150710.jpg,,SIM
-4150706,TIRAS DE AÇO PARA AMÁLGAMA,U - Unidade,13,Odontologia,TODOS,Consumo,Dentística,"Matrizes, tiras e acabamento",4150706.jpg,,SIM
+4150706,TIRAS DE AÇO PARA AMÁLGAMA,U - Unidade,13,Odontologia,TODOS,Consumo,Dentística,"Matrizes, tiras e acabamento;Amálgama",4150706.jpg,,SIM
 4151159,TIRAS DE LIXA PARA RESINA COMPOSTA (CAIXA COM 100 UNIDADES),CA - Caixa,13,Odontologia,TODOS,Consumo,Dentística,Resinas restauradoras,4151159.jpg,,SIM
 4150705,TIRAS DE LIXA PARA RESINA COMPOSTA (CAIXA COM 150 UNIDADES),CA - Caixa,13,Odontologia,TODOS,Consumo,Dentística,Resinas restauradoras,4150705.jpg,,SIM
 4150704,TIRAS DE POLIÉSTER TRANSPARENTE,U - Unidade,13,Odontologia,TODOS,Consumo,Dentística,"Matrizes, tiras e acabamento",4150704.jpg,,SIM
@@ -548,7 +548,7 @@
 4151219,ESCOVA CIRCULAR DE PELO Nº 29 PARA TORNO,U - Unidade,15,CEO,CEO,Consumo,Prótese,Polimento de prótese,4151219.jpg,,SIM
 4151220,ESPACADOR DIGITAL SORTIDO 25MM CX/4 UNIDADES,U - Unidade,15,CEO,CEO,Consumo,Endodontia,Limas de canal,4151220.jpg,,SIM
 4151221,"FILME PERIAPICAL ADULTO 30,5 X 40,5 MM (CAIXA COM 150)",U - Unidade,15,CEO,CEO,Consumo,Radiologia,Radiologia,4151221.jpg,,SIM
-4151222,MULTILAMINADOS BR PARA POLIMENTO AMALGAMA,U - Unidade,15,CEO,CEO,Consumo,Dentística,Brocas,4151222.jpg,,SIM
+4151222,MULTILAMINADOS BR PARA POLIMENTO AMALGAMA,U - Unidade,15,CEO,CEO,Consumo,Dentística,"Brocas;Amálgama",4151222.jpg,,SIM
 4151223,AFASTADOR FARABEUF ORAL (PAR) (CEO),U - Unidade,14,CEO Instrumental,CEO,Instrumental,Cirurgia,Instrumental cirúrgico,4151223.jpg,,SIM
 4151224,AFASTADOR MINESSOTA,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Cirurgia,Instrumental cirúrgico,4151224.jpg,,SIM
 4151225,ALAVANCAS APICAIS (KIT),U - Unidade,14,CEO Instrumental,CEO,Instrumental,Cirurgia,Alavancas,4151225.jpg,,SIM
@@ -575,7 +575,7 @@
 4151246,PINCA PORTA GRAMPO PARA DIQUE,U - Unidade,14,CEO Instrumental,CEO,Instrumental,"Dentística;Endodontia",Isolamento absoluto,4151246.jpg,,SIM
 4151247,PLACA DE FOSFORO INTRAORAL (ADULTO),U - Unidade,14,CEO Instrumental,CEO,Instrumental,Radiologia,Radiologia,4151247.jpg,,SIM
 4151248,PLACA DE FOSFORO INTRAORAL (INFANTIL),U - Unidade,14,CEO Instrumental,CEO,Instrumental,"Radiologia;Odontopediatria",Radiologia,4151248.jpg,,SIM
-4151249,PORTA AMALGAMA PLASTICO,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Dentística,Instrumental de inserção,4151249.jpg,,SIM
+4151249,PORTA AMALGAMA PLASTICO,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Dentística,"Instrumental de inserção;Amálgama",4151249.jpg,,SIM
 4151250,POTTS CABO T,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Cirurgia,Alavancas,4151250.jpg,,SIM
 4151251,PROTETOR DE TIREOIDE ADULTO COM BORRACHA PLUMB,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Radiologia,Radiologia,4151251.jpg,,SIM
 4151252,SONDA DE NABERS CURVA Nº 2NB,U - Unidade,14,CEO Instrumental,CEO,Instrumental,"Periodontia;Diagnóstico",Exame clínico,4151252.jpg,,SIM
