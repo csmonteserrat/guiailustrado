@@ -46,6 +46,8 @@ h1{font-size:17px;font-weight:600;margin:0}
 .longo .txt.recolhido:after{content:"";position:absolute;left:0;right:0;bottom:0;height:24px;
   background:linear-gradient(transparent,var(--neutro))}
 .longo .ver{font-size:10.5px;color:var(--corn);margin-top:3px;cursor:pointer;display:inline-block}
+.longo .txt.riscado{text-decoration:line-through;color:var(--secundario)}
+.longo .r+.txt{margin-top:1px}
 .vazio{background:#fff;border-radius:16px;box-shadow:var(--sombra);padding:34px 20px;
   text-align:center;color:var(--secundario);font-size:13px}
 .rodape{margin-top:16px;font-size:11px;color:var(--secundario);text-align:center}
@@ -187,11 +189,20 @@ let idLongo=0;
 function campoHtml(c){
   const para=c.para||'', de=c.de||'';
   if(para.length>90||de.length>140){
-    const id='lg'+(++idLongo);
+    /* Texto longo. Antes só o valor novo aparecia, e o anterior sumia:
+       quem consultasse o histórico não tinha como saber o que estava
+       escrito antes. Agora os dois aparecem, o antigo riscado quando é
+       curto o bastante para isso não atrapalhar a leitura. */
+    const bloco=(texto,rotuloBloco,riscar)=>{
+      const id='lg'+(++idLongo);
+      return (rotuloBloco?'<div class="r">'+rotuloBloco+'</div>':'')+
+        '<div class="txt recolhido'+(riscar?' riscado':'')+'" id="'+id+'">'+esc(texto)+'</div>'+
+        '<span class="ver" data-ver="'+id+'">ver texto completo</span>';
+    };
     return '<div class="longo"><div class="r">'+esc(rotulo(c.campo))+
       (de?' · texto substituído':'')+'</div>'+
-      '<div class="txt recolhido" id="'+id+'">'+esc(para||de)+'</div>'+
-      '<span class="ver" data-ver="'+id+'">ver texto completo</span></div>';
+      (de?bloco(de,'antes',de.length<=200):'')+
+      bloco(para||'(vazio)',de?'depois':'',false)+'</div>';
   }
   return '<div class="campo">'+esc(rotulo(c.campo))+': '+
     '<span class="de">'+esc(de||'vazio')+'</span> → '+
@@ -225,6 +236,7 @@ function desenharSessoes(){
       '<div class="cabSessao" data-ses="'+n+'">'+
         '<b>Sessão '+n+'</b>'+
         '<span class="sub">'+esc(dataLegivel(s.data))+(s.autor?' · '+esc(s.autor):'')+'</span>'+
+        (s.origem?'<span class="tag t-vd" style="font-size:9.5px">'+esc(s.origem)+'</span>':'')+
         '<span class="espaco sub">'+alt.length+' alteração(ões)'+
           (s.total?' · '+s.total+' itens':'')+'</span>'+
         '<span class="sub" style="font-size:10px">'+(ab?'▲':'▼')+'</span>'+
@@ -289,6 +301,6 @@ function desenhar(){
 
 carregar();
 </script>
-<div id="versaoPagina">histórico · versão 2026-08-16c</div>
+<div id="versaoPagina">histórico · versão 2026-08-20a</div>
 </body>
 </html>

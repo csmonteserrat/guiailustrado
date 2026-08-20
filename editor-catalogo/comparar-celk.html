@@ -211,7 +211,19 @@ function analisarPagina(itens,estado){
     }else if(estado.registros.length&&estado.colunaGrupo){
       const resto=l.cels.filter(c=>c.x<estado.colunaGrupo-10).map(c=>c.str)
         .join(' ').replace(/\s+/g,' ').trim();
-      if(!resto||/^(CENTRAL DE ABASTECIMENTO|Página|Unidade:|Ordenação:|Produto)/i.test(resto))return;
+      if(!resto)return;
+
+      /* O rodapé da página nunca é continuação de descrição. Ele era
+         reconhecido só pelo nome da unidade, e a lista tinha apenas a
+         Central de Abastecimento: nos relatórios do CEO o rodapé começa
+         com "CENTRO DE ESPECIALIDADES ODONTOLOGICAS" e era colado ao
+         nome do último produto da página.
+         Agora o reconhecimento é pelo que existe em todo rodapé do CELK,
+         em qualquer unidade: o "Emitido por" e a assinatura do sistema.
+         O teste é na linha inteira, não só no pedaço à esquerda, porque
+         a assinatura fica do lado direito. */
+      if(/Emitido por|CELK SISTEMAS|CELK SA[ÚU]DE/i.test(txt))return;
+      if(/^(CENTRAL DE ABASTECIMENTO|CENTRO DE ESPECIALIDADES|SECRETARIA MUNICIPAL|SUS -|Relatorio Listagem|Grupo Produto:|P[áa]gina|Unidade:|Ordena[çc][ãa]o:|Produto)/i.test(resto))return;
       const u=estado.registros[estado.registros.length-1];
       /* Palavra partida no fim da linha: junta sem espaço, mantendo o hífen. */
       u.material=(/-$/.test(u.material)?u.material+resto:u.material+' '+resto)
@@ -622,6 +634,6 @@ function gravarImportacao(sel,origem){
     if(ev.target===fundo||(ev.target.dataset&&ev.target.dataset.fechar))fundo.remove()});
 }
 </script>
-<div id="versaoPagina">comparador CELK · versão 2026-08-16b</div>
+<div id="versaoPagina">comparador CELK · versão 2026-08-20a</div>
 </body>
 </html>

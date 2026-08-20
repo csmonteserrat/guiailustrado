@@ -156,6 +156,7 @@ select{appearance:none;background-image:none;padding-right:13px}
 .txtHist.recolhido:after{content:"";position:absolute;left:0;right:0;bottom:0;height:24px;
   background:linear-gradient(transparent,#fff)}
 .longoHist .verHist{font-size:10.5px;color:var(--corn);margin-top:3px;cursor:pointer;display:inline-block}
+.longoHist .txtHist.riscado{text-decoration:line-through;color:var(--secundario)}
 .linkCompleto{display:inline-block;font-size:11.5px;padding:9px 18px;border-radius:20px;
   background:#fff;box-shadow:var(--sombra);color:var(--corn);text-decoration:none}
 
@@ -398,6 +399,18 @@ function aplicarImportacaoCelk(){
   const acharItem=cod=>ITENS.find(i=>(i.codigo||'').trim()===String(cod).trim());
   let feitas=0, ignoradas=0;
 
+  /* O relatório do CELK escreve o subgrupo todo em maiúsculas. Se o
+     catálogo já usa outra grafia para o mesmo subgrupo, vale a que já
+     está lá: senão o arquivo passa a ter "Odontologia" e "ODONTOLOGIA"
+     como se fossem dois subgrupos diferentes, e eles se separam nos
+     filtros e na impressão. */
+  const grafiaDoCatalogo=nome=>{
+    const alvo=normalizar((nome||'').trim());
+    if(!alvo)return nome||'';
+    const jaExiste=ITENS.find(i=>normalizar((i.subgrupo||'').trim())===alvo&&(i.subgrupo||'').trim());
+    return jaExiste?jaExiste.subgrupo.trim():(nome||'').trim();
+  };
+
   pacote.alteracoes.forEach(a=>{
     const it=acharItem(a.codigo);
     if(a.tipo==='novo'){
@@ -408,7 +421,7 @@ function aplicarImportacaoCelk(){
       novo.material=(a.celk&&a.celk.material)||a.material||'';
       novo.unidade=(a.celk&&a.celk.unidade)||'';
       novo.grupo=(a.celk&&a.celk.grupo)||'';
-      novo.subgrupo=(a.celk&&a.celk.subgrupo)||'';
+      novo.subgrupo=grafiaDoCatalogo((a.celk&&a.celk.subgrupo)||'');
       /* Acesso e tipo saem do padrão dos demais itens do mesmo subgrupo. */
       const padrao=padraoDoSubgrupo(novo.subgrupo);
       if(padrao){if(padrao.acesso)novo.acesso=padrao.acesso;if(padrao.tipo)novo.tipo=padrao.tipo}
@@ -424,7 +437,7 @@ function aplicarImportacaoCelk(){
     else if(a.tipo==='unidade'){it.unidade=a.para;feitas++}
     else if(a.tipo==='subgrupo'){
       const p=separarGrupo(a.para);
-      it.grupo=p.grupo;it.subgrupo=p.subgrupo;
+      it.grupo=p.grupo;it.subgrupo=grafiaDoCatalogo(p.subgrupo);
       const padrao=padraoDoSubgrupo(p.subgrupo);
       if(padrao){if(padrao.acesso)it.acesso=padrao.acesso;if(padrao.tipo)it.tipo=padrao.tipo}
       feitas++;
@@ -624,12 +637,16 @@ function subgruposDisponiveis(){
    se um subgrupo novo for criado, o editor aprende sozinho o padrão.
    Os campos continuam editáveis: isto é preenchimento, não travamento.
    --------------------------------------------------------------------- */
+/* A grafia do subgrupo muda entre o catálogo e o CELK: o relatório
+   escreve ODONTOLOGIA e o arquivo, Odontologia. Comparar letra por
+   letra fazia o padrão não ser encontrado, e o item novo entrava sem
+   acesso e sem tipo. */
 function padraoDoSubgrupo(subgrupo){
-  const alvo=(subgrupo||'').trim();
+  const alvo=normalizar((subgrupo||'').trim());
   if(!alvo)return null;
   const conta={acesso:{},tipo:{}};
   ITENS.forEach(i=>{
-    if((i.subgrupo||'').trim()!==alvo)return;
+    if(normalizar((i.subgrupo||'').trim())!==alvo)return;
     ['acesso','tipo'].forEach(c=>{
       const v=(i[c]||'').trim();
       if(v)conta[c][v]=(conta[c][v]||0)+1;
@@ -1192,6 +1209,12 @@ function sessaoAtual(){
   return {
     data:new Date().toISOString(),
     autor:(localStorage.getItem('editor-autor')||'').trim(),
+    /* De onde vieram as alterações. Vazio quer dizer que foram feitas à
+       mão, item por item. Quando vêm do comparador, guarda o relatório
+       do CELK, quem o emitiu e quando — sem isso o histórico registra
+       apenas quem publicou, e some a informação de que a alteração
+       veio do sistema da prefeitura. */
+    origem:ORIGEM_SESSAO||'',
     total:ITENS.length,
     /* O histórico é único: registra alterações do catálogo e dos descritivos
        na mesma sessão, cada uma identificada pelo seu tipo. */
@@ -1224,6 +1247,10 @@ function blocoTexto(s,numero){
   L.push('');
   L.push('Sessão '+numero+' · '+s.alteracoes.length+' alteração(ões) · '+s.total+' itens no arquivo após a edição');
   L.push('');
+  if(s.origem){
+    L.push('**Origem:** '+s.origem+'.');
+    L.push('');
+  }
   if(!s.alteracoes.length){
     L.push('_Nenhuma alteração registrada nesta sessão._');
   }else{
@@ -1313,11 +1340,19 @@ let contadorTexto=0;
 function campoHistorico(c){
   const para=c.para||'', de=c.de||'';
   if(para.length>90||de.length>140){
-    const id='hx'+(++contadorTexto);
+    /* Texto longo: os dois valores aparecem, o anterior riscado quando
+       é curto o bastante para isso não atrapalhar a leitura. Antes só o
+       valor novo era exibido, e o anterior se perdia. */
+    const bloco=(texto,rotuloBloco,riscar)=>{
+      const id='hx'+(++contadorTexto);
+      return (rotuloBloco?'<div class="rot">'+rotuloBloco+'</div>':'')+
+        '<div class="txtHist recolhido'+(riscar?' riscado':'')+'" id="'+id+'">'+escapar(texto)+'</div>'+
+        '<span class="verHist" data-ver="'+id+'">ver texto completo</span>';
+    };
     return '<div class="longoHist"><div class="rot">'+escapar(rotulo(c.campo))+
       (de?' · texto substituído':'')+'</div>'+
-      '<div class="txtHist recolhido" id="'+id+'">'+escapar(para||de)+'</div>'+
-      '<span class="verHist" data-ver="'+id+'">ver texto completo</span></div>';
+      (de?bloco(de,'antes',de.length<=200):'')+
+      bloco(para||'(vazio)',de?'depois':'',false)+'</div>';
   }
   return '<div class="campoHist">'+escapar(rotulo(c.campo))+': '+
     '<span class="de">'+escapar(de||'vazio')+'</span> → '+
@@ -1345,8 +1380,9 @@ function marcoHistorico(s,numero,pendente){
     '<div class="barra" style="gap:9px;align-items:baseline">'+
       '<b style="font-size:12.5px">'+(pendente?'Sessão atual':'Sessão '+numero)+'</b>'+
       '<span class="sub" style="font-size:11px">'+
-        (pendente?'ainda não baixada':escapar(dataLegivel(s.data))+(s.autor?' · '+escapar(s.autor):''))+
+        (pendente?'ainda não publicada':escapar(dataLegivel(s.data))+(s.autor?' · '+escapar(s.autor):''))+
       '</span>'+
+      (s.origem?'<span class="tag t-vd" style="font-size:9.5px">'+escapar(s.origem)+'</span>':'')+
       '<span class="espaco sub" style="font-size:10.5px">'+alt.length+' alteração(ões)</span></div>'+
     alt.map(alteracaoHistorico).join('')+
   '</div>';
@@ -2320,7 +2356,7 @@ window.addEventListener('beforeunload',e=>{
   if(mudancas().length||mudancasDescritivo().length){e.preventDefault();e.returnValue=''}
 });
 </script>
-<div id="versaoPagina">editor · versão 2026-08-16g</div>
+<div id="versaoPagina">editor · versão 2026-08-20a</div>
 </div>
 </div>
 </body>
