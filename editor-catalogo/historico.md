@@ -4,10 +4,21 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 9  
-Última atualização: 20/08/2026, 10:38
+Total de sessões registradas: 10  
+Última atualização: 20/08/2026, 11:05
 
 ---
+
+## 20/08/2026, 11:05 — Caio César Borges de Oliveira
+
+Sessão 10 · 1 alteração(ões) · 589 itens no arquivo após a edição
+
+**Resumo:** 1 editado
+
+- **[EDITADO]** `4150595` BROCA ALTA ROTAÇÃO DIAMANTADA CILINDRICA Nº 1092
+    - Material: "BROCA ALTA ROTAÇÃO DIAMANTADA CILINDRICA Nº 1092 CENTRO DE ESPECIALIDADES ODONTOLOGICAS Emitido por MIGUEL CARDOSO NORA em 20/08/2026 - 10:04 BRT | CELK SAÚDE v3.1.336.1 - CELK SISTEMAS LTDA" → "BROCA ALTA ROTAÇÃO DIAMANTADA CILINDRICA Nº 1092"
+
+<!-- sessao:{"data":"2026-08-20T14:05:51.437Z","autor":"Caio César Borges de Oliveira","total":589,"alteracoes":[{"tipo":"editado","codigo":"4150595","material":"BROCA ALTA ROTAÇÃO DIAMANTADA CILINDRICA Nº 1092","campos":[{"campo":"material","de":"BROCA ALTA ROTAÇÃO DIAMANTADA CILINDRICA Nº 1092 CENTRO DE ESPECIALIDADES ODONTOLOGICAS Emitido por MIGUEL CARDOSO NORA em 20/08/2026 - 10:04 BRT | CELK SAÚDE v3.1.336.1 - CELK SISTEMAS LTDA","para":"BROCA ALTA ROTAÇÃO DIAMANTADA CILINDRICA Nº 1092"}]}]} -->
 
 ## 20/08/2026, 10:38 — Caio César Borges de Oliveira
 
