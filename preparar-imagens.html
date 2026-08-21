@@ -609,6 +609,12 @@ $('#publicar').onclick=async()=>{
   const itens=fila.filter(f=>f.codigo);
   if(!itens.length)return;
 
+  if(!Publicar.autor()){
+    alert('Antes de publicar, escolha o seu nome no painel de administração, no cartão '+
+          '"Chave de publicação".\n\nÉ ele que identifica quem enviou cada foto no histórico.');
+    return;
+  }
+
   const jaExistem=itens.filter(i=>COM_FOTO.has(i.codigo)).length;
   if(!confirm('Publicar '+itens.length+' foto(s) na pasta imagens do repositório?'+
               (jaExistem?'\n\n'+jaExistem+' delas substituem fotos que já estão publicadas. '+
@@ -627,8 +633,8 @@ $('#publicar').onclick=async()=>{
                     ' de '+itens.length+').','info');
     try{
       const bytes=new Uint8Array(await item.blob.arrayBuffer());
-      let sha=null;
-      try{const s=await Publicar.situacao(caminho);sha=s.existe?s.sha:null}catch(e){}
+      let sha=null,substituiu=false;
+      try{const s=await Publicar.situacao(caminho);sha=s.existe?s.sha:null;substituiu=s.existe}catch(e){}
       let r;
       try{
         r=await Publicar.enviar({caminho:caminho,bytes:bytes,sha:sha,
@@ -641,10 +647,41 @@ $('#publicar').onclick=async()=>{
         r=await Publicar.enviar({caminho:caminho,bytes:bytes,sha:s2.existe?s2.sha:null,
               mensagem:Publicar.mensagem('Imagens',caminho)});
       }
-      enviados.push({codigo:item.codigo,caminho:caminho,conferido:r.conferido,id:item.id});
+      enviados.push({codigo:item.codigo,caminho:caminho,conferido:r.conferido,id:item.id,substituiu});
       COM_FOTO.add(item.codigo);
     }catch(e){
       falhas.push({codigo:item.codigo,motivo:e.message||'erro no envio'});
+    }
+  }
+
+  /* ---------------------------------------------------------------
+     Registro no histórico
+     Uma linha por foto, dizendo se ela entrou ou substituiu a que já
+     existia. O histórico é o lugar onde se descobre por que um item
+     está como está, e a foto faz parte disso.
+     Vai depois das fotos: se o registro falhar, as fotos já estão no
+     ar, e o aviso diz o que aconteceu.
+     --------------------------------------------------------------- */
+  let avisoHistorico='';
+  if(enviados.length){
+    try{
+      const sessao={
+        data:new Date().toISOString(),
+        autor:Publicar.autor(),
+        origem:'',
+        alteracoes:enviados.map(e=>({
+          tipo:'imagem',
+          codigo:e.codigo,
+          material:(PRODUTOS.find(p=>p.codigo===e.codigo)||{}).material||'',
+          resumo:(e.substituiu?'foto substituída':'foto adicionada')+' · '+e.caminho
+        }))
+      };
+      const h=await Publicar.historicoCom(sessao);
+      await Publicar.enviar({caminho:h.caminho,texto:h.texto,sha:h.sha,
+        mensagem:Publicar.mensagem('Imagens','historico.md',enviados.length,'foto')});
+    }catch(e){
+      avisoHistorico='<br>As fotos foram publicadas, mas <b>não consegui registrar no histórico</b>: '+
+        escapar(e.message||'')+' Publique uma foto de novo mais tarde para o registro entrar.';
     }
   }
 
@@ -663,16 +700,18 @@ $('#publicar').onclick=async()=>{
       (falhas.length?'<br><b>'+falhas.length+' não foi(ram) enviada(s)</b> e continuam na fila:<br>'+
         falhas.map(f=>escapar(f.codigo+' — '+f.motivo)).join('<br>'):'')+
       (semConferir.length?'<br><b>Confira no GitHub:</b> o conteúdo gravado de '+
-        semConferir.map(e=>escapar(e.caminho)).join(', ')+' não confere com o que foi enviado.':''),
+        semConferir.map(e=>escapar(e.caminho)).join(', ')+' não confere com o que foi enviado.':'')+
+      avisoHistorico,
       'erro');
   }else{
-    avisoPublicacao('<b>'+enviados.length+' foto(s) publicada(s)</b>, conferida(s) byte a byte e já '+
-      'nomeada(s) pelo código. O site republica sozinho em cerca de um minuto. '+
-      'Pressione Ctrl+Shift+R ao conferir, para o navegador não mostrar a foto antiga da memória.','ok');
+    avisoPublicacao('<b>'+enviados.length+' foto(s) publicada(s)</b>, conferida(s) byte a byte, já '+
+      'nomeada(s) pelo código e registrada(s) no histórico. O site republica sozinho em cerca de um '+
+      'minuto. Pressione Ctrl+Shift+R ao conferir, para o navegador não mostrar a foto antiga da '+
+      'memória.'+avisoHistorico,avisoHistorico?'erro':'ok');
   }
 };
 </script>
-<div id="versaoPagina">preparar imagens · versão 2026-08-16d</div>
+<div id="versaoPagina">preparar imagens · versão 2026-08-20a</div>
 </div>
 </div>
 </body>

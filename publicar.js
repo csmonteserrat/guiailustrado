@@ -25,7 +25,8 @@
 
 /* Onde o catálogo mora. Se o repositório for transferido para uma
    organização, basta trocar o dono aqui. */
-var CFG={dono:'csmonteserrat',nome:'guiailustrado',ramo:'main'};
+var CFG={dono:'csmonteserrat',nome:'guiailustrado',ramo:'main',
+         caminhoHistorico:'editor-catalogo/historico.md'};
 
 var API='https://api.github.com';
 var CHAVE_TOKEN='gh-token';
@@ -283,8 +284,121 @@ function configurar(novo){
   if(novo&&novo.ramo)CFG.ramo=novo.ramo;
 }
 
+/* =====================================================================
+   HISTÓRICO
+   ---------------------------------------------------------------------
+   Ler, juntar e escrever o editor-catalogo/historico.md. Estava só
+   dentro do editor; passou para cá quando o preparador de imagens
+   também precisou registrar o que publica. Uma implementação só evita
+   que os dois gravem o arquivo em formatos diferentes.
+
+   O arquivo tem duas camadas: o texto em markdown, legível no GitHub, e
+   um comentário HTML ao fim de cada sessão com os dados exatos, que é o
+   que as páginas leem de volta.
+   ===================================================================== */
+var TIPOS_HIST={novo:'novo',editado:'editado',inativado:'inativado',reativado:'reativado',
+                excluido:'excluído',descritivo:'descritivo',imagem:'foto'};
+var ROTULOS_HIST={codigo:'Código',material:'Material',unidade:'Unidade de pedido',grupo:'Grupo',
+  subgrupo:'Subgrupo',acesso:'Acesso',tipo:'Tipo',especialidade:'Tags',familia:'Família',
+  nome_descritivo:'Nome no descritivo',nome_pregao:'Nome no descritivo',descritivo:'Descritivo',
+  unidade_compra:'Unidade de compra',imagem:'Arquivo da imagem',observacao:'Observação',
+  ativo:'Situação',foto:'Foto'};
+function rotuloHist(c){return ROTULOS_HIST[c]||c}
+function nomeTipo(t){return TIPOS_HIST[t]||t}
+
+function dataLegivelHist(iso){
+  try{return new Date(iso).toLocaleString('pt-BR',{dateStyle:'short',timeStyle:'short'})}
+  catch(e){return iso}
+}
+
+function lerHistorico(texto){
+  var blocos=[],re=/<!--\s*sessao:(\{[\s\S]*?\})\s*-->/g,m;
+  while((m=re.exec(texto||''))!==null){
+    try{blocos.push(JSON.parse(m[1]))}catch(e){}
+  }
+  blocos.sort(function(a,b){return String(a.data||'').localeCompare(String(b.data||''))});
+  return blocos;
+}
+
+function blocoHistorico(s,numero){
+  var L=[];
+  L.push('## '+dataLegivelHist(s.data)+(s.autor?' — '+s.autor:''));
+  L.push('');
+  L.push('Sessão '+numero+' · '+(s.alteracoes||[]).length+' alteração(ões)'+
+         (s.total?' · '+s.total+' itens no arquivo após a edição':''));
+  L.push('');
+  if(s.origem){L.push('**Origem:** '+s.origem+'.');L.push('')}
+  if(!s.alteracoes||!s.alteracoes.length){
+    L.push('_Nenhuma alteração registrada nesta sessão._');
+  }else{
+    var cont={};
+    s.alteracoes.forEach(function(a){cont[a.tipo]=(cont[a.tipo]||0)+1});
+    L.push('**Resumo:** '+Object.keys(cont).map(function(t){return cont[t]+' '+nomeTipo(t)}).join(' · '));
+    L.push('');
+    s.alteracoes.forEach(function(a){
+      L.push('- **['+nomeTipo(a.tipo).toUpperCase()+']** `'+a.codigo+'` '+(a.material||''));
+      if(a.resumo)L.push('    - '+a.resumo);
+      if(a.campos&&a.campos.length)
+        a.campos.forEach(function(c){
+          L.push('    - '+rotuloHist(c.campo)+': "'+(c.de||'')+'" → "'+(c.para||'')+'"')});
+      else if(a.dados)
+        Object.keys(a.dados).forEach(function(c){L.push('    - '+rotuloHist(c)+': '+a.dados[c])});
+    });
+  }
+  L.push('');
+  L.push('<!-- sessao:'+JSON.stringify(s)+' -->');
+  L.push('');
+  return L.join('\n');
+}
+
+function gerarHistorico(todas){
+  var L=[];
+  L.push('# Histórico de alterações do catálogo');
+  L.push('');
+  L.push('Registro automático das edições feitas no `produtos.csv` pelo editor do catálogo.');
+  L.push('As sessões aparecem da mais recente para a mais antiga.');
+  L.push('Não edite este arquivo à mão: ele é lido e reescrito pelo editor.');
+  L.push('');
+  L.push('Total de sessões registradas: '+todas.length+'  ');
+  L.push('Última atualização: '+dataLegivelHist(todas[todas.length-1].data));
+  L.push('');
+  L.push('---');
+  L.push('');
+  todas.slice().reverse().forEach(function(s,i){L.push(blocoHistorico(s,todas.length-i))});
+  return L.join('\n');
+}
+
+/* Junta o histórico que está no repositório com as sessões locais mais
+   a nova. Sessões repetidas, com a mesma data e o mesmo autor, entram
+   uma vez só. */
+function mesclarHistorico(textoRemoto,locais,nova){
+  var mapa=new Map();
+  lerHistorico(textoRemoto).concat(locais||[]).concat(nova?[nova]:[]).forEach(function(s){
+    if(!s)return;
+    var k=(s.data||'')+'|'+(s.autor||'');
+    if(!mapa.has(k))mapa.set(k,s);
+  });
+  var todas=[...mapa.values()].sort(function(a,b){
+    return String(a.data||'').localeCompare(String(b.data||''))});
+  return {texto:gerarHistorico(todas),sessoes:todas.length};
+}
+
+/* Lê o histórico publicado, acrescenta a sessão e devolve o arquivo
+   pronto para enviar, junto com o sha da versão que serviu de base. */
+async function historicoCom(sessao){
+  var r=await obterTexto(CFG.caminhoHistorico);
+  var m=mesclarHistorico(r.texto,[],sessao);
+  return {caminho:CFG.caminhoHistorico,texto:m.texto,sha:r.sha,sessoes:m.sessoes};
+}
+
 global.Publicar={
   cfg:CFG,
+  lerHistorico:lerHistorico,
+  gerarHistorico:gerarHistorico,
+  blocoHistorico:blocoHistorico,
+  mesclarHistorico:mesclarHistorico,
+  historicoCom:historicoCom,
+  dataLegivelHist:dataLegivelHist,
   configurar:configurar,
   temChave:temChave,
   autor:autor,

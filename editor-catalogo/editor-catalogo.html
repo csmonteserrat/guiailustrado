@@ -1173,19 +1173,11 @@ async function carregarHistorico(){
   }
 }
 
+/* A leitura, a junção e a escrita do historico.md moram no publicar.js,
+   compartilhadas com o preparador de imagens: se cada página tivesse a
+   sua, as duas gravariam o arquivo em formatos diferentes. */
 function lerHistorico(texto){
-  const blocos=[];
-  const re=/<!--\s*sessao:(\{[\s\S]*?\})\s*-->/g;
-  let m;
-  while((m=re.exec(texto))!==null){
-    try{blocos.push(JSON.parse(m[1]))}catch(e){}
-  }
-  /* O arquivo é gravado com a sessão mais recente no topo, mas aqui a lista
-     é mantida da mais antiga para a mais nova, que é a ordem em que as
-     sessões são acrescentadas. Ordenar pela data evita depender da ordem
-     do arquivo e corrige históricos que tenham sido gravados fora de ordem. */
-  blocos.sort((a,b)=>String(a.data||'').localeCompare(String(b.data||'')));
-  return blocos;
+  return Publicar.lerHistorico(texto);
 }
 
 function importarHistorico(){
@@ -1240,54 +1232,10 @@ function dataLegivel(iso){
   catch(e){return iso}
 }
 
-/* ---------- escrita do arquivo de histórico ---------- */
-function blocoTexto(s,numero){
-  const L=[];
-  L.push('## '+dataLegivel(s.data)+(s.autor?' — '+s.autor:''));
-  L.push('');
-  L.push('Sessão '+numero+' · '+s.alteracoes.length+' alteração(ões) · '+s.total+' itens no arquivo após a edição');
-  L.push('');
-  if(s.origem){
-    L.push('**Origem:** '+s.origem+'.');
-    L.push('');
-  }
-  if(!s.alteracoes.length){
-    L.push('_Nenhuma alteração registrada nesta sessão._');
-  }else{
-    const contagem={};
-    s.alteracoes.forEach(a=>contagem[a.tipo]=(contagem[a.tipo]||0)+1);
-    L.push('**Resumo:** '+Object.keys(contagem).map(t=>contagem[t]+' '+NOMES_TIPO[t][0]).join(' · '));
-    L.push('');
-    s.alteracoes.forEach(a=>{
-      L.push('- **['+NOMES_TIPO[a.tipo][0].toUpperCase()+']** `'+a.codigo+'` '+a.material);
-      if(a.campos&&a.campos.length)
-        a.campos.forEach(c=>L.push('    - '+rotulo(c.campo)+': "'+(c.de||'')+'" → "'+(c.para||'')+'"'));
-      else if(a.dados)
-        Object.keys(a.dados).forEach(c=>L.push('    - '+rotulo(c)+': '+a.dados[c]));
-    });
-  }
-  L.push('');
-  L.push('<!-- sessao:'+JSON.stringify(s)+' -->');
-  L.push('');
-  return L.join('\n');
-}
+/* A escrita do historico.md mora no publicar.js. */
 
 function gerarHistorico(){
-  const todas=HISTORICO.concat([sessaoAtual()]);
-  const L=[];
-  L.push('# Histórico de alterações do catálogo');
-  L.push('');
-  L.push('Registro automático das edições feitas no `produtos.csv` pelo editor do catálogo.');
-  L.push('As sessões aparecem da mais recente para a mais antiga.');
-  L.push('Não edite este arquivo à mão: ele é lido e reescrito pelo editor.');
-  L.push('');
-  L.push('Total de sessões registradas: '+todas.length+'  ');
-  L.push('Última atualização: '+dataLegivel(todas[todas.length-1].data));
-  L.push('');
-  L.push('---');
-  L.push('');
-  todas.slice().reverse().forEach((s,i)=>L.push(blocoTexto(s,todas.length-i)));
-  return L.join('\n');
+  return Publicar.gerarHistorico(HISTORICO.concat([sessaoAtual()]));
 }
 
 /* ---------- validação ---------- */
@@ -1459,7 +1407,8 @@ document.addEventListener('click',e=>{
    ===================================================================== */
 const NOMES_TIPO={novo:['novo','t-vd'],editado:['editado','t-az'],inativado:['inativado','t-ci'],
                   descritivo:['descritivo','t-lr'],
-                  reativado:['reativado','t-vd'],excluido:['excluído','t-lr']};
+                  reativado:['reativado','t-vd'],excluido:['excluído','t-lr'],
+                  imagem:['foto','t-lr']};
 
 /* =====================================================================
    DESFAZER UMA ALTERAÇÃO NA CONFERÊNCIA
@@ -1924,32 +1873,13 @@ function mesclarDescritivos(textoRemoto,decisoes){
    juntadas e reordenadas por data. Sessões iguais não se repetem.
    --------------------------------------------------------------------- */
 function gerarHistoricoDe(todas){
-  const L=[];
-  L.push('# Histórico de alterações do catálogo');
-  L.push('');
-  L.push('Registro automático das edições feitas no `produtos.csv` pelo editor do catálogo.');
-  L.push('As sessões aparecem da mais recente para a mais antiga.');
-  L.push('Não edite este arquivo à mão: ele é lido e reescrito pelo editor.');
-  L.push('');
-  L.push('Total de sessões registradas: '+todas.length+'  ');
-  L.push('Última atualização: '+dataLegivel(todas[todas.length-1].data));
-  L.push('');
-  L.push('---');
-  L.push('');
-  todas.slice().reverse().forEach((s,i)=>L.push(blocoTexto(s,todas.length-i)));
-  return L.join('\n');
+  return Publicar.gerarHistorico(todas);
 }
 
 function mesclarHistorico(textoRemoto,registroDaSessao){
-  const remotas=lerHistorico(textoRemoto||'');
-  const mapa=new Map();
-  remotas.concat(HISTORICO).concat([registroDaSessao]).forEach(s=>{
-    if(!s)return;
-    const k=(s.data||'')+'|'+(s.autor||'');
-    if(!mapa.has(k))mapa.set(k,s);
-  });
-  const todas=[...mapa.values()].sort((a,b)=>String(a.data||'').localeCompare(String(b.data||'')));
-  return {texto:gerarHistoricoDe(todas),sessoes:todas.length,novas:todas.length-remotas.length};
+  const m=Publicar.mesclarHistorico(textoRemoto,HISTORICO,registroDaSessao);
+  return {texto:m.texto,sessoes:m.sessoes,
+          novas:m.sessoes-Publicar.lerHistorico(textoRemoto||'').length};
 }
 
 /* ---------------------------------------------------------------------
@@ -2356,7 +2286,7 @@ window.addEventListener('beforeunload',e=>{
   if(mudancas().length||mudancasDescritivo().length){e.preventDefault();e.returnValue=''}
 });
 </script>
-<div id="versaoPagina">editor · versão 2026-08-20a</div>
+<div id="versaoPagina">editor · versão 2026-08-20b</div>
 </div>
 </div>
 </body>

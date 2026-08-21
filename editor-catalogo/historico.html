@@ -112,7 +112,8 @@ const TIPOS={
   inativado:['inativado','var(--secundario)','var(--neutro)'],
   reativado:['reativado','var(--curacao)','var(--curacao-suave)'],
   excluido:['excluído','var(--sawtooth)','var(--sawtooth-suave)'],
-  descritivo:['descritivo','var(--corallite)','var(--corallite-suave)']
+  descritivo:['descritivo','var(--corallite)','var(--corallite-suave)'],
+  imagem:['foto','var(--sawtooth)','var(--sawtooth-suave)']
 };
 const ROTULOS={codigo:'Código',material:'Material',unidade:'Unidade de pedido',grupo:'Grupo',
   subgrupo:'Subgrupo',acesso:'Acesso',tipo:'Tipo',especialidade:'Tags',familia:'Família',
@@ -170,7 +171,7 @@ $('#btRecarregar').onclick=carregar;
 
 function montarFiltros(){
   const opcoes=[['todas','Todas as sessões'],['descritivo','Descritivos'],['editado','Editados'],
-    ['excluido','Excluídos'],['material','Por material']];
+    ['imagem','Fotos'],['excluido','Excluídos'],['material','Por material']];
   $('#filtros').innerHTML=
     opcoes.map(([k,t])=>'<button class="pilula" data-f="'+k+'" aria-pressed="'+(filtro===k)+'">'+t+'</button>').join('')+
     '<span class="espaco barra">'+
@@ -211,9 +212,13 @@ function campoHtml(c){
 
 function alteracaoHtml(a){
   const [nome,cor,fundo]=dadosTipo(a.tipo);
-  const campos=(a.campos&&a.campos.length)
-    ? a.campos.map(campoHtml).join('')
-    : '<div class="campo">'+(a.tipo==='novo'?'item acrescentado ao arquivo':'linha removida do arquivo')+'</div>';
+  /* Algumas alterações não têm campo a campo, e sim uma frase pronta:
+     é o caso das fotos, que dizem apenas se entraram ou substituíram. */
+  const campos=a.resumo
+    ? '<div class="campo">'+esc(a.resumo)+'</div>'
+    : (a.campos&&a.campos.length)
+      ? a.campos.map(campoHtml).join('')
+      : '<div class="campo">'+(a.tipo==='novo'?'item acrescentado ao arquivo':'linha removida do arquivo')+'</div>';
   return '<div class="alt"><div class="topo">'+
     '<span class="et" style="background:'+fundo+';color:'+cor+'">'+nome+'</span>'+
     '<span class="cod">'+esc(a.codigo||'')+'</span>'+
@@ -301,6 +306,6 @@ function desenhar(){
 
 carregar();
 </script>
-<div id="versaoPagina">histórico · versão 2026-08-20a</div>
+<div id="versaoPagina">histórico · versão 2026-08-20b</div>
 </body>
 </html>

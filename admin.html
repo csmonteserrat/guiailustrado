@@ -668,9 +668,13 @@ function analisar(nomesArquivos,origem,listagemCompleta){
     else orfaos.push(n);
   });
 
-  const semFotoAtivos=ativos.filter(p=>!mapa[p.codigo]);
-  const semFotoInativos=PRODUTOS_TODOS.filter(p=>(p.ativo||'SIM').toUpperCase()==='NAO'&&!mapa[p.codigo]);
-  const semFoto=semFotoAtivos.concat(semFotoInativos);
+  /* Material inativo não precisa de foto: ele não aparece no catálogo.
+     Por isso a lista de pendências e a porcentagem contam apenas os
+     ativos — senão o trabalho que falta parece maior do que é.
+     Inativo COM foto continua aparecendo, mais abaixo, porque ali o
+     arquivo pode ser removido da pasta. */
+  const semFoto=ativos.filter(p=>!mapa[p.codigo]);
+  const semFotoAtivos=semFoto;
   const inativosComFoto=PRODUTOS_TODOS.filter(p=>(p.ativo||'SIM').toUpperCase()==='NAO'&&mapa[p.codigo]);
   const foraDoPadrao=[],duplicados=[];
   Object.keys(mapa).forEach(cod=>{
@@ -706,10 +710,9 @@ function analisar(nomesArquivos,origem,listagemCompleta){
 
   // ---- Lista 1: materiais do CSV sem imagem correspondente ----
   html+=bloco(semFoto.length?'b-al':'b-ok',semFoto.length,
-    semFoto.length===1?'material do produtos.csv sem imagem na pasta'
-                      :'materiais do produtos.csv sem imagem na pasta',
-    semFoto.map(p=>linha(p.codigo,p.material,
-      ((p.ativo||'SIM').toUpperCase()==='NAO'?'inativo · ':'')+(p.familia||p.subgrupo||''))),
+    semFoto.length===1?'material ativo sem imagem na pasta'
+                      :'materiais ativos sem imagem na pasta',
+    semFoto.map(p=>linha(p.codigo,p.material,p.familia||p.subgrupo||'')),
     true,'semfoto');
 
   // ---- Lista 2: imagens sem material correspondente no CSV ----
@@ -799,9 +802,11 @@ const campoCsv=v=>{v=String(v==null?'':v);return /[",;\n]/.test(v)?'"'+v.replace
 /* Baixa apenas uma das listas, no formato mais útil para aquele uso. */
 function baixarLista(qual,d){
   if(qual==='semfoto'){
-    const L=['codigo,material,familia,especialidade,subgrupo,unidade,situacao,arquivo_esperado'];
+    /* A lista já traz apenas materiais ativos, então a coluna de
+       situação deixou de fazer sentido. */
+    const L=['codigo,material,familia,especialidade,subgrupo,unidade,arquivo_esperado'];
     d.semFoto.forEach(p=>L.push([p.codigo,p.material,p.familia,p.especialidade,p.subgrupo,p.unidade,
-      (p.ativo||'SIM').toUpperCase()==='NAO'?'inativo':'ativo',p.codigo+'.jpg'].map(campoCsv).join(',')));
+      p.codigo+'.jpg'].map(campoCsv).join(',')));
     baixarCsv('materiais-sem-imagem',L);
   }else if(qual==='orfaos'){
     const L=['arquivo,codigo_no_nome,observacao'];
@@ -814,7 +819,7 @@ function baixarLista(qual,d){
 function baixarRelatorio(d){
   const L=['tipo,codigo,material,familia,subgrupo,arquivo,observacao'];
   d.semFoto.forEach(p=>L.push(['material sem imagem',p.codigo,p.material,p.familia,p.subgrupo,
-    p.codigo+'.jpg',(p.ativo||'SIM').toUpperCase()==='NAO'?'material inativo':''].map(campoCsv).join(',')));
+    p.codigo+'.jpg',''].map(campoCsv).join(',')));
   d.orfaos.forEach(n=>L.push(['imagem sem material','','','','',n,'código não existe no produtos.csv'].map(campoCsv).join(',')));
   d.duplicados.forEach(x=>L.push(['código com mais de um arquivo',x.cod,'','','',x.lista.join(' | '),'o site usa apenas o .jpg'].map(campoCsv).join(',')));
   d.foraDoPadrao.forEach(f=>L.push(['nome fora do padrão',f.cod,'','','',f.nome,f.motivos.join('; ')].map(campoCsv).join(',')));
@@ -1180,6 +1185,6 @@ $('#btConferirRepo').onclick=async ()=>{
   }
 })();
 </script>
-<div id="versaoPagina">painel · versão 2026-08-18b</div>
+<div id="versaoPagina">painel · versão 2026-08-20a</div>
 </body>
 </html>
