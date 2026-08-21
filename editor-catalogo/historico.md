@@ -4,10 +4,22 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 19  
-Última atualização: 21/08/2026, 16:40
+Total de sessões registradas: 20  
+Última atualização: 21/08/2026, 16:48
 
 ---
+
+## 21/08/2026, 16:48 — Caio César Borges de Oliveira
+
+Sessão 20 · 1 alteração(ões) · 589 itens no arquivo após a edição
+
+**Resumo:** 1 editado
+
+- **[EDITADO]** `4151086` REFIL DO TAMBOREL (COM 50 UNIDADES)
+    - Tags: "Prótese" → "Endodontia"
+    - Família: "Equipamentos de laboratório" → "Limas de canal"
+
+<!-- sessao:{"data":"2026-08-21T19:48:58.446Z","autor":"Caio César Borges de Oliveira","origem":"","total":589,"alteracoes":[{"tipo":"editado","codigo":"4151086","material":"REFIL DO TAMBOREL (COM 50 UNIDADES)","campos":[{"campo":"especialidade","de":"Prótese","para":"Endodontia"},{"campo":"familia","de":"Equipamentos de laboratório","para":"Limas de canal"}]}]} -->
 
 ## 21/08/2026, 16:40 — Caio César Borges de Oliveira
 
