@@ -4,10 +4,21 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 14  
-Última atualização: 20/08/2026, 22:57
+Total de sessões registradas: 15  
+Última atualização: 21/08/2026, 16:13
 
 ---
+
+## 21/08/2026, 16:13 — Caio César Borges de Oliveira
+
+Sessão 15 · 1 alteração(ões)
+
+**Resumo:** 1 foto
+
+- **[FOTO]** `4150814` FACILITADOR DE GODOY ADULTO/INFANTIL (KIT)
+    - foto adicionada · imagens/4150814.jpg
+
+<!-- sessao:{"data":"2026-08-21T19:13:51.820Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4150814","material":"FACILITADOR DE GODOY ADULTO/INFANTIL (KIT)","resumo":"foto adicionada · imagens/4150814.jpg"}]} -->
 
 ## 20/08/2026, 22:57 — Caio César Borges de Oliveira
 
