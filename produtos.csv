@@ -131,7 +131,7 @@
 4151177,CONE DE GUTA PERCHA PRIMARY RECIPROCANTE,U - Unidade,15,CEO,CEO,Consumo,Endodontia,Cones e pontas de papel,4151177.jpg,,SIM
 4151184,CONES DE GUTA PERCHA RECIPROCANTE MEDIUM,U - Unidade,15,CEO,CEO,Consumo,Endodontia,Cones e pontas de papel,4151184.jpg,,SIM
 4150800,CONFORMADOR DE CERA EM METAL,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Prótese,Escultura em cera,4150800.jpg,,SIM
-4150801,CONJUNTO DE ASPIRACAO (ENDO),U - Unidade,14,CEO Instrumental,CEO,Instrumental,Endodontia,Irrigação e aspiração,4150801.jpg,,SIM
+4150801,CONJUNTO DE ASPIRACAO (ENDO),U - Unidade,14,CEO Instrumental,CEO,Instrumental,Endodontia,Irrigação e aspiração,4150801.jpg,,NAO
 4150626,CREME DENTAL COM FLUOR (1500 PPM) 50G,U - Unidade,13,Odontologia,TODOS,Consumo,Prevenção,Higiene bucal,4150626.jpg,,SIM
 4150494,CUBA INOX COM TAMPA PEQUENA,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Uso geral,Caixas e recipientes,4150494.jpg,,SIM
 4150601,CUBA REDONDA INOX,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Uso geral,Caixas e recipientes,4150601.jpg,,SIM
@@ -364,14 +364,14 @@
 4150742,PASTA PARA TRATAMENTO DE ALVEOLITE 10G,U - Unidade,13,Odontologia,TODOS,Consumo,Cirurgia,Insumos cirúrgicos,4150742.jpg,,SIM
 4150741,PASTA PROFILATICA COM FLUOR 90G,U - Unidade,13,Odontologia,TODOS,Consumo,Prevenção,Profilaxia e flúor,4150741.jpg,,SIM
 4151057,PASTA ZINCO ENOLICA BISNAGA 60G,U - Unidade,15,CEO,CEO,Consumo,"Endodontia;Dentística",Restauradores provisórios,4151057.jpg,,SIM
-4151058,PAVIO PARA LAMPARINA (PACOTE COM 10 UNIDADES) CENTRO DE ESPECIALIDADES ODONTOLOGICAS Emitido por MIGUEL CARDOSO NORA em 20/08/2026 - 10:04 BRT | CELK SAÚDE v3.1.336.1 - CELK SISTEMAS LTDA,PC - Pacote,15,CEO,CEO,Consumo,Prótese,Escultura em cera,4151058.jpg,,SIM
+4151058,PAVIO PARA LAMPARINA (PACOTE COM 10 UNIDADES),PC - Pacote,15,CEO,CEO,Consumo,Prótese,Escultura em cera,4151058.jpg,,SIM
 4151059,PAVIO PARA LAMPARINA (PACOTE COM 12 UNIDADES),PC - Pacote,15,CEO,CEO,Consumo,Prótese,Escultura em cera,4151059.jpg,,SIM
 4151060,PEDRA DE OXIDO DE ALUMINIO CILINDRICA PARA PEÇA DE MAO,U - Unidade,15,CEO,CEO,Consumo,Prótese,Pontas de desgaste,4151060.jpg,,SIM
 4151061,PEDRA DE OXIDO DE ALUMINIO CONICA INVERTIDA PARA PEÇA DE MAO,U - Unidade,15,CEO,CEO,Consumo,Prótese,Pontas de desgaste,4151061.jpg,,SIM
 4151062,PEDRA DE OXIDO DE ALUMINIO CONICA PARA PEÇA DE MAO,U - Unidade,15,CEO,CEO,Consumo,Prótese,Pontas de desgaste,4151062.jpg,,SIM
 4150829,"PEDRA MONTADA CILINDRICA 0,5MM PARA DESGASTE DE METAL, ESTERILIZAVEL",U - Unidade,14,CEO Instrumental,CEO,Instrumental,Prótese,Pontas de desgaste,4150829.jpg,,SIM
 4150830,"PEDRA MONTADA CILINDRICA 0,7MM PARA DESGASTE DE METAL",U - Unidade,14,CEO Instrumental,CEO,Instrumental,Prótese,Pontas de desgaste,4150830.jpg,,SIM
-4150832,"PEDRA MONTADA TRONCO CONICA 0,42MM PARA DESGASTE DE METAL CENTRO DE ESPECIALIDADES ODONTOLOGICAS Emitido por MIGUEL CARDOSO NORA em 20/08/2026 - 10:04 BRT | CELK SAÚDE v3.1.336.1 - CELK SISTEMAS LTDA",U - Unidade,14,CEO Instrumental,CEO,Instrumental,Prótese,Pontas de desgaste,4150832.jpg,,SIM
+4150832,"PEDRA MONTADA TRONCO CONICA 0,42MM PARA DESGASTE DE METAL",U - Unidade,14,CEO Instrumental,CEO,Instrumental,Prótese,Pontas de desgaste,4150832.jpg,,SIM
 4150652,PEDRA PARA AFIACAO,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Uso geral,Equipamentos e acessórios,4150652.jpg,,SIM
 4151063,PEDRA POMES PO 100 GR,U - Unidade,15,CEO,CEO,Consumo,Prótese,Polimento de prótese,4151063.jpg,,SIM
 4151064,PEDRA POMES PO 1KG,U - Unidade,15,CEO,CEO,Consumo,Prótese,Polimento de prótese,4151064.jpg,,SIM
@@ -415,7 +415,7 @@
 4150600,PORTA AGULHA MAYO HEGAR 14CM,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Cirurgia,Instrumental cirúrgico,4150600.jpg,,SIM
 4150672,PORTA AGULHA MAYO HEGAR COM WIDEA 14CM,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Cirurgia,Instrumental cirúrgico,4150672.jpg,,SIM
 4150839,PORTA AGULHA MAYO HEGAR COM WIDEA 15CM,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Cirurgia,Instrumental cirúrgico,4150839.jpg,,SIM
-4150673,PORTA ALGODAO DE INOX UNIDADE CENTRO DE ESPECIALIDADES ODONTOLOGICAS Emitido por MIGUEL CARDOSO NORA em 20/08/2026 - 10:04 BRT | CELK SAÚDE v3.1.336.1 - CELK SISTEMAS LTDA,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Uso geral,Caixas e recipientes,4150673.jpg,,SIM
+4150673,PORTA ALGODAO DE INOX UNIDADE,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Uso geral,Caixas e recipientes,4150673.jpg,,SIM
 4150840,PORTA AMALGAMA MICRO PEDIATRICO INOX,U - Unidade,14,CEO Instrumental,CEO,Instrumental,"Dentística;Odontopediatria","Instrumental de inserção;Amálgama",4150840.jpg,,SIM
 4150676,PORTA MATRIZ IVORY Nº 8,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Dentística,"Matrizes, tiras e acabamento",4150676.jpg,,SIM
 4150678,PORTA MATRIZ TOFFLEMIRE,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Dentística,"Matrizes, tiras e acabamento",4150678.jpg,,SIM
@@ -438,7 +438,7 @@
 4151091,RESINA ACRILICA ODONTO POLIMERIZAVEL POR MICROONDAS INCOLOR (440 GR),U - Unidade,15,CEO,CEO,Consumo,Prótese,Resinas acrílicas,4151091.jpg,,SIM
 4151092,RESINA ACRILICA PATTERN KIT PO+LIQ,U - Unidade,15,CEO,CEO,Consumo,Prótese,Resinas acrílicas,4151092.jpg,,SIM
 4151093,RESINA ACRILICA PO COR Nº 60,U - Unidade,15,CEO,CEO,Consumo,Prótese,Resinas acrílicas,4151093.jpg,,SIM
-4151094,RESINA ACRILICA PO COR Nº 67 CENTRO DE ESPECIALIDADES ODONTOLOGICAS Emitido por MIGUEL CARDOSO NORA em 20/08/2026 - 10:04 BRT | CELK SAÚDE v3.1.336.1 - CELK SISTEMAS LTDA,U - Unidade,15,CEO,CEO,Consumo,Prótese,Resinas acrílicas,4151094.jpg,,SIM
+4151094,RESINA ACRILICA PO COR Nº 67,U - Unidade,15,CEO,CEO,Consumo,Prótese,Resinas acrílicas,4151094.jpg,,SIM
 4151095,RESINA ACRILICA PO COR Nº 69,U - Unidade,15,CEO,CEO,Consumo,Prótese,Resinas acrílicas,4151095.jpg,,SIM
 4151096,RESINA ACRILICA PO COR Nº 77,U - Unidade,15,CEO,CEO,Consumo,Prótese,Resinas acrílicas,4151096.jpg,,SIM
 4151097,RESINA ACRILICA PO COR Nº 81,U - Unidade,15,CEO,CEO,Consumo,Prótese,Resinas acrílicas,4151097.jpg,,SIM
@@ -458,7 +458,7 @@
 4150736,RESINA FOTOPOLIMERIZAVEL COR A1 ESMALTE,U - Unidade,13,Odontologia,TODOS,Consumo,Dentística,Resinas restauradoras,4150736.jpg,,SIM
 4150735,RESINA FOTOPOLIMERIZAVEL COR A2 DENTINA,U - Unidade,13,Odontologia,TODOS,Consumo,Dentística,Resinas restauradoras,4150735.jpg,,SIM
 4150733,RESINA FOTOPOLIMERIZAVEL COR A2 ESMALTE,U - Unidade,13,Odontologia,TODOS,Consumo,Dentística,Resinas restauradoras,4150733.jpg,,SIM
-4150732,RESINA FOTOPOLIMERIZAVEL COR A3 DENTINA CENTRO DE ESPECIALIDADES ODONTOLOGICAS Emitido por MIGUEL CARDOSO NORA em 20/08/2026 - 10:04 BRT | CELK SAÚDE v3.1.336.1 - CELK SISTEMAS LTDA,U - Unidade,13,Odontologia,TODOS,Consumo,Dentística,Resinas restauradoras,4150732.jpg,,SIM
+4150732,RESINA FOTOPOLIMERIZAVEL COR A3 DENTINA,U - Unidade,13,Odontologia,TODOS,Consumo,Dentística,Resinas restauradoras,4150732.jpg,,SIM
 4150730,RESINA FOTOPOLIMERIZAVEL COR A3 ESMALTE,U - Unidade,13,Odontologia,TODOS,Consumo,Dentística,Resinas restauradoras,4150730.jpg,,SIM
 4150728,"RESINA FOTOPOLIMERIZAVEL COR A3,5 ESMALTE",U - Unidade,13,Odontologia,TODOS,Consumo,Dentística,Resinas restauradoras,4150728.jpg,,SIM
 4150727,RESINA FOTOPOLIMERIZAVEL COR A4 DENTINA,U - Unidade,13,Odontologia,TODOS,Consumo,Dentística,Resinas restauradoras,4150727.jpg,,SIM
@@ -473,7 +473,7 @@
 4151111,RESTAURADOR PROVISORIO FOTOPOLIMERIZAVEL,U - Unidade,15,CEO,CEO,Consumo,"Endodontia;Dentística",Restauradores provisórios,4151111.jpg,,SIM
 4151112,RESTAURADOR PROVISORIO PARA ENDO,U - Unidade,15,CEO,CEO,Consumo,"Endodontia;Dentística",Restauradores provisórios,4151112.jpg,,SIM
 4150715,REVELADOR DE PLACA BACTERIANA 500ML,U - Unidade,13,Odontologia,TODOS,Consumo,"Prevenção;Diagnóstico",Profilaxia e flúor,4150715.jpg,,SIM
-4151113,REVELADOR RX PRONTO USO (500ML),U - Unidade,15,CEO,CEO,Consumo,Radiologia,Radiologia,4151113.jpg,,SIM
+4151113,REVELADOR RX PRONTO USO (500ML),U - Unidade,15,CEO,CEO,Consumo,Radiologia,Radiologia,4151113.jpg,,NAO
 4151114,RODA DE ALGODAO PARA TORNO DE POLIMENTO DE RESINA,U - Unidade,15,CEO,CEO,Consumo,Prótese,Polimento de prótese,4151114.jpg,,SIM
 4151115,RODA DE FLANELA PARA TORNO DE POLIMENTO DE RESINA,U - Unidade,15,CEO,CEO,Consumo,Prótese,Polimento de prótese,4151115.jpg,,SIM
 4150718,ROLETE DENTAL DE ALGODÃO (COM 100 UNIDADES),PC - Pacote,13,Odontologia,TODOS,Consumo,Biossegurança,Descartáveis e barreiras,4150718.jpg,,SIM
@@ -507,7 +507,7 @@
 4150853,TAMBOREL EM PLASTICO AUTOCLAVAVEL,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Prótese,Equipamentos de laboratório,4150853.jpg,,SIM
 4150846,TESOURA CIRURGICA GOLDMAN FOX,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Cirurgia,Instrumental cirúrgico,4150846.jpg,,SIM
 4150697,TESOURA CIRURGICA IRIS CURVA,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Cirurgia,Instrumental cirúrgico,4150697.jpg,,SIM
-4150698,TESOURA CIRURGICA IRIS RETA CENTRO DE ESPECIALIDADES ODONTOLOGICAS Emitido por MIGUEL CARDOSO NORA em 20/08/2026 - 10:04 BRT | CELK SAÚDE v3.1.336.1 - CELK SISTEMAS LTDA,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Cirurgia,Instrumental cirúrgico,4150698.jpg,,SIM
+4150698,TESOURA CIRURGICA IRIS RETA,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Cirurgia,Instrumental cirúrgico,4150698.jpg,,SIM
 4150847,TESOURA METZEMBAUM,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Cirurgia,Instrumental cirúrgico,4150847.jpg,,SIM
 4150848,TESOURA PARA CORTE DE FIO DE AÇO Nº 12,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Cirurgia,Instrumental cirúrgico,4150848.jpg,,SIM
 4150710,TESTE DE VITALIDADE PULPAR SPRAY,U - Unidade,13,Odontologia,TODOS,Consumo,"Endodontia;Diagnóstico",Soluções e medicamentos,4150710.jpg,,SIM
@@ -518,9 +518,9 @@
 4150703,TRICRESOL FORMALINA,U - Unidade,13,Odontologia,TODOS,Consumo,Endodontia,Soluções e medicamentos,4150703.jpg,,SIM
 4151121,TUBO CIRURGICO DE SILICONE º 203,U - Unidade,15,CEO,CEO,Consumo,Cirurgia,Insumos cirúrgicos,4151121.jpg,,SIM
 4150702,VASELINA SÓLIDA ESPECIAL,U - Unidade,13,Odontologia,TODOS,Consumo,Uso geral,Insumos diversos,4150702.jpg,,SIM
-4151122,VASELINA SOLIDA POMADA 500G (PROTESE) CENTRO DE ESPECIALIDADES ODONTOLOGICAS Emitido por MIGUEL CARDOSO NORA em 20/08/2026 - 10:04 BRT | CELK SAÚDE v3.1.336.1 - CELK SISTEMAS LTDA,U - Unidade,15,CEO,CEO,Consumo,Prótese,Insumos diversos,4151122.jpg,,SIM
-4150701,VERNIZ COM FLÚOR CENTRO DE ESPECIALIDADES ODONTOLOGICAS Emitido por MIGUEL CARDOSO NORA em 20/08/2026 - 10:04 BRT | CELK SAÚDE v3.1.336.1 - CELK SISTEMAS LTDA,U - Unidade,13,Odontologia,TODOS,Consumo,Prevenção,Profilaxia e flúor,4150701.jpg,,SIM
-4150849,VIBRADOR DE GESSO CENTRO DE ESPECIALIDADES ODONTOLOGICAS Emitido por MIGUEL CARDOSO NORA em 20/08/2026 - 10:04 BRT | CELK SAÚDE v3.1.336.1 - CELK SISTEMAS LTDA,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Prótese,Equipamentos de laboratório,4150849.jpg,,SIM
+4151122,VASELINA SOLIDA POMADA 500G (PROTESE),U - Unidade,15,CEO,CEO,Consumo,Prótese,Insumos diversos,4151122.jpg,,SIM
+4150701,VERNIZ COM FLÚOR,U - Unidade,13,Odontologia,TODOS,Consumo,Prevenção,Profilaxia e flúor,4150701.jpg,,SIM
+4150849,VIBRADOR DE GESSO,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Prótese,Equipamentos de laboratório,4150849.jpg,,SIM
 0,"EXEMPLO: SORO FISIOLOGICO 0,9% 500ML (APAGAR ESTA LINHA)",FR - Frasco,,Interesse Odontológico,COORDENACAO,Consumo,Uso geral,Insumos diversos,0000000.jpg,Linha de exemplo do bloco de interesse odontológico,NAO
 4151188,ABRITEC ADULTO (COM 2 UNIDADES),U - Unidade,13,Odontologia,TODOS,Consumo,Dentística,Auxiliares de abertura,4151188.jpg,,SIM
 4151189,AGULHA GENGIVAL LONGA 27 G DESCARTÁVEL (CAIXA COM 100 UNIDADES),CA - Caixa,13,Odontologia,TODOS,Consumo,"Anestesia;Cirurgia",Anestesia,4151189.jpg,,SIM
