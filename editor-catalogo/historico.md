@@ -4,10 +4,21 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 17  
-Última atualização: 21/08/2026, 16:36
+Total de sessões registradas: 18  
+Última atualização: 21/08/2026, 16:38
 
 ---
+
+## 21/08/2026, 16:38 — Caio César Borges de Oliveira
+
+Sessão 18 · 1 alteração(ões)
+
+**Resumo:** 1 foto
+
+- **[FOTO]** `4151236` CINZEL WEDELSTAEDT 5-6 (CEO)
+    - foto adicionada · imagens/4151236.jpg
+
+<!-- sessao:{"data":"2026-08-21T19:38:32.706Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4151236","material":"CINZEL WEDELSTAEDT 5-6 (CEO)","resumo":"foto adicionada · imagens/4151236.jpg"}]} -->
 
 ## 21/08/2026, 16:36 — Caio César Borges de Oliveira
 
