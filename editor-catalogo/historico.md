@@ -4,10 +4,39 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 15  
-Última atualização: 21/08/2026, 16:13
+Total de sessões registradas: 16  
+Última atualização: 21/08/2026, 16:29
 
 ---
+
+## 21/08/2026, 16:29 — Caio César Borges de Oliveira
+
+Sessão 16 · 10 alteração(ões)
+
+**Resumo:** 10 foto
+
+- **[FOTO]** `4151204` SUGADOR CIRURGICO ESTERIL DESCARTAVEL (CAIXA COM 20 UNIDADES)
+    - foto adicionada · imagens/4151204.jpg
+- **[FOTO]** `4150822` LIMA DE SCHLUGER
+    - foto adicionada · imagens/4150822.jpg
+- **[FOTO]** `4151206` ANESTESICO PRILOCAINA 3% COM VASOCONSTRUTOR FELIPRESSINA(CX50)
+    - foto adicionada · imagens/4151206.jpg
+- **[FOTO]** `4151205` ADESIVO PARA MAT MOLDAGEM A BASE DE POLIETER 10 ML
+    - foto adicionada · imagens/4151205.jpg
+- **[FOTO]** `4151211` CURSOR EM SILICONE (CEO)
+    - foto adicionada · imagens/4151211.jpg
+- **[FOTO]** `4151209` CERA Nº7 (PROTESE)
+    - foto adicionada · imagens/4151209.jpg
+- **[FOTO]** `4151216` ESCOVA CIRCULAR DE PELO Nº 10 PARA TORNO
+    - foto adicionada · imagens/4151216.jpg
+- **[FOTO]** `4151217` ESCOVA CIRCULAR DE PELO Nº 12 PARA TORNO
+    - foto adicionada · imagens/4151217.jpg
+- **[FOTO]** `4151219` ESCOVA CIRCULAR DE PELO Nº 29 PARA TORNO
+    - foto adicionada · imagens/4151219.jpg
+- **[FOTO]** `4151218` ESCOVA CIRCULAR DE PELO Nº 27 PARA TORNO
+    - foto adicionada · imagens/4151218.jpg
+
+<!-- sessao:{"data":"2026-08-21T19:29:47.086Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4151204","material":"SUGADOR CIRURGICO ESTERIL DESCARTAVEL (CAIXA COM 20 UNIDADES)","resumo":"foto adicionada · imagens/4151204.jpg"},{"tipo":"imagem","codigo":"4150822","material":"LIMA DE SCHLUGER","resumo":"foto adicionada · imagens/4150822.jpg"},{"tipo":"imagem","codigo":"4151206","material":"ANESTESICO PRILOCAINA 3% COM VASOCONSTRUTOR FELIPRESSINA(CX50)","resumo":"foto adicionada · imagens/4151206.jpg"},{"tipo":"imagem","codigo":"4151205","material":"ADESIVO PARA MAT MOLDAGEM A BASE DE POLIETER 10 ML","resumo":"foto adicionada · imagens/4151205.jpg"},{"tipo":"imagem","codigo":"4151211","material":"CURSOR EM SILICONE (CEO)","resumo":"foto adicionada · imagens/4151211.jpg"},{"tipo":"imagem","codigo":"4151209","material":"CERA Nº7 (PROTESE)","resumo":"foto adicionada · imagens/4151209.jpg"},{"tipo":"imagem","codigo":"4151216","material":"ESCOVA CIRCULAR DE PELO Nº 10 PARA TORNO","resumo":"foto adicionada · imagens/4151216.jpg"},{"tipo":"imagem","codigo":"4151217","material":"ESCOVA CIRCULAR DE PELO Nº 12 PARA TORNO","resumo":"foto adicionada · imagens/4151217.jpg"},{"tipo":"imagem","codigo":"4151219","material":"ESCOVA CIRCULAR DE PELO Nº 29 PARA TORNO","resumo":"foto adicionada · imagens/4151219.jpg"},{"tipo":"imagem","codigo":"4151218","material":"ESCOVA CIRCULAR DE PELO Nº 27 PARA TORNO","resumo":"foto adicionada · imagens/4151218.jpg"}]} -->
 
 ## 21/08/2026, 16:13 — Caio César Borges de Oliveira
 
