@@ -10,7 +10,7 @@
    administrativas: ano-mês-dia e uma letra para cada entrega do dia.
    Atualize a cada revisão.
    ----------------------------------------------------------------- */
-const VERSAO_SITE = '2026-08-16e';
+const VERSAO_SITE = '2026-08-21a';
 
 /* Data mostrada no cabeçalho das impressões. Não é a data da versão do
    site, e sim a da última vez que a lista de materiais mudou de fato.
@@ -657,19 +657,51 @@ function textoDaLista() {
   return txt;
 }
 
-function baixarCSVdaLista() {
-  const itens = itensDaLista();
-  if (!itens.length) { mostrarAviso('A lista está vazia'); return; }
-  const cabecalho = 'codigo;material;unidade;quantidade;bloco';
+/* Monta o conteúdo de uma planilha a partir de um punhado de itens.
+   Só o essencial para lançar o pedido: código, material e quantidade.
+   A unidade e o bloco continuam na tela e no texto copiado, mas fora
+   da planilha, que serve para digitar no sistema. */
+function csvDosItens(itens) {
+  const cabecalho = 'codigo;material;quantidade';
   const linhas = itens.map(i =>
-    [i.codigo, '"' + i.material.replace(/"/g, '""') + '"', i.unidade, estado.lista[i.codigo], BLOCOS[i.acesso].titulo].join(';'));
-  const conteudo = '\uFEFF' + [cabecalho].concat(linhas).join('\r\n');
+    [i.codigo, '"' + i.material.replace(/"/g, '""') + '"', estado.lista[i.codigo]].join(';'));
+  return '\uFEFF' + [cabecalho].concat(linhas).join('\r\n');
+}
+
+function baixarArquivo(nome, conteudo) {
   const blob = new Blob([conteudo], { type: 'text/csv;charset=utf-8;' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = 'lista-de-pedido.csv';
+  a.download = nome;
   a.click();
   setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+}
+
+/* Os materiais da lista da Enfermagem seguem por outro caminho: não
+   entram no pedido do CELK, e sim numa requisição que o coordenador da
+   unidade faz. Por isso saem em planilha separada — juntar os dois num
+   arquivo só obrigaria a separar de novo, à mão, na hora de pedir. */
+function baixarCSVdaLista() {
+  const itens = itensDaLista();
+  if (!itens.length) { mostrarAviso('A lista está vazia'); return; }
+
+  const celk = itens.filter(i => i.acesso !== 'COORDENACAO');
+  const coord = itens.filter(i => i.acesso === 'COORDENACAO');
+
+  if (celk.length) baixarArquivo('lista-de-pedido.csv', csvDosItens(celk));
+
+  if (coord.length) {
+    /* O intervalo existe porque o navegador costuma bloquear o segundo
+       download quando os dois saem no mesmo instante. */
+    const segundo = () => baixarArquivo('lista-para-o-coordenador.csv', csvDosItens(coord));
+    if (celk.length) setTimeout(segundo, 700); else segundo();
+  }
+
+  if (celk.length && coord.length) {
+    mostrarAviso('Dois arquivos: um para o CELK, outro para o coordenador');
+  } else if (coord.length) {
+    mostrarAviso('Arquivo para entregar ao coordenador da unidade');
+  }
 }
 
 /* -----------------------------------------------------------------

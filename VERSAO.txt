@@ -1,8 +1,25 @@
 CATÁLOGO ILUSTRADO DE MATERIAIS ODONTOLÓGICOS — PMF
-Versão 2.5 — 20/08/2026
+Versão 2.7 — 21/08/2026
 
 HISTÓRICO
 ---------
+v2.7 — 21/08/2026
+  - Os materiais da lista da Enfermagem passaram a sair em planilha
+    separada, lista-para-o-coordenador.csv, quando houver algum na
+    lista de pedido. Eles não entram no pedido do CELK: a requisição
+    é feita pelo coordenador da unidade, por outra lista. Juntar os
+    dois num arquivo só obrigava a separar de novo, à mão.
+  - Quando a lista tem só materiais do CELK, sai um arquivo apenas,
+    como antes.
+  - O produtos.csv não foi alterado.
+
+v2.6 — 20/08/2026
+  - O CSV da lista de pedido passou a sair com três colunas apenas:
+    codigo, material e quantidade. Antes trazia também a unidade e o
+    bloco, que continuam na tela e no texto copiado, mas atrapalhavam
+    na hora de digitar o pedido no sistema.
+  - O produtos.csv não foi alterado.
+
 v2.5 — 20/08/2026
   - 60 materiais que estavam sem tags e sem família foram
     classificados, e 35 deles ganharam também acesso e tipo, que
