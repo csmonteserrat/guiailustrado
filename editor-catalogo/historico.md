@@ -4,10 +4,35 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 16  
-Última atualização: 21/08/2026, 16:29
+Total de sessões registradas: 17  
+Última atualização: 21/08/2026, 16:36
 
 ---
+
+## 21/08/2026, 16:36 — Caio César Borges de Oliveira
+
+Sessão 17 · 8 alteração(ões)
+
+**Resumo:** 8 foto
+
+- **[FOTO]** `4151196` ANESTÉSICO INJ MEPIVACAÍNA 3% SEM VASO (CAIXA COM 50 TUBETES)
+    - foto adicionada · imagens/4151196.jpg
+- **[FOTO]** `4150806` ESPATULA DE FREER
+    - foto adicionada · imagens/4150806.jpg
+- **[FOTO]** `4151224` AFASTADOR MINESSOTA
+    - foto adicionada · imagens/4151224.jpg
+- **[FOTO]** `4151223` AFASTADOR FARABEUF ORAL (PAR) (CEO)
+    - foto adicionada · imagens/4151223.jpg
+- **[FOTO]** `4151229` ALICATE PARA TECIDOS GOLDMAN FOX
+    - foto adicionada · imagens/4151229.jpg
+- **[FOTO]** `4151228` ALICATE PARA CORTE DE FIO DE ACO
+    - foto adicionada · imagens/4151228.jpg
+- **[FOTO]** `4151227` ALICATE ORTODONTICO 139
+    - foto adicionada · imagens/4151227.jpg
+- **[FOTO]** `4151226` ALICATE BICO DE PAPAGAIO Nº 115 EM ACO INOX
+    - foto adicionada · imagens/4151226.jpg
+
+<!-- sessao:{"data":"2026-08-21T19:36:17.266Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4151196","material":"ANESTÉSICO INJ MEPIVACAÍNA 3% SEM VASO (CAIXA COM 50 TUBETES)","resumo":"foto adicionada · imagens/4151196.jpg"},{"tipo":"imagem","codigo":"4150806","material":"ESPATULA DE FREER","resumo":"foto adicionada · imagens/4150806.jpg"},{"tipo":"imagem","codigo":"4151224","material":"AFASTADOR MINESSOTA","resumo":"foto adicionada · imagens/4151224.jpg"},{"tipo":"imagem","codigo":"4151223","material":"AFASTADOR FARABEUF ORAL (PAR) (CEO)","resumo":"foto adicionada · imagens/4151223.jpg"},{"tipo":"imagem","codigo":"4151229","material":"ALICATE PARA TECIDOS GOLDMAN FOX","resumo":"foto adicionada · imagens/4151229.jpg"},{"tipo":"imagem","codigo":"4151228","material":"ALICATE PARA CORTE DE FIO DE ACO","resumo":"foto adicionada · imagens/4151228.jpg"},{"tipo":"imagem","codigo":"4151227","material":"ALICATE ORTODONTICO 139","resumo":"foto adicionada · imagens/4151227.jpg"},{"tipo":"imagem","codigo":"4151226","material":"ALICATE BICO DE PAPAGAIO Nº 115 EM ACO INOX","resumo":"foto adicionada · imagens/4151226.jpg"}]} -->
 
 ## 21/08/2026, 16:29 — Caio César Borges de Oliveira
 
