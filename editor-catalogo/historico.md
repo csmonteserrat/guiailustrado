@@ -4,10 +4,59 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 6  
-Última atualização: 13/08/2026, 16:56
+Total de sessões registradas: 7  
+Última atualização: 24/08/2026, 18:59
 
 ---
+
+## 24/08/2026, 18:59 — Caio César Borges de Oliveira
+
+Sessão 7 · 20 alteração(ões)
+
+**Resumo:** 20 foto
+
+- **[FOTO]** `4151221` FILME PERIAPICAL ADULTO 30,5 X 40,5 MM (CAIXA COM 150)
+    - foto adicionada · imagens/4151221.jpg
+- **[FOTO]** `4151225` ALAVANCAS APICAIS (KIT)
+    - foto adicionada · imagens/4151225.jpg
+- **[FOTO]** `4151230` AMALGAMADOR DE BORRACHA (DEDEIRA)
+    - foto adicionada · imagens/4151230.jpg
+- **[FOTO]** `4151231` ARCO INOX PARA ISOLAMENTO COM DIQUE
+    - foto adicionada · imagens/4151231.jpg
+- **[FOTO]** `4151233` CALCADOR DE AMALGAMA Nº 02
+    - foto adicionada · imagens/4151233.jpg
+- **[FOTO]** `4151232` CALCADOR DE AMALGAMA Nº 01
+    - foto adicionada · imagens/4151232.jpg
+- **[FOTO]** `4151234` CALCADOR DE AMALGAMA Nº 03
+    - foto adicionada · imagens/4151234.jpg
+- **[FOTO]** `4151238` COLGADURA TIPO AMERICANA PARA 14 RX
+    - foto adicionada · imagens/4151238.jpg
+- **[FOTO]** `4151245` PINCA BACKHAUS 10CM
+    - foto adicionada · imagens/4151245.jpg
+- **[FOTO]** `4151248` PLACA DE FOSFORO INTRAORAL (INFANTIL)
+    - foto adicionada · imagens/4151248.jpg
+- **[FOTO]** `4151247` PLACA DE FOSFORO INTRAORAL (ADULTO)
+    - foto adicionada · imagens/4151247.jpg
+- **[FOTO]** `4151249` PORTA AMALGAMA PLASTICO
+    - foto adicionada · imagens/4151249.jpg
+- **[FOTO]** `4151251` PROTETOR DE TIREOIDE ADULTO COM BORRACHA PLUMB
+    - foto adicionada · imagens/4151251.jpg
+- **[FOTO]** `4151253` AMALGAMA EM CAPSULA (CAIXA COM 50 CAPSULAS)
+    - foto adicionada · imagens/4151253.jpg
+- **[FOTO]** `4151255` CERA UTILIDADE ODONTOLOGICA LAMINADA
+    - foto adicionada · imagens/4151255.jpg
+- **[FOTO]** `4151256` CIMENTO CIRURGICO SEM EUGENOL
+    - foto adicionada · imagens/4151256.jpg
+- **[FOTO]** `4151259` DISCO DE LIXA DE OXIDO DE AL PARA POLIMENTO RESINA ACRÍLICA (COM 100 DISCOS)
+    - foto adicionada · imagens/4151259.jpg
+- **[FOTO]** `4151260` EUCALIPTOL (SOLVENTE DE GUTTA PERCHA) 10 A 20 ML
+    - foto adicionada · imagens/4151260.jpg
+- **[FOTO]** `4151258` CREME FIXADOR DE PROTESE TOTAL 19G
+    - foto adicionada · imagens/4151258.jpg
+- **[FOTO]** `4151261` ISOLANTE DE RESINA RAAQ 500ML
+    - foto adicionada · imagens/4151261.jpg
+
+<!-- sessao:{"data":"2026-08-24T21:59:37.573Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4151221","material":"FILME PERIAPICAL ADULTO 30,5 X 40,5 MM (CAIXA COM 150)","resumo":"foto adicionada · imagens/4151221.jpg"},{"tipo":"imagem","codigo":"4151225","material":"ALAVANCAS APICAIS (KIT)","resumo":"foto adicionada · imagens/4151225.jpg"},{"tipo":"imagem","codigo":"4151230","material":"AMALGAMADOR DE BORRACHA (DEDEIRA)","resumo":"foto adicionada · imagens/4151230.jpg"},{"tipo":"imagem","codigo":"4151231","material":"ARCO INOX PARA ISOLAMENTO COM DIQUE","resumo":"foto adicionada · imagens/4151231.jpg"},{"tipo":"imagem","codigo":"4151233","material":"CALCADOR DE AMALGAMA Nº 02","resumo":"foto adicionada · imagens/4151233.jpg"},{"tipo":"imagem","codigo":"4151232","material":"CALCADOR DE AMALGAMA Nº 01","resumo":"foto adicionada · imagens/4151232.jpg"},{"tipo":"imagem","codigo":"4151234","material":"CALCADOR DE AMALGAMA Nº 03","resumo":"foto adicionada · imagens/4151234.jpg"},{"tipo":"imagem","codigo":"4151238","material":"COLGADURA TIPO AMERICANA PARA 14 RX","resumo":"foto adicionada · imagens/4151238.jpg"},{"tipo":"imagem","codigo":"4151245","material":"PINCA BACKHAUS 10CM","resumo":"foto adicionada · imagens/4151245.jpg"},{"tipo":"imagem","codigo":"4151248","material":"PLACA DE FOSFORO INTRAORAL (INFANTIL)","resumo":"foto adicionada · imagens/4151248.jpg"},{"tipo":"imagem","codigo":"4151247","material":"PLACA DE FOSFORO INTRAORAL (ADULTO)","resumo":"foto adicionada · imagens/4151247.jpg"},{"tipo":"imagem","codigo":"4151249","material":"PORTA AMALGAMA PLASTICO","resumo":"foto adicionada · imagens/4151249.jpg"},{"tipo":"imagem","codigo":"4151251","material":"PROTETOR DE TIREOIDE ADULTO COM BORRACHA PLUMB","resumo":"foto adicionada · imagens/4151251.jpg"},{"tipo":"imagem","codigo":"4151253","material":"AMALGAMA EM CAPSULA (CAIXA COM 50 CAPSULAS)","resumo":"foto adicionada · imagens/4151253.jpg"},{"tipo":"imagem","codigo":"4151255","material":"CERA UTILIDADE ODONTOLOGICA LAMINADA","resumo":"foto adicionada · imagens/4151255.jpg"},{"tipo":"imagem","codigo":"4151256","material":"CIMENTO CIRURGICO SEM EUGENOL","resumo":"foto adicionada · imagens/4151256.jpg"},{"tipo":"imagem","codigo":"4151259","material":"DISCO DE LIXA DE OXIDO DE AL PARA POLIMENTO RESINA ACRÍLICA (COM 100 DISCOS)","resumo":"foto adicionada · imagens/4151259.jpg"},{"tipo":"imagem","codigo":"4151260","material":"EUCALIPTOL (SOLVENTE DE GUTTA PERCHA) 10 A 20 ML","resumo":"foto adicionada · imagens/4151260.jpg"},{"tipo":"imagem","codigo":"4151258","material":"CREME FIXADOR DE PROTESE TOTAL 19G","resumo":"foto adicionada · imagens/4151258.jpg"},{"tipo":"imagem","codigo":"4151261","material":"ISOLANTE DE RESINA RAAQ 500ML","resumo":"foto adicionada · imagens/4151261.jpg"}]} -->
 
 ## 13/08/2026, 16:56 — Caio Borges
 
@@ -35,7 +84,7 @@ Sessão 5 · 1 alteração(ões) · 528 itens no arquivo após a edição
 **Resumo:** 1 descritivo
 
 - **[DESCRITIVO]** `4151188` ABRITEC ADULTO (COM 2 UNIDADES)
-    - Nome para o pregão: "" → "ABRIDOR DE BOCA TIPO ABRITEC ADULTO"
+    - Nome no descritivo: "" → "ABRIDOR DE BOCA TIPO ABRITEC ADULTO"
     - Descritivo: "" → "Composição: 100% silicone. Possui bordas arredondadas. Medidas: 40 x 30 x 20 mm.
  Indicação: auxiliar na abertura de boca do paciente, proporcionado maior conforto e facilitando o desempenho dos procedimentos odontológicos pelo profissional.
  Autoclavável.
