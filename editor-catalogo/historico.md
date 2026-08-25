@@ -4,10 +4,31 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 10  
-Última atualização: 25/08/2026, 10:45
+Total de sessões registradas: 11  
+Última atualização: 25/08/2026, 11:12
 
 ---
+
+## 25/08/2026, 11:12 — Caio César Borges de Oliveira
+
+Sessão 11 · 6 alteração(ões)
+
+**Resumo:** 6 foto
+
+- **[FOTO]** `4150564` BROCA ALTA ROTAÇÃO CARBIDE ESFÉRICA Nº 1/2
+    - foto substituída · imagens/4150564.jpg
+- **[FOTO]** `4150548` BROCA ALTA ROTAÇÃO CARBIDE ESFÉRICA Nº 01
+    - foto substituída · imagens/4150548.jpg
+- **[FOTO]** `4150553` BROCA ALTA ROTAÇÃO CARBIDE ESFÉRICA Nº 02
+    - foto substituída · imagens/4150553.jpg
+- **[FOTO]** `4150556` BROCA ALTA ROTAÇÃO CARBIDE ESFÉRICA Nº 04
+    - foto substituída · imagens/4150556.jpg
+- **[FOTO]** `4150560` BROCA ALTA ROTAÇÃO CARBIDE ESFÉRICA Nº 06
+    - foto substituída · imagens/4150560.jpg
+- **[FOTO]** `4150562` BROCA ALTA ROTAÇÃO CARBIDE ESFÉRICA Nº 08
+    - foto substituída · imagens/4150562.jpg
+
+<!-- sessao:{"data":"2026-08-25T14:12:10.085Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4150564","material":"BROCA ALTA ROTAÇÃO CARBIDE ESFÉRICA Nº 1/2","resumo":"foto substituída · imagens/4150564.jpg"},{"tipo":"imagem","codigo":"4150548","material":"BROCA ALTA ROTAÇÃO CARBIDE ESFÉRICA Nº 01","resumo":"foto substituída · imagens/4150548.jpg"},{"tipo":"imagem","codigo":"4150553","material":"BROCA ALTA ROTAÇÃO CARBIDE ESFÉRICA Nº 02","resumo":"foto substituída · imagens/4150553.jpg"},{"tipo":"imagem","codigo":"4150556","material":"BROCA ALTA ROTAÇÃO CARBIDE ESFÉRICA Nº 04","resumo":"foto substituída · imagens/4150556.jpg"},{"tipo":"imagem","codigo":"4150560","material":"BROCA ALTA ROTAÇÃO CARBIDE ESFÉRICA Nº 06","resumo":"foto substituída · imagens/4150560.jpg"},{"tipo":"imagem","codigo":"4150562","material":"BROCA ALTA ROTAÇÃO CARBIDE ESFÉRICA Nº 08","resumo":"foto substituída · imagens/4150562.jpg"}]} -->
 
 ## 25/08/2026, 10:45 — Caio César Borges de Oliveira
 
