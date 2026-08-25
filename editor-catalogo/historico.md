@@ -4,10 +4,33 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 13  
-Última atualização: 25/08/2026, 11:23
+Total de sessões registradas: 14  
+Última atualização: 25/08/2026, 11:55
 
 ---
+
+## 25/08/2026, 11:55 — Caio César Borges de Oliveira
+
+Sessão 14 · 7 alteração(ões)
+
+**Resumo:** 7 foto
+
+- **[FOTO]** `4150587` BROCA ALTA ROTAÇÃO DIAMANTADA ESFÉRICA Nº 1016
+    - foto substituída · imagens/4150587.jpg
+- **[FOTO]** `4151128` BROCA ALTA ROTAÇÃO DIAMANTADA 1013
+    - foto substituída · imagens/4151128.jpg
+- **[FOTO]** `4151127` BROCA ALTA ROTAÇÃO DIAMANTADA 1011
+    - foto substituída · imagens/4151127.jpg
+- **[FOTO]** `4150580` BROCA ALTA ROTAÇÃO DIAMANTADA ESFÉRICA Nº 1012
+    - foto substituída · imagens/4150580.jpg
+- **[FOTO]** `4150583` BROCA ALTA ROTAÇÃO DIAMANTADA ESFÉRICA Nº 1014
+    - foto substituída · imagens/4150583.jpg
+- **[FOTO]** `4150590` BROCA ALTA ROTAÇÃO DIAMANTADA ESFÉRICA Nº 1016 HL
+    - foto substituída · imagens/4150590.jpg
+- **[FOTO]** `4151146` BROCA ALTA ROTAÇÃO DIAMANTADA ESFÉRICA Nº 1012 HL
+    - foto substituída · imagens/4151146.jpg
+
+<!-- sessao:{"data":"2026-08-25T14:55:16.944Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4150587","material":"BROCA ALTA ROTAÇÃO DIAMANTADA ESFÉRICA Nº 1016","resumo":"foto substituída · imagens/4150587.jpg"},{"tipo":"imagem","codigo":"4151128","material":"BROCA ALTA ROTAÇÃO DIAMANTADA 1013","resumo":"foto substituída · imagens/4151128.jpg"},{"tipo":"imagem","codigo":"4151127","material":"BROCA ALTA ROTAÇÃO DIAMANTADA 1011","resumo":"foto substituída · imagens/4151127.jpg"},{"tipo":"imagem","codigo":"4150580","material":"BROCA ALTA ROTAÇÃO DIAMANTADA ESFÉRICA Nº 1012","resumo":"foto substituída · imagens/4150580.jpg"},{"tipo":"imagem","codigo":"4150583","material":"BROCA ALTA ROTAÇÃO DIAMANTADA ESFÉRICA Nº 1014","resumo":"foto substituída · imagens/4150583.jpg"},{"tipo":"imagem","codigo":"4150590","material":"BROCA ALTA ROTAÇÃO DIAMANTADA ESFÉRICA Nº 1016 HL","resumo":"foto substituída · imagens/4150590.jpg"},{"tipo":"imagem","codigo":"4151146","material":"BROCA ALTA ROTAÇÃO DIAMANTADA ESFÉRICA Nº 1012 HL","resumo":"foto substituída · imagens/4151146.jpg"}]} -->
 
 ## 25/08/2026, 11:23 — Caio César Borges de Oliveira
 
