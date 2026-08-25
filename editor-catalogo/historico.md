@@ -4,10 +4,25 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 8  
-Última atualização: 25/08/2026, 10:35
+Total de sessões registradas: 9  
+Última atualização: 25/08/2026, 10:39
 
 ---
+
+## 25/08/2026, 10:39 — Caio César Borges de Oliveira
+
+Sessão 9 · 3 alteração(ões)
+
+**Resumo:** 3 foto
+
+- **[FOTO]** `4151254` BROCA ALTA ROTAÇÃO DIAMANTADA 3080
+    - foto adicionada · imagens/4151254.jpg
+- **[FOTO]** `4151239` DESCOLADOR DE MOLT N2/4
+    - foto adicionada · imagens/4151239.jpg
+- **[FOTO]** `4151237` COLGADURA INDIVIDUAL (CEO)
+    - foto adicionada · imagens/4151237.jpg
+
+<!-- sessao:{"data":"2026-08-25T13:39:10.279Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4151254","material":"BROCA ALTA ROTAÇÃO DIAMANTADA 3080","resumo":"foto adicionada · imagens/4151254.jpg"},{"tipo":"imagem","codigo":"4151239","material":"DESCOLADOR DE MOLT N2/4","resumo":"foto adicionada · imagens/4151239.jpg"},{"tipo":"imagem","codigo":"4151237","material":"COLGADURA INDIVIDUAL (CEO)","resumo":"foto adicionada · imagens/4151237.jpg"}]} -->
 
 ## 25/08/2026, 10:35 — Caio César Borges de Oliveira
 
