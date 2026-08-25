@@ -4,10 +4,23 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 15  
-Última atualização: 25/08/2026, 11:57
+Total de sessões registradas: 16  
+Última atualização: 25/08/2026, 16:17
 
 ---
+
+## 25/08/2026, 16:17 — Caio César Borges de Oliveira
+
+Sessão 16 · 2 alteração(ões)
+
+**Resumo:** 2 foto
+
+- **[FOTO]** `4151131` BROCA ALTA ROTAÇÃO DIAMANTADA 1034
+    - foto substituída · imagens/4151131.jpg
+- **[FOTO]** `4151254` BROCA ALTA ROTAÇÃO DIAMANTADA 3080
+    - foto substituída · imagens/4151254.jpg
+
+<!-- sessao:{"data":"2026-08-25T19:17:41.203Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4151131","material":"BROCA ALTA ROTAÇÃO DIAMANTADA 1034","resumo":"foto substituída · imagens/4151131.jpg"},{"tipo":"imagem","codigo":"4151254","material":"BROCA ALTA ROTAÇÃO DIAMANTADA 3080","resumo":"foto substituída · imagens/4151254.jpg"}]} -->
 
 ## 25/08/2026, 11:57 — Caio César Borges de Oliveira
 
