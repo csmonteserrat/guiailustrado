@@ -4,10 +4,23 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 11  
-Última atualização: 25/08/2026, 11:12
+Total de sessões registradas: 12  
+Última atualização: 25/08/2026, 11:15
 
 ---
+
+## 25/08/2026, 11:15 — Caio César Borges de Oliveira
+
+Sessão 12 · 2 alteração(ões)
+
+**Resumo:** 2 foto
+
+- **[FOTO]** `4150569` BROCA ALTA ROTAÇÃO CIRURGICA ZEKRYA 23MM
+    - foto substituída · imagens/4150569.jpg
+- **[FOTO]** `4150577` BROCA ALTA ROTAÇÃO CIRURGICA ZEKRYA 28MM
+    - foto substituída · imagens/4150577.jpg
+
+<!-- sessao:{"data":"2026-08-25T14:15:41.734Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4150569","material":"BROCA ALTA ROTAÇÃO CIRURGICA ZEKRYA 23MM","resumo":"foto substituída · imagens/4150569.jpg"},{"tipo":"imagem","codigo":"4150577","material":"BROCA ALTA ROTAÇÃO CIRURGICA ZEKRYA 28MM","resumo":"foto substituída · imagens/4150577.jpg"}]} -->
 
 ## 25/08/2026, 11:12 — Caio César Borges de Oliveira
 
