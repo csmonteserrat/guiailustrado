@@ -4,10 +4,25 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 6  
-Última atualização: 13/08/2026, 16:56
+Total de sessões registradas: 7  
+Última atualização: 25/08/2026, 10:27
 
 ---
+
+## 25/08/2026, 10:27 — Caio César Borges de Oliveira
+
+Sessão 7 · 3 alteração(ões)
+
+**Resumo:** 3 foto
+
+- **[FOTO]** `4150615` CARIOSTÁTICO 12% 10 ML
+    - foto adicionada · imagens/4150615.jpg
+- **[FOTO]** `4151208` BROCA TUNGSTENIO ESFERICA PARA PEÇA RETA
+    - foto adicionada · imagens/4151208.jpg
+- **[FOTO]** `4151212` DETERGENTE NEUTRO 500 ML - FRS
+    - foto adicionada · imagens/4151212.jpg
+
+<!-- sessao:{"data":"2026-08-25T13:27:13.884Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4150615","material":"CARIOSTÁTICO 12% 10 ML","resumo":"foto adicionada · imagens/4150615.jpg"},{"tipo":"imagem","codigo":"4151208","material":"BROCA TUNGSTENIO ESFERICA PARA PEÇA RETA","resumo":"foto adicionada · imagens/4151208.jpg"},{"tipo":"imagem","codigo":"4151212","material":"DETERGENTE NEUTRO 500 ML - FRS","resumo":"foto adicionada · imagens/4151212.jpg"}]} -->
 
 ## 13/08/2026, 16:56 — Caio Borges
 
@@ -35,7 +50,7 @@ Sessão 5 · 1 alteração(ões) · 528 itens no arquivo após a edição
 **Resumo:** 1 descritivo
 
 - **[DESCRITIVO]** `4151188` ABRITEC ADULTO (COM 2 UNIDADES)
-    - Nome para o pregão: "" → "ABRIDOR DE BOCA TIPO ABRITEC ADULTO"
+    - Nome no descritivo: "" → "ABRIDOR DE BOCA TIPO ABRITEC ADULTO"
     - Descritivo: "" → "Composição: 100% silicone. Possui bordas arredondadas. Medidas: 40 x 30 x 20 mm.
  Indicação: auxiliar na abertura de boca do paciente, proporcionado maior conforto e facilitando o desempenho dos procedimentos odontológicos pelo profissional.
  Autoclavável.
