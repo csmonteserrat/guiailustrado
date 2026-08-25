@@ -4,10 +4,27 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 18  
-Última atualização: 25/08/2026, 16:36
+Total de sessões registradas: 19  
+Última atualização: 25/08/2026, 16:47
 
 ---
+
+## 25/08/2026, 16:47 — Caio César Borges de Oliveira
+
+Sessão 19 · 4 alteração(ões)
+
+**Resumo:** 4 foto
+
+- **[FOTO]** `4150597` BROCA ALTA ROTAÇÃO DIAMANTADA Nº 1111
+    - foto substituída · imagens/4150597.jpg
+- **[FOTO]** `4150599` BROCA ALTA ROTAÇÃO DIAMANTADA Nº 2130
+    - foto substituída · imagens/4150599.jpg
+- **[FOTO]** `4150606` BROCA ALTA ROTAÇÃO DIAMANTADA PARA ACABAMENTO DE RESINA Nº 3118 FF
+    - foto substituída · imagens/4150606.jpg
+- **[FOTO]** `4150565` BROCA TRANSMETAL CILÍNDRICA Nº 12
+    - foto substituída · imagens/4150565.jpg
+
+<!-- sessao:{"data":"2026-08-25T19:47:04.718Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4150597","material":"BROCA ALTA ROTAÇÃO DIAMANTADA Nº 1111","resumo":"foto substituída · imagens/4150597.jpg"},{"tipo":"imagem","codigo":"4150599","material":"BROCA ALTA ROTAÇÃO DIAMANTADA Nº 2130","resumo":"foto substituída · imagens/4150599.jpg"},{"tipo":"imagem","codigo":"4150606","material":"BROCA ALTA ROTAÇÃO DIAMANTADA PARA ACABAMENTO DE RESINA Nº 3118 FF","resumo":"foto substituída · imagens/4150606.jpg"},{"tipo":"imagem","codigo":"4150565","material":"BROCA TRANSMETAL CILÍNDRICA Nº 12","resumo":"foto substituída · imagens/4150565.jpg"}]} -->
 
 ## 25/08/2026, 16:36 — Caio César Borges de Oliveira
 
