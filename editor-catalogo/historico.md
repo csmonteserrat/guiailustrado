@@ -4,10 +4,23 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 16  
-Última atualização: 25/08/2026, 16:17
+Total de sessões registradas: 17  
+Última atualização: 25/08/2026, 16:23
 
 ---
+
+## 25/08/2026, 16:23 — Caio César Borges de Oliveira
+
+Sessão 17 · 2 alteração(ões)
+
+**Resumo:** 2 foto
+
+- **[FOTO]** `4150609` BROCA ALTA ROTAÇÃO DIAMANTADA ACABAMENTO DE RESINA Nº 3195 FF
+    - foto substituída · imagens/4150609.jpg
+- **[FOTO]** `4150607` BROCA ALTA ROTAÇÃO DIAMANTADA Nº 3195
+    - foto substituída · imagens/4150607.jpg
+
+<!-- sessao:{"data":"2026-08-25T19:23:45.848Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4150609","material":"BROCA ALTA ROTAÇÃO DIAMANTADA ACABAMENTO DE RESINA Nº 3195 FF","resumo":"foto substituída · imagens/4150609.jpg"},{"tipo":"imagem","codigo":"4150607","material":"BROCA ALTA ROTAÇÃO DIAMANTADA Nº 3195","resumo":"foto substituída · imagens/4150607.jpg"}]} -->
 
 ## 25/08/2026, 16:17 — Caio César Borges de Oliveira
 
