@@ -4,10 +4,29 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 19  
-Última atualização: 25/08/2026, 16:47
+Total de sessões registradas: 20  
+Última atualização: 25/08/2026, 17:00
 
 ---
+
+## 25/08/2026, 17:00 — Caio César Borges de Oliveira
+
+Sessão 20 · 5 alteração(ões)
+
+**Resumo:** 5 foto
+
+- **[FOTO]** `4150566` BROCA ALTA ROTAÇÃO CIRURGICA Nº 701 HL
+    - foto substituída · imagens/4150566.jpg
+- **[FOTO]** `4150758` BROCA BAIXA ROTAÇÃO CIRURGICA PARA PEÇA RETA 701
+    - foto substituída · imagens/4150758.jpg
+- **[FOTO]** `4150567` BROCA ALTA ROTAÇÃO CIRURGICA Nº 702 HL
+    - foto substituída · imagens/4150567.jpg
+- **[FOTO]** `4150613` BROCA ALTA ROTAÇÃO ENDO Z
+    - foto substituída · imagens/4150613.jpg
+- **[FOTO]** `4150759` BROCA BAIXA ROTAÇÃO CIRURGICA PARA PEÇA RETA Nº 702
+    - foto substituída · imagens/4150759.jpg
+
+<!-- sessao:{"data":"2026-08-25T20:00:38.654Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4150566","material":"BROCA ALTA ROTAÇÃO CIRURGICA Nº 701 HL","resumo":"foto substituída · imagens/4150566.jpg"},{"tipo":"imagem","codigo":"4150758","material":"BROCA BAIXA ROTAÇÃO CIRURGICA PARA PEÇA RETA 701","resumo":"foto substituída · imagens/4150758.jpg"},{"tipo":"imagem","codigo":"4150567","material":"BROCA ALTA ROTAÇÃO CIRURGICA Nº 702 HL","resumo":"foto substituída · imagens/4150567.jpg"},{"tipo":"imagem","codigo":"4150613","material":"BROCA ALTA ROTAÇÃO ENDO Z","resumo":"foto substituída · imagens/4150613.jpg"},{"tipo":"imagem","codigo":"4150759","material":"BROCA BAIXA ROTAÇÃO CIRURGICA PARA PEÇA RETA Nº 702","resumo":"foto substituída · imagens/4150759.jpg"}]} -->
 
 ## 25/08/2026, 16:47 — Caio César Borges de Oliveira
 
