@@ -4,10 +4,25 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 7  
-Última atualização: 25/08/2026, 10:27
+Total de sessões registradas: 8  
+Última atualização: 25/08/2026, 10:35
 
 ---
+
+## 25/08/2026, 10:35 — Caio César Borges de Oliveira
+
+Sessão 8 · 3 alteração(ões)
+
+**Resumo:** 3 foto
+
+- **[FOTO]** `4151240` ELEVADOR POTT R
+    - foto adicionada · imagens/4151240.jpg
+- **[FOTO]** `4151250` POTTS CABO T
+    - foto adicionada · imagens/4151250.jpg
+- **[FOTO]** `4151120` SOLUCAO REVELADORA PARA RX
+    - foto adicionada · imagens/4151120.jpg
+
+<!-- sessao:{"data":"2026-08-25T13:35:43.153Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4151240","material":"ELEVADOR POTT R","resumo":"foto adicionada · imagens/4151240.jpg"},{"tipo":"imagem","codigo":"4151250","material":"POTTS CABO T","resumo":"foto adicionada · imagens/4151250.jpg"},{"tipo":"imagem","codigo":"4151120","material":"SOLUCAO REVELADORA PARA RX","resumo":"foto adicionada · imagens/4151120.jpg"}]} -->
 
 ## 25/08/2026, 10:27 — Caio César Borges de Oliveira
 
