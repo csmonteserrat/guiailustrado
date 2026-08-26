@@ -4,10 +4,121 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 20  
-Última atualização: 25/08/2026, 17:00
+Total de sessões registradas: 21  
+Última atualização: 26/08/2026, 13:08
 
 ---
+
+## 26/08/2026, 13:08 — Caio César Borges de Oliveira
+
+Sessão 21 · 10 alteração(ões) · 599 itens no arquivo após a edição
+
+**Origem:** relatório do CELK emitido em 26/08/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 13, 12, 15, 14.
+
+**Resumo:** 10 novo
+
+- **[NOVO]** `4151262` POTE PARA INSTRUMENTAIS
+    - Código: 4151262
+    - Material: POTE PARA INSTRUMENTAIS
+    - Unidade de pedido: U - Unidade
+    - Grupo: 13
+    - Subgrupo: Odontologia
+    - Acesso: TODOS
+    - Tipo: Consumo
+    - Arquivo da imagem: 4151262.jpg
+    - Situação: SIM
+- **[NOVO]** `4151265` FILME PERIAPICAL INFANTIL 22X35MM (CAIXA COM 100) (CEO + POLI)
+    - Código: 4151265
+    - Material: FILME PERIAPICAL INFANTIL 22X35MM (CAIXA COM 100) (CEO + POLI)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 15
+    - Subgrupo: CEO
+    - Acesso: CEO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4151265.jpg
+    - Situação: SIM
+- **[NOVO]** `4151267` GESSO PEDRA AMARELO TIPO III PACT 1KG (PROTESE)
+    - Código: 4151267
+    - Material: GESSO PEDRA AMARELO TIPO III PACT 1KG (PROTESE)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 15
+    - Subgrupo: CEO
+    - Acesso: CEO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4151267.jpg
+    - Situação: SIM
+- **[NOVO]** `4151268` BENZOCAINA ANESTESICO TOPICO 200MG/G (30G)
+    - Código: 4151268
+    - Material: BENZOCAINA ANESTESICO TOPICO 200MG/G (30G)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 13
+    - Subgrupo: Odontologia
+    - Acesso: TODOS
+    - Tipo: Consumo
+    - Arquivo da imagem: 4151268.jpg
+    - Situação: SIM
+- **[NOVO]** `4151270` FRESA TUNGSTENIO PARA PEÇA DE MÃO MAXI CUT
+    - Código: 4151270
+    - Material: FRESA TUNGSTENIO PARA PEÇA DE MÃO MAXI CUT
+    - Unidade de pedido: U - Unidade
+    - Grupo: 14
+    - Subgrupo: CEO Instrumental
+    - Acesso: CEO
+    - Tipo: Instrumental
+    - Arquivo da imagem: 4151270.jpg
+    - Situação: SIM
+- **[NOVO]** `4151271` FRESA TUNGSTENIO PARA PEÇA DE MÃO MINI CUT
+    - Código: 4151271
+    - Material: FRESA TUNGSTENIO PARA PEÇA DE MÃO MINI CUT
+    - Unidade de pedido: U - Unidade
+    - Grupo: 14
+    - Subgrupo: CEO Instrumental
+    - Acesso: CEO
+    - Tipo: Instrumental
+    - Arquivo da imagem: 4151271.jpg
+    - Situação: SIM
+- **[NOVO]** `4151272` CLOREXIDINA 2% GEL (CAIXA COM 2 SERINGAS)
+    - Código: 4151272
+    - Material: CLOREXIDINA 2% GEL (CAIXA COM 2 SERINGAS)
+    - Unidade de pedido: CA - Caixa
+    - Grupo: 15
+    - Subgrupo: CEO
+    - Acesso: CEO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4151272.jpg
+    - Situação: SIM
+- **[NOVO]** `4151273` TIRAS DE LIXA DE AÇO 4 MM (CAIXA COM 12 UNIDADES)
+    - Código: 4151273
+    - Material: TIRAS DE LIXA DE AÇO 4 MM (CAIXA COM 12 UNIDADES)
+    - Unidade de pedido: CA - Caixa
+    - Grupo: 13
+    - Subgrupo: Odontologia
+    - Acesso: TODOS
+    - Tipo: Consumo
+    - Arquivo da imagem: 4151273.jpg
+    - Situação: SIM
+- **[NOVO]** `4151274` GESSO BRANCO COMUM TIPO II (PACOTE 1KG) (PROTESE)
+    - Código: 4151274
+    - Material: GESSO BRANCO COMUM TIPO II (PACOTE 1KG) (PROTESE)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 15
+    - Subgrupo: CEO
+    - Acesso: CEO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4151274.jpg
+    - Situação: SIM
+- **[NOVO]** `4151275` GESSO ESPECIAL TIPO IV (PROTESE)
+    - Código: 4151275
+    - Material: GESSO ESPECIAL TIPO IV (PROTESE)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 15
+    - Subgrupo: CEO
+    - Acesso: CEO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4151275.jpg
+    - Situação: SIM
+
+<!-- sessao:{"data":"2026-08-26T16:08:42.661Z","autor":"Caio César Borges de Oliveira","origem":"relatório do CELK emitido em 26/08/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 13, 12, 15, 14","total":599,"alteracoes":[{"tipo":"novo","codigo":"4151262","material":"POTE PARA INSTRUMENTAIS","campos":[],"dados":{"codigo":"4151262","material":"POTE PARA INSTRUMENTAIS","unidade":"U - Unidade","grupo":"13","subgrupo":"Odontologia","acesso":"TODOS","tipo":"Consumo","imagem":"4151262.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4151265","material":"FILME PERIAPICAL INFANTIL 22X35MM (CAIXA COM 100) (CEO + POLI)","campos":[],"dados":{"codigo":"4151265","material":"FILME PERIAPICAL INFANTIL 22X35MM (CAIXA COM 100) (CEO + POLI)","unidade":"U - Unidade","grupo":"15","subgrupo":"CEO","acesso":"CEO","tipo":"Consumo","imagem":"4151265.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4151267","material":"GESSO PEDRA AMARELO TIPO III PACT 1KG (PROTESE)","campos":[],"dados":{"codigo":"4151267","material":"GESSO PEDRA AMARELO TIPO III PACT 1KG (PROTESE)","unidade":"U - Unidade","grupo":"15","subgrupo":"CEO","acesso":"CEO","tipo":"Consumo","imagem":"4151267.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4151268","material":"BENZOCAINA ANESTESICO TOPICO 200MG/G (30G)","campos":[],"dados":{"codigo":"4151268","material":"BENZOCAINA ANESTESICO TOPICO 200MG/G (30G)","unidade":"U - Unidade","grupo":"13","subgrupo":"Odontologia","acesso":"TODOS","tipo":"Consumo","imagem":"4151268.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4151270","material":"FRESA TUNGSTENIO PARA PEÇA DE MÃO MAXI CUT","campos":[],"dados":{"codigo":"4151270","material":"FRESA TUNGSTENIO PARA PEÇA DE MÃO MAXI CUT","unidade":"U - Unidade","grupo":"14","subgrupo":"CEO Instrumental","acesso":"CEO","tipo":"Instrumental","imagem":"4151270.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4151271","material":"FRESA TUNGSTENIO PARA PEÇA DE MÃO MINI CUT","campos":[],"dados":{"codigo":"4151271","material":"FRESA TUNGSTENIO PARA PEÇA DE MÃO MINI CUT","unidade":"U - Unidade","grupo":"14","subgrupo":"CEO Instrumental","acesso":"CEO","tipo":"Instrumental","imagem":"4151271.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4151272","material":"CLOREXIDINA 2% GEL (CAIXA COM 2 SERINGAS)","campos":[],"dados":{"codigo":"4151272","material":"CLOREXIDINA 2% GEL (CAIXA COM 2 SERINGAS)","unidade":"CA - Caixa","grupo":"15","subgrupo":"CEO","acesso":"CEO","tipo":"Consumo","imagem":"4151272.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4151273","material":"TIRAS DE LIXA DE AÇO 4 MM (CAIXA COM 12 UNIDADES)","campos":[],"dados":{"codigo":"4151273","material":"TIRAS DE LIXA DE AÇO 4 MM (CAIXA COM 12 UNIDADES)","unidade":"CA - Caixa","grupo":"13","subgrupo":"Odontologia","acesso":"TODOS","tipo":"Consumo","imagem":"4151273.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4151274","material":"GESSO BRANCO COMUM TIPO II (PACOTE 1KG) (PROTESE)","campos":[],"dados":{"codigo":"4151274","material":"GESSO BRANCO COMUM TIPO II (PACOTE 1KG) (PROTESE)","unidade":"U - Unidade","grupo":"15","subgrupo":"CEO","acesso":"CEO","tipo":"Consumo","imagem":"4151274.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4151275","material":"GESSO ESPECIAL TIPO IV (PROTESE)","campos":[],"dados":{"codigo":"4151275","material":"GESSO ESPECIAL TIPO IV (PROTESE)","unidade":"U - Unidade","grupo":"15","subgrupo":"CEO","acesso":"CEO","tipo":"Consumo","imagem":"4151275.jpg","ativo":"SIM"}}]} -->
 
 ## 25/08/2026, 17:00 — Caio César Borges de Oliveira
 
