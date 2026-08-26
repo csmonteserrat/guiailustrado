@@ -4,10 +4,43 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 22  
-Última atualização: 26/08/2026, 13:15
+Total de sessões registradas: 23  
+Última atualização: 26/08/2026, 15:19
 
 ---
+
+## 26/08/2026, 15:19 — Caio César Borges de Oliveira
+
+Sessão 23 · 12 alteração(ões)
+
+**Resumo:** 12 foto
+
+- **[FOTO]** `4151271` FRESA TUNGSTENIO PARA PEÇA DE MÃO MINI CUT
+    - foto adicionada · imagens/4151271.jpg
+- **[FOTO]** `4151270` FRESA TUNGSTENIO PARA PEÇA DE MÃO MAXI CUT
+    - foto adicionada · imagens/4151270.jpg
+- **[FOTO]** `4151272` CLOREXIDINA 2% GEL (CAIXA COM 2 SERINGAS)
+    - foto adicionada · imagens/4151272.jpg
+- **[FOTO]** `4151273` TIRAS DE LIXA DE AÇO 4 MM (CAIXA COM 12 UNIDADES)
+    - foto adicionada · imagens/4151273.jpg
+- **[FOTO]** `4151275` GESSO ESPECIAL TIPO IV (PROTESE)
+    - foto adicionada · imagens/4151275.jpg
+- **[FOTO]** `4151274` GESSO BRANCO COMUM TIPO II (PACOTE 1KG) (PROTESE)
+    - foto adicionada · imagens/4151274.jpg
+- **[FOTO]** `4151268` BENZOCAINA ANESTESICO TOPICO 200MG/G (30G)
+    - foto adicionada · imagens/4151268.jpg
+- **[FOTO]** `4151267` GESSO PEDRA AMARELO TIPO III PACT 1KG (PROTESE)
+    - foto adicionada · imagens/4151267.jpg
+- **[FOTO]** `4151265` FILME PERIAPICAL INFANTIL 22X35MM (CAIXA COM 100) (CEO + POLI)
+    - foto adicionada · imagens/4151265.jpg
+- **[FOTO]** `4151246` PINCA PORTA GRAMPO PARA DIQUE
+    - foto adicionada · imagens/4151246.jpg
+- **[FOTO]** `4151242` GRAMPO N210
+    - foto adicionada · imagens/4151242.jpg
+- **[FOTO]** `4151235` CAMURCA PARA AMALGAMA
+    - foto adicionada · imagens/4151235.jpg
+
+<!-- sessao:{"data":"2026-08-26T18:19:19.797Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4151271","material":"FRESA TUNGSTENIO PARA PEÇA DE MÃO MINI CUT","resumo":"foto adicionada · imagens/4151271.jpg"},{"tipo":"imagem","codigo":"4151270","material":"FRESA TUNGSTENIO PARA PEÇA DE MÃO MAXI CUT","resumo":"foto adicionada · imagens/4151270.jpg"},{"tipo":"imagem","codigo":"4151272","material":"CLOREXIDINA 2% GEL (CAIXA COM 2 SERINGAS)","resumo":"foto adicionada · imagens/4151272.jpg"},{"tipo":"imagem","codigo":"4151273","material":"TIRAS DE LIXA DE AÇO 4 MM (CAIXA COM 12 UNIDADES)","resumo":"foto adicionada · imagens/4151273.jpg"},{"tipo":"imagem","codigo":"4151275","material":"GESSO ESPECIAL TIPO IV (PROTESE)","resumo":"foto adicionada · imagens/4151275.jpg"},{"tipo":"imagem","codigo":"4151274","material":"GESSO BRANCO COMUM TIPO II (PACOTE 1KG) (PROTESE)","resumo":"foto adicionada · imagens/4151274.jpg"},{"tipo":"imagem","codigo":"4151268","material":"BENZOCAINA ANESTESICO TOPICO 200MG/G (30G)","resumo":"foto adicionada · imagens/4151268.jpg"},{"tipo":"imagem","codigo":"4151267","material":"GESSO PEDRA AMARELO TIPO III PACT 1KG (PROTESE)","resumo":"foto adicionada · imagens/4151267.jpg"},{"tipo":"imagem","codigo":"4151265","material":"FILME PERIAPICAL INFANTIL 22X35MM (CAIXA COM 100) (CEO + POLI)","resumo":"foto adicionada · imagens/4151265.jpg"},{"tipo":"imagem","codigo":"4151246","material":"PINCA PORTA GRAMPO PARA DIQUE","resumo":"foto adicionada · imagens/4151246.jpg"},{"tipo":"imagem","codigo":"4151242","material":"GRAMPO N210","resumo":"foto adicionada · imagens/4151242.jpg"},{"tipo":"imagem","codigo":"4151235","material":"CAMURCA PARA AMALGAMA","resumo":"foto adicionada · imagens/4151235.jpg"}]} -->
 
 ## 26/08/2026, 13:15 — Caio César Borges de Oliveira
 
