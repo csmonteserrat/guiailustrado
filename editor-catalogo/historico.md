@@ -4,10 +4,49 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 21  
-Última atualização: 26/08/2026, 13:08
+Total de sessões registradas: 22  
+Última atualização: 26/08/2026, 13:15
 
 ---
+
+## 26/08/2026, 13:15 — Caio César Borges de Oliveira
+
+Sessão 22 · 10 alteração(ões) · 599 itens no arquivo após a edição
+
+**Resumo:** 10 editado
+
+- **[EDITADO]** `4151262` POTE PARA INSTRUMENTAIS
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Caixas e recipientes"
+- **[EDITADO]** `4151265` FILME PERIAPICAL INFANTIL 22X35MM (CAIXA COM 100) (CEO + POLI)
+    - Tags: "" → "Odontopediatria;Radiologia"
+    - Família: "" → "Radiologia"
+- **[EDITADO]** `4151267` GESSO PEDRA AMARELO TIPO III PACT 1KG (PROTESE)
+    - Tags: "" → "Prótese"
+    - Família: "" → "Materiais de moldagem;Equipamentos de laboratório"
+- **[EDITADO]** `4151268` BENZOCAINA ANESTESICO TOPICO 200MG/G (30G)
+    - Tags: "" → "Anestesia"
+    - Família: "" → "Anestesia"
+- **[EDITADO]** `4151270` FRESA TUNGSTENIO PARA PEÇA DE MÃO MAXI CUT
+    - Tags: "" → "Prótese"
+    - Família: "" → "Brocas"
+- **[EDITADO]** `4151271` FRESA TUNGSTENIO PARA PEÇA DE MÃO MINI CUT
+    - Tags: "" → "Prótese"
+    - Família: "" → "Brocas"
+- **[EDITADO]** `4151272` CLOREXIDINA 2% GEL (CAIXA COM 2 SERINGAS)
+    - Tags: "" → "Endodontia"
+    - Família: "" → "Soluções e medicamentos"
+- **[EDITADO]** `4151273` TIRAS DE LIXA DE AÇO 4 MM (CAIXA COM 12 UNIDADES)
+    - Tags: "" → "Dentística"
+    - Família: "" → "Matrizes, tiras e acabamento"
+- **[EDITADO]** `4151274` GESSO BRANCO COMUM TIPO II (PACOTE 1KG) (PROTESE)
+    - Tags: "" → "Prótese"
+    - Família: "" → "Equipamentos de laboratório;Materiais de moldagem"
+- **[EDITADO]** `4151275` GESSO ESPECIAL TIPO IV (PROTESE)
+    - Tags: "" → "Prótese"
+    - Família: "" → "Materiais de moldagem;Equipamentos de laboratório"
+
+<!-- sessao:{"data":"2026-08-26T16:15:10.029Z","autor":"Caio César Borges de Oliveira","origem":"","total":599,"alteracoes":[{"tipo":"editado","codigo":"4151262","material":"POTE PARA INSTRUMENTAIS","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Caixas e recipientes"}]},{"tipo":"editado","codigo":"4151265","material":"FILME PERIAPICAL INFANTIL 22X35MM (CAIXA COM 100) (CEO + POLI)","campos":[{"campo":"especialidade","de":"","para":"Odontopediatria;Radiologia"},{"campo":"familia","de":"","para":"Radiologia"}]},{"tipo":"editado","codigo":"4151267","material":"GESSO PEDRA AMARELO TIPO III PACT 1KG (PROTESE)","campos":[{"campo":"especialidade","de":"","para":"Prótese"},{"campo":"familia","de":"","para":"Materiais de moldagem;Equipamentos de laboratório"}]},{"tipo":"editado","codigo":"4151268","material":"BENZOCAINA ANESTESICO TOPICO 200MG/G (30G)","campos":[{"campo":"especialidade","de":"","para":"Anestesia"},{"campo":"familia","de":"","para":"Anestesia"}]},{"tipo":"editado","codigo":"4151270","material":"FRESA TUNGSTENIO PARA PEÇA DE MÃO MAXI CUT","campos":[{"campo":"especialidade","de":"","para":"Prótese"},{"campo":"familia","de":"","para":"Brocas"}]},{"tipo":"editado","codigo":"4151271","material":"FRESA TUNGSTENIO PARA PEÇA DE MÃO MINI CUT","campos":[{"campo":"especialidade","de":"","para":"Prótese"},{"campo":"familia","de":"","para":"Brocas"}]},{"tipo":"editado","codigo":"4151272","material":"CLOREXIDINA 2% GEL (CAIXA COM 2 SERINGAS)","campos":[{"campo":"especialidade","de":"","para":"Endodontia"},{"campo":"familia","de":"","para":"Soluções e medicamentos"}]},{"tipo":"editado","codigo":"4151273","material":"TIRAS DE LIXA DE AÇO 4 MM (CAIXA COM 12 UNIDADES)","campos":[{"campo":"especialidade","de":"","para":"Dentística"},{"campo":"familia","de":"","para":"Matrizes, tiras e acabamento"}]},{"tipo":"editado","codigo":"4151274","material":"GESSO BRANCO COMUM TIPO II (PACOTE 1KG) (PROTESE)","campos":[{"campo":"especialidade","de":"","para":"Prótese"},{"campo":"familia","de":"","para":"Equipamentos de laboratório;Materiais de moldagem"}]},{"tipo":"editado","codigo":"4151275","material":"GESSO ESPECIAL TIPO IV (PROTESE)","campos":[{"campo":"especialidade","de":"","para":"Prótese"},{"campo":"familia","de":"","para":"Materiais de moldagem;Equipamentos de laboratório"}]}]} -->
 
 ## 26/08/2026, 13:08 — Caio César Borges de Oliveira
 
