@@ -4,10 +4,21 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 23  
-Última atualização: 26/08/2026, 15:19
+Total de sessões registradas: 24  
+Última atualização: 01/09/2026, 09:11
 
 ---
+
+## 01/09/2026, 09:11 — Caio César Borges de Oliveira
+
+Sessão 24 · 1 alteração(ões)
+
+**Resumo:** 1 foto
+
+- **[FOTO]** `4150677` SERIADO DE BORRACHA PARA RESINA
+    - foto adicionada · imagens/4150677.jpg
+
+<!-- sessao:{"data":"2026-09-01T12:11:48.114Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4150677","material":"SERIADO DE BORRACHA PARA RESINA","resumo":"foto adicionada · imagens/4150677.jpg"}]} -->
 
 ## 26/08/2026, 15:19 — Caio César Borges de Oliveira
 
