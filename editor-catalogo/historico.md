@@ -4,10 +4,21 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 30  
-Última atualização: 02/09/2026, 14:51
+Total de sessões registradas: 31  
+Última atualização: 02/09/2026, 14:53
 
 ---
+
+## 02/09/2026, 14:53 — Caio César Borges de Oliveira
+
+Sessão 31 · 1 alteração(ões)
+
+**Resumo:** 1 foto
+
+- **[FOTO]** `4150715` REVELADOR DE PLACA BACTERIANA 500ML
+    - foto adicionada · imagens/4150715.jpg
+
+<!-- sessao:{"data":"2026-09-02T17:53:30.764Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4150715","material":"REVELADOR DE PLACA BACTERIANA 500ML","resumo":"foto adicionada · imagens/4150715.jpg"}]} -->
 
 ## 02/09/2026, 14:51 — Caio César Borges de Oliveira
 
