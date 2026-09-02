@@ -4,10 +4,21 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 33  
-Última atualização: 02/09/2026, 15:03
+Total de sessões registradas: 34  
+Última atualização: 02/09/2026, 15:07
 
 ---
+
+## 02/09/2026, 15:07 — Caio César Borges de Oliveira
+
+Sessão 34 · 1 alteração(ões)
+
+**Resumo:** 1 foto
+
+- **[FOTO]** `4150504` CURETA DUPLA HL 13/14
+    - foto adicionada · imagens/4150504.jpg
+
+<!-- sessao:{"data":"2026-09-02T18:07:38.449Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4150504","material":"CURETA DUPLA HL 13/14","resumo":"foto adicionada · imagens/4150504.jpg"}]} -->
 
 ## 02/09/2026, 15:03 — Caio César Borges de Oliveira
 
