@@ -4,10 +4,21 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 31  
-Última atualização: 02/09/2026, 14:53
+Total de sessões registradas: 32  
+Última atualização: 02/09/2026, 14:56
 
 ---
+
+## 02/09/2026, 14:56 — Caio César Borges de Oliveira
+
+Sessão 32 · 1 alteração(ões)
+
+**Resumo:** 1 foto
+
+- **[FOTO]** `4151277` CIMENTO ENDODONTICO COM HIDROCORTISONA
+    - foto adicionada · imagens/4151277.jpg
+
+<!-- sessao:{"data":"2026-09-02T17:56:25.411Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4151277","material":"CIMENTO ENDODONTICO COM HIDROCORTISONA","resumo":"foto adicionada · imagens/4151277.jpg"}]} -->
 
 ## 02/09/2026, 14:53 — Caio César Borges de Oliveira
 
