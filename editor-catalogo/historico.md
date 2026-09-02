@@ -4,10 +4,52 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 24  
-Última atualização: 01/09/2026, 09:11
+Total de sessões registradas: 25  
+Última atualização: 02/09/2026, 14:10
 
 ---
+
+## 02/09/2026, 14:10 — Caio César Borges de Oliveira
+
+Sessão 25 · 5 alteração(ões) · 601 itens no arquivo após a edição
+
+**Origem:** relatório do CELK emitido em 02/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 15, 14, 13, 12.
+
+**Resumo:** 3 editado · 2 novo
+
+- **[EDITADO]** `4150775` CAMPO CIRURGICO DESCARTAVEL TNT 60 x 90 CM (UNIDADE)
+    - Material: "CAMPO CIRURGICO DESCARTAVEL TNT 60x90 CM" → "CAMPO CIRURGICO DESCARTAVEL TNT 60 x 90 CM (UNIDADE)"
+    - Grupo: "15" → "13"
+    - Subgrupo: "CEO" → "Odontologia"
+    - Acesso: "CEO" → "TODOS"
+- **[EDITADO]** `4151214` DISCO DE LIXA DE OXIDO DE AL PARA ACABAM RESINA FOTO (COM 50 DISCOS)
+    - Grupo: "15" → "13"
+    - Subgrupo: "CEO" → "Odontologia"
+    - Acesso: "CEO" → "TODOS"
+- **[EDITADO]** `4151273` TIRA DE LIXA METÁLICA ABRASIVA 4 MM (CAIXA COM 12 UNIDADES)
+    - Material: "TIRAS DE LIXA DE AÇO 4 MM (CAIXA COM 12 UNIDADES)" → "TIRA DE LIXA METÁLICA ABRASIVA 4 MM (CAIXA COM 12 UNIDADES)"
+- **[NOVO]** `4151277` CIMENTO ENDODONTICO COM HIDROCORTISONA
+    - Código: 4151277
+    - Material: CIMENTO ENDODONTICO COM HIDROCORTISONA
+    - Unidade de pedido: U - Unidade
+    - Grupo: 15
+    - Subgrupo: CEO
+    - Acesso: CEO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4151277.jpg
+    - Situação: SIM
+- **[NOVO]** `4151278` ESPATULA DUPLA SILICATO 6335 N1
+    - Código: 4151278
+    - Material: ESPATULA DUPLA SILICATO 6335 N1
+    - Unidade de pedido: U - Unidade
+    - Grupo: 13
+    - Subgrupo: Odontologia
+    - Acesso: TODOS
+    - Tipo: Consumo
+    - Arquivo da imagem: 4151278.jpg
+    - Situação: SIM
+
+<!-- sessao:{"data":"2026-09-02T17:10:29.698Z","autor":"Caio César Borges de Oliveira","origem":"relatório do CELK emitido em 02/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 15, 14, 13, 12","total":601,"alteracoes":[{"tipo":"editado","codigo":"4150775","material":"CAMPO CIRURGICO DESCARTAVEL TNT 60 x 90 CM (UNIDADE)","campos":[{"campo":"material","de":"CAMPO CIRURGICO DESCARTAVEL TNT 60x90 CM","para":"CAMPO CIRURGICO DESCARTAVEL TNT 60 x 90 CM (UNIDADE)"},{"campo":"grupo","de":"15","para":"13"},{"campo":"subgrupo","de":"CEO","para":"Odontologia"},{"campo":"acesso","de":"CEO","para":"TODOS"}]},{"tipo":"editado","codigo":"4151214","material":"DISCO DE LIXA DE OXIDO DE AL PARA ACABAM RESINA FOTO (COM 50 DISCOS)","campos":[{"campo":"grupo","de":"15","para":"13"},{"campo":"subgrupo","de":"CEO","para":"Odontologia"},{"campo":"acesso","de":"CEO","para":"TODOS"}]},{"tipo":"editado","codigo":"4151273","material":"TIRA DE LIXA METÁLICA ABRASIVA 4 MM (CAIXA COM 12 UNIDADES)","campos":[{"campo":"material","de":"TIRAS DE LIXA DE AÇO 4 MM (CAIXA COM 12 UNIDADES)","para":"TIRA DE LIXA METÁLICA ABRASIVA 4 MM (CAIXA COM 12 UNIDADES)"}]},{"tipo":"novo","codigo":"4151277","material":"CIMENTO ENDODONTICO COM HIDROCORTISONA","campos":[],"dados":{"codigo":"4151277","material":"CIMENTO ENDODONTICO COM HIDROCORTISONA","unidade":"U - Unidade","grupo":"15","subgrupo":"CEO","acesso":"CEO","tipo":"Consumo","imagem":"4151277.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4151278","material":"ESPATULA DUPLA SILICATO 6335 N1","campos":[],"dados":{"codigo":"4151278","material":"ESPATULA DUPLA SILICATO 6335 N1","unidade":"U - Unidade","grupo":"13","subgrupo":"Odontologia","acesso":"TODOS","tipo":"Consumo","imagem":"4151278.jpg","ativo":"SIM"}}]} -->
 
 ## 01/09/2026, 09:11 — Caio César Borges de Oliveira
 
