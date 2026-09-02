@@ -4,10 +4,21 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 28  
-Última atualização: 02/09/2026, 14:36
+Total de sessões registradas: 29  
+Última atualização: 02/09/2026, 14:46
 
 ---
+
+## 02/09/2026, 14:46 — Caio César Borges de Oliveira
+
+Sessão 29 · 1 alteração(ões) · 601 itens no arquivo após a edição
+
+**Resumo:** 1 inativado
+
+- **[INATIVADO]** `4150494` CUBA INOX COM TAMPA PEQUENA
+    - Situação: "SIM" → "NAO"
+
+<!-- sessao:{"data":"2026-09-02T17:46:51.098Z","autor":"Caio César Borges de Oliveira","origem":"","total":601,"alteracoes":[{"tipo":"inativado","codigo":"4150494","material":"CUBA INOX COM TAMPA PEQUENA","campos":[{"campo":"ativo","de":"SIM","para":"NAO"}]}]} -->
 
 ## 02/09/2026, 14:36 — Caio César Borges de Oliveira
 
