@@ -4,10 +4,21 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 26  
-Última atualização: 02/09/2026, 14:14
+Total de sessões registradas: 27  
+Última atualização: 02/09/2026, 14:23
 
 ---
+
+## 02/09/2026, 14:23 — Caio César Borges de Oliveira
+
+Sessão 27 · 1 alteração(ões) · 601 itens no arquivo após a edição
+
+**Resumo:** 1 inativado
+
+- **[INATIVADO]** `4151112` RESTAURADOR PROVISORIO PARA ENDO
+    - Situação: "SIM" → "NAO"
+
+<!-- sessao:{"data":"2026-09-02T17:23:38.950Z","autor":"Caio César Borges de Oliveira","origem":"","total":601,"alteracoes":[{"tipo":"inativado","codigo":"4151112","material":"RESTAURADOR PROVISORIO PARA ENDO","campos":[{"campo":"ativo","de":"SIM","para":"NAO"}]}]} -->
 
 ## 02/09/2026, 14:14 — Caio César Borges de Oliveira
 
