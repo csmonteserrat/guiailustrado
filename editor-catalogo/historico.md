@@ -4,10 +4,21 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 29  
-Última atualização: 02/09/2026, 14:46
+Total de sessões registradas: 30  
+Última atualização: 02/09/2026, 14:51
 
 ---
+
+## 02/09/2026, 14:51 — Caio César Borges de Oliveira
+
+Sessão 30 · 1 alteração(ões) · 601 itens no arquivo após a edição
+
+**Resumo:** 1 inativado
+
+- **[INATIVADO]** `4151244` KIT MATERIAL PARA REGISTO OCLUSAL
+    - Situação: "SIM" → "NAO"
+
+<!-- sessao:{"data":"2026-09-02T17:51:16.627Z","autor":"Caio César Borges de Oliveira","origem":"","total":601,"alteracoes":[{"tipo":"inativado","codigo":"4151244","material":"KIT MATERIAL PARA REGISTO OCLUSAL","campos":[{"campo":"ativo","de":"SIM","para":"NAO"}]}]} -->
 
 ## 02/09/2026, 14:46 — Caio César Borges de Oliveira
 
