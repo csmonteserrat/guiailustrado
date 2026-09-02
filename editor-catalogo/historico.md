@@ -4,10 +4,21 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 27  
-Última atualização: 02/09/2026, 14:23
+Total de sessões registradas: 28  
+Última atualização: 02/09/2026, 14:36
 
 ---
+
+## 02/09/2026, 14:36 — Caio César Borges de Oliveira
+
+Sessão 28 · 1 alteração(ões)
+
+**Resumo:** 1 foto
+
+- **[FOTO]** `4151262` POTE PARA INSTRUMENTAIS
+    - foto adicionada · imagens/4151262.jpg
+
+<!-- sessao:{"data":"2026-09-02T17:36:02.218Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4151262","material":"POTE PARA INSTRUMENTAIS","resumo":"foto adicionada · imagens/4151262.jpg"}]} -->
 
 ## 02/09/2026, 14:23 — Caio César Borges de Oliveira
 
