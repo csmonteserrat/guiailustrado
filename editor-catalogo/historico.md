@@ -4,10 +4,25 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 32  
-Última atualização: 02/09/2026, 14:56
+Total de sessões registradas: 33  
+Última atualização: 02/09/2026, 15:03
 
 ---
+
+## 02/09/2026, 15:03 — Caio César Borges de Oliveira
+
+Sessão 33 · 3 alteração(ões)
+
+**Resumo:** 3 foto
+
+- **[FOTO]** `4151278` ESPATULA DUPLA SILICATO 6335 N1
+    - foto adicionada · imagens/4151278.jpg
+- **[FOTO]** `4150503` CURETA DUPLA HL 11/12
+    - foto adicionada · imagens/4150503.jpg
+- **[FOTO]** `4150505` CURETA DUPLA HL 17/18
+    - foto adicionada · imagens/4150505.jpg
+
+<!-- sessao:{"data":"2026-09-02T18:03:42.359Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4151278","material":"ESPATULA DUPLA SILICATO 6335 N1","resumo":"foto adicionada · imagens/4151278.jpg"},{"tipo":"imagem","codigo":"4150503","material":"CURETA DUPLA HL 11/12","resumo":"foto adicionada · imagens/4150503.jpg"},{"tipo":"imagem","codigo":"4150505","material":"CURETA DUPLA HL 17/18","resumo":"foto adicionada · imagens/4150505.jpg"}]} -->
 
 ## 02/09/2026, 14:56 — Caio César Borges de Oliveira
 
