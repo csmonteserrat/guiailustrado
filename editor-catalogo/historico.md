@@ -4,10 +4,311 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 47  
-Última atualização: 09/09/2026, 13:05
+Total de sessões registradas: 48  
+Última atualização: 09/09/2026, 13:12
 
 ---
+
+## 09/09/2026, 13:12 — Caio César Borges de Oliveira
+
+Sessão 48 · 29 alteração(ões) · 755 itens no arquivo após a edição
+
+**Origem:** relatório do CELK emitido em 09/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 1.
+
+**Resumo:** 29 novo
+
+- **[NOVO]** `4149878` ÁGUA DESTILADA PARA AUTOCLAVE (FRASCO 1 LITRO)
+    - Código: 4149878
+    - Material: ÁGUA DESTILADA PARA AUTOCLAVE (FRASCO 1 LITRO)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4149878.jpg
+    - Situação: SIM
+- **[NOVO]** `4149879` ÁGUA OXIGENADA 10 VOLUMES (FRASCO 1 LITRO)
+    - Código: 4149879
+    - Material: ÁGUA OXIGENADA 10 VOLUMES (FRASCO 1 LITRO)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4149879.jpg
+    - Situação: SIM
+- **[NOVO]** `4149884` AGULHA DESCARTÁVEL ESTÉRIL 13 X 4,5 (UNIDADE)
+    - Código: 4149884
+    - Material: AGULHA DESCARTÁVEL ESTÉRIL 13 X 4,5 (UNIDADE)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4149884.jpg
+    - Situação: SIM
+- **[NOVO]** `4149885` AGULHA DESCARTÁVEL ESTÉRIL 20 X 5,5 (UNIDADE)
+    - Código: 4149885
+    - Material: AGULHA DESCARTÁVEL ESTÉRIL 20 X 5,5 (UNIDADE)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4149885.jpg
+    - Situação: SIM
+- **[NOVO]** `4149886` AGULHA DESCARTAVEL ESTERIL 25 X 6,0 (UNIDADE)
+    - Código: 4149886
+    - Material: AGULHA DESCARTAVEL ESTERIL 25 X 6,0 (UNIDADE)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4149886.jpg
+    - Situação: SIM
+- **[NOVO]** `4149887` AGULHA DESCARTAVEL ESTERIL 25 X 7,0 (UNIDADE)
+    - Código: 4149887
+    - Material: AGULHA DESCARTAVEL ESTERIL 25 X 7,0 (UNIDADE)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4149887.jpg
+    - Situação: SIM
+- **[NOVO]** `4149888` AGULHA DESCARTAVEL ESTERIL 25 X 8,0 (UNIDADE)
+    - Código: 4149888
+    - Material: AGULHA DESCARTAVEL ESTERIL 25 X 8,0 (UNIDADE)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4149888.jpg
+    - Situação: SIM
+- **[NOVO]** `4149889` AGULHA DESCARTAVEL ESTERIL 30 X 7,0 (UNIDADE)
+    - Código: 4149889
+    - Material: AGULHA DESCARTAVEL ESTERIL 30 X 7,0 (UNIDADE)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4149889.jpg
+    - Situação: SIM
+- **[NOVO]** `4149891` AGULHA DESCARTÁVEL ESTÉRIL 40 X 12 (UNIDADE)
+    - Código: 4149891
+    - Material: AGULHA DESCARTÁVEL ESTÉRIL 40 X 12 (UNIDADE)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4149891.jpg
+    - Situação: SIM
+- **[NOVO]** `4149910` AGULHA DESCARTAVEL ESTERIL 30 X 8,0 (UNIDADE)
+    - Código: 4149910
+    - Material: AGULHA DESCARTAVEL ESTERIL 30 X 8,0 (UNIDADE)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4149910.jpg
+    - Situação: SIM
+- **[NOVO]** `4149940` CATGUT SIMPLES 4.0 - AGULHA 30 MM (UNIDADE)
+    - Código: 4149940
+    - Material: CATGUT SIMPLES 4.0 - AGULHA 30 MM (UNIDADE)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4149940.jpg
+    - Situação: SIM
+- **[NOVO]** `4149941` CATGUT SIMPLES 4.0 - AGULHA 40 MM (UNIDADE)
+    - Código: 4149941
+    - Material: CATGUT SIMPLES 4.0 - AGULHA 40 MM (UNIDADE)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4149941.jpg
+    - Situação: SIM
+- **[NOVO]** `4149942` CATGUT SIMPLES 5.0 - AGULHA 20 MM (UNIDADE)
+    - Código: 4149942
+    - Material: CATGUT SIMPLES 5.0 - AGULHA 20 MM (UNIDADE)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4149942.jpg
+    - Situação: SIM
+- **[NOVO]** `4149948` COMPRESSA DE GAZE CIRURGICA ESTERIL (PACOTE COM 5 UNIDADES)
+    - Código: 4149948
+    - Material: COMPRESSA DE GAZE CIRURGICA ESTERIL (PACOTE COM 5 UNIDADES)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4149948.jpg
+    - Situação: SIM
+- **[NOVO]** `4149949` COMPRESSA DE GAZE CIRURGICA NAO ESTERIL (PACOTE COM 500 UNIDADES)
+    - Código: 4149949
+    - Material: COMPRESSA DE GAZE CIRURGICA NAO ESTERIL (PACOTE COM 500 UNIDADES)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4149949.jpg
+    - Situação: SIM
+- **[NOVO]** `4149966` DETERGENTE ENZIMÁTICO (FRASCO 1 LITRO)
+    - Código: 4149966
+    - Material: DETERGENTE ENZIMÁTICO (FRASCO 1 LITRO)
+    - Unidade de pedido: FR - Frasco
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4149966.jpg
+    - Situação: SIM
+- **[NOVO]** `4149967` DISPENSER DE MESA PARA ÁLCOOL GEL
+    - Código: 4149967
+    - Material: DISPENSER DE MESA PARA ÁLCOOL GEL
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4149967.jpg
+    - Situação: SIM
+- **[NOVO]** `4149993` ESPONJA PARA LIMPEZA DE INSTRUMENTAL CIRÚRGICO
+    - Código: 4149993
+    - Material: ESPONJA PARA LIMPEZA DE INSTRUMENTAL CIRÚRGICO
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4149993.jpg
+    - Situação: SIM
+- **[NOVO]** `4150008` FITA PARA AUTOCLAVE
+    - Código: 4150008
+    - Material: FITA PARA AUTOCLAVE
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150008.jpg
+    - Situação: SIM
+- **[NOVO]** `4150019` HIPOCLORITO DE SÓDIO 1%
+    - Código: 4150019
+    - Material: HIPOCLORITO DE SÓDIO 1%
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150019.jpg
+    - Situação: SIM
+- **[NOVO]** `4150062` SERINGA 01ML DESCARTÁVEL SEM AGULHA (UNIDADE)
+    - Código: 4150062
+    - Material: SERINGA 01ML DESCARTÁVEL SEM AGULHA (UNIDADE)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150062.jpg
+    - Situação: SIM
+- **[NOVO]** `4150063` SERINGA 3ML DESCARTÁVEL COM DISPOSITIVO DE SEGURANÇA (UNIDADE)
+    - Código: 4150063
+    - Material: SERINGA 3ML DESCARTÁVEL COM DISPOSITIVO DE SEGURANÇA (UNIDADE)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150063.jpg
+    - Situação: SIM
+- **[NOVO]** `4150064` SERINGA 5ML DESCARTÁVEL COM DISPOSITIVO DE SEGURANÇA (UNIDADE)
+    - Código: 4150064
+    - Material: SERINGA 5ML DESCARTÁVEL COM DISPOSITIVO DE SEGURANÇA (UNIDADE)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150064.jpg
+    - Situação: SIM
+- **[NOVO]** `4150065` SERINGA 10ML DESCARTAVEL COM DISPOSITIVO DE SEGURANCA (UNIDADE)
+    - Código: 4150065
+    - Material: SERINGA 10ML DESCARTAVEL COM DISPOSITIVO DE SEGURANCA (UNIDADE)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150065.jpg
+    - Situação: SIM
+- **[NOVO]** `4150066` SERINGA 20ML DESCARTAVEL (UNIDADE)
+    - Código: 4150066
+    - Material: SERINGA 20ML DESCARTAVEL (UNIDADE)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150066.jpg
+    - Situação: SIM
+- **[NOVO]** `4150347` ESCOVA PARA LIMPEZA DE INSTRUMENTAIS
+    - Código: 4150347
+    - Material: ESCOVA PARA LIMPEZA DE INSTRUMENTAIS
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150347.jpg
+    - Situação: SIM
+- **[NOVO]** `4150441` SORO FISIOLOGICO 0,9%100 ML SISTEMA FECHADO
+    - Código: 4150441
+    - Material: SORO FISIOLOGICO 0,9%100 ML SISTEMA FECHADO
+    - Unidade de pedido: FR - Frasco
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150441.jpg
+    - Situação: SIM
+- **[NOVO]** `4150455` DETERGENTE ENZIMATICO (GALÃO 5 LITROS)
+    - Código: 4150455
+    - Material: DETERGENTE ENZIMATICO (GALÃO 5 LITROS)
+    - Unidade de pedido: FR - Frasco
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150455.jpg
+    - Situação: SIM
+- **[NOVO]** `4150979` ÁGUA DESTILADA PARA AUTOCLAVE (FRASCO 2 LITROS)
+    - Código: 4150979
+    - Material: ÁGUA DESTILADA PARA AUTOCLAVE (FRASCO 2 LITROS)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150979.jpg
+    - Situação: SIM
+
+<!-- sessao:{"data":"2026-09-09T16:12:15.128Z","autor":"Caio César Borges de Oliveira","origem":"relatório do CELK emitido em 09/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 1","total":755,"alteracoes":[{"tipo":"novo","codigo":"4149878","material":"ÁGUA DESTILADA PARA AUTOCLAVE (FRASCO 1 LITRO)","campos":[],"dados":{"codigo":"4149878","material":"ÁGUA DESTILADA PARA AUTOCLAVE (FRASCO 1 LITRO)","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4149878.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4149879","material":"ÁGUA OXIGENADA 10 VOLUMES (FRASCO 1 LITRO)","campos":[],"dados":{"codigo":"4149879","material":"ÁGUA OXIGENADA 10 VOLUMES (FRASCO 1 LITRO)","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4149879.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4149884","material":"AGULHA DESCARTÁVEL ESTÉRIL 13 X 4,5 (UNIDADE)","campos":[],"dados":{"codigo":"4149884","material":"AGULHA DESCARTÁVEL ESTÉRIL 13 X 4,5 (UNIDADE)","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4149884.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4149885","material":"AGULHA DESCARTÁVEL ESTÉRIL 20 X 5,5 (UNIDADE)","campos":[],"dados":{"codigo":"4149885","material":"AGULHA DESCARTÁVEL ESTÉRIL 20 X 5,5 (UNIDADE)","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4149885.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4149886","material":"AGULHA DESCARTAVEL ESTERIL 25 X 6,0 (UNIDADE)","campos":[],"dados":{"codigo":"4149886","material":"AGULHA DESCARTAVEL ESTERIL 25 X 6,0 (UNIDADE)","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4149886.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4149887","material":"AGULHA DESCARTAVEL ESTERIL 25 X 7,0 (UNIDADE)","campos":[],"dados":{"codigo":"4149887","material":"AGULHA DESCARTAVEL ESTERIL 25 X 7,0 (UNIDADE)","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4149887.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4149888","material":"AGULHA DESCARTAVEL ESTERIL 25 X 8,0 (UNIDADE)","campos":[],"dados":{"codigo":"4149888","material":"AGULHA DESCARTAVEL ESTERIL 25 X 8,0 (UNIDADE)","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4149888.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4149889","material":"AGULHA DESCARTAVEL ESTERIL 30 X 7,0 (UNIDADE)","campos":[],"dados":{"codigo":"4149889","material":"AGULHA DESCARTAVEL ESTERIL 30 X 7,0 (UNIDADE)","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4149889.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4149891","material":"AGULHA DESCARTÁVEL ESTÉRIL 40 X 12 (UNIDADE)","campos":[],"dados":{"codigo":"4149891","material":"AGULHA DESCARTÁVEL ESTÉRIL 40 X 12 (UNIDADE)","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4149891.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4149910","material":"AGULHA DESCARTAVEL ESTERIL 30 X 8,0 (UNIDADE)","campos":[],"dados":{"codigo":"4149910","material":"AGULHA DESCARTAVEL ESTERIL 30 X 8,0 (UNIDADE)","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4149910.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4149940","material":"CATGUT SIMPLES 4.0 - AGULHA 30 MM (UNIDADE)","campos":[],"dados":{"codigo":"4149940","material":"CATGUT SIMPLES 4.0 - AGULHA 30 MM (UNIDADE)","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4149940.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4149941","material":"CATGUT SIMPLES 4.0 - AGULHA 40 MM (UNIDADE)","campos":[],"dados":{"codigo":"4149941","material":"CATGUT SIMPLES 4.0 - AGULHA 40 MM (UNIDADE)","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4149941.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4149942","material":"CATGUT SIMPLES 5.0 - AGULHA 20 MM (UNIDADE)","campos":[],"dados":{"codigo":"4149942","material":"CATGUT SIMPLES 5.0 - AGULHA 20 MM (UNIDADE)","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4149942.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4149948","material":"COMPRESSA DE GAZE CIRURGICA ESTERIL (PACOTE COM 5 UNIDADES)","campos":[],"dados":{"codigo":"4149948","material":"COMPRESSA DE GAZE CIRURGICA ESTERIL (PACOTE COM 5 UNIDADES)","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4149948.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4149949","material":"COMPRESSA DE GAZE CIRURGICA NAO ESTERIL (PACOTE COM 500 UNIDADES)","campos":[],"dados":{"codigo":"4149949","material":"COMPRESSA DE GAZE CIRURGICA NAO ESTERIL (PACOTE COM 500 UNIDADES)","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4149949.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4149966","material":"DETERGENTE ENZIMÁTICO (FRASCO 1 LITRO)","campos":[],"dados":{"codigo":"4149966","material":"DETERGENTE ENZIMÁTICO (FRASCO 1 LITRO)","unidade":"FR - Frasco","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4149966.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4149967","material":"DISPENSER DE MESA PARA ÁLCOOL GEL","campos":[],"dados":{"codigo":"4149967","material":"DISPENSER DE MESA PARA ÁLCOOL GEL","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4149967.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4149993","material":"ESPONJA PARA LIMPEZA DE INSTRUMENTAL CIRÚRGICO","campos":[],"dados":{"codigo":"4149993","material":"ESPONJA PARA LIMPEZA DE INSTRUMENTAL CIRÚRGICO","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4149993.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150008","material":"FITA PARA AUTOCLAVE","campos":[],"dados":{"codigo":"4150008","material":"FITA PARA AUTOCLAVE","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150008.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150019","material":"HIPOCLORITO DE SÓDIO 1%","campos":[],"dados":{"codigo":"4150019","material":"HIPOCLORITO DE SÓDIO 1%","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150019.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150062","material":"SERINGA 01ML DESCARTÁVEL SEM AGULHA (UNIDADE)","campos":[],"dados":{"codigo":"4150062","material":"SERINGA 01ML DESCARTÁVEL SEM AGULHA (UNIDADE)","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150062.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150063","material":"SERINGA 3ML DESCARTÁVEL COM DISPOSITIVO DE SEGURANÇA (UNIDADE)","campos":[],"dados":{"codigo":"4150063","material":"SERINGA 3ML DESCARTÁVEL COM DISPOSITIVO DE SEGURANÇA (UNIDADE)","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150063.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150064","material":"SERINGA 5ML DESCARTÁVEL COM DISPOSITIVO DE SEGURANÇA (UNIDADE)","campos":[],"dados":{"codigo":"4150064","material":"SERINGA 5ML DESCARTÁVEL COM DISPOSITIVO DE SEGURANÇA (UNIDADE)","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150064.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150065","material":"SERINGA 10ML DESCARTAVEL COM DISPOSITIVO DE SEGURANCA (UNIDADE)","campos":[],"dados":{"codigo":"4150065","material":"SERINGA 10ML DESCARTAVEL COM DISPOSITIVO DE SEGURANCA (UNIDADE)","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150065.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150066","material":"SERINGA 20ML DESCARTAVEL (UNIDADE)","campos":[],"dados":{"codigo":"4150066","material":"SERINGA 20ML DESCARTAVEL (UNIDADE)","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150066.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150347","material":"ESCOVA PARA LIMPEZA DE INSTRUMENTAIS","campos":[],"dados":{"codigo":"4150347","material":"ESCOVA PARA LIMPEZA DE INSTRUMENTAIS","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150347.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150441","material":"SORO FISIOLOGICO 0,9%100 ML SISTEMA FECHADO","campos":[],"dados":{"codigo":"4150441","material":"SORO FISIOLOGICO 0,9%100 ML SISTEMA FECHADO","unidade":"FR - Frasco","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150441.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150455","material":"DETERGENTE ENZIMATICO (GALÃO 5 LITROS)","campos":[],"dados":{"codigo":"4150455","material":"DETERGENTE ENZIMATICO (GALÃO 5 LITROS)","unidade":"FR - Frasco","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150455.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150979","material":"ÁGUA DESTILADA PARA AUTOCLAVE (FRASCO 2 LITROS)","campos":[],"dados":{"codigo":"4150979","material":"ÁGUA DESTILADA PARA AUTOCLAVE (FRASCO 2 LITROS)","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150979.jpg","ativo":"SIM"}}]} -->
 
 ## 09/09/2026, 13:05 — Caio César Borges de Oliveira
 
