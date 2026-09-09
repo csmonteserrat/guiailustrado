@@ -4,10 +4,27 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 54  
-Última atualização: 09/09/2026, 17:03
+Total de sessões registradas: 55  
+Última atualização: 09/09/2026, 17:04
 
 ---
+
+## 09/09/2026, 17:04 — Caio César Borges de Oliveira
+
+Sessão 55 · 4 alteração(ões)
+
+**Resumo:** 4 foto
+
+- **[FOTO]** `4150801` CONJUNTO DE ASPIRACAO (ENDO)
+    - foto excluída · imagens/4150801.jpg
+- **[FOTO]** `4150647` KIT P/ APARELHO ULTRASSOM DABI ATLANTE PROFI NEO US - COMPLETO
+    - foto excluída · imagens/4150647.jpg
+- **[FOTO]** `4150617` KIT PONTEIRAS (TIPS) ULTRASSOM P/ PROFI NEO US DABI ATLANTE
+    - foto excluída · imagens/4150617.jpg
+- **[FOTO]** `4151113` REVELADOR RX PRONTO USO (500ML)
+    - foto excluída · imagens/4151113.jpg
+
+<!-- sessao:{"data":"2026-09-09T20:04:38.957Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4150801","material":"CONJUNTO DE ASPIRACAO (ENDO)","resumo":"foto excluída · imagens/4150801.jpg"},{"tipo":"imagem","codigo":"4150647","material":"KIT P/ APARELHO ULTRASSOM DABI ATLANTE PROFI NEO US - COMPLETO","resumo":"foto excluída · imagens/4150647.jpg"},{"tipo":"imagem","codigo":"4150617","material":"KIT PONTEIRAS (TIPS) ULTRASSOM P/ PROFI NEO US DABI ATLANTE","resumo":"foto excluída · imagens/4150617.jpg"},{"tipo":"imagem","codigo":"4151113","material":"REVELADOR RX PRONTO USO (500ML)","resumo":"foto excluída · imagens/4151113.jpg"}]} -->
 
 ## 09/09/2026, 17:03 — Caio César Borges de Oliveira
 
