@@ -4,10 +4,31 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 52  
-Última atualização: 09/09/2026, 16:21
+Total de sessões registradas: 53  
+Última atualização: 09/09/2026, 16:23
 
 ---
+
+## 09/09/2026, 16:23 — Caio César Borges de Oliveira
+
+Sessão 53 · 1 alteração(ões) · 753 itens no arquivo após a edição
+
+**Resumo:** 1 excluído
+
+- **[EXCLUÍDO]** `4149879` ÁGUA OXIGENADA 10 VOLUMES (FRASCO 1 LITRO)
+    - Código: 4149879
+    - Material: ÁGUA OXIGENADA 10 VOLUMES (FRASCO 1 LITRO)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Tags: Biossegurança
+    - Família: Descartáveis e barreiras
+    - Arquivo da imagem: 4149879.jpg
+    - Situação: SIM
+
+<!-- sessao:{"data":"2026-09-09T19:23:13.167Z","autor":"Caio César Borges de Oliveira","origem":"","total":753,"alteracoes":[{"tipo":"excluido","codigo":"4149879","material":"ÁGUA OXIGENADA 10 VOLUMES (FRASCO 1 LITRO)","campos":[],"dados":{"codigo":"4149879","material":"ÁGUA OXIGENADA 10 VOLUMES (FRASCO 1 LITRO)","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","especialidade":"Biossegurança","familia":"Descartáveis e barreiras","imagem":"4149879.jpg","ativo":"SIM"}}]} -->
 
 ## 09/09/2026, 16:21 — Caio César Borges de Oliveira
 
