@@ -4,10 +4,620 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 44  
-Última atualização: 09/09/2026, 12:56
+Total de sessões registradas: 45  
+Última atualização: 09/09/2026, 13:01
 
 ---
+
+## 09/09/2026, 13:01 — Caio César Borges de Oliveira
+
+Sessão 45 · 60 alteração(ões) · 688 itens no arquivo após a edição
+
+**Origem:** relatório do CELK emitido em 09/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 4.
+
+**Resumo:** 60 novo
+
+- **[NOVO]** `4150202` PILHA AAA
+    - Código: 4150202
+    - Material: PILHA AAA
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150202.jpg
+    - Situação: SIM
+- **[NOVO]** `4150206` PILHA AA
+    - Código: 4150206
+    - Material: PILHA AA
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150206.jpg
+    - Situação: SIM
+- **[NOVO]** `4150352` APONTADOR DE LAPIS MANUAL SEM DEPOSITO
+    - Código: 4150352
+    - Material: APONTADOR DE LAPIS MANUAL SEM DEPOSITO
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150352.jpg
+    - Situação: SIM
+- **[NOVO]** `4150356` BLOCO AUTO ADESIVO 38X50MM COM 100 FOLHAS
+    - Código: 4150356
+    - Material: BLOCO AUTO ADESIVO 38X50MM COM 100 FOLHAS
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150356.jpg
+    - Situação: SIM
+- **[NOVO]** `4150357` BLOCO AUTO ADESIVO 76X76MM COM 100 FOLHAS
+    - Código: 4150357
+    - Material: BLOCO AUTO ADESIVO 76X76MM COM 100 FOLHAS
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150357.jpg
+    - Situação: SIM
+- **[NOVO]** `4150359` BORRACHA BRANCA
+    - Código: 4150359
+    - Material: BORRACHA BRANCA
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150359.jpg
+    - Situação: SIM
+- **[NOVO]** `4150363` CALCULADORA ELETRONICA DE MESA
+    - Código: 4150363
+    - Material: CALCULADORA ELETRONICA DE MESA
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150363.jpg
+    - Situação: SIM
+- **[NOVO]** `4150364` CANETA ESFEROGRAFICA AZUL
+    - Código: 4150364
+    - Material: CANETA ESFEROGRAFICA AZUL
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150364.jpg
+    - Situação: SIM
+- **[NOVO]** `4150365` CANETA ESFEROGRAFICA VERMELHA (CLICK)
+    - Código: 4150365
+    - Material: CANETA ESFEROGRAFICA VERMELHA (CLICK)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150365.jpg
+    - Situação: SIM
+- **[NOVO]** `4150366` CANETA ESFEROGRAFICA VERMELHA
+    - Código: 4150366
+    - Material: CANETA ESFEROGRAFICA VERMELHA
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150366.jpg
+    - Situação: SIM
+- **[NOVO]** `4150367` CANETA HIDROCOR PONTA FINA (ESTOJO COM 6 CORES)
+    - Código: 4150367
+    - Material: CANETA HIDROCOR PONTA FINA (ESTOJO COM 6 CORES)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150367.jpg
+    - Situação: SIM
+- **[NOVO]** `4150368` CANETA MARCA TEXTO AMARELA
+    - Código: 4150368
+    - Material: CANETA MARCA TEXTO AMARELA
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150368.jpg
+    - Situação: SIM
+- **[NOVO]** `4150373` CANETA PARA RETROPROJETOR PRETA
+    - Código: 4150373
+    - Material: CANETA PARA RETROPROJETOR PRETA
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150373.jpg
+    - Situação: SIM
+- **[NOVO]** `4150374` CANETA PARA RETROPROJETOR VERMELHA
+    - Código: 4150374
+    - Material: CANETA PARA RETROPROJETOR VERMELHA
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150374.jpg
+    - Situação: SIM
+- **[NOVO]** `4150375` CARTOLINA ESCOLAR 50X60 - AMARELA
+    - Código: 4150375
+    - Material: CARTOLINA ESCOLAR 50X60 - AMARELA
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150375.jpg
+    - Situação: SIM
+- **[NOVO]** `4150376` CARTOLINA ESCOLAR 50X60 - AZUL
+    - Código: 4150376
+    - Material: CARTOLINA ESCOLAR 50X60 - AZUL
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150376.jpg
+    - Situação: SIM
+- **[NOVO]** `4150377` CARTOLINA ESCOLAR 50X60 - BRANCA
+    - Código: 4150377
+    - Material: CARTOLINA ESCOLAR 50X60 - BRANCA
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150377.jpg
+    - Situação: SIM
+- **[NOVO]** `4150378` CARTOLINA ESCOLAR 50X60 - ROSA
+    - Código: 4150378
+    - Material: CARTOLINA ESCOLAR 50X60 - ROSA
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150378.jpg
+    - Situação: SIM
+- **[NOVO]** `4150379` CARTOLINA ESCOLAR 50X60 - VERDE
+    - Código: 4150379
+    - Material: CARTOLINA ESCOLAR 50X60 - VERDE
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150379.jpg
+    - Situação: SIM
+- **[NOVO]** `4150380` CLIPS CRUZADO (CAIXA COM 50 UNIDADES)
+    - Código: 4150380
+    - Material: CLIPS CRUZADO (CAIXA COM 50 UNIDADES)
+    - Unidade de pedido: CA - Caixa
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150380.jpg
+    - Situação: SIM
+- **[NOVO]** `4150381` CLIPS N 04 EM ACO (CAIXA COM 50 UNIDADES)
+    - Código: 4150381
+    - Material: CLIPS N 04 EM ACO (CAIXA COM 50 UNIDADES)
+    - Unidade de pedido: CA - Caixa
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150381.jpg
+    - Situação: SIM
+- **[NOVO]** `4150382` CLIPS N 06 EM ACO (CAIXA COM 50 UNI)
+    - Código: 4150382
+    - Material: CLIPS N 06 EM ACO (CAIXA COM 50 UNI)
+    - Unidade de pedido: CA - Caixa
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150382.jpg
+    - Situação: SIM
+- **[NOVO]** `4150383` CLIPS N 08 EM ACO (CAIXA COM 25 UNIDADES)
+    - Código: 4150383
+    - Material: CLIPS N 08 EM ACO (CAIXA COM 25 UNIDADES)
+    - Unidade de pedido: CA - Caixa
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150383.jpg
+    - Situação: SIM
+- **[NOVO]** `4150384` COLA BRANCA 40G
+    - Código: 4150384
+    - Material: COLA BRANCA 40G
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150384.jpg
+    - Situação: SIM
+- **[NOVO]** `4150385` COLA EM BASTAO
+    - Código: 4150385
+    - Material: COLA EM BASTAO
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150385.jpg
+    - Situação: SIM
+- **[NOVO]** `4150386` CORRETIVO LIQUIDO BASE DE AGUA 18ML
+    - Código: 4150386
+    - Material: CORRETIVO LIQUIDO BASE DE AGUA 18ML
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150386.jpg
+    - Situação: SIM
+- **[NOVO]** `4150389` ELASTICO DE DINHEIRO (PACOTE COM 120 UNIDADES)
+    - Código: 4150389
+    - Material: ELASTICO DE DINHEIRO (PACOTE COM 120 UNIDADES)
+    - Unidade de pedido: PC - Pacote
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150389.jpg
+    - Situação: SIM
+- **[NOVO]** `4150397` ESTILETE GRANDE
+    - Código: 4150397
+    - Material: ESTILETE GRANDE
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150397.jpg
+    - Situação: SIM
+- **[NOVO]** `4150398` ETIQUETA AUTO ADESIVA FORMATO A4 (FOLHA COM 20 ETIQUETAS)
+    - Código: 4150398
+    - Material: ETIQUETA AUTO ADESIVA FORMATO A4 (FOLHA COM 20 ETIQUETAS)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150398.jpg
+    - Situação: SIM
+- **[NOVO]** `4150399` ETIQUETA ADESIVA PARA USO EM IMPRESSORA INJ-JET LASER
+    - Código: 4150399
+    - Material: ETIQUETA ADESIVA PARA USO EM IMPRESSORA INJ-JET LASER
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150399.jpg
+    - Situação: SIM
+- **[NOVO]** `4150401` EXTRATOR DE GRAMPOS
+    - Código: 4150401
+    - Material: EXTRATOR DE GRAMPOS
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150401.jpg
+    - Situação: SIM
+- **[NOVO]** `4150402` FITA ADESIVA LARGA 45 MM x 45M
+    - Código: 4150402
+    - Material: FITA ADESIVA LARGA 45 MM x 45M
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150402.jpg
+    - Situação: SIM
+- **[NOVO]** `4150403` FITA ADESIVA FINA 12MMX30M
+    - Código: 4150403
+    - Material: FITA ADESIVA FINA 12MMX30M
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150403.jpg
+    - Situação: SIM
+- **[NOVO]** `4150404` FITA CREPE 18MMX50M
+    - Código: 4150404
+    - Material: FITA CREPE 18MMX50M
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150404.jpg
+    - Situação: SIM
+- **[NOVO]** `4150405` GRAMPEADOR PARA 25 FOLHAS
+    - Código: 4150405
+    - Material: GRAMPEADOR PARA 25 FOLHAS
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150405.jpg
+    - Situação: SIM
+- **[NOVO]** `4150406` GRAMPOS 26/6 (CAIXA)
+    - Código: 4150406
+    - Material: GRAMPOS 26/6 (CAIXA)
+    - Unidade de pedido: CA - Caixa
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150406.jpg
+    - Situação: SIM
+- **[NOVO]** `4150411` PAPEL SULFITE A4 RESMA COM 500 FOLHAS RE
+    - Código: 4150411
+    - Material: PAPEL SULFITE A4 RESMA COM 500 FOLHAS RE
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150411.jpg
+    - Situação: SIM
+- **[NOVO]** `4150419` PINCEL ATOMICO AZUL
+    - Código: 4150419
+    - Material: PINCEL ATOMICO AZUL
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150419.jpg
+    - Situação: SIM
+- **[NOVO]** `4150420` PINCEL ATOMICO PRETO
+    - Código: 4150420
+    - Material: PINCEL ATOMICO PRETO
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150420.jpg
+    - Situação: SIM
+- **[NOVO]** `4150421` PINCEL ATOMICO VERDE
+    - Código: 4150421
+    - Material: PINCEL ATOMICO VERDE
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150421.jpg
+    - Situação: SIM
+- **[NOVO]** `4150422` PINCEL ATOMICO VERMELHO
+    - Código: 4150422
+    - Material: PINCEL ATOMICO VERMELHO
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150422.jpg
+    - Situação: SIM
+- **[NOVO]** `4150423` PORTA CLIPS
+    - Código: 4150423
+    - Material: PORTA CLIPS
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150423.jpg
+    - Situação: SIM
+- **[NOVO]** `4150424` REGUA PLASTICA 30CM
+    - Código: 4150424
+    - Material: REGUA PLASTICA 30CM
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150424.jpg
+    - Situação: SIM
+- **[NOVO]** `4150425` REGUA PLASTICA 50CM
+    - Código: 4150425
+    - Material: REGUA PLASTICA 50CM
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150425.jpg
+    - Situação: SIM
+- **[NOVO]** `4150427` TINTA PARA CARIMBO AUTOTINTAVEL COR PRETA
+    - Código: 4150427
+    - Material: TINTA PARA CARIMBO AUTOTINTAVEL COR PRETA
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150427.jpg
+    - Situação: SIM
+- **[NOVO]** `4150428` SUPORTE MEDIO PARA FITA ADESIVA
+    - Código: 4150428
+    - Material: SUPORTE MEDIO PARA FITA ADESIVA
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150428.jpg
+    - Situação: SIM
+- **[NOVO]** `4150429` TESOURA GRANDE COM PONTA
+    - Código: 4150429
+    - Material: TESOURA GRANDE COM PONTA
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150429.jpg
+    - Situação: SIM
+- **[NOVO]** `4150435` DISPLAY DE PAREDE EM ACRILICO TRANSPARENTE FORMATO A4 VERTICAL
+    - Código: 4150435
+    - Material: DISPLAY DE PAREDE EM ACRILICO TRANSPARENTE FORMATO A4 VERTICAL
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150435.jpg
+    - Situação: SIM
+- **[NOVO]** `4150445` ADESIVO INSTANTANEO UNIVERSAL BISNAGA 5 A 8 G
+    - Código: 4150445
+    - Material: ADESIVO INSTANTANEO UNIVERSAL BISNAGA 5 A 8 G
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150445.jpg
+    - Situação: SIM
+- **[NOVO]** `4150446` ALMOFADA PARA CARIMBO AZUL
+    - Código: 4150446
+    - Material: ALMOFADA PARA CARIMBO AZUL
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150446.jpg
+    - Situação: SIM
+- **[NOVO]** `4150449` CARTOLINA ESCOLAR 50X60 - AMARELO
+    - Código: 4150449
+    - Material: CARTOLINA ESCOLAR 50X60 - AMARELO
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150449.jpg
+    - Situação: SIM
+- **[NOVO]** `4150858` PASTA PLÁSTICA COM ELÁSTICO
+    - Código: 4150858
+    - Material: PASTA PLÁSTICA COM ELÁSTICO
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150858.jpg
+    - Situação: SIM
+- **[NOVO]** `4151036` TARJETA EM PAPEL SULFITE - COR AMARELA (PACOTE COM 100)
+    - Código: 4151036
+    - Material: TARJETA EM PAPEL SULFITE - COR AMARELA (PACOTE COM 100)
+    - Unidade de pedido: PC - Pacote
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4151036.jpg
+    - Situação: SIM
+- **[NOVO]** `4151037` TARJETA EM PAPEL SULFITE - COR AZUL (PACOTE COM 100)
+    - Código: 4151037
+    - Material: TARJETA EM PAPEL SULFITE - COR AZUL (PACOTE COM 100)
+    - Unidade de pedido: PC - Pacote
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4151037.jpg
+    - Situação: SIM
+- **[NOVO]** `4151038` TARJETA EM PAPEL SULFITE - COR ROSA (PACOTE COM 100)
+    - Código: 4151038
+    - Material: TARJETA EM PAPEL SULFITE - COR ROSA (PACOTE COM 100)
+    - Unidade de pedido: PC - Pacote
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4151038.jpg
+    - Situação: SIM
+- **[NOVO]** `4151039` TARJETA EM PAPEL SULFITE - COR VERDE (PACOTE COM 100)
+    - Código: 4151039
+    - Material: TARJETA EM PAPEL SULFITE - COR VERDE (PACOTE COM 100)
+    - Unidade de pedido: PC - Pacote
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4151039.jpg
+    - Situação: SIM
+- **[NOVO]** `4151201` CANETA MARCA TEXTO AZUL
+    - Código: 4151201
+    - Material: CANETA MARCA TEXTO AZUL
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4151201.jpg
+    - Situação: SIM
+- **[NOVO]** `4151202` CANETA MARCA TEXTO LARANJA
+    - Código: 4151202
+    - Material: CANETA MARCA TEXTO LARANJA
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4151202.jpg
+    - Situação: SIM
+- **[NOVO]** `4151203` CANETA MARCA TEXTO ROSA
+    - Código: 4151203
+    - Material: CANETA MARCA TEXTO ROSA
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4151203.jpg
+    - Situação: SIM
+- **[NOVO]** `4151276` ORGANIZADOR DE MESA TRIPLO ACRILICO VERTICAL
+    - Código: 4151276
+    - Material: ORGANIZADOR DE MESA TRIPLO ACRILICO VERTICAL
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4151276.jpg
+    - Situação: SIM
+
+<!-- sessao:{"data":"2026-09-09T16:01:38.923Z","autor":"Caio César Borges de Oliveira","origem":"relatório do CELK emitido em 09/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 4","total":688,"alteracoes":[{"tipo":"novo","codigo":"4150202","material":"PILHA AAA","campos":[],"dados":{"codigo":"4150202","material":"PILHA AAA","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150202.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150206","material":"PILHA AA","campos":[],"dados":{"codigo":"4150206","material":"PILHA AA","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150206.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150352","material":"APONTADOR DE LAPIS MANUAL SEM DEPOSITO","campos":[],"dados":{"codigo":"4150352","material":"APONTADOR DE LAPIS MANUAL SEM DEPOSITO","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150352.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150356","material":"BLOCO AUTO ADESIVO 38X50MM COM 100 FOLHAS","campos":[],"dados":{"codigo":"4150356","material":"BLOCO AUTO ADESIVO 38X50MM COM 100 FOLHAS","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150356.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150357","material":"BLOCO AUTO ADESIVO 76X76MM COM 100 FOLHAS","campos":[],"dados":{"codigo":"4150357","material":"BLOCO AUTO ADESIVO 76X76MM COM 100 FOLHAS","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150357.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150359","material":"BORRACHA BRANCA","campos":[],"dados":{"codigo":"4150359","material":"BORRACHA BRANCA","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150359.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150363","material":"CALCULADORA ELETRONICA DE MESA","campos":[],"dados":{"codigo":"4150363","material":"CALCULADORA ELETRONICA DE MESA","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150363.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150364","material":"CANETA ESFEROGRAFICA AZUL","campos":[],"dados":{"codigo":"4150364","material":"CANETA ESFEROGRAFICA AZUL","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150364.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150365","material":"CANETA ESFEROGRAFICA VERMELHA (CLICK)","campos":[],"dados":{"codigo":"4150365","material":"CANETA ESFEROGRAFICA VERMELHA (CLICK)","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150365.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150366","material":"CANETA ESFEROGRAFICA VERMELHA","campos":[],"dados":{"codigo":"4150366","material":"CANETA ESFEROGRAFICA VERMELHA","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150366.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150367","material":"CANETA HIDROCOR PONTA FINA (ESTOJO COM 6 CORES)","campos":[],"dados":{"codigo":"4150367","material":"CANETA HIDROCOR PONTA FINA (ESTOJO COM 6 CORES)","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150367.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150368","material":"CANETA MARCA TEXTO AMARELA","campos":[],"dados":{"codigo":"4150368","material":"CANETA MARCA TEXTO AMARELA","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150368.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150373","material":"CANETA PARA RETROPROJETOR PRETA","campos":[],"dados":{"codigo":"4150373","material":"CANETA PARA RETROPROJETOR PRETA","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150373.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150374","material":"CANETA PARA RETROPROJETOR VERMELHA","campos":[],"dados":{"codigo":"4150374","material":"CANETA PARA RETROPROJETOR VERMELHA","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150374.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150375","material":"CARTOLINA ESCOLAR 50X60 - AMARELA","campos":[],"dados":{"codigo":"4150375","material":"CARTOLINA ESCOLAR 50X60 - AMARELA","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150375.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150376","material":"CARTOLINA ESCOLAR 50X60 - AZUL","campos":[],"dados":{"codigo":"4150376","material":"CARTOLINA ESCOLAR 50X60 - AZUL","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150376.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150377","material":"CARTOLINA ESCOLAR 50X60 - BRANCA","campos":[],"dados":{"codigo":"4150377","material":"CARTOLINA ESCOLAR 50X60 - BRANCA","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150377.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150378","material":"CARTOLINA ESCOLAR 50X60 - ROSA","campos":[],"dados":{"codigo":"4150378","material":"CARTOLINA ESCOLAR 50X60 - ROSA","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150378.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150379","material":"CARTOLINA ESCOLAR 50X60 - VERDE","campos":[],"dados":{"codigo":"4150379","material":"CARTOLINA ESCOLAR 50X60 - VERDE","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150379.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150380","material":"CLIPS CRUZADO (CAIXA COM 50 UNIDADES)","campos":[],"dados":{"codigo":"4150380","material":"CLIPS CRUZADO (CAIXA COM 50 UNIDADES)","unidade":"CA - Caixa","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150380.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150381","material":"CLIPS N 04 EM ACO (CAIXA COM 50 UNIDADES)","campos":[],"dados":{"codigo":"4150381","material":"CLIPS N 04 EM ACO (CAIXA COM 50 UNIDADES)","unidade":"CA - Caixa","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150381.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150382","material":"CLIPS N 06 EM ACO (CAIXA COM 50 UNI)","campos":[],"dados":{"codigo":"4150382","material":"CLIPS N 06 EM ACO (CAIXA COM 50 UNI)","unidade":"CA - Caixa","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150382.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150383","material":"CLIPS N 08 EM ACO (CAIXA COM 25 UNIDADES)","campos":[],"dados":{"codigo":"4150383","material":"CLIPS N 08 EM ACO (CAIXA COM 25 UNIDADES)","unidade":"CA - Caixa","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150383.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150384","material":"COLA BRANCA 40G","campos":[],"dados":{"codigo":"4150384","material":"COLA BRANCA 40G","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150384.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150385","material":"COLA EM BASTAO","campos":[],"dados":{"codigo":"4150385","material":"COLA EM BASTAO","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150385.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150386","material":"CORRETIVO LIQUIDO BASE DE AGUA 18ML","campos":[],"dados":{"codigo":"4150386","material":"CORRETIVO LIQUIDO BASE DE AGUA 18ML","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150386.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150389","material":"ELASTICO DE DINHEIRO (PACOTE COM 120 UNIDADES)","campos":[],"dados":{"codigo":"4150389","material":"ELASTICO DE DINHEIRO (PACOTE COM 120 UNIDADES)","unidade":"PC - Pacote","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150389.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150397","material":"ESTILETE GRANDE","campos":[],"dados":{"codigo":"4150397","material":"ESTILETE GRANDE","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150397.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150398","material":"ETIQUETA AUTO ADESIVA FORMATO A4 (FOLHA COM 20 ETIQUETAS)","campos":[],"dados":{"codigo":"4150398","material":"ETIQUETA AUTO ADESIVA FORMATO A4 (FOLHA COM 20 ETIQUETAS)","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150398.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150399","material":"ETIQUETA ADESIVA PARA USO EM IMPRESSORA INJ-JET LASER","campos":[],"dados":{"codigo":"4150399","material":"ETIQUETA ADESIVA PARA USO EM IMPRESSORA INJ-JET LASER","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150399.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150401","material":"EXTRATOR DE GRAMPOS","campos":[],"dados":{"codigo":"4150401","material":"EXTRATOR DE GRAMPOS","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150401.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150402","material":"FITA ADESIVA LARGA 45 MM x 45M","campos":[],"dados":{"codigo":"4150402","material":"FITA ADESIVA LARGA 45 MM x 45M","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150402.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150403","material":"FITA ADESIVA FINA 12MMX30M","campos":[],"dados":{"codigo":"4150403","material":"FITA ADESIVA FINA 12MMX30M","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150403.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150404","material":"FITA CREPE 18MMX50M","campos":[],"dados":{"codigo":"4150404","material":"FITA CREPE 18MMX50M","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150404.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150405","material":"GRAMPEADOR PARA 25 FOLHAS","campos":[],"dados":{"codigo":"4150405","material":"GRAMPEADOR PARA 25 FOLHAS","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150405.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150406","material":"GRAMPOS 26/6 (CAIXA)","campos":[],"dados":{"codigo":"4150406","material":"GRAMPOS 26/6 (CAIXA)","unidade":"CA - Caixa","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150406.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150411","material":"PAPEL SULFITE A4 RESMA COM 500 FOLHAS RE","campos":[],"dados":{"codigo":"4150411","material":"PAPEL SULFITE A4 RESMA COM 500 FOLHAS RE","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150411.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150419","material":"PINCEL ATOMICO AZUL","campos":[],"dados":{"codigo":"4150419","material":"PINCEL ATOMICO AZUL","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150419.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150420","material":"PINCEL ATOMICO PRETO","campos":[],"dados":{"codigo":"4150420","material":"PINCEL ATOMICO PRETO","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150420.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150421","material":"PINCEL ATOMICO VERDE","campos":[],"dados":{"codigo":"4150421","material":"PINCEL ATOMICO VERDE","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150421.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150422","material":"PINCEL ATOMICO VERMELHO","campos":[],"dados":{"codigo":"4150422","material":"PINCEL ATOMICO VERMELHO","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150422.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150423","material":"PORTA CLIPS","campos":[],"dados":{"codigo":"4150423","material":"PORTA CLIPS","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150423.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150424","material":"REGUA PLASTICA 30CM","campos":[],"dados":{"codigo":"4150424","material":"REGUA PLASTICA 30CM","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150424.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150425","material":"REGUA PLASTICA 50CM","campos":[],"dados":{"codigo":"4150425","material":"REGUA PLASTICA 50CM","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150425.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150427","material":"TINTA PARA CARIMBO AUTOTINTAVEL COR PRETA","campos":[],"dados":{"codigo":"4150427","material":"TINTA PARA CARIMBO AUTOTINTAVEL COR PRETA","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150427.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150428","material":"SUPORTE MEDIO PARA FITA ADESIVA","campos":[],"dados":{"codigo":"4150428","material":"SUPORTE MEDIO PARA FITA ADESIVA","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150428.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150429","material":"TESOURA GRANDE COM PONTA","campos":[],"dados":{"codigo":"4150429","material":"TESOURA GRANDE COM PONTA","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150429.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150435","material":"DISPLAY DE PAREDE EM ACRILICO TRANSPARENTE FORMATO A4 VERTICAL","campos":[],"dados":{"codigo":"4150435","material":"DISPLAY DE PAREDE EM ACRILICO TRANSPARENTE FORMATO A4 VERTICAL","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150435.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150445","material":"ADESIVO INSTANTANEO UNIVERSAL BISNAGA 5 A 8 G","campos":[],"dados":{"codigo":"4150445","material":"ADESIVO INSTANTANEO UNIVERSAL BISNAGA 5 A 8 G","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150445.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150446","material":"ALMOFADA PARA CARIMBO AZUL","campos":[],"dados":{"codigo":"4150446","material":"ALMOFADA PARA CARIMBO AZUL","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150446.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150449","material":"CARTOLINA ESCOLAR 50X60 - AMARELO","campos":[],"dados":{"codigo":"4150449","material":"CARTOLINA ESCOLAR 50X60 - AMARELO","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150449.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150858","material":"PASTA PLÁSTICA COM ELÁSTICO","campos":[],"dados":{"codigo":"4150858","material":"PASTA PLÁSTICA COM ELÁSTICO","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150858.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4151036","material":"TARJETA EM PAPEL SULFITE - COR AMARELA (PACOTE COM 100)","campos":[],"dados":{"codigo":"4151036","material":"TARJETA EM PAPEL SULFITE - COR AMARELA (PACOTE COM 100)","unidade":"PC - Pacote","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4151036.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4151037","material":"TARJETA EM PAPEL SULFITE - COR AZUL (PACOTE COM 100)","campos":[],"dados":{"codigo":"4151037","material":"TARJETA EM PAPEL SULFITE - COR AZUL (PACOTE COM 100)","unidade":"PC - Pacote","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4151037.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4151038","material":"TARJETA EM PAPEL SULFITE - COR ROSA (PACOTE COM 100)","campos":[],"dados":{"codigo":"4151038","material":"TARJETA EM PAPEL SULFITE - COR ROSA (PACOTE COM 100)","unidade":"PC - Pacote","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4151038.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4151039","material":"TARJETA EM PAPEL SULFITE - COR VERDE (PACOTE COM 100)","campos":[],"dados":{"codigo":"4151039","material":"TARJETA EM PAPEL SULFITE - COR VERDE (PACOTE COM 100)","unidade":"PC - Pacote","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4151039.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4151201","material":"CANETA MARCA TEXTO AZUL","campos":[],"dados":{"codigo":"4151201","material":"CANETA MARCA TEXTO AZUL","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4151201.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4151202","material":"CANETA MARCA TEXTO LARANJA","campos":[],"dados":{"codigo":"4151202","material":"CANETA MARCA TEXTO LARANJA","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4151202.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4151203","material":"CANETA MARCA TEXTO ROSA","campos":[],"dados":{"codigo":"4151203","material":"CANETA MARCA TEXTO ROSA","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4151203.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4151276","material":"ORGANIZADOR DE MESA TRIPLO ACRILICO VERTICAL","campos":[],"dados":{"codigo":"4151276","material":"ORGANIZADOR DE MESA TRIPLO ACRILICO VERTICAL","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4151276.jpg","ativo":"SIM"}}]} -->
 
 ## 09/09/2026, 12:56 — Caio César Borges de Oliveira
 
