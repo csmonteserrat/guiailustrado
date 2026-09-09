@@ -4,10 +4,31 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 55  
-Última atualização: 09/09/2026, 17:04
+Total de sessões registradas: 56  
+Última atualização: 09/09/2026, 19:34
 
 ---
+
+## 09/09/2026, 19:34 — Caio César Borges de Oliveira
+
+Sessão 56 · 6 alteração(ões)
+
+**Resumo:** 6 foto
+
+- **[FOTO]** `4150563` BROCA ALTA ROTAÇÃO CARBIDE ESF Nº 08 HL
+    - foto substituída · imagens/4150563.jpg
+- **[FOTO]** `4150561` BROCA ALTA ROTAÇÃO CARBIDE ESF Nº 06 HL
+    - foto substituída · imagens/4150561.jpg
+- **[FOTO]** `4150559` BROCA ALTA ROTAÇÃO CARBIDE ESFÉRICA Nº 04 HL
+    - foto substituída · imagens/4150559.jpg
+- **[FOTO]** `4150760` BROCA BAIXA ROTAÇÃO CIRURGICA PARA PEÇA RETA Nº 703
+    - foto substituída · imagens/4150760.jpg
+- **[FOTO]** `4150602` BROCA ALTA ROTAÇÃO DIAMANTADA Nº 3069
+    - foto substituída · imagens/4150602.jpg
+- **[FOTO]** `4151207` BROCA ALTA ROTAÇÃO DIAMANTADA 2128 F
+    - foto adicionada · imagens/4151207.jpg
+
+<!-- sessao:{"data":"2026-09-09T22:34:24.595Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4150563","material":"BROCA ALTA ROTAÇÃO CARBIDE ESF Nº 08 HL","resumo":"foto substituída · imagens/4150563.jpg"},{"tipo":"imagem","codigo":"4150561","material":"BROCA ALTA ROTAÇÃO CARBIDE ESF Nº 06 HL","resumo":"foto substituída · imagens/4150561.jpg"},{"tipo":"imagem","codigo":"4150559","material":"BROCA ALTA ROTAÇÃO CARBIDE ESFÉRICA Nº 04 HL","resumo":"foto substituída · imagens/4150559.jpg"},{"tipo":"imagem","codigo":"4150760","material":"BROCA BAIXA ROTAÇÃO CIRURGICA PARA PEÇA RETA Nº 703","resumo":"foto substituída · imagens/4150760.jpg"},{"tipo":"imagem","codigo":"4150602","material":"BROCA ALTA ROTAÇÃO DIAMANTADA Nº 3069","resumo":"foto substituída · imagens/4150602.jpg"},{"tipo":"imagem","codigo":"4151207","material":"BROCA ALTA ROTAÇÃO DIAMANTADA 2128 F","resumo":"foto adicionada · imagens/4151207.jpg"}]} -->
 
 ## 09/09/2026, 17:04 — Caio César Borges de Oliveira
 
