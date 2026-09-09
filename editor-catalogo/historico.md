@@ -4,10 +4,331 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 45  
-Última atualização: 09/09/2026, 13:01
+Total de sessões registradas: 46  
+Última atualização: 09/09/2026, 13:05
 
 ---
+
+## 09/09/2026, 13:05 — Caio César Borges de Oliveira
+
+Sessão 46 · 31 alteração(ões) · 719 itens no arquivo após a edição
+
+**Origem:** relatório do CELK emitido em 09/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 3.
+
+**Resumo:** 31 novo
+
+- **[NOVO]** `4150130` ESCOVA DE MAO PARA HIGIENIZACAO DE UNHAS
+    - Código: 4150130
+    - Material: ESCOVA DE MAO PARA HIGIENIZACAO DE UNHAS
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150130.jpg
+    - Situação: SIM
+- **[NOVO]** `4150132` ESCOVA PARA ASSEPSIA COM CLOREXIDINA 2%
+    - Código: 4150132
+    - Material: ESCOVA PARA ASSEPSIA COM CLOREXIDINA 2%
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150132.jpg
+    - Situação: SIM
+- **[NOVO]** `4150134` LUVA CANO LONGO PARA LAVAGEM DE INSTRUMENTAIS (G)
+    - Código: 4150134
+    - Material: LUVA CANO LONGO PARA LAVAGEM DE INSTRUMENTAIS (G)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150134.jpg
+    - Situação: SIM
+- **[NOVO]** `4150135` LUVA CANO LONGO PARA LAVAGEM DE INSTRUMENTAIS (M)
+    - Código: 4150135
+    - Material: LUVA CANO LONGO PARA LAVAGEM DE INSTRUMENTAIS (M)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150135.jpg
+    - Situação: SIM
+- **[NOVO]** `4150136` LUVA CANO LONGO PARA LAVAGEM DE INSTRUMENTAIS (P)
+    - Código: 4150136
+    - Material: LUVA CANO LONGO PARA LAVAGEM DE INSTRUMENTAIS (P)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150136.jpg
+    - Situação: SIM
+- **[NOVO]** `4150137` LUVA CIRURGICA ESTERIL Nº 6,5 PAR
+    - Código: 4150137
+    - Material: LUVA CIRURGICA ESTERIL Nº 6,5 PAR
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150137.jpg
+    - Situação: SIM
+- **[NOVO]** `4150138` LUVA CIRURGICA ESTERIL Nº 7,0 PAR
+    - Código: 4150138
+    - Material: LUVA CIRURGICA ESTERIL Nº 7,0 PAR
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150138.jpg
+    - Situação: SIM
+- **[NOVO]** `4150139` LUVA CIRURGICA ESTERIL Nº 7,5 PAR
+    - Código: 4150139
+    - Material: LUVA CIRURGICA ESTERIL Nº 7,5 PAR
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150139.jpg
+    - Situação: SIM
+- **[NOVO]** `4150140` LUVA CIRURGICA ESTERIL Nº 8,0 PAR
+    - Código: 4150140
+    - Material: LUVA CIRURGICA ESTERIL Nº 8,0 PAR
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150140.jpg
+    - Situação: SIM
+- **[NOVO]** `4150141` LUVA CIRURGICA ESTERIL Nº 8,5 PAR
+    - Código: 4150141
+    - Material: LUVA CIRURGICA ESTERIL Nº 8,5 PAR
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150141.jpg
+    - Situação: SIM
+- **[NOVO]** `4150143` LUVA DE PROCEDIMENTO COM TALCO GRANDE (CAIXA COM 100UN)
+    - Código: 4150143
+    - Material: LUVA DE PROCEDIMENTO COM TALCO GRANDE (CAIXA COM 100UN)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150143.jpg
+    - Situação: SIM
+- **[NOVO]** `4150144` LUVA DE PROCEDIMENTO COM TALCO MEDIA (CAIXA COM 100UN)
+    - Código: 4150144
+    - Material: LUVA DE PROCEDIMENTO COM TALCO MEDIA (CAIXA COM 100UN)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150144.jpg
+    - Situação: SIM
+- **[NOVO]** `4150145` LUVA DE PROCEDIMENTO COM TALCO PEQUENA (CAIXA COM 100UN)
+    - Código: 4150145
+    - Material: LUVA DE PROCEDIMENTO COM TALCO PEQUENA (CAIXA COM 100UN)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150145.jpg
+    - Situação: SIM
+- **[NOVO]** `4150146` LUVA DE PROCEDIMENTO NITRILICA GRANDE (CAIXA COM 100 UNIDADES)
+    - Código: 4150146
+    - Material: LUVA DE PROCEDIMENTO NITRILICA GRANDE (CAIXA COM 100 UNIDADES)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150146.jpg
+    - Situação: SIM
+- **[NOVO]** `4150147` LUVA DE PROCEDIMENTO NITRILICA MÉDIA (CAIXA COM 100 UNIDADES)
+    - Código: 4150147
+    - Material: LUVA DE PROCEDIMENTO NITRILICA MÉDIA (CAIXA COM 100 UNIDADES)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150147.jpg
+    - Situação: SIM
+- **[NOVO]** `4150148` LUVA DE PROCEDIMENTO NITRILICA PEQUENA (CAIXA COM 100 UNIDADES)
+    - Código: 4150148
+    - Material: LUVA DE PROCEDIMENTO NITRILICA PEQUENA (CAIXA COM 100 UNIDADES)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150148.jpg
+    - Situação: SIM
+- **[NOVO]** `4150149` LUVA DE PROCEDIMENTO NITRILICA EXTRA PEQUENA (CAIXA COM 100 UNIDADES)
+    - Código: 4150149
+    - Material: LUVA DE PROCEDIMENTO NITRILICA EXTRA PEQUENA (CAIXA COM 100 UNIDADES)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150149.jpg
+    - Situação: SIM
+- **[NOVO]** `4150150` MASCARA CIRURGICA TRIPLA COM ELASTICO (PACOTE COM 50 UNIDADES)
+    - Código: 4150150
+    - Material: MASCARA CIRURGICA TRIPLA COM ELASTICO (PACOTE COM 50 UNIDADES)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150150.jpg
+    - Situação: SIM
+- **[NOVO]** `4150151` MASCARA DE PROTECAO DESCARTAVEL N-95 BICO DE PATO (UNIDADE)
+    - Código: 4150151
+    - Material: MASCARA DE PROTECAO DESCARTAVEL N-95 BICO DE PATO (UNIDADE)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150151.jpg
+    - Situação: SIM
+- **[NOVO]** `4150152` OCULOS DE PROTECAO DE PLASTICO SIMPLES TRANSPARENTE
+    - Código: 4150152
+    - Material: OCULOS DE PROTECAO DE PLASTICO SIMPLES TRANSPARENTE
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150152.jpg
+    - Situação: SIM
+- **[NOVO]** `4150153` PROTETOR FACIAL DE SEGURANCA
+    - Código: 4150153
+    - Material: PROTETOR FACIAL DE SEGURANCA
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150153.jpg
+    - Situação: SIM
+- **[NOVO]** `4150154` SAPATILHA PROPE DESCARTAVEL (PACOTE COM 100 UNIDADES)
+    - Código: 4150154
+    - Material: SAPATILHA PROPE DESCARTAVEL (PACOTE COM 100 UNIDADES)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150154.jpg
+    - Situação: SIM
+- **[NOVO]** `4150155` TOUCA DESCARTAVEL COM ELASTICO (PACOTE COM 100 UNIDADES)
+    - Código: 4150155
+    - Material: TOUCA DESCARTAVEL COM ELASTICO (PACOTE COM 100 UNIDADES)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150155.jpg
+    - Situação: SIM
+- **[NOVO]** `4150860` AVENTAL DE PROCEDIMENTO DESCARTAVEL MANGA LONGA (UNIDADE)
+    - Código: 4150860
+    - Material: AVENTAL DE PROCEDIMENTO DESCARTAVEL MANGA LONGA (UNIDADE)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150860.jpg
+    - Situação: SIM
+- **[NOVO]** `4150990` JALECO BRANCO ODONTOLOGIA PEQUENO (P)
+    - Código: 4150990
+    - Material: JALECO BRANCO ODONTOLOGIA PEQUENO (P)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150990.jpg
+    - Situação: SIM
+- **[NOVO]** `4150991` JALECO BRANCO ODONTOLOGIA EXTRA PEQUENO (PP)
+    - Código: 4150991
+    - Material: JALECO BRANCO ODONTOLOGIA EXTRA PEQUENO (PP)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150991.jpg
+    - Situação: SIM
+- **[NOVO]** `4150992` JALECO BRANCO ODONTOLOGIA MÉDIO (M)
+    - Código: 4150992
+    - Material: JALECO BRANCO ODONTOLOGIA MÉDIO (M)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150992.jpg
+    - Situação: SIM
+- **[NOVO]** `4150993` JALECO BRANCO ODONTOLOGIA GRANDE (G)
+    - Código: 4150993
+    - Material: JALECO BRANCO ODONTOLOGIA GRANDE (G)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150993.jpg
+    - Situação: SIM
+- **[NOVO]** `4150994` JALECO BRANCO ODONTOLOGIA EXTRA GRANDE (GG)
+    - Código: 4150994
+    - Material: JALECO BRANCO ODONTOLOGIA EXTRA GRANDE (GG)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150994.jpg
+    - Situação: SIM
+- **[NOVO]** `4150995` JALECO BRANCO ODONTOLOGIA EXTRA EXTRA GRANDE (XXG)
+    - Código: 4150995
+    - Material: JALECO BRANCO ODONTOLOGIA EXTRA EXTRA GRANDE (XXG)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150995.jpg
+    - Situação: SIM
+- **[NOVO]** `4151156` CAPA DE CHUVA TAMANHO M
+    - Código: 4151156
+    - Material: CAPA DE CHUVA TAMANHO M
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4151156.jpg
+    - Situação: SIM
+
+<!-- sessao:{"data":"2026-09-09T16:05:01.465Z","autor":"Caio César Borges de Oliveira","origem":"relatório do CELK emitido em 09/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 3","total":719,"alteracoes":[{"tipo":"novo","codigo":"4150130","material":"ESCOVA DE MAO PARA HIGIENIZACAO DE UNHAS","campos":[],"dados":{"codigo":"4150130","material":"ESCOVA DE MAO PARA HIGIENIZACAO DE UNHAS","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150130.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150132","material":"ESCOVA PARA ASSEPSIA COM CLOREXIDINA 2%","campos":[],"dados":{"codigo":"4150132","material":"ESCOVA PARA ASSEPSIA COM CLOREXIDINA 2%","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150132.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150134","material":"LUVA CANO LONGO PARA LAVAGEM DE INSTRUMENTAIS (G)","campos":[],"dados":{"codigo":"4150134","material":"LUVA CANO LONGO PARA LAVAGEM DE INSTRUMENTAIS (G)","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150134.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150135","material":"LUVA CANO LONGO PARA LAVAGEM DE INSTRUMENTAIS (M)","campos":[],"dados":{"codigo":"4150135","material":"LUVA CANO LONGO PARA LAVAGEM DE INSTRUMENTAIS (M)","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150135.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150136","material":"LUVA CANO LONGO PARA LAVAGEM DE INSTRUMENTAIS (P)","campos":[],"dados":{"codigo":"4150136","material":"LUVA CANO LONGO PARA LAVAGEM DE INSTRUMENTAIS (P)","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150136.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150137","material":"LUVA CIRURGICA ESTERIL Nº 6,5 PAR","campos":[],"dados":{"codigo":"4150137","material":"LUVA CIRURGICA ESTERIL Nº 6,5 PAR","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150137.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150138","material":"LUVA CIRURGICA ESTERIL Nº 7,0 PAR","campos":[],"dados":{"codigo":"4150138","material":"LUVA CIRURGICA ESTERIL Nº 7,0 PAR","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150138.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150139","material":"LUVA CIRURGICA ESTERIL Nº 7,5 PAR","campos":[],"dados":{"codigo":"4150139","material":"LUVA CIRURGICA ESTERIL Nº 7,5 PAR","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150139.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150140","material":"LUVA CIRURGICA ESTERIL Nº 8,0 PAR","campos":[],"dados":{"codigo":"4150140","material":"LUVA CIRURGICA ESTERIL Nº 8,0 PAR","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150140.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150141","material":"LUVA CIRURGICA ESTERIL Nº 8,5 PAR","campos":[],"dados":{"codigo":"4150141","material":"LUVA CIRURGICA ESTERIL Nº 8,5 PAR","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150141.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150143","material":"LUVA DE PROCEDIMENTO COM TALCO GRANDE (CAIXA COM 100UN)","campos":[],"dados":{"codigo":"4150143","material":"LUVA DE PROCEDIMENTO COM TALCO GRANDE (CAIXA COM 100UN)","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150143.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150144","material":"LUVA DE PROCEDIMENTO COM TALCO MEDIA (CAIXA COM 100UN)","campos":[],"dados":{"codigo":"4150144","material":"LUVA DE PROCEDIMENTO COM TALCO MEDIA (CAIXA COM 100UN)","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150144.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150145","material":"LUVA DE PROCEDIMENTO COM TALCO PEQUENA (CAIXA COM 100UN)","campos":[],"dados":{"codigo":"4150145","material":"LUVA DE PROCEDIMENTO COM TALCO PEQUENA (CAIXA COM 100UN)","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150145.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150146","material":"LUVA DE PROCEDIMENTO NITRILICA GRANDE (CAIXA COM 100 UNIDADES)","campos":[],"dados":{"codigo":"4150146","material":"LUVA DE PROCEDIMENTO NITRILICA GRANDE (CAIXA COM 100 UNIDADES)","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150146.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150147","material":"LUVA DE PROCEDIMENTO NITRILICA MÉDIA (CAIXA COM 100 UNIDADES)","campos":[],"dados":{"codigo":"4150147","material":"LUVA DE PROCEDIMENTO NITRILICA MÉDIA (CAIXA COM 100 UNIDADES)","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150147.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150148","material":"LUVA DE PROCEDIMENTO NITRILICA PEQUENA (CAIXA COM 100 UNIDADES)","campos":[],"dados":{"codigo":"4150148","material":"LUVA DE PROCEDIMENTO NITRILICA PEQUENA (CAIXA COM 100 UNIDADES)","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150148.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150149","material":"LUVA DE PROCEDIMENTO NITRILICA EXTRA PEQUENA (CAIXA COM 100 UNIDADES)","campos":[],"dados":{"codigo":"4150149","material":"LUVA DE PROCEDIMENTO NITRILICA EXTRA PEQUENA (CAIXA COM 100 UNIDADES)","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150149.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150150","material":"MASCARA CIRURGICA TRIPLA COM ELASTICO (PACOTE COM 50 UNIDADES)","campos":[],"dados":{"codigo":"4150150","material":"MASCARA CIRURGICA TRIPLA COM ELASTICO (PACOTE COM 50 UNIDADES)","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150150.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150151","material":"MASCARA DE PROTECAO DESCARTAVEL N-95 BICO DE PATO (UNIDADE)","campos":[],"dados":{"codigo":"4150151","material":"MASCARA DE PROTECAO DESCARTAVEL N-95 BICO DE PATO (UNIDADE)","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150151.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150152","material":"OCULOS DE PROTECAO DE PLASTICO SIMPLES TRANSPARENTE","campos":[],"dados":{"codigo":"4150152","material":"OCULOS DE PROTECAO DE PLASTICO SIMPLES TRANSPARENTE","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150152.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150153","material":"PROTETOR FACIAL DE SEGURANCA","campos":[],"dados":{"codigo":"4150153","material":"PROTETOR FACIAL DE SEGURANCA","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150153.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150154","material":"SAPATILHA PROPE DESCARTAVEL (PACOTE COM 100 UNIDADES)","campos":[],"dados":{"codigo":"4150154","material":"SAPATILHA PROPE DESCARTAVEL (PACOTE COM 100 UNIDADES)","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150154.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150155","material":"TOUCA DESCARTAVEL COM ELASTICO (PACOTE COM 100 UNIDADES)","campos":[],"dados":{"codigo":"4150155","material":"TOUCA DESCARTAVEL COM ELASTICO (PACOTE COM 100 UNIDADES)","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150155.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150860","material":"AVENTAL DE PROCEDIMENTO DESCARTAVEL MANGA LONGA (UNIDADE)","campos":[],"dados":{"codigo":"4150860","material":"AVENTAL DE PROCEDIMENTO DESCARTAVEL MANGA LONGA (UNIDADE)","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150860.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150990","material":"JALECO BRANCO ODONTOLOGIA PEQUENO (P)","campos":[],"dados":{"codigo":"4150990","material":"JALECO BRANCO ODONTOLOGIA PEQUENO (P)","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150990.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150991","material":"JALECO BRANCO ODONTOLOGIA EXTRA PEQUENO (PP)","campos":[],"dados":{"codigo":"4150991","material":"JALECO BRANCO ODONTOLOGIA EXTRA PEQUENO (PP)","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150991.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150992","material":"JALECO BRANCO ODONTOLOGIA MÉDIO (M)","campos":[],"dados":{"codigo":"4150992","material":"JALECO BRANCO ODONTOLOGIA MÉDIO (M)","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150992.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150993","material":"JALECO BRANCO ODONTOLOGIA GRANDE (G)","campos":[],"dados":{"codigo":"4150993","material":"JALECO BRANCO ODONTOLOGIA GRANDE (G)","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150993.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150994","material":"JALECO BRANCO ODONTOLOGIA EXTRA GRANDE (GG)","campos":[],"dados":{"codigo":"4150994","material":"JALECO BRANCO ODONTOLOGIA EXTRA GRANDE (GG)","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150994.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150995","material":"JALECO BRANCO ODONTOLOGIA EXTRA EXTRA GRANDE (XXG)","campos":[],"dados":{"codigo":"4150995","material":"JALECO BRANCO ODONTOLOGIA EXTRA EXTRA GRANDE (XXG)","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150995.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4151156","material":"CAPA DE CHUVA TAMANHO M","campos":[],"dados":{"codigo":"4151156","material":"CAPA DE CHUVA TAMANHO M","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4151156.jpg","ativo":"SIM"}}]} -->
 
 ## 09/09/2026, 13:01 — Caio César Borges de Oliveira
 
