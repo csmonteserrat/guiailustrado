@@ -4,10 +4,32 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 34  
-Última atualização: 02/09/2026, 15:07
+Total de sessões registradas: 35  
+Última atualização: 09/09/2026, 11:32
 
 ---
+
+## 09/09/2026, 11:32 — Caio César Borges de Oliveira
+
+Sessão 35 · 1 alteração(ões) · 602 itens no arquivo após a edição
+
+**Origem:** relatório do CELK emitido em 09/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 1.
+
+**Resumo:** 1 novo
+
+- **[NOVO]** `3688` ABAIXADOR DE LINGUA (PACOTE COM 100UN)
+    - Código: 3688
+    - Material: ABAIXADOR DE LINGUA (PACOTE COM 100UN)
+    - Unidade de pedido: U - Unidade
+    - Subgrupo: Interesse Odontológico
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Tags: Uso geral
+    - Família: Insumos diversos;Exame clínico;PSE
+    - Arquivo da imagem: 3688.jpg
+    - Situação: SIM
+
+<!-- sessao:{"data":"2026-09-09T14:32:06.300Z","autor":"Caio César Borges de Oliveira","origem":"relatório do CELK emitido em 09/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 1","total":602,"alteracoes":[{"tipo":"novo","codigo":"3688","material":"ABAIXADOR DE LINGUA (PACOTE COM 100UN)","campos":[],"dados":{"codigo":"3688","material":"ABAIXADOR DE LINGUA (PACOTE COM 100UN)","unidade":"U - Unidade","subgrupo":"Interesse Odontológico","acesso":"COORDENACAO","tipo":"Consumo","especialidade":"Uso geral","familia":"Insumos diversos;Exame clínico;PSE","imagem":"3688.jpg","ativo":"SIM"}}]} -->
 
 ## 02/09/2026, 15:07 — Caio César Borges de Oliveira
 
