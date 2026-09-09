@@ -4,10 +4,31 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 42  
-Última atualização: 09/09/2026, 12:49
+Total de sessões registradas: 43  
+Última atualização: 09/09/2026, 12:50
 
 ---
+
+## 09/09/2026, 12:50 — Caio César Borges de Oliveira
+
+Sessão 43 · 1 alteração(ões) · 611 itens no arquivo após a edição
+
+**Origem:** relatório do CELK emitido em 09/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 9.
+
+**Resumo:** 1 novo
+
+- **[NOVO]** `4150253` PANO CAMPO PEQUENO
+    - Código: 4150253
+    - Material: PANO CAMPO PEQUENO
+    - Unidade de pedido: U - Unidade
+    - Grupo: 9
+    - Subgrupo: ROUPARIA
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150253.jpg
+    - Situação: SIM
+
+<!-- sessao:{"data":"2026-09-09T15:50:17.097Z","autor":"Caio César Borges de Oliveira","origem":"relatório do CELK emitido em 09/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 9","total":611,"alteracoes":[{"tipo":"novo","codigo":"4150253","material":"PANO CAMPO PEQUENO","campos":[],"dados":{"codigo":"4150253","material":"PANO CAMPO PEQUENO","unidade":"U - Unidade","grupo":"9","subgrupo":"ROUPARIA","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150253.jpg","ativo":"SIM"}}]} -->
 
 ## 09/09/2026, 12:49 — Caio César Borges de Oliveira
 
