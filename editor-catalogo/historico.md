@@ -4,10 +4,31 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 51  
-Última atualização: 09/09/2026, 16:03
+Total de sessões registradas: 52  
+Última atualização: 09/09/2026, 16:21
 
 ---
+
+## 09/09/2026, 16:21 — Caio César Borges de Oliveira
+
+Sessão 52 · 1 alteração(ões) · 754 itens no arquivo após a edição
+
+**Resumo:** 1 excluído
+
+- **[EXCLUÍDO]** `0` EXEMPLO: SORO FISIOLOGICO 0,9% 500ML (APAGAR ESTA LINHA)
+    - Código: 0
+    - Material: EXEMPLO: SORO FISIOLOGICO 0,9% 500ML (APAGAR ESTA LINHA)
+    - Unidade de pedido: FR - Frasco
+    - Subgrupo: Interesse Odontológico
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Tags: Uso geral
+    - Família: Insumos diversos
+    - Arquivo da imagem: 0000000.jpg
+    - Observação: Linha de exemplo do bloco de interesse odontológico
+    - Situação: NAO
+
+<!-- sessao:{"data":"2026-09-09T19:21:15.168Z","autor":"Caio César Borges de Oliveira","origem":"","total":754,"alteracoes":[{"tipo":"excluido","codigo":"0","material":"EXEMPLO: SORO FISIOLOGICO 0,9% 500ML (APAGAR ESTA LINHA)","campos":[],"dados":{"codigo":"0","material":"EXEMPLO: SORO FISIOLOGICO 0,9% 500ML (APAGAR ESTA LINHA)","unidade":"FR - Frasco","subgrupo":"Interesse Odontológico","acesso":"COORDENACAO","tipo":"Consumo","especialidade":"Uso geral","familia":"Insumos diversos","imagem":"0000000.jpg","observacao":"Linha de exemplo do bloco de interesse odontológico","ativo":"NAO"}}]} -->
 
 ## 09/09/2026, 16:03 — Caio César Borges de Oliveira
 
