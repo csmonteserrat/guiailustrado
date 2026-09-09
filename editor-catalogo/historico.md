@@ -4,10 +4,31 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 39  
-Última atualização: 09/09/2026, 12:45
+Total de sessões registradas: 40  
+Última atualização: 09/09/2026, 12:46
 
 ---
+
+## 09/09/2026, 12:46 — Caio César Borges de Oliveira
+
+Sessão 40 · 1 alteração(ões) · 606 itens no arquivo após a edição
+
+**Origem:** relatório do CELK emitido em 09/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 3.
+
+**Resumo:** 1 novo
+
+- **[NOVO]** `4150142` LUVA DE PROCEDIMENTO COM TALCO EXTRA PEQUENA (CAIXA COM 100UN)
+    - Código: 4150142
+    - Material: LUVA DE PROCEDIMENTO COM TALCO EXTRA PEQUENA (CAIXA COM 100UN)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 3
+    - Subgrupo: EPI
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150142.jpg
+    - Situação: SIM
+
+<!-- sessao:{"data":"2026-09-09T15:46:50.591Z","autor":"Caio César Borges de Oliveira","origem":"relatório do CELK emitido em 09/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 3","total":606,"alteracoes":[{"tipo":"novo","codigo":"4150142","material":"LUVA DE PROCEDIMENTO COM TALCO EXTRA PEQUENA (CAIXA COM 100UN)","campos":[],"dados":{"codigo":"4150142","material":"LUVA DE PROCEDIMENTO COM TALCO EXTRA PEQUENA (CAIXA COM 100UN)","unidade":"U - Unidade","grupo":"3","subgrupo":"EPI","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150142.jpg","ativo":"SIM"}}]} -->
 
 ## 09/09/2026, 12:45 — Caio César Borges de Oliveira
 
