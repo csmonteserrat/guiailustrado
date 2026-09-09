@@ -4,10 +4,191 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 43  
-Última atualização: 09/09/2026, 12:50
+Total de sessões registradas: 44  
+Última atualização: 09/09/2026, 12:56
 
 ---
+
+## 09/09/2026, 12:56 — Caio César Borges de Oliveira
+
+Sessão 44 · 17 alteração(ões) · 628 itens no arquivo após a edição
+
+**Origem:** relatório do CELK emitido em 09/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 5.
+
+**Resumo:** 17 novo
+
+- **[NOVO]** `4150199` COPO DESCARTAVEL 50ML (PACOTE COM 100 UNIDADES)
+    - Código: 4150199
+    - Material: COPO DESCARTAVEL 50ML (PACOTE COM 100 UNIDADES)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 5
+    - Subgrupo: HIGIENE E LIMPEZA
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150199.jpg
+    - Situação: SIM
+- **[NOVO]** `4150200` COPO DESCARTAVEL 80ML (PACOTE COM 100 UNIDADES)
+    - Código: 4150200
+    - Material: COPO DESCARTAVEL 80ML (PACOTE COM 100 UNIDADES)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 5
+    - Subgrupo: HIGIENE E LIMPEZA
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150200.jpg
+    - Situação: SIM
+- **[NOVO]** `4150201` PROTETOR SOLAR 50 FPS
+    - Código: 4150201
+    - Material: PROTETOR SOLAR 50 FPS
+    - Unidade de pedido: U - Unidade
+    - Grupo: 5
+    - Subgrupo: HIGIENE E LIMPEZA
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150201.jpg
+    - Situação: SIM
+- **[NOVO]** `4150212` LIXEIRA PLASTICA COM TAMPA 14LT
+    - Código: 4150212
+    - Material: LIXEIRA PLASTICA COM TAMPA 14LT
+    - Unidade de pedido: U - Unidade
+    - Grupo: 5
+    - Subgrupo: HIGIENE E LIMPEZA
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150212.jpg
+    - Situação: SIM
+- **[NOVO]** `4150213` LIXEIRA PLASTICA COM PEDAL 60LT
+    - Código: 4150213
+    - Material: LIXEIRA PLASTICA COM PEDAL 60LT
+    - Unidade de pedido: U - Unidade
+    - Grupo: 5
+    - Subgrupo: HIGIENE E LIMPEZA
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150213.jpg
+    - Situação: SIM
+- **[NOVO]** `4150215` LIXEIRA PARA ESCRITORIO PVC
+    - Código: 4150215
+    - Material: LIXEIRA PARA ESCRITORIO PVC
+    - Unidade de pedido: U - Unidade
+    - Grupo: 5
+    - Subgrupo: HIGIENE E LIMPEZA
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150215.jpg
+    - Situação: SIM
+- **[NOVO]** `4150216` LIXEIRA EM INOX 20LT
+    - Código: 4150216
+    - Material: LIXEIRA EM INOX 20LT
+    - Unidade de pedido: U - Unidade
+    - Grupo: 5
+    - Subgrupo: HIGIENE E LIMPEZA
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150216.jpg
+    - Situação: SIM
+- **[NOVO]** `4150217` LIXEIRA INOX COM PEDAL 10 LITROS
+    - Código: 4150217
+    - Material: LIXEIRA INOX COM PEDAL 10 LITROS
+    - Unidade de pedido: U - Unidade
+    - Grupo: 5
+    - Subgrupo: HIGIENE E LIMPEZA
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150217.jpg
+    - Situação: SIM
+- **[NOVO]** `4150218` GARRAFA TERMICA 1LT
+    - Código: 4150218
+    - Material: GARRAFA TERMICA 1LT
+    - Unidade de pedido: U - Unidade
+    - Grupo: 5
+    - Subgrupo: HIGIENE E LIMPEZA
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150218.jpg
+    - Situação: SIM
+- **[NOVO]** `4150224` ALCOOL ETILICO 70% 1L (SANEANTE)
+    - Código: 4150224
+    - Material: ALCOOL ETILICO 70% 1L (SANEANTE)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 5
+    - Subgrupo: HIGIENE E LIMPEZA
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150224.jpg
+    - Situação: SIM
+- **[NOVO]** `4150225` CAIXA ORGANIZADORA MULTIUSO 6LT
+    - Código: 4150225
+    - Material: CAIXA ORGANIZADORA MULTIUSO 6LT
+    - Unidade de pedido: U - Unidade
+    - Grupo: 5
+    - Subgrupo: HIGIENE E LIMPEZA
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150225.jpg
+    - Situação: SIM
+- **[NOVO]** `4150238` SUPORTE PARA COPOS PLASTICOS DE 180ML
+    - Código: 4150238
+    - Material: SUPORTE PARA COPOS PLASTICOS DE 180ML
+    - Unidade de pedido: U - Unidade
+    - Grupo: 5
+    - Subgrupo: HIGIENE E LIMPEZA
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150238.jpg
+    - Situação: SIM
+- **[NOVO]** `4150239` VASILHA PLASTICA COM TAMPA FLIP TOP 35 X 25 X 15 (6L)
+    - Código: 4150239
+    - Material: VASILHA PLASTICA COM TAMPA FLIP TOP 35 X 25 X 15 (6L)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 5
+    - Subgrupo: HIGIENE E LIMPEZA
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150239.jpg
+    - Situação: SIM
+- **[NOVO]** `4150431` VASILHA HERMETICA COM TAMPA 28,2L
+    - Código: 4150431
+    - Material: VASILHA HERMETICA COM TAMPA 28,2L
+    - Unidade de pedido: U - Unidade
+    - Grupo: 5
+    - Subgrupo: HIGIENE E LIMPEZA
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150431.jpg
+    - Situação: SIM
+- **[NOVO]** `4150861` REPELENTE SPRAY 200ML
+    - Código: 4150861
+    - Material: REPELENTE SPRAY 200ML
+    - Unidade de pedido: U - Unidade
+    - Grupo: 5
+    - Subgrupo: HIGIENE E LIMPEZA
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150861.jpg
+    - Situação: SIM
+- **[NOVO]** `4150912` PROTETOR SOLAR 30 FPS 120ML COM REPELENTE
+    - Código: 4150912
+    - Material: PROTETOR SOLAR 30 FPS 120ML COM REPELENTE
+    - Unidade de pedido: U - Unidade
+    - Grupo: 5
+    - Subgrupo: HIGIENE E LIMPEZA
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150912.jpg
+    - Situação: SIM
+- **[NOVO]** `4150913` PROTETOR LABIAL 30 FPS 5G
+    - Código: 4150913
+    - Material: PROTETOR LABIAL 30 FPS 5G
+    - Unidade de pedido: U - Unidade
+    - Grupo: 5
+    - Subgrupo: HIGIENE E LIMPEZA
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150913.jpg
+    - Situação: SIM
+
+<!-- sessao:{"data":"2026-09-09T15:56:06.531Z","autor":"Caio César Borges de Oliveira","origem":"relatório do CELK emitido em 09/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 5","total":628,"alteracoes":[{"tipo":"novo","codigo":"4150199","material":"COPO DESCARTAVEL 50ML (PACOTE COM 100 UNIDADES)","campos":[],"dados":{"codigo":"4150199","material":"COPO DESCARTAVEL 50ML (PACOTE COM 100 UNIDADES)","unidade":"U - Unidade","grupo":"5","subgrupo":"HIGIENE E LIMPEZA","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150199.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150200","material":"COPO DESCARTAVEL 80ML (PACOTE COM 100 UNIDADES)","campos":[],"dados":{"codigo":"4150200","material":"COPO DESCARTAVEL 80ML (PACOTE COM 100 UNIDADES)","unidade":"U - Unidade","grupo":"5","subgrupo":"HIGIENE E LIMPEZA","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150200.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150201","material":"PROTETOR SOLAR 50 FPS","campos":[],"dados":{"codigo":"4150201","material":"PROTETOR SOLAR 50 FPS","unidade":"U - Unidade","grupo":"5","subgrupo":"HIGIENE E LIMPEZA","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150201.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150212","material":"LIXEIRA PLASTICA COM TAMPA 14LT","campos":[],"dados":{"codigo":"4150212","material":"LIXEIRA PLASTICA COM TAMPA 14LT","unidade":"U - Unidade","grupo":"5","subgrupo":"HIGIENE E LIMPEZA","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150212.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150213","material":"LIXEIRA PLASTICA COM PEDAL 60LT","campos":[],"dados":{"codigo":"4150213","material":"LIXEIRA PLASTICA COM PEDAL 60LT","unidade":"U - Unidade","grupo":"5","subgrupo":"HIGIENE E LIMPEZA","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150213.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150215","material":"LIXEIRA PARA ESCRITORIO PVC","campos":[],"dados":{"codigo":"4150215","material":"LIXEIRA PARA ESCRITORIO PVC","unidade":"U - Unidade","grupo":"5","subgrupo":"HIGIENE E LIMPEZA","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150215.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150216","material":"LIXEIRA EM INOX 20LT","campos":[],"dados":{"codigo":"4150216","material":"LIXEIRA EM INOX 20LT","unidade":"U - Unidade","grupo":"5","subgrupo":"HIGIENE E LIMPEZA","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150216.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150217","material":"LIXEIRA INOX COM PEDAL 10 LITROS","campos":[],"dados":{"codigo":"4150217","material":"LIXEIRA INOX COM PEDAL 10 LITROS","unidade":"U - Unidade","grupo":"5","subgrupo":"HIGIENE E LIMPEZA","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150217.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150218","material":"GARRAFA TERMICA 1LT","campos":[],"dados":{"codigo":"4150218","material":"GARRAFA TERMICA 1LT","unidade":"U - Unidade","grupo":"5","subgrupo":"HIGIENE E LIMPEZA","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150218.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150224","material":"ALCOOL ETILICO 70% 1L (SANEANTE)","campos":[],"dados":{"codigo":"4150224","material":"ALCOOL ETILICO 70% 1L (SANEANTE)","unidade":"U - Unidade","grupo":"5","subgrupo":"HIGIENE E LIMPEZA","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150224.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150225","material":"CAIXA ORGANIZADORA MULTIUSO 6LT","campos":[],"dados":{"codigo":"4150225","material":"CAIXA ORGANIZADORA MULTIUSO 6LT","unidade":"U - Unidade","grupo":"5","subgrupo":"HIGIENE E LIMPEZA","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150225.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150238","material":"SUPORTE PARA COPOS PLASTICOS DE 180ML","campos":[],"dados":{"codigo":"4150238","material":"SUPORTE PARA COPOS PLASTICOS DE 180ML","unidade":"U - Unidade","grupo":"5","subgrupo":"HIGIENE E LIMPEZA","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150238.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150239","material":"VASILHA PLASTICA COM TAMPA FLIP TOP 35 X 25 X 15 (6L)","campos":[],"dados":{"codigo":"4150239","material":"VASILHA PLASTICA COM TAMPA FLIP TOP 35 X 25 X 15 (6L)","unidade":"U - Unidade","grupo":"5","subgrupo":"HIGIENE E LIMPEZA","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150239.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150431","material":"VASILHA HERMETICA COM TAMPA 28,2L","campos":[],"dados":{"codigo":"4150431","material":"VASILHA HERMETICA COM TAMPA 28,2L","unidade":"U - Unidade","grupo":"5","subgrupo":"HIGIENE E LIMPEZA","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150431.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150861","material":"REPELENTE SPRAY 200ML","campos":[],"dados":{"codigo":"4150861","material":"REPELENTE SPRAY 200ML","unidade":"U - Unidade","grupo":"5","subgrupo":"HIGIENE E LIMPEZA","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150861.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150912","material":"PROTETOR SOLAR 30 FPS 120ML COM REPELENTE","campos":[],"dados":{"codigo":"4150912","material":"PROTETOR SOLAR 30 FPS 120ML COM REPELENTE","unidade":"U - Unidade","grupo":"5","subgrupo":"HIGIENE E LIMPEZA","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150912.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150913","material":"PROTETOR LABIAL 30 FPS 5G","campos":[],"dados":{"codigo":"4150913","material":"PROTETOR LABIAL 30 FPS 5G","unidade":"U - Unidade","grupo":"5","subgrupo":"HIGIENE E LIMPEZA","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150913.jpg","ativo":"SIM"}}]} -->
 
 ## 09/09/2026, 12:50 — Caio César Borges de Oliveira
 
