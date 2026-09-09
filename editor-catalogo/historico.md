@@ -4,10 +4,24 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 35  
-Última atualização: 09/09/2026, 11:32
+Total de sessões registradas: 36  
+Última atualização: 09/09/2026, 12:37
 
 ---
+
+## 09/09/2026, 12:37 — Caio César Borges de Oliveira
+
+Sessão 36 · 1 alteração(ões) · 602 itens no arquivo após a edição
+
+**Origem:** relatório do CELK emitido em 09/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 1.
+
+**Resumo:** 1 editado
+
+- **[EDITADO]** `3688` ABAIXADOR DE LINGUA (PACOTE COM 100UN)
+    - Grupo: "" → "1"
+    - Subgrupo: "Interesse Odontológico" → "MATERIAIS/ENFERMAGEM"
+
+<!-- sessao:{"data":"2026-09-09T15:37:50.957Z","autor":"Caio César Borges de Oliveira","origem":"relatório do CELK emitido em 09/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 1","total":602,"alteracoes":[{"tipo":"editado","codigo":"3688","material":"ABAIXADOR DE LINGUA (PACOTE COM 100UN)","campos":[{"campo":"grupo","de":"","para":"1"},{"campo":"subgrupo","de":"Interesse Odontológico","para":"MATERIAIS/ENFERMAGEM"}]}]} -->
 
 ## 09/09/2026, 11:32 — Caio César Borges de Oliveira
 
