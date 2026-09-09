@@ -4,10 +4,91 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 46  
+Total de sessões registradas: 47  
 Última atualização: 09/09/2026, 13:05
 
 ---
+
+## 09/09/2026, 13:05 — Caio César Borges de Oliveira
+
+Sessão 47 · 7 alteração(ões) · 726 itens no arquivo após a edição
+
+**Origem:** relatório do CELK emitido em 09/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 7.
+
+**Resumo:** 7 novo
+
+- **[NOVO]** `4149881` AGULHA DESCARTÁVEL 0,25 X 3,0 (ACUPUNTURA)
+    - Código: 4149881
+    - Material: AGULHA DESCARTÁVEL 0,25 X 3,0 (ACUPUNTURA)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 7
+    - Subgrupo: ACUPUNTURA
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4149881.jpg
+    - Situação: SIM
+- **[NOVO]** `4149882` AGULHA DESCARTÁVEL 0,25 X 4,0 (ACUPUNTURA)
+    - Código: 4149882
+    - Material: AGULHA DESCARTÁVEL 0,25 X 4,0 (ACUPUNTURA)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 7
+    - Subgrupo: ACUPUNTURA
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4149882.jpg
+    - Situação: SIM
+- **[NOVO]** `4149883` AGULHA DESCARTÁVEL 0,30 X 7,5 (ACUPUNTURA)
+    - Código: 4149883
+    - Material: AGULHA DESCARTÁVEL 0,30 X 7,5 (ACUPUNTURA)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 7
+    - Subgrupo: ACUPUNTURA
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4149883.jpg
+    - Situação: SIM
+- **[NOVO]** `4149911` BASTÃO MOXA
+    - Código: 4149911
+    - Material: BASTÃO MOXA
+    - Unidade de pedido: U - Unidade
+    - Grupo: 7
+    - Subgrupo: ACUPUNTURA
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4149911.jpg
+    - Situação: SIM
+- **[NOVO]** `4150052` PLACA PARA CONFECÇÃO DE PONTO-SEMENTE
+    - Código: 4150052
+    - Material: PLACA PARA CONFECÇÃO DE PONTO-SEMENTE
+    - Unidade de pedido: U - Unidade
+    - Grupo: 7
+    - Subgrupo: ACUPUNTURA
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150052.jpg
+    - Situação: SIM
+- **[NOVO]** `4150126` VENTOSA DE VIDRO GRANDE
+    - Código: 4150126
+    - Material: VENTOSA DE VIDRO GRANDE
+    - Unidade de pedido: U - Unidade
+    - Grupo: 7
+    - Subgrupo: ACUPUNTURA
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150126.jpg
+    - Situação: SIM
+- **[NOVO]** `4150127` VENTOSA DE VIDRO PEQUENA
+    - Código: 4150127
+    - Material: VENTOSA DE VIDRO PEQUENA
+    - Unidade de pedido: U - Unidade
+    - Grupo: 7
+    - Subgrupo: ACUPUNTURA
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150127.jpg
+    - Situação: SIM
+
+<!-- sessao:{"data":"2026-09-09T16:05:56.997Z","autor":"Caio César Borges de Oliveira","origem":"relatório do CELK emitido em 09/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 7","total":726,"alteracoes":[{"tipo":"novo","codigo":"4149881","material":"AGULHA DESCARTÁVEL 0,25 X 3,0 (ACUPUNTURA)","campos":[],"dados":{"codigo":"4149881","material":"AGULHA DESCARTÁVEL 0,25 X 3,0 (ACUPUNTURA)","unidade":"U - Unidade","grupo":"7","subgrupo":"ACUPUNTURA","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4149881.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4149882","material":"AGULHA DESCARTÁVEL 0,25 X 4,0 (ACUPUNTURA)","campos":[],"dados":{"codigo":"4149882","material":"AGULHA DESCARTÁVEL 0,25 X 4,0 (ACUPUNTURA)","unidade":"U - Unidade","grupo":"7","subgrupo":"ACUPUNTURA","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4149882.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4149883","material":"AGULHA DESCARTÁVEL 0,30 X 7,5 (ACUPUNTURA)","campos":[],"dados":{"codigo":"4149883","material":"AGULHA DESCARTÁVEL 0,30 X 7,5 (ACUPUNTURA)","unidade":"U - Unidade","grupo":"7","subgrupo":"ACUPUNTURA","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4149883.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4149911","material":"BASTÃO MOXA","campos":[],"dados":{"codigo":"4149911","material":"BASTÃO MOXA","unidade":"U - Unidade","grupo":"7","subgrupo":"ACUPUNTURA","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4149911.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150052","material":"PLACA PARA CONFECÇÃO DE PONTO-SEMENTE","campos":[],"dados":{"codigo":"4150052","material":"PLACA PARA CONFECÇÃO DE PONTO-SEMENTE","unidade":"U - Unidade","grupo":"7","subgrupo":"ACUPUNTURA","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150052.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150126","material":"VENTOSA DE VIDRO GRANDE","campos":[],"dados":{"codigo":"4150126","material":"VENTOSA DE VIDRO GRANDE","unidade":"U - Unidade","grupo":"7","subgrupo":"ACUPUNTURA","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150126.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150127","material":"VENTOSA DE VIDRO PEQUENA","campos":[],"dados":{"codigo":"4150127","material":"VENTOSA DE VIDRO PEQUENA","unidade":"U - Unidade","grupo":"7","subgrupo":"ACUPUNTURA","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150127.jpg","ativo":"SIM"}}]} -->
 
 ## 09/09/2026, 13:05 — Caio César Borges de Oliveira
 
