@@ -4,10 +4,31 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 37  
-Última atualização: 09/09/2026, 12:41
+Total de sessões registradas: 38  
+Última atualização: 09/09/2026, 12:44
 
 ---
+
+## 09/09/2026, 12:44 — Caio César Borges de Oliveira
+
+Sessão 38 · 1 alteração(ões) · 605 itens no arquivo após a edição
+
+**Origem:** relatório do CELK emitido em 09/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 5.
+
+**Resumo:** 1 novo
+
+- **[NOVO]** `4150198` COPO DESCARTAVEL 180ML (PACOTE COM 100 UNIDADES)
+    - Código: 4150198
+    - Material: COPO DESCARTAVEL 180ML (PACOTE COM 100 UNIDADES)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 5
+    - Subgrupo: HIGIENE E LIMPEZA
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150198.jpg
+    - Situação: SIM
+
+<!-- sessao:{"data":"2026-09-09T15:44:04.289Z","autor":"Caio César Borges de Oliveira","origem":"relatório do CELK emitido em 09/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 5","total":605,"alteracoes":[{"tipo":"novo","codigo":"4150198","material":"COPO DESCARTAVEL 180ML (PACOTE COM 100 UNIDADES)","campos":[],"dados":{"codigo":"4150198","material":"COPO DESCARTAVEL 180ML (PACOTE COM 100 UNIDADES)","unidade":"U - Unidade","grupo":"5","subgrupo":"HIGIENE E LIMPEZA","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150198.jpg","ativo":"SIM"}}]} -->
 
 ## 09/09/2026, 12:41 — Caio César Borges de Oliveira
 
