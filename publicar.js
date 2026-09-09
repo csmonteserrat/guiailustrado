@@ -242,6 +242,37 @@ async function enviar(op){
   };
 }
 
+/* Remove um arquivo do repositório.
+   op = {caminho, sha, mensagem}
+   O sha é o do arquivo tal como está no repositório agora: sem ele, ou
+   com um sha velho, o GitHub recusa por segurança (alguém pode ter
+   trocado o arquivo entre a leitura e o clique em excluir).
+
+   A exclusão fica registrada como um commit comum: o arquivo some do
+   repositório, mas a versão anterior continua no histórico de commits
+   do GitHub, recuperável por quem tiver acesso lá, mesmo sem "desfazer"
+   dentro das ferramentas do catálogo. */
+async function excluir(op){
+  if(!temChave())
+    throw erro('sem-chave','Nenhuma chave de publicação está cadastrada neste navegador. '+
+                           'Cadastre no painel de administração.');
+  if(!op||!op.caminho)throw erro('github','Faltou dizer qual arquivo excluir.');
+  if(!op.sha)throw erro('github','Faltou o sha do arquivo a excluir.');
+
+  var corpo={message:op.mensagem||('Remove '+op.caminho),sha:op.sha,branch:CFG.ramo};
+
+  var r=await requisitar(enderecoConteudo(op.caminho),{
+    method:'DELETE',
+    headers:cabecalhos({'Content-Type':'application/json'}),
+    body:JSON.stringify(corpo)
+  });
+  conferirResposta(r);
+  if(!r.ok)throw erro('github','O GitHub recusou a exclusão de '+op.caminho+' (erro '+r.status+').',r.status);
+
+  var j=await r.json();
+  return {caminho:op.caminho,commit:j.commit?j.commit.sha:null};
+}
+
 /* ---------------------------------------------------------------------
    Apoio
    --------------------------------------------------------------------- */
@@ -407,6 +438,7 @@ global.Publicar={
   obterTexto:obterTexto,
   ultimoCommit:ultimoCommit,
   enviar:enviar,
+  excluir:excluir,
   hashGit:hashGit,
   bytesDeTexto:bytesDeTexto,
   textoDeBytes:textoDeBytes,

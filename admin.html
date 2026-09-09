@@ -79,6 +79,8 @@ a.ferr:hover{transform:translateY(-2px);box-shadow:var(--sombra-alta)}
 .bloco .item:last-child{border-bottom:none}
 .bloco .item .cd{font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--corn);flex:none}
 .bloco .item .obs{margin-left:auto;color:var(--secundario);font-size:11px;flex:none;padding-left:10px}
+.bloco .item input[type=checkbox]{flex:none;width:15px;height:15px;cursor:pointer}
+.bloco .rodapeExcluir label{cursor:pointer}
 .b-ok{background:var(--curacao-suave)} .b-ok .qt{color:var(--curacao)}
 .b-al{background:var(--sawtooth-suave)} .b-al .qt{color:var(--sawtooth)}
 .b-er{background:var(--geranium-suave)} .b-er .qt{color:var(--geranium)}
@@ -236,7 +238,9 @@ code{background:var(--neutro);padding:1px 6px;border-radius:6px;font-size:12px}
       <h2>Conferência de imagens</h2>
       <p class="sub" style="margin:0 0 13px">Compara o <span class="mono">produtos.csv</span> com os
       arquivos da pasta <span class="mono">imagens</span> e aponta materiais sem imagem, arquivos sem
-      material correspondente e nomes fora do padrão.</p>
+      material correspondente e nomes fora do padrão. Nas imagens sem material correspondente e nas de
+      materiais inativos, dá para marcar e excluir direto do repositório, usando a chave de publicação
+      abaixo.</p>
 
       <div class="barra">
         <button class="acento" id="btAnalisar">Analisar agora</button>
@@ -676,6 +680,12 @@ function analisar(nomesArquivos,origem,listagemCompleta){
   const semFoto=ativos.filter(p=>!mapa[p.codigo]);
   const semFotoAtivos=semFoto;
   const inativosComFoto=PRODUTOS_TODOS.filter(p=>(p.ativo||'SIM').toUpperCase()==='NAO'&&mapa[p.codigo]);
+  /* Um material pode ter mais de um arquivo (ver duplicados, abaixo);
+     a exclusão trabalha por arquivo, não por material, então a lista
+     que aparece na tela é achatada aqui. */
+  const arquivosInativos=[];
+  inativosComFoto.forEach(p=>(mapa[p.codigo]||[]).forEach(n=>
+    arquivosInativos.push({codigo:p.codigo,material:p.material,arquivo:n})));
   const foraDoPadrao=[],duplicados=[];
   Object.keys(mapa).forEach(cod=>{
     const lista=mapa[cod];
@@ -702,6 +712,33 @@ function analisar(nomesArquivos,origem,listagemCompleta){
   const linha=(cd,txt,obs)=>'<div class="item"><span class="cd">'+esc(cd)+'</span>'+
     '<span>'+esc(txt)+'</span>'+(obs?'<span class="obs">'+esc(obs)+'</span>':'')+'</div>';
 
+  /* Linha com caixa de marcar, usada nas duas listas de imagens que
+     podem ser excluídas: órfãs e de materiais inativos. data-caminho
+     é o caminho completo no repositório, o que a exclusão de fato usa;
+     data-cd guarda o código, para o registro no histórico depois. */
+  const linhaChk=(caminho,cd,txt,obs)=>'<div class="item"><label style="display:flex;gap:9px;'+
+    'align-items:center;flex:1;cursor:pointer;margin:0">'+
+    '<input type="checkbox" class="chkImg" data-caminho="'+esc(caminho)+'" data-cd="'+esc(cd)+'">'+
+    '<span class="cd">'+esc(cd)+'</span><span>'+esc(txt)+'</span></label>'+
+    (obs?'<span class="obs">'+esc(obs)+'</span>':'')+'</div>';
+
+  /* Bloco igual ao de bloco(), mas com caixas de marcar e um rodapé
+     próprio para excluir do repositório as imagens escolhidas. grupo
+     identifica o bloco, para achar as caixas dele sem misturar com as
+     do outro bloco excluível da mesma tela. */
+  const blocoExclusao=(classe,qt,titulo,itensHtml,grupo,aberto,acaoCsv)=>
+    '<div class="bloco"><div class="cab '+classe+'" data-abrir>'+
+    '<span class="qt">'+qt+'</span><span class="tt">'+titulo+'</span>'+
+    (itensHtml.length?'<span class="seta">'+(aberto?'ocultar':'ver a lista')+'</span>':'')+'</div>'+
+    (itensHtml.length?'<div class="conteudo2'+(aberto?'':' oculto')+'" data-grupo="'+grupo+'">'+
+      itensHtml.join('')+
+      '<div class="item rodapeExcluir" style="background:#fafbff;flex-wrap:wrap;gap:10px">'+
+      '<label style="display:flex;align-items:center;gap:7px;margin:0">'+
+      '<input type="checkbox" class="chkTudo" data-grupo="'+grupo+'"> selecionar todas</label>'+
+      (acaoCsv?'<button class="mini plana" data-lista="'+acaoCsv+'">Baixar esta lista em CSV</button>':'')+
+      '<button class="mini" style="margin-left:auto;background:var(--geranium);color:#fff" '+
+      'data-excluir="'+grupo+'" disabled>Excluir selecionadas</button></div></div>':'')+'</div>';
+
   let html='<p class="sub" style="margin:0 0 12px">Origem da lista de arquivos: '+esc(origem)+
     ' · '+arquivos.length+' imagem(ns) encontrada(s) · '+PRODUTOS_TODOS.length+' linha(s) no produtos.csv</p>';
 
@@ -717,11 +754,11 @@ function analisar(nomesArquivos,origem,listagemCompleta){
 
   // ---- Lista 2: imagens sem material correspondente no CSV ----
   if(listagemCompleta){
-    html+=bloco(orfaos.length?'b-al':'b-ok',orfaos.length,
+    html+=blocoExclusao(orfaos.length?'b-al':'b-ok',orfaos.length,
       orfaos.length===1?'imagem na pasta sem material correspondente no produtos.csv'
                        :'imagens na pasta sem material correspondente no produtos.csv',
-      orfaos.map(n=>linha(n.replace(/\.[^.]+$/,''),n,'código não existe no produtos.csv')),
-      true,'orfaos');
+      orfaos.map(n=>linhaChk('imagens/'+n,n.replace(/\.[^.]+$/,''),n,'código não existe no produtos.csv')),
+      'orfaos',true,'orfaos');
   }else{
     html+='<div class="bloco b-nt"><div class="cab"><span class="qt">?</span>'+
       '<span class="tt">imagens sem material correspondente</span></div>'+
@@ -745,9 +782,12 @@ function analisar(nomesArquivos,origem,listagemCompleta){
     html+=bloco('b-er',foraDoPadrao.length,'arquivo(s) com nome fora do padrão',
       foraDoPadrao.map(f=>linha(f.cod,f.nome,f.motivos.join(', '))));
 
-  if(inativosComFoto.length)
-    html+=bloco('b-nt',inativosComFoto.length,'imagem(ns) de materiais inativos',
-      inativosComFoto.map(p=>linha(p.codigo,p.material,'material fora do catálogo, o arquivo pode ser removido')));
+  if(arquivosInativos.length)
+    html+=blocoExclusao('b-nt',arquivosInativos.length,
+      arquivosInativos.length===1?'imagem de material inativo':'imagens de materiais inativos',
+      arquivosInativos.map(a=>linhaChk('imagens/'+a.arquivo,a.codigo,a.material,
+        a.arquivo+' · material fora do catálogo')),
+      'inativos',false);
 
   if(outros.length&&listagemCompleta)
     html+=bloco('b-nt',outros.length,'arquivo(s) que não são imagens na pasta',
@@ -785,6 +825,133 @@ function analisar(nomesArquivos,origem,listagemCompleta){
   if(btp)btp.onclick=e=>{e.stopPropagation();$('#entradaPasta').click()};
   const btg=$('#btGhAqui');
   if(btg)btg.onclick=e=>{e.stopPropagation();$('#btAnalisarGh').click()};
+
+  // ---- exclusão de imagens (órfãs e de materiais inativos) ----
+  $('#resultado').querySelectorAll('.chkTudo').forEach(chkTudo=>{
+    const grupo=chkTudo.dataset.grupo;
+    chkTudo.onclick=e=>e.stopPropagation();
+    chkTudo.onchange=()=>{caixasDoGrupo(grupo).forEach(c=>{c.checked=chkTudo.checked});
+      atualizarBotaoGrupo(grupo)};
+    caixasDoGrupo(grupo).forEach(c=>{
+      c.onclick=e=>e.stopPropagation();
+      c.onchange=()=>{if(!c.checked)chkTudo.checked=false;atualizarBotaoGrupo(grupo)};
+    });
+  });
+  $('#resultado').querySelectorAll('[data-excluir]').forEach(botao=>{
+    botao.onclick=e=>{
+      e.stopPropagation();
+      const grupo=botao.dataset.excluir;
+      const lista=caixasDoGrupo(grupo).filter(c=>c.checked)
+        .map(c=>({caminho:c.dataset.caminho,codigo:c.dataset.cd}));
+      excluirImagens(lista,botao,grupo);
+    };
+  });
+}
+
+/* Caixas de marcar de um grupo (órfãs ou inativos), lidas ao vivo do
+   DOM: depois de uma exclusão, as linhas removidas somem da lista
+   sozinhas, sem precisar refazer a análise inteira. */
+function caixasDoGrupo(grupo){
+  return [...$('#resultado').querySelectorAll('.chkImg[data-caminho]')].filter(c=>{
+    const p=c.closest('[data-grupo]');return p&&p.dataset.grupo===grupo});
+}
+
+function atualizarBotaoGrupo(grupo){
+  const marcadas=caixasDoGrupo(grupo).filter(c=>c.checked);
+  const bt=$('#resultado').querySelector('[data-excluir="'+grupo+'"]');
+  if(bt){
+    bt.disabled=!marcadas.length;
+    bt.textContent='Excluir selecionadas'+(marcadas.length?' ('+marcadas.length+')':'');
+  }
+}
+
+/* ---------------------------------------------------------------------
+   Exclui, uma a uma, as imagens marcadas, direto do repositório pela
+   API do GitHub (o mesmo motor que publica o produtos.csv e as fotos
+   novas). Cada exclusão vira um commit; a versão anterior do arquivo
+   continua no histórico de commits do GitHub, então não é uma perda
+   sem volta, mas também não existe um "desfazer" dentro desta página.
+   No fim, registra uma sessão no historico.md, como as demais
+   ferramentas fazem ao enviar fotos.
+   --------------------------------------------------------------------- */
+async function excluirImagens(lista,botao,grupo){
+  if(!lista.length)return;
+  if(typeof Publicar==='undefined'||!Publicar.temChave()){
+    alert('Nenhuma chave de publicação está cadastrada neste navegador.\n\n'+
+          'Cadastre uma chave no cartão "Chave de publicação", acima, para poder excluir '+
+          'arquivos direto do repositório.');
+    return;
+  }
+  if(!Publicar.autor()){
+    alert('Antes de excluir, escolha o seu nome no cartão "Chave de publicação", acima.\n\n'+
+          'É ele que identifica quem fez a exclusão no histórico.');
+    return;
+  }
+  if(!confirm('Isto remove '+lista.length+' arquivo'+(lista.length===1?'':'s')+' da pasta '+
+              'imagens do repositório:\n\n'+lista.map(i=>'  '+i.caminho).join('\n')+
+              '\n\nO GitHub guarda o histórico de commits, então o arquivo anterior continua '+
+              'recuperável por lá, mas não há um "desfazer" aqui dentro.\n\nContinuar?'))return;
+
+  const textoOriginal=botao.textContent;
+  botao.disabled=true;
+  const excluidos=[],falhas=[];
+  for(let i=0;i<lista.length;i++){
+    const item=lista[i];
+    botao.textContent='Excluindo '+(i+1)+' de '+lista.length+'...';
+    try{
+      const s=await Publicar.situacao(item.caminho);
+      if(s.existe)
+        await Publicar.excluir({caminho:item.caminho,sha:s.sha,
+          mensagem:'Conferência de imagens: remove '+item.caminho});
+      excluidos.push(item);
+    }catch(e){
+      falhas.push({item:item,motivo:e.message||'erro ao excluir'});
+    }
+  }
+
+  if(excluidos.length){
+    try{
+      const porCodigo={};PRODUTOS_TODOS.forEach(p=>porCodigo[p.codigo]=p);
+      const sessao={
+        data:new Date().toISOString(),
+        autor:Publicar.autor(),
+        origem:'',
+        alteracoes:excluidos.map(e=>({
+          tipo:'imagem',
+          codigo:e.codigo,
+          material:(porCodigo[e.codigo]||{}).material||'',
+          resumo:'foto excluída · '+e.caminho
+        }))
+      };
+      const h=await Publicar.historicoCom(sessao);
+      await Publicar.enviar({caminho:h.caminho,texto:h.texto,sha:h.sha,
+        mensagem:Publicar.mensagem('Conferência de imagens','historico.md',excluidos.length,'foto')});
+    }catch(e){
+      falhas.push({item:{caminho:'editor-catalogo/historico.md'},
+        motivo:'os arquivos foram excluídos, mas o histórico não foi atualizado: '+(e.message||'')});
+    }
+  }
+
+  // Some com as linhas do que foi excluído de fato, sem refazer a análise inteira.
+  excluidos.forEach(item=>{
+    const chk=caixasDoGrupo(grupo).find(c=>c.dataset.caminho===item.caminho);
+    const linhaEl=chk&&chk.closest('.item');
+    const blocoEl=chk&&chk.closest('.bloco');
+    if(linhaEl)linhaEl.remove();
+    if(blocoEl){
+      const qtEl=blocoEl.querySelector('.cab .qt');
+      if(qtEl)qtEl.textContent=String(Math.max(0,parseInt(qtEl.textContent,10)-1));
+    }
+  });
+
+  botao.textContent=textoOriginal;
+  botao.disabled=false;
+  atualizarBotaoGrupo(grupo);
+
+  let msg=excluidos.length?excluidos.length+' arquivo(s) excluído(s) do repositório.':'';
+  if(falhas.length)msg+=(msg?'\n\n':'')+'Não consegui excluir:\n'+
+    falhas.map(f=>'  '+(f.item.caminho||'')+': '+f.motivo).join('\n');
+  alert(msg||'Nada para excluir.');
 }
 
 function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
@@ -1185,6 +1352,6 @@ $('#btConferirRepo').onclick=async ()=>{
   }
 })();
 </script>
-<div id="versaoPagina">painel · versão 2026-08-20a</div>
+<div id="versaoPagina">painel · versão 2026-09-09a</div>
 </body>
 </html>
