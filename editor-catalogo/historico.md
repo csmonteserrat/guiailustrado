@@ -4,10 +4,41 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 40  
-Última atualização: 09/09/2026, 12:46
+Total de sessões registradas: 41  
+Última atualização: 09/09/2026, 12:48
 
 ---
+
+## 09/09/2026, 12:48 — Caio César Borges de Oliveira
+
+Sessão 41 · 2 alteração(ões) · 609 itens no arquivo após a edição
+
+**Origem:** relatório do CELK emitido em 09/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 1.
+
+**Resumo:** 2 novo
+
+- **[NOVO]** `4150004` FIO MONONYLON 5.0 - AGULHA 2.0 - 45 CM (UNIDADE)
+    - Código: 4150004
+    - Material: FIO MONONYLON 5.0 - AGULHA 2.0 - 45 CM (UNIDADE)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150004.jpg
+    - Situação: SIM
+- **[NOVO]** `4150005` FIO MONONYLON 6.0 - AGULHA 2.0 - 45 CM (UNIDADE)
+    - Código: 4150005
+    - Material: FIO MONONYLON 6.0 - AGULHA 2.0 - 45 CM (UNIDADE)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150005.jpg
+    - Situação: SIM
+
+<!-- sessao:{"data":"2026-09-09T15:48:07.190Z","autor":"Caio César Borges de Oliveira","origem":"relatório do CELK emitido em 09/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 1","total":609,"alteracoes":[{"tipo":"novo","codigo":"4150004","material":"FIO MONONYLON 5.0 - AGULHA 2.0 - 45 CM (UNIDADE)","campos":[],"dados":{"codigo":"4150004","material":"FIO MONONYLON 5.0 - AGULHA 2.0 - 45 CM (UNIDADE)","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150004.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150005","material":"FIO MONONYLON 6.0 - AGULHA 2.0 - 45 CM (UNIDADE)","campos":[],"dados":{"codigo":"4150005","material":"FIO MONONYLON 6.0 - AGULHA 2.0 - 45 CM (UNIDADE)","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150005.jpg","ativo":"SIM"}}]} -->
 
 ## 09/09/2026, 12:46 — Caio César Borges de Oliveira
 
