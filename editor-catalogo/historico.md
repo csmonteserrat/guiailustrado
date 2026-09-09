@@ -4,10 +4,31 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 38  
-Última atualização: 09/09/2026, 12:44
+Total de sessões registradas: 39  
+Última atualização: 09/09/2026, 12:45
 
 ---
+
+## 09/09/2026, 12:45 — Caio César Borges de Oliveira
+
+Sessão 39 · 1 alteração(ões) · 606 itens no arquivo após a edição
+
+**Origem:** relatório do CELK emitido em 09/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 4.
+
+**Resumo:** 1 novo
+
+- **[NOVO]** `52126` PRANCHETA DE MADEIRA COM GRAMPO DE METAL
+    - Código: 52126
+    - Material: PRANCHETA DE MADEIRA COM GRAMPO DE METAL
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 52126.jpg
+    - Situação: SIM
+
+<!-- sessao:{"data":"2026-09-09T15:45:59.453Z","autor":"Caio César Borges de Oliveira","origem":"relatório do CELK emitido em 09/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 4","total":606,"alteracoes":[{"tipo":"novo","codigo":"52126","material":"PRANCHETA DE MADEIRA COM GRAMPO DE METAL","campos":[],"dados":{"codigo":"52126","material":"PRANCHETA DE MADEIRA COM GRAMPO DE METAL","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","imagem":"52126.jpg","ativo":"SIM"}}]} -->
 
 ## 09/09/2026, 12:44 — Caio César Borges de Oliveira
 
