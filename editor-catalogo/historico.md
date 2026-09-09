@@ -4,10 +4,484 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 48  
-Última atualização: 09/09/2026, 13:12
+Total de sessões registradas: 49  
+Última atualização: 09/09/2026, 13:51
 
 ---
+
+## 09/09/2026, 13:51 — Caio César Borges de Oliveira
+
+Sessão 49 · 155 alteração(ões) · 755 itens no arquivo após a edição
+
+**Resumo:** 155 editado
+
+- **[EDITADO]** `52126` PRANCHETA DE MADEIRA COM GRAMPO DE METAL
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4149878` ÁGUA DESTILADA PARA AUTOCLAVE (FRASCO 1 LITRO)
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4149879` ÁGUA OXIGENADA 10 VOLUMES (FRASCO 1 LITRO)
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4149880` AGULHA DESCARTÁVEL 0,20 X 15 (ACUPUNTURA)
+    - Tags: "" → "PICS"
+    - Família: "" → "Acupuntura"
+- **[EDITADO]** `4149881` AGULHA DESCARTÁVEL 0,25 X 3,0 (ACUPUNTURA)
+    - Tags: "" → "PICS"
+    - Família: "" → "Acupuntura"
+- **[EDITADO]** `4149882` AGULHA DESCARTÁVEL 0,25 X 4,0 (ACUPUNTURA)
+    - Tags: "" → "PICS"
+    - Família: "" → "Acupuntura"
+- **[EDITADO]** `4149883` AGULHA DESCARTÁVEL 0,30 X 7,5 (ACUPUNTURA)
+    - Tags: "" → "PICS"
+    - Família: "" → "Acupuntura"
+- **[EDITADO]** `4149884` AGULHA DESCARTÁVEL ESTÉRIL 13 X 4,5 (UNIDADE)
+    - Tags: "" → "Cirurgia"
+    - Família: "" → "Agulhas de Enfermagem"
+- **[EDITADO]** `4149885` AGULHA DESCARTÁVEL ESTÉRIL 20 X 5,5 (UNIDADE)
+    - Tags: "" → "Cirurgia"
+    - Família: "" → "Agulhas de Enfermagem"
+- **[EDITADO]** `4149886` AGULHA DESCARTAVEL ESTERIL 25 X 6,0 (UNIDADE)
+    - Tags: "" → "Cirurgia"
+    - Família: "" → "Agulhas de Enfermagem"
+- **[EDITADO]** `4149887` AGULHA DESCARTAVEL ESTERIL 25 X 7,0 (UNIDADE)
+    - Tags: "" → "Cirurgia"
+    - Família: "" → "Agulhas de Enfermagem"
+- **[EDITADO]** `4149888` AGULHA DESCARTAVEL ESTERIL 25 X 8,0 (UNIDADE)
+    - Tags: "" → "Cirurgia"
+    - Família: "" → "Agulhas de Enfermagem"
+- **[EDITADO]** `4149889` AGULHA DESCARTAVEL ESTERIL 30 X 7,0 (UNIDADE)
+    - Tags: "" → "Cirurgia"
+    - Família: "" → "Agulhas de Enfermagem"
+- **[EDITADO]** `4149891` AGULHA DESCARTÁVEL ESTÉRIL 40 X 12 (UNIDADE)
+    - Tags: "" → "Cirurgia"
+    - Família: "" → "Agulhas de Enfermagem"
+- **[EDITADO]** `4149910` AGULHA DESCARTAVEL ESTERIL 30 X 8,0 (UNIDADE)
+    - Tags: "" → "Cirurgia"
+    - Família: "" → "Agulhas de Enfermagem"
+- **[EDITADO]** `4149911` BASTÃO MOXA
+    - Tags: "" → "PICS"
+    - Família: "" → "Acupuntura"
+- **[EDITADO]** `4149940` CATGUT SIMPLES 4.0 - AGULHA 30 MM (UNIDADE)
+    - Tags: "" → "Cirurgia"
+    - Família: "" → "Fios de sutura"
+- **[EDITADO]** `4149941` CATGUT SIMPLES 4.0 - AGULHA 40 MM (UNIDADE)
+    - Tags: "" → "Cirurgia"
+    - Família: "" → "Fios de sutura"
+- **[EDITADO]** `4149942` CATGUT SIMPLES 5.0 - AGULHA 20 MM (UNIDADE)
+    - Tags: "" → "Cirurgia"
+    - Família: "" → "Fios de sutura"
+- **[EDITADO]** `4149948` COMPRESSA DE GAZE CIRURGICA ESTERIL (PACOTE COM 5 UNIDADES)
+    - Tags: "" → "Cirurgia;Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4149949` COMPRESSA DE GAZE CIRURGICA NAO ESTERIL (PACOTE COM 500 UNIDADES)
+    - Tags: "" → "Cirurgia;Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4149966` DETERGENTE ENZIMÁTICO (FRASCO 1 LITRO)
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4149967` DISPENSER DE MESA PARA ÁLCOOL GEL
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4149993` ESPONJA PARA LIMPEZA DE INSTRUMENTAL CIRÚRGICO
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150004` FIO MONONYLON 5.0 - AGULHA 2.0 - 45 CM (UNIDADE)
+    - Tags: "" → "Cirurgia"
+    - Família: "" → "Fios de sutura"
+- **[EDITADO]** `4150005` FIO MONONYLON 6.0 - AGULHA 2.0 - 45 CM (UNIDADE)
+    - Tags: "" → "Cirurgia"
+    - Família: "" → "Fios de sutura"
+- **[EDITADO]** `4150008` FITA PARA AUTOCLAVE
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150019` HIPOCLORITO DE SÓDIO 1%
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150052` PLACA PARA CONFECÇÃO DE PONTO-SEMENTE
+    - Tags: "" → "PICS"
+    - Família: "" → "Acupuntura"
+- **[EDITADO]** `4150062` SERINGA 01ML DESCARTÁVEL SEM AGULHA (UNIDADE)
+    - Tags: "" → "Cirurgia"
+    - Família: "" → "Agulhas de Enfermagem"
+- **[EDITADO]** `4150063` SERINGA 3ML DESCARTÁVEL COM DISPOSITIVO DE SEGURANÇA (UNIDADE)
+    - Tags: "" → "Cirurgia"
+    - Família: "" → "Agulhas de Enfermagem"
+- **[EDITADO]** `4150064` SERINGA 5ML DESCARTÁVEL COM DISPOSITIVO DE SEGURANÇA (UNIDADE)
+    - Tags: "" → "Cirurgia"
+    - Família: "" → "Agulhas de Enfermagem"
+- **[EDITADO]** `4150065` SERINGA 10ML DESCARTAVEL COM DISPOSITIVO DE SEGURANCA (UNIDADE)
+    - Tags: "" → "Cirurgia"
+    - Família: "" → "Agulhas de Enfermagem"
+- **[EDITADO]** `4150066` SERINGA 20ML DESCARTAVEL (UNIDADE)
+    - Tags: "" → "Cirurgia"
+    - Família: "" → "Agulhas de Enfermagem"
+- **[EDITADO]** `4150126` VENTOSA DE VIDRO GRANDE
+    - Tags: "" → "PICS"
+    - Família: "" → "Acupuntura"
+- **[EDITADO]** `4150127` VENTOSA DE VIDRO PEQUENA
+    - Tags: "" → "PICS"
+    - Família: "" → "Acupuntura"
+- **[EDITADO]** `4150130` ESCOVA DE MAO PARA HIGIENIZACAO DE UNHAS
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150132` ESCOVA PARA ASSEPSIA COM CLOREXIDINA 2%
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150134` LUVA CANO LONGO PARA LAVAGEM DE INSTRUMENTAIS (G)
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150135` LUVA CANO LONGO PARA LAVAGEM DE INSTRUMENTAIS (M)
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150136` LUVA CANO LONGO PARA LAVAGEM DE INSTRUMENTAIS (P)
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150137` LUVA CIRURGICA ESTERIL Nº 6,5 PAR
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150138` LUVA CIRURGICA ESTERIL Nº 7,0 PAR
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150139` LUVA CIRURGICA ESTERIL Nº 7,5 PAR
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150140` LUVA CIRURGICA ESTERIL Nº 8,0 PAR
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150141` LUVA CIRURGICA ESTERIL Nº 8,5 PAR
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150142` LUVA DE PROCEDIMENTO COM TALCO EXTRA PEQUENA (CAIXA COM 100UN)
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150143` LUVA DE PROCEDIMENTO COM TALCO GRANDE (CAIXA COM 100UN)
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150144` LUVA DE PROCEDIMENTO COM TALCO MEDIA (CAIXA COM 100UN)
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150145` LUVA DE PROCEDIMENTO COM TALCO PEQUENA (CAIXA COM 100UN)
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150146` LUVA DE PROCEDIMENTO NITRILICA GRANDE (CAIXA COM 100 UNIDADES)
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150147` LUVA DE PROCEDIMENTO NITRILICA MÉDIA (CAIXA COM 100 UNIDADES)
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150148` LUVA DE PROCEDIMENTO NITRILICA PEQUENA (CAIXA COM 100 UNIDADES)
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150149` LUVA DE PROCEDIMENTO NITRILICA EXTRA PEQUENA (CAIXA COM 100 UNIDADES)
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150150` MASCARA CIRURGICA TRIPLA COM ELASTICO (PACOTE COM 50 UNIDADES)
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150151` MASCARA DE PROTECAO DESCARTAVEL N-95 BICO DE PATO (UNIDADE)
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150152` OCULOS DE PROTECAO DE PLASTICO SIMPLES TRANSPARENTE
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150153` PROTETOR FACIAL DE SEGURANCA
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150154` SAPATILHA PROPE DESCARTAVEL (PACOTE COM 100 UNIDADES)
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150155` TOUCA DESCARTAVEL COM ELASTICO (PACOTE COM 100 UNIDADES)
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150198` COPO DESCARTAVEL 180ML (PACOTE COM 100 UNIDADES)
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150199` COPO DESCARTAVEL 50ML (PACOTE COM 100 UNIDADES)
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150200` COPO DESCARTAVEL 80ML (PACOTE COM 100 UNIDADES)
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150201` PROTETOR SOLAR 50 FPS
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Visita domiciliar"
+- **[EDITADO]** `4150202` PILHA AAA
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150206` PILHA AA
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150212` LIXEIRA PLASTICA COM TAMPA 14LT
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Mobiliário"
+- **[EDITADO]** `4150213` LIXEIRA PLASTICA COM PEDAL 60LT
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Mobiliário"
+- **[EDITADO]** `4150215` LIXEIRA PARA ESCRITORIO PVC
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Mobiliário"
+- **[EDITADO]** `4150216` LIXEIRA EM INOX 20LT
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Mobiliário"
+- **[EDITADO]** `4150217` LIXEIRA INOX COM PEDAL 10 LITROS
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Mobiliário"
+- **[EDITADO]** `4150218` GARRAFA TERMICA 1LT
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Mobiliário"
+- **[EDITADO]** `4150224` ALCOOL ETILICO 70% 1L (SANEANTE)
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Soluções e medicamentos"
+- **[EDITADO]** `4150225` CAIXA ORGANIZADORA MULTIUSO 6LT
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Caixas e recipientes"
+- **[EDITADO]** `4150238` SUPORTE PARA COPOS PLASTICOS DE 180ML
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Mobiliário"
+- **[EDITADO]** `4150239` VASILHA PLASTICA COM TAMPA FLIP TOP 35 X 25 X 15 (6L)
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Caixas e recipientes"
+- **[EDITADO]** `4150253` PANO CAMPO PEQUENO
+    - Tags: "" → "Cirurgia"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150302` FOLDER GESTANTE - SAUDE BUCAL
+    - Tags: "" → "Prevenção"
+    - Família: "" → "Material educativo"
+- **[EDITADO]** `4150304` FOLDER ODONTOLOGICO DESENHO
+    - Tags: "" → "Prevenção;Odontopediatria"
+    - Família: "" → "Material educativo"
+- **[EDITADO]** `4150347` ESCOVA PARA LIMPEZA DE INSTRUMENTAIS
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150352` APONTADOR DE LAPIS MANUAL SEM DEPOSITO
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150356` BLOCO AUTO ADESIVO 38X50MM COM 100 FOLHAS
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150357` BLOCO AUTO ADESIVO 76X76MM COM 100 FOLHAS
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150359` BORRACHA BRANCA
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150363` CALCULADORA ELETRONICA DE MESA
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150364` CANETA ESFEROGRAFICA AZUL
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150365` CANETA ESFEROGRAFICA VERMELHA (CLICK)
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150366` CANETA ESFEROGRAFICA VERMELHA
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150367` CANETA HIDROCOR PONTA FINA (ESTOJO COM 6 CORES)
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150368` CANETA MARCA TEXTO AMARELA
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150373` CANETA PARA RETROPROJETOR PRETA
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150374` CANETA PARA RETROPROJETOR VERMELHA
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150375` CARTOLINA ESCOLAR 50X60 - AMARELA
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150376` CARTOLINA ESCOLAR 50X60 - AZUL
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150377` CARTOLINA ESCOLAR 50X60 - BRANCA
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150378` CARTOLINA ESCOLAR 50X60 - ROSA
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150379` CARTOLINA ESCOLAR 50X60 - VERDE
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150380` CLIPS CRUZADO (CAIXA COM 50 UNIDADES)
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150381` CLIPS N 04 EM ACO (CAIXA COM 50 UNIDADES)
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150382` CLIPS N 06 EM ACO (CAIXA COM 50 UNI)
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150383` CLIPS N 08 EM ACO (CAIXA COM 25 UNIDADES)
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150384` COLA BRANCA 40G
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150385` COLA EM BASTAO
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150386` CORRETIVO LIQUIDO BASE DE AGUA 18ML
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150389` ELASTICO DE DINHEIRO (PACOTE COM 120 UNIDADES)
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150397` ESTILETE GRANDE
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150398` ETIQUETA AUTO ADESIVA FORMATO A4 (FOLHA COM 20 ETIQUETAS)
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150399` ETIQUETA ADESIVA PARA USO EM IMPRESSORA INJ-JET LASER
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150401` EXTRATOR DE GRAMPOS
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150402` FITA ADESIVA LARGA 45 MM x 45M
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150403` FITA ADESIVA FINA 12MMX30M
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150404` FITA CREPE 18MMX50M
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150405` GRAMPEADOR PARA 25 FOLHAS
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150406` GRAMPOS 26/6 (CAIXA)
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150411` PAPEL SULFITE A4 RESMA COM 500 FOLHAS RE
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150419` PINCEL ATOMICO AZUL
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150420` PINCEL ATOMICO PRETO
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150421` PINCEL ATOMICO VERDE
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150422` PINCEL ATOMICO VERMELHO
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150423` PORTA CLIPS
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150424` REGUA PLASTICA 30CM
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150425` REGUA PLASTICA 50CM
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150427` TINTA PARA CARIMBO AUTOTINTAVEL COR PRETA
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150428` SUPORTE MEDIO PARA FITA ADESIVA
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150429` TESOURA GRANDE COM PONTA
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150431` VASILHA HERMETICA COM TAMPA 28,2L
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Caixas e recipientes"
+- **[EDITADO]** `4150435` DISPLAY DE PAREDE EM ACRILICO TRANSPARENTE FORMATO A4 VERTICAL
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150441` SORO FISIOLOGICO 0,9%100 ML SISTEMA FECHADO
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Soluções e medicamentos"
+- **[EDITADO]** `4150445` ADESIVO INSTANTANEO UNIVERSAL BISNAGA 5 A 8 G
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150446` ALMOFADA PARA CARIMBO AZUL
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150449` CARTOLINA ESCOLAR 50X60 - AMARELO
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150455` DETERGENTE ENZIMATICO (GALÃO 5 LITROS)
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150858` PASTA PLÁSTICA COM ELÁSTICO
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4150860` AVENTAL DE PROCEDIMENTO DESCARTAVEL MANGA LONGA (UNIDADE)
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150861` REPELENTE SPRAY 200ML
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Visita domiciliar"
+- **[EDITADO]** `4150912` PROTETOR SOLAR 30 FPS 120ML COM REPELENTE
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Visita domiciliar"
+- **[EDITADO]** `4150913` PROTETOR LABIAL 30 FPS 5G
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Visita domiciliar"
+- **[EDITADO]** `4150979` ÁGUA DESTILADA PARA AUTOCLAVE (FRASCO 2 LITROS)
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150990` JALECO BRANCO ODONTOLOGIA PEQUENO (P)
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150991` JALECO BRANCO ODONTOLOGIA EXTRA PEQUENO (PP)
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150992` JALECO BRANCO ODONTOLOGIA MÉDIO (M)
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150993` JALECO BRANCO ODONTOLOGIA GRANDE (G)
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150994` JALECO BRANCO ODONTOLOGIA EXTRA GRANDE (GG)
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4150995` JALECO BRANCO ODONTOLOGIA EXTRA EXTRA GRANDE (XXG)
+    - Tags: "" → "Biossegurança"
+    - Família: "" → "Descartáveis e barreiras"
+- **[EDITADO]** `4151036` TARJETA EM PAPEL SULFITE - COR AMARELA (PACOTE COM 100)
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4151037` TARJETA EM PAPEL SULFITE - COR AZUL (PACOTE COM 100)
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4151038` TARJETA EM PAPEL SULFITE - COR ROSA (PACOTE COM 100)
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4151039` TARJETA EM PAPEL SULFITE - COR VERDE (PACOTE COM 100)
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4151156` CAPA DE CHUVA TAMANHO M
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Visita domiciliar"
+- **[EDITADO]** `4151201` CANETA MARCA TEXTO AZUL
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4151202` CANETA MARCA TEXTO LARANJA
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4151203` CANETA MARCA TEXTO ROSA
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4151276` ORGANIZADOR DE MESA TRIPLO ACRILICO VERTICAL
+    - Tags: "" → "Uso geral"
+    - Família: "" → "Papelaria"
+- **[EDITADO]** `4151277` CIMENTO ENDODONTICO COM HIDROCORTISONA
+    - Tags: "" → "Endodontia"
+    - Família: "" → "Cimentos"
+- **[EDITADO]** `4151278` ESPATULA DUPLA SILICATO 6335 N1
+    - Tags: "" → "Dentística"
+    - Família: "" → "Instrumental de apoio"
+
+<!-- sessao:{"data":"2026-09-09T16:51:08.000Z","autor":"Caio César Borges de Oliveira","origem":"","total":755,"alteracoes":[{"tipo":"editado","codigo":"52126","material":"PRANCHETA DE MADEIRA COM GRAMPO DE METAL","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4149878","material":"ÁGUA DESTILADA PARA AUTOCLAVE (FRASCO 1 LITRO)","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4149879","material":"ÁGUA OXIGENADA 10 VOLUMES (FRASCO 1 LITRO)","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4149880","material":"AGULHA DESCARTÁVEL 0,20 X 15 (ACUPUNTURA)","campos":[{"campo":"especialidade","de":"","para":"PICS"},{"campo":"familia","de":"","para":"Acupuntura"}]},{"tipo":"editado","codigo":"4149881","material":"AGULHA DESCARTÁVEL 0,25 X 3,0 (ACUPUNTURA)","campos":[{"campo":"especialidade","de":"","para":"PICS"},{"campo":"familia","de":"","para":"Acupuntura"}]},{"tipo":"editado","codigo":"4149882","material":"AGULHA DESCARTÁVEL 0,25 X 4,0 (ACUPUNTURA)","campos":[{"campo":"especialidade","de":"","para":"PICS"},{"campo":"familia","de":"","para":"Acupuntura"}]},{"tipo":"editado","codigo":"4149883","material":"AGULHA DESCARTÁVEL 0,30 X 7,5 (ACUPUNTURA)","campos":[{"campo":"especialidade","de":"","para":"PICS"},{"campo":"familia","de":"","para":"Acupuntura"}]},{"tipo":"editado","codigo":"4149884","material":"AGULHA DESCARTÁVEL ESTÉRIL 13 X 4,5 (UNIDADE)","campos":[{"campo":"especialidade","de":"","para":"Cirurgia"},{"campo":"familia","de":"","para":"Agulhas de Enfermagem"}]},{"tipo":"editado","codigo":"4149885","material":"AGULHA DESCARTÁVEL ESTÉRIL 20 X 5,5 (UNIDADE)","campos":[{"campo":"especialidade","de":"","para":"Cirurgia"},{"campo":"familia","de":"","para":"Agulhas de Enfermagem"}]},{"tipo":"editado","codigo":"4149886","material":"AGULHA DESCARTAVEL ESTERIL 25 X 6,0 (UNIDADE)","campos":[{"campo":"especialidade","de":"","para":"Cirurgia"},{"campo":"familia","de":"","para":"Agulhas de Enfermagem"}]},{"tipo":"editado","codigo":"4149887","material":"AGULHA DESCARTAVEL ESTERIL 25 X 7,0 (UNIDADE)","campos":[{"campo":"especialidade","de":"","para":"Cirurgia"},{"campo":"familia","de":"","para":"Agulhas de Enfermagem"}]},{"tipo":"editado","codigo":"4149888","material":"AGULHA DESCARTAVEL ESTERIL 25 X 8,0 (UNIDADE)","campos":[{"campo":"especialidade","de":"","para":"Cirurgia"},{"campo":"familia","de":"","para":"Agulhas de Enfermagem"}]},{"tipo":"editado","codigo":"4149889","material":"AGULHA DESCARTAVEL ESTERIL 30 X 7,0 (UNIDADE)","campos":[{"campo":"especialidade","de":"","para":"Cirurgia"},{"campo":"familia","de":"","para":"Agulhas de Enfermagem"}]},{"tipo":"editado","codigo":"4149891","material":"AGULHA DESCARTÁVEL ESTÉRIL 40 X 12 (UNIDADE)","campos":[{"campo":"especialidade","de":"","para":"Cirurgia"},{"campo":"familia","de":"","para":"Agulhas de Enfermagem"}]},{"tipo":"editado","codigo":"4149910","material":"AGULHA DESCARTAVEL ESTERIL 30 X 8,0 (UNIDADE)","campos":[{"campo":"especialidade","de":"","para":"Cirurgia"},{"campo":"familia","de":"","para":"Agulhas de Enfermagem"}]},{"tipo":"editado","codigo":"4149911","material":"BASTÃO MOXA","campos":[{"campo":"especialidade","de":"","para":"PICS"},{"campo":"familia","de":"","para":"Acupuntura"}]},{"tipo":"editado","codigo":"4149940","material":"CATGUT SIMPLES 4.0 - AGULHA 30 MM (UNIDADE)","campos":[{"campo":"especialidade","de":"","para":"Cirurgia"},{"campo":"familia","de":"","para":"Fios de sutura"}]},{"tipo":"editado","codigo":"4149941","material":"CATGUT SIMPLES 4.0 - AGULHA 40 MM (UNIDADE)","campos":[{"campo":"especialidade","de":"","para":"Cirurgia"},{"campo":"familia","de":"","para":"Fios de sutura"}]},{"tipo":"editado","codigo":"4149942","material":"CATGUT SIMPLES 5.0 - AGULHA 20 MM (UNIDADE)","campos":[{"campo":"especialidade","de":"","para":"Cirurgia"},{"campo":"familia","de":"","para":"Fios de sutura"}]},{"tipo":"editado","codigo":"4149948","material":"COMPRESSA DE GAZE CIRURGICA ESTERIL (PACOTE COM 5 UNIDADES)","campos":[{"campo":"especialidade","de":"","para":"Cirurgia;Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4149949","material":"COMPRESSA DE GAZE CIRURGICA NAO ESTERIL (PACOTE COM 500 UNIDADES)","campos":[{"campo":"especialidade","de":"","para":"Cirurgia;Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4149966","material":"DETERGENTE ENZIMÁTICO (FRASCO 1 LITRO)","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4149967","material":"DISPENSER DE MESA PARA ÁLCOOL GEL","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4149993","material":"ESPONJA PARA LIMPEZA DE INSTRUMENTAL CIRÚRGICO","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150004","material":"FIO MONONYLON 5.0 - AGULHA 2.0 - 45 CM (UNIDADE)","campos":[{"campo":"especialidade","de":"","para":"Cirurgia"},{"campo":"familia","de":"","para":"Fios de sutura"}]},{"tipo":"editado","codigo":"4150005","material":"FIO MONONYLON 6.0 - AGULHA 2.0 - 45 CM (UNIDADE)","campos":[{"campo":"especialidade","de":"","para":"Cirurgia"},{"campo":"familia","de":"","para":"Fios de sutura"}]},{"tipo":"editado","codigo":"4150008","material":"FITA PARA AUTOCLAVE","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150019","material":"HIPOCLORITO DE SÓDIO 1%","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150052","material":"PLACA PARA CONFECÇÃO DE PONTO-SEMENTE","campos":[{"campo":"especialidade","de":"","para":"PICS"},{"campo":"familia","de":"","para":"Acupuntura"}]},{"tipo":"editado","codigo":"4150062","material":"SERINGA 01ML DESCARTÁVEL SEM AGULHA (UNIDADE)","campos":[{"campo":"especialidade","de":"","para":"Cirurgia"},{"campo":"familia","de":"","para":"Agulhas de Enfermagem"}]},{"tipo":"editado","codigo":"4150063","material":"SERINGA 3ML DESCARTÁVEL COM DISPOSITIVO DE SEGURANÇA (UNIDADE)","campos":[{"campo":"especialidade","de":"","para":"Cirurgia"},{"campo":"familia","de":"","para":"Agulhas de Enfermagem"}]},{"tipo":"editado","codigo":"4150064","material":"SERINGA 5ML DESCARTÁVEL COM DISPOSITIVO DE SEGURANÇA (UNIDADE)","campos":[{"campo":"especialidade","de":"","para":"Cirurgia"},{"campo":"familia","de":"","para":"Agulhas de Enfermagem"}]},{"tipo":"editado","codigo":"4150065","material":"SERINGA 10ML DESCARTAVEL COM DISPOSITIVO DE SEGURANCA (UNIDADE)","campos":[{"campo":"especialidade","de":"","para":"Cirurgia"},{"campo":"familia","de":"","para":"Agulhas de Enfermagem"}]},{"tipo":"editado","codigo":"4150066","material":"SERINGA 20ML DESCARTAVEL (UNIDADE)","campos":[{"campo":"especialidade","de":"","para":"Cirurgia"},{"campo":"familia","de":"","para":"Agulhas de Enfermagem"}]},{"tipo":"editado","codigo":"4150126","material":"VENTOSA DE VIDRO GRANDE","campos":[{"campo":"especialidade","de":"","para":"PICS"},{"campo":"familia","de":"","para":"Acupuntura"}]},{"tipo":"editado","codigo":"4150127","material":"VENTOSA DE VIDRO PEQUENA","campos":[{"campo":"especialidade","de":"","para":"PICS"},{"campo":"familia","de":"","para":"Acupuntura"}]},{"tipo":"editado","codigo":"4150130","material":"ESCOVA DE MAO PARA HIGIENIZACAO DE UNHAS","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150132","material":"ESCOVA PARA ASSEPSIA COM CLOREXIDINA 2%","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150134","material":"LUVA CANO LONGO PARA LAVAGEM DE INSTRUMENTAIS (G)","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150135","material":"LUVA CANO LONGO PARA LAVAGEM DE INSTRUMENTAIS (M)","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150136","material":"LUVA CANO LONGO PARA LAVAGEM DE INSTRUMENTAIS (P)","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150137","material":"LUVA CIRURGICA ESTERIL Nº 6,5 PAR","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150138","material":"LUVA CIRURGICA ESTERIL Nº 7,0 PAR","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150139","material":"LUVA CIRURGICA ESTERIL Nº 7,5 PAR","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150140","material":"LUVA CIRURGICA ESTERIL Nº 8,0 PAR","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150141","material":"LUVA CIRURGICA ESTERIL Nº 8,5 PAR","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150142","material":"LUVA DE PROCEDIMENTO COM TALCO EXTRA PEQUENA (CAIXA COM 100UN)","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150143","material":"LUVA DE PROCEDIMENTO COM TALCO GRANDE (CAIXA COM 100UN)","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150144","material":"LUVA DE PROCEDIMENTO COM TALCO MEDIA (CAIXA COM 100UN)","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150145","material":"LUVA DE PROCEDIMENTO COM TALCO PEQUENA (CAIXA COM 100UN)","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150146","material":"LUVA DE PROCEDIMENTO NITRILICA GRANDE (CAIXA COM 100 UNIDADES)","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150147","material":"LUVA DE PROCEDIMENTO NITRILICA MÉDIA (CAIXA COM 100 UNIDADES)","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150148","material":"LUVA DE PROCEDIMENTO NITRILICA PEQUENA (CAIXA COM 100 UNIDADES)","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150149","material":"LUVA DE PROCEDIMENTO NITRILICA EXTRA PEQUENA (CAIXA COM 100 UNIDADES)","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150150","material":"MASCARA CIRURGICA TRIPLA COM ELASTICO (PACOTE COM 50 UNIDADES)","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150151","material":"MASCARA DE PROTECAO DESCARTAVEL N-95 BICO DE PATO (UNIDADE)","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150152","material":"OCULOS DE PROTECAO DE PLASTICO SIMPLES TRANSPARENTE","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150153","material":"PROTETOR FACIAL DE SEGURANCA","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150154","material":"SAPATILHA PROPE DESCARTAVEL (PACOTE COM 100 UNIDADES)","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150155","material":"TOUCA DESCARTAVEL COM ELASTICO (PACOTE COM 100 UNIDADES)","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150198","material":"COPO DESCARTAVEL 180ML (PACOTE COM 100 UNIDADES)","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150199","material":"COPO DESCARTAVEL 50ML (PACOTE COM 100 UNIDADES)","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150200","material":"COPO DESCARTAVEL 80ML (PACOTE COM 100 UNIDADES)","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150201","material":"PROTETOR SOLAR 50 FPS","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Visita domiciliar"}]},{"tipo":"editado","codigo":"4150202","material":"PILHA AAA","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150206","material":"PILHA AA","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150212","material":"LIXEIRA PLASTICA COM TAMPA 14LT","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Mobiliário"}]},{"tipo":"editado","codigo":"4150213","material":"LIXEIRA PLASTICA COM PEDAL 60LT","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Mobiliário"}]},{"tipo":"editado","codigo":"4150215","material":"LIXEIRA PARA ESCRITORIO PVC","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Mobiliário"}]},{"tipo":"editado","codigo":"4150216","material":"LIXEIRA EM INOX 20LT","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Mobiliário"}]},{"tipo":"editado","codigo":"4150217","material":"LIXEIRA INOX COM PEDAL 10 LITROS","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Mobiliário"}]},{"tipo":"editado","codigo":"4150218","material":"GARRAFA TERMICA 1LT","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Mobiliário"}]},{"tipo":"editado","codigo":"4150224","material":"ALCOOL ETILICO 70% 1L (SANEANTE)","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Soluções e medicamentos"}]},{"tipo":"editado","codigo":"4150225","material":"CAIXA ORGANIZADORA MULTIUSO 6LT","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Caixas e recipientes"}]},{"tipo":"editado","codigo":"4150238","material":"SUPORTE PARA COPOS PLASTICOS DE 180ML","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Mobiliário"}]},{"tipo":"editado","codigo":"4150239","material":"VASILHA PLASTICA COM TAMPA FLIP TOP 35 X 25 X 15 (6L)","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Caixas e recipientes"}]},{"tipo":"editado","codigo":"4150253","material":"PANO CAMPO PEQUENO","campos":[{"campo":"especialidade","de":"","para":"Cirurgia"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150302","material":"FOLDER GESTANTE - SAUDE BUCAL","campos":[{"campo":"especialidade","de":"","para":"Prevenção"},{"campo":"familia","de":"","para":"Material educativo"}]},{"tipo":"editado","codigo":"4150304","material":"FOLDER ODONTOLOGICO DESENHO","campos":[{"campo":"especialidade","de":"","para":"Prevenção;Odontopediatria"},{"campo":"familia","de":"","para":"Material educativo"}]},{"tipo":"editado","codigo":"4150347","material":"ESCOVA PARA LIMPEZA DE INSTRUMENTAIS","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150352","material":"APONTADOR DE LAPIS MANUAL SEM DEPOSITO","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150356","material":"BLOCO AUTO ADESIVO 38X50MM COM 100 FOLHAS","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150357","material":"BLOCO AUTO ADESIVO 76X76MM COM 100 FOLHAS","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150359","material":"BORRACHA BRANCA","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150363","material":"CALCULADORA ELETRONICA DE MESA","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150364","material":"CANETA ESFEROGRAFICA AZUL","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150365","material":"CANETA ESFEROGRAFICA VERMELHA (CLICK)","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150366","material":"CANETA ESFEROGRAFICA VERMELHA","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150367","material":"CANETA HIDROCOR PONTA FINA (ESTOJO COM 6 CORES)","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150368","material":"CANETA MARCA TEXTO AMARELA","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150373","material":"CANETA PARA RETROPROJETOR PRETA","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150374","material":"CANETA PARA RETROPROJETOR VERMELHA","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150375","material":"CARTOLINA ESCOLAR 50X60 - AMARELA","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150376","material":"CARTOLINA ESCOLAR 50X60 - AZUL","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150377","material":"CARTOLINA ESCOLAR 50X60 - BRANCA","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150378","material":"CARTOLINA ESCOLAR 50X60 - ROSA","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150379","material":"CARTOLINA ESCOLAR 50X60 - VERDE","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150380","material":"CLIPS CRUZADO (CAIXA COM 50 UNIDADES)","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150381","material":"CLIPS N 04 EM ACO (CAIXA COM 50 UNIDADES)","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150382","material":"CLIPS N 06 EM ACO (CAIXA COM 50 UNI)","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150383","material":"CLIPS N 08 EM ACO (CAIXA COM 25 UNIDADES)","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150384","material":"COLA BRANCA 40G","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150385","material":"COLA EM BASTAO","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150386","material":"CORRETIVO LIQUIDO BASE DE AGUA 18ML","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150389","material":"ELASTICO DE DINHEIRO (PACOTE COM 120 UNIDADES)","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150397","material":"ESTILETE GRANDE","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150398","material":"ETIQUETA AUTO ADESIVA FORMATO A4 (FOLHA COM 20 ETIQUETAS)","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150399","material":"ETIQUETA ADESIVA PARA USO EM IMPRESSORA INJ-JET LASER","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150401","material":"EXTRATOR DE GRAMPOS","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150402","material":"FITA ADESIVA LARGA 45 MM x 45M","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150403","material":"FITA ADESIVA FINA 12MMX30M","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150404","material":"FITA CREPE 18MMX50M","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150405","material":"GRAMPEADOR PARA 25 FOLHAS","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150406","material":"GRAMPOS 26/6 (CAIXA)","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150411","material":"PAPEL SULFITE A4 RESMA COM 500 FOLHAS RE","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150419","material":"PINCEL ATOMICO AZUL","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150420","material":"PINCEL ATOMICO PRETO","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150421","material":"PINCEL ATOMICO VERDE","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150422","material":"PINCEL ATOMICO VERMELHO","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150423","material":"PORTA CLIPS","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150424","material":"REGUA PLASTICA 30CM","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150425","material":"REGUA PLASTICA 50CM","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150427","material":"TINTA PARA CARIMBO AUTOTINTAVEL COR PRETA","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150428","material":"SUPORTE MEDIO PARA FITA ADESIVA","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150429","material":"TESOURA GRANDE COM PONTA","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150431","material":"VASILHA HERMETICA COM TAMPA 28,2L","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Caixas e recipientes"}]},{"tipo":"editado","codigo":"4150435","material":"DISPLAY DE PAREDE EM ACRILICO TRANSPARENTE FORMATO A4 VERTICAL","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150441","material":"SORO FISIOLOGICO 0,9%100 ML SISTEMA FECHADO","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Soluções e medicamentos"}]},{"tipo":"editado","codigo":"4150445","material":"ADESIVO INSTANTANEO UNIVERSAL BISNAGA 5 A 8 G","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150446","material":"ALMOFADA PARA CARIMBO AZUL","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150449","material":"CARTOLINA ESCOLAR 50X60 - AMARELO","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150455","material":"DETERGENTE ENZIMATICO (GALÃO 5 LITROS)","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150858","material":"PASTA PLÁSTICA COM ELÁSTICO","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4150860","material":"AVENTAL DE PROCEDIMENTO DESCARTAVEL MANGA LONGA (UNIDADE)","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150861","material":"REPELENTE SPRAY 200ML","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Visita domiciliar"}]},{"tipo":"editado","codigo":"4150912","material":"PROTETOR SOLAR 30 FPS 120ML COM REPELENTE","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Visita domiciliar"}]},{"tipo":"editado","codigo":"4150913","material":"PROTETOR LABIAL 30 FPS 5G","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Visita domiciliar"}]},{"tipo":"editado","codigo":"4150979","material":"ÁGUA DESTILADA PARA AUTOCLAVE (FRASCO 2 LITROS)","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150990","material":"JALECO BRANCO ODONTOLOGIA PEQUENO (P)","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150991","material":"JALECO BRANCO ODONTOLOGIA EXTRA PEQUENO (PP)","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150992","material":"JALECO BRANCO ODONTOLOGIA MÉDIO (M)","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150993","material":"JALECO BRANCO ODONTOLOGIA GRANDE (G)","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150994","material":"JALECO BRANCO ODONTOLOGIA EXTRA GRANDE (GG)","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4150995","material":"JALECO BRANCO ODONTOLOGIA EXTRA EXTRA GRANDE (XXG)","campos":[{"campo":"especialidade","de":"","para":"Biossegurança"},{"campo":"familia","de":"","para":"Descartáveis e barreiras"}]},{"tipo":"editado","codigo":"4151036","material":"TARJETA EM PAPEL SULFITE - COR AMARELA (PACOTE COM 100)","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4151037","material":"TARJETA EM PAPEL SULFITE - COR AZUL (PACOTE COM 100)","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4151038","material":"TARJETA EM PAPEL SULFITE - COR ROSA (PACOTE COM 100)","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4151039","material":"TARJETA EM PAPEL SULFITE - COR VERDE (PACOTE COM 100)","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4151156","material":"CAPA DE CHUVA TAMANHO M","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Visita domiciliar"}]},{"tipo":"editado","codigo":"4151201","material":"CANETA MARCA TEXTO AZUL","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4151202","material":"CANETA MARCA TEXTO LARANJA","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4151203","material":"CANETA MARCA TEXTO ROSA","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4151276","material":"ORGANIZADOR DE MESA TRIPLO ACRILICO VERTICAL","campos":[{"campo":"especialidade","de":"","para":"Uso geral"},{"campo":"familia","de":"","para":"Papelaria"}]},{"tipo":"editado","codigo":"4151277","material":"CIMENTO ENDODONTICO COM HIDROCORTISONA","campos":[{"campo":"especialidade","de":"","para":"Endodontia"},{"campo":"familia","de":"","para":"Cimentos"}]},{"tipo":"editado","codigo":"4151278","material":"ESPATULA DUPLA SILICATO 6335 N1","campos":[{"campo":"especialidade","de":"","para":"Dentística"},{"campo":"familia","de":"","para":"Instrumental de apoio"}]}]} -->
 
 ## 09/09/2026, 13:12 — Caio César Borges de Oliveira
 
