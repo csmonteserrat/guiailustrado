@@ -4,10 +4,41 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 36  
-Última atualização: 09/09/2026, 12:37
+Total de sessões registradas: 37  
+Última atualização: 09/09/2026, 12:41
 
 ---
+
+## 09/09/2026, 12:41 — Caio César Borges de Oliveira
+
+Sessão 37 · 2 alteração(ões) · 604 itens no arquivo após a edição
+
+**Origem:** relatório do CELK emitido em 09/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 6.
+
+**Resumo:** 2 novo
+
+- **[NOVO]** `4150302` FOLDER GESTANTE - SAUDE BUCAL
+    - Código: 4150302
+    - Material: FOLDER GESTANTE - SAUDE BUCAL
+    - Unidade de pedido: U - Unidade
+    - Grupo: 6
+    - Subgrupo: IMPRESSOS
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150302.jpg
+    - Situação: SIM
+- **[NOVO]** `4150304` FOLDER ODONTOLOGICO DESENHO
+    - Código: 4150304
+    - Material: FOLDER ODONTOLOGICO DESENHO
+    - Unidade de pedido: U - Unidade
+    - Grupo: 6
+    - Subgrupo: IMPRESSOS
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4150304.jpg
+    - Situação: SIM
+
+<!-- sessao:{"data":"2026-09-09T15:41:32.359Z","autor":"Caio César Borges de Oliveira","origem":"relatório do CELK emitido em 09/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 6","total":604,"alteracoes":[{"tipo":"novo","codigo":"4150302","material":"FOLDER GESTANTE - SAUDE BUCAL","campos":[],"dados":{"codigo":"4150302","material":"FOLDER GESTANTE - SAUDE BUCAL","unidade":"U - Unidade","grupo":"6","subgrupo":"IMPRESSOS","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150302.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150304","material":"FOLDER ODONTOLOGICO DESENHO","campos":[],"dados":{"codigo":"4150304","material":"FOLDER ODONTOLOGICO DESENHO","unidade":"U - Unidade","grupo":"6","subgrupo":"IMPRESSOS","acesso":"COORDENACAO","tipo":"Consumo","imagem":"4150304.jpg","ativo":"SIM"}}]} -->
 
 ## 09/09/2026, 12:37 — Caio César Borges de Oliveira
 
