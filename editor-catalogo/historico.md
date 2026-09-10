@@ -4,10 +4,37 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 59  
-Última atualização: 10/09/2026, 16:19
+Total de sessões registradas: 60  
+Última atualização: 10/09/2026, 16:54
 
 ---
+
+## 10/09/2026, 16:54 — Caio César Borges de Oliveira
+
+Sessão 60 · 9 alteração(ões)
+
+**Resumo:** 9 foto
+
+- **[FOTO]** `4150141` LUVA CIRURGICA ESTERIL Nº 8,5 PAR
+    - foto substituída · imagens/4150141.jpg
+- **[FOTO]** `4150140` LUVA CIRURGICA ESTERIL Nº 8,0 PAR
+    - foto substituída · imagens/4150140.jpg
+- **[FOTO]** `4150139` LUVA CIRURGICA ESTERIL Nº 7,5 PAR
+    - foto substituída · imagens/4150139.jpg
+- **[FOTO]** `4150138` LUVA CIRURGICA ESTERIL Nº 7,0 PAR
+    - foto substituída · imagens/4150138.jpg
+- **[FOTO]** `4150137` LUVA CIRURGICA ESTERIL Nº 6,5 PAR
+    - foto substituída · imagens/4150137.jpg
+- **[FOTO]** `4150143` LUVA DE PROCEDIMENTO COM TALCO GRANDE (CAIXA COM 100UN)
+    - foto adicionada · imagens/4150143.jpg
+- **[FOTO]** `4150144` LUVA DE PROCEDIMENTO COM TALCO MEDIA (CAIXA COM 100UN)
+    - foto adicionada · imagens/4150144.jpg
+- **[FOTO]** `4150145` LUVA DE PROCEDIMENTO COM TALCO PEQUENA (CAIXA COM 100UN)
+    - foto adicionada · imagens/4150145.jpg
+- **[FOTO]** `4150142` LUVA DE PROCEDIMENTO COM TALCO EXTRA PEQUENA (CAIXA COM 100UN)
+    - foto adicionada · imagens/4150142.jpg
+
+<!-- sessao:{"data":"2026-09-10T19:54:58.478Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4150141","material":"LUVA CIRURGICA ESTERIL Nº 8,5 PAR","resumo":"foto substituída · imagens/4150141.jpg"},{"tipo":"imagem","codigo":"4150140","material":"LUVA CIRURGICA ESTERIL Nº 8,0 PAR","resumo":"foto substituída · imagens/4150140.jpg"},{"tipo":"imagem","codigo":"4150139","material":"LUVA CIRURGICA ESTERIL Nº 7,5 PAR","resumo":"foto substituída · imagens/4150139.jpg"},{"tipo":"imagem","codigo":"4150138","material":"LUVA CIRURGICA ESTERIL Nº 7,0 PAR","resumo":"foto substituída · imagens/4150138.jpg"},{"tipo":"imagem","codigo":"4150137","material":"LUVA CIRURGICA ESTERIL Nº 6,5 PAR","resumo":"foto substituída · imagens/4150137.jpg"},{"tipo":"imagem","codigo":"4150143","material":"LUVA DE PROCEDIMENTO COM TALCO GRANDE (CAIXA COM 100UN)","resumo":"foto adicionada · imagens/4150143.jpg"},{"tipo":"imagem","codigo":"4150144","material":"LUVA DE PROCEDIMENTO COM TALCO MEDIA (CAIXA COM 100UN)","resumo":"foto adicionada · imagens/4150144.jpg"},{"tipo":"imagem","codigo":"4150145","material":"LUVA DE PROCEDIMENTO COM TALCO PEQUENA (CAIXA COM 100UN)","resumo":"foto adicionada · imagens/4150145.jpg"},{"tipo":"imagem","codigo":"4150142","material":"LUVA DE PROCEDIMENTO COM TALCO EXTRA PEQUENA (CAIXA COM 100UN)","resumo":"foto adicionada · imagens/4150142.jpg"}]} -->
 
 ## 10/09/2026, 16:19 — Caio César Borges de Oliveira
 
