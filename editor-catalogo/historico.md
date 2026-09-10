@@ -4,10 +4,21 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 57  
-Última atualização: 10/09/2026, 08:25
+Total de sessões registradas: 58  
+Última atualização: 10/09/2026, 12:32
 
 ---
+
+## 10/09/2026, 12:32 — Caio César Borges de Oliveira
+
+Sessão 58 · 1 alteração(ões)
+
+**Resumo:** 1 foto
+
+- **[FOTO]** `4150364` CANETA ESFEROGRAFICA AZUL
+    - foto substituída · imagens/4150364.jpg
+
+<!-- sessao:{"data":"2026-09-10T15:32:28.759Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4150364","material":"CANETA ESFEROGRAFICA AZUL","resumo":"foto substituída · imagens/4150364.jpg"}]} -->
 
 ## 10/09/2026, 08:25 — Caio César Borges de Oliveira
 
