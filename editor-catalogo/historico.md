@@ -4,10 +4,55 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 63  
-Última atualização: 11/09/2026, 16:36
+Total de sessões registradas: 64  
+Última atualização: 11/09/2026, 16:41
 
 ---
+
+## 11/09/2026, 16:41 — Caio César Borges de Oliveira
+
+Sessão 64 · 3 alteração(ões) · 750 itens no arquivo após a edição
+
+**Resumo:** 3 excluído
+
+- **[EXCLUÍDO]** `4150365` CANETA ESFEROGRAFICA VERMELHA (CLICK)
+    - Código: 4150365
+    - Material: CANETA ESFEROGRAFICA VERMELHA (CLICK)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Tags: Uso geral
+    - Família: Papelaria
+    - Arquivo da imagem: 4150365.jpg
+    - Situação: SIM
+- **[EXCLUÍDO]** `4150373` CANETA PARA RETROPROJETOR PRETA
+    - Código: 4150373
+    - Material: CANETA PARA RETROPROJETOR PRETA
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Tags: Uso geral
+    - Família: Papelaria
+    - Arquivo da imagem: 4150373.jpg
+    - Situação: SIM
+- **[EXCLUÍDO]** `4150374` CANETA PARA RETROPROJETOR VERMELHA
+    - Código: 4150374
+    - Material: CANETA PARA RETROPROJETOR VERMELHA
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Tags: Uso geral
+    - Família: Papelaria
+    - Arquivo da imagem: 4150374.jpg
+    - Situação: SIM
+
+<!-- sessao:{"data":"2026-09-11T19:41:24.248Z","autor":"Caio César Borges de Oliveira","origem":"","total":750,"alteracoes":[{"tipo":"excluido","codigo":"4150365","material":"CANETA ESFEROGRAFICA VERMELHA (CLICK)","campos":[],"dados":{"codigo":"4150365","material":"CANETA ESFEROGRAFICA VERMELHA (CLICK)","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","especialidade":"Uso geral","familia":"Papelaria","imagem":"4150365.jpg","ativo":"SIM"}},{"tipo":"excluido","codigo":"4150373","material":"CANETA PARA RETROPROJETOR PRETA","campos":[],"dados":{"codigo":"4150373","material":"CANETA PARA RETROPROJETOR PRETA","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","especialidade":"Uso geral","familia":"Papelaria","imagem":"4150373.jpg","ativo":"SIM"}},{"tipo":"excluido","codigo":"4150374","material":"CANETA PARA RETROPROJETOR VERMELHA","campos":[],"dados":{"codigo":"4150374","material":"CANETA PARA RETROPROJETOR VERMELHA","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","especialidade":"Uso geral","familia":"Papelaria","imagem":"4150374.jpg","ativo":"SIM"}}]} -->
 
 ## 11/09/2026, 16:36 — Caio César Borges de Oliveira
 
