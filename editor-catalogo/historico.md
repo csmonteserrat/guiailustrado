@@ -4,10 +4,31 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 67  
-Última atualização: 11/09/2026, 16:56
+Total de sessões registradas: 68  
+Última atualização: 11/09/2026, 16:57
 
 ---
+
+## 11/09/2026, 16:57 — Caio César Borges de Oliveira
+
+Sessão 68 · 1 alteração(ões) · 745 itens no arquivo após a edição
+
+**Resumo:** 1 excluído
+
+- **[EXCLUÍDO]** `4149967` DISPENSER DE MESA PARA ÁLCOOL GEL
+    - Código: 4149967
+    - Material: DISPENSER DE MESA PARA ÁLCOOL GEL
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Tags: Biossegurança
+    - Família: Descartáveis e barreiras
+    - Arquivo da imagem: 4149967.jpg
+    - Situação: SIM
+
+<!-- sessao:{"data":"2026-09-11T19:57:02.513Z","autor":"Caio César Borges de Oliveira","origem":"","total":745,"alteracoes":[{"tipo":"excluido","codigo":"4149967","material":"DISPENSER DE MESA PARA ÁLCOOL GEL","campos":[],"dados":{"codigo":"4149967","material":"DISPENSER DE MESA PARA ÁLCOOL GEL","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","especialidade":"Biossegurança","familia":"Descartáveis e barreiras","imagem":"4149967.jpg","ativo":"SIM"}}]} -->
 
 ## 11/09/2026, 16:56 — Caio César Borges de Oliveira
 
