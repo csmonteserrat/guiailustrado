@@ -4,10 +4,67 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 65  
-Última atualização: 11/09/2026, 16:42
+Total de sessões registradas: 66  
+Última atualização: 11/09/2026, 16:55
 
 ---
+
+## 11/09/2026, 16:55 — Caio César Borges de Oliveira
+
+Sessão 66 · 4 alteração(ões) · 746 itens no arquivo após a edição
+
+**Resumo:** 4 excluído
+
+- **[EXCLUÍDO]** `4150019` HIPOCLORITO DE SÓDIO 1%
+    - Código: 4150019
+    - Material: HIPOCLORITO DE SÓDIO 1%
+    - Unidade de pedido: U - Unidade
+    - Grupo: 1
+    - Subgrupo: MATERIAIS/ENFERMAGEM
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Tags: Biossegurança
+    - Família: Descartáveis e barreiras
+    - Arquivo da imagem: 4150019.jpg
+    - Situação: SIM
+- **[EXCLUÍDO]** `4150213` LIXEIRA PLASTICA COM PEDAL 60LT
+    - Código: 4150213
+    - Material: LIXEIRA PLASTICA COM PEDAL 60LT
+    - Unidade de pedido: U - Unidade
+    - Grupo: 5
+    - Subgrupo: HIGIENE E LIMPEZA
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Tags: Uso geral
+    - Família: Mobiliário
+    - Arquivo da imagem: 4150213.jpg
+    - Situação: SIM
+- **[EXCLUÍDO]** `4150425` REGUA PLASTICA 50CM
+    - Código: 4150425
+    - Material: REGUA PLASTICA 50CM
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Tags: Uso geral
+    - Família: Papelaria
+    - Arquivo da imagem: 4150425.jpg
+    - Situação: SIM
+- **[EXCLUÍDO]** `4150238` SUPORTE PARA COPOS PLASTICOS DE 180ML
+    - Código: 4150238
+    - Material: SUPORTE PARA COPOS PLASTICOS DE 180ML
+    - Unidade de pedido: U - Unidade
+    - Grupo: 5
+    - Subgrupo: HIGIENE E LIMPEZA
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Tags: Uso geral
+    - Família: Mobiliário
+    - Arquivo da imagem: 4150238.jpg
+    - Situação: SIM
+
+<!-- sessao:{"data":"2026-09-11T19:55:31.086Z","autor":"Caio César Borges de Oliveira","origem":"","total":746,"alteracoes":[{"tipo":"excluido","codigo":"4150019","material":"HIPOCLORITO DE SÓDIO 1%","campos":[],"dados":{"codigo":"4150019","material":"HIPOCLORITO DE SÓDIO 1%","unidade":"U - Unidade","grupo":"1","subgrupo":"MATERIAIS/ENFERMAGEM","acesso":"COORDENACAO","tipo":"Consumo","especialidade":"Biossegurança","familia":"Descartáveis e barreiras","imagem":"4150019.jpg","ativo":"SIM"}},{"tipo":"excluido","codigo":"4150213","material":"LIXEIRA PLASTICA COM PEDAL 60LT","campos":[],"dados":{"codigo":"4150213","material":"LIXEIRA PLASTICA COM PEDAL 60LT","unidade":"U - Unidade","grupo":"5","subgrupo":"HIGIENE E LIMPEZA","acesso":"COORDENACAO","tipo":"Consumo","especialidade":"Uso geral","familia":"Mobiliário","imagem":"4150213.jpg","ativo":"SIM"}},{"tipo":"excluido","codigo":"4150425","material":"REGUA PLASTICA 50CM","campos":[],"dados":{"codigo":"4150425","material":"REGUA PLASTICA 50CM","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","especialidade":"Uso geral","familia":"Papelaria","imagem":"4150425.jpg","ativo":"SIM"}},{"tipo":"excluido","codigo":"4150238","material":"SUPORTE PARA COPOS PLASTICOS DE 180ML","campos":[],"dados":{"codigo":"4150238","material":"SUPORTE PARA COPOS PLASTICOS DE 180ML","unidade":"U - Unidade","grupo":"5","subgrupo":"HIGIENE E LIMPEZA","acesso":"COORDENACAO","tipo":"Consumo","especialidade":"Uso geral","familia":"Mobiliário","imagem":"4150238.jpg","ativo":"SIM"}}]} -->
 
 ## 11/09/2026, 16:42 — Caio César Borges de Oliveira
 
