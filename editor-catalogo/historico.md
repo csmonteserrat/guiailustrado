@@ -4,10 +4,91 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 68  
-Última atualização: 11/09/2026, 16:57
+Total de sessões registradas: 69  
+Última atualização: 11/09/2026, 18:02
 
 ---
+
+## 11/09/2026, 18:02 — Caio César Borges de Oliveira
+
+Sessão 69 · 6 alteração(ões) · 739 itens no arquivo após a edição
+
+**Resumo:** 6 excluído
+
+- **[EXCLUÍDO]** `4151276` ORGANIZADOR DE MESA TRIPLO ACRILICO VERTICAL
+    - Código: 4151276
+    - Material: ORGANIZADOR DE MESA TRIPLO ACRILICO VERTICAL
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Tags: Uso geral
+    - Família: Papelaria
+    - Arquivo da imagem: 4151276.jpg
+    - Situação: SIM
+- **[EXCLUÍDO]** `4151036` TARJETA EM PAPEL SULFITE - COR AMARELA (PACOTE COM 100)
+    - Código: 4151036
+    - Material: TARJETA EM PAPEL SULFITE - COR AMARELA (PACOTE COM 100)
+    - Unidade de pedido: PC - Pacote
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Tags: Uso geral
+    - Família: Papelaria
+    - Arquivo da imagem: 4151036.jpg
+    - Situação: SIM
+- **[EXCLUÍDO]** `4151037` TARJETA EM PAPEL SULFITE - COR AZUL (PACOTE COM 100)
+    - Código: 4151037
+    - Material: TARJETA EM PAPEL SULFITE - COR AZUL (PACOTE COM 100)
+    - Unidade de pedido: PC - Pacote
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Tags: Uso geral
+    - Família: Papelaria
+    - Arquivo da imagem: 4151037.jpg
+    - Situação: SIM
+- **[EXCLUÍDO]** `4151038` TARJETA EM PAPEL SULFITE - COR ROSA (PACOTE COM 100)
+    - Código: 4151038
+    - Material: TARJETA EM PAPEL SULFITE - COR ROSA (PACOTE COM 100)
+    - Unidade de pedido: PC - Pacote
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Tags: Uso geral
+    - Família: Papelaria
+    - Arquivo da imagem: 4151038.jpg
+    - Situação: SIM
+- **[EXCLUÍDO]** `4151039` TARJETA EM PAPEL SULFITE - COR VERDE (PACOTE COM 100)
+    - Código: 4151039
+    - Material: TARJETA EM PAPEL SULFITE - COR VERDE (PACOTE COM 100)
+    - Unidade de pedido: PC - Pacote
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Tags: Uso geral
+    - Família: Papelaria
+    - Arquivo da imagem: 4151039.jpg
+    - Situação: SIM
+- **[EXCLUÍDO]** `4150239` VASILHA PLASTICA COM TAMPA FLIP TOP 35 X 25 X 15 (6L)
+    - Código: 4150239
+    - Material: VASILHA PLASTICA COM TAMPA FLIP TOP 35 X 25 X 15 (6L)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 5
+    - Subgrupo: HIGIENE E LIMPEZA
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Tags: Uso geral
+    - Família: Caixas e recipientes
+    - Arquivo da imagem: 4150239.jpg
+    - Situação: SIM
+
+<!-- sessao:{"data":"2026-09-11T21:02:34.468Z","autor":"Caio César Borges de Oliveira","origem":"","total":739,"alteracoes":[{"tipo":"excluido","codigo":"4151276","material":"ORGANIZADOR DE MESA TRIPLO ACRILICO VERTICAL","campos":[],"dados":{"codigo":"4151276","material":"ORGANIZADOR DE MESA TRIPLO ACRILICO VERTICAL","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","especialidade":"Uso geral","familia":"Papelaria","imagem":"4151276.jpg","ativo":"SIM"}},{"tipo":"excluido","codigo":"4151036","material":"TARJETA EM PAPEL SULFITE - COR AMARELA (PACOTE COM 100)","campos":[],"dados":{"codigo":"4151036","material":"TARJETA EM PAPEL SULFITE - COR AMARELA (PACOTE COM 100)","unidade":"PC - Pacote","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","especialidade":"Uso geral","familia":"Papelaria","imagem":"4151036.jpg","ativo":"SIM"}},{"tipo":"excluido","codigo":"4151037","material":"TARJETA EM PAPEL SULFITE - COR AZUL (PACOTE COM 100)","campos":[],"dados":{"codigo":"4151037","material":"TARJETA EM PAPEL SULFITE - COR AZUL (PACOTE COM 100)","unidade":"PC - Pacote","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","especialidade":"Uso geral","familia":"Papelaria","imagem":"4151037.jpg","ativo":"SIM"}},{"tipo":"excluido","codigo":"4151038","material":"TARJETA EM PAPEL SULFITE - COR ROSA (PACOTE COM 100)","campos":[],"dados":{"codigo":"4151038","material":"TARJETA EM PAPEL SULFITE - COR ROSA (PACOTE COM 100)","unidade":"PC - Pacote","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","especialidade":"Uso geral","familia":"Papelaria","imagem":"4151038.jpg","ativo":"SIM"}},{"tipo":"excluido","codigo":"4151039","material":"TARJETA EM PAPEL SULFITE - COR VERDE (PACOTE COM 100)","campos":[],"dados":{"codigo":"4151039","material":"TARJETA EM PAPEL SULFITE - COR VERDE (PACOTE COM 100)","unidade":"PC - Pacote","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","especialidade":"Uso geral","familia":"Papelaria","imagem":"4151039.jpg","ativo":"SIM"}},{"tipo":"excluido","codigo":"4150239","material":"VASILHA PLASTICA COM TAMPA FLIP TOP 35 X 25 X 15 (6L)","campos":[],"dados":{"codigo":"4150239","material":"VASILHA PLASTICA COM TAMPA FLIP TOP 35 X 25 X 15 (6L)","unidade":"U - Unidade","grupo":"5","subgrupo":"HIGIENE E LIMPEZA","acesso":"COORDENACAO","tipo":"Consumo","especialidade":"Uso geral","familia":"Caixas e recipientes","imagem":"4150239.jpg","ativo":"SIM"}}]} -->
 
 ## 11/09/2026, 16:57 — Caio César Borges de Oliveira
 
