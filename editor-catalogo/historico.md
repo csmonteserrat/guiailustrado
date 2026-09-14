@@ -4,10 +4,47 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 68  
-Última atualização: 11/09/2026, 16:57
+Total de sessões registradas: 69  
+Última atualização: 14/09/2026, 17:13
 
 ---
+
+## 14/09/2026, 17:13 — Caio César Borges de Oliveira
+
+Sessão 69 · 3 alteração(ões) · 741 itens no arquivo após a edição
+
+**Origem:** relatório do CELK emitido em 14/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 13, 12, 15, 14.
+
+**Resumo:** 1 editado · 2 novo
+
+- **[EDITADO]** `4150129` AVENTAL DESCARTAVEL GRAMATURA 50 (UNIDADE) TAMANHO G
+    - Material: "AVENTAL DESCARTAVEL GRAMATURA 50 (PACOTE COM 10 UNIDADES) TAMANHO G" → "AVENTAL DESCARTAVEL GRAMATURA 50 (UNIDADE) TAMANHO G"
+- **[NOVO]** `4151280` RESINA COMPOSTA FLUIDA COR A2
+    - Código: 4151280
+    - Material: RESINA COMPOSTA FLUIDA COR A2
+    - Unidade de pedido: U - Unidade
+    - Grupo: 13
+    - Subgrupo: Odontologia
+    - Acesso: TODOS
+    - Tipo: Consumo
+    - Tags: Dentística
+    - Família: Resinas restauradoras
+    - Arquivo da imagem: 4151280.jpg
+    - Situação: SIM
+- **[NOVO]** `4151281` ALICATE PERFURADOR DE LENÇOL DE BORRACHA (AINSWORTH)
+    - Código: 4151281
+    - Material: ALICATE PERFURADOR DE LENÇOL DE BORRACHA (AINSWORTH)
+    - Unidade de pedido: U - Unidade
+    - Grupo: 14
+    - Subgrupo: CEO Instrumental
+    - Acesso: CEO
+    - Tipo: Instrumental
+    - Tags: Dentística;Endodontia
+    - Família: Isolamento absoluto
+    - Arquivo da imagem: 4151281.jpg
+    - Situação: SIM
+
+<!-- sessao:{"data":"2026-09-14T20:13:39.609Z","autor":"Caio César Borges de Oliveira","origem":"relatório do CELK emitido em 14/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 13, 12, 15, 14","total":741,"alteracoes":[{"tipo":"editado","codigo":"4150129","material":"AVENTAL DESCARTAVEL GRAMATURA 50 (UNIDADE) TAMANHO G","campos":[{"campo":"material","de":"AVENTAL DESCARTAVEL GRAMATURA 50 (PACOTE COM 10 UNIDADES) TAMANHO G","para":"AVENTAL DESCARTAVEL GRAMATURA 50 (UNIDADE) TAMANHO G"}]},{"tipo":"novo","codigo":"4151280","material":"RESINA COMPOSTA FLUIDA COR A2","campos":[],"dados":{"codigo":"4151280","material":"RESINA COMPOSTA FLUIDA COR A2","unidade":"U - Unidade","grupo":"13","subgrupo":"Odontologia","acesso":"TODOS","tipo":"Consumo","especialidade":"Dentística","familia":"Resinas restauradoras","imagem":"4151280.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4151281","material":"ALICATE PERFURADOR DE LENÇOL DE BORRACHA (AINSWORTH)","campos":[],"dados":{"codigo":"4151281","material":"ALICATE PERFURADOR DE LENÇOL DE BORRACHA (AINSWORTH)","unidade":"U - Unidade","grupo":"14","subgrupo":"CEO Instrumental","acesso":"CEO","tipo":"Instrumental","especialidade":"Dentística;Endodontia","familia":"Isolamento absoluto","imagem":"4151281.jpg","ativo":"SIM"}}]} -->
 
 ## 11/09/2026, 16:57 — Caio César Borges de Oliveira
 
