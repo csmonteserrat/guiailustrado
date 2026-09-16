@@ -4,10 +4,93 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 71  
-Última atualização: 16/09/2026, 09:22
+Total de sessões registradas: 72  
+Última atualização: 16/09/2026, 15:42
 
 ---
+
+## 16/09/2026, 15:42 — Caio César Borges de Oliveira
+
+Sessão 72 · 6 alteração(ões) · 747 itens no arquivo após a edição
+
+**Origem:** relatório do CELK emitido em 16/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 2.
+
+**Resumo:** 6 novo
+
+- **[NOVO]** `22290` PINÇA KELLY CURVA
+    - Código: 22290
+    - Material: PINÇA KELLY CURVA
+    - Unidade de pedido: U - Unidade
+    - Grupo: 2
+    - Subgrupo: ENFERMAGEM INSTRUMENTAL
+    - Acesso: COORDENACAO
+    - Tipo: Instrumental
+    - Tags: Cirurgia
+    - Família: Instrumental cirúrgico
+    - Arquivo da imagem: 22290.jpg
+    - Situação: SIM
+- **[NOVO]** `22300` PINCA KELLY RETA
+    - Código: 22300
+    - Material: PINCA KELLY RETA
+    - Unidade de pedido: U - Unidade
+    - Grupo: 2
+    - Subgrupo: ENFERMAGEM INSTRUMENTAL
+    - Acesso: COORDENACAO
+    - Tipo: Instrumental
+    - Tags: Cirurgia
+    - Família: Instrumental cirúrgico
+    - Arquivo da imagem: 22300.jpg
+    - Situação: SIM
+- **[NOVO]** `4149981` ESFIGMOMANOMETRO ADULTO
+    - Código: 4149981
+    - Material: ESFIGMOMANOMETRO ADULTO
+    - Unidade de pedido: U - Unidade
+    - Grupo: 2
+    - Subgrupo: ENFERMAGEM INSTRUMENTAL
+    - Acesso: COORDENACAO
+    - Tipo: Instrumental
+    - Tags: Uso geral
+    - Família: Exame clínico
+    - Arquivo da imagem: 4149981.jpg
+    - Situação: SIM
+- **[NOVO]** `4149982` ESFIGMOMANOMETRO PARA OBESO
+    - Código: 4149982
+    - Material: ESFIGMOMANOMETRO PARA OBESO
+    - Unidade de pedido: U - Unidade
+    - Grupo: 2
+    - Subgrupo: ENFERMAGEM INSTRUMENTAL
+    - Acesso: COORDENACAO
+    - Tipo: Instrumental
+    - Tags: Uso geral
+    - Família: Exame clínico
+    - Arquivo da imagem: 4149982.jpg
+    - Situação: SIM
+- **[NOVO]** `4150042` PINÇA ALLIS 15CM
+    - Código: 4150042
+    - Material: PINÇA ALLIS 15CM
+    - Unidade de pedido: U - Unidade
+    - Grupo: 2
+    - Subgrupo: ENFERMAGEM INSTRUMENTAL
+    - Acesso: COORDENACAO
+    - Tipo: Instrumental
+    - Tags: Cirurgia
+    - Família: Instrumental cirúrgico
+    - Arquivo da imagem: 4150042.jpg
+    - Situação: SIM
+- **[NOVO]** `4150345` ESFIGMOMANÔMETRO INFANTIL
+    - Código: 4150345
+    - Material: ESFIGMOMANÔMETRO INFANTIL
+    - Unidade de pedido: U - Unidade
+    - Grupo: 2
+    - Subgrupo: ENFERMAGEM INSTRUMENTAL
+    - Acesso: COORDENACAO
+    - Tipo: Instrumental
+    - Tags: Uso geral
+    - Família: Exame clínico
+    - Arquivo da imagem: 4150345.jpg
+    - Situação: SIM
+
+<!-- sessao:{"data":"2026-09-16T18:42:55.920Z","autor":"Caio César Borges de Oliveira","origem":"relatório do CELK emitido em 16/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 2","total":747,"alteracoes":[{"tipo":"novo","codigo":"22290","material":"PINÇA KELLY CURVA","campos":[],"dados":{"codigo":"22290","material":"PINÇA KELLY CURVA","unidade":"U - Unidade","grupo":"2","subgrupo":"ENFERMAGEM INSTRUMENTAL","acesso":"COORDENACAO","tipo":"Instrumental","especialidade":"Cirurgia","familia":"Instrumental cirúrgico","imagem":"22290.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"22300","material":"PINCA KELLY RETA","campos":[],"dados":{"codigo":"22300","material":"PINCA KELLY RETA","unidade":"U - Unidade","grupo":"2","subgrupo":"ENFERMAGEM INSTRUMENTAL","acesso":"COORDENACAO","tipo":"Instrumental","especialidade":"Cirurgia","familia":"Instrumental cirúrgico","imagem":"22300.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4149981","material":"ESFIGMOMANOMETRO ADULTO","campos":[],"dados":{"codigo":"4149981","material":"ESFIGMOMANOMETRO ADULTO","unidade":"U - Unidade","grupo":"2","subgrupo":"ENFERMAGEM INSTRUMENTAL","acesso":"COORDENACAO","tipo":"Instrumental","especialidade":"Uso geral","familia":"Exame clínico","imagem":"4149981.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4149982","material":"ESFIGMOMANOMETRO PARA OBESO","campos":[],"dados":{"codigo":"4149982","material":"ESFIGMOMANOMETRO PARA OBESO","unidade":"U - Unidade","grupo":"2","subgrupo":"ENFERMAGEM INSTRUMENTAL","acesso":"COORDENACAO","tipo":"Instrumental","especialidade":"Uso geral","familia":"Exame clínico","imagem":"4149982.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150042","material":"PINÇA ALLIS 15CM","campos":[],"dados":{"codigo":"4150042","material":"PINÇA ALLIS 15CM","unidade":"U - Unidade","grupo":"2","subgrupo":"ENFERMAGEM INSTRUMENTAL","acesso":"COORDENACAO","tipo":"Instrumental","especialidade":"Cirurgia","familia":"Instrumental cirúrgico","imagem":"4150042.jpg","ativo":"SIM"}},{"tipo":"novo","codigo":"4150345","material":"ESFIGMOMANÔMETRO INFANTIL","campos":[],"dados":{"codigo":"4150345","material":"ESFIGMOMANÔMETRO INFANTIL","unidade":"U - Unidade","grupo":"2","subgrupo":"ENFERMAGEM INSTRUMENTAL","acesso":"COORDENACAO","tipo":"Instrumental","especialidade":"Uso geral","familia":"Exame clínico","imagem":"4150345.jpg","ativo":"SIM"}}]} -->
 
 ## 16/09/2026, 09:22 — Caio César Borges de Oliveira
 
