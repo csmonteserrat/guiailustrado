@@ -102,7 +102,7 @@
 4150773,BROCA CARBIDE Nº 8 PARA PEÇA RETA,U - Unidade,13,Odontologia,TODOS,Consumo,Dentística,Brocas,4150773.jpg,,SIM
 4150565,BROCA TRANSMETAL CILÍNDRICA Nº 12,U - Unidade,13,Odontologia,TODOS,Consumo,Dentística,Brocas,4150565.jpg,,SIM
 4150486,CABO PARA BISTURI Nº 3 (ODONTO),U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Cirurgia,Instrumental cirúrgico,4150486.jpg,,SIM
-4150487,CABO PARA ESPELHO BUCAL,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Diagnóstico,Exame clínico,4150487.jpg,,SIM
+4150487,CABO PARA ESPELHO BUCAL,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Clínica Geral,Exame clínico,4150487.jpg,,SIM
 4150489,CALCADOR PARA DYCAL Nº 10/20,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Dentística,Instrumental de inserção,4150489.jpg,,SIM
 4150795,"CALCADORES DE PAIVA 1, 2, 3, 4",U - Unidade,14,CEO Instrumental,CEO,Instrumental,Dentística,Instrumental de inserção,4150795.jpg,,SIM
 4151158,CAMPO CIRURG DESC TNT 50 X 50 CM (EMBALAGEM COM 50 UNIDADES),U - Unidade,13,Odontologia,TODOS,Consumo,Biossegurança,Descartáveis e barreiras,4151158.jpg,,SIM
@@ -172,9 +172,9 @@
 4150515,ESPATULA PARA INSERCAO DE MATERIAL Nº 3,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Dentística,Instrumental de inserção,4150515.jpg,,SIM
 4150810,ESPATULA PLASTICA PARA MANIPULAÇÃO DE GESSO/ALGINATO (PROTESE),U - Unidade,14,CEO Instrumental,CEO,Instrumental,Prótese,Materiais de moldagem,4150810.jpg,,SIM
 4150811,ESPATULA SIMPLES PARA CERA Nº36,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Prótese,Escultura em cera,4150811.jpg,,SIM
-4150519,ESPELHO BUCAL 1º PLANO Nº 5,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Diagnóstico,Exame clínico,4150519.jpg,,SIM
-4150976,ESPELHO DE MÃO,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,"Diagnóstico;Uso geral",Exame clínico,4150976.jpg,,SIM
-4150520,ESPELHO BUCAL Nº 5,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Diagnóstico,Exame clínico,4150520.jpg,,SIM
+4150519,ESPELHO BUCAL 1º PLANO Nº 5,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Clínica Geral,Exame clínico,4150519.jpg,,SIM
+4150976,ESPELHO DE MÃO,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Uso geral,Exame clínico,4150976.jpg,,SIM
+4150520,ESPELHO BUCAL Nº 5,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Clínica Geral,Exame clínico,4150520.jpg,,SIM
 4150812,ESTOJO INOX PARA ENDO 12X5CM,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Endodontia,Caixas e recipientes,4150812.jpg,,SIM
 4151179,ESTOJO PARA KIT DE HIGIENE DENTAL,EST - Estojo,13,Odontologia,TODOS,Consumo,Prevenção,"Higiene bucal;PSE",4151179.jpg,,SIM
 4150521,ESTOJO PERFURADO EM INOX 20 X 10 X 05 CM PARA AUTOCLAVE,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Biossegurança,Descartáveis e barreiras,4150521.jpg,,SIM
@@ -376,7 +376,7 @@
 4151063,PEDRA POMES PO 100 GR,U - Unidade,15,CEO,CEO,Consumo,Prótese,Polimento de prótese,4151063.jpg,,SIM
 4151064,PEDRA POMES PO 1KG,U - Unidade,15,CEO,CEO,Consumo,Prótese,Polimento de prótese,4151064.jpg,,SIM
 4150833,PINCA ATRAUMATICA DIETRICH 16 CM,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Cirurgia,Instrumental cirúrgico,4150833.jpg,,SIM
-4150656,PINCA CLINICA Nº 17,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Diagnóstico,Exame clínico,4150656.jpg,,SIM
+4150656,PINCA CLINICA Nº 17,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Clínica Geral,Exame clínico,4150656.jpg,,SIM
 4150835,PINCA GOIVA BLUMENTHAL,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Cirurgia,Instrumental cirúrgico,4150835.jpg,,SIM
 4150836,PINCA MULLER PARA CARBONO (PROTESE),U - Unidade,14,CEO Instrumental,CEO,Instrumental,Prótese,Ajuste oclusal e protético,4150836.jpg,,SIM
 4150657,PINCA PORTA GRAMPO DE PALMER,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,"Dentística;Endodontia",Isolamento absoluto,4150657.jpg,,SIM
@@ -472,7 +472,7 @@
 4151047,RESINA FOTOPOLIMERIZAVEL UNICROMATICA,U - Unidade,13,Odontologia,TODOS,Consumo,Dentística,Resinas restauradoras,4151047.jpg,,SIM
 4151111,RESTAURADOR PROVISORIO FOTOPOLIMERIZAVEL,U - Unidade,15,CEO,CEO,Consumo,"Endodontia;Dentística",Restauradores provisórios,4151111.jpg,,SIM
 4151112,RESTAURADOR PROVISORIO PARA ENDO,U - Unidade,15,CEO,CEO,Consumo,"Endodontia;Dentística",Restauradores provisórios,4151112.jpg,,NAO
-4150715,REVELADOR DE PLACA BACTERIANA 500ML,U - Unidade,13,Odontologia,TODOS,Consumo,"Prevenção;Diagnóstico","Profilaxia e flúor;PSE",4150715.jpg,,SIM
+4150715,REVELADOR DE PLACA BACTERIANA 500ML,U - Unidade,13,Odontologia,TODOS,Consumo,Prevenção,"Profilaxia e flúor;PSE",4150715.jpg,,SIM
 4151113,REVELADOR RX PRONTO USO (500ML),U - Unidade,15,CEO,CEO,Consumo,Radiologia,Radiologia,4151113.jpg,,NAO
 4151114,RODA DE ALGODAO PARA TORNO DE POLIMENTO DE RESINA,U - Unidade,15,CEO,CEO,Consumo,Prótese,Polimento de prótese,4151114.jpg,,SIM
 4151115,RODA DE FLANELA PARA TORNO DE POLIMENTO DE RESINA,U - Unidade,15,CEO,CEO,Consumo,Prótese,Polimento de prótese,4151115.jpg,,SIM
@@ -493,10 +493,10 @@
 4151119,SOLUCAO FIXADORA PARA RX,U - Unidade,15,CEO,CEO,Consumo,Radiologia,Radiologia,4151119.jpg,,SIM
 4150674,SOLUÇÃO HEMOSTÁTICA SEM EPINEFRINA,U - Unidade,13,Odontologia,TODOS,Consumo,Cirurgia,Insumos cirúrgicos,4150674.jpg,,SIM
 4151120,SOLUCAO REVELADORA PARA RX,U - Unidade,15,CEO,CEO,Consumo,Radiologia,Radiologia,4151120.jpg,,SIM
-4150845,SONDA DE NABERS Nº 2N COLORIDA PARA FURCA,U - Unidade,14,CEO Instrumental,CEO,Instrumental,"Periodontia;Diagnóstico",Exame clínico,4150845.jpg,,SIM
-4151172,SONDA EXPLORADORA N°5,U - Unidade,13,Odontologia,TODOS,Consumo,Diagnóstico,Exame clínico,4151172.jpg,,SIM
-4151171,SONDA EXPLORADORA N°6,U - Unidade,13,Odontologia,TODOS,Consumo,Diagnóstico,Exame clínico,4151171.jpg,,SIM
-4150694,SONDA MILIMETRADA TIPO WHO (OMS),U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,"Periodontia;Diagnóstico",Exame clínico,4150694.jpg,,SIM
+4150845,SONDA DE NABERS Nº 2N COLORIDA PARA FURCA,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Periodontia,Exame clínico,4150845.jpg,,SIM
+4151172,SONDA EXPLORADORA N°5,U - Unidade,13,Odontologia,TODOS,Consumo,Clínica Geral,Exame clínico,4151172.jpg,,SIM
+4151171,SONDA EXPLORADORA N°6,U - Unidade,13,Odontologia,TODOS,Consumo,Clínica Geral,Exame clínico,4151171.jpg,,SIM
+4150694,SONDA MILIMETRADA TIPO WHO (OMS),U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Periodontia,Exame clínico,4150694.jpg,,SIM
 4150695,SONDA RETA ENDO EXPLORACAO DE CANAIS,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Endodontia,Limas de canal,4150695.jpg,,SIM
 4150711,SPRAY LUBRIFICANTE,U - Unidade,13,Odontologia,TODOS,Consumo,Uso geral,Equipamentos e acessórios,4150711.jpg,,SIM
 4150709,SUGADOR CIRURGICO ESTERIL DESCARTAVEL (CAIXA COM 40 UNIDADES),PC - Pacote,13,Odontologia,TODOS,Consumo,Cirurgia,Insumos cirúrgicos,4150709.jpg,,SIM
@@ -510,7 +510,7 @@
 4150698,TESOURA CIRURGICA IRIS RETA,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,Cirurgia,Instrumental cirúrgico,4150698.jpg,,SIM
 4150847,TESOURA METZEMBAUM,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Cirurgia,Instrumental cirúrgico,4150847.jpg,,SIM
 4150848,TESOURA PARA CORTE DE FIO DE AÇO Nº 12,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Cirurgia,Instrumental cirúrgico,4150848.jpg,,SIM
-4150710,TESTE DE VITALIDADE PULPAR SPRAY,U - Unidade,13,Odontologia,TODOS,Consumo,"Endodontia;Diagnóstico",Soluções e medicamentos,4150710.jpg,,SIM
+4150710,TESTE DE VITALIDADE PULPAR SPRAY,U - Unidade,13,Odontologia,TODOS,Consumo,Endodontia,Soluções e medicamentos,4150710.jpg,,SIM
 4150706,TIRAS DE AÇO PARA AMÁLGAMA,U - Unidade,13,Odontologia,TODOS,Consumo,Dentística,"Matrizes, tiras e acabamento;Amálgama",4150706.jpg,,SIM
 4151159,TIRAS DE LIXA PARA RESINA COMPOSTA (CAIXA COM 100 UNIDADES),CA - Caixa,13,Odontologia,TODOS,Consumo,Dentística,Resinas restauradoras,4151159.jpg,,SIM
 4150705,TIRAS DE LIXA PARA RESINA COMPOSTA (CAIXA COM 150 UNIDADES),CA - Caixa,13,Odontologia,TODOS,Consumo,Dentística,Resinas restauradoras,4150705.jpg,,SIM
@@ -577,7 +577,7 @@
 4151249,PORTA AMALGAMA PLASTICO,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Dentística,"Instrumental de inserção;Amálgama",4151249.jpg,,SIM
 4151250,POTTS CABO T,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Cirurgia,Alavancas,4151250.jpg,,SIM
 4151251,PROTETOR DE TIREOIDE ADULTO COM BORRACHA PLUMB,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Radiologia,Radiologia,4151251.jpg,,SIM
-4151252,SONDA DE NABERS CURVA Nº 2NB,U - Unidade,14,CEO Instrumental,CEO,Instrumental,"Periodontia;Diagnóstico",Exame clínico,4151252.jpg,,SIM
+4151252,SONDA DE NABERS CURVA Nº 2NB,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Periodontia,Exame clínico,4151252.jpg,,SIM
 4151253,AMALGAMA EM CAPSULA (CAIXA COM 50 CAPSULAS),CA - Caixa,15,CEO,CEO,Consumo,Dentística,Amálgama,4151253.jpg,,SIM
 4151254,BROCA ALTA ROTAÇÃO DIAMANTADA 3080,U - Unidade,13,Odontologia,TODOS,Consumo,Dentística,Brocas,4151254.jpg,,SIM
 4151255,CERA UTILIDADE ODONTOLOGICA LAMINADA,U - Unidade,15,CEO,CEO,Consumo,Prótese,Escultura em cera,4151255.jpg,,SIM
