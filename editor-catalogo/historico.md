@@ -4,10 +4,43 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 70  
-Última atualização: 15/09/2026, 09:35
+Total de sessões registradas: 71  
+Última atualização: 16/09/2026, 09:22
 
 ---
+
+## 16/09/2026, 09:22 — Caio César Borges de Oliveira
+
+Sessão 71 · 12 alteração(ões) · 741 itens no arquivo após a edição
+
+**Resumo:** 12 editado
+
+- **[EDITADO]** `4150487` CABO PARA ESPELHO BUCAL
+    - Tags: "Diagnóstico" → "Clínica Geral"
+- **[EDITADO]** `4150519` ESPELHO BUCAL 1º PLANO Nº 5
+    - Tags: "Diagnóstico" → "Clínica Geral"
+- **[EDITADO]** `4150976` ESPELHO DE MÃO
+    - Tags: "Diagnóstico;Uso geral" → "Uso geral"
+- **[EDITADO]** `4150520` ESPELHO BUCAL Nº 5
+    - Tags: "Diagnóstico" → "Clínica Geral"
+- **[EDITADO]** `4150656` PINCA CLINICA Nº 17
+    - Tags: "Diagnóstico" → "Clínica Geral"
+- **[EDITADO]** `4150715` REVELADOR DE PLACA BACTERIANA 500ML
+    - Tags: "Prevenção;Diagnóstico" → "Prevenção"
+- **[EDITADO]** `4150845` SONDA DE NABERS Nº 2N COLORIDA PARA FURCA
+    - Tags: "Periodontia;Diagnóstico" → "Periodontia"
+- **[EDITADO]** `4151172` SONDA EXPLORADORA N°5
+    - Tags: "Diagnóstico" → "Clínica Geral"
+- **[EDITADO]** `4151171` SONDA EXPLORADORA N°6
+    - Tags: "Diagnóstico" → "Clínica Geral"
+- **[EDITADO]** `4150694` SONDA MILIMETRADA TIPO WHO (OMS)
+    - Tags: "Periodontia;Diagnóstico" → "Periodontia"
+- **[EDITADO]** `4150710` TESTE DE VITALIDADE PULPAR SPRAY
+    - Tags: "Endodontia;Diagnóstico" → "Endodontia"
+- **[EDITADO]** `4151252` SONDA DE NABERS CURVA Nº 2NB
+    - Tags: "Periodontia;Diagnóstico" → "Periodontia"
+
+<!-- sessao:{"data":"2026-09-16T12:22:46.576Z","autor":"Caio César Borges de Oliveira","origem":"","total":741,"alteracoes":[{"tipo":"editado","codigo":"4150487","material":"CABO PARA ESPELHO BUCAL","campos":[{"campo":"especialidade","de":"Diagnóstico","para":"Clínica Geral"}]},{"tipo":"editado","codigo":"4150519","material":"ESPELHO BUCAL 1º PLANO Nº 5","campos":[{"campo":"especialidade","de":"Diagnóstico","para":"Clínica Geral"}]},{"tipo":"editado","codigo":"4150976","material":"ESPELHO DE MÃO","campos":[{"campo":"especialidade","de":"Diagnóstico;Uso geral","para":"Uso geral"}]},{"tipo":"editado","codigo":"4150520","material":"ESPELHO BUCAL Nº 5","campos":[{"campo":"especialidade","de":"Diagnóstico","para":"Clínica Geral"}]},{"tipo":"editado","codigo":"4150656","material":"PINCA CLINICA Nº 17","campos":[{"campo":"especialidade","de":"Diagnóstico","para":"Clínica Geral"}]},{"tipo":"editado","codigo":"4150715","material":"REVELADOR DE PLACA BACTERIANA 500ML","campos":[{"campo":"especialidade","de":"Prevenção;Diagnóstico","para":"Prevenção"}]},{"tipo":"editado","codigo":"4150845","material":"SONDA DE NABERS Nº 2N COLORIDA PARA FURCA","campos":[{"campo":"especialidade","de":"Periodontia;Diagnóstico","para":"Periodontia"}]},{"tipo":"editado","codigo":"4151172","material":"SONDA EXPLORADORA N°5","campos":[{"campo":"especialidade","de":"Diagnóstico","para":"Clínica Geral"}]},{"tipo":"editado","codigo":"4151171","material":"SONDA EXPLORADORA N°6","campos":[{"campo":"especialidade","de":"Diagnóstico","para":"Clínica Geral"}]},{"tipo":"editado","codigo":"4150694","material":"SONDA MILIMETRADA TIPO WHO (OMS)","campos":[{"campo":"especialidade","de":"Periodontia;Diagnóstico","para":"Periodontia"}]},{"tipo":"editado","codigo":"4150710","material":"TESTE DE VITALIDADE PULPAR SPRAY","campos":[{"campo":"especialidade","de":"Endodontia;Diagnóstico","para":"Endodontia"}]},{"tipo":"editado","codigo":"4151252","material":"SONDA DE NABERS CURVA Nº 2NB","campos":[{"campo":"especialidade","de":"Periodontia;Diagnóstico","para":"Periodontia"}]}]} -->
 
 ## 15/09/2026, 09:35 — Caio César Borges de Oliveira
 
