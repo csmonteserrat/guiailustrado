@@ -327,6 +327,7 @@ Promise.all([
       unidadeCompra:(d.unidade_compra||'').trim(),
       modificadoEm:(d.modificado_em||'').trim(),
       modificadoPor:(d.modificado_por||'').trim(),
+      situacaoCompra:(d.situacao_compra||'').trim(),
       temDescritivo:!!descritivo
     };
   });
@@ -465,6 +466,8 @@ function desenhar(){
               '<span class="tag '+c+'">'+esc(rotuloBloco(it))+'</span>'+
               (it.nomePregao?'<span class="sub">nome próprio no descritivo</span>':'')+
               (!it.ativo?'<span class="tag t-ci">inativo</span>':'')+
+              (it.situacaoCompra==='AGUARDANDO_COMPRA'?
+                '<span class="tag t-ci" title="material novo, ainda sem código do CELK">aguardando compra</span>':'')+
             '</div>'+
             (modo==='texto'&&it.descritivo
               ? '<div class="trecho">'+destacar(trechoRelevante(it.descritivo,termos),termos)+'</div>':'')+
@@ -557,6 +560,10 @@ function detalhe(it,termos){
       campo('Famílias',it.familias.length?esc(it.familias.join(' · ')):'—')+
       campo('Tags',it.tags.length?esc(it.tags.join(' · ')):'—')+
       (it.observacao?campo('Observação',esc(it.observacao)):'')+
+      (it.situacaoCompra==='AGUARDANDO_COMPRA'?
+        '<div class="campo"><div class="r">Situação da compra</div>'+
+        '<div class="texto" style="color:var(--laranja)">Material ainda não comprado, sem código do CELK. '+
+        'Grupo, subgrupo, acesso e tipo ficam em branco até a compra.</div></div>':'')+
     '</div>'+
     '<div class="col2">'+
       '<div class="secao descritivo">Descritivo</div>'+

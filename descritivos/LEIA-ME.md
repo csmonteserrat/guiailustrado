@@ -29,13 +29,14 @@ O botão **Exportar** gera um CSV com os itens que estiverem na listagem no mome
 
 **A edição não acontece aqui.** Esta página é somente de consulta. Todo o preenchimento é feito no editor do catálogo, em `editor-catalogo/editor-catalogo.html`, na mesma janela onde se editam os dados do material. Ao abrir um item para editar, a seção **Descritivo** fica abaixo dos campos do catálogo.
 
-Três campos são preenchidos ali:
+Quatro campos são preenchidos ali:
 
 * **Nome no descritivo.** Deixe em branco para usar o mesmo nome do catálogo. Preencha apenas quando a redação do descritivo exigir um nome diferente do usado no catálogo.
 * **Descritivo.** O texto técnico completo.
 * **Unidade de compra.** Diferente da unidade de pedido do CELK. A unidade de pedido é como o dentista solicita; a de compra é como o material é adquirido na licitação.
+* **Situação da compra.** Normalmente fica em branco. Use "Aguardando compra e código do CELK" só para um material que ainda não existe no catálogo (foi criado com um código provisório, começando em 9000001, só para deixar o descritivo pronto). Não afeta a Situação (ativo/inativo) do material, que continua controlada no cartão do catálogo, e some sozinha quando o material for comprado e o código provisório for substituído pelo código real do CELK.
 
-A data e o autor da última modificação são preenchidos automaticamente, e **só mudam quando algum desses três campos muda**. Corrigir uma tag ou uma família no catálogo não altera o registro de modificação do descritivo.
+A data e o autor da última modificação são preenchidos automaticamente, e **só mudam quando algum desses quatro campos muda**. Corrigir uma tag ou uma família no catálogo não altera o registro de modificação do descritivo.
 
 ## Sobre os arquivos gerados
 
@@ -47,6 +48,6 @@ O histórico é único e fica em `editor-catalogo/historico.md`, registrando as 
 
 O `descritivos.csv` pode ser aberto no Excel ou LibreOffice para preencher vários descritivos de uma vez. Se fizer isso, salve como **CSV UTF-8 (delimitado por vírgulas)** e mantenha as colunas na mesma ordem:
 
-`codigo`, `nome_descritivo`, `descritivo`, `unidade_compra`, `modificado_em`, `modificado_por`
+`codigo`, `nome_descritivo`, `descritivo`, `unidade_compra`, `modificado_em`, `modificado_por`, `situacao_compra`
 
 A coluna `nome_descritivo` já se chamou `nome_pregao`. Arquivos antigos com o nome anterior continuam sendo lidos normalmente, e passam a usar o nome novo assim que forem gravados pelo editor. Ao preencher pela planilha, lembre de escrever também a data e o nome no formato usado pelo editor, já que o preenchimento automático só acontece na edição pela página.

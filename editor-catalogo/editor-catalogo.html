@@ -270,6 +270,7 @@ select{appearance:none;background-image:none;padding-right:13px}
           <option value="semtag">Sem tag ou sem família</option>
           <option value="comdesc">Com descritivo</option>
           <option value="semdesc">Sem descritivo</option>
+          <option value="aguardandocompra">Aguardando compra</option>
         </select>
       </div>
     </div>
@@ -315,6 +316,7 @@ const escapar=s=>(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g
 const ROTULOS={codigo:'Código',material:'Material',unidade:'Unidade de pedido',grupo:'Grupo',
   subgrupo:'Subgrupo',acesso:'Acesso',tipo:'Tipo',especialidade:'Tags',familia:'Família',
   nome_descritivo:'Nome no descritivo',nome_pregao:'Nome no descritivo',descritivo:'Descritivo',unidade_compra:'Unidade de compra',
+  situacao_compra:'Situação da compra',
   imagem:'Arquivo da imagem',observacao:'Observação',ativo:'Situação'};
 const rotulo=c=>ROTULOS[c]||c;
 
@@ -468,7 +470,7 @@ const CAMINHOS_DESC=['../descritivos/descritivos.csv','descritivos.csv'];
    Descritivos. Ficam em arquivo próprio, ligado ao catálogo
    pelo código do material, e só valem para materiais da odontologia.
    --------------------------------------------------------------------- */
-const COLUNAS_DESC=['codigo','nome_descritivo','descritivo','unidade_compra','modificado_em','modificado_por'];
+const COLUNAS_DESC=['codigo','nome_descritivo','descritivo','unidade_compra','modificado_em','modificado_por','situacao_compra'];
 let DESCRITIVOS={};        // codigo -> registro
 let DESC_ORIGINAIS={};     // cópia como estava no arquivo
 let descCarregado=false;
@@ -713,6 +715,7 @@ function filtrados(){
     if(sit==='semtag'&&tagsDe(it).length&&familiasDe(it).length)return false;
     if(sit==='comdesc'&&!temDescritivo((it.codigo||'').trim()))return false;
     if(sit==='semdesc'&&(temDescritivo((it.codigo||'').trim())||!aceitaDescritivo(it)))return false;
+    if(sit==='aguardandocompra'&&descDe((it.codigo||'').trim()).situacao_compra!=='AGUARDANDO_COMPRA')return false;
     if(termos.length){
       const alvo=normalizar([it.codigo,it.material,it.familia,it.especialidade,it.subgrupo].join(' '));
       if(!termos.every(t=>alvo.includes(t)))return false;
@@ -742,7 +745,9 @@ function desenhar(){
         (sit==='novo'?' <span class="tag t-vd">novo</span>':'')+
         (sit==='editado'?' <span class="tag t-az">editado</span>':'')+
         (inativo?' <span class="tag t-ci">inativo</span>':'')+
-        (temDescritivo((it.codigo||'').trim())?' <span class="tag t-lr">descritivo</span>':'')+'</td>'+
+        (temDescritivo((it.codigo||'').trim())?' <span class="tag t-lr">descritivo</span>':'')+
+        (descDe((it.codigo||'').trim()).situacao_compra==='AGUARDANDO_COMPRA'?
+          ' <span class="tag t-ci" title="material novo, ainda sem código do CELK">aguardando compra</span>':'')+'</td>'+
       '<td class="sub">'+escapar((it.unidade||'').split(' - ')[0])+'</td>'+
       '<td><span class="tag '+corBloco(it)+'">'+escapar(juntarGrupo(it.grupo,it.subgrupo))+'</span></td>'+
       '<td class="sub">'+escapar(familiasDe(it).concat(tags).join(', '))+'</td>'+
@@ -786,7 +791,7 @@ function abrirEdicao(id,novo){
 
   /* Cópia de trabalho do descritivo deste material. */
   const d=Object.assign({codigo:it.codigo||'',nome_descritivo:'',descritivo:'',
-    unidade_compra:'',modificado_em:'',modificado_por:''},descDe(it.codigo));
+    unidade_compra:'',modificado_em:'',modificado_por:'',situacao_compra:''},descDe(it.codigo));
 
   /* Segundo cartão: o descritivo. Só existe para materiais da
      odontologia, já que os da lista da Enfermagem não entram nestes empenhos. */
@@ -823,7 +828,16 @@ function abrirEdicao(id,novo){
           (dsc.modificado_em?escapar(dsc.modificado_em)+(dsc.modificado_por?' · '+escapar(dsc.modificado_por):'')
             :'nunca modificado')+
           '<br><span style="font-size:11px">atualiza sozinho ao salvar uma alteração aqui</span></div></div>'+
-      '</div>';
+      '</div>'+
+      '<div><label class="rot">Situação da compra</label>'+
+        '<select data-desc="situacao_compra">'+
+          '<option value=""'+(dsc.situacao_compra?'':' selected')+'>Nenhuma (descritivo normal)</option>'+
+          '<option value="AGUARDANDO_COMPRA"'+(dsc.situacao_compra==='AGUARDANDO_COMPRA'?' selected':'')+
+            '>Aguardando compra e código do CELK</option>'+
+        '</select>'+
+        '<div class="sub" style="font-size:11px;margin-top:4px">use para um material que ainda não existe no '+
+        'catálogo, criado só para deixar o descritivo pronto até a compra. Não muda a Situação do material, '+
+        'que continua controlada pelo campo acima, no cartão do catálogo.</div></div>';
 
     return '<section class="cartaoEdicao">'+
       '<div class="cabCartao" style="background:var(--corallite-suave)">'+
@@ -1033,9 +1047,9 @@ function abrirEdicao(id,novo){
         novoD[el.dataset.desc]=el.value.trim();
       });
       const antigoD=descDe(it.codigo);
-      const mudou=['nome_descritivo','descritivo','unidade_compra']
+      const mudou=['nome_descritivo','descritivo','unidade_compra','situacao_compra']
         .some(c=>(novoD[c]||'')!==((antigoD[c]||'').trim()));
-      const temConteudo=['nome_descritivo','descritivo','unidade_compra'].some(c=>(novoD[c]||'').trim());
+      const temConteudo=['nome_descritivo','descritivo','unidade_compra','situacao_compra'].some(c=>(novoD[c]||'').trim());
       if(mudou){
         novoD.modificado_em=dataCurta(new Date());
         novoD.modificado_por=autorAtual();
@@ -1096,7 +1110,7 @@ const autorAtual=()=>(localStorage.getItem('editor-autor')||'').trim();
    separadamente das do catálogo, para que o pacote de download só inclua
    o arquivo que realmente mudou.
    --------------------------------------------------------------------- */
-const CAMPOS_DESC=['nome_descritivo','descritivo','unidade_compra'];
+const CAMPOS_DESC=['nome_descritivo','descritivo','unidade_compra','situacao_compra'];
 function mudancasDescritivo(){
   const lista=[];
   const codigos=new Set(Object.keys(DESCRITIVOS).concat(Object.keys(DESC_ORIGINAIS)));

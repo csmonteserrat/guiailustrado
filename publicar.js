@@ -332,7 +332,7 @@ var TIPOS_HIST={novo:'novo',editado:'editado',inativado:'inativado',reativado:'r
 var ROTULOS_HIST={codigo:'Código',material:'Material',unidade:'Unidade de pedido',grupo:'Grupo',
   subgrupo:'Subgrupo',acesso:'Acesso',tipo:'Tipo',especialidade:'Tags',familia:'Família',
   nome_descritivo:'Nome no descritivo',nome_pregao:'Nome no descritivo',descritivo:'Descritivo',
-  unidade_compra:'Unidade de compra',imagem:'Arquivo da imagem',observacao:'Observação',
+  unidade_compra:'Unidade de compra',situacao_compra:'Situação da compra',imagem:'Arquivo da imagem',observacao:'Observação',
   ativo:'Situação',foto:'Foto'};
 function rotuloHist(c){return ROTULOS_HIST[c]||c}
 function nomeTipo(t){return TIPOS_HIST[t]||t}
