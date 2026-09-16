@@ -4,10 +4,87 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 75  
+Total de sessões registradas: 76  
 Última atualização: 16/09/2026, 18:35
 
 ---
+
+## 16/09/2026, 18:35 — Caio César Borges de Oliveira
+
+Sessão 76 · 34 alteração(ões)
+
+**Resumo:** 34 foto
+
+- **[FOTO]** `4150967` LIMA ROTATORIA SX19 MM PARA PRE-ALARGAMENTO (CAIXA COM 6 UNIDADES)
+    - foto adicionada · imagens/4150967.jpg
+- **[FOTO]** `4151241` ESTOJO PARA ENDODONTIA 24 FUROS
+    - foto adicionada · imagens/4151241.jpg
+- **[FOTO]** `4151210` CIMENTO MTA PARA PERFURACAO ENDO (CEO)
+    - foto adicionada · imagens/4151210.jpg
+- **[FOTO]** `4150965` LIMA ROTATORIA DE RETRATAMENTO D1, D2, D3 (CAIXA COM 6 UNIDADES)
+    - foto adicionada · imagens/4150965.jpg
+- **[FOTO]** `4150969` LIMA ROTATORIA 25 MM MECANIZ (CAIXA COM 6 UNIDADES)
+    - foto adicionada · imagens/4150969.jpg
+- **[FOTO]** `4150966` LIMA ROTATORIA M-WIRE X5/25 MM (CARTELA COM 3 UNIDADES)
+    - foto adicionada · imagens/4150966.jpg
+- **[FOTO]** `4150975` LIMA ROTATORIA M-WIRE X4/25MM (CARTELA COM 3 UNIDADES)
+    - foto adicionada · imagens/4150975.jpg
+- **[FOTO]** `4150974` LIMA ROTATORIA M-WIRE X1, X2, X3/31MM (CAIXA COM 3 UNIDADES)
+    - foto adicionada · imagens/4150974.jpg
+- **[FOTO]** `4150973` LIMA ROTATORIA M-WIRE X1, X2, X3/25MM (CAIXA COM 3 UNIDADES)
+    - foto adicionada · imagens/4150973.jpg
+- **[FOTO]** `4150972` LIMA ROTATORIA M-WIRE X1, X2, X3/21MM (CAIXA COM 3 UNIDADES)
+    - foto adicionada · imagens/4150972.jpg
+- **[FOTO]** `4150958` LIMA PATHFILE SORTIDA 31 MM (CARTELA COM 3 UNIDADES)
+    - foto adicionada · imagens/4150958.jpg
+- **[FOTO]** `4150957` LIMA PATHFILE SORTIDA 25 MM (CARTELA COM 3 UNIDADES)
+    - foto adicionada · imagens/4150957.jpg
+- **[FOTO]** `4150956` LIMA PATHFILE SORTIDA 21 MM (CARTELA COM 3 UNIDADES)
+    - foto adicionada · imagens/4150956.jpg
+- **[FOTO]** `4151048` LIMA TIPO KERR Nº 6/31 MM
+    - foto adicionada · imagens/4151048.jpg
+- **[FOTO]** `4150971` LIMA TIPO KERR 10/31 MM (CARTELA COM 6 UNIDADES)
+    - foto adicionada · imagens/4150971.jpg
+- **[FOTO]** `4150939` LIMA KERR 3 SERIE 90-140/25 MM (CAIXA COM 6 UNIDADES)
+    - foto adicionada · imagens/4150939.jpg
+- **[FOTO]** `4150959` LIMA PARA LIMPEZA FINAL CANAL RADICULAR (CARTELA COM 4 UNIDADES)
+    - foto adicionada · imagens/4150959.jpg
+- **[FOTO]** `4150964` LIMA RECIPROCANTE SMALL 31MM (CARTELA COM 3 UNIDADES)
+    - foto adicionada · imagens/4150964.jpg
+- **[FOTO]** `4150963` LIMA RECIPROCANTE SMALL 21MM (CARTELA COM 3 UNIDADES)
+    - foto adicionada · imagens/4150963.jpg
+- **[FOTO]** `4150962` LIMA RECIPROCANTE PRIMARY 31MM (CARTELA COM 3 UNIDADES)
+    - foto adicionada · imagens/4150962.jpg
+- **[FOTO]** `4150961` LIMA RECIPROCANTE LARGE 31 MM (CARTELA COM 3 UNIDADES)
+    - foto adicionada · imagens/4150961.jpg
+- **[FOTO]** `4150960` LIMA RECIPROCANTE LARGE 21 MM (CARTELA COM 3 UNIDADES)
+    - foto adicionada · imagens/4150960.jpg
+- **[FOTO]** `4150927` LIMA END RECIPR NIQ-TIT SMALL 25 MM (CARTELA COM 3 UNIDADES)
+    - foto adicionada · imagens/4150927.jpg
+- **[FOTO]** `4150924` LIMA END RECIPR NIQ-TITAN LARGE 25 MM (CARTELA COM 3 UNIDADES)
+    - foto adicionada · imagens/4150924.jpg
+- **[FOTO]** `4150923` LIMA ENDO RECIPROC N-T MEDIUM 31 MM (CARTELA COM 3 UNIDADES)
+    - foto adicionada · imagens/4150923.jpg
+- **[FOTO]** `4150922` LIMA ENDO RECIPROC N-T MEDIUM 25 MM (CARTELA COM 3 UNIDADES)
+    - foto adicionada · imagens/4150922.jpg
+- **[FOTO]** `4150921` LIMA ENDO RECIPROC N-T MEDIUM 21 MM (CARTELA COM 3 UNIDADES)
+    - foto adicionada · imagens/4150921.jpg
+- **[FOTO]** `4150926` LIMA END RECIPR NIQ-TITAN PRIMARY 25MM (CARTELA COM 3 UNIDADES)
+    - foto adicionada · imagens/4150926.jpg
+- **[FOTO]** `4150925` LIMA END RECIPR NIQ-TITAN PRIMARY 21MM (CARTELA COM 3 UNIDADES)
+    - foto adicionada · imagens/4150925.jpg
+- **[FOTO]** `4151072` PONTA DE GUTA PERCHA PRINCIPAL Nº 40
+    - foto adicionada · imagens/4151072.jpg
+- **[FOTO]** `4151073` PONTA DE GUTA PERCHA PRINCIPAL Nº35
+    - foto adicionada · imagens/4151073.jpg
+- **[FOTO]** `4151071` PONTA DE GUTA PERCHA PRINCIPAL Nº 30
+    - foto adicionada · imagens/4151071.jpg
+- **[FOTO]** `4151070` PONTA DE GUTA PERCHA PRINCIPAL Nº 25
+    - foto adicionada · imagens/4151070.jpg
+- **[FOTO]** `4151069` PONTA DE GUTA PERCHA ACES TAM RS
+    - foto adicionada · imagens/4151069.jpg
+
+<!-- sessao:{"data":"2026-09-16T21:35:49.070Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4150967","material":"LIMA ROTATORIA SX19 MM PARA PRE-ALARGAMENTO (CAIXA COM 6 UNIDADES)","resumo":"foto adicionada · imagens/4150967.jpg"},{"tipo":"imagem","codigo":"4151241","material":"ESTOJO PARA ENDODONTIA 24 FUROS","resumo":"foto adicionada · imagens/4151241.jpg"},{"tipo":"imagem","codigo":"4151210","material":"CIMENTO MTA PARA PERFURACAO ENDO (CEO)","resumo":"foto adicionada · imagens/4151210.jpg"},{"tipo":"imagem","codigo":"4150965","material":"LIMA ROTATORIA DE RETRATAMENTO D1, D2, D3 (CAIXA COM 6 UNIDADES)","resumo":"foto adicionada · imagens/4150965.jpg"},{"tipo":"imagem","codigo":"4150969","material":"LIMA ROTATORIA 25 MM MECANIZ (CAIXA COM 6 UNIDADES)","resumo":"foto adicionada · imagens/4150969.jpg"},{"tipo":"imagem","codigo":"4150966","material":"LIMA ROTATORIA M-WIRE X5/25 MM (CARTELA COM 3 UNIDADES)","resumo":"foto adicionada · imagens/4150966.jpg"},{"tipo":"imagem","codigo":"4150975","material":"LIMA ROTATORIA M-WIRE X4/25MM (CARTELA COM 3 UNIDADES)","resumo":"foto adicionada · imagens/4150975.jpg"},{"tipo":"imagem","codigo":"4150974","material":"LIMA ROTATORIA M-WIRE X1, X2, X3/31MM (CAIXA COM 3 UNIDADES)","resumo":"foto adicionada · imagens/4150974.jpg"},{"tipo":"imagem","codigo":"4150973","material":"LIMA ROTATORIA M-WIRE X1, X2, X3/25MM (CAIXA COM 3 UNIDADES)","resumo":"foto adicionada · imagens/4150973.jpg"},{"tipo":"imagem","codigo":"4150972","material":"LIMA ROTATORIA M-WIRE X1, X2, X3/21MM (CAIXA COM 3 UNIDADES)","resumo":"foto adicionada · imagens/4150972.jpg"},{"tipo":"imagem","codigo":"4150958","material":"LIMA PATHFILE SORTIDA 31 MM (CARTELA COM 3 UNIDADES)","resumo":"foto adicionada · imagens/4150958.jpg"},{"tipo":"imagem","codigo":"4150957","material":"LIMA PATHFILE SORTIDA 25 MM (CARTELA COM 3 UNIDADES)","resumo":"foto adicionada · imagens/4150957.jpg"},{"tipo":"imagem","codigo":"4150956","material":"LIMA PATHFILE SORTIDA 21 MM (CARTELA COM 3 UNIDADES)","resumo":"foto adicionada · imagens/4150956.jpg"},{"tipo":"imagem","codigo":"4151048","material":"LIMA TIPO KERR Nº 6/31 MM","resumo":"foto adicionada · imagens/4151048.jpg"},{"tipo":"imagem","codigo":"4150971","material":"LIMA TIPO KERR 10/31 MM (CARTELA COM 6 UNIDADES)","resumo":"foto adicionada · imagens/4150971.jpg"},{"tipo":"imagem","codigo":"4150939","material":"LIMA KERR 3 SERIE 90-140/25 MM (CAIXA COM 6 UNIDADES)","resumo":"foto adicionada · imagens/4150939.jpg"},{"tipo":"imagem","codigo":"4150959","material":"LIMA PARA LIMPEZA FINAL CANAL RADICULAR (CARTELA COM 4 UNIDADES)","resumo":"foto adicionada · imagens/4150959.jpg"},{"tipo":"imagem","codigo":"4150964","material":"LIMA RECIPROCANTE SMALL 31MM (CARTELA COM 3 UNIDADES)","resumo":"foto adicionada · imagens/4150964.jpg"},{"tipo":"imagem","codigo":"4150963","material":"LIMA RECIPROCANTE SMALL 21MM (CARTELA COM 3 UNIDADES)","resumo":"foto adicionada · imagens/4150963.jpg"},{"tipo":"imagem","codigo":"4150962","material":"LIMA RECIPROCANTE PRIMARY 31MM (CARTELA COM 3 UNIDADES)","resumo":"foto adicionada · imagens/4150962.jpg"},{"tipo":"imagem","codigo":"4150961","material":"LIMA RECIPROCANTE LARGE 31 MM (CARTELA COM 3 UNIDADES)","resumo":"foto adicionada · imagens/4150961.jpg"},{"tipo":"imagem","codigo":"4150960","material":"LIMA RECIPROCANTE LARGE 21 MM (CARTELA COM 3 UNIDADES)","resumo":"foto adicionada · imagens/4150960.jpg"},{"tipo":"imagem","codigo":"4150927","material":"LIMA END RECIPR NIQ-TIT SMALL 25 MM (CARTELA COM 3 UNIDADES)","resumo":"foto adicionada · imagens/4150927.jpg"},{"tipo":"imagem","codigo":"4150924","material":"LIMA END RECIPR NIQ-TITAN LARGE 25 MM (CARTELA COM 3 UNIDADES)","resumo":"foto adicionada · imagens/4150924.jpg"},{"tipo":"imagem","codigo":"4150923","material":"LIMA ENDO RECIPROC N-T MEDIUM 31 MM (CARTELA COM 3 UNIDADES)","resumo":"foto adicionada · imagens/4150923.jpg"},{"tipo":"imagem","codigo":"4150922","material":"LIMA ENDO RECIPROC N-T MEDIUM 25 MM (CARTELA COM 3 UNIDADES)","resumo":"foto adicionada · imagens/4150922.jpg"},{"tipo":"imagem","codigo":"4150921","material":"LIMA ENDO RECIPROC N-T MEDIUM 21 MM (CARTELA COM 3 UNIDADES)","resumo":"foto adicionada · imagens/4150921.jpg"},{"tipo":"imagem","codigo":"4150926","material":"LIMA END RECIPR NIQ-TITAN PRIMARY 25MM (CARTELA COM 3 UNIDADES)","resumo":"foto adicionada · imagens/4150926.jpg"},{"tipo":"imagem","codigo":"4150925","material":"LIMA END RECIPR NIQ-TITAN PRIMARY 21MM (CARTELA COM 3 UNIDADES)","resumo":"foto adicionada · imagens/4150925.jpg"},{"tipo":"imagem","codigo":"4151072","material":"PONTA DE GUTA PERCHA PRINCIPAL Nº 40","resumo":"foto adicionada · imagens/4151072.jpg"},{"tipo":"imagem","codigo":"4151073","material":"PONTA DE GUTA PERCHA PRINCIPAL Nº35","resumo":"foto adicionada · imagens/4151073.jpg"},{"tipo":"imagem","codigo":"4151071","material":"PONTA DE GUTA PERCHA PRINCIPAL Nº 30","resumo":"foto adicionada · imagens/4151071.jpg"},{"tipo":"imagem","codigo":"4151070","material":"PONTA DE GUTA PERCHA PRINCIPAL Nº 25","resumo":"foto adicionada · imagens/4151070.jpg"},{"tipo":"imagem","codigo":"4151069","material":"PONTA DE GUTA PERCHA ACES TAM RS","resumo":"foto adicionada · imagens/4151069.jpg"}]} -->
 
 ## 16/09/2026, 18:35 — Caio César Borges de Oliveira
 
@@ -15,202 +92,493 @@ Sessão 75 · 194 alteração(ões) · 844 itens no arquivo após a edição
 
 **Origem:** PE 2027.
 
-**Resumo:** 97 novo, 97 descritivo
+**Resumo:** 97 novo · 97 descritivo
 
 - **[NOVO]** `9000001` ESPÁTULA DUPLA Nº 72
-    - item acrescentado ao arquivo
+    - Código: 9000001
+    - Material: ESPÁTULA DUPLA Nº 72
+    - Arquivo da imagem: 9000001.jpg
+    - Situação: NAO
 - **[NOVO]** `9000002` INSERTO PARA ULTRASSOM SCHUSTER JETLAX SONIC BPII LED T2
-    - item acrescentado ao arquivo
+    - Código: 9000002
+    - Material: INSERTO PARA ULTRASSOM SCHUSTER JETLAX SONIC BPII LED T2
+    - Arquivo da imagem: 9000002.jpg
+    - Situação: NAO
 - **[NOVO]** `9000003` LIMA PARA OSSO Nº 12 DUPLA
-    - item acrescentado ao arquivo
+    - Código: 9000003
+    - Material: LIMA PARA OSSO Nº 12 DUPLA
+    - Arquivo da imagem: 9000003.jpg
+    - Situação: NAO
 - **[NOVO]** `9000004` AGULHA PARA IRRIGAÇÃO ENDODONTIA
-    - item acrescentado ao arquivo
+    - Código: 9000004
+    - Material: AGULHA PARA IRRIGAÇÃO ENDODONTIA
+    - Arquivo da imagem: 9000004.jpg
+    - Situação: NAO
 - **[NOVO]** `9000005` CINZEL MICRO OCHSENBEIN Nº 2
-    - item acrescentado ao arquivo
+    - Código: 9000005
+    - Material: CINZEL MICRO OCHSENBEIN Nº 2
+    - Arquivo da imagem: 9000005.jpg
+    - Situação: NAO
 - **[NOVO]** `9000006` FIO DE AÇO ACIFLEX Nº 1
-    - item acrescentado ao arquivo
+    - Código: 9000006
+    - Material: FIO DE AÇO ACIFLEX Nº 1
+    - Arquivo da imagem: 9000006.jpg
+    - Situação: NAO
 - **[NOVO]** `9000007` LIMA K FILE Nº 90/140 31MM
-    - item acrescentado ao arquivo
+    - Código: 9000007
+    - Material: LIMA K FILE Nº 90/140 31MM
+    - Arquivo da imagem: 9000007.jpg
+    - Situação: NAO
 - **[NOVO]** `9000008` LIMA RECIPROCANTE GLIDER 21MM
-    - item acrescentado ao arquivo
+    - Código: 9000008
+    - Material: LIMA RECIPROCANTE GLIDER 21MM
+    - Arquivo da imagem: 9000008.jpg
+    - Situação: NAO
 - **[NOVO]** `9000009` LIMA RECIPROCANTE GLIDER 25MM
-    - item acrescentado ao arquivo
+    - Código: 9000009
+    - Material: LIMA RECIPROCANTE GLIDER 25MM
+    - Arquivo da imagem: 9000009.jpg
+    - Situação: NAO
 - **[NOVO]** `9000010` LIMA RECIPROCANTE GLIDER 31MM
-    - item acrescentado ao arquivo
+    - Código: 9000010
+    - Material: LIMA RECIPROCANTE GLIDER 31MM
+    - Arquivo da imagem: 9000010.jpg
+    - Situação: NAO
 - **[NOVO]** `9000011` LIMA RECIPROCANTE PARA RETRATAMENTO
-    - item acrescentado ao arquivo
+    - Código: 9000011
+    - Material: LIMA RECIPROCANTE PARA RETRATAMENTO
+    - Arquivo da imagem: 9000011.jpg
+    - Situação: NAO
 - **[NOVO]** `9000012` MANDRIL PARA PEÇA RETA
-    - item acrescentado ao arquivo
+    - Código: 9000012
+    - Material: MANDRIL PARA PEÇA RETA
+    - Arquivo da imagem: 9000012.jpg
+    - Situação: NAO
 - **[NOVO]** `9000013` EXTIRPA NERVO 25 MM AMARELO
-    - item acrescentado ao arquivo
+    - Código: 9000013
+    - Material: EXTIRPA NERVO 25 MM AMARELO
+    - Arquivo da imagem: 9000013.jpg
+    - Situação: NAO
 - **[NOVO]** `9000014` EXTIRPA NERVO 25 MM AZUL
-    - item acrescentado ao arquivo
+    - Código: 9000014
+    - Material: EXTIRPA NERVO 25 MM AZUL
+    - Arquivo da imagem: 9000014.jpg
+    - Situação: NAO
 - **[NOVO]** `9000015` BLOCO DE PAPEL PARA ESPATULAÇÃO
-    - item acrescentado ao arquivo
+    - Código: 9000015
+    - Material: BLOCO DE PAPEL PARA ESPATULAÇÃO
+    - Arquivo da imagem: 9000015.jpg
+    - Situação: NAO
 - **[NOVO]** `9000016` BROCA AR DIAMANTADA ESFÉRICA Nº 1018
-    - item acrescentado ao arquivo
+    - Código: 9000016
+    - Material: BROCA AR DIAMANTADA ESFÉRICA Nº 1018
+    - Arquivo da imagem: 9000016.jpg
+    - Situação: NAO
 - **[NOVO]** `9000017` BROCA AR DIAMANTADA ESFÉRICA Nº 3018 HL
-    - item acrescentado ao arquivo
+    - Código: 9000017
+    - Material: BROCA AR DIAMANTADA ESFÉRICA Nº 3018 HL
+    - Arquivo da imagem: 9000017.jpg
+    - Situação: NAO
 - **[NOVO]** `9000018` BROCA AR DIAMANTADA Nº 3118 F
-    - item acrescentado ao arquivo
+    - Código: 9000018
+    - Material: BROCA AR DIAMANTADA Nº 3118 F
+    - Arquivo da imagem: 9000018.jpg
+    - Situação: NAO
 - **[NOVO]** `9000019` BROCA AR DIAMANTADA Nº 3168 FF
-    - item acrescentado ao arquivo
+    - Código: 9000019
+    - Material: BROCA AR DIAMANTADA Nº 3168 FF
+    - Arquivo da imagem: 9000019.jpg
+    - Situação: NAO
 - **[NOVO]** `9000020` BROCA BR GATES Nº 1 HL
-    - item acrescentado ao arquivo
+    - Código: 9000020
+    - Material: BROCA BR GATES Nº 1 HL
+    - Arquivo da imagem: 9000020.jpg
+    - Situação: NAO
 - **[NOVO]** `9000021` BROCA BR GATES Nº 2 HL
-    - item acrescentado ao arquivo
+    - Código: 9000021
+    - Material: BROCA BR GATES Nº 2 HL
+    - Arquivo da imagem: 9000021.jpg
+    - Situação: NAO
 - **[NOVO]** `9000022` CAIXA ORGANIZADORA DE PLASTICO
-    - item acrescentado ao arquivo
+    - Código: 9000022
+    - Material: CAIXA ORGANIZADORA DE PLASTICO
+    - Arquivo da imagem: 9000022.jpg
+    - Situação: NAO
 - **[NOVO]** `9000023` CÂMARA DE REVELAÇÃO RADIOLÓGICA
-    - item acrescentado ao arquivo
+    - Código: 9000023
+    - Material: CÂMARA DE REVELAÇÃO RADIOLÓGICA
+    - Arquivo da imagem: 9000023.jpg
+    - Situação: NAO
 - **[NOVO]** `9000024` CAPA DO TRANSDUTOR PARA APARELHO DE ULTRASSOM ALTSONIC JET CERAMIC
-    - item acrescentado ao arquivo
+    - Código: 9000024
+    - Material: CAPA DO TRANSDUTOR PARA APARELHO DE ULTRASSOM ALTSONIC JET CERAMIC
+    - Arquivo da imagem: 9000024.jpg
+    - Situação: NAO
 - **[NOVO]** `9000025` CAPA DO TRANSDUTOR PARA APARELHO DE ULTRASSOM ECEL SONIC
-    - item acrescentado ao arquivo
+    - Código: 9000025
+    - Material: CAPA DO TRANSDUTOR PARA APARELHO DE ULTRASSOM ECEL SONIC
+    - Arquivo da imagem: 9000025.jpg
+    - Situação: NAO
 - **[NOVO]** `9000026` CAPA DO TRANSDUTOR PARA APARELHO DE ULTRASSOM ORTUS BIOSCALER
-    - item acrescentado ao arquivo
+    - Código: 9000026
+    - Material: CAPA DO TRANSDUTOR PARA APARELHO DE ULTRASSOM ORTUS BIOSCALER
+    - Arquivo da imagem: 9000026.jpg
+    - Situação: NAO
 - **[NOVO]** `9000027` CAPA DO TRANSDUTOR PARA APARELHO DE ULTRASSOM PROFINEO II DABI ATLANTE
-    - item acrescentado ao arquivo
+    - Código: 9000027
+    - Material: CAPA DO TRANSDUTOR PARA APARELHO DE ULTRASSOM PROFINEO II DABI ATLANTE
+    - Arquivo da imagem: 9000027.jpg
+    - Situação: NAO
 - **[NOVO]** `9000028` CAPA DO TRANSDUTOR PARA APARELHO DE ULTRASSOM SCHUSTER JETLAX SONIC BPII LED
-    - item acrescentado ao arquivo
+    - Código: 9000028
+    - Material: CAPA DO TRANSDUTOR PARA APARELHO DE ULTRASSOM SCHUSTER JETLAX SONIC BPII LED
+    - Arquivo da imagem: 9000028.jpg
+    - Situação: NAO
 - **[NOVO]** `9000029` CESTA ORGANIZADORA
-    - item acrescentado ao arquivo
+    - Código: 9000029
+    - Material: CESTA ORGANIZADORA
+    - Arquivo da imagem: 9000029.jpg
+    - Situação: NAO
 - **[NOVO]** `9000030` CONDENSADOR MC SPADDEN #45/25 mm
-    - item acrescentado ao arquivo
+    - Código: 9000030
+    - Material: CONDENSADOR MC SPADDEN #45/25 mm
+    - Arquivo da imagem: 9000030.jpg
+    - Situação: NAO
 - **[NOVO]** `9000031` CONDENSADOR MC SPADDEN #50/25 mm
-    - item acrescentado ao arquivo
+    - Código: 9000031
+    - Material: CONDENSADOR MC SPADDEN #50/25 mm
+    - Arquivo da imagem: 9000031.jpg
+    - Situação: NAO
 - **[NOVO]** `9000032` CONDENSADOR MC SPADDEN #60/25 mm
-    - item acrescentado ao arquivo
+    - Código: 9000032
+    - Material: CONDENSADOR MC SPADDEN #60/25 mm
+    - Arquivo da imagem: 9000032.jpg
+    - Situação: NAO
 - **[NOVO]** `9000033` CONES ACESSÓRIOS DE GUTA PERCHA MICROTIPPED FMEL
-    - item acrescentado ao arquivo
+    - Código: 9000033
+    - Material: CONES ACESSÓRIOS DE GUTA PERCHA MICROTIPPED FMEL
+    - Arquivo da imagem: 9000033.jpg
+    - Situação: NAO
 - **[NOVO]** `9000034` CONES ACESSÓRIOS DE GUTA PERCHA MICROTIPPED MEL
-    - item acrescentado ao arquivo
+    - Código: 9000034
+    - Material: CONES ACESSÓRIOS DE GUTA PERCHA MICROTIPPED MEL
+    - Arquivo da imagem: 9000034.jpg
+    - Situação: NAO
 - **[NOVO]** `9000035` CONES DE GUTA PERCHA PRINCIPAIS 1ª SÉRIE
-    - item acrescentado ao arquivo
+    - Código: 9000035
+    - Material: CONES DE GUTA PERCHA PRINCIPAIS 1ª SÉRIE
+    - Arquivo da imagem: 9000035.jpg
+    - Situação: NAO
 - **[NOVO]** `9000036` CONES DE GUTA PERCHA PRINCIPAIS 2ª SÉRIE
-    - item acrescentado ao arquivo
+    - Código: 9000036
+    - Material: CONES DE GUTA PERCHA PRINCIPAIS 2ª SÉRIE
+    - Arquivo da imagem: 9000036.jpg
+    - Situação: NAO
 - **[NOVO]** `9000037` CONTRA ÂNGULO OSCILATÓRIO PARA ENDODONTIA
-    - item acrescentado ao arquivo
+    - Código: 9000037
+    - Material: CONTRA ÂNGULO OSCILATÓRIO PARA ENDODONTIA
+    - Arquivo da imagem: 9000037.jpg
+    - Situação: NAO
 - **[NOVO]** `9000038` CONTRA ÂNGULO PARA BAIXA ROTAÇÃO
-    - item acrescentado ao arquivo
+    - Código: 9000038
+    - Material: CONTRA ÂNGULO PARA BAIXA ROTAÇÃO
+    - Arquivo da imagem: 9000038.jpg
+    - Situação: NAO
 - **[NOVO]** `9000039` CORTANTE DE BLACK DUPLO Nº 27
-    - item acrescentado ao arquivo
+    - Código: 9000039
+    - Material: CORTANTE DE BLACK DUPLO Nº 27
+    - Arquivo da imagem: 9000039.jpg
+    - Situação: NAO
 - **[NOVO]** `9000040` CUNHA ODONTOLÓGICA PLÁSTICA
-    - item acrescentado ao arquivo
+    - Código: 9000040
+    - Material: CUNHA ODONTOLÓGICA PLÁSTICA
+    - Arquivo da imagem: 9000040.jpg
+    - Situação: NAO
 - **[NOVO]** `9000041` DESINFETANTE A BASE DE QUARTERNÁRIO DE AMÔNIO
-    - item acrescentado ao arquivo
+    - Código: 9000041
+    - Material: DESINFETANTE A BASE DE QUARTERNÁRIO DE AMÔNIO
+    - Arquivo da imagem: 9000041.jpg
+    - Situação: NAO
 - **[NOVO]** `9000042` DISPENSER PISTOLA APLICADORA UNIVERSAL PARA APLICAÇÃO DE SILICONE DE ADIÇÃO
-    - item acrescentado ao arquivo
+    - Código: 9000042
+    - Material: DISPENSER PISTOLA APLICADORA UNIVERSAL PARA APLICAÇÃO DE SILICONE DE ADIÇÃO
+    - Arquivo da imagem: 9000042.jpg
+    - Situação: NAO
 - **[NOVO]** `9000043` ESCOVA DE CABO LONGO PARA LIMPEZA DE INSTRUMENTAIS
-    - item acrescentado ao arquivo
+    - Código: 9000043
+    - Material: ESCOVA DE CABO LONGO PARA LIMPEZA DE INSTRUMENTAIS
+    - Arquivo da imagem: 9000043.jpg
+    - Situação: NAO
 - **[NOVO]** `9000044` ESCOVA INTERDENTAL FINA
-    - item acrescentado ao arquivo
+    - Código: 9000044
+    - Material: ESCOVA INTERDENTAL FINA
+    - Arquivo da imagem: 9000044.jpg
+    - Situação: NAO
 - **[NOVO]** `9000045` ESCOVA PARA LIMPEZA DE BROCAS
-    - item acrescentado ao arquivo
+    - Código: 9000045
+    - Material: ESCOVA PARA LIMPEZA DE BROCAS
+    - Arquivo da imagem: 9000045.jpg
+    - Situação: NAO
 - **[NOVO]** `9000046` ESPÁTULA PLÁSTICA PARA IONÔMERO
-    - item acrescentado ao arquivo
+    - Código: 9000046
+    - Material: ESPÁTULA PLÁSTICA PARA IONÔMERO
+    - Arquivo da imagem: 9000046.jpg
+    - Situação: NAO
 - **[NOVO]** `9000047` FIO DE SUTURA NYLON 4-0
-    - item acrescentado ao arquivo
+    - Código: 9000047
+    - Material: FIO DE SUTURA NYLON 4-0
+    - Arquivo da imagem: 9000047.jpg
+    - Situação: NAO
 - **[NOVO]** `9000048` FIO DENTAL 500 M
-    - item acrescentado ao arquivo
+    - Código: 9000048
+    - Material: FIO DENTAL 500 M
+    - Arquivo da imagem: 9000048.jpg
+    - Situação: NAO
 - **[NOVO]** `9000049` FIO RETRATOR
-    - item acrescentado ao arquivo
+    - Código: 9000049
+    - Material: FIO RETRATOR
+    - Arquivo da imagem: 9000049.jpg
+    - Situação: NAO
 - **[NOVO]** `9000050` GRAMPO Nº 1 PARA ENDODONTIA
-    - item acrescentado ao arquivo
+    - Código: 9000050
+    - Material: GRAMPO Nº 1 PARA ENDODONTIA
+    - Arquivo da imagem: 9000050.jpg
+    - Situação: NAO
 - **[NOVO]** `9000051` GRAMPO Nº 206
-    - item acrescentado ao arquivo
+    - Código: 9000051
+    - Material: GRAMPO Nº 206
+    - Arquivo da imagem: 9000051.jpg
+    - Situação: NAO
 - **[NOVO]** `9000052` GRAMPO Nº 26N PARA ENDODONTIA
-    - item acrescentado ao arquivo
+    - Código: 9000052
+    - Material: GRAMPO Nº 26N PARA ENDODONTIA
+    - Arquivo da imagem: 9000052.jpg
+    - Situação: NAO
 - **[NOVO]** `9000053` GRAMPO Nº 6 PARA ENDODONTIA
-    - item acrescentado ao arquivo
+    - Código: 9000053
+    - Material: GRAMPO Nº 6 PARA ENDODONTIA
+    - Arquivo da imagem: 9000053.jpg
+    - Situação: NAO
 - **[NOVO]** `9000054` GRAMPO Nº W14A PARA ENDODONTIA
-    - item acrescentado ao arquivo
+    - Código: 9000054
+    - Material: GRAMPO Nº W14A PARA ENDODONTIA
+    - Arquivo da imagem: 9000054.jpg
+    - Situação: NAO
 - **[NOVO]** `9000055` INSERTO PARA ULTRASSOM ECEL SONIC MAX PLUS N º 10 P
-    - item acrescentado ao arquivo
+    - Código: 9000055
+    - Material: INSERTO PARA ULTRASSOM ECEL SONIC MAX PLUS N º 10 P
+    - Arquivo da imagem: 9000055.jpg
+    - Situação: NAO
 - **[NOVO]** `9000056` INSERTO PARA ULTRASSOM ECEL SONIC MAX PLUS N º H - 3
-    - item acrescentado ao arquivo
+    - Código: 9000056
+    - Material: INSERTO PARA ULTRASSOM ECEL SONIC MAX PLUS N º H - 3
+    - Arquivo da imagem: 9000056.jpg
+    - Situação: NAO
 - **[NOVO]** `9000057` INSERTO PARA ULTRASSOM ORTUS BIOSCALER P1
-    - item acrescentado ao arquivo
+    - Código: 9000057
+    - Material: INSERTO PARA ULTRASSOM ORTUS BIOSCALER P1
+    - Arquivo da imagem: 9000057.jpg
+    - Situação: NAO
 - **[NOVO]** `9000058` IONÔMERO DE ALTA VISCOSIDADE
-    - item acrescentado ao arquivo
+    - Código: 9000058
+    - Material: IONÔMERO DE ALTA VISCOSIDADE
+    - Arquivo da imagem: 9000058.jpg
+    - Situação: NAO
 - **[NOVO]** `9000059` ISQUEIRO PORTÁTIL
-    - item acrescentado ao arquivo
+    - Código: 9000059
+    - Material: ISQUEIRO PORTÁTIL
+    - Arquivo da imagem: 9000059.jpg
+    - Situação: NAO
 - **[NOVO]** `9000060` KIT COM 8 MOLDEIRAS EM INOX (ADULTO)
-    - item acrescentado ao arquivo
+    - Código: 9000060
+    - Material: KIT COM 8 MOLDEIRAS EM INOX (ADULTO)
+    - Arquivo da imagem: 9000060.jpg
+    - Situação: NAO
 - **[NOVO]** `9000061` KIT DE MATERIAL PARA REGISTRO OCLUSAL
-    - item acrescentado ao arquivo
+    - Código: 9000061
+    - Material: KIT DE MATERIAL PARA REGISTRO OCLUSAL
+    - Arquivo da imagem: 9000061.jpg
+    - Situação: NAO
 - **[NOVO]** `9000062` KIT MATERIAL DE MOLDAGEM ODONTOLÓGICA – SILICONE DE CONDENSAÇÃO
-    - item acrescentado ao arquivo
+    - Código: 9000062
+    - Material: KIT MATERIAL DE MOLDAGEM ODONTOLÓGICA – SILICONE DE CONDENSAÇÃO
+    - Arquivo da imagem: 9000062.jpg
+    - Situação: NAO
 - **[NOVO]** `9000063` KIT SERRA INTERPROXIMAL COM ARCO PORTA-SERRA
-    - item acrescentado ao arquivo
+    - Código: 9000063
+    - Material: KIT SERRA INTERPROXIMAL COM ARCO PORTA-SERRA
+    - Arquivo da imagem: 9000063.jpg
+    - Situação: NAO
 - **[NOVO]** `9000064` LÂMINA DE BISTURI Nº 15 C
-    - item acrescentado ao arquivo
+    - Código: 9000064
+    - Material: LÂMINA DE BISTURI Nº 15 C
+    - Arquivo da imagem: 9000064.jpg
+    - Situação: NAO
 - **[NOVO]** `9000065` LÂMINA DE BISTURI Nº 21
-    - item acrescentado ao arquivo
+    - Código: 9000065
+    - Material: LÂMINA DE BISTURI Nº 21
+    - Arquivo da imagem: 9000065.jpg
+    - Situação: NAO
 - **[NOVO]** `9000066` LANTERNA PROFISSIONAL DE CABEÇA
-    - item acrescentado ao arquivo
+    - Código: 9000066
+    - Material: LANTERNA PROFISSIONAL DE CABEÇA
+    - Arquivo da imagem: 9000066.jpg
+    - Situação: NAO
 - **[NOVO]** `9000067` LIMA C FILE Nº 06 25MM
-    - item acrescentado ao arquivo
+    - Código: 9000067
+    - Material: LIMA C FILE Nº 06 25MM
+    - Arquivo da imagem: 9000067.jpg
+    - Situação: NAO
 - **[NOVO]** `9000068` LIMA C FILE Nº 08 25MM
-    - item acrescentado ao arquivo
+    - Código: 9000068
+    - Material: LIMA C FILE Nº 08 25MM
+    - Arquivo da imagem: 9000068.jpg
+    - Situação: NAO
 - **[NOVO]** `9000069` LIMA C FILE Nº 10 25MM
-    - item acrescentado ao arquivo
+    - Código: 9000069
+    - Material: LIMA C FILE Nº 10 25MM
+    - Arquivo da imagem: 9000069.jpg
+    - Situação: NAO
 - **[NOVO]** `9000070` LIMA C FILE Nº 15 25MM
-    - item acrescentado ao arquivo
+    - Código: 9000070
+    - Material: LIMA C FILE Nº 15 25MM
+    - Arquivo da imagem: 9000070.jpg
+    - Situação: NAO
 - **[NOVO]** `9000071` LIMA K FILE Nº 15 31MM
-    - item acrescentado ao arquivo
+    - Código: 9000071
+    - Material: LIMA K FILE Nº 15 31MM
+    - Arquivo da imagem: 9000071.jpg
+    - Situação: NAO
 - **[NOVO]** `9000072` LIMA K FILE Nº 15/40 21MM
-    - item acrescentado ao arquivo
+    - Código: 9000072
+    - Material: LIMA K FILE Nº 15/40 21MM
+    - Arquivo da imagem: 9000072.jpg
+    - Situação: NAO
 - **[NOVO]** `9000073` LIMA RECIPROCANTE LARGE 25MM
-    - item acrescentado ao arquivo
+    - Código: 9000073
+    - Material: LIMA RECIPROCANTE LARGE 25MM
+    - Arquivo da imagem: 9000073.jpg
+    - Situação: NAO
 - **[NOVO]** `9000074` LIMA RECIPROCANTE SMALL 25MM
-    - item acrescentado ao arquivo
+    - Código: 9000074
+    - Material: LIMA RECIPROCANTE SMALL 25MM
+    - Arquivo da imagem: 9000074.jpg
+    - Situação: NAO
 - **[NOVO]** `9000075` LIMA ROTATÓRIA/RECIPROCANTE PARA PREPARO CERVICAL
-    - item acrescentado ao arquivo
+    - Código: 9000075
+    - Material: LIMA ROTATÓRIA/RECIPROCANTE PARA PREPARO CERVICAL
+    - Arquivo da imagem: 9000075.jpg
+    - Situação: NAO
 - **[NOVO]** `9000076` LUPA MANUAL
-    - item acrescentado ao arquivo
+    - Código: 9000076
+    - Material: LUPA MANUAL
+    - Arquivo da imagem: 9000076.jpg
+    - Situação: NAO
 - **[NOVO]** `9000077` MATERIAL DE MOLDAGEM (SILICONE DE ADIÇÃO) - DENSO
-    - item acrescentado ao arquivo
+    - Código: 9000077
+    - Material: MATERIAL DE MOLDAGEM (SILICONE DE ADIÇÃO) - DENSO
+    - Arquivo da imagem: 9000077.jpg
+    - Situação: NAO
 - **[NOVO]** `9000078` MATERIAL DE MOLDAGEM (SILICONE DE ADIÇÃO) - FLUÍDO
-    - item acrescentado ao arquivo
+    - Código: 9000078
+    - Material: MATERIAL DE MOLDAGEM (SILICONE DE ADIÇÃO) - FLUÍDO
+    - Arquivo da imagem: 9000078.jpg
+    - Situação: NAO
 - **[NOVO]** `9000079` PANO MULTIUSO PERFURADO EM ROLO
-    - item acrescentado ao arquivo
+    - Código: 9000079
+    - Material: PANO MULTIUSO PERFURADO EM ROLO
+    - Arquivo da imagem: 9000079.jpg
+    - Situação: NAO
 - **[NOVO]** `9000080` PAPEL GRAU CIRÚRGICO 08cm x 100m
-    - item acrescentado ao arquivo
+    - Código: 9000080
+    - Material: PAPEL GRAU CIRÚRGICO 08cm x 100m
+    - Arquivo da imagem: 9000080.jpg
+    - Situação: NAO
 - **[NOVO]** `9000081` PEÇA DE MÃO RETA
-    - item acrescentado ao arquivo
+    - Código: 9000081
+    - Material: PEÇA DE MÃO RETA
+    - Arquivo da imagem: 9000081.jpg
+    - Situação: NAO
 - **[NOVO]** `9000082` PINCEL PELO SINTÉTICO CHATO Nº 483
-    - item acrescentado ao arquivo
+    - Código: 9000082
+    - Material: PINCEL PELO SINTÉTICO CHATO Nº 483
+    - Arquivo da imagem: 9000082.jpg
+    - Situação: NAO
 - **[NOVO]** `9000083` PLACA DE VIDRO DESPOLIDO
-    - item acrescentado ao arquivo
+    - Código: 9000083
+    - Material: PLACA DE VIDRO DESPOLIDO
+    - Arquivo da imagem: 9000083.jpg
+    - Situação: NAO
 - **[NOVO]** `9000084` PONTA DE SILICONE PARA PORTA MATRIZ EM ANEL
-    - item acrescentado ao arquivo
+    - Código: 9000084
+    - Material: PONTA DE SILICONE PARA PORTA MATRIZ EM ANEL
+    - Arquivo da imagem: 9000084.jpg
+    - Situação: NAO
 - **[NOVO]** `9000085` PONTA MISTURADORA PARA SILICONE DE ADIÇÃO
-    - item acrescentado ao arquivo
+    - Código: 9000085
+    - Material: PONTA MISTURADORA PARA SILICONE DE ADIÇÃO
+    - Arquivo da imagem: 9000085.jpg
+    - Situação: NAO
 - **[NOVO]** `9000086` PONTAS DE PAPEL ABSORVENTE Nº 45
-    - item acrescentado ao arquivo
+    - Código: 9000086
+    - Material: PONTAS DE PAPEL ABSORVENTE Nº 45
+    - Arquivo da imagem: 9000086.jpg
+    - Situação: NAO
 - **[NOVO]** `9000087` PORTA MATRIZ EM ANEL SECCIONAL EM KIT
-    - item acrescentado ao arquivo
+    - Código: 9000087
+    - Material: PORTA MATRIZ EM ANEL SECCIONAL EM KIT
+    - Arquivo da imagem: 9000087.jpg
+    - Situação: NAO
 - **[NOVO]** `9000088` PROPILENOGLICOL
-    - item acrescentado ao arquivo
+    - Código: 9000088
+    - Material: PROPILENOGLICOL
+    - Arquivo da imagem: 9000088.jpg
+    - Situação: NAO
 - **[NOVO]** `9000089` PROTETOR FACIAL INCOLOR
-    - item acrescentado ao arquivo
+    - Código: 9000089
+    - Material: PROTETOR FACIAL INCOLOR
+    - Arquivo da imagem: 9000089.jpg
+    - Situação: NAO
 - **[NOVO]** `9000090` RESINA FOTOPOLIMERIZÁVEL UNICROMÁTICA CLARA
-    - item acrescentado ao arquivo
+    - Código: 9000090
+    - Material: RESINA FOTOPOLIMERIZÁVEL UNICROMÁTICA CLARA
+    - Arquivo da imagem: 9000090.jpg
+    - Situação: NAO
 - **[NOVO]** `9000091` RESINA FOTOPOLIMERIZÁVEL UNICROMÁTICA NATURAL
-    - item acrescentado ao arquivo
+    - Código: 9000091
+    - Material: RESINA FOTOPOLIMERIZÁVEL UNICROMÁTICA NATURAL
+    - Arquivo da imagem: 9000091.jpg
+    - Situação: NAO
 - **[NOVO]** `9000092` RESINA FOTOPOLIMERIZÁVEL UNICROMÁTICA QUENTE
-    - item acrescentado ao arquivo
+    - Código: 9000092
+    - Material: RESINA FOTOPOLIMERIZÁVEL UNICROMÁTICA QUENTE
+    - Arquivo da imagem: 9000092.jpg
+    - Situação: NAO
 - **[NOVO]** `9000093` RESTAURADOR PROVISÓRIO PARA ENDODONTIA
-    - item acrescentado ao arquivo
+    - Código: 9000093
+    - Material: RESTAURADOR PROVISÓRIO PARA ENDODONTIA
+    - Arquivo da imagem: 9000093.jpg
+    - Situação: NAO
 - **[NOVO]** `9000094` SACO PLÁSTICO PARA PRÓTESE
-    - item acrescentado ao arquivo
+    - Código: 9000094
+    - Material: SACO PLÁSTICO PARA PRÓTESE
+    - Arquivo da imagem: 9000094.jpg
+    - Situação: NAO
 - **[NOVO]** `9000095` SUGADOR CIRÚRGICO METÁLICO
-    - item acrescentado ao arquivo
+    - Código: 9000095
+    - Material: SUGADOR CIRÚRGICO METÁLICO
+    - Arquivo da imagem: 9000095.jpg
+    - Situação: NAO
 - **[NOVO]** `9000096` SUGADOR ENDODÔNTICO DESCARTÁVEL
-    - item acrescentado ao arquivo
+    - Código: 9000096
+    - Material: SUGADOR ENDODÔNTICO DESCARTÁVEL
+    - Arquivo da imagem: 9000096.jpg
+    - Situação: NAO
 - **[NOVO]** `9000097` SUPORTE PARA PANO
-    - item acrescentado ao arquivo
+    - Código: 9000097
+    - Material: SUPORTE PARA PANO
+    - Arquivo da imagem: 9000097.jpg
+    - Situação: NAO
 - **[DESCRITIVO]** `9000001` ESPÁTULA DUPLA Nº 72
     - Nome no descritivo: "" → "ESPÁTULA DUPLA Nº 72"
     - Descritivo: "" → "Espátula dupla nº 72, em aço temperável AISI 420. Autoclavável. Comprimento: 17 cm. Instrumento não articulado, não cortante, indicado para manipulação de cimentos e resinas acrílicas. Apresentação: embalagem com 1 unidade, com informações de modelo, procedência, dados de identificação, garantia, validade, nº do lote de fabricação gravado no corpo da peça, o que permite a rastreabilidade, certificações (fabricado de acordo com padrões internacionais de qualidade, normas da ABNT) e registro na ANVISA."
