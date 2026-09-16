@@ -4,10 +4,33 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 72  
-Última atualização: 16/09/2026, 15:42
+Total de sessões registradas: 73  
+Última atualização: 16/09/2026, 15:44
 
 ---
+
+## 16/09/2026, 15:44 — Caio César Borges de Oliveira
+
+Sessão 73 · 7 alteração(ões)
+
+**Resumo:** 7 foto
+
+- **[FOTO]** `4151068` PONTA DE GUTA PERCHA ACES B8 (R8,FF)
+    - foto adicionada · imagens/4151068.jpg
+- **[FOTO]** `4151067` PONTA DE GUTA PERCHA ACES B7 (R7, XF)
+    - foto adicionada · imagens/4151067.jpg
+- **[FOTO]** `4151184` CONES DE GUTA PERCHA RECIPROCANTE MEDIUM
+    - foto adicionada · imagens/4151184.jpg
+- **[FOTO]** `4151182` CONE DE GUTA PERCHA (L) LARGE RECIPROCANTE
+    - foto adicionada · imagens/4151182.jpg
+- **[FOTO]** `4151183` CONE DE GUTA PERCHA (S) SMALL RECIPROCANTE
+    - foto adicionada · imagens/4151183.jpg
+- **[FOTO]** `4151177` CONE DE GUTA PERCHA PRIMARY RECIPROCANTE
+    - foto adicionada · imagens/4151177.jpg
+- **[FOTO]** `4150748` AGULHA HIPODÉRMICA 30 x 4 PARA ENDODONTIA
+    - foto adicionada · imagens/4150748.jpg
+
+<!-- sessao:{"data":"2026-09-16T18:44:51.898Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4151068","material":"PONTA DE GUTA PERCHA ACES B8 (R8,FF)","resumo":"foto adicionada · imagens/4151068.jpg"},{"tipo":"imagem","codigo":"4151067","material":"PONTA DE GUTA PERCHA ACES B7 (R7, XF)","resumo":"foto adicionada · imagens/4151067.jpg"},{"tipo":"imagem","codigo":"4151184","material":"CONES DE GUTA PERCHA RECIPROCANTE MEDIUM","resumo":"foto adicionada · imagens/4151184.jpg"},{"tipo":"imagem","codigo":"4151182","material":"CONE DE GUTA PERCHA (L) LARGE RECIPROCANTE","resumo":"foto adicionada · imagens/4151182.jpg"},{"tipo":"imagem","codigo":"4151183","material":"CONE DE GUTA PERCHA (S) SMALL RECIPROCANTE","resumo":"foto adicionada · imagens/4151183.jpg"},{"tipo":"imagem","codigo":"4151177","material":"CONE DE GUTA PERCHA PRIMARY RECIPROCANTE","resumo":"foto adicionada · imagens/4151177.jpg"},{"tipo":"imagem","codigo":"4150748","material":"AGULHA HIPODÉRMICA 30 x 4 PARA ENDODONTIA","resumo":"foto adicionada · imagens/4150748.jpg"}]} -->
 
 ## 16/09/2026, 15:42 — Caio César Borges de Oliveira
 
