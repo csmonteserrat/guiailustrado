@@ -4,10 +4,31 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 76  
-Última atualização: 16/09/2026, 18:35
+Total de sessões registradas: 77  
+Última atualização: 16/09/2026, 18:42
 
 ---
+
+## 16/09/2026, 18:42 — Caio César Borges de Oliveira
+
+Sessão 77 · 6 alteração(ões)
+
+**Resumo:** 6 foto
+
+- **[FOTO]** `4150990` JALECO BRANCO ODONTOLOGIA PEQUENO (P)
+    - foto adicionada · imagens/4150990.jpg
+- **[FOTO]** `4150991` JALECO BRANCO ODONTOLOGIA EXTRA PEQUENO (PP)
+    - foto adicionada · imagens/4150991.jpg
+- **[FOTO]** `4150992` JALECO BRANCO ODONTOLOGIA MÉDIO (M)
+    - foto adicionada · imagens/4150992.jpg
+- **[FOTO]** `4150993` JALECO BRANCO ODONTOLOGIA GRANDE (G)
+    - foto adicionada · imagens/4150993.jpg
+- **[FOTO]** `4150994` JALECO BRANCO ODONTOLOGIA EXTRA GRANDE (GG)
+    - foto adicionada · imagens/4150994.jpg
+- **[FOTO]** `4150995` JALECO BRANCO ODONTOLOGIA EXTRA EXTRA GRANDE (XXG)
+    - foto adicionada · imagens/4150995.jpg
+
+<!-- sessao:{"data":"2026-09-16T21:42:15.221Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4150990","material":"JALECO BRANCO ODONTOLOGIA PEQUENO (P)","resumo":"foto adicionada · imagens/4150990.jpg"},{"tipo":"imagem","codigo":"4150991","material":"JALECO BRANCO ODONTOLOGIA EXTRA PEQUENO (PP)","resumo":"foto adicionada · imagens/4150991.jpg"},{"tipo":"imagem","codigo":"4150992","material":"JALECO BRANCO ODONTOLOGIA MÉDIO (M)","resumo":"foto adicionada · imagens/4150992.jpg"},{"tipo":"imagem","codigo":"4150993","material":"JALECO BRANCO ODONTOLOGIA GRANDE (G)","resumo":"foto adicionada · imagens/4150993.jpg"},{"tipo":"imagem","codigo":"4150994","material":"JALECO BRANCO ODONTOLOGIA EXTRA GRANDE (GG)","resumo":"foto adicionada · imagens/4150994.jpg"},{"tipo":"imagem","codigo":"4150995","material":"JALECO BRANCO ODONTOLOGIA EXTRA EXTRA GRANDE (XXG)","resumo":"foto adicionada · imagens/4150995.jpg"}]} -->
 
 ## 16/09/2026, 18:35 — Caio César Borges de Oliveira
 
