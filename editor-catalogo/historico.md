@@ -4,10 +4,31 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 80  
-Última atualização: 17/09/2026, 11:01
+Total de sessões registradas: 81  
+Última atualização: 17/09/2026, 11:09
 
 ---
+
+## 17/09/2026, 11:09 — Caio César Borges de Oliveira
+
+Sessão 81 · 6 alteração(ões)
+
+**Resumo:** 6 foto
+
+- **[FOTO]** `22300` PINCA KELLY RETA
+    - foto adicionada · imagens/22300.jpg
+- **[FOTO]** `22290` PINÇA KELLY CURVA
+    - foto adicionada · imagens/22290.jpg
+- **[FOTO]** `4150042` PINÇA ALLIS 15CM
+    - foto adicionada · imagens/4150042.jpg
+- **[FOTO]** `4149981` ESFIGMOMANOMETRO ADULTO
+    - foto adicionada · imagens/4149981.jpg
+- **[FOTO]** `4149982` ESFIGMOMANOMETRO PARA OBESO
+    - foto adicionada · imagens/4149982.jpg
+- **[FOTO]** `4150345` ESFIGMOMANÔMETRO INFANTIL
+    - foto adicionada · imagens/4150345.jpg
+
+<!-- sessao:{"data":"2026-09-17T14:09:43.332Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"22300","material":"PINCA KELLY RETA","resumo":"foto adicionada · imagens/22300.jpg"},{"tipo":"imagem","codigo":"22290","material":"PINÇA KELLY CURVA","resumo":"foto adicionada · imagens/22290.jpg"},{"tipo":"imagem","codigo":"4150042","material":"PINÇA ALLIS 15CM","resumo":"foto adicionada · imagens/4150042.jpg"},{"tipo":"imagem","codigo":"4149981","material":"ESFIGMOMANOMETRO ADULTO","resumo":"foto adicionada · imagens/4149981.jpg"},{"tipo":"imagem","codigo":"4149982","material":"ESFIGMOMANOMETRO PARA OBESO","resumo":"foto adicionada · imagens/4149982.jpg"},{"tipo":"imagem","codigo":"4150345","material":"ESFIGMOMANÔMETRO INFANTIL","resumo":"foto adicionada · imagens/4150345.jpg"}]} -->
 
 ## 17/09/2026, 11:01 — Caio César Borges de Oliveira
 
