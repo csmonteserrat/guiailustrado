@@ -4,10 +4,69 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 77  
-Última atualização: 16/09/2026, 18:42
+Total de sessões registradas: 78  
+Última atualização: 17/09/2026, 09:44
 
 ---
+
+## 17/09/2026, 09:44 — Caio César Borges de Oliveira
+
+Sessão 78 · 23 alteração(ões) · 844 itens no arquivo após a edição
+
+**Origem:** relatório do CELK emitido em 17/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 12.
+
+**Resumo:** 23 editado
+
+- **[EDITADO]** `4150614` PONTA PARA ULTRASSOM - SCHUSTER (T1-S, T2-S, T3-S)
+    - Material: "INSERTO PARA APARELHO JET LAXIS SONIC T1, T2 E T3" → "PONTA PARA ULTRASSOM - SCHUSTER (T1-S, T2-S, T3-S)"
+- **[EDITADO]** `4150624` PONTA PARA ULTRASSOM - ORTUS (G1)
+    - Material: "INSERTO PARA APARELHO DE ULTRASSOM ORTUS G1" → "PONTA PARA ULTRASSOM - ORTUS (G1)"
+- **[EDITADO]** `4150620` PONTA PARA ULTRASSOM - ORTUS (G1, G2, G4)
+    - Material: "INSERTO PARA APARELHO DE ULTRASSOM ORTUS G1,G2,G4 (KIT)" → "PONTA PARA ULTRASSOM - ORTUS (G1, G2, G4)"
+- **[EDITADO]** `4150627` PONTA PARA ULTRASSOM - ORTUS (G2)
+    - Material: "INSERTO PARA APARELHO DE ULTRASSOM ORTUS G2" → "PONTA PARA ULTRASSOM - ORTUS (G2)"
+- **[EDITADO]** `4150628` PONTA PARA ULTRASSOM - ORTUS (G4)
+    - Material: "INSERTO PARA APARELHO DE ULTRASSOM ORTUS G4" → "PONTA PARA ULTRASSOM - ORTUS (G4)"
+- **[EDITADO]** `4150610` PONTA PARA ULTRASSOM - ALT (G1)
+    - Material: "INSERTO PARA APARRELHO ALTSONIC JET CERAMIC G1" → "PONTA PARA ULTRASSOM - ALT (G1)"
+- **[EDITADO]** `4150608` PONTA PARA ULTRASSOM - ALT (G1, G2, P4)
+    - Material: "INSERTO PARA APARELHO ALTSONIC JET CERAMIC G1, G2, P4 (KIT)" → "PONTA PARA ULTRASSOM - ALT (G1, G2, P4)"
+- **[EDITADO]** `4150611` PONTA PARA ULTRASSOM - ALT (G2)
+    - Material: "INSERTO PARA APARELHO ALTSONIC JET CERAMIC G2" → "PONTA PARA ULTRASSOM - ALT (G2)"
+- **[EDITADO]** `4150612` PONTA PARA ULTRASSOM - ALT (G3)
+    - Material: "INSERTO PARA APARELHO ALTSONIC JET CERAMIC G3" → "PONTA PARA ULTRASSOM - ALT (G3)"
+- **[EDITADO]** `4150598` PONTA PARA ULTRASSOM - ALT (Nº 1)
+    - Material: "INSERTO PARA ULTRASSOM COMPATÍVEL COM ALT SONIC JET CEMRAMIC Nº1" → "PONTA PARA ULTRASSOM - ALT (Nº 1)"
+- **[EDITADO]** `4150603` PONTA PARA ULTRASSOM - ALT (Nº 2)
+    - Material: "INSERTO PARA ULTRASSOM COMPATIVEL COM ALT SONIC JET CEMRAMIC Nº2" → "PONTA PARA ULTRASSOM - ALT (Nº 2)"
+- **[EDITADO]** `4150604` PONTA PARA ULTRASSOM - ALT (Nº 3)
+    - Material: "INSERTO PARA ULTRASSOM COMPATIVEL COM ALT SONIC JET CEMRAMIC Nº3" → "PONTA PARA ULTRASSOM - ALT (Nº 3)"
+- **[EDITADO]** `4150630` PONTA PARA ULTRASSOM - DABI ATLANTE (PERIO SUB)
+    - Material: "INSERTO PARA ULTRASSOM ORIGINAL PERIO SUB PROFINEO" → "PONTA PARA ULTRASSOM - DABI ATLANTE (PERIO SUB)"
+- **[EDITADO]** `4150632` PONTA PARA ULTRASSOM - ECEL (Nº 2)
+    - Material: "INSERTO PARA ULTRASSOM ORIGINAL PERIO SUPRA Nº02 SONIC MAX PLUS" → "PONTA PARA ULTRASSOM - ECEL (Nº 2)"
+- **[EDITADO]** `4150634` PONTA PARA ULTRASSOM - DABI ATLANTE (PERIO SUPRA)
+    - Material: "INSERTO PARA ULTRASSOM ORIGINAL PERIO SUPRA PROFINEO" → "PONTA PARA ULTRASSOM - DABI ATLANTE (PERIO SUPRA)"
+- **[EDITADO]** `4150639` PONTA PARA ULTRASSOM - SCHUSTER (T1-S)
+    - Material: "INSERTO PARA ULTRASSOM ORIGINAL T1-S MODELO JETLAXIS SONIC LED" → "PONTA PARA ULTRASSOM - SCHUSTER (T1-S)"
+- **[EDITADO]** `4150640` PONTA PARA ULTRASSOM - SCHUSTER (T3-S)
+    - Material: "INSERTO PARA ULTRASSOM ORIGINAL T3-S MODELO JETLAXIS SONIC LED" → "PONTA PARA ULTRASSOM - SCHUSTER (T3-S)"
+- **[EDITADO]** `4150642` PONTA PARA ULTRASSOM - SCHUSTER (T4-S)
+    - Material: "INSERTO PARA ULTRASSOM ORIGINAL T4-S MODELO JETLAXIS SONIC LED" → "PONTA PARA ULTRASSOM - SCHUSTER (T4-S)"
+- **[EDITADO]** `4150618` PONTA PARA ULTRASSOM - ECEL (Nº 1)
+    - Material: "INSERTO PARA ULTRASSOM ORIGINAL UNIVERSAL Nº01 SONIC MAX PLUS" → "PONTA PARA ULTRASSOM - ECEL (Nº 1)"
+- **[EDITADO]** `4150637` PONTA PARA ULTRASSOM - KAVO (Nº 5)
+    - Material: "PONTA PARA ULTRASON SONIC BORDEN KAVO Nº 5 (UNIVERSAL)" → "PONTA PARA ULTRASSOM - KAVO (Nº 5)"
+- **[EDITADO]** `4150638` PONTA PARA ULTRASSOM - KAVO (Nº 6)
+    - Material: "PONTA PARA ULTRASON SONIC BORDEN KAVO Nº 6" → "PONTA PARA ULTRASSOM - KAVO (Nº 6)"
+- **[EDITADO]** `4150636` PONTA PARA ULTRASSOM - KAVO (Nº 7)
+    - Material: "PONTA PARA ULTRASON SONIC BORDEN KAVO Nº 7" → "PONTA PARA ULTRASSOM - KAVO (Nº 7)"
+- **[EDITADO]** `4151224` AFASTADOR MINESSOTA
+    - Grupo: "14" → "12"
+    - Subgrupo: "CEO Instrumental" → "Odontologia Instrumental"
+    - Acesso: "CEO" → "TODOS"
+
+<!-- sessao:{"data":"2026-09-17T12:44:19.871Z","autor":"Caio César Borges de Oliveira","origem":"relatório do CELK emitido em 17/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 12","total":844,"alteracoes":[{"tipo":"editado","codigo":"4150614","material":"PONTA PARA ULTRASSOM - SCHUSTER (T1-S, T2-S, T3-S)","campos":[{"campo":"material","de":"INSERTO PARA APARELHO JET LAXIS SONIC T1, T2 E T3","para":"PONTA PARA ULTRASSOM - SCHUSTER (T1-S, T2-S, T3-S)"}]},{"tipo":"editado","codigo":"4150624","material":"PONTA PARA ULTRASSOM - ORTUS (G1)","campos":[{"campo":"material","de":"INSERTO PARA APARELHO DE ULTRASSOM ORTUS G1","para":"PONTA PARA ULTRASSOM - ORTUS (G1)"}]},{"tipo":"editado","codigo":"4150620","material":"PONTA PARA ULTRASSOM - ORTUS (G1, G2, G4)","campos":[{"campo":"material","de":"INSERTO PARA APARELHO DE ULTRASSOM ORTUS G1,G2,G4 (KIT)","para":"PONTA PARA ULTRASSOM - ORTUS (G1, G2, G4)"}]},{"tipo":"editado","codigo":"4150627","material":"PONTA PARA ULTRASSOM - ORTUS (G2)","campos":[{"campo":"material","de":"INSERTO PARA APARELHO DE ULTRASSOM ORTUS G2","para":"PONTA PARA ULTRASSOM - ORTUS (G2)"}]},{"tipo":"editado","codigo":"4150628","material":"PONTA PARA ULTRASSOM - ORTUS (G4)","campos":[{"campo":"material","de":"INSERTO PARA APARELHO DE ULTRASSOM ORTUS G4","para":"PONTA PARA ULTRASSOM - ORTUS (G4)"}]},{"tipo":"editado","codigo":"4150610","material":"PONTA PARA ULTRASSOM - ALT (G1)","campos":[{"campo":"material","de":"INSERTO PARA APARRELHO ALTSONIC JET CERAMIC G1","para":"PONTA PARA ULTRASSOM - ALT (G1)"}]},{"tipo":"editado","codigo":"4150608","material":"PONTA PARA ULTRASSOM - ALT (G1, G2, P4)","campos":[{"campo":"material","de":"INSERTO PARA APARELHO ALTSONIC JET CERAMIC G1, G2, P4 (KIT)","para":"PONTA PARA ULTRASSOM - ALT (G1, G2, P4)"}]},{"tipo":"editado","codigo":"4150611","material":"PONTA PARA ULTRASSOM - ALT (G2)","campos":[{"campo":"material","de":"INSERTO PARA APARELHO ALTSONIC JET CERAMIC G2","para":"PONTA PARA ULTRASSOM - ALT (G2)"}]},{"tipo":"editado","codigo":"4150612","material":"PONTA PARA ULTRASSOM - ALT (G3)","campos":[{"campo":"material","de":"INSERTO PARA APARELHO ALTSONIC JET CERAMIC G3","para":"PONTA PARA ULTRASSOM - ALT (G3)"}]},{"tipo":"editado","codigo":"4150598","material":"PONTA PARA ULTRASSOM - ALT (Nº 1)","campos":[{"campo":"material","de":"INSERTO PARA ULTRASSOM COMPATÍVEL COM ALT SONIC JET CEMRAMIC Nº1","para":"PONTA PARA ULTRASSOM - ALT (Nº 1)"}]},{"tipo":"editado","codigo":"4150603","material":"PONTA PARA ULTRASSOM - ALT (Nº 2)","campos":[{"campo":"material","de":"INSERTO PARA ULTRASSOM COMPATIVEL COM ALT SONIC JET CEMRAMIC Nº2","para":"PONTA PARA ULTRASSOM - ALT (Nº 2)"}]},{"tipo":"editado","codigo":"4150604","material":"PONTA PARA ULTRASSOM - ALT (Nº 3)","campos":[{"campo":"material","de":"INSERTO PARA ULTRASSOM COMPATIVEL COM ALT SONIC JET CEMRAMIC Nº3","para":"PONTA PARA ULTRASSOM - ALT (Nº 3)"}]},{"tipo":"editado","codigo":"4150630","material":"PONTA PARA ULTRASSOM - DABI ATLANTE (PERIO SUB)","campos":[{"campo":"material","de":"INSERTO PARA ULTRASSOM ORIGINAL PERIO SUB PROFINEO","para":"PONTA PARA ULTRASSOM - DABI ATLANTE (PERIO SUB)"}]},{"tipo":"editado","codigo":"4150632","material":"PONTA PARA ULTRASSOM - ECEL (Nº 2)","campos":[{"campo":"material","de":"INSERTO PARA ULTRASSOM ORIGINAL PERIO SUPRA Nº02 SONIC MAX PLUS","para":"PONTA PARA ULTRASSOM - ECEL (Nº 2)"}]},{"tipo":"editado","codigo":"4150634","material":"PONTA PARA ULTRASSOM - DABI ATLANTE (PERIO SUPRA)","campos":[{"campo":"material","de":"INSERTO PARA ULTRASSOM ORIGINAL PERIO SUPRA PROFINEO","para":"PONTA PARA ULTRASSOM - DABI ATLANTE (PERIO SUPRA)"}]},{"tipo":"editado","codigo":"4150639","material":"PONTA PARA ULTRASSOM - SCHUSTER (T1-S)","campos":[{"campo":"material","de":"INSERTO PARA ULTRASSOM ORIGINAL T1-S MODELO JETLAXIS SONIC LED","para":"PONTA PARA ULTRASSOM - SCHUSTER (T1-S)"}]},{"tipo":"editado","codigo":"4150640","material":"PONTA PARA ULTRASSOM - SCHUSTER (T3-S)","campos":[{"campo":"material","de":"INSERTO PARA ULTRASSOM ORIGINAL T3-S MODELO JETLAXIS SONIC LED","para":"PONTA PARA ULTRASSOM - SCHUSTER (T3-S)"}]},{"tipo":"editado","codigo":"4150642","material":"PONTA PARA ULTRASSOM - SCHUSTER (T4-S)","campos":[{"campo":"material","de":"INSERTO PARA ULTRASSOM ORIGINAL T4-S MODELO JETLAXIS SONIC LED","para":"PONTA PARA ULTRASSOM - SCHUSTER (T4-S)"}]},{"tipo":"editado","codigo":"4150618","material":"PONTA PARA ULTRASSOM - ECEL (Nº 1)","campos":[{"campo":"material","de":"INSERTO PARA ULTRASSOM ORIGINAL UNIVERSAL Nº01 SONIC MAX PLUS","para":"PONTA PARA ULTRASSOM - ECEL (Nº 1)"}]},{"tipo":"editado","codigo":"4150637","material":"PONTA PARA ULTRASSOM - KAVO (Nº 5)","campos":[{"campo":"material","de":"PONTA PARA ULTRASON SONIC BORDEN KAVO Nº 5 (UNIVERSAL)","para":"PONTA PARA ULTRASSOM - KAVO (Nº 5)"}]},{"tipo":"editado","codigo":"4150638","material":"PONTA PARA ULTRASSOM - KAVO (Nº 6)","campos":[{"campo":"material","de":"PONTA PARA ULTRASON SONIC BORDEN KAVO Nº 6","para":"PONTA PARA ULTRASSOM - KAVO (Nº 6)"}]},{"tipo":"editado","codigo":"4150636","material":"PONTA PARA ULTRASSOM - KAVO (Nº 7)","campos":[{"campo":"material","de":"PONTA PARA ULTRASON SONIC BORDEN KAVO Nº 7","para":"PONTA PARA ULTRASSOM - KAVO (Nº 7)"}]},{"tipo":"editado","codigo":"4151224","material":"AFASTADOR MINESSOTA","campos":[{"campo":"grupo","de":"14","para":"12"},{"campo":"subgrupo","de":"CEO Instrumental","para":"Odontologia Instrumental"},{"campo":"acesso","de":"CEO","para":"TODOS"}]}]} -->
 
 ## 16/09/2026, 18:42 — Caio César Borges de Oliveira
 
