@@ -4,10 +4,23 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 78  
-Última atualização: 17/09/2026, 09:44
+Total de sessões registradas: 79  
+Última atualização: 17/09/2026, 10:21
 
 ---
+
+## 17/09/2026, 10:21 — Caio César Borges de Oliveira
+
+Sessão 79 · 2 alteração(ões)
+
+**Resumo:** 2 foto
+
+- **[FOTO]** `4151107` RESINA ACRILICA TERMO POLIMERIZANTE ROSA
+    - foto adicionada · imagens/4151107.jpg
+- **[FOTO]** `4150635` ESCOVA DENTAL PLASTICA INFANTIL
+    - foto substituída · imagens/4150635.jpg
+
+<!-- sessao:{"data":"2026-09-17T13:21:19.698Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4151107","material":"RESINA ACRILICA TERMO POLIMERIZANTE ROSA","resumo":"foto adicionada · imagens/4151107.jpg"},{"tipo":"imagem","codigo":"4150635","material":"ESCOVA DENTAL PLASTICA INFANTIL","resumo":"foto substituída · imagens/4150635.jpg"}]} -->
 
 ## 17/09/2026, 09:44 — Caio César Borges de Oliveira
 
