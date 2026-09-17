@@ -4,10 +4,23 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 79  
-Última atualização: 17/09/2026, 10:21
+Total de sessões registradas: 80  
+Última atualização: 17/09/2026, 11:01
 
 ---
+
+## 17/09/2026, 11:01 — Caio César Borges de Oliveira
+
+Sessão 80 · 2 alteração(ões)
+
+**Resumo:** 2 foto
+
+- **[FOTO]** `4150004` FIO MONONYLON 5.0 - AGULHA 2.0 - 45 CM (UNIDADE)
+    - foto adicionada · imagens/4150004.jpg
+- **[FOTO]** `4150005` FIO MONONYLON 6.0 - AGULHA 2.0 - 45 CM (UNIDADE)
+    - foto adicionada · imagens/4150005.jpg
+
+<!-- sessao:{"data":"2026-09-17T14:01:39.886Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4150004","material":"FIO MONONYLON 5.0 - AGULHA 2.0 - 45 CM (UNIDADE)","resumo":"foto adicionada · imagens/4150004.jpg"},{"tipo":"imagem","codigo":"4150005","material":"FIO MONONYLON 6.0 - AGULHA 2.0 - 45 CM (UNIDADE)","resumo":"foto adicionada · imagens/4150005.jpg"}]} -->
 
 ## 17/09/2026, 10:21 — Caio César Borges de Oliveira
 
