@@ -4,10 +4,21 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 81  
-Última atualização: 17/09/2026, 11:09
+Total de sessões registradas: 82  
+Última atualização: 23/09/2026, 14:45
 
 ---
+
+## 23/09/2026, 14:45 — Caio César Borges de Oliveira
+
+Sessão 82 · 1 alteração(ões)
+
+**Resumo:** 1 foto
+
+- **[FOTO]** `4151280` RESINA COMPOSTA FLUIDA COR A2
+    - foto adicionada · imagens/4151280.jpg
+
+<!-- sessao:{"data":"2026-09-23T17:45:16.091Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4151280","material":"RESINA COMPOSTA FLUIDA COR A2","resumo":"foto adicionada · imagens/4151280.jpg"}]} -->
 
 ## 17/09/2026, 11:09 — Caio César Borges de Oliveira
 
