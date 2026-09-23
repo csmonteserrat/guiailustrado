@@ -4,10 +4,21 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 83  
-Última atualização: 23/09/2026, 15:31
+Total de sessões registradas: 84  
+Última atualização: 23/09/2026, 15:39
 
 ---
+
+## 23/09/2026, 15:39 — Caio César Borges de Oliveira
+
+Sessão 84 · 1 alteração(ões) · 844 itens no arquivo após a edição
+
+**Resumo:** 1 inativado
+
+- **[INATIVADO]** `4150819` INSERTO PARA APARELHO JET SONIC DA GNATUS
+    - Situação: "SIM" → "NAO"
+
+<!-- sessao:{"data":"2026-09-23T18:39:02.675Z","autor":"Caio César Borges de Oliveira","origem":"","total":844,"alteracoes":[{"tipo":"inativado","codigo":"4150819","material":"INSERTO PARA APARELHO JET SONIC DA GNATUS","campos":[{"campo":"ativo","de":"SIM","para":"NAO"}]}]} -->
 
 ## 23/09/2026, 15:31 — Caio César Borges de Oliveira
 
