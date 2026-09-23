@@ -4,10 +4,21 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 84  
-Última atualização: 23/09/2026, 15:39
+Total de sessões registradas: 85  
+Última atualização: 23/09/2026, 15:44
 
 ---
+
+## 23/09/2026, 15:44 — Caio César Borges de Oliveira
+
+Sessão 85 · 1 alteração(ões)
+
+**Resumo:** 1 foto
+
+- **[FOTO]** `4150253` PANO CAMPO PEQUENO
+    - foto adicionada · imagens/4150253.jpg
+
+<!-- sessao:{"data":"2026-09-23T18:44:57.789Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4150253","material":"PANO CAMPO PEQUENO","resumo":"foto adicionada · imagens/4150253.jpg"}]} -->
 
 ## 23/09/2026, 15:39 — Caio César Borges de Oliveira
 
