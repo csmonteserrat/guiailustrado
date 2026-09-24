@@ -4,10 +4,1844 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 85  
-Última atualização: 23/09/2026, 15:44
+Total de sessões registradas: 86  
+Última atualização: 24/09/2026, 15:13
 
 ---
+
+## 24/09/2026, 15:13 — Caio César Borges de Oliveira
+
+Sessão 86 · 512 alteração(ões) · 844 itens no arquivo após a edição
+
+**Origem:** Relatório de estoque BRANET.
+
+**Resumo:** 512 BRANET
+
+- **[BRANET]** `4150488` ABRIDOR DE BOCA EXPANDEX ADULTO
+    - Código BRANET: "" → "15054"
+    - Código cliente BRANET: "" → "9876"
+    - Nome na BRANET: "" → "ABRIDOR DE BOCA TIPO EXPANDEX (ADULTO)"
+- **[BRANET]** `4150493` ABRIDOR DE BOCA EXPANDEX INFANTIL
+    - Código BRANET: "" → "15055"
+    - Código cliente BRANET: "" → "9877"
+    - Nome na BRANET: "" → "ABRIDOR DE BOCA TIPO EXPANDEX (INFANTIL)"
+- **[BRANET]** `4150479` ABRITEC INFANTIL (COM 2 UNIDADES)
+    - Código BRANET: "" → "10373"
+    - Código cliente BRANET: "" → "98991"
+    - Nome na BRANET: "" → "ABRIDOR DE BOCA TIPO ABRITEC (INFANTIL)"
+- **[BRANET]** `4150483` ÁCIDO GEL CONDICIONADOR DE DENTINA E ESMALTE (PACOTE COM 3 SERINGAS)
+    - Código BRANET: "" → "13801"
+    - Código cliente BRANET: "" → "118937"
+    - Nome na BRANET: "" → "ACIDO FOSFORICO 37% (PACOTE C/ 3 SERINGAS)"
+- **[BRANET]** `4150485` ADESIVO DENTAL FOTOPOLIMERIZÁVEL
+    - Código BRANET: "" → "13098"
+    - Código cliente BRANET: "" → "10638"
+- **[BRANET]** `4150498` ÁGUA OXIGENADA 3% 10 VOLUMES (FRASCO 1L)
+    - Código BRANET: "" → "14365"
+    - Código cliente BRANET: "" → "11115"
+    - Nome na BRANET: "" → "AGUA OXIGENADA 3% 10 VOLUMES 1L"
+- **[BRANET]** `4150747` AGULHA HIPODÉRMICA 25 x 4 PARA ENDODONTIA
+    - Código BRANET: "" → "14898"
+    - Código cliente BRANET: "" → "11332"
+    - Nome na BRANET: "" → "AGULHA HIPODERMICA 25X4 P/ ENDO (CEO)"
+- **[BRANET]** `4150748` AGULHA HIPODÉRMICA 30 x 4 PARA ENDODONTIA
+    - Código BRANET: "" → "14373"
+    - Código cliente BRANET: "" → "11339"
+    - Nome na BRANET: "" → "AGULHA HIPODERMICA 30X4 P/ ENDO (CEO)"
+- **[BRANET]** `4150477` ALAVANCA INFANTIL (KIT COM 3 PEÇAS)
+    - Código BRANET: "" → "15210"
+    - Código cliente BRANET: "" → "11575"
+    - Nome na BRANET: "" → "ALAVANCA INFANTIL (KIT C/ 3 PECAS)"
+- **[BRANET]** `4150782` ALAVANCA TIPO APEXO Nº 301
+    - Código BRANET: "" → "15198"
+    - Código cliente BRANET: "" → "11591"
+- **[BRANET]** `4150783` ALAVANCA TIPO APEXO Nº 303
+    - Código BRANET: "" → "15199"
+    - Código cliente BRANET: "" → "11592"
+- **[BRANET]** `4150784` ALAVANCA TIPO APEXO Nº 304
+    - Código BRANET: "" → "15223"
+    - Código cliente BRANET: "" → "11501"
+- **[BRANET]** `4150781` ALAVANCA TIPO CANALETA RETA COM RANHURAS
+    - Código BRANET: "" → "15206"
+    - Código cliente BRANET: "" → "117522"
+    - Nome na BRANET: "" → "ALAVANCA TIPO CANALETA RETA C/ RANHURAS"
+- **[BRANET]** `4150786` ALAVANCAS CRYER Nº 27, 28, 31 E 32
+    - Código BRANET: "" → "15690"
+    - Código cliente BRANET: "" → "11536"
+    - Nome na BRANET: "" → "ALAVANCAS CRYER Nº 27, 28, 31 E 32 (CEO)"
+- **[BRANET]** `4150787` ALAVANCAS DE POTT
+    - Código BRANET: "" → "15691"
+    - Código cliente BRANET: "" → "115571"
+    - Nome na BRANET: "" → "ALAVANCAS POTT (KIT DIREITA E ESQUERDA)"
+- **[BRANET]** `4150749` ALGINATO HIDROCOLÓIDE DE PRESA NORMAL (PRÓTESE) - 453G
+    - Código BRANET: "" → "14237"
+    - Código cliente BRANET: "" → "11900"
+- **[BRANET]** `4150480` ALVEOLOTOMO
+    - Código BRANET: "" → "11548"
+    - Código cliente BRANET: "" → "12385"
+- **[BRANET]** `4150513` ANESTÉSICO INJ MEPIVACAÍNA 2% COM VASOC EPINEFRINA 1:100.000 (CAIXA COM 50 TUBETES)
+    - Código BRANET: "" → "11396"
+    - Código cliente BRANET: "" → "13142"
+    - Nome na BRANET: "" → "ANESTESICO INJ MEPIVACAINA 2% COM VASOC EPINEFRINA 1 100,000 (CX/ 50 TUBETES)"
+- **[BRANET]** `4150508` ANESTÉSICO INJETÁVEL ARTICAÍNA 4% COM EPINEFRINA (CAIXA COM 50 TUBETES)
+    - Código BRANET: "" → "14771"
+    - Código cliente BRANET: "" → "13129"
+    - Nome na BRANET: "" → "ANESTESICO INJ ARTICAINA 4% C/ EPINEFRINA (CX/ 50 TUBETES)"
+- **[BRANET]** `4150788` AQUECEDOR DE AGUA 220V (PROTESE)
+    - Código BRANET: "" → "14722"
+    - Código cliente BRANET: "" → "13974"
+- **[BRANET]** `4150789` ARCO DE OSTBY PLASTICO
+    - Código BRANET: "" → "15213"
+    - Código cliente BRANET: "" → "15422"
+    - Nome na BRANET: "" → "ARCO DE OSTYB PLASTICO (CEO)"
+- **[BRANET]** `4150790` ARTICULADOR CHARNEIRA
+    - Código BRANET: "" → "14882"
+    - Código cliente BRANET: "" → "14882"
+- **[BRANET]** `4150129` AVENTAL DESCARTAVEL GRAMATURA 50 (UNIDADE) TAMANHO G
+    - Código BRANET: "" → "17655"
+    - Código cliente BRANET: "" → "17655"
+    - Nome na BRANET: "" → "AVENTAL CIRURGICO DESCARTAVEL GRAMATURA 50 (UNIDADE)"
+- **[BRANET]** `4150481` BANDEJA DE INOX
+    - Código BRANET: "" → "15698"
+    - Código cliente BRANET: "" → "18315"
+- **[BRANET]** `4150793` BARRA DE EIRICH 20 CM PARA AMARRIA
+    - Código BRANET: "" → "15207"
+    - Código cliente BRANET: "" → "18760"
+    - Nome na BRANET: "" → "BARRA DE EIRICH 20 CM P/ AMARRIA (CEO)"
+- **[BRANET]** `4150528` BARREIRA DE RESINA FOTOPOLIMERIZÁVEL
+    - Código BRANET: "" → "15019"
+    - Código cliente BRANET: "" → "18883"
+- **[BRANET]** `4150524` BENZOCAINA ANESTESICO TOPICO 200MG/G (12G)
+    - Código BRANET: "" → "11170"
+    - Código cliente BRANET: "" → "118833"
+- **[BRANET]** `4150530` BICARBONATO DE SÓDIO PÓ (200g)
+    - Código BRANET: "" → "14236"
+    - Código cliente BRANET: "" → "19862"
+- **[BRANET]** `4150482` BICHO DE PELUCIA COM MACRO ARCADA SUP E INF
+    - Código BRANET: "" → "15699"
+    - Código cliente BRANET: "" → "19878"
+- **[BRANET]** `4150752` BORRACHA ABRASIVA MÉDIA PARA PEÇA DE MÃO
+    - Código BRANET: "" → "14374"
+    - Código cliente BRANET: "" → "22015"
+    - Nome na BRANET: "" → "BORRACHA ABRASIVA MEDIA P/ PECA DE MAO"
+- **[BRANET]** `4150484` BORRIFADOR PLASTICO (PROTESE)
+    - Código BRANET: "" → "14742"
+    - Código cliente BRANET: "" → "22136"
+- **[BRANET]** `4150753` BRANCO DE ESPANHA 1KG
+    - Código BRANET: "" → "14811"
+    - Código cliente BRANET: "" → "14811"
+- **[BRANET]** `4150754` BRANCO DE ESPANHA 200G
+    - Código BRANET: "" → "14223"
+    - Código cliente BRANET: "" → "14223"
+- **[BRANET]** `4150561` BROCA ALTA ROTAÇÃO CARBIDE ESF Nº 06 HL
+    - Código BRANET: "" → "15042"
+    - Código cliente BRANET: "" → "15042"
+    - Nome na BRANET: "" → "BROCA AR CARBIDE 06 HL"
+- **[BRANET]** `4150563` BROCA ALTA ROTAÇÃO CARBIDE ESF Nº 08 HL
+    - Código BRANET: "" → "14281"
+    - Código cliente BRANET: "" → "22940"
+    - Nome na BRANET: "" → "BROCA AR CARBIDE 08 HL"
+- **[BRANET]** `4150548` BROCA ALTA ROTAÇÃO CARBIDE ESFÉRICA Nº 01
+    - Código BRANET: "" → "14078"
+    - Código cliente BRANET: "" → "22941"
+    - Nome na BRANET: "" → "BROCA AR CARBIDE 01"
+- **[BRANET]** `4150553` BROCA ALTA ROTAÇÃO CARBIDE ESFÉRICA Nº 02
+    - Código BRANET: "" → "14079"
+    - Código cliente BRANET: "" → "22944"
+    - Nome na BRANET: "" → "BROCA AR CARBIDE 02"
+- **[BRANET]** `4150556` BROCA ALTA ROTAÇÃO CARBIDE ESFÉRICA Nº 04
+    - Código BRANET: "" → "10381"
+    - Código cliente BRANET: "" → "22946"
+    - Nome na BRANET: "" → "BROCA AR CARBIDE 04"
+- **[BRANET]** `4150559` BROCA ALTA ROTAÇÃO CARBIDE ESFÉRICA Nº 04 HL
+    - Código BRANET: "" → "10382"
+    - Código cliente BRANET: "" → "22945"
+    - Nome na BRANET: "" → "BROCA AR CARBIDE 04 HL"
+- **[BRANET]** `4150560` BROCA ALTA ROTAÇÃO CARBIDE ESFÉRICA Nº 06
+    - Código BRANET: "" → "10383"
+    - Código cliente BRANET: "" → "22949"
+    - Nome na BRANET: "" → "BROCA AR CARBIDE 06"
+- **[BRANET]** `4150562` BROCA ALTA ROTAÇÃO CARBIDE ESFÉRICA Nº 08
+    - Código BRANET: "" → "14081"
+    - Código cliente BRANET: "" → "22950"
+    - Nome na BRANET: "" → "BROCA AR CARBIDE 08"
+- **[BRANET]** `4150564` BROCA ALTA ROTAÇÃO CARBIDE ESFÉRICA Nº 1/2
+    - Código BRANET: "" → "14077"
+    - Código cliente BRANET: "" → "22942"
+    - Nome na BRANET: "" → "BROCA AR CARBIDE 1/2"
+- **[BRANET]** `4150566` BROCA ALTA ROTAÇÃO CIRURGICA Nº 701 HL
+    - Código BRANET: "" → "14895"
+    - Código cliente BRANET: "" → "14895"
+    - Nome na BRANET: "" → "BROCA AR CIRURGICA Nº 701 HL"
+- **[BRANET]** `4150567` BROCA ALTA ROTAÇÃO CIRURGICA Nº 702 HL
+    - Código BRANET: "" → "17095"
+    - Código cliente BRANET: "" → "22952"
+    - Nome na BRANET: "" → "BROCA AR CIRURGICA Nº 702 HL"
+- **[BRANET]** `4150569` BROCA ALTA ROTAÇÃO CIRURGICA ZEKRYA 23MM
+    - Código BRANET: "" → "15044"
+    - Código cliente BRANET: "" → "22954"
+    - Nome na BRANET: "" → "BROCA AR CIRURGICA ZECRYA 23MM"
+- **[BRANET]** `4150577` BROCA ALTA ROTAÇÃO CIRURGICA ZEKRYA 28MM
+    - Código BRANET: "" → "14343"
+    - Código cliente BRANET: "" → "22955"
+    - Nome na BRANET: "" → "BROCA AR CIRURGICA ZEKRYA 28 MM"
+- **[BRANET]** `4150595` BROCA ALTA ROTAÇÃO DIAMANTADA CILINDRICA Nº 1092
+    - Código BRANET: "" → "14893"
+    - Código cliente BRANET: "" → "14893"
+    - Nome na BRANET: "" → "BROCA AR DIAMANTADA 1092"
+- **[BRANET]** `4151127` BROCA ALTA ROTAÇÃO DIAMANTADA 1011
+    - Código BRANET: "" → "14755"
+    - Código cliente BRANET: "" → "22957"
+    - Nome na BRANET: "" → "BROCA AR DIAMANTADA 1011"
+- **[BRANET]** `4151128` BROCA ALTA ROTAÇÃO DIAMANTADA 1013
+    - Código BRANET: "" → "10391"
+    - Código cliente BRANET: "" → "22960"
+    - Nome na BRANET: "" → "BROCA AR DIAMANTADA 1013"
+- **[BRANET]** `4151130` BROCA ALTA ROTAÇÃO DIAMANTADA 1033
+    - Código BRANET: "" → "15043"
+    - Código cliente BRANET: "" → "22967"
+    - Nome na BRANET: "" → "BROCA AR DIAMANTADA 1033"
+- **[BRANET]** `4151131` BROCA ALTA ROTAÇÃO DIAMANTADA 1034
+    - Código BRANET: "" → "10389"
+    - Código cliente BRANET: "" → "22968"
+    - Nome na BRANET: "" → "BROCA AR DIAMANTADA 1034"
+- **[BRANET]** `4150609` BROCA ALTA ROTAÇÃO DIAMANTADA ACABAMENTO DE RESINA Nº 3195 FF
+    - Código BRANET: "" → "21146"
+    - Código cliente BRANET: "" → "21146"
+    - Nome na BRANET: "" → "BROCA AR DIAMANTADA 3195 FF"
+- **[BRANET]** `4150605` BROCA ALTA ROTAÇÃO DIAMANTADA CÔNICA Nº 3082
+    - Código BRANET: "" → "14887"
+    - Código cliente BRANET: "" → "22983"
+    - Nome na BRANET: "" → "BROCA AR DIAMANTADA 3082"
+- **[BRANET]** `4150580` BROCA ALTA ROTAÇÃO DIAMANTADA ESFÉRICA Nº 1012
+    - Código BRANET: "" → "13028"
+    - Código cliente BRANET: "" → "22959"
+    - Nome na BRANET: "" → "BROCA AR DIAMANTADA 1012"
+- **[BRANET]** `4151146` BROCA ALTA ROTAÇÃO DIAMANTADA ESFÉRICA Nº 1012 HL
+    - Código BRANET: "" → "12980"
+    - Código cliente BRANET: "" → "22958"
+    - Nome na BRANET: "" → "BROCA AR DIAMANTADA 1012 HL"
+- **[BRANET]** `4150583` BROCA ALTA ROTAÇÃO DIAMANTADA ESFÉRICA Nº 1014
+    - Código BRANET: "" → "10392"
+    - Código cliente BRANET: "" → "22961"
+    - Nome na BRANET: "" → "BROCA AR DIAMANTADA 1014"
+- **[BRANET]** `4150587` BROCA ALTA ROTAÇÃO DIAMANTADA ESFÉRICA Nº 1016
+    - Código BRANET: "" → "12993"
+    - Código cliente BRANET: "" → "22964"
+    - Nome na BRANET: "" → "BROCA AR DIAMANTADA 1016"
+- **[BRANET]** `4150590` BROCA ALTA ROTAÇÃO DIAMANTADA ESFÉRICA Nº 1016 HL
+    - Código BRANET: "" → "10393"
+    - Código cliente BRANET: "" → "22963"
+    - Nome na BRANET: "" → "BROCA AR DIAMANTADA 1016 HL"
+- **[BRANET]** `4150597` BROCA ALTA ROTAÇÃO DIAMANTADA Nº 1111
+    - Código BRANET: "" → "14382"
+    - Código cliente BRANET: "" → "22972"
+    - Nome na BRANET: "" → "BROCA AR DIAMANTADA 1111"
+- **[BRANET]** `4150599` BROCA ALTA ROTAÇÃO DIAMANTADA Nº 2130
+    - Código BRANET: "" → "14379"
+    - Código cliente BRANET: "" → "22977"
+    - Nome na BRANET: "" → "BROCA AR DIAMANTADA 2130"
+- **[BRANET]** `4150602` BROCA ALTA ROTAÇÃO DIAMANTADA Nº 3069
+    - Código BRANET: "" → "14435"
+    - Código cliente BRANET: "" → "22980"
+    - Nome na BRANET: "" → "BROCA AR DIAMANTADA 3069"
+- **[BRANET]** `4150607` BROCA ALTA ROTAÇÃO DIAMANTADA Nº 3195
+    - Código BRANET: "" → "14381"
+    - Código cliente BRANET: "" → "22985"
+    - Nome na BRANET: "" → "BROCA AR DIAMANTADA 3195"
+- **[BRANET]** `4150606` BROCA ALTA ROTAÇÃO DIAMANTADA PARA ACABAMENTO DE RESINA Nº 3118 FF
+    - Código BRANET: "" → "12987"
+    - Código cliente BRANET: "" → "22984"
+    - Nome na BRANET: "" → "BROCA AR DIAMANTADA 3118 FF"
+- **[BRANET]** `4150613` BROCA ALTA ROTAÇÃO ENDO Z
+    - Código BRANET: "" → "14897"
+    - Código cliente BRANET: "" → "22988"
+    - Nome na BRANET: "" → "BROCA AR ENDO Z"
+- **[BRANET]** `4150756` BROCA BAIXA ROTAÇÃO CIRUR ESFER PARA PEÇA RETA N° 04
+    - Código BRANET: "" → "14377"
+    - Código cliente BRANET: "" → "23040"
+    - Nome na BRANET: "" → "BROCA BR CIRUR ESFER P/ PC RETA Nº04 (CEO)"
+- **[BRANET]** `4150757` BROCA BAIXA ROTAÇÃO CIRUR ESFER PARA PEÇA RETA N° 06
+    - Código BRANET: "" → "14378"
+    - Código cliente BRANET: "" → "23037"
+    - Nome na BRANET: "" → "BROCA BR CIRUR ESFER P/ PC RETA Nº06 (CEO)"
+- **[BRANET]** `4150794` BROCA BAIXA ROTAÇÃO CIRUR ESFER PARA PEÇA RETA Nº 08
+    - Código BRANET: "" → "15765"
+    - Código cliente BRANET: "" → "15765"
+    - Nome na BRANET: "" → "BROCA BR CIRUR ESFER P/ PC RETA Nº08 (CEO)"
+- **[BRANET]** `4150758` BROCA BAIXA ROTAÇÃO CIRURGICA PARA PEÇA RETA 701
+    - Código BRANET: "" → "14922"
+    - Código cliente BRANET: "" → "23022"
+    - Nome na BRANET: "" → "BROCA BR CIRURGICA P/ PECA RETA 701"
+- **[BRANET]** `4150759` BROCA BAIXA ROTAÇÃO CIRURGICA PARA PEÇA RETA Nº 702
+    - Código BRANET: "" → "14972"
+    - Código cliente BRANET: "" → "23023"
+    - Nome na BRANET: "" → "BROCA BR CIRURGICA P/ PECA RETA Nº 702"
+- **[BRANET]** `4150760` BROCA BAIXA ROTAÇÃO CIRURGICA PARA PEÇA RETA Nº 703
+    - Código BRANET: "" → "14891"
+    - Código cliente BRANET: "" → "23025"
+    - Nome na BRANET: "" → "BROCA BR CIRURGICA P/ PECA RETA Nº 703"
+- **[BRANET]** `4150531` BROCA BAIXA ROTAÇÃO ESFÉRICA Nº 1
+    - Código BRANET: "" → "14929"
+    - Código cliente BRANET: "" → "23028"
+    - Nome na BRANET: "" → "BROCA BR 01"
+- **[BRANET]** `4150771` BROCA BAIXA ROTAÇÃO ESFERICA Nº 1 PARA PECA DE MAO
+    - Código BRANET: "" → "14967"
+    - Código cliente BRANET: "" → "22993"
+    - Nome na BRANET: "" → "BROCA BR/PM ESFERICA Nº 1 PARA PECA DE MAO"
+- **[BRANET]** `4150533` BROCA BAIXA ROTAÇÃO ESFÉRICA Nº 2
+    - Código BRANET: "" → "14494"
+    - Código cliente BRANET: "" → "14494"
+    - Nome na BRANET: "" → "BROCA BR 02"
+- **[BRANET]** `4150545` BROCA BAIXA ROTAÇÃO ESFÉRICA Nº 6 HL
+    - Código BRANET: "" → "14296"
+    - Código cliente BRANET: "" → "14296"
+    - Nome na BRANET: "" → "BROCA BR 06 HL"
+- **[BRANET]** `4151136` BROCA BAIXA ROTAÇÃO ESFÉRICA Nº 8
+    - Código BRANET: "" → "21036"
+    - Código cliente BRANET: "" → "21036"
+    - Nome na BRANET: "" → "BROCA BR ESFERICA N8 (CX C/6)"
+- **[BRANET]** `4150761` BROCA BAIXA ROTAÇÃO GATES Nº 3 HL PARA ENDO
+    - Código BRANET: "" → "14974"
+    - Código cliente BRANET: "" → "23005"
+    - Nome na BRANET: "" → "BROCA BR GATES Nº 3 HL P/ ENDO"
+- **[BRANET]** `4150762` BROCA BAIXA ROTAÇÃO GATES Nº 3 PARA ENDO
+    - Código BRANET: "" → "14971"
+    - Código cliente BRANET: "" → "23004"
+    - Nome na BRANET: "" → "BROCA BR GATES Nº 3 P/ ENDO (CEO)"
+- **[BRANET]** `4150764` BROCA BAIXA ROTAÇÃO GATES Nº 4 PARA ENDO
+    - Código BRANET: "" → "14954"
+    - Código cliente BRANET: "" → "14954"
+    - Nome na BRANET: "" → "BROCA BR GATES Nº 4 P/ ENDO (CEO)"
+- **[BRANET]** `4150765` BROCA BAIXA ROTAÇÃO GATES Nº 5 HL PARA ENDO
+    - Código BRANET: "" → "14885"
+    - Código cliente BRANET: "" → "23008"
+    - Nome na BRANET: "" → "BROCA BR GATES Nº 5 HL P/ ENDO"
+- **[BRANET]** `4150768` BROCA BAIXA ROTAÇÃO LARGO Nº 3 PARA ENDO
+    - Código BRANET: "" → "14914"
+    - Código cliente BRANET: "" → "23011"
+    - Nome na BRANET: "" → "BROCA BR LARGO Nº3 P/ ENDO (CEO)"
+- **[BRANET]** `4150769` BROCA BAIXA ROTAÇÃO LARGO Nº 4 PARA ENDO
+    - Código BRANET: "" → "14927"
+    - Código cliente BRANET: "" → "23012"
+    - Nome na BRANET: "" → "BROCA BR LARGO Nº4 P/ ENDO (CEO)"
+- **[BRANET]** `4150770` BROCA BAIXA ROTAÇÃO LENTULO (CAIXA COM 4)
+    - Código BRANET: "" → "15013"
+    - Código cliente BRANET: "" → "23013"
+    - Nome na BRANET: "" → "BROCA BR LENTULO (CEO) (CAIXA C/ 4)"
+- **[BRANET]** `4150766` BROCA BR LARGO Nº 1 PARA ENDO
+    - Código BRANET: "" → "14289"
+    - Código cliente BRANET: "" → "23009"
+    - Nome na BRANET: "" → "BROCA BR LARGO Nº1 P/ ENDO (CEO)"
+- **[BRANET]** `4150767` BROCA BR LARGO Nº 2 PARA ENDO
+    - Código BRANET: "" → "14295"
+    - Código cliente BRANET: "" → "23010"
+    - Nome na BRANET: "" → "BROCA BR LARGO Nº2 P/ ENDO (CEO)"
+- **[BRANET]** `4150773` BROCA CARBIDE Nº 8 PARA PEÇA RETA
+    - Código BRANET: "" → "14903"
+    - Código cliente BRANET: "" → "23039"
+    - Nome na BRANET: "" → "BROCA CARBIDE Nº8 P/ PECA RETA"
+- **[BRANET]** `4150565` BROCA TRANSMETAL CILÍNDRICA Nº 12
+    - Código BRANET: "" → "14969"
+    - Código cliente BRANET: "" → "23303"
+    - Nome na BRANET: "" → "BROCA AR TRANSMETAL 12"
+- **[BRANET]** `4150486` CABO PARA BISTURI Nº 3 (ODONTO)
+    - Código BRANET: "" → "16899"
+    - Código cliente BRANET: "" → "24727"
+- **[BRANET]** `4150487` CABO PARA ESPELHO BUCAL
+    - Código BRANET: "" → "11481"
+    - Código cliente BRANET: "" → "24745"
+- **[BRANET]** `4150489` CALCADOR PARA DYCAL Nº 10/20
+    - Código BRANET: "" → "15703"
+    - Código cliente BRANET: "" → "27282"
+    - Nome na BRANET: "" → "CALCADOR P/ DYCAL Nº 10/20"
+- **[BRANET]** `4150795` CALCADORES DE PAIVA 1, 2, 3, 4
+    - Código BRANET: "" → "15247"
+    - Código cliente BRANET: "" → "27281"
+- **[BRANET]** `4151158` CAMPO CIRURG DESC TNT 50 X 50 CM (EMBALAGEM COM 50 UNIDADES)
+    - Código BRANET: "" → "20996"
+    - Código cliente BRANET: "" → "20996"
+    - Nome na BRANET: "" → "CAMPO CIRURG DESC TNT 50X50 CM - EMBALAGEM COM 50 UN"
+- **[BRANET]** `4150775` CAMPO CIRURGICO DESCARTAVEL TNT 60 x 90 CM (UNIDADE)
+    - Código BRANET: "" → "15145"
+    - Código cliente BRANET: "" → "28638"
+    - Nome na BRANET: "" → "CAMPO CIRURG DESC TNT 60X90 CM (CEO)"
+- **[BRANET]** `4150776` CARBONO LIQUIDO PARA AJUSTE PROTETICO
+    - Código BRANET: "" → "14949"
+    - Código cliente BRANET: "" → "30238"
+    - Nome na BRANET: "" → "CARBONO LIQUIDO P/ AJUSTE PROTETICO"
+- **[BRANET]** `4150615` CARIOSTÁTICO 12% 10 ML
+    - Código BRANET: "" → "10485"
+    - Código cliente BRANET: "" → "30538"
+- **[BRANET]** `4151169` CARTELA PARA RX 01 FURO 11,5X8CM COM 100UN
+    - Código BRANET: "" → "14069"
+    - Código cliente BRANET: "" → "14069"
+- **[BRANET]** `4151168` CARTELA PARA RX 02 FUROS 11,5X8CM COM 100UN
+    - Código BRANET: "" → "13572"
+    - Código cliente BRANET: "" → "31149"
+- **[BRANET]** `4151167` CARTELA PLASTICA DE RX PERIAPICAL PARA 2 FILMES (PACOTE COM 10)
+    - Código BRANET: "" → "20344"
+    - Código cliente BRANET: "" → "20344"
+    - Nome na BRANET: "" → "CARTELA PLASTICA DE RX PERIAPICAL P/ 2 FILMES PCT C/ 10"
+- **[BRANET]** `4151166` CARTELA PLASTICA PARA FILME OCLUSAL (RX) (PACOTE COM 10)
+    - Código BRANET: "" → "15016"
+    - Código cliente BRANET: "" → "15016"
+    - Nome na BRANET: "" → "CARTELA PLASTICA P/ FILME OCLUSAL (RX) (PACOTE C/ 10)"
+- **[BRANET]** `4150491` CHAVE PARA INSERTO DE ULTRASSOM/CHAVE TORQUE UNIVERSAL
+    - Código BRANET: "" → "17908"
+    - Código cliente BRANET: "" → "34416"
+- **[BRANET]** `4151175` CIMENTO ENDODONTICO PARA OBTURAÇÃO CANAL (KIT)
+    - Código BRANET: "" → "13803"
+    - Código cliente BRANET: "" → "34954"
+- **[BRANET]** `4151176` CIMENTO EUGENOL LÍQUIDO RESTAURADOR PROVISÓRIO
+    - Código BRANET: "" → "11446"
+    - Código cliente BRANET: "" → "34956"
+- **[BRANET]** `4150621` CIMENTO FOSFATO DE ZINCO PÓ/ LÍQUIDO (KIT)
+    - Código BRANET: "" → "15021"
+    - Código cliente BRANET: "" → "34958"
+- **[BRANET]** `4150622` CIMENTO HIDROXIDO DE CALCIO RADIOPACO (KIT)
+    - Código BRANET: "" → "13808"
+    - Código cliente BRANET: "" → "34960"
+- **[BRANET]** `4150796` CINZEL DE RHODES 36-37
+    - Código BRANET: "" → "11542"
+    - Código cliente BRANET: "" → "35109"
+    - Nome na BRANET: "" → "CINZEL DE RHODES 36-37 (CEO)"
+- **[BRANET]** `4150797` CINZEL DE WELDELSTEAD Nº 2-3
+    - Código BRANET: "" → "20777"
+    - Código cliente BRANET: "" → "20777"
+- **[BRANET]** `4150798` CINZEL PARA MICRO CIRURGIA
+    - Código BRANET: "" → "15708"
+    - Código cliente BRANET: "" → "35113"
+    - Nome na BRANET: "" → "CINZEL P/ MICRO CIRURGIA"
+- **[BRANET]** `4150625` COLÁGENO HEMOSTÁTICO FIBRINA
+    - Código BRANET: "" → "11448"
+    - Código cliente BRANET: "" → "36097"
+- **[BRANET]** `4150799` COMPASSO DE WILLIS
+    - Código BRANET: "" → "11564"
+    - Código cliente BRANET: "" → "37201"
+- **[BRANET]** `4151180` CONDUTOR PARA FIO DENTAL TIPO PASSA FIO
+    - Código BRANET: "" → "21186"
+    - Código cliente BRANET: "" → "21186"
+- **[BRANET]** `4151182` CONE DE GUTA PERCHA (L) LARGE RECIPROCANTE
+    - Código BRANET: "" → "15076"
+    - Código cliente BRANET: "" → "38278"
+- **[BRANET]** `4151183` CONE DE GUTA PERCHA (S) SMALL RECIPROCANTE
+    - Código BRANET: "" → "15010"
+    - Código cliente BRANET: "" → "38280"
+- **[BRANET]** `4151177` CONE DE GUTA PERCHA PRIMARY RECIPROCANTE
+    - Código BRANET: "" → "14956"
+    - Código cliente BRANET: "" → "38279"
+    - Nome na BRANET: "" → "CONE DE GUTA PERCHA (P) PRIMARY RECIPROCANTE"
+- **[BRANET]** `4151184` CONES DE GUTA PERCHA RECIPROCANTE MEDIUM
+    - Código BRANET: "" → "21037"
+    - Código cliente BRANET: "" → "21037"
+- **[BRANET]** `4150800` CONFORMADOR DE CERA EM METAL
+    - Código BRANET: "" → "15249"
+    - Código cliente BRANET: "" → "39390"
+- **[BRANET]** `4150626` CREME DENTAL COM FLUOR (1500 PPM) 50G
+    - Código BRANET: "" → "12896"
+    - Código cliente BRANET: "" → "46111"
+- **[BRANET]** `4150601` CUBA REDONDA INOX
+    - Código BRANET: "" → "15806"
+    - Código cliente BRANET: "" → "15806"
+- **[BRANET]** `4150629` CUNHA DE MADEIRA SORTIDA (PACOTE COM 100 UNIDADES)
+    - Código BRANET: "" → "11440"
+    - Código cliente BRANET: "" → "46496"
+    - Nome na BRANET: "" → "CUNHA DE MADEIRA SORTIDA PCT C/100 UNI"
+- **[BRANET]** `4150802` CURETA CANE KAPLAN Nº 6
+    - Código BRANET: "" → "15713"
+    - Código cliente BRANET: "" → "15713"
+    - Nome na BRANET: "" → "CURETA CANE KAPLAN Nº 6 (CEO)"
+- **[BRANET]** `4150495` CURETA CIRURGICA LUCAS Nº 86
+    - Código BRANET: "" → "15065"
+    - Código cliente BRANET: "" → "15065"
+- **[BRANET]** `4150803` CURETA CIRURGICA LUCAS Nº85
+    - Código BRANET: "" → "12943"
+    - Código cliente BRANET: "" → "46562"
+    - Nome na BRANET: "" → "CURETA CIRURGICA LUCAS Nº85 (CEO)"
+- **[BRANET]** `4150503` CURETA DUPLA HL 11/12
+    - Código BRANET: "" → "15063"
+    - Código cliente BRANET: "" → "46548"
+- **[BRANET]** `4150504` CURETA DUPLA HL 13/14
+    - Código BRANET: "" → "15062"
+    - Código cliente BRANET: "" → "46549"
+- **[BRANET]** `4150505` CURETA DUPLA HL 17/18
+    - Código BRANET: "" → "15064"
+    - Código cliente BRANET: "" → "46550"
+- **[BRANET]** `4150804` CURETA GOLDMAN FOX Nº 2
+    - Código BRANET: "" → "13799"
+    - Código cliente BRANET: "" → "46552"
+    - Nome na BRANET: "" → "CURETA GOLDMAN FOX Nº 2 (CEO)"
+- **[BRANET]** `4150496` CURETA GRACEY 11/12
+    - Código BRANET: "" → "10463"
+    - Código cliente BRANET: "" → "10463"
+- **[BRANET]** `4150497` CURETA GRACEY 13/14
+    - Código BRANET: "" → "10464"
+    - Código cliente BRANET: "" → "46554"
+- **[BRANET]** `4150499` CURETA GRACEY 5/6
+    - Código BRANET: "" → "10461"
+    - Código cliente BRANET: "" → "10461"
+- **[BRANET]** `4150501` CURETA GRACEY 7/8
+    - Código BRANET: "" → "10462"
+    - Código cliente BRANET: "" → "46534"
+- **[BRANET]** `4150506` CURETA PARA DENTINA Nº 11 1/2
+    - Código BRANET: "" → "15715"
+    - Código cliente BRANET: "" → "46567"
+    - Nome na BRANET: "" → "CURETA P/ DENTINA Nº 11 1/2"
+- **[BRANET]** `4150507` CURETA PARA DENTINA Nº 18
+    - Código BRANET: "" → "15716"
+    - Código cliente BRANET: "" → "46569"
+    - Nome na BRANET: "" → "CURETA P/ DENTINA Nº 18"
+- **[BRANET]** `4150509` CURETA PARA DENTINA Nº 5
+    - Código BRANET: "" → "15714"
+    - Código cliente BRANET: "" → "46571"
+    - Nome na BRANET: "" → "CURETA P/ DENTINA Nº 5"
+- **[BRANET]** `4150631` DEDEIRA - ESCOVA DENTAL ESPECIAL PARA BEBE
+    - Código BRANET: "" → "14241"
+    - Código cliente BRANET: "" → "47075"
+- **[BRANET]** `4150805` DESTACA PERIOSTEO DE MOLT
+    - Código BRANET: "" → "15718"
+    - Código cliente BRANET: "" → "47669"
+    - Nome na BRANET: "" → "DESTACA PERIOSTEO DE MOLT (CEO)"
+- **[BRANET]** `4150778` DISCO DE FELTRO PARA CONTRA ÂNGULO
+    - Código BRANET: "" → "14342"
+    - Código cliente BRANET: "" → "14342"
+    - Nome na BRANET: "" → "DISCO DE FELTRO P/ CONTRA ANGULO"
+- **[BRANET]** `4151174` EDTA SOLUÇÃO QUELANTE 17% AQUOSA (20ML)
+    - Código BRANET: "" → "14344"
+    - Código cliente BRANET: "" → "49640"
+    - Nome na BRANET: "" → "EDTA SOLUCAO QUELANTE AQUOSA A 17% 20ML"
+- **[BRANET]** `4151173` EDTA SOLUÇÃO QUELANTE 24% GEL (2 SERINGAS)
+    - Código BRANET: "" → "15633"
+    - Código cliente BRANET: "" → "49641"
+    - Nome na BRANET: "" → "EDTA SOLUCAO QUELANTE 24% GEL 2 SERINGAS (CEO)"
+- **[BRANET]** `4150633` ESCOVA DENTAL PLASTICA ADULTO
+    - Código BRANET: "" → "11442"
+    - Código cliente BRANET: "" → "51871"
+    - Nome na BRANET: "" → "ESCOVA DENTAL PLASTICA ADULTO UNIDADE"
+- **[BRANET]** `4150635` ESCOVA DENTAL PLASTICA INFANTIL
+    - Código BRANET: "" → "11151"
+    - Código cliente BRANET: "" → "51879"
+    - Nome na BRANET: "" → "ESCOVA DENTAL PLASTICA INFANTIL UNIDADE"
+- **[BRANET]** `4150641` ESCOVA DENTAL PLASTICA PARA BEBE
+    - Código BRANET: "" → "15634"
+    - Código cliente BRANET: "" → "117544"
+    - Nome na BRANET: "" → "ESCOVA DENTAL PLASTICA P/ BEBE"
+- **[BRANET]** `4151126` ESCOVA PARA CONTRA ANGULO (ROBINSON)
+    - Código BRANET: "" → "10453"
+    - Código cliente BRANET: "" → "51919"
+- **[BRANET]** `4150643` ESCOVA PARA PROTESE DENTAL BITUFO
+    - Código BRANET: "" → "14738"
+    - Código cliente BRANET: "" → "51959"
+- **[BRANET]** `4150806` ESPATULA DE FREER
+    - Código BRANET: "" → "15720"
+    - Código cliente BRANET: "" → "15720"
+    - Nome na BRANET: "" → "ESPATULA DE FREER (CEO)"
+- **[BRANET]** `4150512` ESPATULA DE INSERCAO DE MATERIAL Nº 1
+    - Código BRANET: "" → "15083"
+    - Código cliente BRANET: "" → "52310"
+- **[BRANET]** `4150807` ESPATULA DUPLA DE CERA Nº 31
+    - Código BRANET: "" → "15060"
+    - Código cliente BRANET: "" → "52322"
+    - Nome na BRANET: "" → "ESPATULA DUPLA Nº 31"
+- **[BRANET]** `4150808` ESPATULA DUPLA DE CERA Nº 7
+    - Código BRANET: "" → "15046"
+    - Código cliente BRANET: "" → "52321"
+- **[BRANET]** `4150514` ESPATULA DUPLA Nº 50
+    - Código BRANET: "" → "15128"
+    - Código cliente BRANET: "" → "52323"
+- **[BRANET]** `4150809` ESPATULA LE CRON Nº 5
+    - Código BRANET: "" → "11488"
+    - Código cliente BRANET: "" → "52328"
+- **[BRANET]** `4150516` ESPATULA PARA INSERÇÃO DE RESINA FOTOPOLIMERIZAVEL Nº 1
+    - Código BRANET: "" → "15721"
+    - Código cliente BRANET: "" → "15721"
+    - Nome na BRANET: "" → "ESPATULA P/ INSERCAO DE RESINA FOTOPOLIMERIZAVEL Nº 1"
+- **[BRANET]** `4150515` ESPATULA PARA INSERCAO DE MATERIAL Nº 3
+    - Código BRANET: "" → "15066"
+    - Código cliente BRANET: "" → "52293"
+- **[BRANET]** `4150810` ESPATULA PLASTICA PARA MANIPULAÇÃO DE GESSO/ALGINATO (PROTESE)
+    - Código BRANET: "" → "11547"
+    - Código cliente BRANET: "" → "52343"
+    - Nome na BRANET: "" → "ESPATULA PLASTICA P/ MAN GESSO/ALGINATO (PROTESE)"
+- **[BRANET]** `4150811` ESPATULA SIMPLES PARA CERA Nº36
+    - Código BRANET: "" → "12952"
+    - Código cliente BRANET: "" → "52345"
+    - Nome na BRANET: "" → "ESPATULA SIMPLES P/ CERA Nº36"
+- **[BRANET]** `4150519` ESPELHO BUCAL 1º PLANO Nº 5
+    - Código BRANET: "" → "15225"
+    - Código cliente BRANET: "" → "52425"
+- **[BRANET]** `4150976` ESPELHO DE MÃO
+    - Código BRANET: "" → "21137"
+    - Código cliente BRANET: "" → "21137"
+- **[BRANET]** `4150520` ESPELHO BUCAL Nº 5
+    - Código BRANET: "" → "10436"
+    - Código cliente BRANET: "" → "52426"
+- **[BRANET]** `4150812` ESTOJO INOX PARA ENDO 12X5CM
+    - Código BRANET: "" → "15141"
+    - Código cliente BRANET: "" → "15141"
+    - Nome na BRANET: "" → "ESTOJO INOX P/ ENDO 12X5CM (CEO)"
+- **[BRANET]** `4151179` ESTOJO PARA KIT DE HIGIENE DENTAL
+    - Código BRANET: "" → "21188"
+    - Código cliente BRANET: "" → "118497"
+- **[BRANET]** `4151132` EXTIRPA NERVO AMARELO 21MM
+    - Código BRANET: "" → "11592"
+    - Código cliente BRANET: "" → "54182"
+- **[BRANET]** `4151133` EXTIRPA NERVO BRANCO 21MM
+    - Código BRANET: "" → "15636"
+    - Código cliente BRANET: "" → "54183"
+- **[BRANET]** `4150813` CURETEA PERIODONTAL MC CALL 17/18 HF
+    - Código BRANET: "" → "15723"
+    - Código cliente BRANET: "" → "15723"
+    - Nome na BRANET: "" → "CURETA PERIODONTAL MC CALL Nº 17/18 HF (CEO)"
+- **[BRANET]** `4150814` FACILITADOR DE GODOY ADULTO/INFANTIL (KIT)
+    - Código BRANET: "" → "15146"
+    - Código cliente BRANET: "" → "15146"
+- **[BRANET]** `4150646` FILME PVC ROLO COM 30M
+    - Código BRANET: "" → "14278"
+    - Código cliente BRANET: "" → "55871"
+- **[BRANET]** `4150815` FIO DE ACO CIRURGICO Nº 0 PARA AMARRIA
+    - Código BRANET: "" → "15132"
+    - Código cliente BRANET: "" → "15132"
+    - Nome na BRANET: "" → "FIO DE ACO CIRURGICO Nº 0 P/ AMARRIA (CEO)"
+- **[BRANET]** `4150649` FIO DE NYLON PARA CONTENÇÃO DENTAL
+    - Código BRANET: "" → "14915"
+    - Código cliente BRANET: "" → "14915"
+    - Nome na BRANET: "" → "FIO DE NYLON P/ CONFECCAO DE CONTENCAO DENTAL"
+- **[BRANET]** `4150653` FIO DE SEDA TRANCADO Nº3-0 AGULHADO
+    - Código BRANET: "" → "14333"
+    - Código cliente BRANET: "" → "56675"
+- **[BRANET]** `4151161` FIO DE SUTURA POLIGLACTINA COM AGULHA TRIFACETADA 3-0 / 1,9CM / 70CM
+    - Código BRANET: "" → "20784"
+    - Código cliente BRANET: "" → "20784"
+    - Nome na BRANET: "" → "FIO DE SUTURA POLIGLACTINA AG TRIFACETADA 3-0 1,9CM 70CM"
+- **[BRANET]** `4151163` FIO DE SUTURA POLIGLACTINA COM AGULHA TRIFACETADA 4-0 / 1,6CM / 45CM
+    - Código BRANET: "" → "12806"
+    - Código cliente BRANET: "" → "56670"
+    - Nome na BRANET: "" → "FIO DE SUTURA POLIGLACTINA AG TRIFACETADA 4-0 1,6CM 45CM (ODONTOLOGIA)"
+- **[BRANET]** `4151164` FIO DE SUTURA POLIGLACTINA COM AGULHA TRIFACETADA 5-0 / 1,6CM / 45CM
+    - Código BRANET: "" → "17105"
+    - Código cliente BRANET: "" → "17105"
+    - Nome na BRANET: "" → "FIO DE SUTURA POLIGLACTINA AG TRIFACETADA 5-0 1,6CM 45CM (ODONTOLOGIA)"
+- **[BRANET]** `4151165` FIO DE SUTURA POLIGLACTINA COM AGULHA TRIFACETADA 6-0 / 1,6CM / 45CM
+    - Código BRANET: "" → "17882"
+    - Código cliente BRANET: "" → "56672"
+    - Nome na BRANET: "" → "FIO DE SUTURA POLIGLACTINA AG TRIFACETADA 6-0 1,6CM 45CM (ODONTOLOGIA)"
+- **[BRANET]** `4151170` FIO DE SUTURA SEDA 4-0 AGULHADO 1/2 CIRC TRIANGULAR - 45CM
+    - Código BRANET: "" → "11190"
+    - Código cliente BRANET: "" → "118939"
+- **[BRANET]** `4150658` FIO DENTAL 50MT UNIDADE
+    - Código BRANET: "" → "11723"
+    - Código cliente BRANET: "" → "118619"
+- **[BRANET]** `4150661` FLUOR GEL ACIDO APLICACAO TOPICA 1 MINUTO 200ML
+    - Código BRANET: "" → "10476"
+    - Código cliente BRANET: "" → "58339"
+- **[BRANET]** `4150547` FORCEPS INFANTIL Nº 1
+    - Código BRANET: "" → "15283"
+    - Código cliente BRANET: "" → "59001"
+- **[BRANET]** `4150549` FORCEPS INFANTIL Nº 18 D
+    - Código BRANET: "" → "15309"
+    - Código cliente BRANET: "" → "15309"
+- **[BRANET]** `4150550` FORCEPS INFANTIL Nº 18 L
+    - Código BRANET: "" → "15308"
+    - Código cliente BRANET: "" → "59002"
+- **[BRANET]** `4150551` FORCEPS INFANTIL Nº 18 R
+    - Código BRANET: "" → "10430"
+    - Código cliente BRANET: "" → "10430"
+- **[BRANET]** `4150552` FORCEPS INFANTIL Nº 3
+    - Código BRANET: "" → "15311"
+    - Código cliente BRANET: "" → "15311"
+- **[BRANET]** `4150554` FORCEPS INFANTIL Nº 44
+    - Código BRANET: "" → "11537"
+    - Código cliente BRANET: "" → "59003"
+- **[BRANET]** `4150555` FORCEPS INFANTIL Nº 5
+    - Código BRANET: "" → "15310"
+    - Código cliente BRANET: "" → "15310"
+- **[BRANET]** `4150557` FORCEPS INFANTIL Nº 6
+    - Código BRANET: "" → "15307"
+    - Código cliente BRANET: "" → "59004"
+- **[BRANET]** `4150558` FORCEPS INFANTIL Nº 68
+    - Código BRANET: "" → "15306"
+    - Código cliente BRANET: "" → "59005"
+- **[BRANET]** `4150568` FÓRCEPS INFANTIL Nº 69
+    - Código BRANET: "" → "10434"
+    - Código cliente BRANET: "" → "10434"
+    - Nome na BRANET: "" → "FORCEPS ODONTOLOGICO INFANTIL Nº 69"
+- **[BRANET]** `4150522` FORCEPS ODONTOLOGICO ADULTO Nº 1
+    - Código BRANET: "" → "11535"
+    - Código cliente BRANET: "" → "58963"
+- **[BRANET]** `4150523` FORCEPS ODONTOLOGICO ADULTO Nº 101
+    - Código BRANET: "" → "15286"
+    - Código cliente BRANET: "" → "58965"
+- **[BRANET]** `4150525` FORCEPS ODONTOLOGICO ADULTO Nº 121
+    - Código BRANET: "" → "15727"
+    - Código cliente BRANET: "" → "15727"
+- **[BRANET]** `4150526` FORCEPS ODONTOLOGICO ADULTO Nº 150
+    - Código BRANET: "" → "10428"
+    - Código cliente BRANET: "" → "58967"
+- **[BRANET]** `4150527` FORCEPS ODONTOLOGICO ADULTO Nº 151
+    - Código BRANET: "" → "10423"
+    - Código cliente BRANET: "" → "10423"
+- **[BRANET]** `4150529` FORCEPS ODONTOLOGICO ADULTO Nº 16
+    - Código BRANET: "" → "13009"
+    - Código cliente BRANET: "" → "13009"
+- **[BRANET]** `4150536` FORCEPS ODONTOLOGICO ADULTO Nº 17
+    - Código BRANET: "" → "10424"
+    - Código cliente BRANET: "" → "10424"
+- **[BRANET]** `4150537` FORCEPS ODONTOLOGICO ADULTO Nº 18 L
+    - Código BRANET: "" → "10427"
+    - Código cliente BRANET: "" → "58974"
+- **[BRANET]** `4150538` FORCEPS ODONTOLOGICO ADULTO Nº 18 R
+    - Código BRANET: "" → "10425"
+    - Código cliente BRANET: "" → "10425"
+- **[BRANET]** `4150539` FORCEPS ODONTOLOGICO ADULTO Nº 203
+    - Código BRANET: "" → "15313"
+    - Código cliente BRANET: "" → "15313"
+- **[BRANET]** `4150540` FORCEPS ODONTOLOGICO ADULTO Nº 213
+    - Código BRANET: "" → "15312"
+    - Código cliente BRANET: "" → "58979"
+- **[BRANET]** `4150542` FORCEPS ODONTOLOGICO ADULTO Nº 65
+    - Código BRANET: "" → "11534"
+    - Código cliente BRANET: "" → "11534"
+- **[BRANET]** `4150544` FORCEPS ODONTOLOGICO ADULTO Nº 68
+    - Código BRANET: "" → "11533"
+    - Código cliente BRANET: "" → "11533"
+- **[BRANET]** `4150546` FORCEPS ODONTOLOGICO ADULTO Nº 69
+    - Código BRANET: "" → "10429"
+    - Código cliente BRANET: "" → "58989"
+- **[BRANET]** `4150666` FORMOCRESOL 10 ML LÍQUIDO
+    - Código BRANET: "" → "10475"
+    - Código cliente BRANET: "" → "59114"
+- **[BRANET]** `4150816` GENGIVOTOMO DE ORBAN
+    - Código BRANET: "" → "15243"
+    - Código cliente BRANET: "" → "15243"
+    - Nome na BRANET: "" → "GENGIVOTOMO DE ORBAN (CEO)"
+- **[BRANET]** `4150817` GENGIVOTOMO KIRKLAND
+    - Código BRANET: "" → "15242"
+    - Código cliente BRANET: "" → "15242"
+    - Nome na BRANET: "" → "GENGIVOTOMO KIRKLAND (CEO)"
+- **[BRANET]** `4151178` GODIVA DE BAIXA FUSAO (CX/ 15 BASTOES)
+    - Código BRANET: "" → "14390"
+    - Código cliente BRANET: "" → "14390"
+- **[BRANET]** `4150818` GRAL PARA GESSO E ALGINATO
+    - Código BRANET: "" → "14884"
+    - Código cliente BRANET: "" → "61895"
+- **[BRANET]** `4150570` GRAMPO PARA ISOLAMENTO COM DIQUE Nº 00
+    - Código BRANET: "" → "15183"
+    - Código cliente BRANET: "" → "62111"
+    - Nome na BRANET: "" → "GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 00"
+- **[BRANET]** `4150575` GRAMPO PARA ISOLAMENTO COM DIQUE Nº 1 A
+    - Código BRANET: "" → "15267"
+    - Código cliente BRANET: "" → "62116"
+    - Nome na BRANET: "" → "GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 1 A"
+- **[BRANET]** `4150572` GRAMPO PARA ISOLAMENTO COM DIQUE Nº 12 A
+    - Código BRANET: "" → "13070"
+    - Código cliente BRANET: "" → "62112"
+    - Nome na BRANET: "" → "GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 12 A"
+- **[BRANET]** `4150573` GRAMPO PARA ISOLAMENTO COM DIQUE Nº 14
+    - Código BRANET: "" → "15180"
+    - Código cliente BRANET: "" → "62114"
+    - Nome na BRANET: "" → "GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 14"
+- **[BRANET]** `4150574` GRAMPO PARA ISOLAMENTO COM DIQUE Nº 14 A
+    - Código BRANET: "" → "15260"
+    - Código cliente BRANET: "" → "62115"
+    - Nome na BRANET: "" → "GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 14 A"
+- **[BRANET]** `4150578` GRAMPO PARA ISOLAMENTO COM DIQUE Nº 201
+    - Código BRANET: "" → "13076"
+    - Código cliente BRANET: "" → "62117"
+    - Nome na BRANET: "" → "GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 201"
+- **[BRANET]** `4150579` GRAMPO PARA ISOLAMENTO COM DIQUE Nº 203
+    - Código BRANET: "" → "15268"
+    - Código cliente BRANET: "" → "15268"
+    - Nome na BRANET: "" → "GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 203"
+- **[BRANET]** `4150581` GRAMPO PARA ISOLAMENTO COM DIQUE Nº 204
+    - Código BRANET: "" → "15184"
+    - Código cliente BRANET: "" → "62118"
+    - Nome na BRANET: "" → "GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 204"
+- **[BRANET]** `4150582` GRAMPO PARA ISOLAMENTO COM DIQUE Nº 205
+    - Código BRANET: "" → "15271"
+    - Código cliente BRANET: "" → "15271"
+    - Nome na BRANET: "" → "GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 205"
+- **[BRANET]** `4150584` GRAMPO PARA ISOLAMENTO COM DIQUE Nº 207
+    - Código BRANET: "" → "15270"
+    - Código cliente BRANET: "" → "15270"
+    - Nome na BRANET: "" → "GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 207"
+- **[BRANET]** `4150585` GRAMPO PARA ISOLAMENTO COM DIQUE Nº 208
+    - Código BRANET: "" → "13050"
+    - Código cliente BRANET: "" → "13050"
+    - Nome na BRANET: "" → "GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 208"
+- **[BRANET]** `4150586` GRAMPO PARA ISOLAMENTO COM DIQUE Nº 209
+    - Código BRANET: "" → "13075"
+    - Código cliente BRANET: "" → "62119"
+    - Nome na BRANET: "" → "GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 209"
+- **[BRANET]** `4150588` GRAMPO PARA ISOLAMENTO COM DIQUE Nº 211
+    - Código BRANET: "" → "13071"
+    - Código cliente BRANET: "" → "62120"
+    - Nome na BRANET: "" → "GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 211"
+- **[BRANET]** `4150589` GRAMPO PARA ISOLAMENTO COM DIQUE Nº 212
+    - Código BRANET: "" → "13082"
+    - Código cliente BRANET: "" → "62121"
+    - Nome na BRANET: "" → "GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 212"
+- **[BRANET]** `4150591` GRAMPO PARA ISOLAMENTO COM DIQUE Nº 214
+    - Código BRANET: "" → "15269"
+    - Código cliente BRANET: "" → "15269"
+    - Nome na BRANET: "" → "GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 214"
+- **[BRANET]** `4150594` GRAMPO PARA ISOLAMENTO COM DIQUE Nº 27
+    - Código BRANET: "" → "15186"
+    - Código cliente BRANET: "" → "62124"
+    - Nome na BRANET: "" → "GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 27"
+- **[BRANET]** `4150596` GRAMPO PARA ISOLAMENTO COM DIQUE Nº W8A
+    - Código BRANET: "" → "15261"
+    - Código cliente BRANET: "" → "62125"
+    - Nome na BRANET: "" → "GRAMPO P/ ISOLAMENTO C/ DIQUE Nº W8A"
+- **[BRANET]** `4150576` GRAMPO PARA ISOLAMENTO COM DIQUE Nº200
+    - Código BRANET: "" → "13051"
+    - Código cliente BRANET: "" → "13051"
+    - Nome na BRANET: "" → "GRAMPO P/ ISOLAMENTO C/ DIQUE Nº200"
+- **[BRANET]** `4150592` GRAMPO PARA ISOLAMENTO COM DIQUE Nº 26
+    - Código BRANET: "" → "13074"
+    - Código cliente BRANET: "" → "62122"
+    - Nome na BRANET: "" → "GRAMPO P/ ISOLAMENTO COM DIQUE Nº 26"
+- **[BRANET]** `4150593` GRAMPO PARA ISOLAMENTO COM DIQUE Nº 26 A
+    - Código BRANET: "" → "15730"
+    - Código cliente BRANET: "" → "15730"
+    - Nome na BRANET: "" → "GRAMPO P/ ISOLAMENTO COM DIQUE Nº 26 A"
+- **[BRANET]** `4150671` HEMOSTATICO LIQUIDO 10ML
+    - Código BRANET: "" → "11449"
+    - Código cliente BRANET: "" → "11449"
+- **[BRANET]** `4150675` HIDROXIDO CALCIO PO 10G
+    - Código BRANET: "" → "10400"
+    - Código cliente BRANET: "" → "63126"
+- **[BRANET]** `4150614` PONTA PARA ULTRASSOM - SCHUSTER (T1-S, T2-S, T3-S)
+    - Código BRANET: "" → "15254"
+    - Código cliente BRANET: "" → "15254"
+    - Nome na BRANET: "" → "INSERTO JET LAXIS SONIC T1, T2 E T3"
+- **[BRANET]** `4150624` PONTA PARA ULTRASSOM - ORTUS (G1)
+    - Código BRANET: "" → "17895"
+    - Código cliente BRANET: "" → "64306"
+    - Nome na BRANET: "" → "INSERTO P/ AP ULTRASSOM ORTUS G1"
+- **[BRANET]** `4150620` PONTA PARA ULTRASSOM - ORTUS (G1, G2, G4)
+    - Código BRANET: "" → "18493"
+    - Código cliente BRANET: "" → "18493"
+    - Nome na BRANET: "" → "INSERTO P/ AP ULTRASSOM ORTUS G1,G2,G4"
+- **[BRANET]** `4150627` PONTA PARA ULTRASSOM - ORTUS (G2)
+    - Código BRANET: "" → "20813"
+    - Código cliente BRANET: "" → "20813"
+    - Nome na BRANET: "" → "INSERTO P/ AP ULTRASSOM ORTUS G2"
+- **[BRANET]** `4150628` PONTA PARA ULTRASSOM - ORTUS (G4)
+    - Código BRANET: "" → "20814"
+    - Código cliente BRANET: "" → "64316"
+    - Nome na BRANET: "" → "INSERTO P/ AP ULTRASSOM ORTUS G4"
+- **[BRANET]** `4150610` PONTA PARA ULTRASSOM - ALT (G1)
+    - Código BRANET: "" → "15256"
+    - Código cliente BRANET: "" → "15256"
+    - Nome na BRANET: "" → "INSERTO P/ APAR ALTSONIC JET CERAMIC G1"
+- **[BRANET]** `4150608` PONTA PARA ULTRASSOM - ALT (G1, G2, P4)
+    - Código BRANET: "" → "15255"
+    - Código cliente BRANET: "" → "15255"
+    - Nome na BRANET: "" → "INSERTO P/ APAR ALTSONIC JET CERAMIC G1, G2, P4"
+- **[BRANET]** `4150611` PONTA PARA ULTRASSOM - ALT (G2)
+    - Código BRANET: "" → "20377"
+    - Código cliente BRANET: "" → "64305"
+    - Nome na BRANET: "" → "INSERTO P/ APAR ALTSONIC JET CERAMIC G2"
+- **[BRANET]** `4150612` PONTA PARA ULTRASSOM - ALT (G3)
+    - Código BRANET: "" → "20378"
+    - Código cliente BRANET: "" → "20378"
+    - Nome na BRANET: "" → "INSERTO P/ APAR ALTSONIC JET CERAMIC G3"
+- **[BRANET]** `4150598` PONTA PARA ULTRASSOM - ALT (Nº 1)
+    - Código BRANET: "" → "20810"
+    - Código cliente BRANET: "" → "64315"
+    - Nome na BRANET: "" → "INSERTO P/ ULTRASSOM COMP/ MARCA ALT SONIC JET CEMRAMIC Nº1"
+- **[BRANET]** `4150603` PONTA PARA ULTRASSOM - ALT (Nº 2)
+    - Código BRANET: "" → "20811"
+    - Código cliente BRANET: "" → "64314"
+    - Nome na BRANET: "" → "INSERTO P/ ULTRASSOM COMP/ MARCA ALT SONIC JET CEMRAMIC Nº2"
+- **[BRANET]** `4150604` PONTA PARA ULTRASSOM - ALT (Nº 3)
+    - Código BRANET: "" → "20812"
+    - Código cliente BRANET: "" → "64298"
+    - Nome na BRANET: "" → "INSERTO P/ ULTRASSOM COMP/ MARCA ALT SONIC JET CEMRAMIC Nº3"
+- **[BRANET]** `4150630` PONTA PARA ULTRASSOM - DABI ATLANTE (PERIO SUB)
+    - Código BRANET: "" → "20779"
+    - Código cliente BRANET: "" → "64308"
+    - Nome na BRANET: "" → "INSERTO PARA ULTRASSOM ORIGINAL PERIO SUB PROFINEO"
+- **[BRANET]** `4150632` PONTA PARA ULTRASSOM - ECEL (Nº 2)
+    - Código BRANET: "" → "20788"
+    - Código cliente BRANET: "" → "64312"
+    - Nome na BRANET: "" → "INSERTO PARA ULTRASSOM ORIGINAL PERIO SUPRA Nº02 SONIC MAX PLUS"
+- **[BRANET]** `4150634` PONTA PARA ULTRASSOM - DABI ATLANTE (PERIO SUPRA)
+    - Código BRANET: "" → "20786"
+    - Código cliente BRANET: "" → "64313"
+    - Nome na BRANET: "" → "INSERTO PARA ULTRASSOM ORIGINAL PERIO SUPRA PROFINEO"
+- **[BRANET]** `4150639` PONTA PARA ULTRASSOM - SCHUSTER (T1-S)
+    - Código BRANET: "" → "20789"
+    - Código cliente BRANET: "" → "64317"
+    - Nome na BRANET: "" → "INSERTO PARA ULTRASSOM ORIGINAL T1-S MODELO JETLAXIS SONIC LED"
+- **[BRANET]** `4150640` PONTA PARA ULTRASSOM - SCHUSTER (T3-S)
+    - Código BRANET: "" → "20790"
+    - Código cliente BRANET: "" → "118030"
+    - Nome na BRANET: "" → "INSERTO PARA ULTRASSOM ORIGINAL T3-S MODELO JETLAXIS SONIC LED"
+- **[BRANET]** `4150642` PONTA PARA ULTRASSOM - SCHUSTER (T4-S)
+    - Código BRANET: "" → "20791"
+    - Código cliente BRANET: "" → "118031"
+    - Nome na BRANET: "" → "INSERTO PARA ULTRASSOM ORIGINAL T4-S MODELO JETLAXIS SONIC LED"
+- **[BRANET]** `4150618` PONTA PARA ULTRASSOM - ECEL (Nº 1)
+    - Código BRANET: "" → "20787"
+    - Código cliente BRANET: "" → "64311"
+    - Nome na BRANET: "" → "INSERTO PARA ULTRASSOM ORIGINAL UNIVERSAL Nº01 SONIC MAX PLUS"
+- **[BRANET]** `4150644` KIT DE FANTOCHES DE SAUDE BUCAL (CONJUNTO COM 6 PEÇAS)
+    - Código BRANET: "" → "15134"
+    - Código cliente BRANET: "" → "15134"
+    - Nome na BRANET: "" → "KIT DE FANTOCHES DE SAUDE BUCAL (CONJ C/ 6 PECAS)"
+- **[BRANET]** `4150645` KIT MACRO MODELO EDUCATIVO ODONTOLOGICO
+    - Código BRANET: "" → "15737"
+    - Código cliente BRANET: "" → "67371"
+- **[BRANET]** `4150682` LAMINA BISTURI ACO CARBONO Nº 12
+    - Código BRANET: "" → "10863"
+    - Código cliente BRANET: "" → "68012"
+- **[BRANET]** `4150820` LAMPARINA HANNAU PLASTICA (PROTESE)
+    - Código BRANET: "" → "11562"
+    - Código cliente BRANET: "" → "68634"
+- **[BRANET]** `4150821` LAMPARINA INOX
+    - Código BRANET: "" → "13021"
+    - Código cliente BRANET: "" → "68635"
+- **[BRANET]** `4150688` LÁPIS CÓPIA (PROTESE)
+    - Código BRANET: "" → "14428"
+    - Código cliente BRANET: "" → "68876"
+- **[BRANET]** `4150691` LENÇOL DE BORRACHA (CAIXA COM 26)
+    - Código BRANET: "" → "13063"
+    - Código cliente BRANET: "" → "69521"
+    - Nome na BRANET: "" → "LENCOL DE BORRACHA (CX C/26)"
+- **[BRANET]** `4150822` LIMA DE SCHLUGER
+    - Código BRANET: "" → "15139"
+    - Código cliente BRANET: "" → "69872"
+    - Nome na BRANET: "" → "LIMA DE SCHLUGER (CEO)"
+- **[BRANET]** `4150927` LIMA END RECIPR NIQ-TIT SMALL 25 MM (CARTELA COM 3 UNIDADES)
+    - Código BRANET: "" → "15660"
+    - Código cliente BRANET: "" → "69883"
+    - Nome na BRANET: "" → "LIMA END RECIPR NIQ-TIT SMALL 25 MM(CART 3 UNI)"
+- **[BRANET]** `4150924` LIMA END RECIPR NIQ-TITAN LARGE 25 MM (CARTELA COM 3 UNIDADES)
+    - Código BRANET: "" → "15316"
+    - Código cliente BRANET: "" → "69877"
+    - Nome na BRANET: "" → "LIMA END RECIPR NIQ-TITAN LARGE 25 MM (CARTELA C/ 3)"
+- **[BRANET]** `4150925` LIMA END RECIPR NIQ-TITAN PRIMARY 21MM (CARTELA COM 3 UNIDADES)
+    - Código BRANET: "" → "14258"
+    - Código cliente BRANET: "" → "69879"
+    - Nome na BRANET: "" → "LIMA END RECIPR NIQ-TITAN PRIMARY 21MM(CART 3 UNI)"
+- **[BRANET]** `4150926` LIMA END RECIPR NIQ-TITAN PRIMARY 25MM (CARTELA COM 3 UNIDADES)
+    - Código BRANET: "" → "14290"
+    - Código cliente BRANET: "" → "69880"
+    - Nome na BRANET: "" → "LIMA END RECIPR NIQ-TITAN PRIMARY 25MM(CART 3 UNI)"
+- **[BRANET]** `4150921` LIMA ENDO RECIPROC N-T MEDIUM 21 MM (CARTELA COM 3 UNIDADES)
+    - Código BRANET: "" → "14262"
+    - Código cliente BRANET: "" → "69873"
+    - Nome na BRANET: "" → "LIMA ENDO RECIPROC N-T MEDIUM 21 MM (CARTELA C/3)"
+- **[BRANET]** `4150922` LIMA ENDO RECIPROC N-T MEDIUM 25 MM (CARTELA COM 3 UNIDADES)
+    - Código BRANET: "" → "14919"
+    - Código cliente BRANET: "" → "69874"
+    - Nome na BRANET: "" → "LIMA ENDO RECIPROC N-T MEDIUM 25 MM (CARTELA C/ 3)"
+- **[BRANET]** `4150923` LIMA ENDO RECIPROC N-T MEDIUM 31 MM (CARTELA COM 3 UNIDADES)
+    - Código BRANET: "" → "14297"
+    - Código cliente BRANET: "" → "69875"
+    - Nome na BRANET: "" → "LIMA ENDO RECIPROC N-T MEDIUM 31 MM (CARTELA C/3)"
+- **[BRANET]** `4150928` LIMA FLEXOFILE 15-40/25 MM (CAIXA COM 6 UNIDADES)
+    - Código BRANET: "" → "15657"
+    - Código cliente BRANET: "" → "69893"
+    - Nome na BRANET: "" → "LIMA FLEXOFILE 15/40 25 MM (CEO) (CAIXA C/6)"
+- **[BRANET]** `4150929` LIMA FLEXOFILE 15-40/31 MM (CAIXA COM 6 UNIDADES)
+    - Código BRANET: "" → "14269"
+    - Código cliente BRANET: "" → "69894"
+    - Nome na BRANET: "" → "LIMA FLEXOFILE 15/40 31 MM (CEO) (CAIXA C/6)"
+- **[BRANET]** `4150920` LIMA FLEXOFILE 20/21 MM (CARTELA COM 6 UNIDADES)
+    - Código BRANET: "" → "15045"
+    - Código cliente BRANET: "" → "69895"
+    - Nome na BRANET: "" → "LIMA FLEXOFILE Nº 20/21 MM (CARTELA C/ 6)"
+- **[BRANET]** `4150932` LIMA FLEXOFILE 3 SERIE 90/140 (CARTELA COM 6 UNIDADES)
+    - Código BRANET: "" → "15007"
+    - Código cliente BRANET: "" → "69909"
+    - Nome na BRANET: "" → "LIMA FLEXOFILE 3 SERIE 90/140 (CEO)(CART 6 UNI)"
+- **[BRANET]** `4150930` LIMA FLEXOFILE 35/21 MM (CAIXA COM 6 UNIDADES)
+    - Código BRANET: "" → "18250"
+    - Código cliente BRANET: "" → "69901"
+    - Nome na BRANET: "" → "LIMA FLEXOFILE 35 C/ 21 MM CAIXA C/6"
+- **[BRANET]** `4150931` LIMA FLEXOFILE 35/25 MM (CAIXA COM 6 UNIDADES)
+    - Código BRANET: "" → "18251"
+    - Código cliente BRANET: "" → "18251"
+    - Nome na BRANET: "" → "LIMA FLEXOFILE 35 C/ 25 MM CAIXA C/6"
+- **[BRANET]** `4150933` LIMA FLEXOFILE 40/21 MM (CAIXA COM 6 UNIDADES)
+    - Código BRANET: "" → "18252"
+    - Código cliente BRANET: "" → "18252"
+    - Nome na BRANET: "" → "LIMA FLEXOFILE 40 C/ 21 MM CAIXA C/6"
+- **[BRANET]** `4150934` LIMA FLEXOFILE 40/25 MM (CAIXA COM 6 UNIDADES)
+    - Código BRANET: "" → "18253"
+    - Código cliente BRANET: "" → "69904"
+    - Nome na BRANET: "" → "LIMA FLEXOFILE 40 C/ 25 MM CAIXA C/6"
+- **[BRANET]** `4150935` LIMA FLEXOFILE 45-80/25 MM (CARTELA COM 6 UNIDADES)
+    - Código BRANET: "" → "14268"
+    - Código cliente BRANET: "" → "69906"
+    - Nome na BRANET: "" → "LIMA FLEXOFILE 45/80 25 MM (CEO)(CART 6 UNI)"
+- **[BRANET]** `4150936` LIMA FLEXOFILE 45-80/31 MM (CARTELA COM 6 UNIDADES)
+    - Código BRANET: "" → "15024"
+    - Código cliente BRANET: "" → "69908"
+    - Nome na BRANET: "" → "LIMA FLEXOFILE 45/80 31 MM (CEO)(CART 6/UNI)"
+- **[BRANET]** `4150938` LIMA FLEXOFILE 45/80 21 MM (CARTELA COM 6 UNIDADES)
+    - Código BRANET: "" → "14920"
+    - Código cliente BRANET: "" → "69905"
+    - Nome na BRANET: "" → "LIMA FLEXOFILE Nº 45/80 21 MM (CEO) (CARTELA C/ 6)"
+- **[BRANET]** `4150953` LIMA K-FILE 06/21 MM (CARTELA COM 6 UNIDADES)
+    - Código BRANET: "" → "15129"
+    - Código cliente BRANET: "" → "69911"
+    - Nome na BRANET: "" → "LIMA K-FILE Nº 6/21 MM (CARTELA C/ 6)"
+- **[BRANET]** `4150943` LIMA K-FILE 06/31 MM (CARTELA COM 6 UNIDADES)
+    - Código BRANET: "" → "19527"
+    - Código cliente BRANET: "" → "69913"
+    - Nome na BRANET: "" → "LIMA K-FILE Nº06/31 MM (CARTELA C/ 6)"
+- **[BRANET]** `4150955` LIMA K-FILE 08/21 MM (CARTELA COM 6 UNIDADES)
+    - Código BRANET: "" → "15058"
+    - Código cliente BRANET: "" → "69914"
+    - Nome na BRANET: "" → "LIMA K-FILE Nº 8/21 MM (CEO) (CARTELA C/ 6)"
+- **[BRANET]** `4150941` LIMA K-FILE 08/25MM (CAIXA COM 6 UNIDADES)
+    - Código BRANET: "" → "14261"
+    - Código cliente BRANET: "" → "69915"
+    - Nome na BRANET: "" → "LIMA K-FILE N8/25 MM (CARTELA C/ 6)"
+- **[BRANET]** `4150944` LIMA K-FILE 08/31 MM (CARTELA COM 6 UNIDADES)
+    - Código BRANET: "" → "14260"
+    - Código cliente BRANET: "" → "69916"
+    - Nome na BRANET: "" → "LIMA K-FILE Nº 08/31 MM (CARTELA C/ 6)"
+- **[BRANET]** `4150729` LIMA K-FILE 10/21 MM (CAIXA COM 6 UNIDADES)
+    - Código BRANET: "" → "14968"
+    - Código cliente BRANET: "" → "69917"
+    - Nome na BRANET: "" → "LIMA K-FILE 10 (21 MM)"
+- **[BRANET]** `4150946` LIMA K-FILE 10/31 MM (CARTELA COM 6 UNIDADES)
+    - Código BRANET: "" → "19659"
+    - Código cliente BRANET: "" → "69919"
+    - Nome na BRANET: "" → "LIMA K-FILE Nº 10/31 MM (CARTELA C/ 6)"
+- **[BRANET]** `4150947` LIMA K-FILE 15/25 MM (CAIXA COM 6 UNIDADES)
+    - Código BRANET: "" → "15071"
+    - Código cliente BRANET: "" → "69891"
+    - Nome na BRANET: "" → "LIMA K-FILE Nº 15/25 MM (CEO) (CAIXA C/ 6)"
+- **[BRANET]** `4150948` LIMA K-FILE 20/25 MM (CARTELA COM 6 UNIDADES)
+    - Código BRANET: "" → "15057"
+    - Código cliente BRANET: "" → "69896"
+    - Nome na BRANET: "" → "LIMA K-FILE Nº 20/25 MM (CEO) (CARTELA C/ 6)"
+- **[BRANET]** `4150949` LIMA K-FILE 25/21 MM (CARTELA COM 6 UNIDADES)
+    - Código BRANET: "" → "14263"
+    - Código cliente BRANET: "" → "69897"
+    - Nome na BRANET: "" → "LIMA K-FILE Nº 25/21 MM(CART 6 UNI)"
+- **[BRANET]** `4150950` LIMA K-FILE 25/25 MM (CARTELA COM 6 UNIDADES)
+    - Código BRANET: "" → "14266"
+    - Código cliente BRANET: "" → "69898"
+    - Nome na BRANET: "" → "LIMA K-FILE Nº 25/25 MM(CART 6 UNI)"
+- **[BRANET]** `4150951` LIMA K-FILE 30/21 MM (CARTELA COM 6 UNIDADES)
+    - Código BRANET: "" → "14264"
+    - Código cliente BRANET: "" → "69899"
+    - Nome na BRANET: "" → "LIMA K-FILE Nº 30/21 MM(CART 6 UNI)"
+- **[BRANET]** `4150952` LIMA K-FILE 30/25 MM (CARTELA COM 6 UNIDADES)
+    - Código BRANET: "" → "14753"
+    - Código cliente BRANET: "" → "69900"
+    - Nome na BRANET: "" → "LIMA K-FILE Nº 30/25 MM (CARTELA C/6)"
+- **[BRANET]** `4150939` LIMA KERR 3 SERIE 90-140/25 MM (CAIXA COM 6 UNIDADES)
+    - Código BRANET: "" → "14940"
+    - Código cliente BRANET: "" → "69921"
+    - Nome na BRANET: "" → "LIMA KERR 3 SERIE 90-140/25 MM (CEO)"
+- **[BRANET]** `4150959` LIMA PARA LIMPEZA FINAL CANAL RADICULAR (CARTELA COM 4 UNIDADES)
+    - Código BRANET: "" → "17846"
+    - Código cliente BRANET: "" → "69935"
+    - Nome na BRANET: "" → "LIMA P/ LIMPEZA FINAL CANAL RADICULAR"
+- **[BRANET]** `4150648` LIMA PARA OSSO Nº11
+    - Código BRANET: "" → "13080"
+    - Código cliente BRANET: "" → "13080"
+- **[BRANET]** `4150960` LIMA RECIPROCANTE LARGE 21 MM (CARTELA COM 3 UNIDADES)
+    - Código BRANET: "" → "14926"
+    - Código cliente BRANET: "" → "69876"
+    - Nome na BRANET: "" → "LIMA RECIPROCANTE LARGE 21 MM (CARTELA C/ 3)"
+- **[BRANET]** `4150961` LIMA RECIPROCANTE LARGE 31 MM (CARTELA COM 3 UNIDADES)
+    - Código BRANET: "" → "14958"
+    - Código cliente BRANET: "" → "69878"
+    - Nome na BRANET: "" → "LIMA RECIPROCANTE LARGE 31 MM (CARTELA C/ 3)"
+- **[BRANET]** `4150962` LIMA RECIPROCANTE PRIMARY 31MM (CARTELA COM 3 UNIDADES)
+    - Código BRANET: "" → "14953"
+    - Código cliente BRANET: "" → "69881"
+    - Nome na BRANET: "" → "LIMA RECIPROCANTE PRIMARY 31MM(CART 3 UNI)"
+- **[BRANET]** `4150963` LIMA RECIPROCANTE SMALL 21MM (CARTELA COM 3 UNIDADES)
+    - Código BRANET: "" → "14293"
+    - Código cliente BRANET: "" → "69882"
+    - Nome na BRANET: "" → "LIMA RECIPROCANTE SMALL 21MM(CART 3UNI)"
+- **[BRANET]** `4150964` LIMA RECIPROCANTE SMALL 31MM (CARTELA COM 3 UNIDADES)
+    - Código BRANET: "" → "14291"
+    - Código cliente BRANET: "" → "69884"
+    - Nome na BRANET: "" → "LIMA RECIPROCANTE SMALL 31MM(CART 3UNI)"
+- **[BRANET]** `4150965` LIMA ROTATORIA DE RETRATAMENTO D1, D2, D3 (CAIXA COM 6 UNIDADES)
+    - Código BRANET: "" → "14265"
+    - Código cliente BRANET: "" → "69966"
+    - Nome na BRANET: "" → "LIMA ROTATORIA EM NI TI DE RETRATAMENTO D1, D2, D3(CX/6 LIMAS)"
+- **[BRANET]** `4150972` LIMA ROTATORIA M-WIRE X1, X2, X3/21MM (CAIXA COM 3 UNIDADES)
+    - Código BRANET: "" → "14257"
+    - Código cliente BRANET: "" → "69947"
+    - Nome na BRANET: "" → "LIMA ROTATORIA EM NI TI M-WIRE X1, X2, X3 COM 21MM"
+- **[BRANET]** `4150973` LIMA ROTATORIA M-WIRE X1, X2, X3/25MM (CAIXA COM 3 UNIDADES)
+    - Código BRANET: "" → "14294"
+    - Código cliente BRANET: "" → "69945"
+    - Nome na BRANET: "" → "LIMA ROTATORIA EM NI TI M-WIRE X1, X2, X3 COM 25MM"
+- **[BRANET]** `4150974` LIMA ROTATORIA M-WIRE X1, X2, X3/31MM (CAIXA COM 3 UNIDADES)
+    - Código BRANET: "" → "15006"
+    - Código cliente BRANET: "" → "69946"
+    - Nome na BRANET: "" → "LIMA ROTATORIA EM NI TI M-WIRE X1, X2, X3 COM 31MM"
+- **[BRANET]** `4150975` LIMA ROTATORIA M-WIRE X4/25MM (CARTELA COM 3 UNIDADES)
+    - Código BRANET: "" → "14292"
+    - Código cliente BRANET: "" → "69948"
+    - Nome na BRANET: "" → "LIMA ROTATORIA EM NI TI M-WIRE X4 C/25MM"
+- **[BRANET]** `4150966` LIMA ROTATORIA M-WIRE X5/25 MM (CARTELA COM 3 UNIDADES)
+    - Código BRANET: "" → "14947"
+    - Código cliente BRANET: "" → "69949"
+    - Nome na BRANET: "" → "LIMA ROTATORIA EM NI TI M-WIRE X 5 COM 25 MM (CARTELA C/ 3)"
+- **[BRANET]** `4150967` LIMA ROTATORIA SX19 MM PARA PRE-ALARGAMENTO (CAIXA COM 6 UNIDADES)
+    - Código BRANET: "" → "14941"
+    - Código cliente BRANET: "" → "69952"
+    - Nome na BRANET: "" → "LIMA ROTATORIA SX19 MM P/ PRE-ALARGAMENTO EM NI TI (CX/ 6)"
+- **[BRANET]** `4150971` LIMA TIPO KERR 10/31 MM (CARTELA COM 6 UNIDADES)
+    - Código BRANET: "" → "14948"
+    - Código cliente BRANET: "" → "14948"
+    - Nome na BRANET: "" → "LIMA TIPO KERR Nº 10/31 MM (CARTELA C/ 6)"
+- **[BRANET]** `4151048` LIMA TIPO KERR Nº 6/31 MM
+    - Código BRANET: "" → "14279"
+    - Código cliente BRANET: "" → "14279"
+- **[BRANET]** `4151049` LIXA PARA MADEIRA Nº 220 (PROTESE)
+    - Código BRANET: "" → "15022"
+    - Código cliente BRANET: "" → "71725"
+- **[BRANET]** `4150731` MANDRIL BR PARA CONTRA ÂNGULO
+    - Código BRANET: "" → "14888"
+    - Código cliente BRANET: "" → "75468"
+    - Nome na BRANET: "" → "MANDRIL BR P/ CONTRA ANGULO"
+- **[BRANET]** `4150968` MANDRIL PM CONICO TIRA DE LIXA
+    - Código BRANET: "" → "13024"
+    - Código cliente BRANET: "" → "75472"
+- **[BRANET]** `4151050` MAT DE MOLD A BASE DE POLIETER MANUAL
+    - Código BRANET: "" → "15662"
+    - Código cliente BRANET: "" → "15662"
+- **[BRANET]** `4151051` MATERIAL DE MOLDAGEM (SILICONE DE CONDENSACAO) CATALISADOR
+    - Código BRANET: "" → "21007"
+    - Código cliente BRANET: "" → "21007"
+- **[BRANET]** `4151053` MATERIAL DE MOLDAGEM IMPREGUM SOFT ALTA VISCOSIDADE - KIT
+    - Código BRANET: "" → "17855"
+    - Código cliente BRANET: "" → "17855"
+- **[BRANET]** `4151054` MATERIAL DE MOLDAGEM IMPREGUM SOFT BAIXA VISCOSIDADE - KIT
+    - Código BRANET: "" → "17856"
+    - Código cliente BRANET: "" → "17856"
+- **[BRANET]** `4151055` MATERIAL DE MOLDAGEM IMPREGUM SOFT MEDIA VISCOSIDADE - KIT
+    - Código BRANET: "" → "18475"
+    - Código cliente BRANET: "" → "18475"
+- **[BRANET]** `4151056` MATERIAL REEMBASADOR PROVISORIO - KIT
+    - Código BRANET: "" → "14407"
+    - Código cliente BRANET: "" → "78044"
+- **[BRANET]** `4150734` MATRIZ DE AÇO INOXIDÁVEL 5 MM (0,05X5MMX50)
+    - Código BRANET: "" → "19524"
+    - Código cliente BRANET: "" → "78053"
+- **[BRANET]** `4150737` MATRIZ DE AÇO INOXIDÁVEL 7 MM (0,05X7MMX50)
+    - Código BRANET: "" → "14089"
+    - Código cliente BRANET: "" → "78054"
+- **[BRANET]** `4150738` MATRIZ DE AÇO TOFFLEMIRE (COM 12 TIRAS)
+    - Código BRANET: "" → "14951"
+    - Código cliente BRANET: "" → "78055"
+    - Nome na BRANET: "" → "MATRIZ DE ACO TOFFLEMERI (C/ 12 TIRAS)"
+- **[BRANET]** `4150823` MICRO CINZEIS DE OCHSENBEIN Nº1
+    - Código BRANET: "" → "12968"
+    - Código cliente BRANET: "" → "79498"
+    - Nome na BRANET: "" → "MICRO CINZEIS DE OCHSENBEIN Nº1 (CEO)"
+- **[BRANET]** `4150824` MICRO CINZEL OCHSENBEIN Nº1
+    - Código BRANET: "" → "20776"
+    - Código cliente BRANET: "" → "20776"
+- **[BRANET]** `4150825` MINI ORGANIZADOR PLASTICO COM TAMPA
+    - Código BRANET: "" → "14741"
+    - Código cliente BRANET: "" → "80162"
+    - Nome na BRANET: "" → "MINI ORGANIZADOR PLASTICO C/ TAMPA (PROTESE)"
+- **[BRANET]** `4150826` MOLDEIRA INOX 1-4 LISA INFERIOR PARA MOLDAGEM ADULTO
+    - Código BRANET: "" → "15240"
+    - Código cliente BRANET: "" → "15240"
+- **[BRANET]** `4150827` MOLDEIRA PARA EDENTADOS HDR ANATOMO FISIOLOGICA (CARTELA COM 3 PARES)
+    - Código BRANET: "" → "14749"
+    - Código cliente BRANET: "" → "80685"
+    - Nome na BRANET: "" → "MOLDEIRA P/ EDENTADOS HDR ANATOMO FISIOLOGICA (CARTELA C/ 3 PARES)"
+- **[BRANET]** `4150828` MOLDEIRA PARA DENTADOS DE ALUMINIO POL PERF (JOGO COM 9 MOLDEIRAS)
+    - Código BRANET: "" → "15147"
+    - Código cliente BRANET: "" → "80684"
+    - Nome na BRANET: "" → "MOLDEIRA PARA DENTADOS DE ALUMINIO POL PERF (JOGO C/ 9 MOLDEIRAS)"
+- **[BRANET]** `4150744` PAPEL DETECTOR (BLOCO COM 12 FOLHAS)
+    - Código BRANET: "" → "15069"
+    - Código cliente BRANET: "" → "85785"
+    - Nome na BRANET: "" → "PAPEL DETECTOR (BLOCO C/ 12 FOLHAS)"
+- **[BRANET]** `4151106` PASTA DE HIDROX CALCIO PARA ENDODONTIA-SER/AGUL PARA APLICACAO
+    - Código BRANET: "" → "14345"
+    - Código cliente BRANET: "" → "87433"
+    - Nome na BRANET: "" → "PASTA DE HIDROX CALCIO P/ ENDODONTIA-SER/AGUL P APLICACAO"
+- **[BRANET]** `4150742` PASTA PARA TRATAMENTO DE ALVEOLITE 10G
+    - Código BRANET: "" → "18259"
+    - Código cliente BRANET: "" → "18259"
+    - Nome na BRANET: "" → "PASTA P/ TRATAMENTO DE ALVEOLITE 10G"
+- **[BRANET]** `4150741` PASTA PROFILATICA COM FLUOR 90G
+    - Código BRANET: "" → "10406"
+    - Código cliente BRANET: "" → "87813"
+- **[BRANET]** `4151057` PASTA ZINCO ENOLICA BISNAGA 60G
+    - Código BRANET: "" → "20735"
+    - Código cliente BRANET: "" → "87918"
+- **[BRANET]** `4151058` PAVIO PARA LAMPARINA (PACOTE COM 10 UNIDADES)
+    - Código BRANET: "" → "12942"
+    - Código cliente BRANET: "" → "88626"
+    - Nome na BRANET: "" → "PAVIO PARA LAMPARINA (PCT C/10 UN)"
+- **[BRANET]** `4151059` PAVIO PARA LAMPARINA (PACOTE COM 12 UNIDADES)
+    - Código BRANET: "" → "21048"
+    - Código cliente BRANET: "" → "21048"
+    - Nome na BRANET: "" → "PAVIO PARA LAMPARINA (PCT C/12 UN)"
+- **[BRANET]** `4151060` PEDRA DE OXIDO DE ALUMINIO CILINDRICA PARA PEÇA DE MAO
+    - Código BRANET: "" → "14932"
+    - Código cliente BRANET: "" → "88911"
+    - Nome na BRANET: "" → "PEDRA DE OXIDO DE ALUMINIO CILINDRICA P/ PECA DE MAO"
+- **[BRANET]** `4151061` PEDRA DE OXIDO DE ALUMINIO CONICA INVERTIDA PARA PEÇA DE MAO
+    - Código BRANET: "" → "14937"
+    - Código cliente BRANET: "" → "88912"
+    - Nome na BRANET: "" → "PEDRA DE OXIDO DE ALUMINIO CONICA INVERTIDA P/ PECA DE MAO"
+- **[BRANET]** `4151062` PEDRA DE OXIDO DE ALUMINIO CONICA PARA PEÇA DE MAO
+    - Código BRANET: "" → "14938"
+    - Código cliente BRANET: "" → "88913"
+    - Nome na BRANET: "" → "PEDRA DE OXIDO DE ALUMINIO CONICA P/ PECA DE MAO"
+- **[BRANET]** `4150829` PEDRA MONTADA CILINDRICA 0,5MM PARA DESGASTE DE METAL, ESTERILIZAVEL
+    - Código BRANET: "" → "20731"
+    - Código cliente BRANET: "" → "88920"
+- **[BRANET]** `4150830` PEDRA MONTADA CILINDRICA 0,7MM PARA DESGASTE DE METAL
+    - Código BRANET: "" → "20732"
+    - Código cliente BRANET: "" → "88922"
+- **[BRANET]** `4150832` PEDRA MONTADA TRONCO CONICA 0,42MM PARA DESGASTE DE METAL
+    - Código BRANET: "" → "20733"
+    - Código cliente BRANET: "" → "88924"
+- **[BRANET]** `4150652` PEDRA PARA AFIACAO
+    - Código BRANET: "" → "10466"
+    - Código cliente BRANET: "" → "88926"
+- **[BRANET]** `4151063` PEDRA POMES PO 100 GR
+    - Código BRANET: "" → "21059"
+    - Código cliente BRANET: "" → "21059"
+- **[BRANET]** `4151064` PEDRA POMES PO 1KG
+    - Código BRANET: "" → "11451"
+    - Código cliente BRANET: "" → "88932"
+- **[BRANET]** `4150833` PINCA ATRAUMATICA DIETRICH 16 CM
+    - Código BRANET: "" → "15196"
+    - Código cliente BRANET: "" → "89965"
+    - Nome na BRANET: "" → "PINCA ATRAUMATICA DIETRICH 16 CM (CEO)"
+- **[BRANET]** `4150656` PINCA CLINICA Nº 17
+    - Código BRANET: "" → "10467"
+    - Código cliente BRANET: "" → "90187"
+- **[BRANET]** `4150835` PINCA GOIVA BLUMENTHAL
+    - Código BRANET: "" → "15755"
+    - Código cliente BRANET: "" → "15755"
+    - Nome na BRANET: "" → "PINCA GOIVA BLUMENTHAL (CEO)"
+- **[BRANET]** `4150836` PINCA MULLER PARA CARBONO (PROTESE)
+    - Código BRANET: "" → "12958"
+    - Código cliente BRANET: "" → "90122"
+- **[BRANET]** `4150657` PINCA PORTA GRAMPO DE PALMER
+    - Código BRANET: "" → "12925"
+    - Código cliente BRANET: "" → "12925"
+- **[BRANET]** `4151065` PINCEL PELO DE PONEI
+    - Código BRANET: "" → "14288"
+    - Código cliente BRANET: "" → "90681"
+- **[BRANET]** `4150739` PINCEL TIPO PELO DE MARTA 00
+    - Código BRANET: "" → "14256"
+    - Código cliente BRANET: "" → "90733"
+- **[BRANET]** `4150659` PLACA DE VIDRO FINA 15X6X06
+    - Código BRANET: "" → "10443"
+    - Código cliente BRANET: "" → "91828"
+- **[BRANET]** `4150837` PLANO DE CAMPER PARA PROTESE
+    - Código BRANET: "" → "15171"
+    - Código cliente BRANET: "" → "92096"
+    - Nome na BRANET: "" → "PLANO DE CAMPER P/ PROTESE (CEO)"
+- **[BRANET]** `4151066` PONTA DE ASPIRACAO ENDODONTICA VERDE 25MM (PACOTE COM 5)
+    - Código BRANET: "" → "17098"
+    - Código cliente BRANET: "" → "93495"
+    - Nome na BRANET: "" → "PONTA DE ASPIRACAO ENDODONTICA VERDE 25MM (PCT C/5)"
+- **[BRANET]** `4151069` PONTA DE GUTA PERCHA ACES TAM RS
+    - Código BRANET: "" → "14254"
+    - Código cliente BRANET: "" → "93405"
+- **[BRANET]** `4151070` PONTA DE GUTA PERCHA PRINCIPAL Nº 25
+    - Código BRANET: "" → "14251"
+    - Código cliente BRANET: "" → "93407"
+- **[BRANET]** `4151071` PONTA DE GUTA PERCHA PRINCIPAL Nº 30
+    - Código BRANET: "" → "14252"
+    - Código cliente BRANET: "" → "93408"
+- **[BRANET]** `4151072` PONTA DE GUTA PERCHA PRINCIPAL Nº 40
+    - Código BRANET: "" → "14253"
+    - Código cliente BRANET: "" → "93410"
+- **[BRANET]** `4151073` PONTA DE GUTA PERCHA PRINCIPAL Nº35
+    - Código BRANET: "" → "14245"
+    - Código cliente BRANET: "" → "93409"
+- **[BRANET]** `4151074` PONTA DE IRRIGACAO ENDODONTICA AMARELA 21MM
+    - Código BRANET: "" → "17097"
+    - Código cliente BRANET: "" → "93497"
+- **[BRANET]** `4151075` PONTA DE IRRIGACAO ENDODONTICA AZUL 25MM
+    - Código BRANET: "" → "17096"
+    - Código cliente BRANET: "" → "93496"
+- **[BRANET]** `4151076` PONTA DE PAPEL ABSORVENTE Nº 15-40
+    - Código BRANET: "" → "15667"
+    - Código cliente BRANET: "" → "15667"
+    - Nome na BRANET: "" → "PONTA DE PAPEL ABSORVENTE Nº 15-40 (CEO)"
+- **[BRANET]** `4151077` PONTA DE PAPEL ABSORVENTE Nº 25
+    - Código BRANET: "" → "14243"
+    - Código cliente BRANET: "" → "93418"
+- **[BRANET]** `4151078` PONTA DE PAPEL ABSORVENTE Nº 30
+    - Código BRANET: "" → "14242"
+    - Código cliente BRANET: "" → "93419"
+- **[BRANET]** `4151079` PONTA DE PAPEL ABSORVENTE Nº 35
+    - Código BRANET: "" → "14250"
+    - Código cliente BRANET: "" → "93420"
+- **[BRANET]** `4151080` PONTA DE PAPEL ABSORVENTE Nº 40
+    - Código BRANET: "" → "14249"
+    - Código cliente BRANET: "" → "93421"
+- **[BRANET]** `4151081` PONTA DE PAPEL ABSORVENTE Nº 45-80
+    - Código BRANET: "" → "14246"
+    - Código cliente BRANET: "" → "93417"
+    - Nome na BRANET: "" → "PONTA DE PAPEL ABSORVENTE Nº 45-80 (CEO)"
+- **[BRANET]** `4151082` PONTA MISTURADORA PARA APARELHO PENTAMIX II (PACOTE COM 10)
+    - Código BRANET: "" → "20352"
+    - Código cliente BRANET: "" → "20352"
+    - Nome na BRANET: "" → "PONTA MISTURADORA P/ APARELHO PENTAMIX II (PACT/10)"
+- **[BRANET]** `4151083` PONTA MISTURADORA PARA APARELHO PENTAMIX II (PACOTE COM 12)
+    - Código BRANET: "" → "17122"
+    - Código cliente BRANET: "" → "17122"
+    - Nome na BRANET: "" → "PONTA MISTURADORA P/ APARELHO PENTAMIX II (PACT/12)"
+- **[BRANET]** `4151084` PONTA MISTURADORA PARA APARELHO PENTAMIX II (PACOTE COM 30)
+    - Código BRANET: "" → "14370"
+    - Código cliente BRANET: "" → "93499"
+    - Nome na BRANET: "" → "PONTA MISTURADORA P/ APARELHO PENTAMIX II (PACT/30)"
+- **[BRANET]** `4150638` PONTA PARA ULTRASSOM - KAVO (Nº 6)
+    - Código BRANET: "" → "15138"
+    - Código cliente BRANET: "" → "15138"
+    - Nome na BRANET: "" → "PONTA PARA ULTRASON SONIC BORDEN KAVO Nº 6"
+- **[BRANET]** `4150636` PONTA PARA ULTRASSOM - KAVO (Nº 7)
+    - Código BRANET: "" → "15137"
+    - Código cliente BRANET: "" → "15137"
+    - Nome na BRANET: "" → "PONTA PARA ULTRASON SONIC BORDEN KAVO Nº 7"
+- **[BRANET]** `4150665` PONTEIRA CROMADA REMOVIVEL PARA KIT SUCTOR IV SCHUSTER
+    - Código BRANET: "" → "15251"
+    - Código cliente BRANET: "" → "15251"
+    - Nome na BRANET: "" → "PONTEIRA CROMADA REMOVIVEL P/ KIT SUCTOR IV SCHUSTER"
+- **[BRANET]** `4150662` PONTEIRA UNIVERSAL COMP COM TDS APAR FOTOP 12 MM
+    - Código BRANET: "" → "18494"
+    - Código cliente BRANET: "" → "18494"
+    - Nome na BRANET: "" → "PONTEIRA UNIVERSAL COMP C/TDS APAR FOTOP 12 MM"
+- **[BRANET]** `4150664` PONTEIRA UNIVERSAL COMP COM TDS APAR FOTOP 15 MM
+    - Código BRANET: "" → "18495"
+    - Código cliente BRANET: "" → "18495"
+    - Nome na BRANET: "" → "PONTEIRA UNIVERSAL COMP C/TDS APAR FOTOP 15 MM"
+- **[BRANET]** `4150838` PORTA AGULHA CASTROVIEJO RETO
+    - Código BRANET: "" → "15305"
+    - Código cliente BRANET: "" → "93885"
+    - Nome na BRANET: "" → "PORTA AGULHA CASTROVIEJO RETO (CEO)"
+- **[BRANET]** `4150672` PORTA AGULHA MAYO HEGAR COM WIDEA 14CM
+    - Código BRANET: "" → "20194"
+    - Código cliente BRANET: "" → "93892"
+- **[BRANET]** `4150839` PORTA AGULHA MAYO HEGAR COM WIDEA 15CM
+    - Código BRANET: "" → "10444"
+    - Código cliente BRANET: "" → "10444"
+    - Nome na BRANET: "" → "PORTA AGULHA MAYO HEGAR COM WIDEA 15CM (CEO)"
+- **[BRANET]** `4150673` PORTA ALGODAO DE INOX UNIDADE
+    - Código BRANET: "" → "10447"
+    - Código cliente BRANET: "" → "93906"
+- **[BRANET]** `4150840` PORTA AMALGAMA MICRO PEDIATRICO INOX
+    - Código BRANET: "" → "15136"
+    - Código cliente BRANET: "" → "93908"
+    - Nome na BRANET: "" → "PORTA AMALGAMA MICRO PEDIATRICO INOX (CEO)"
+- **[BRANET]** `4150676` PORTA MATRIZ IVORY Nº 8
+    - Código BRANET: "" → "10455"
+    - Código cliente BRANET: "" → "119622"
+- **[BRANET]** `4150678` PORTA MATRIZ TOFFLEMIRE
+    - Código BRANET: "" → "15047"
+    - Código cliente BRANET: "" → "94152"
+- **[BRANET]** `4150680` PORTA RESIDUO
+    - Código BRANET: "" → "14878"
+    - Código cliente BRANET: "" → "94185"
+- **[BRANET]** `4150850` POSICIONADOR DE FILME RX ADULTO
+    - Código BRANET: "" → "14743"
+    - Código cliente BRANET: "" → "14743"
+- **[BRANET]** `4150852` POSICIONADOR DE FILME RX INFANTIL
+    - Código BRANET: "" → "14740"
+    - Código cliente BRANET: "" → "14740"
+- **[BRANET]** `4150681` POTE DAPPEN DE VIDRO
+    - Código BRANET: "" → "12961"
+    - Código cliente BRANET: "" → "94339"
+- **[BRANET]** `4150683` POTE PALADON COM TAMPA DE VIDRO
+    - Código BRANET: "" → "11569"
+    - Código cliente BRANET: "" → "94355"
+- **[BRANET]** `4150685` PRENDEDOR DE GUARDANAPO (CORRENTE TIPO JACARE)
+    - Código BRANET: "" → "15130"
+    - Código cliente BRANET: "" → "94878"
+- **[BRANET]** `4151085` PROTETOR DE MANGUEIRA EM TNT (PACT/10)
+    - Código BRANET: "" → "15669"
+    - Código cliente BRANET: "" → "95806"
+    - Nome na BRANET: "" → "PROTETOR DE MANGUEIRA EM TNT (CEO) - EMBALAGEM COM 10 UN"
+- **[BRANET]** `4150700` PROTETOR DESCARTAVEL TIPO BABADOR (PACOTE COM 100 UNIDADES)
+    - Código BRANET: "" → "14398"
+    - Código cliente BRANET: "" → "95828"
+    - Nome na BRANET: "" → "BABADOR DESCARTAVEL (PCT/ 100 UN)"
+- **[BRANET]** `4151086` REFIL DO TAMBOREL (COM 50 UNIDADES)
+    - Código BRANET: "" → "13097"
+    - Código cliente BRANET: "" → "97939"
+    - Nome na BRANET: "" → "REFIL DO TAMBOREL (C/ 50 UNID) (CEO)"
+- **[BRANET]** `4151087` REFIL MAT MOLD (IMPRESSAO) PASTA BASE/PASTA CATAL PENTAMIX (PROTESE)
+    - Código BRANET: "" → "14812"
+    - Código cliente BRANET: "" → "14812"
+- **[BRANET]** `4150841` REGUA CALIBRADORA EM PPS PARA ENDODONTIA
+    - Código BRANET: "" → "15133"
+    - Código cliente BRANET: "" → "98639"
+    - Nome na BRANET: "" → "REGUA CALIBRADORA EM PPS P/ ENDODONTIA"
+- **[BRANET]** `4150842` REGUA DE FOX (PROTESE)
+    - Código BRANET: "" → "15135"
+    - Código cliente BRANET: "" → "15135"
+- **[BRANET]** `4150843` REGUA ENDODONTICA MET MILIMETRADA
+    - Código BRANET: "" → "15244"
+    - Código cliente BRANET: "" → "15244"
+    - Nome na BRANET: "" → "REGUA ENDODONTICA MET MILIMETRADA (CEO)"
+- **[BRANET]** `4151088` REMOVEDOR DE CERAS E GORDURAS PARA TRABALHOS PROTETICOS
+    - Código BRANET: "" → "15670"
+    - Código cliente BRANET: "" → "99027"
+    - Nome na BRANET: "" → "REMOVEDOR DE CERAS E GORDURAS P/ TRABALHOS PROTETICOS"
+- **[BRANET]** `4151089` RESINA ACRIL RAAQ PO INCOLOR (440G)
+    - Código BRANET: "" → "14273"
+    - Código cliente BRANET: "" → "14273"
+- **[BRANET]** `4151090` RESINA ACRILICA AUTOPOLIMERIZAVEL INCOLOR (440G)
+    - Código BRANET: "" → "15673"
+    - Código cliente BRANET: "" → "99428"
+- **[BRANET]** `4151091` RESINA ACRILICA ODONTO POLIMERIZAVEL POR MICROONDAS INCOLOR (440 GR)
+    - Código BRANET: "" → "14221"
+    - Código cliente BRANET: "" → "99430"
+- **[BRANET]** `4151092` RESINA ACRILICA PATTERN KIT PO+LIQ
+    - Código BRANET: "" → "20736"
+    - Código cliente BRANET: "" → "20736"
+- **[BRANET]** `4151093` RESINA ACRILICA PO COR Nº 60
+    - Código BRANET: "" → "17885"
+    - Código cliente BRANET: "" → "17885"
+- **[BRANET]** `4151094` RESINA ACRILICA PO COR Nº 67
+    - Código BRANET: "" → "14222"
+    - Código cliente BRANET: "" → "99438"
+- **[BRANET]** `4151095` RESINA ACRILICA PO COR Nº 69
+    - Código BRANET: "" → "14220"
+    - Código cliente BRANET: "" → "99439"
+- **[BRANET]** `4151096` RESINA ACRILICA PO COR Nº 77
+    - Código BRANET: "" → "15023"
+    - Código cliente BRANET: "" → "99433"
+- **[BRANET]** `4151097` RESINA ACRILICA PO COR Nº 81
+    - Código BRANET: "" → "14813"
+    - Código cliente BRANET: "" → "99440"
+- **[BRANET]** `4151098` RESINA ACRILICA RAAQ LIQUIDA (120ML)
+    - Código BRANET: "" → "14275"
+    - Código cliente BRANET: "" → "99422"
+- **[BRANET]** `4151099` RESINA ACRILICA RAAQ PO COR Nº 61
+    - Código BRANET: "" → "15074"
+    - Código cliente BRANET: "" → "99434"
+- **[BRANET]** `4151100` RESINA ACRILICA RAAQ PO COR Nº 62
+    - Código BRANET: "" → "14216"
+    - Código cliente BRANET: "" → "99435"
+- **[BRANET]** `4151101` RESINA ACRILICA RAAQ PO COR Nº 65
+    - Código BRANET: "" → "14217"
+    - Código cliente BRANET: "" → "99436"
+- **[BRANET]** `4151102` RESINA ACRILICA RAAQ PO COR Nº 66
+    - Código BRANET: "" → "14218"
+    - Código cliente BRANET: "" → "99437"
+- **[BRANET]** `4151103` RESINA ACRILICA RAAQ PO INCOLOR (1KG)
+    - Código BRANET: "" → "17002"
+    - Código cliente BRANET: "" → "99425"
+- **[BRANET]** `4151104` RESINA ACRILICA RAAQ PO INCOLOR (78 G)
+    - Código BRANET: "" → "14219"
+    - Código cliente BRANET: "" → "99441"
+- **[BRANET]** `4151105` RESINA ACRILICA RAAQ PO ROSA MEDIO (78G)
+    - Código BRANET: "" → "14276"
+    - Código cliente BRANET: "" → "99442"
+- **[BRANET]** `4151107` RESINA ACRILICA TERMO POLIMERIZANTE ROSA
+    - Código BRANET: "" → "21060"
+    - Código cliente BRANET: "" → "21060"
+- **[BRANET]** `4151108` RESINA ACRILICA TERMOPOLIMERIZAVEL POR MICRO ONDAS LIQUIDA (250ML)
+    - Código BRANET: "" → "14274"
+    - Código cliente BRANET: "" → "99426"
+    - Nome na BRANET: "" → "RESINA ACRILICA TERMOPOLIMERIZAVEL POR MICRO ONDAS LIQUIDA FRASCO 250ML"
+- **[BRANET]** `4151109` RESINA ACRILICA TERMOPOLIMERIZAVEL POR MICRO ONDAS PO ROSA MEDIO (450G)
+    - Código BRANET: "" → "14234"
+    - Código cliente BRANET: "" → "99431"
+- **[BRANET]** `4151110` RESINA AUTO POLIMERIZANTE PO INCOLOR (80G)
+    - Código BRANET: "" → "15315"
+    - Código cliente BRANET: "" → "15315"
+    - Nome na BRANET: "" → "RESINA AUTO POLIMERIZANTE PO 80G INCOLOR"
+- **[BRANET]** `4150716` RESINA COMPOSTA FLUIDA COR A3
+    - Código BRANET: "" → "14272"
+    - Código cliente BRANET: "" → "99515"
+- **[BRANET]** `4150733` RESINA FOTOPOLIMERIZAVEL COR A2 ESMALTE
+    - Código BRANET: "" → "11615"
+    - Código cliente BRANET: "" → "99474"
+    - Nome na BRANET: "" → "RESINA COMPOSTA A2 ESMALTE"
+- **[BRANET]** `4150732` RESINA FOTOPOLIMERIZAVEL COR A3 DENTINA
+    - Código BRANET: "" → "14270"
+    - Código cliente BRANET: "" → "99475"
+    - Nome na BRANET: "" → "RESINA COMPOSTA A3 DENTINA"
+- **[BRANET]** `4150730` RESINA FOTOPOLIMERIZAVEL COR A3 ESMALTE
+    - Código BRANET: "" → "14207"
+    - Código cliente BRANET: "" → "99476"
+    - Nome na BRANET: "" → "RESINA COMPOSTA A3 ESMALTE"
+- **[BRANET]** `4151047` RESINA FOTOPOLIMERIZAVEL UNICROMATICA
+    - Código BRANET: "" → "21035"
+    - Código cliente BRANET: "" → "21035"
+- **[BRANET]** `4151111` RESTAURADOR PROVISORIO FOTOPOLIMERIZAVEL
+    - Código BRANET: "" → "15674"
+    - Código cliente BRANET: "" → "15674"
+- **[BRANET]** `4150715` REVELADOR DE PLACA BACTERIANA 500ML
+    - Código BRANET: "" → "14387"
+    - Código cliente BRANET: "" → "100104"
+- **[BRANET]** `4151114` RODA DE ALGODAO PARA TORNO DE POLIMENTO DE RESINA
+    - Código BRANET: "" → "14406"
+    - Código cliente BRANET: "" → "14406"
+- **[BRANET]** `4151115` RODA DE FLANELA PARA TORNO DE POLIMENTO DE RESINA
+    - Código BRANET: "" → "14405"
+    - Código cliente BRANET: "" → "100578"
+- **[BRANET]** `4150718` ROLETE DENTAL DE ALGODÃO (COM 100 UNIDADES)
+    - Código BRANET: "" → "10402"
+    - Código cliente BRANET: "" → "101004"
+    - Nome na BRANET: "" → "ROLETE DENTAL DE ALGODAO (C/100 UNID)"
+- **[BRANET]** `4150686` SACA BROCA UNIDADE
+    - Código BRANET: "" → "11456"
+    - Código cliente BRANET: "" → "101794"
+- **[BRANET]** `4150713` SELANTE DENTAL FOTOPOLIMERIZÁVEL PARA FOSSULAS E FISSURAS
+    - Código BRANET: "" → "14395"
+    - Código cliente BRANET: "" → "103086"
+- **[BRANET]** `4150689` SERINGA CARPULE COM REFLUXO
+    - Código BRANET: "" → "13683"
+    - Código cliente BRANET: "" → "103435"
+- **[BRANET]** `4150844` SERINGA ENDODONTICA
+    - Código BRANET: "" → "15143"
+    - Código cliente BRANET: "" → "103526"
+    - Nome na BRANET: "" → "SERINGA ENDODONTICA (CEO)"
+- **[BRANET]** `4150690` SERINGA TRIPLICE QUADRADO CABO/BOTAO
+    - Código BRANET: "" → "17880"
+    - Código cliente BRANET: "" → "103544"
+- **[BRANET]** `4150692` SINDESMOTOMO
+    - Código BRANET: "" → "10438"
+    - Código cliente BRANET: "" → "105918"
+    - Nome na BRANET: "" → "SINDESMOTOMO 2"
+- **[BRANET]** `4151118` SOLUCAO DE CLOREXIDINA 2% 100ML
+    - Código BRANET: "" → "14229"
+    - Código cliente BRANET: "" → "106335"
+    - Nome na BRANET: "" → "SOLUCAO DE CLOREXIDINA A 2% 100ML (CEO)"
+- **[BRANET]** `4151116` SOLUCAO DE HIPOCLORITO DE SODIO 2,5% 1L
+    - Código BRANET: "" → "14392"
+    - Código cliente BRANET: "" → "106355"
+    - Nome na BRANET: "" → "SOLUCAO DE HIPOCLORITO DE SODIO A 2,5% 1L"
+- **[BRANET]** `4151117` SOLUCAO DE HIPOCLORITO DE SODIO 5% 1L
+    - Código BRANET: "" → "14393"
+    - Código cliente BRANET: "" → "14393"
+    - Nome na BRANET: "" → "SOLUCAO DE HIPOCLORITO DE SODIO A 5% 1L (CEO)"
+- **[BRANET]** `4150674` SOLUÇÃO HEMOSTÁTICA SEM EPINEFRINA
+    - Código BRANET: "" → "15681"
+    - Código cliente BRANET: "" → "106370"
+    - Nome na BRANET: "" → "SOLUCAO HEMOSTATICA S/ EPINEFRINA"
+- **[BRANET]** `4150845` SONDA DE NABERS Nº 2N COLORIDA PARA FURCA
+    - Código BRANET: "" → "15758"
+    - Código cliente BRANET: "" → "15758"
+    - Nome na BRANET: "" → "SONDA DE NABERS Nº 2N COLORIDA P/ FURCA"
+- **[BRANET]** `4151172` SONDA EXPLORADORA N°5
+    - Código BRANET: "" → "12966"
+    - Código cliente BRANET: "" → "106483"
+- **[BRANET]** `4151171` SONDA EXPLORADORA N°6
+    - Código BRANET: "" → "12951"
+    - Código cliente BRANET: "" → "12951"
+- **[BRANET]** `4150694` SONDA MILIMETRADA TIPO WHO (OMS)
+    - Código BRANET: "" → "15201"
+    - Código cliente BRANET: "" → "106512"
+- **[BRANET]** `4150695` SONDA RETA ENDO EXPLORACAO DE CANAIS
+    - Código BRANET: "" → "15200"
+    - Código cliente BRANET: "" → "106551"
+- **[BRANET]** `4150711` SPRAY LUBRIFICANTE
+    - Código BRANET: "" → "14332"
+    - Código cliente BRANET: "" → "106946"
+- **[BRANET]** `4150709` SUGADOR CIRURGICO ESTERIL DESCARTAVEL (CAIXA COM 40 UNIDADES)
+    - Código BRANET: "" → "14228"
+    - Código cliente BRANET: "" → "107220"
+    - Nome na BRANET: "" → "SUGADOR CIRURGICO ESTERIL DESCARTAVEL (CX/ 40UNID)"
+- **[BRANET]** `4150708` SUGADOR DESCARTÁVEL (PACOTE COM 40 UNIDADES)
+    - Código BRANET: "" → "10380"
+    - Código cliente BRANET: "" → "166221"
+- **[BRANET]** `4150745` SULFATO DE POLIMIXINA B + SULF NEOMICINA + HIDROCORTISONA (OTOSPORIN)
+    - Código BRANET: "" → "14403"
+    - Código cliente BRANET: "" → "107264"
+- **[BRANET]** `4150696` SUPORTE PARA APARELHO DE PROFILAXIA
+    - Código BRANET: "" → "14745"
+    - Código cliente BRANET: "" → "107653"
+- **[BRANET]** `4150853` TAMBOREL EM PLASTICO AUTOCLAVAVEL
+    - Código BRANET: "" → "13814"
+    - Código cliente BRANET: "" → "108541"
+- **[BRANET]** `4150846` TESOURA CIRURGICA GOLDMAN FOX
+    - Código BRANET: "" → "15259"
+    - Código cliente BRANET: "" → "110506"
+    - Nome na BRANET: "" → "TESOURA CIRURGICA GOLDMAN FOX (CEO)"
+- **[BRANET]** `4150847` TESOURA METZEMBAUM
+    - Código BRANET: "" → "15211"
+    - Código cliente BRANET: "" → "110648"
+    - Nome na BRANET: "" → "TESOURA METZEMBAUM (CEO)"
+- **[BRANET]** `4150848` TESOURA PARA CORTE DE FIO DE AÇO Nº 12
+    - Código BRANET: "" → "15253"
+    - Código cliente BRANET: "" → "15253"
+    - Nome na BRANET: "" → "TESOURA P/ CORTE DE FIO DE ACO Nº 12"
+- **[BRANET]** `4150703` TRICRESOL FORMALINA
+    - Código BRANET: "" → "10479"
+    - Código cliente BRANET: "" → "113990"
+    - Nome na BRANET: "" → "TRICRESOL FORMALINA 10ML"
+- **[BRANET]** `4151121` TUBO CIRURGICO DE SILICONE º 203
+    - Código BRANET: "" → "15682"
+    - Código cliente BRANET: "" → "15682"
+    - Nome na BRANET: "" → "TUBO CIRURGICO DE SILICONE º 203 (CEO)"
+- **[BRANET]** `4150702` VASELINA SÓLIDA ESPECIAL
+    - Código BRANET: "" → "14386"
+    - Código cliente BRANET: "" → "115658"
+    - Nome na BRANET: "" → "VASELINA SOLIDA ESPECIAL 20 A 35G"
+- **[BRANET]** `4151122` VASELINA SOLIDA POMADA 500G (PROTESE)
+    - Código BRANET: "" → "14388"
+    - Código cliente BRANET: "" → "115662"
+- **[BRANET]** `4150849` VIBRADOR DE GESSO
+    - Código BRANET: "" → "15760"
+    - Código cliente BRANET: "" → "116532"
+- **[BRANET]** `4151188` ABRITEC ADULTO (COM 2 UNIDADES)
+    - Código BRANET: "" → "10374"
+    - Código cliente BRANET: "" → "98971"
+    - Nome na BRANET: "" → "ABRIDOR DE BOCA TIPO ABRITEC (ADULTO)"
+- **[BRANET]** `4151189` AGULHA GENGIVAL LONGA 27 G DESCARTÁVEL (CAIXA COM 100 UNIDADES)
+    - Código BRANET: "" → "10378"
+    - Código cliente BRANET: "" → "113221"
+    - Nome na BRANET: "" → "AGULHA GENGIVAL LONGA 27 G (CAIXA COM 100 UNIDADES)"
+- **[BRANET]** `4151187` KIT CIRÚRGICO DESCATÁVEL ESTÉRIL (AVENTAL + PANO DE CAMPO)
+    - Código BRANET: "" → "21234"
+    - Código cliente BRANET: "" → "21234"
+    - Nome na BRANET: "" → "KIT DESCARTAVEL ESTERIL ODONTO (AVENTAIS + PANO DE CAMPO)"
+- **[BRANET]** `4151195` ALAVANCA APEXO 301, 302, 303 (KIT COM 3 PEÇAS)
+    - Código BRANET: "" → "18479"
+    - Código cliente BRANET: "" → "11528"
+    - Nome na BRANET: "" → "ALAVANCA APEXO 301,302,303 (KIT 3PECAS)"
+- **[BRANET]** `4151204` SUGADOR CIRURGICO ESTERIL DESCARTAVEL (CAIXA COM 20 UNIDADES)
+    - Código BRANET: "" → "21225"
+    - Código cliente BRANET: "" → "21225"
+    - Nome na BRANET: "" → "SUGADOR CIRURGICO ESTERIL DESCARTAVEL (CX/ 20UNID)"
+- **[BRANET]** `4151207` BROCA ALTA ROTAÇÃO DIAMANTADA 2128 F
+    - Código BRANET: "" → "15321"
+    - Código cliente BRANET: "" → "22976"
+    - Nome na BRANET: "" → "BROCA AR DIAMANTADA 2128 F"
+- **[BRANET]** `4151208` BROCA TUNGSTENIO ESFERICA PARA PEÇA RETA
+    - Código BRANET: "" → "14434"
+    - Código cliente BRANET: "" → "23027"
+    - Nome na BRANET: "" → "BROCA TUNGSTENIO ESFERICA P/ PC RETA (CEO)"
+- **[BRANET]** `4151209` CERA Nº7 (PROTESE)
+    - Código BRANET: "" → "13083"
+    - Código cliente BRANET: "" → "33693"
+- **[BRANET]** `4151210` CIMENTO MTA PARA PERFURACAO ENDO (CEO)
+    - Código BRANET: "" → "14809"
+    - Código cliente BRANET: "" → "34985"
+- **[BRANET]** `4151211` CURSOR EM SILICONE (CEO)
+    - Código BRANET: "" → "14946"
+    - Código cliente BRANET: "" → "46804"
+- **[BRANET]** `4151212` DETERGENTE NEUTRO 500 ML - FRS
+    - Código BRANET: "" → "20958"
+    - Código cliente BRANET: "" → "20958"
+- **[BRANET]** `4151214` DISCO DE LIXA DE OXIDO DE AL PARA ACABAM RESINA FOTO (COM 50 DISCOS)
+    - Código BRANET: "" → "21191"
+    - Código cliente BRANET: "" → "21191"
+    - Nome na BRANET: "" → "DISCO DE LIXA DE OXIDO DE AL P/ ACABAM RESINA FOTO (C/ 50 DISCOS)"
+- **[BRANET]** `4151215` DISCO DIAMANTADO PICOTADO PARA PEÇA DE MAO
+    - Código BRANET: "" → "14339"
+    - Código cliente BRANET: "" → "48416"
+    - Nome na BRANET: "" → "DISCO DIAMANTADO PICOTADO P/ PECA DE MAO"
+- **[BRANET]** `4151216` ESCOVA CIRCULAR DE PELO Nº 10 PARA TORNO
+    - Código BRANET: "" → "14930"
+    - Código cliente BRANET: "" → "51855"
+    - Nome na BRANET: "" → "ESCOVA CIRCULAR DE PELO Nº 10 P/ TORNO"
+- **[BRANET]** `4151217` ESCOVA CIRCULAR DE PELO Nº 12 PARA TORNO
+    - Código BRANET: "" → "20193"
+    - Código cliente BRANET: "" → "20193"
+    - Nome na BRANET: "" → "ESCOVA CIRCULAR DE PELO Nº 12 P/ TORNO"
+- **[BRANET]** `4151218` ESCOVA CIRCULAR DE PELO Nº 27 PARA TORNO
+    - Código BRANET: "" → "14950"
+    - Código cliente BRANET: "" → "51856"
+    - Nome na BRANET: "" → "ESCOVA CIRCULAR DE PELO Nº 27 P/ TORNO"
+- **[BRANET]** `4151219` ESCOVA CIRCULAR DE PELO Nº 29 PARA TORNO
+    - Código BRANET: "" → "15068"
+    - Código cliente BRANET: "" → "51857"
+    - Nome na BRANET: "" → "ESCOVA CIRCULAR DE PELO Nº 29 P/ TORNO"
+- **[BRANET]** `4151220` ESPACADOR DIGITAL SORTIDO 25MM CX/4 UNIDADES
+    - Código BRANET: "" → "13066"
+    - Código cliente BRANET: "" → "118839"
+- **[BRANET]** `4151222` MULTILAMINADOS BR PARA POLIMENTO AMALGAMA
+    - Código BRANET: "" → "14973"
+    - Código cliente BRANET: "" → "81485"
+    - Nome na BRANET: "" → "MULTILAMINADOS BR P/ POLIMENTO AMALGAMA"
+- **[BRANET]** `4151223` AFASTADOR FARABEUF ORAL (PAR) (CEO)
+    - Código BRANET: "" → "12941"
+    - Código cliente BRANET: "" → "12941"
+- **[BRANET]** `4151224` AFASTADOR MINESSOTA
+    - Código BRANET: "" → "15245"
+    - Código cliente BRANET: "" → "10884"
+- **[BRANET]** `4151225` ALAVANCAS APICAIS (KIT)
+    - Código BRANET: "" → "20971"
+    - Código cliente BRANET: "" → "20971"
+    - Nome na BRANET: "" → "ALAVANCA APICAIS (KIT)"
+- **[BRANET]** `4151226` ALICATE BICO DE PAPAGAIO Nº 115 EM ACO INOX
+    - Código BRANET: "" → "15252"
+    - Código cliente BRANET: "" → "15252"
+- **[BRANET]** `4151227` ALICATE ORTODONTICO 139
+    - Código BRANET: "" → "15224"
+    - Código cliente BRANET: "" → "12062"
+- **[BRANET]** `4151228` ALICATE PARA CORTE DE FIO DE ACO
+    - Código BRANET: "" → "15202"
+    - Código cliente BRANET: "" → "15202"
+    - Nome na BRANET: "" → "ALICATE P/ CORTE DE FIO DE ACO"
+- **[BRANET]** `4151229` ALICATE PARA TECIDOS GOLDMAN FOX
+    - Código BRANET: "" → "13798"
+    - Código cliente BRANET: "" → "12057"
+- **[BRANET]** `4151230` AMALGAMADOR DE BORRACHA (DEDEIRA)
+    - Código BRANET: "" → "15693"
+    - Código cliente BRANET: "" → "12419"
+- **[BRANET]** `4151231` ARCO INOX PARA ISOLAMENTO COM DIQUE
+    - Código BRANET: "" → "15236"
+    - Código cliente BRANET: "" → "15236"
+    - Nome na BRANET: "" → "ARCO INOX P/ ISOLAMENTO C/ DIQUE (CEO)"
+- **[BRANET]** `4151232` CALCADOR DE AMALGAMA Nº 01
+    - Código BRANET: "" → "12935"
+    - Código cliente BRANET: "" → "27274"
+- **[BRANET]** `4151233` CALCADOR DE AMALGAMA Nº 02
+    - Código BRANET: "" → "15248"
+    - Código cliente BRANET: "" → "27275"
+- **[BRANET]** `4151234` CALCADOR DE AMALGAMA Nº 03
+    - Código BRANET: "" → "15246"
+    - Código cliente BRANET: "" → "27276"
+- **[BRANET]** `4151235` CAMURCA PARA AMALGAMA
+    - Código BRANET: "" → "15142"
+    - Código cliente BRANET: "" → "28671"
+- **[BRANET]** `4151236` CINZEL WEDELSTAEDT 5-6 (CEO)
+    - Código BRANET: "" → "11543"
+    - Código cliente BRANET: "" → "35112"
+- **[BRANET]** `4151237` COLGADURA INDIVIDUAL (CEO)
+    - Código BRANET: "" → "12953"
+    - Código cliente BRANET: "" → "36820"
+- **[BRANET]** `4151238` COLGADURA TIPO AMERICANA PARA 14 RX
+    - Código BRANET: "" → "15238"
+    - Código cliente BRANET: "" → "36819"
+- **[BRANET]** `4151239` DESCOLADOR DE MOLT N2/4
+    - Código BRANET: "" → "20972"
+    - Código cliente BRANET: "" → "20972"
+- **[BRANET]** `4151240` ELEVADOR POTT R
+    - Código BRANET: "" → "21057"
+    - Código cliente BRANET: "" → "21057"
+- **[BRANET]** `4151241` ESTOJO PARA ENDODONTIA 24 FUROS
+    - Código BRANET: "" → "14750"
+    - Código cliente BRANET: "" → "53482"
+- **[BRANET]** `4151242` GRAMPO N210
+    - Código BRANET: "" → "20973"
+    - Código cliente BRANET: "" → "20973"
+- **[BRANET]** `4151243` KIT COM 8 MOLDEIRAS PLASTICAS
+    - Código BRANET: "" → "20967"
+    - Código cliente BRANET: "" → "20967"
+    - Nome na BRANET: "" → "KIT C/ 8 MOLDEIRAS PLASTICAS"
+- **[BRANET]** `4151245` PINCA BACKHAUS 10CM
+    - Código BRANET: "" → "15029"
+    - Código cliente BRANET: "" → "89970"
+- **[BRANET]** `4151246` PINCA PORTA GRAMPO PARA DIQUE
+    - Código BRANET: "" → "15174"
+    - Código cliente BRANET: "" → "15174"
+    - Nome na BRANET: "" → "PINCA PORTA GRAMPO P/ DIQUE (CEO)"
+- **[BRANET]** `4151247` PLACA DE FOSFORO INTRAORAL (ADULTO)
+    - Código BRANET: "" → "20936"
+    - Código cliente BRANET: "" → "20936"
+- **[BRANET]** `4151248` PLACA DE FOSFORO INTRAORAL (INFANTIL)
+    - Código BRANET: "" → "20935"
+    - Código cliente BRANET: "" → "118902"
+- **[BRANET]** `4151249` PORTA AMALGAMA PLASTICO
+    - Código BRANET: "" → "15017"
+    - Código cliente BRANET: "" → "93909"
+- **[BRANET]** `4151250` POTTS CABO T
+    - Código BRANET: "" → "21058"
+    - Código cliente BRANET: "" → "21058"
+- **[BRANET]** `4151251` PROTETOR DE TIREOIDE ADULTO COM BORRACHA PLUMB
+    - Código BRANET: "" → "14214"
+    - Código cliente BRANET: "" → "95824"
+- **[BRANET]** `4151252` SONDA DE NABERS CURVA Nº 2NB
+    - Código BRANET: "" → "15759"
+    - Código cliente BRANET: "" → "15759"
+- **[BRANET]** `4151253` AMALGAMA EM CAPSULA (CAIXA COM 50 CAPSULAS)
+    - Código BRANET: "" → "13006"
+    - Código cliente BRANET: "" → "12411"
+    - Nome na BRANET: "" → "AMALGAMA EM CAPSULA COM UMA DOSE (C/ 50 CAPSULAS)"
+- **[BRANET]** `4151254` BROCA ALTA ROTAÇÃO DIAMANTADA 3080
+    - Código BRANET: "" → "14338"
+    - Código cliente BRANET: "" → "22982"
+    - Nome na BRANET: "" → "BROCA AR DIAMANTADA 3080"
+- **[BRANET]** `4151255` CERA UTILIDADE ODONTOLOGICA LAMINADA
+    - Código BRANET: "" → "14284"
+    - Código cliente BRANET: "" → "33701"
+- **[BRANET]** `4151256` CIMENTO CIRURGICO SEM EUGENOL
+    - Código BRANET: "" → "14287"
+    - Código cliente BRANET: "" → "14287"
+    - Nome na BRANET: "" → "CIMENTO CIRURGICO SEM EUGENOL (CEO)"
+- **[BRANET]** `4151257` CONE DE FELTRO PARA TORNO DE POLIMENTO DE RESINA
+    - Código BRANET: "" → "14928"
+    - Código cliente BRANET: "" → "38085"
+    - Nome na BRANET: "" → "CONE DE FELTRO P/ TORNO DE POLIMENTO DE RESINA"
+- **[BRANET]** `4151258` CREME FIXADOR DE PROTESE TOTAL 19G
+    - Código BRANET: "" → "14404"
+    - Código cliente BRANET: "" → "46141"
+- **[BRANET]** `4151259` DISCO DE LIXA DE OXIDO DE AL PARA POLIMENTO RESINA ACRÍLICA (COM 100 DISCOS)
+    - Código BRANET: "" → "10452"
+    - Código cliente BRANET: "" → "48401"
+    - Nome na BRANET: "" → "DISCO DE LIXA EM OXIDO DE AL P/ POLIM RESINA ACRILICA (C/ 100 DISCOS)"
+- **[BRANET]** `4151260` EUCALIPTOL (SOLVENTE DE GUTTA PERCHA) 10 A 20 ML
+    - Código BRANET: "" → "14433"
+    - Código cliente BRANET: "" → "53799"
+    - Nome na BRANET: "" → "EUCALIPTOL (SOLVENTE DE GUTTA PERCHA) 10 A 20ML (CEO)"
+- **[BRANET]** `4151261` ISOLANTE DE RESINA RAAQ 500ML
+    - Código BRANET: "" → "14224"
+    - Código cliente BRANET: "" → "64899"
+    - Nome na BRANET: "" → "ISOLANTE DE RESINA RAAQ 500ML(CEO)"
+- **[BRANET]** `4151262` POTE PARA INSTRUMENTAIS
+    - Código BRANET: "" → "21227"
+    - Código cliente BRANET: "" → "21227"
+- **[BRANET]** `4151267` GESSO PEDRA AMARELO TIPO III PACT 1KG (PROTESE)
+    - Código BRANET: "" → "11491"
+    - Código cliente BRANET: "" → "61464"
+- **[BRANET]** `4151268` BENZOCAINA ANESTESICO TOPICO 200MG/G (30G)
+    - Código BRANET: "" → "21216"
+    - Código cliente BRANET: "" → "21216"
+- **[BRANET]** `4151270` FRESA TUNGSTENIO PARA PEÇA DE MÃO MAXI CUT
+    - Código BRANET: "" → "15070"
+    - Código cliente BRANET: "" → "60243"
+    - Nome na BRANET: "" → "FRESA TUNGSTENIO P/ PC DE MAO MAXI CUT"
+- **[BRANET]** `4151271` FRESA TUNGSTENIO PARA PEÇA DE MÃO MINI CUT
+    - Código BRANET: "" → "15056"
+    - Código cliente BRANET: "" → "60244"
+    - Nome na BRANET: "" → "FRESA TUNGSTENIO P/ PC DE MAO MINI CUT"
+- **[BRANET]** `4151272` CLOREXIDINA 2% GEL (CAIXA COM 2 SERINGAS)
+    - Código BRANET: "" → "21093"
+    - Código cliente BRANET: "" → "21093"
+    - Nome na BRANET: "" → "CLOREXIDINA 2% GEL (CAIXA C/ 2 SERINGAS) (CEO)"
+- **[BRANET]** `4151274` GESSO BRANCO COMUM TIPO II (PACOTE 1KG) (PROTESE)
+    - Código BRANET: "" → "14225"
+    - Código cliente BRANET: "" → "61456"
+    - Nome na BRANET: "" → "GESSO BRANCO COMUM TIPO II PACT1KG (PROTESE)"
+- **[BRANET]** `4151275` GESSO ESPECIAL TIPO IV (PROTESE)
+    - Código BRANET: "" → "11492"
+    - Código cliente BRANET: "" → "61461"
+    - Nome na BRANET: "" → "GESSO ESPECIAL TIPO IV"
+- **[BRANET]** `4151277` CIMENTO ENDODONTICO COM HIDROCORTISONA
+    - Código BRANET: "" → "15651"
+    - Código cliente BRANET: "" → "34955"
+    - Nome na BRANET: "" → "CIMENTO ENDODONTICO PO COM HIDROCORTISONA 1%"
+- **[BRANET]** `4151278` ESPATULA DUPLA SILICATO 6335 N1
+    - Código BRANET: "" → "20970"
+    - Código cliente BRANET: "" → "20970"
+- **[BRANET]** `4150445` ADESIVO INSTANTANEO UNIVERSAL BISNAGA 5 A 8 G
+    - Código BRANET: "" → "20771"
+    - Código cliente BRANET: "" → "10654"
+- **[BRANET]** `4151281` ALICATE PERFURADOR DE LENÇOL DE BORRACHA (AINSWORTH)
+    - Código BRANET: "" → "12944"
+    - Código cliente BRANET: "" → "12076"
+    - Nome na BRANET: "" → "ALICATE PERFURADOR DE LENCOL DE BORRACHA (AINSWORTH) (CEO)"
+
+<!-- sessao:{"data":"2026-09-24T18:13:29.262Z","autor":"Caio César Borges de Oliveira","origem":"Relatório de estoque BRANET","total":844,"alteracoes":[{"tipo":"branet","codigo":"4150488","material":"ABRIDOR DE BOCA EXPANDEX ADULTO","campos":[{"campo":"branet_codigo","de":"","para":"15054"},{"campo":"branet_codigo_cliente","de":"","para":"9876"},{"campo":"branet_nome","de":"","para":"ABRIDOR DE BOCA TIPO EXPANDEX (ADULTO)"}]},{"tipo":"branet","codigo":"4150493","material":"ABRIDOR DE BOCA EXPANDEX INFANTIL","campos":[{"campo":"branet_codigo","de":"","para":"15055"},{"campo":"branet_codigo_cliente","de":"","para":"9877"},{"campo":"branet_nome","de":"","para":"ABRIDOR DE BOCA TIPO EXPANDEX (INFANTIL)"}]},{"tipo":"branet","codigo":"4150479","material":"ABRITEC INFANTIL (COM 2 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"10373"},{"campo":"branet_codigo_cliente","de":"","para":"98991"},{"campo":"branet_nome","de":"","para":"ABRIDOR DE BOCA TIPO ABRITEC (INFANTIL)"}]},{"tipo":"branet","codigo":"4150483","material":"ÁCIDO GEL CONDICIONADOR DE DENTINA E ESMALTE (PACOTE COM 3 SERINGAS)","campos":[{"campo":"branet_codigo","de":"","para":"13801"},{"campo":"branet_codigo_cliente","de":"","para":"118937"},{"campo":"branet_nome","de":"","para":"ACIDO FOSFORICO 37% (PACOTE C/ 3 SERINGAS)"}]},{"tipo":"branet","codigo":"4150485","material":"ADESIVO DENTAL FOTOPOLIMERIZÁVEL","campos":[{"campo":"branet_codigo","de":"","para":"13098"},{"campo":"branet_codigo_cliente","de":"","para":"10638"}]},{"tipo":"branet","codigo":"4150498","material":"ÁGUA OXIGENADA 3% 10 VOLUMES (FRASCO 1L)","campos":[{"campo":"branet_codigo","de":"","para":"14365"},{"campo":"branet_codigo_cliente","de":"","para":"11115"},{"campo":"branet_nome","de":"","para":"AGUA OXIGENADA 3% 10 VOLUMES 1L"}]},{"tipo":"branet","codigo":"4150747","material":"AGULHA HIPODÉRMICA 25 x 4 PARA ENDODONTIA","campos":[{"campo":"branet_codigo","de":"","para":"14898"},{"campo":"branet_codigo_cliente","de":"","para":"11332"},{"campo":"branet_nome","de":"","para":"AGULHA HIPODERMICA 25X4 P/ ENDO (CEO)"}]},{"tipo":"branet","codigo":"4150748","material":"AGULHA HIPODÉRMICA 30 x 4 PARA ENDODONTIA","campos":[{"campo":"branet_codigo","de":"","para":"14373"},{"campo":"branet_codigo_cliente","de":"","para":"11339"},{"campo":"branet_nome","de":"","para":"AGULHA HIPODERMICA 30X4 P/ ENDO (CEO)"}]},{"tipo":"branet","codigo":"4150477","material":"ALAVANCA INFANTIL (KIT COM 3 PEÇAS)","campos":[{"campo":"branet_codigo","de":"","para":"15210"},{"campo":"branet_codigo_cliente","de":"","para":"11575"},{"campo":"branet_nome","de":"","para":"ALAVANCA INFANTIL (KIT C/ 3 PECAS)"}]},{"tipo":"branet","codigo":"4150782","material":"ALAVANCA TIPO APEXO Nº 301","campos":[{"campo":"branet_codigo","de":"","para":"15198"},{"campo":"branet_codigo_cliente","de":"","para":"11591"}]},{"tipo":"branet","codigo":"4150783","material":"ALAVANCA TIPO APEXO Nº 303","campos":[{"campo":"branet_codigo","de":"","para":"15199"},{"campo":"branet_codigo_cliente","de":"","para":"11592"}]},{"tipo":"branet","codigo":"4150784","material":"ALAVANCA TIPO APEXO Nº 304","campos":[{"campo":"branet_codigo","de":"","para":"15223"},{"campo":"branet_codigo_cliente","de":"","para":"11501"}]},{"tipo":"branet","codigo":"4150781","material":"ALAVANCA TIPO CANALETA RETA COM RANHURAS","campos":[{"campo":"branet_codigo","de":"","para":"15206"},{"campo":"branet_codigo_cliente","de":"","para":"117522"},{"campo":"branet_nome","de":"","para":"ALAVANCA TIPO CANALETA RETA C/ RANHURAS"}]},{"tipo":"branet","codigo":"4150786","material":"ALAVANCAS CRYER Nº 27, 28, 31 E 32","campos":[{"campo":"branet_codigo","de":"","para":"15690"},{"campo":"branet_codigo_cliente","de":"","para":"11536"},{"campo":"branet_nome","de":"","para":"ALAVANCAS CRYER Nº 27, 28, 31 E 32 (CEO)"}]},{"tipo":"branet","codigo":"4150787","material":"ALAVANCAS DE POTT","campos":[{"campo":"branet_codigo","de":"","para":"15691"},{"campo":"branet_codigo_cliente","de":"","para":"115571"},{"campo":"branet_nome","de":"","para":"ALAVANCAS POTT (KIT DIREITA E ESQUERDA)"}]},{"tipo":"branet","codigo":"4150749","material":"ALGINATO HIDROCOLÓIDE DE PRESA NORMAL (PRÓTESE) - 453G","campos":[{"campo":"branet_codigo","de":"","para":"14237"},{"campo":"branet_codigo_cliente","de":"","para":"11900"}]},{"tipo":"branet","codigo":"4150480","material":"ALVEOLOTOMO","campos":[{"campo":"branet_codigo","de":"","para":"11548"},{"campo":"branet_codigo_cliente","de":"","para":"12385"}]},{"tipo":"branet","codigo":"4150513","material":"ANESTÉSICO INJ MEPIVACAÍNA 2% COM VASOC EPINEFRINA 1:100.000 (CAIXA COM 50 TUBETES)","campos":[{"campo":"branet_codigo","de":"","para":"11396"},{"campo":"branet_codigo_cliente","de":"","para":"13142"},{"campo":"branet_nome","de":"","para":"ANESTESICO INJ MEPIVACAINA 2% COM VASOC EPINEFRINA 1 100,000 (CX/ 50 TUBETES)"}]},{"tipo":"branet","codigo":"4150508","material":"ANESTÉSICO INJETÁVEL ARTICAÍNA 4% COM EPINEFRINA (CAIXA COM 50 TUBETES)","campos":[{"campo":"branet_codigo","de":"","para":"14771"},{"campo":"branet_codigo_cliente","de":"","para":"13129"},{"campo":"branet_nome","de":"","para":"ANESTESICO INJ ARTICAINA 4% C/ EPINEFRINA (CX/ 50 TUBETES)"}]},{"tipo":"branet","codigo":"4150788","material":"AQUECEDOR DE AGUA 220V (PROTESE)","campos":[{"campo":"branet_codigo","de":"","para":"14722"},{"campo":"branet_codigo_cliente","de":"","para":"13974"}]},{"tipo":"branet","codigo":"4150789","material":"ARCO DE OSTBY PLASTICO","campos":[{"campo":"branet_codigo","de":"","para":"15213"},{"campo":"branet_codigo_cliente","de":"","para":"15422"},{"campo":"branet_nome","de":"","para":"ARCO DE OSTYB PLASTICO (CEO)"}]},{"tipo":"branet","codigo":"4150790","material":"ARTICULADOR CHARNEIRA","campos":[{"campo":"branet_codigo","de":"","para":"14882"},{"campo":"branet_codigo_cliente","de":"","para":"14882"}]},{"tipo":"branet","codigo":"4150129","material":"AVENTAL DESCARTAVEL GRAMATURA 50 (UNIDADE) TAMANHO G","campos":[{"campo":"branet_codigo","de":"","para":"17655"},{"campo":"branet_codigo_cliente","de":"","para":"17655"},{"campo":"branet_nome","de":"","para":"AVENTAL CIRURGICO DESCARTAVEL GRAMATURA 50 (UNIDADE)"}]},{"tipo":"branet","codigo":"4150481","material":"BANDEJA DE INOX","campos":[{"campo":"branet_codigo","de":"","para":"15698"},{"campo":"branet_codigo_cliente","de":"","para":"18315"}]},{"tipo":"branet","codigo":"4150793","material":"BARRA DE EIRICH 20 CM PARA AMARRIA","campos":[{"campo":"branet_codigo","de":"","para":"15207"},{"campo":"branet_codigo_cliente","de":"","para":"18760"},{"campo":"branet_nome","de":"","para":"BARRA DE EIRICH 20 CM P/ AMARRIA (CEO)"}]},{"tipo":"branet","codigo":"4150528","material":"BARREIRA DE RESINA FOTOPOLIMERIZÁVEL","campos":[{"campo":"branet_codigo","de":"","para":"15019"},{"campo":"branet_codigo_cliente","de":"","para":"18883"}]},{"tipo":"branet","codigo":"4150524","material":"BENZOCAINA ANESTESICO TOPICO 200MG/G (12G)","campos":[{"campo":"branet_codigo","de":"","para":"11170"},{"campo":"branet_codigo_cliente","de":"","para":"118833"}]},{"tipo":"branet","codigo":"4150530","material":"BICARBONATO DE SÓDIO PÓ (200g)","campos":[{"campo":"branet_codigo","de":"","para":"14236"},{"campo":"branet_codigo_cliente","de":"","para":"19862"}]},{"tipo":"branet","codigo":"4150482","material":"BICHO DE PELUCIA COM MACRO ARCADA SUP E INF","campos":[{"campo":"branet_codigo","de":"","para":"15699"},{"campo":"branet_codigo_cliente","de":"","para":"19878"}]},{"tipo":"branet","codigo":"4150752","material":"BORRACHA ABRASIVA MÉDIA PARA PEÇA DE MÃO","campos":[{"campo":"branet_codigo","de":"","para":"14374"},{"campo":"branet_codigo_cliente","de":"","para":"22015"},{"campo":"branet_nome","de":"","para":"BORRACHA ABRASIVA MEDIA P/ PECA DE MAO"}]},{"tipo":"branet","codigo":"4150484","material":"BORRIFADOR PLASTICO (PROTESE)","campos":[{"campo":"branet_codigo","de":"","para":"14742"},{"campo":"branet_codigo_cliente","de":"","para":"22136"}]},{"tipo":"branet","codigo":"4150753","material":"BRANCO DE ESPANHA 1KG","campos":[{"campo":"branet_codigo","de":"","para":"14811"},{"campo":"branet_codigo_cliente","de":"","para":"14811"}]},{"tipo":"branet","codigo":"4150754","material":"BRANCO DE ESPANHA 200G","campos":[{"campo":"branet_codigo","de":"","para":"14223"},{"campo":"branet_codigo_cliente","de":"","para":"14223"}]},{"tipo":"branet","codigo":"4150561","material":"BROCA ALTA ROTAÇÃO CARBIDE ESF Nº 06 HL","campos":[{"campo":"branet_codigo","de":"","para":"15042"},{"campo":"branet_codigo_cliente","de":"","para":"15042"},{"campo":"branet_nome","de":"","para":"BROCA AR CARBIDE 06 HL"}]},{"tipo":"branet","codigo":"4150563","material":"BROCA ALTA ROTAÇÃO CARBIDE ESF Nº 08 HL","campos":[{"campo":"branet_codigo","de":"","para":"14281"},{"campo":"branet_codigo_cliente","de":"","para":"22940"},{"campo":"branet_nome","de":"","para":"BROCA AR CARBIDE 08 HL"}]},{"tipo":"branet","codigo":"4150548","material":"BROCA ALTA ROTAÇÃO CARBIDE ESFÉRICA Nº 01","campos":[{"campo":"branet_codigo","de":"","para":"14078"},{"campo":"branet_codigo_cliente","de":"","para":"22941"},{"campo":"branet_nome","de":"","para":"BROCA AR CARBIDE 01"}]},{"tipo":"branet","codigo":"4150553","material":"BROCA ALTA ROTAÇÃO CARBIDE ESFÉRICA Nº 02","campos":[{"campo":"branet_codigo","de":"","para":"14079"},{"campo":"branet_codigo_cliente","de":"","para":"22944"},{"campo":"branet_nome","de":"","para":"BROCA AR CARBIDE 02"}]},{"tipo":"branet","codigo":"4150556","material":"BROCA ALTA ROTAÇÃO CARBIDE ESFÉRICA Nº 04","campos":[{"campo":"branet_codigo","de":"","para":"10381"},{"campo":"branet_codigo_cliente","de":"","para":"22946"},{"campo":"branet_nome","de":"","para":"BROCA AR CARBIDE 04"}]},{"tipo":"branet","codigo":"4150559","material":"BROCA ALTA ROTAÇÃO CARBIDE ESFÉRICA Nº 04 HL","campos":[{"campo":"branet_codigo","de":"","para":"10382"},{"campo":"branet_codigo_cliente","de":"","para":"22945"},{"campo":"branet_nome","de":"","para":"BROCA AR CARBIDE 04 HL"}]},{"tipo":"branet","codigo":"4150560","material":"BROCA ALTA ROTAÇÃO CARBIDE ESFÉRICA Nº 06","campos":[{"campo":"branet_codigo","de":"","para":"10383"},{"campo":"branet_codigo_cliente","de":"","para":"22949"},{"campo":"branet_nome","de":"","para":"BROCA AR CARBIDE 06"}]},{"tipo":"branet","codigo":"4150562","material":"BROCA ALTA ROTAÇÃO CARBIDE ESFÉRICA Nº 08","campos":[{"campo":"branet_codigo","de":"","para":"14081"},{"campo":"branet_codigo_cliente","de":"","para":"22950"},{"campo":"branet_nome","de":"","para":"BROCA AR CARBIDE 08"}]},{"tipo":"branet","codigo":"4150564","material":"BROCA ALTA ROTAÇÃO CARBIDE ESFÉRICA Nº 1/2","campos":[{"campo":"branet_codigo","de":"","para":"14077"},{"campo":"branet_codigo_cliente","de":"","para":"22942"},{"campo":"branet_nome","de":"","para":"BROCA AR CARBIDE 1/2"}]},{"tipo":"branet","codigo":"4150566","material":"BROCA ALTA ROTAÇÃO CIRURGICA Nº 701 HL","campos":[{"campo":"branet_codigo","de":"","para":"14895"},{"campo":"branet_codigo_cliente","de":"","para":"14895"},{"campo":"branet_nome","de":"","para":"BROCA AR CIRURGICA Nº 701 HL"}]},{"tipo":"branet","codigo":"4150567","material":"BROCA ALTA ROTAÇÃO CIRURGICA Nº 702 HL","campos":[{"campo":"branet_codigo","de":"","para":"17095"},{"campo":"branet_codigo_cliente","de":"","para":"22952"},{"campo":"branet_nome","de":"","para":"BROCA AR CIRURGICA Nº 702 HL"}]},{"tipo":"branet","codigo":"4150569","material":"BROCA ALTA ROTAÇÃO CIRURGICA ZEKRYA 23MM","campos":[{"campo":"branet_codigo","de":"","para":"15044"},{"campo":"branet_codigo_cliente","de":"","para":"22954"},{"campo":"branet_nome","de":"","para":"BROCA AR CIRURGICA ZECRYA 23MM"}]},{"tipo":"branet","codigo":"4150577","material":"BROCA ALTA ROTAÇÃO CIRURGICA ZEKRYA 28MM","campos":[{"campo":"branet_codigo","de":"","para":"14343"},{"campo":"branet_codigo_cliente","de":"","para":"22955"},{"campo":"branet_nome","de":"","para":"BROCA AR CIRURGICA ZEKRYA 28 MM"}]},{"tipo":"branet","codigo":"4150595","material":"BROCA ALTA ROTAÇÃO DIAMANTADA CILINDRICA Nº 1092","campos":[{"campo":"branet_codigo","de":"","para":"14893"},{"campo":"branet_codigo_cliente","de":"","para":"14893"},{"campo":"branet_nome","de":"","para":"BROCA AR DIAMANTADA 1092"}]},{"tipo":"branet","codigo":"4151127","material":"BROCA ALTA ROTAÇÃO DIAMANTADA 1011","campos":[{"campo":"branet_codigo","de":"","para":"14755"},{"campo":"branet_codigo_cliente","de":"","para":"22957"},{"campo":"branet_nome","de":"","para":"BROCA AR DIAMANTADA 1011"}]},{"tipo":"branet","codigo":"4151128","material":"BROCA ALTA ROTAÇÃO DIAMANTADA 1013","campos":[{"campo":"branet_codigo","de":"","para":"10391"},{"campo":"branet_codigo_cliente","de":"","para":"22960"},{"campo":"branet_nome","de":"","para":"BROCA AR DIAMANTADA 1013"}]},{"tipo":"branet","codigo":"4151130","material":"BROCA ALTA ROTAÇÃO DIAMANTADA 1033","campos":[{"campo":"branet_codigo","de":"","para":"15043"},{"campo":"branet_codigo_cliente","de":"","para":"22967"},{"campo":"branet_nome","de":"","para":"BROCA AR DIAMANTADA 1033"}]},{"tipo":"branet","codigo":"4151131","material":"BROCA ALTA ROTAÇÃO DIAMANTADA 1034","campos":[{"campo":"branet_codigo","de":"","para":"10389"},{"campo":"branet_codigo_cliente","de":"","para":"22968"},{"campo":"branet_nome","de":"","para":"BROCA AR DIAMANTADA 1034"}]},{"tipo":"branet","codigo":"4150609","material":"BROCA ALTA ROTAÇÃO DIAMANTADA ACABAMENTO DE RESINA Nº 3195 FF","campos":[{"campo":"branet_codigo","de":"","para":"21146"},{"campo":"branet_codigo_cliente","de":"","para":"21146"},{"campo":"branet_nome","de":"","para":"BROCA AR DIAMANTADA 3195 FF"}]},{"tipo":"branet","codigo":"4150605","material":"BROCA ALTA ROTAÇÃO DIAMANTADA CÔNICA Nº 3082","campos":[{"campo":"branet_codigo","de":"","para":"14887"},{"campo":"branet_codigo_cliente","de":"","para":"22983"},{"campo":"branet_nome","de":"","para":"BROCA AR DIAMANTADA 3082"}]},{"tipo":"branet","codigo":"4150580","material":"BROCA ALTA ROTAÇÃO DIAMANTADA ESFÉRICA Nº 1012","campos":[{"campo":"branet_codigo","de":"","para":"13028"},{"campo":"branet_codigo_cliente","de":"","para":"22959"},{"campo":"branet_nome","de":"","para":"BROCA AR DIAMANTADA 1012"}]},{"tipo":"branet","codigo":"4151146","material":"BROCA ALTA ROTAÇÃO DIAMANTADA ESFÉRICA Nº 1012 HL","campos":[{"campo":"branet_codigo","de":"","para":"12980"},{"campo":"branet_codigo_cliente","de":"","para":"22958"},{"campo":"branet_nome","de":"","para":"BROCA AR DIAMANTADA 1012 HL"}]},{"tipo":"branet","codigo":"4150583","material":"BROCA ALTA ROTAÇÃO DIAMANTADA ESFÉRICA Nº 1014","campos":[{"campo":"branet_codigo","de":"","para":"10392"},{"campo":"branet_codigo_cliente","de":"","para":"22961"},{"campo":"branet_nome","de":"","para":"BROCA AR DIAMANTADA 1014"}]},{"tipo":"branet","codigo":"4150587","material":"BROCA ALTA ROTAÇÃO DIAMANTADA ESFÉRICA Nº 1016","campos":[{"campo":"branet_codigo","de":"","para":"12993"},{"campo":"branet_codigo_cliente","de":"","para":"22964"},{"campo":"branet_nome","de":"","para":"BROCA AR DIAMANTADA 1016"}]},{"tipo":"branet","codigo":"4150590","material":"BROCA ALTA ROTAÇÃO DIAMANTADA ESFÉRICA Nº 1016 HL","campos":[{"campo":"branet_codigo","de":"","para":"10393"},{"campo":"branet_codigo_cliente","de":"","para":"22963"},{"campo":"branet_nome","de":"","para":"BROCA AR DIAMANTADA 1016 HL"}]},{"tipo":"branet","codigo":"4150597","material":"BROCA ALTA ROTAÇÃO DIAMANTADA Nº 1111","campos":[{"campo":"branet_codigo","de":"","para":"14382"},{"campo":"branet_codigo_cliente","de":"","para":"22972"},{"campo":"branet_nome","de":"","para":"BROCA AR DIAMANTADA 1111"}]},{"tipo":"branet","codigo":"4150599","material":"BROCA ALTA ROTAÇÃO DIAMANTADA Nº 2130","campos":[{"campo":"branet_codigo","de":"","para":"14379"},{"campo":"branet_codigo_cliente","de":"","para":"22977"},{"campo":"branet_nome","de":"","para":"BROCA AR DIAMANTADA 2130"}]},{"tipo":"branet","codigo":"4150602","material":"BROCA ALTA ROTAÇÃO DIAMANTADA Nº 3069","campos":[{"campo":"branet_codigo","de":"","para":"14435"},{"campo":"branet_codigo_cliente","de":"","para":"22980"},{"campo":"branet_nome","de":"","para":"BROCA AR DIAMANTADA 3069"}]},{"tipo":"branet","codigo":"4150607","material":"BROCA ALTA ROTAÇÃO DIAMANTADA Nº 3195","campos":[{"campo":"branet_codigo","de":"","para":"14381"},{"campo":"branet_codigo_cliente","de":"","para":"22985"},{"campo":"branet_nome","de":"","para":"BROCA AR DIAMANTADA 3195"}]},{"tipo":"branet","codigo":"4150606","material":"BROCA ALTA ROTAÇÃO DIAMANTADA PARA ACABAMENTO DE RESINA Nº 3118 FF","campos":[{"campo":"branet_codigo","de":"","para":"12987"},{"campo":"branet_codigo_cliente","de":"","para":"22984"},{"campo":"branet_nome","de":"","para":"BROCA AR DIAMANTADA 3118 FF"}]},{"tipo":"branet","codigo":"4150613","material":"BROCA ALTA ROTAÇÃO ENDO Z","campos":[{"campo":"branet_codigo","de":"","para":"14897"},{"campo":"branet_codigo_cliente","de":"","para":"22988"},{"campo":"branet_nome","de":"","para":"BROCA AR ENDO Z"}]},{"tipo":"branet","codigo":"4150756","material":"BROCA BAIXA ROTAÇÃO CIRUR ESFER PARA PEÇA RETA N° 04","campos":[{"campo":"branet_codigo","de":"","para":"14377"},{"campo":"branet_codigo_cliente","de":"","para":"23040"},{"campo":"branet_nome","de":"","para":"BROCA BR CIRUR ESFER P/ PC RETA Nº04 (CEO)"}]},{"tipo":"branet","codigo":"4150757","material":"BROCA BAIXA ROTAÇÃO CIRUR ESFER PARA PEÇA RETA N° 06","campos":[{"campo":"branet_codigo","de":"","para":"14378"},{"campo":"branet_codigo_cliente","de":"","para":"23037"},{"campo":"branet_nome","de":"","para":"BROCA BR CIRUR ESFER P/ PC RETA Nº06 (CEO)"}]},{"tipo":"branet","codigo":"4150794","material":"BROCA BAIXA ROTAÇÃO CIRUR ESFER PARA PEÇA RETA Nº 08","campos":[{"campo":"branet_codigo","de":"","para":"15765"},{"campo":"branet_codigo_cliente","de":"","para":"15765"},{"campo":"branet_nome","de":"","para":"BROCA BR CIRUR ESFER P/ PC RETA Nº08 (CEO)"}]},{"tipo":"branet","codigo":"4150758","material":"BROCA BAIXA ROTAÇÃO CIRURGICA PARA PEÇA RETA 701","campos":[{"campo":"branet_codigo","de":"","para":"14922"},{"campo":"branet_codigo_cliente","de":"","para":"23022"},{"campo":"branet_nome","de":"","para":"BROCA BR CIRURGICA P/ PECA RETA 701"}]},{"tipo":"branet","codigo":"4150759","material":"BROCA BAIXA ROTAÇÃO CIRURGICA PARA PEÇA RETA Nº 702","campos":[{"campo":"branet_codigo","de":"","para":"14972"},{"campo":"branet_codigo_cliente","de":"","para":"23023"},{"campo":"branet_nome","de":"","para":"BROCA BR CIRURGICA P/ PECA RETA Nº 702"}]},{"tipo":"branet","codigo":"4150760","material":"BROCA BAIXA ROTAÇÃO CIRURGICA PARA PEÇA RETA Nº 703","campos":[{"campo":"branet_codigo","de":"","para":"14891"},{"campo":"branet_codigo_cliente","de":"","para":"23025"},{"campo":"branet_nome","de":"","para":"BROCA BR CIRURGICA P/ PECA RETA Nº 703"}]},{"tipo":"branet","codigo":"4150531","material":"BROCA BAIXA ROTAÇÃO ESFÉRICA Nº 1","campos":[{"campo":"branet_codigo","de":"","para":"14929"},{"campo":"branet_codigo_cliente","de":"","para":"23028"},{"campo":"branet_nome","de":"","para":"BROCA BR 01"}]},{"tipo":"branet","codigo":"4150771","material":"BROCA BAIXA ROTAÇÃO ESFERICA Nº 1 PARA PECA DE MAO","campos":[{"campo":"branet_codigo","de":"","para":"14967"},{"campo":"branet_codigo_cliente","de":"","para":"22993"},{"campo":"branet_nome","de":"","para":"BROCA BR/PM ESFERICA Nº 1 PARA PECA DE MAO"}]},{"tipo":"branet","codigo":"4150533","material":"BROCA BAIXA ROTAÇÃO ESFÉRICA Nº 2","campos":[{"campo":"branet_codigo","de":"","para":"14494"},{"campo":"branet_codigo_cliente","de":"","para":"14494"},{"campo":"branet_nome","de":"","para":"BROCA BR 02"}]},{"tipo":"branet","codigo":"4150545","material":"BROCA BAIXA ROTAÇÃO ESFÉRICA Nº 6 HL","campos":[{"campo":"branet_codigo","de":"","para":"14296"},{"campo":"branet_codigo_cliente","de":"","para":"14296"},{"campo":"branet_nome","de":"","para":"BROCA BR 06 HL"}]},{"tipo":"branet","codigo":"4151136","material":"BROCA BAIXA ROTAÇÃO ESFÉRICA Nº 8","campos":[{"campo":"branet_codigo","de":"","para":"21036"},{"campo":"branet_codigo_cliente","de":"","para":"21036"},{"campo":"branet_nome","de":"","para":"BROCA BR ESFERICA N8 (CX C/6)"}]},{"tipo":"branet","codigo":"4150761","material":"BROCA BAIXA ROTAÇÃO GATES Nº 3 HL PARA ENDO","campos":[{"campo":"branet_codigo","de":"","para":"14974"},{"campo":"branet_codigo_cliente","de":"","para":"23005"},{"campo":"branet_nome","de":"","para":"BROCA BR GATES Nº 3 HL P/ ENDO"}]},{"tipo":"branet","codigo":"4150762","material":"BROCA BAIXA ROTAÇÃO GATES Nº 3 PARA ENDO","campos":[{"campo":"branet_codigo","de":"","para":"14971"},{"campo":"branet_codigo_cliente","de":"","para":"23004"},{"campo":"branet_nome","de":"","para":"BROCA BR GATES Nº 3 P/ ENDO (CEO)"}]},{"tipo":"branet","codigo":"4150764","material":"BROCA BAIXA ROTAÇÃO GATES Nº 4 PARA ENDO","campos":[{"campo":"branet_codigo","de":"","para":"14954"},{"campo":"branet_codigo_cliente","de":"","para":"14954"},{"campo":"branet_nome","de":"","para":"BROCA BR GATES Nº 4 P/ ENDO (CEO)"}]},{"tipo":"branet","codigo":"4150765","material":"BROCA BAIXA ROTAÇÃO GATES Nº 5 HL PARA ENDO","campos":[{"campo":"branet_codigo","de":"","para":"14885"},{"campo":"branet_codigo_cliente","de":"","para":"23008"},{"campo":"branet_nome","de":"","para":"BROCA BR GATES Nº 5 HL P/ ENDO"}]},{"tipo":"branet","codigo":"4150768","material":"BROCA BAIXA ROTAÇÃO LARGO Nº 3 PARA ENDO","campos":[{"campo":"branet_codigo","de":"","para":"14914"},{"campo":"branet_codigo_cliente","de":"","para":"23011"},{"campo":"branet_nome","de":"","para":"BROCA BR LARGO Nº3 P/ ENDO (CEO)"}]},{"tipo":"branet","codigo":"4150769","material":"BROCA BAIXA ROTAÇÃO LARGO Nº 4 PARA ENDO","campos":[{"campo":"branet_codigo","de":"","para":"14927"},{"campo":"branet_codigo_cliente","de":"","para":"23012"},{"campo":"branet_nome","de":"","para":"BROCA BR LARGO Nº4 P/ ENDO (CEO)"}]},{"tipo":"branet","codigo":"4150770","material":"BROCA BAIXA ROTAÇÃO LENTULO (CAIXA COM 4)","campos":[{"campo":"branet_codigo","de":"","para":"15013"},{"campo":"branet_codigo_cliente","de":"","para":"23013"},{"campo":"branet_nome","de":"","para":"BROCA BR LENTULO (CEO) (CAIXA C/ 4)"}]},{"tipo":"branet","codigo":"4150766","material":"BROCA BR LARGO Nº 1 PARA ENDO","campos":[{"campo":"branet_codigo","de":"","para":"14289"},{"campo":"branet_codigo_cliente","de":"","para":"23009"},{"campo":"branet_nome","de":"","para":"BROCA BR LARGO Nº1 P/ ENDO (CEO)"}]},{"tipo":"branet","codigo":"4150767","material":"BROCA BR LARGO Nº 2 PARA ENDO","campos":[{"campo":"branet_codigo","de":"","para":"14295"},{"campo":"branet_codigo_cliente","de":"","para":"23010"},{"campo":"branet_nome","de":"","para":"BROCA BR LARGO Nº2 P/ ENDO (CEO)"}]},{"tipo":"branet","codigo":"4150773","material":"BROCA CARBIDE Nº 8 PARA PEÇA RETA","campos":[{"campo":"branet_codigo","de":"","para":"14903"},{"campo":"branet_codigo_cliente","de":"","para":"23039"},{"campo":"branet_nome","de":"","para":"BROCA CARBIDE Nº8 P/ PECA RETA"}]},{"tipo":"branet","codigo":"4150565","material":"BROCA TRANSMETAL CILÍNDRICA Nº 12","campos":[{"campo":"branet_codigo","de":"","para":"14969"},{"campo":"branet_codigo_cliente","de":"","para":"23303"},{"campo":"branet_nome","de":"","para":"BROCA AR TRANSMETAL 12"}]},{"tipo":"branet","codigo":"4150486","material":"CABO PARA BISTURI Nº 3 (ODONTO)","campos":[{"campo":"branet_codigo","de":"","para":"16899"},{"campo":"branet_codigo_cliente","de":"","para":"24727"}]},{"tipo":"branet","codigo":"4150487","material":"CABO PARA ESPELHO BUCAL","campos":[{"campo":"branet_codigo","de":"","para":"11481"},{"campo":"branet_codigo_cliente","de":"","para":"24745"}]},{"tipo":"branet","codigo":"4150489","material":"CALCADOR PARA DYCAL Nº 10/20","campos":[{"campo":"branet_codigo","de":"","para":"15703"},{"campo":"branet_codigo_cliente","de":"","para":"27282"},{"campo":"branet_nome","de":"","para":"CALCADOR P/ DYCAL Nº 10/20"}]},{"tipo":"branet","codigo":"4150795","material":"CALCADORES DE PAIVA 1, 2, 3, 4","campos":[{"campo":"branet_codigo","de":"","para":"15247"},{"campo":"branet_codigo_cliente","de":"","para":"27281"}]},{"tipo":"branet","codigo":"4151158","material":"CAMPO CIRURG DESC TNT 50 X 50 CM (EMBALAGEM COM 50 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"20996"},{"campo":"branet_codigo_cliente","de":"","para":"20996"},{"campo":"branet_nome","de":"","para":"CAMPO CIRURG DESC TNT 50X50 CM - EMBALAGEM COM 50 UN"}]},{"tipo":"branet","codigo":"4150775","material":"CAMPO CIRURGICO DESCARTAVEL TNT 60 x 90 CM (UNIDADE)","campos":[{"campo":"branet_codigo","de":"","para":"15145"},{"campo":"branet_codigo_cliente","de":"","para":"28638"},{"campo":"branet_nome","de":"","para":"CAMPO CIRURG DESC TNT 60X90 CM (CEO)"}]},{"tipo":"branet","codigo":"4150776","material":"CARBONO LIQUIDO PARA AJUSTE PROTETICO","campos":[{"campo":"branet_codigo","de":"","para":"14949"},{"campo":"branet_codigo_cliente","de":"","para":"30238"},{"campo":"branet_nome","de":"","para":"CARBONO LIQUIDO P/ AJUSTE PROTETICO"}]},{"tipo":"branet","codigo":"4150615","material":"CARIOSTÁTICO 12% 10 ML","campos":[{"campo":"branet_codigo","de":"","para":"10485"},{"campo":"branet_codigo_cliente","de":"","para":"30538"}]},{"tipo":"branet","codigo":"4151169","material":"CARTELA PARA RX 01 FURO 11,5X8CM COM 100UN","campos":[{"campo":"branet_codigo","de":"","para":"14069"},{"campo":"branet_codigo_cliente","de":"","para":"14069"}]},{"tipo":"branet","codigo":"4151168","material":"CARTELA PARA RX 02 FUROS 11,5X8CM COM 100UN","campos":[{"campo":"branet_codigo","de":"","para":"13572"},{"campo":"branet_codigo_cliente","de":"","para":"31149"}]},{"tipo":"branet","codigo":"4151167","material":"CARTELA PLASTICA DE RX PERIAPICAL PARA 2 FILMES (PACOTE COM 10)","campos":[{"campo":"branet_codigo","de":"","para":"20344"},{"campo":"branet_codigo_cliente","de":"","para":"20344"},{"campo":"branet_nome","de":"","para":"CARTELA PLASTICA DE RX PERIAPICAL P/ 2 FILMES PCT C/ 10"}]},{"tipo":"branet","codigo":"4151166","material":"CARTELA PLASTICA PARA FILME OCLUSAL (RX) (PACOTE COM 10)","campos":[{"campo":"branet_codigo","de":"","para":"15016"},{"campo":"branet_codigo_cliente","de":"","para":"15016"},{"campo":"branet_nome","de":"","para":"CARTELA PLASTICA P/ FILME OCLUSAL (RX) (PACOTE C/ 10)"}]},{"tipo":"branet","codigo":"4150491","material":"CHAVE PARA INSERTO DE ULTRASSOM/CHAVE TORQUE UNIVERSAL","campos":[{"campo":"branet_codigo","de":"","para":"17908"},{"campo":"branet_codigo_cliente","de":"","para":"34416"}]},{"tipo":"branet","codigo":"4151175","material":"CIMENTO ENDODONTICO PARA OBTURAÇÃO CANAL (KIT)","campos":[{"campo":"branet_codigo","de":"","para":"13803"},{"campo":"branet_codigo_cliente","de":"","para":"34954"}]},{"tipo":"branet","codigo":"4151176","material":"CIMENTO EUGENOL LÍQUIDO RESTAURADOR PROVISÓRIO","campos":[{"campo":"branet_codigo","de":"","para":"11446"},{"campo":"branet_codigo_cliente","de":"","para":"34956"}]},{"tipo":"branet","codigo":"4150621","material":"CIMENTO FOSFATO DE ZINCO PÓ/ LÍQUIDO (KIT)","campos":[{"campo":"branet_codigo","de":"","para":"15021"},{"campo":"branet_codigo_cliente","de":"","para":"34958"}]},{"tipo":"branet","codigo":"4150622","material":"CIMENTO HIDROXIDO DE CALCIO RADIOPACO (KIT)","campos":[{"campo":"branet_codigo","de":"","para":"13808"},{"campo":"branet_codigo_cliente","de":"","para":"34960"}]},{"tipo":"branet","codigo":"4150796","material":"CINZEL DE RHODES 36-37","campos":[{"campo":"branet_codigo","de":"","para":"11542"},{"campo":"branet_codigo_cliente","de":"","para":"35109"},{"campo":"branet_nome","de":"","para":"CINZEL DE RHODES 36-37 (CEO)"}]},{"tipo":"branet","codigo":"4150797","material":"CINZEL DE WELDELSTEAD Nº 2-3","campos":[{"campo":"branet_codigo","de":"","para":"20777"},{"campo":"branet_codigo_cliente","de":"","para":"20777"}]},{"tipo":"branet","codigo":"4150798","material":"CINZEL PARA MICRO CIRURGIA","campos":[{"campo":"branet_codigo","de":"","para":"15708"},{"campo":"branet_codigo_cliente","de":"","para":"35113"},{"campo":"branet_nome","de":"","para":"CINZEL P/ MICRO CIRURGIA"}]},{"tipo":"branet","codigo":"4150625","material":"COLÁGENO HEMOSTÁTICO FIBRINA","campos":[{"campo":"branet_codigo","de":"","para":"11448"},{"campo":"branet_codigo_cliente","de":"","para":"36097"}]},{"tipo":"branet","codigo":"4150799","material":"COMPASSO DE WILLIS","campos":[{"campo":"branet_codigo","de":"","para":"11564"},{"campo":"branet_codigo_cliente","de":"","para":"37201"}]},{"tipo":"branet","codigo":"4151180","material":"CONDUTOR PARA FIO DENTAL TIPO PASSA FIO","campos":[{"campo":"branet_codigo","de":"","para":"21186"},{"campo":"branet_codigo_cliente","de":"","para":"21186"}]},{"tipo":"branet","codigo":"4151182","material":"CONE DE GUTA PERCHA (L) LARGE RECIPROCANTE","campos":[{"campo":"branet_codigo","de":"","para":"15076"},{"campo":"branet_codigo_cliente","de":"","para":"38278"}]},{"tipo":"branet","codigo":"4151183","material":"CONE DE GUTA PERCHA (S) SMALL RECIPROCANTE","campos":[{"campo":"branet_codigo","de":"","para":"15010"},{"campo":"branet_codigo_cliente","de":"","para":"38280"}]},{"tipo":"branet","codigo":"4151177","material":"CONE DE GUTA PERCHA PRIMARY RECIPROCANTE","campos":[{"campo":"branet_codigo","de":"","para":"14956"},{"campo":"branet_codigo_cliente","de":"","para":"38279"},{"campo":"branet_nome","de":"","para":"CONE DE GUTA PERCHA (P) PRIMARY RECIPROCANTE"}]},{"tipo":"branet","codigo":"4151184","material":"CONES DE GUTA PERCHA RECIPROCANTE MEDIUM","campos":[{"campo":"branet_codigo","de":"","para":"21037"},{"campo":"branet_codigo_cliente","de":"","para":"21037"}]},{"tipo":"branet","codigo":"4150800","material":"CONFORMADOR DE CERA EM METAL","campos":[{"campo":"branet_codigo","de":"","para":"15249"},{"campo":"branet_codigo_cliente","de":"","para":"39390"}]},{"tipo":"branet","codigo":"4150626","material":"CREME DENTAL COM FLUOR (1500 PPM) 50G","campos":[{"campo":"branet_codigo","de":"","para":"12896"},{"campo":"branet_codigo_cliente","de":"","para":"46111"}]},{"tipo":"branet","codigo":"4150601","material":"CUBA REDONDA INOX","campos":[{"campo":"branet_codigo","de":"","para":"15806"},{"campo":"branet_codigo_cliente","de":"","para":"15806"}]},{"tipo":"branet","codigo":"4150629","material":"CUNHA DE MADEIRA SORTIDA (PACOTE COM 100 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"11440"},{"campo":"branet_codigo_cliente","de":"","para":"46496"},{"campo":"branet_nome","de":"","para":"CUNHA DE MADEIRA SORTIDA PCT C/100 UNI"}]},{"tipo":"branet","codigo":"4150802","material":"CURETA CANE KAPLAN Nº 6","campos":[{"campo":"branet_codigo","de":"","para":"15713"},{"campo":"branet_codigo_cliente","de":"","para":"15713"},{"campo":"branet_nome","de":"","para":"CURETA CANE KAPLAN Nº 6 (CEO)"}]},{"tipo":"branet","codigo":"4150495","material":"CURETA CIRURGICA LUCAS Nº 86","campos":[{"campo":"branet_codigo","de":"","para":"15065"},{"campo":"branet_codigo_cliente","de":"","para":"15065"}]},{"tipo":"branet","codigo":"4150803","material":"CURETA CIRURGICA LUCAS Nº85","campos":[{"campo":"branet_codigo","de":"","para":"12943"},{"campo":"branet_codigo_cliente","de":"","para":"46562"},{"campo":"branet_nome","de":"","para":"CURETA CIRURGICA LUCAS Nº85 (CEO)"}]},{"tipo":"branet","codigo":"4150503","material":"CURETA DUPLA HL 11/12","campos":[{"campo":"branet_codigo","de":"","para":"15063"},{"campo":"branet_codigo_cliente","de":"","para":"46548"}]},{"tipo":"branet","codigo":"4150504","material":"CURETA DUPLA HL 13/14","campos":[{"campo":"branet_codigo","de":"","para":"15062"},{"campo":"branet_codigo_cliente","de":"","para":"46549"}]},{"tipo":"branet","codigo":"4150505","material":"CURETA DUPLA HL 17/18","campos":[{"campo":"branet_codigo","de":"","para":"15064"},{"campo":"branet_codigo_cliente","de":"","para":"46550"}]},{"tipo":"branet","codigo":"4150804","material":"CURETA GOLDMAN FOX Nº 2","campos":[{"campo":"branet_codigo","de":"","para":"13799"},{"campo":"branet_codigo_cliente","de":"","para":"46552"},{"campo":"branet_nome","de":"","para":"CURETA GOLDMAN FOX Nº 2 (CEO)"}]},{"tipo":"branet","codigo":"4150496","material":"CURETA GRACEY 11/12","campos":[{"campo":"branet_codigo","de":"","para":"10463"},{"campo":"branet_codigo_cliente","de":"","para":"10463"}]},{"tipo":"branet","codigo":"4150497","material":"CURETA GRACEY 13/14","campos":[{"campo":"branet_codigo","de":"","para":"10464"},{"campo":"branet_codigo_cliente","de":"","para":"46554"}]},{"tipo":"branet","codigo":"4150499","material":"CURETA GRACEY 5/6","campos":[{"campo":"branet_codigo","de":"","para":"10461"},{"campo":"branet_codigo_cliente","de":"","para":"10461"}]},{"tipo":"branet","codigo":"4150501","material":"CURETA GRACEY 7/8","campos":[{"campo":"branet_codigo","de":"","para":"10462"},{"campo":"branet_codigo_cliente","de":"","para":"46534"}]},{"tipo":"branet","codigo":"4150506","material":"CURETA PARA DENTINA Nº 11 1/2","campos":[{"campo":"branet_codigo","de":"","para":"15715"},{"campo":"branet_codigo_cliente","de":"","para":"46567"},{"campo":"branet_nome","de":"","para":"CURETA P/ DENTINA Nº 11 1/2"}]},{"tipo":"branet","codigo":"4150507","material":"CURETA PARA DENTINA Nº 18","campos":[{"campo":"branet_codigo","de":"","para":"15716"},{"campo":"branet_codigo_cliente","de":"","para":"46569"},{"campo":"branet_nome","de":"","para":"CURETA P/ DENTINA Nº 18"}]},{"tipo":"branet","codigo":"4150509","material":"CURETA PARA DENTINA Nº 5","campos":[{"campo":"branet_codigo","de":"","para":"15714"},{"campo":"branet_codigo_cliente","de":"","para":"46571"},{"campo":"branet_nome","de":"","para":"CURETA P/ DENTINA Nº 5"}]},{"tipo":"branet","codigo":"4150631","material":"DEDEIRA - ESCOVA DENTAL ESPECIAL PARA BEBE","campos":[{"campo":"branet_codigo","de":"","para":"14241"},{"campo":"branet_codigo_cliente","de":"","para":"47075"}]},{"tipo":"branet","codigo":"4150805","material":"DESTACA PERIOSTEO DE MOLT","campos":[{"campo":"branet_codigo","de":"","para":"15718"},{"campo":"branet_codigo_cliente","de":"","para":"47669"},{"campo":"branet_nome","de":"","para":"DESTACA PERIOSTEO DE MOLT (CEO)"}]},{"tipo":"branet","codigo":"4150778","material":"DISCO DE FELTRO PARA CONTRA ÂNGULO","campos":[{"campo":"branet_codigo","de":"","para":"14342"},{"campo":"branet_codigo_cliente","de":"","para":"14342"},{"campo":"branet_nome","de":"","para":"DISCO DE FELTRO P/ CONTRA ANGULO"}]},{"tipo":"branet","codigo":"4151174","material":"EDTA SOLUÇÃO QUELANTE 17% AQUOSA (20ML)","campos":[{"campo":"branet_codigo","de":"","para":"14344"},{"campo":"branet_codigo_cliente","de":"","para":"49640"},{"campo":"branet_nome","de":"","para":"EDTA SOLUCAO QUELANTE AQUOSA A 17% 20ML"}]},{"tipo":"branet","codigo":"4151173","material":"EDTA SOLUÇÃO QUELANTE 24% GEL (2 SERINGAS)","campos":[{"campo":"branet_codigo","de":"","para":"15633"},{"campo":"branet_codigo_cliente","de":"","para":"49641"},{"campo":"branet_nome","de":"","para":"EDTA SOLUCAO QUELANTE 24% GEL 2 SERINGAS (CEO)"}]},{"tipo":"branet","codigo":"4150633","material":"ESCOVA DENTAL PLASTICA ADULTO","campos":[{"campo":"branet_codigo","de":"","para":"11442"},{"campo":"branet_codigo_cliente","de":"","para":"51871"},{"campo":"branet_nome","de":"","para":"ESCOVA DENTAL PLASTICA ADULTO UNIDADE"}]},{"tipo":"branet","codigo":"4150635","material":"ESCOVA DENTAL PLASTICA INFANTIL","campos":[{"campo":"branet_codigo","de":"","para":"11151"},{"campo":"branet_codigo_cliente","de":"","para":"51879"},{"campo":"branet_nome","de":"","para":"ESCOVA DENTAL PLASTICA INFANTIL UNIDADE"}]},{"tipo":"branet","codigo":"4150641","material":"ESCOVA DENTAL PLASTICA PARA BEBE","campos":[{"campo":"branet_codigo","de":"","para":"15634"},{"campo":"branet_codigo_cliente","de":"","para":"117544"},{"campo":"branet_nome","de":"","para":"ESCOVA DENTAL PLASTICA P/ BEBE"}]},{"tipo":"branet","codigo":"4151126","material":"ESCOVA PARA CONTRA ANGULO (ROBINSON)","campos":[{"campo":"branet_codigo","de":"","para":"10453"},{"campo":"branet_codigo_cliente","de":"","para":"51919"}]},{"tipo":"branet","codigo":"4150643","material":"ESCOVA PARA PROTESE DENTAL BITUFO","campos":[{"campo":"branet_codigo","de":"","para":"14738"},{"campo":"branet_codigo_cliente","de":"","para":"51959"}]},{"tipo":"branet","codigo":"4150806","material":"ESPATULA DE FREER","campos":[{"campo":"branet_codigo","de":"","para":"15720"},{"campo":"branet_codigo_cliente","de":"","para":"15720"},{"campo":"branet_nome","de":"","para":"ESPATULA DE FREER (CEO)"}]},{"tipo":"branet","codigo":"4150512","material":"ESPATULA DE INSERCAO DE MATERIAL Nº 1","campos":[{"campo":"branet_codigo","de":"","para":"15083"},{"campo":"branet_codigo_cliente","de":"","para":"52310"}]},{"tipo":"branet","codigo":"4150807","material":"ESPATULA DUPLA DE CERA Nº 31","campos":[{"campo":"branet_codigo","de":"","para":"15060"},{"campo":"branet_codigo_cliente","de":"","para":"52322"},{"campo":"branet_nome","de":"","para":"ESPATULA DUPLA Nº 31"}]},{"tipo":"branet","codigo":"4150808","material":"ESPATULA DUPLA DE CERA Nº 7","campos":[{"campo":"branet_codigo","de":"","para":"15046"},{"campo":"branet_codigo_cliente","de":"","para":"52321"}]},{"tipo":"branet","codigo":"4150514","material":"ESPATULA DUPLA Nº 50","campos":[{"campo":"branet_codigo","de":"","para":"15128"},{"campo":"branet_codigo_cliente","de":"","para":"52323"}]},{"tipo":"branet","codigo":"4150809","material":"ESPATULA LE CRON Nº 5","campos":[{"campo":"branet_codigo","de":"","para":"11488"},{"campo":"branet_codigo_cliente","de":"","para":"52328"}]},{"tipo":"branet","codigo":"4150516","material":"ESPATULA PARA INSERÇÃO DE RESINA FOTOPOLIMERIZAVEL Nº 1","campos":[{"campo":"branet_codigo","de":"","para":"15721"},{"campo":"branet_codigo_cliente","de":"","para":"15721"},{"campo":"branet_nome","de":"","para":"ESPATULA P/ INSERCAO DE RESINA FOTOPOLIMERIZAVEL Nº 1"}]},{"tipo":"branet","codigo":"4150515","material":"ESPATULA PARA INSERCAO DE MATERIAL Nº 3","campos":[{"campo":"branet_codigo","de":"","para":"15066"},{"campo":"branet_codigo_cliente","de":"","para":"52293"}]},{"tipo":"branet","codigo":"4150810","material":"ESPATULA PLASTICA PARA MANIPULAÇÃO DE GESSO/ALGINATO (PROTESE)","campos":[{"campo":"branet_codigo","de":"","para":"11547"},{"campo":"branet_codigo_cliente","de":"","para":"52343"},{"campo":"branet_nome","de":"","para":"ESPATULA PLASTICA P/ MAN GESSO/ALGINATO (PROTESE)"}]},{"tipo":"branet","codigo":"4150811","material":"ESPATULA SIMPLES PARA CERA Nº36","campos":[{"campo":"branet_codigo","de":"","para":"12952"},{"campo":"branet_codigo_cliente","de":"","para":"52345"},{"campo":"branet_nome","de":"","para":"ESPATULA SIMPLES P/ CERA Nº36"}]},{"tipo":"branet","codigo":"4150519","material":"ESPELHO BUCAL 1º PLANO Nº 5","campos":[{"campo":"branet_codigo","de":"","para":"15225"},{"campo":"branet_codigo_cliente","de":"","para":"52425"}]},{"tipo":"branet","codigo":"4150976","material":"ESPELHO DE MÃO","campos":[{"campo":"branet_codigo","de":"","para":"21137"},{"campo":"branet_codigo_cliente","de":"","para":"21137"}]},{"tipo":"branet","codigo":"4150520","material":"ESPELHO BUCAL Nº 5","campos":[{"campo":"branet_codigo","de":"","para":"10436"},{"campo":"branet_codigo_cliente","de":"","para":"52426"}]},{"tipo":"branet","codigo":"4150812","material":"ESTOJO INOX PARA ENDO 12X5CM","campos":[{"campo":"branet_codigo","de":"","para":"15141"},{"campo":"branet_codigo_cliente","de":"","para":"15141"},{"campo":"branet_nome","de":"","para":"ESTOJO INOX P/ ENDO 12X5CM (CEO)"}]},{"tipo":"branet","codigo":"4151179","material":"ESTOJO PARA KIT DE HIGIENE DENTAL","campos":[{"campo":"branet_codigo","de":"","para":"21188"},{"campo":"branet_codigo_cliente","de":"","para":"118497"}]},{"tipo":"branet","codigo":"4151132","material":"EXTIRPA NERVO AMARELO 21MM","campos":[{"campo":"branet_codigo","de":"","para":"11592"},{"campo":"branet_codigo_cliente","de":"","para":"54182"}]},{"tipo":"branet","codigo":"4151133","material":"EXTIRPA NERVO BRANCO 21MM","campos":[{"campo":"branet_codigo","de":"","para":"15636"},{"campo":"branet_codigo_cliente","de":"","para":"54183"}]},{"tipo":"branet","codigo":"4150813","material":"CURETEA PERIODONTAL MC CALL 17/18 HF","campos":[{"campo":"branet_codigo","de":"","para":"15723"},{"campo":"branet_codigo_cliente","de":"","para":"15723"},{"campo":"branet_nome","de":"","para":"CURETA PERIODONTAL MC CALL Nº 17/18 HF (CEO)"}]},{"tipo":"branet","codigo":"4150814","material":"FACILITADOR DE GODOY ADULTO/INFANTIL (KIT)","campos":[{"campo":"branet_codigo","de":"","para":"15146"},{"campo":"branet_codigo_cliente","de":"","para":"15146"}]},{"tipo":"branet","codigo":"4150646","material":"FILME PVC ROLO COM 30M","campos":[{"campo":"branet_codigo","de":"","para":"14278"},{"campo":"branet_codigo_cliente","de":"","para":"55871"}]},{"tipo":"branet","codigo":"4150815","material":"FIO DE ACO CIRURGICO Nº 0 PARA AMARRIA","campos":[{"campo":"branet_codigo","de":"","para":"15132"},{"campo":"branet_codigo_cliente","de":"","para":"15132"},{"campo":"branet_nome","de":"","para":"FIO DE ACO CIRURGICO Nº 0 P/ AMARRIA (CEO)"}]},{"tipo":"branet","codigo":"4150649","material":"FIO DE NYLON PARA CONTENÇÃO DENTAL","campos":[{"campo":"branet_codigo","de":"","para":"14915"},{"campo":"branet_codigo_cliente","de":"","para":"14915"},{"campo":"branet_nome","de":"","para":"FIO DE NYLON P/ CONFECCAO DE CONTENCAO DENTAL"}]},{"tipo":"branet","codigo":"4150653","material":"FIO DE SEDA TRANCADO Nº3-0 AGULHADO","campos":[{"campo":"branet_codigo","de":"","para":"14333"},{"campo":"branet_codigo_cliente","de":"","para":"56675"}]},{"tipo":"branet","codigo":"4151161","material":"FIO DE SUTURA POLIGLACTINA COM AGULHA TRIFACETADA 3-0 / 1,9CM / 70CM","campos":[{"campo":"branet_codigo","de":"","para":"20784"},{"campo":"branet_codigo_cliente","de":"","para":"20784"},{"campo":"branet_nome","de":"","para":"FIO DE SUTURA POLIGLACTINA AG TRIFACETADA 3-0 1,9CM 70CM"}]},{"tipo":"branet","codigo":"4151163","material":"FIO DE SUTURA POLIGLACTINA COM AGULHA TRIFACETADA 4-0 / 1,6CM / 45CM","campos":[{"campo":"branet_codigo","de":"","para":"12806"},{"campo":"branet_codigo_cliente","de":"","para":"56670"},{"campo":"branet_nome","de":"","para":"FIO DE SUTURA POLIGLACTINA AG TRIFACETADA 4-0 1,6CM 45CM (ODONTOLOGIA)"}]},{"tipo":"branet","codigo":"4151164","material":"FIO DE SUTURA POLIGLACTINA COM AGULHA TRIFACETADA 5-0 / 1,6CM / 45CM","campos":[{"campo":"branet_codigo","de":"","para":"17105"},{"campo":"branet_codigo_cliente","de":"","para":"17105"},{"campo":"branet_nome","de":"","para":"FIO DE SUTURA POLIGLACTINA AG TRIFACETADA 5-0 1,6CM 45CM (ODONTOLOGIA)"}]},{"tipo":"branet","codigo":"4151165","material":"FIO DE SUTURA POLIGLACTINA COM AGULHA TRIFACETADA 6-0 / 1,6CM / 45CM","campos":[{"campo":"branet_codigo","de":"","para":"17882"},{"campo":"branet_codigo_cliente","de":"","para":"56672"},{"campo":"branet_nome","de":"","para":"FIO DE SUTURA POLIGLACTINA AG TRIFACETADA 6-0 1,6CM 45CM (ODONTOLOGIA)"}]},{"tipo":"branet","codigo":"4151170","material":"FIO DE SUTURA SEDA 4-0 AGULHADO 1/2 CIRC TRIANGULAR - 45CM","campos":[{"campo":"branet_codigo","de":"","para":"11190"},{"campo":"branet_codigo_cliente","de":"","para":"118939"}]},{"tipo":"branet","codigo":"4150658","material":"FIO DENTAL 50MT UNIDADE","campos":[{"campo":"branet_codigo","de":"","para":"11723"},{"campo":"branet_codigo_cliente","de":"","para":"118619"}]},{"tipo":"branet","codigo":"4150661","material":"FLUOR GEL ACIDO APLICACAO TOPICA 1 MINUTO 200ML","campos":[{"campo":"branet_codigo","de":"","para":"10476"},{"campo":"branet_codigo_cliente","de":"","para":"58339"}]},{"tipo":"branet","codigo":"4150547","material":"FORCEPS INFANTIL Nº 1","campos":[{"campo":"branet_codigo","de":"","para":"15283"},{"campo":"branet_codigo_cliente","de":"","para":"59001"}]},{"tipo":"branet","codigo":"4150549","material":"FORCEPS INFANTIL Nº 18 D","campos":[{"campo":"branet_codigo","de":"","para":"15309"},{"campo":"branet_codigo_cliente","de":"","para":"15309"}]},{"tipo":"branet","codigo":"4150550","material":"FORCEPS INFANTIL Nº 18 L","campos":[{"campo":"branet_codigo","de":"","para":"15308"},{"campo":"branet_codigo_cliente","de":"","para":"59002"}]},{"tipo":"branet","codigo":"4150551","material":"FORCEPS INFANTIL Nº 18 R","campos":[{"campo":"branet_codigo","de":"","para":"10430"},{"campo":"branet_codigo_cliente","de":"","para":"10430"}]},{"tipo":"branet","codigo":"4150552","material":"FORCEPS INFANTIL Nº 3","campos":[{"campo":"branet_codigo","de":"","para":"15311"},{"campo":"branet_codigo_cliente","de":"","para":"15311"}]},{"tipo":"branet","codigo":"4150554","material":"FORCEPS INFANTIL Nº 44","campos":[{"campo":"branet_codigo","de":"","para":"11537"},{"campo":"branet_codigo_cliente","de":"","para":"59003"}]},{"tipo":"branet","codigo":"4150555","material":"FORCEPS INFANTIL Nº 5","campos":[{"campo":"branet_codigo","de":"","para":"15310"},{"campo":"branet_codigo_cliente","de":"","para":"15310"}]},{"tipo":"branet","codigo":"4150557","material":"FORCEPS INFANTIL Nº 6","campos":[{"campo":"branet_codigo","de":"","para":"15307"},{"campo":"branet_codigo_cliente","de":"","para":"59004"}]},{"tipo":"branet","codigo":"4150558","material":"FORCEPS INFANTIL Nº 68","campos":[{"campo":"branet_codigo","de":"","para":"15306"},{"campo":"branet_codigo_cliente","de":"","para":"59005"}]},{"tipo":"branet","codigo":"4150568","material":"FÓRCEPS INFANTIL Nº 69","campos":[{"campo":"branet_codigo","de":"","para":"10434"},{"campo":"branet_codigo_cliente","de":"","para":"10434"},{"campo":"branet_nome","de":"","para":"FORCEPS ODONTOLOGICO INFANTIL Nº 69"}]},{"tipo":"branet","codigo":"4150522","material":"FORCEPS ODONTOLOGICO ADULTO Nº 1","campos":[{"campo":"branet_codigo","de":"","para":"11535"},{"campo":"branet_codigo_cliente","de":"","para":"58963"}]},{"tipo":"branet","codigo":"4150523","material":"FORCEPS ODONTOLOGICO ADULTO Nº 101","campos":[{"campo":"branet_codigo","de":"","para":"15286"},{"campo":"branet_codigo_cliente","de":"","para":"58965"}]},{"tipo":"branet","codigo":"4150525","material":"FORCEPS ODONTOLOGICO ADULTO Nº 121","campos":[{"campo":"branet_codigo","de":"","para":"15727"},{"campo":"branet_codigo_cliente","de":"","para":"15727"}]},{"tipo":"branet","codigo":"4150526","material":"FORCEPS ODONTOLOGICO ADULTO Nº 150","campos":[{"campo":"branet_codigo","de":"","para":"10428"},{"campo":"branet_codigo_cliente","de":"","para":"58967"}]},{"tipo":"branet","codigo":"4150527","material":"FORCEPS ODONTOLOGICO ADULTO Nº 151","campos":[{"campo":"branet_codigo","de":"","para":"10423"},{"campo":"branet_codigo_cliente","de":"","para":"10423"}]},{"tipo":"branet","codigo":"4150529","material":"FORCEPS ODONTOLOGICO ADULTO Nº 16","campos":[{"campo":"branet_codigo","de":"","para":"13009"},{"campo":"branet_codigo_cliente","de":"","para":"13009"}]},{"tipo":"branet","codigo":"4150536","material":"FORCEPS ODONTOLOGICO ADULTO Nº 17","campos":[{"campo":"branet_codigo","de":"","para":"10424"},{"campo":"branet_codigo_cliente","de":"","para":"10424"}]},{"tipo":"branet","codigo":"4150537","material":"FORCEPS ODONTOLOGICO ADULTO Nº 18 L","campos":[{"campo":"branet_codigo","de":"","para":"10427"},{"campo":"branet_codigo_cliente","de":"","para":"58974"}]},{"tipo":"branet","codigo":"4150538","material":"FORCEPS ODONTOLOGICO ADULTO Nº 18 R","campos":[{"campo":"branet_codigo","de":"","para":"10425"},{"campo":"branet_codigo_cliente","de":"","para":"10425"}]},{"tipo":"branet","codigo":"4150539","material":"FORCEPS ODONTOLOGICO ADULTO Nº 203","campos":[{"campo":"branet_codigo","de":"","para":"15313"},{"campo":"branet_codigo_cliente","de":"","para":"15313"}]},{"tipo":"branet","codigo":"4150540","material":"FORCEPS ODONTOLOGICO ADULTO Nº 213","campos":[{"campo":"branet_codigo","de":"","para":"15312"},{"campo":"branet_codigo_cliente","de":"","para":"58979"}]},{"tipo":"branet","codigo":"4150542","material":"FORCEPS ODONTOLOGICO ADULTO Nº 65","campos":[{"campo":"branet_codigo","de":"","para":"11534"},{"campo":"branet_codigo_cliente","de":"","para":"11534"}]},{"tipo":"branet","codigo":"4150544","material":"FORCEPS ODONTOLOGICO ADULTO Nº 68","campos":[{"campo":"branet_codigo","de":"","para":"11533"},{"campo":"branet_codigo_cliente","de":"","para":"11533"}]},{"tipo":"branet","codigo":"4150546","material":"FORCEPS ODONTOLOGICO ADULTO Nº 69","campos":[{"campo":"branet_codigo","de":"","para":"10429"},{"campo":"branet_codigo_cliente","de":"","para":"58989"}]},{"tipo":"branet","codigo":"4150666","material":"FORMOCRESOL 10 ML LÍQUIDO","campos":[{"campo":"branet_codigo","de":"","para":"10475"},{"campo":"branet_codigo_cliente","de":"","para":"59114"}]},{"tipo":"branet","codigo":"4150816","material":"GENGIVOTOMO DE ORBAN","campos":[{"campo":"branet_codigo","de":"","para":"15243"},{"campo":"branet_codigo_cliente","de":"","para":"15243"},{"campo":"branet_nome","de":"","para":"GENGIVOTOMO DE ORBAN (CEO)"}]},{"tipo":"branet","codigo":"4150817","material":"GENGIVOTOMO KIRKLAND","campos":[{"campo":"branet_codigo","de":"","para":"15242"},{"campo":"branet_codigo_cliente","de":"","para":"15242"},{"campo":"branet_nome","de":"","para":"GENGIVOTOMO KIRKLAND (CEO)"}]},{"tipo":"branet","codigo":"4151178","material":"GODIVA DE BAIXA FUSAO (CX/ 15 BASTOES)","campos":[{"campo":"branet_codigo","de":"","para":"14390"},{"campo":"branet_codigo_cliente","de":"","para":"14390"}]},{"tipo":"branet","codigo":"4150818","material":"GRAL PARA GESSO E ALGINATO","campos":[{"campo":"branet_codigo","de":"","para":"14884"},{"campo":"branet_codigo_cliente","de":"","para":"61895"}]},{"tipo":"branet","codigo":"4150570","material":"GRAMPO PARA ISOLAMENTO COM DIQUE Nº 00","campos":[{"campo":"branet_codigo","de":"","para":"15183"},{"campo":"branet_codigo_cliente","de":"","para":"62111"},{"campo":"branet_nome","de":"","para":"GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 00"}]},{"tipo":"branet","codigo":"4150575","material":"GRAMPO PARA ISOLAMENTO COM DIQUE Nº 1 A","campos":[{"campo":"branet_codigo","de":"","para":"15267"},{"campo":"branet_codigo_cliente","de":"","para":"62116"},{"campo":"branet_nome","de":"","para":"GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 1 A"}]},{"tipo":"branet","codigo":"4150572","material":"GRAMPO PARA ISOLAMENTO COM DIQUE Nº 12 A","campos":[{"campo":"branet_codigo","de":"","para":"13070"},{"campo":"branet_codigo_cliente","de":"","para":"62112"},{"campo":"branet_nome","de":"","para":"GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 12 A"}]},{"tipo":"branet","codigo":"4150573","material":"GRAMPO PARA ISOLAMENTO COM DIQUE Nº 14","campos":[{"campo":"branet_codigo","de":"","para":"15180"},{"campo":"branet_codigo_cliente","de":"","para":"62114"},{"campo":"branet_nome","de":"","para":"GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 14"}]},{"tipo":"branet","codigo":"4150574","material":"GRAMPO PARA ISOLAMENTO COM DIQUE Nº 14 A","campos":[{"campo":"branet_codigo","de":"","para":"15260"},{"campo":"branet_codigo_cliente","de":"","para":"62115"},{"campo":"branet_nome","de":"","para":"GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 14 A"}]},{"tipo":"branet","codigo":"4150578","material":"GRAMPO PARA ISOLAMENTO COM DIQUE Nº 201","campos":[{"campo":"branet_codigo","de":"","para":"13076"},{"campo":"branet_codigo_cliente","de":"","para":"62117"},{"campo":"branet_nome","de":"","para":"GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 201"}]},{"tipo":"branet","codigo":"4150579","material":"GRAMPO PARA ISOLAMENTO COM DIQUE Nº 203","campos":[{"campo":"branet_codigo","de":"","para":"15268"},{"campo":"branet_codigo_cliente","de":"","para":"15268"},{"campo":"branet_nome","de":"","para":"GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 203"}]},{"tipo":"branet","codigo":"4150581","material":"GRAMPO PARA ISOLAMENTO COM DIQUE Nº 204","campos":[{"campo":"branet_codigo","de":"","para":"15184"},{"campo":"branet_codigo_cliente","de":"","para":"62118"},{"campo":"branet_nome","de":"","para":"GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 204"}]},{"tipo":"branet","codigo":"4150582","material":"GRAMPO PARA ISOLAMENTO COM DIQUE Nº 205","campos":[{"campo":"branet_codigo","de":"","para":"15271"},{"campo":"branet_codigo_cliente","de":"","para":"15271"},{"campo":"branet_nome","de":"","para":"GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 205"}]},{"tipo":"branet","codigo":"4150584","material":"GRAMPO PARA ISOLAMENTO COM DIQUE Nº 207","campos":[{"campo":"branet_codigo","de":"","para":"15270"},{"campo":"branet_codigo_cliente","de":"","para":"15270"},{"campo":"branet_nome","de":"","para":"GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 207"}]},{"tipo":"branet","codigo":"4150585","material":"GRAMPO PARA ISOLAMENTO COM DIQUE Nº 208","campos":[{"campo":"branet_codigo","de":"","para":"13050"},{"campo":"branet_codigo_cliente","de":"","para":"13050"},{"campo":"branet_nome","de":"","para":"GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 208"}]},{"tipo":"branet","codigo":"4150586","material":"GRAMPO PARA ISOLAMENTO COM DIQUE Nº 209","campos":[{"campo":"branet_codigo","de":"","para":"13075"},{"campo":"branet_codigo_cliente","de":"","para":"62119"},{"campo":"branet_nome","de":"","para":"GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 209"}]},{"tipo":"branet","codigo":"4150588","material":"GRAMPO PARA ISOLAMENTO COM DIQUE Nº 211","campos":[{"campo":"branet_codigo","de":"","para":"13071"},{"campo":"branet_codigo_cliente","de":"","para":"62120"},{"campo":"branet_nome","de":"","para":"GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 211"}]},{"tipo":"branet","codigo":"4150589","material":"GRAMPO PARA ISOLAMENTO COM DIQUE Nº 212","campos":[{"campo":"branet_codigo","de":"","para":"13082"},{"campo":"branet_codigo_cliente","de":"","para":"62121"},{"campo":"branet_nome","de":"","para":"GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 212"}]},{"tipo":"branet","codigo":"4150591","material":"GRAMPO PARA ISOLAMENTO COM DIQUE Nº 214","campos":[{"campo":"branet_codigo","de":"","para":"15269"},{"campo":"branet_codigo_cliente","de":"","para":"15269"},{"campo":"branet_nome","de":"","para":"GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 214"}]},{"tipo":"branet","codigo":"4150594","material":"GRAMPO PARA ISOLAMENTO COM DIQUE Nº 27","campos":[{"campo":"branet_codigo","de":"","para":"15186"},{"campo":"branet_codigo_cliente","de":"","para":"62124"},{"campo":"branet_nome","de":"","para":"GRAMPO P/ ISOLAMENTO C/ DIQUE Nº 27"}]},{"tipo":"branet","codigo":"4150596","material":"GRAMPO PARA ISOLAMENTO COM DIQUE Nº W8A","campos":[{"campo":"branet_codigo","de":"","para":"15261"},{"campo":"branet_codigo_cliente","de":"","para":"62125"},{"campo":"branet_nome","de":"","para":"GRAMPO P/ ISOLAMENTO C/ DIQUE Nº W8A"}]},{"tipo":"branet","codigo":"4150576","material":"GRAMPO PARA ISOLAMENTO COM DIQUE Nº200","campos":[{"campo":"branet_codigo","de":"","para":"13051"},{"campo":"branet_codigo_cliente","de":"","para":"13051"},{"campo":"branet_nome","de":"","para":"GRAMPO P/ ISOLAMENTO C/ DIQUE Nº200"}]},{"tipo":"branet","codigo":"4150592","material":"GRAMPO PARA ISOLAMENTO COM DIQUE Nº 26","campos":[{"campo":"branet_codigo","de":"","para":"13074"},{"campo":"branet_codigo_cliente","de":"","para":"62122"},{"campo":"branet_nome","de":"","para":"GRAMPO P/ ISOLAMENTO COM DIQUE Nº 26"}]},{"tipo":"branet","codigo":"4150593","material":"GRAMPO PARA ISOLAMENTO COM DIQUE Nº 26 A","campos":[{"campo":"branet_codigo","de":"","para":"15730"},{"campo":"branet_codigo_cliente","de":"","para":"15730"},{"campo":"branet_nome","de":"","para":"GRAMPO P/ ISOLAMENTO COM DIQUE Nº 26 A"}]},{"tipo":"branet","codigo":"4150671","material":"HEMOSTATICO LIQUIDO 10ML","campos":[{"campo":"branet_codigo","de":"","para":"11449"},{"campo":"branet_codigo_cliente","de":"","para":"11449"}]},{"tipo":"branet","codigo":"4150675","material":"HIDROXIDO CALCIO PO 10G","campos":[{"campo":"branet_codigo","de":"","para":"10400"},{"campo":"branet_codigo_cliente","de":"","para":"63126"}]},{"tipo":"branet","codigo":"4150614","material":"PONTA PARA ULTRASSOM - SCHUSTER (T1-S, T2-S, T3-S)","campos":[{"campo":"branet_codigo","de":"","para":"15254"},{"campo":"branet_codigo_cliente","de":"","para":"15254"},{"campo":"branet_nome","de":"","para":"INSERTO JET LAXIS SONIC T1, T2 E T3"}]},{"tipo":"branet","codigo":"4150624","material":"PONTA PARA ULTRASSOM - ORTUS (G1)","campos":[{"campo":"branet_codigo","de":"","para":"17895"},{"campo":"branet_codigo_cliente","de":"","para":"64306"},{"campo":"branet_nome","de":"","para":"INSERTO P/ AP ULTRASSOM ORTUS G1"}]},{"tipo":"branet","codigo":"4150620","material":"PONTA PARA ULTRASSOM - ORTUS (G1, G2, G4)","campos":[{"campo":"branet_codigo","de":"","para":"18493"},{"campo":"branet_codigo_cliente","de":"","para":"18493"},{"campo":"branet_nome","de":"","para":"INSERTO P/ AP ULTRASSOM ORTUS G1,G2,G4"}]},{"tipo":"branet","codigo":"4150627","material":"PONTA PARA ULTRASSOM - ORTUS (G2)","campos":[{"campo":"branet_codigo","de":"","para":"20813"},{"campo":"branet_codigo_cliente","de":"","para":"20813"},{"campo":"branet_nome","de":"","para":"INSERTO P/ AP ULTRASSOM ORTUS G2"}]},{"tipo":"branet","codigo":"4150628","material":"PONTA PARA ULTRASSOM - ORTUS (G4)","campos":[{"campo":"branet_codigo","de":"","para":"20814"},{"campo":"branet_codigo_cliente","de":"","para":"64316"},{"campo":"branet_nome","de":"","para":"INSERTO P/ AP ULTRASSOM ORTUS G4"}]},{"tipo":"branet","codigo":"4150610","material":"PONTA PARA ULTRASSOM - ALT (G1)","campos":[{"campo":"branet_codigo","de":"","para":"15256"},{"campo":"branet_codigo_cliente","de":"","para":"15256"},{"campo":"branet_nome","de":"","para":"INSERTO P/ APAR ALTSONIC JET CERAMIC G1"}]},{"tipo":"branet","codigo":"4150608","material":"PONTA PARA ULTRASSOM - ALT (G1, G2, P4)","campos":[{"campo":"branet_codigo","de":"","para":"15255"},{"campo":"branet_codigo_cliente","de":"","para":"15255"},{"campo":"branet_nome","de":"","para":"INSERTO P/ APAR ALTSONIC JET CERAMIC G1, G2, P4"}]},{"tipo":"branet","codigo":"4150611","material":"PONTA PARA ULTRASSOM - ALT (G2)","campos":[{"campo":"branet_codigo","de":"","para":"20377"},{"campo":"branet_codigo_cliente","de":"","para":"64305"},{"campo":"branet_nome","de":"","para":"INSERTO P/ APAR ALTSONIC JET CERAMIC G2"}]},{"tipo":"branet","codigo":"4150612","material":"PONTA PARA ULTRASSOM - ALT (G3)","campos":[{"campo":"branet_codigo","de":"","para":"20378"},{"campo":"branet_codigo_cliente","de":"","para":"20378"},{"campo":"branet_nome","de":"","para":"INSERTO P/ APAR ALTSONIC JET CERAMIC G3"}]},{"tipo":"branet","codigo":"4150598","material":"PONTA PARA ULTRASSOM - ALT (Nº 1)","campos":[{"campo":"branet_codigo","de":"","para":"20810"},{"campo":"branet_codigo_cliente","de":"","para":"64315"},{"campo":"branet_nome","de":"","para":"INSERTO P/ ULTRASSOM COMP/ MARCA ALT SONIC JET CEMRAMIC Nº1"}]},{"tipo":"branet","codigo":"4150603","material":"PONTA PARA ULTRASSOM - ALT (Nº 2)","campos":[{"campo":"branet_codigo","de":"","para":"20811"},{"campo":"branet_codigo_cliente","de":"","para":"64314"},{"campo":"branet_nome","de":"","para":"INSERTO P/ ULTRASSOM COMP/ MARCA ALT SONIC JET CEMRAMIC Nº2"}]},{"tipo":"branet","codigo":"4150604","material":"PONTA PARA ULTRASSOM - ALT (Nº 3)","campos":[{"campo":"branet_codigo","de":"","para":"20812"},{"campo":"branet_codigo_cliente","de":"","para":"64298"},{"campo":"branet_nome","de":"","para":"INSERTO P/ ULTRASSOM COMP/ MARCA ALT SONIC JET CEMRAMIC Nº3"}]},{"tipo":"branet","codigo":"4150630","material":"PONTA PARA ULTRASSOM - DABI ATLANTE (PERIO SUB)","campos":[{"campo":"branet_codigo","de":"","para":"20779"},{"campo":"branet_codigo_cliente","de":"","para":"64308"},{"campo":"branet_nome","de":"","para":"INSERTO PARA ULTRASSOM ORIGINAL PERIO SUB PROFINEO"}]},{"tipo":"branet","codigo":"4150632","material":"PONTA PARA ULTRASSOM - ECEL (Nº 2)","campos":[{"campo":"branet_codigo","de":"","para":"20788"},{"campo":"branet_codigo_cliente","de":"","para":"64312"},{"campo":"branet_nome","de":"","para":"INSERTO PARA ULTRASSOM ORIGINAL PERIO SUPRA Nº02 SONIC MAX PLUS"}]},{"tipo":"branet","codigo":"4150634","material":"PONTA PARA ULTRASSOM - DABI ATLANTE (PERIO SUPRA)","campos":[{"campo":"branet_codigo","de":"","para":"20786"},{"campo":"branet_codigo_cliente","de":"","para":"64313"},{"campo":"branet_nome","de":"","para":"INSERTO PARA ULTRASSOM ORIGINAL PERIO SUPRA PROFINEO"}]},{"tipo":"branet","codigo":"4150639","material":"PONTA PARA ULTRASSOM - SCHUSTER (T1-S)","campos":[{"campo":"branet_codigo","de":"","para":"20789"},{"campo":"branet_codigo_cliente","de":"","para":"64317"},{"campo":"branet_nome","de":"","para":"INSERTO PARA ULTRASSOM ORIGINAL T1-S MODELO JETLAXIS SONIC LED"}]},{"tipo":"branet","codigo":"4150640","material":"PONTA PARA ULTRASSOM - SCHUSTER (T3-S)","campos":[{"campo":"branet_codigo","de":"","para":"20790"},{"campo":"branet_codigo_cliente","de":"","para":"118030"},{"campo":"branet_nome","de":"","para":"INSERTO PARA ULTRASSOM ORIGINAL T3-S MODELO JETLAXIS SONIC LED"}]},{"tipo":"branet","codigo":"4150642","material":"PONTA PARA ULTRASSOM - SCHUSTER (T4-S)","campos":[{"campo":"branet_codigo","de":"","para":"20791"},{"campo":"branet_codigo_cliente","de":"","para":"118031"},{"campo":"branet_nome","de":"","para":"INSERTO PARA ULTRASSOM ORIGINAL T4-S MODELO JETLAXIS SONIC LED"}]},{"tipo":"branet","codigo":"4150618","material":"PONTA PARA ULTRASSOM - ECEL (Nº 1)","campos":[{"campo":"branet_codigo","de":"","para":"20787"},{"campo":"branet_codigo_cliente","de":"","para":"64311"},{"campo":"branet_nome","de":"","para":"INSERTO PARA ULTRASSOM ORIGINAL UNIVERSAL Nº01 SONIC MAX PLUS"}]},{"tipo":"branet","codigo":"4150644","material":"KIT DE FANTOCHES DE SAUDE BUCAL (CONJUNTO COM 6 PEÇAS)","campos":[{"campo":"branet_codigo","de":"","para":"15134"},{"campo":"branet_codigo_cliente","de":"","para":"15134"},{"campo":"branet_nome","de":"","para":"KIT DE FANTOCHES DE SAUDE BUCAL (CONJ C/ 6 PECAS)"}]},{"tipo":"branet","codigo":"4150645","material":"KIT MACRO MODELO EDUCATIVO ODONTOLOGICO","campos":[{"campo":"branet_codigo","de":"","para":"15737"},{"campo":"branet_codigo_cliente","de":"","para":"67371"}]},{"tipo":"branet","codigo":"4150682","material":"LAMINA BISTURI ACO CARBONO Nº 12","campos":[{"campo":"branet_codigo","de":"","para":"10863"},{"campo":"branet_codigo_cliente","de":"","para":"68012"}]},{"tipo":"branet","codigo":"4150820","material":"LAMPARINA HANNAU PLASTICA (PROTESE)","campos":[{"campo":"branet_codigo","de":"","para":"11562"},{"campo":"branet_codigo_cliente","de":"","para":"68634"}]},{"tipo":"branet","codigo":"4150821","material":"LAMPARINA INOX","campos":[{"campo":"branet_codigo","de":"","para":"13021"},{"campo":"branet_codigo_cliente","de":"","para":"68635"}]},{"tipo":"branet","codigo":"4150688","material":"LÁPIS CÓPIA (PROTESE)","campos":[{"campo":"branet_codigo","de":"","para":"14428"},{"campo":"branet_codigo_cliente","de":"","para":"68876"}]},{"tipo":"branet","codigo":"4150691","material":"LENÇOL DE BORRACHA (CAIXA COM 26)","campos":[{"campo":"branet_codigo","de":"","para":"13063"},{"campo":"branet_codigo_cliente","de":"","para":"69521"},{"campo":"branet_nome","de":"","para":"LENCOL DE BORRACHA (CX C/26)"}]},{"tipo":"branet","codigo":"4150822","material":"LIMA DE SCHLUGER","campos":[{"campo":"branet_codigo","de":"","para":"15139"},{"campo":"branet_codigo_cliente","de":"","para":"69872"},{"campo":"branet_nome","de":"","para":"LIMA DE SCHLUGER (CEO)"}]},{"tipo":"branet","codigo":"4150927","material":"LIMA END RECIPR NIQ-TIT SMALL 25 MM (CARTELA COM 3 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"15660"},{"campo":"branet_codigo_cliente","de":"","para":"69883"},{"campo":"branet_nome","de":"","para":"LIMA END RECIPR NIQ-TIT SMALL 25 MM(CART 3 UNI)"}]},{"tipo":"branet","codigo":"4150924","material":"LIMA END RECIPR NIQ-TITAN LARGE 25 MM (CARTELA COM 3 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"15316"},{"campo":"branet_codigo_cliente","de":"","para":"69877"},{"campo":"branet_nome","de":"","para":"LIMA END RECIPR NIQ-TITAN LARGE 25 MM (CARTELA C/ 3)"}]},{"tipo":"branet","codigo":"4150925","material":"LIMA END RECIPR NIQ-TITAN PRIMARY 21MM (CARTELA COM 3 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"14258"},{"campo":"branet_codigo_cliente","de":"","para":"69879"},{"campo":"branet_nome","de":"","para":"LIMA END RECIPR NIQ-TITAN PRIMARY 21MM(CART 3 UNI)"}]},{"tipo":"branet","codigo":"4150926","material":"LIMA END RECIPR NIQ-TITAN PRIMARY 25MM (CARTELA COM 3 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"14290"},{"campo":"branet_codigo_cliente","de":"","para":"69880"},{"campo":"branet_nome","de":"","para":"LIMA END RECIPR NIQ-TITAN PRIMARY 25MM(CART 3 UNI)"}]},{"tipo":"branet","codigo":"4150921","material":"LIMA ENDO RECIPROC N-T MEDIUM 21 MM (CARTELA COM 3 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"14262"},{"campo":"branet_codigo_cliente","de":"","para":"69873"},{"campo":"branet_nome","de":"","para":"LIMA ENDO RECIPROC N-T MEDIUM 21 MM (CARTELA C/3)"}]},{"tipo":"branet","codigo":"4150922","material":"LIMA ENDO RECIPROC N-T MEDIUM 25 MM (CARTELA COM 3 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"14919"},{"campo":"branet_codigo_cliente","de":"","para":"69874"},{"campo":"branet_nome","de":"","para":"LIMA ENDO RECIPROC N-T MEDIUM 25 MM (CARTELA C/ 3)"}]},{"tipo":"branet","codigo":"4150923","material":"LIMA ENDO RECIPROC N-T MEDIUM 31 MM (CARTELA COM 3 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"14297"},{"campo":"branet_codigo_cliente","de":"","para":"69875"},{"campo":"branet_nome","de":"","para":"LIMA ENDO RECIPROC N-T MEDIUM 31 MM (CARTELA C/3)"}]},{"tipo":"branet","codigo":"4150928","material":"LIMA FLEXOFILE 15-40/25 MM (CAIXA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"15657"},{"campo":"branet_codigo_cliente","de":"","para":"69893"},{"campo":"branet_nome","de":"","para":"LIMA FLEXOFILE 15/40 25 MM (CEO) (CAIXA C/6)"}]},{"tipo":"branet","codigo":"4150929","material":"LIMA FLEXOFILE 15-40/31 MM (CAIXA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"14269"},{"campo":"branet_codigo_cliente","de":"","para":"69894"},{"campo":"branet_nome","de":"","para":"LIMA FLEXOFILE 15/40 31 MM (CEO) (CAIXA C/6)"}]},{"tipo":"branet","codigo":"4150920","material":"LIMA FLEXOFILE 20/21 MM (CARTELA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"15045"},{"campo":"branet_codigo_cliente","de":"","para":"69895"},{"campo":"branet_nome","de":"","para":"LIMA FLEXOFILE Nº 20/21 MM (CARTELA C/ 6)"}]},{"tipo":"branet","codigo":"4150932","material":"LIMA FLEXOFILE 3 SERIE 90/140 (CARTELA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"15007"},{"campo":"branet_codigo_cliente","de":"","para":"69909"},{"campo":"branet_nome","de":"","para":"LIMA FLEXOFILE 3 SERIE 90/140 (CEO)(CART 6 UNI)"}]},{"tipo":"branet","codigo":"4150930","material":"LIMA FLEXOFILE 35/21 MM (CAIXA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"18250"},{"campo":"branet_codigo_cliente","de":"","para":"69901"},{"campo":"branet_nome","de":"","para":"LIMA FLEXOFILE 35 C/ 21 MM CAIXA C/6"}]},{"tipo":"branet","codigo":"4150931","material":"LIMA FLEXOFILE 35/25 MM (CAIXA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"18251"},{"campo":"branet_codigo_cliente","de":"","para":"18251"},{"campo":"branet_nome","de":"","para":"LIMA FLEXOFILE 35 C/ 25 MM CAIXA C/6"}]},{"tipo":"branet","codigo":"4150933","material":"LIMA FLEXOFILE 40/21 MM (CAIXA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"18252"},{"campo":"branet_codigo_cliente","de":"","para":"18252"},{"campo":"branet_nome","de":"","para":"LIMA FLEXOFILE 40 C/ 21 MM CAIXA C/6"}]},{"tipo":"branet","codigo":"4150934","material":"LIMA FLEXOFILE 40/25 MM (CAIXA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"18253"},{"campo":"branet_codigo_cliente","de":"","para":"69904"},{"campo":"branet_nome","de":"","para":"LIMA FLEXOFILE 40 C/ 25 MM CAIXA C/6"}]},{"tipo":"branet","codigo":"4150935","material":"LIMA FLEXOFILE 45-80/25 MM (CARTELA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"14268"},{"campo":"branet_codigo_cliente","de":"","para":"69906"},{"campo":"branet_nome","de":"","para":"LIMA FLEXOFILE 45/80 25 MM (CEO)(CART 6 UNI)"}]},{"tipo":"branet","codigo":"4150936","material":"LIMA FLEXOFILE 45-80/31 MM (CARTELA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"15024"},{"campo":"branet_codigo_cliente","de":"","para":"69908"},{"campo":"branet_nome","de":"","para":"LIMA FLEXOFILE 45/80 31 MM (CEO)(CART 6/UNI)"}]},{"tipo":"branet","codigo":"4150938","material":"LIMA FLEXOFILE 45/80 21 MM (CARTELA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"14920"},{"campo":"branet_codigo_cliente","de":"","para":"69905"},{"campo":"branet_nome","de":"","para":"LIMA FLEXOFILE Nº 45/80 21 MM (CEO) (CARTELA C/ 6)"}]},{"tipo":"branet","codigo":"4150953","material":"LIMA K-FILE 06/21 MM (CARTELA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"15129"},{"campo":"branet_codigo_cliente","de":"","para":"69911"},{"campo":"branet_nome","de":"","para":"LIMA K-FILE Nº 6/21 MM (CARTELA C/ 6)"}]},{"tipo":"branet","codigo":"4150943","material":"LIMA K-FILE 06/31 MM (CARTELA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"19527"},{"campo":"branet_codigo_cliente","de":"","para":"69913"},{"campo":"branet_nome","de":"","para":"LIMA K-FILE Nº06/31 MM (CARTELA C/ 6)"}]},{"tipo":"branet","codigo":"4150955","material":"LIMA K-FILE 08/21 MM (CARTELA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"15058"},{"campo":"branet_codigo_cliente","de":"","para":"69914"},{"campo":"branet_nome","de":"","para":"LIMA K-FILE Nº 8/21 MM (CEO) (CARTELA C/ 6)"}]},{"tipo":"branet","codigo":"4150941","material":"LIMA K-FILE 08/25MM (CAIXA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"14261"},{"campo":"branet_codigo_cliente","de":"","para":"69915"},{"campo":"branet_nome","de":"","para":"LIMA K-FILE N8/25 MM (CARTELA C/ 6)"}]},{"tipo":"branet","codigo":"4150944","material":"LIMA K-FILE 08/31 MM (CARTELA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"14260"},{"campo":"branet_codigo_cliente","de":"","para":"69916"},{"campo":"branet_nome","de":"","para":"LIMA K-FILE Nº 08/31 MM (CARTELA C/ 6)"}]},{"tipo":"branet","codigo":"4150729","material":"LIMA K-FILE 10/21 MM (CAIXA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"14968"},{"campo":"branet_codigo_cliente","de":"","para":"69917"},{"campo":"branet_nome","de":"","para":"LIMA K-FILE 10 (21 MM)"}]},{"tipo":"branet","codigo":"4150946","material":"LIMA K-FILE 10/31 MM (CARTELA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"19659"},{"campo":"branet_codigo_cliente","de":"","para":"69919"},{"campo":"branet_nome","de":"","para":"LIMA K-FILE Nº 10/31 MM (CARTELA C/ 6)"}]},{"tipo":"branet","codigo":"4150947","material":"LIMA K-FILE 15/25 MM (CAIXA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"15071"},{"campo":"branet_codigo_cliente","de":"","para":"69891"},{"campo":"branet_nome","de":"","para":"LIMA K-FILE Nº 15/25 MM (CEO) (CAIXA C/ 6)"}]},{"tipo":"branet","codigo":"4150948","material":"LIMA K-FILE 20/25 MM (CARTELA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"15057"},{"campo":"branet_codigo_cliente","de":"","para":"69896"},{"campo":"branet_nome","de":"","para":"LIMA K-FILE Nº 20/25 MM (CEO) (CARTELA C/ 6)"}]},{"tipo":"branet","codigo":"4150949","material":"LIMA K-FILE 25/21 MM (CARTELA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"14263"},{"campo":"branet_codigo_cliente","de":"","para":"69897"},{"campo":"branet_nome","de":"","para":"LIMA K-FILE Nº 25/21 MM(CART 6 UNI)"}]},{"tipo":"branet","codigo":"4150950","material":"LIMA K-FILE 25/25 MM (CARTELA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"14266"},{"campo":"branet_codigo_cliente","de":"","para":"69898"},{"campo":"branet_nome","de":"","para":"LIMA K-FILE Nº 25/25 MM(CART 6 UNI)"}]},{"tipo":"branet","codigo":"4150951","material":"LIMA K-FILE 30/21 MM (CARTELA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"14264"},{"campo":"branet_codigo_cliente","de":"","para":"69899"},{"campo":"branet_nome","de":"","para":"LIMA K-FILE Nº 30/21 MM(CART 6 UNI)"}]},{"tipo":"branet","codigo":"4150952","material":"LIMA K-FILE 30/25 MM (CARTELA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"14753"},{"campo":"branet_codigo_cliente","de":"","para":"69900"},{"campo":"branet_nome","de":"","para":"LIMA K-FILE Nº 30/25 MM (CARTELA C/6)"}]},{"tipo":"branet","codigo":"4150939","material":"LIMA KERR 3 SERIE 90-140/25 MM (CAIXA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"14940"},{"campo":"branet_codigo_cliente","de":"","para":"69921"},{"campo":"branet_nome","de":"","para":"LIMA KERR 3 SERIE 90-140/25 MM (CEO)"}]},{"tipo":"branet","codigo":"4150959","material":"LIMA PARA LIMPEZA FINAL CANAL RADICULAR (CARTELA COM 4 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"17846"},{"campo":"branet_codigo_cliente","de":"","para":"69935"},{"campo":"branet_nome","de":"","para":"LIMA P/ LIMPEZA FINAL CANAL RADICULAR"}]},{"tipo":"branet","codigo":"4150648","material":"LIMA PARA OSSO Nº11","campos":[{"campo":"branet_codigo","de":"","para":"13080"},{"campo":"branet_codigo_cliente","de":"","para":"13080"}]},{"tipo":"branet","codigo":"4150960","material":"LIMA RECIPROCANTE LARGE 21 MM (CARTELA COM 3 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"14926"},{"campo":"branet_codigo_cliente","de":"","para":"69876"},{"campo":"branet_nome","de":"","para":"LIMA RECIPROCANTE LARGE 21 MM (CARTELA C/ 3)"}]},{"tipo":"branet","codigo":"4150961","material":"LIMA RECIPROCANTE LARGE 31 MM (CARTELA COM 3 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"14958"},{"campo":"branet_codigo_cliente","de":"","para":"69878"},{"campo":"branet_nome","de":"","para":"LIMA RECIPROCANTE LARGE 31 MM (CARTELA C/ 3)"}]},{"tipo":"branet","codigo":"4150962","material":"LIMA RECIPROCANTE PRIMARY 31MM (CARTELA COM 3 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"14953"},{"campo":"branet_codigo_cliente","de":"","para":"69881"},{"campo":"branet_nome","de":"","para":"LIMA RECIPROCANTE PRIMARY 31MM(CART 3 UNI)"}]},{"tipo":"branet","codigo":"4150963","material":"LIMA RECIPROCANTE SMALL 21MM (CARTELA COM 3 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"14293"},{"campo":"branet_codigo_cliente","de":"","para":"69882"},{"campo":"branet_nome","de":"","para":"LIMA RECIPROCANTE SMALL 21MM(CART 3UNI)"}]},{"tipo":"branet","codigo":"4150964","material":"LIMA RECIPROCANTE SMALL 31MM (CARTELA COM 3 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"14291"},{"campo":"branet_codigo_cliente","de":"","para":"69884"},{"campo":"branet_nome","de":"","para":"LIMA RECIPROCANTE SMALL 31MM(CART 3UNI)"}]},{"tipo":"branet","codigo":"4150965","material":"LIMA ROTATORIA DE RETRATAMENTO D1, D2, D3 (CAIXA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"14265"},{"campo":"branet_codigo_cliente","de":"","para":"69966"},{"campo":"branet_nome","de":"","para":"LIMA ROTATORIA EM NI TI DE RETRATAMENTO D1, D2, D3(CX/6 LIMAS)"}]},{"tipo":"branet","codigo":"4150972","material":"LIMA ROTATORIA M-WIRE X1, X2, X3/21MM (CAIXA COM 3 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"14257"},{"campo":"branet_codigo_cliente","de":"","para":"69947"},{"campo":"branet_nome","de":"","para":"LIMA ROTATORIA EM NI TI M-WIRE X1, X2, X3 COM 21MM"}]},{"tipo":"branet","codigo":"4150973","material":"LIMA ROTATORIA M-WIRE X1, X2, X3/25MM (CAIXA COM 3 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"14294"},{"campo":"branet_codigo_cliente","de":"","para":"69945"},{"campo":"branet_nome","de":"","para":"LIMA ROTATORIA EM NI TI M-WIRE X1, X2, X3 COM 25MM"}]},{"tipo":"branet","codigo":"4150974","material":"LIMA ROTATORIA M-WIRE X1, X2, X3/31MM (CAIXA COM 3 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"15006"},{"campo":"branet_codigo_cliente","de":"","para":"69946"},{"campo":"branet_nome","de":"","para":"LIMA ROTATORIA EM NI TI M-WIRE X1, X2, X3 COM 31MM"}]},{"tipo":"branet","codigo":"4150975","material":"LIMA ROTATORIA M-WIRE X4/25MM (CARTELA COM 3 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"14292"},{"campo":"branet_codigo_cliente","de":"","para":"69948"},{"campo":"branet_nome","de":"","para":"LIMA ROTATORIA EM NI TI M-WIRE X4 C/25MM"}]},{"tipo":"branet","codigo":"4150966","material":"LIMA ROTATORIA M-WIRE X5/25 MM (CARTELA COM 3 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"14947"},{"campo":"branet_codigo_cliente","de":"","para":"69949"},{"campo":"branet_nome","de":"","para":"LIMA ROTATORIA EM NI TI M-WIRE X 5 COM 25 MM (CARTELA C/ 3)"}]},{"tipo":"branet","codigo":"4150967","material":"LIMA ROTATORIA SX19 MM PARA PRE-ALARGAMENTO (CAIXA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"14941"},{"campo":"branet_codigo_cliente","de":"","para":"69952"},{"campo":"branet_nome","de":"","para":"LIMA ROTATORIA SX19 MM P/ PRE-ALARGAMENTO EM NI TI (CX/ 6)"}]},{"tipo":"branet","codigo":"4150971","material":"LIMA TIPO KERR 10/31 MM (CARTELA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"14948"},{"campo":"branet_codigo_cliente","de":"","para":"14948"},{"campo":"branet_nome","de":"","para":"LIMA TIPO KERR Nº 10/31 MM (CARTELA C/ 6)"}]},{"tipo":"branet","codigo":"4151048","material":"LIMA TIPO KERR Nº 6/31 MM","campos":[{"campo":"branet_codigo","de":"","para":"14279"},{"campo":"branet_codigo_cliente","de":"","para":"14279"}]},{"tipo":"branet","codigo":"4151049","material":"LIXA PARA MADEIRA Nº 220 (PROTESE)","campos":[{"campo":"branet_codigo","de":"","para":"15022"},{"campo":"branet_codigo_cliente","de":"","para":"71725"}]},{"tipo":"branet","codigo":"4150731","material":"MANDRIL BR PARA CONTRA ÂNGULO","campos":[{"campo":"branet_codigo","de":"","para":"14888"},{"campo":"branet_codigo_cliente","de":"","para":"75468"},{"campo":"branet_nome","de":"","para":"MANDRIL BR P/ CONTRA ANGULO"}]},{"tipo":"branet","codigo":"4150968","material":"MANDRIL PM CONICO TIRA DE LIXA","campos":[{"campo":"branet_codigo","de":"","para":"13024"},{"campo":"branet_codigo_cliente","de":"","para":"75472"}]},{"tipo":"branet","codigo":"4151050","material":"MAT DE MOLD A BASE DE POLIETER MANUAL","campos":[{"campo":"branet_codigo","de":"","para":"15662"},{"campo":"branet_codigo_cliente","de":"","para":"15662"}]},{"tipo":"branet","codigo":"4151051","material":"MATERIAL DE MOLDAGEM (SILICONE DE CONDENSACAO) CATALISADOR","campos":[{"campo":"branet_codigo","de":"","para":"21007"},{"campo":"branet_codigo_cliente","de":"","para":"21007"}]},{"tipo":"branet","codigo":"4151053","material":"MATERIAL DE MOLDAGEM IMPREGUM SOFT ALTA VISCOSIDADE - KIT","campos":[{"campo":"branet_codigo","de":"","para":"17855"},{"campo":"branet_codigo_cliente","de":"","para":"17855"}]},{"tipo":"branet","codigo":"4151054","material":"MATERIAL DE MOLDAGEM IMPREGUM SOFT BAIXA VISCOSIDADE - KIT","campos":[{"campo":"branet_codigo","de":"","para":"17856"},{"campo":"branet_codigo_cliente","de":"","para":"17856"}]},{"tipo":"branet","codigo":"4151055","material":"MATERIAL DE MOLDAGEM IMPREGUM SOFT MEDIA VISCOSIDADE - KIT","campos":[{"campo":"branet_codigo","de":"","para":"18475"},{"campo":"branet_codigo_cliente","de":"","para":"18475"}]},{"tipo":"branet","codigo":"4151056","material":"MATERIAL REEMBASADOR PROVISORIO - KIT","campos":[{"campo":"branet_codigo","de":"","para":"14407"},{"campo":"branet_codigo_cliente","de":"","para":"78044"}]},{"tipo":"branet","codigo":"4150734","material":"MATRIZ DE AÇO INOXIDÁVEL 5 MM (0,05X5MMX50)","campos":[{"campo":"branet_codigo","de":"","para":"19524"},{"campo":"branet_codigo_cliente","de":"","para":"78053"}]},{"tipo":"branet","codigo":"4150737","material":"MATRIZ DE AÇO INOXIDÁVEL 7 MM (0,05X7MMX50)","campos":[{"campo":"branet_codigo","de":"","para":"14089"},{"campo":"branet_codigo_cliente","de":"","para":"78054"}]},{"tipo":"branet","codigo":"4150738","material":"MATRIZ DE AÇO TOFFLEMIRE (COM 12 TIRAS)","campos":[{"campo":"branet_codigo","de":"","para":"14951"},{"campo":"branet_codigo_cliente","de":"","para":"78055"},{"campo":"branet_nome","de":"","para":"MATRIZ DE ACO TOFFLEMERI (C/ 12 TIRAS)"}]},{"tipo":"branet","codigo":"4150823","material":"MICRO CINZEIS DE OCHSENBEIN Nº1","campos":[{"campo":"branet_codigo","de":"","para":"12968"},{"campo":"branet_codigo_cliente","de":"","para":"79498"},{"campo":"branet_nome","de":"","para":"MICRO CINZEIS DE OCHSENBEIN Nº1 (CEO)"}]},{"tipo":"branet","codigo":"4150824","material":"MICRO CINZEL OCHSENBEIN Nº1","campos":[{"campo":"branet_codigo","de":"","para":"20776"},{"campo":"branet_codigo_cliente","de":"","para":"20776"}]},{"tipo":"branet","codigo":"4150825","material":"MINI ORGANIZADOR PLASTICO COM TAMPA","campos":[{"campo":"branet_codigo","de":"","para":"14741"},{"campo":"branet_codigo_cliente","de":"","para":"80162"},{"campo":"branet_nome","de":"","para":"MINI ORGANIZADOR PLASTICO C/ TAMPA (PROTESE)"}]},{"tipo":"branet","codigo":"4150826","material":"MOLDEIRA INOX 1-4 LISA INFERIOR PARA MOLDAGEM ADULTO","campos":[{"campo":"branet_codigo","de":"","para":"15240"},{"campo":"branet_codigo_cliente","de":"","para":"15240"}]},{"tipo":"branet","codigo":"4150827","material":"MOLDEIRA PARA EDENTADOS HDR ANATOMO FISIOLOGICA (CARTELA COM 3 PARES)","campos":[{"campo":"branet_codigo","de":"","para":"14749"},{"campo":"branet_codigo_cliente","de":"","para":"80685"},{"campo":"branet_nome","de":"","para":"MOLDEIRA P/ EDENTADOS HDR ANATOMO FISIOLOGICA (CARTELA C/ 3 PARES)"}]},{"tipo":"branet","codigo":"4150828","material":"MOLDEIRA PARA DENTADOS DE ALUMINIO POL PERF (JOGO COM 9 MOLDEIRAS)","campos":[{"campo":"branet_codigo","de":"","para":"15147"},{"campo":"branet_codigo_cliente","de":"","para":"80684"},{"campo":"branet_nome","de":"","para":"MOLDEIRA PARA DENTADOS DE ALUMINIO POL PERF (JOGO C/ 9 MOLDEIRAS)"}]},{"tipo":"branet","codigo":"4150744","material":"PAPEL DETECTOR (BLOCO COM 12 FOLHAS)","campos":[{"campo":"branet_codigo","de":"","para":"15069"},{"campo":"branet_codigo_cliente","de":"","para":"85785"},{"campo":"branet_nome","de":"","para":"PAPEL DETECTOR (BLOCO C/ 12 FOLHAS)"}]},{"tipo":"branet","codigo":"4151106","material":"PASTA DE HIDROX CALCIO PARA ENDODONTIA-SER/AGUL PARA APLICACAO","campos":[{"campo":"branet_codigo","de":"","para":"14345"},{"campo":"branet_codigo_cliente","de":"","para":"87433"},{"campo":"branet_nome","de":"","para":"PASTA DE HIDROX CALCIO P/ ENDODONTIA-SER/AGUL P APLICACAO"}]},{"tipo":"branet","codigo":"4150742","material":"PASTA PARA TRATAMENTO DE ALVEOLITE 10G","campos":[{"campo":"branet_codigo","de":"","para":"18259"},{"campo":"branet_codigo_cliente","de":"","para":"18259"},{"campo":"branet_nome","de":"","para":"PASTA P/ TRATAMENTO DE ALVEOLITE 10G"}]},{"tipo":"branet","codigo":"4150741","material":"PASTA PROFILATICA COM FLUOR 90G","campos":[{"campo":"branet_codigo","de":"","para":"10406"},{"campo":"branet_codigo_cliente","de":"","para":"87813"}]},{"tipo":"branet","codigo":"4151057","material":"PASTA ZINCO ENOLICA BISNAGA 60G","campos":[{"campo":"branet_codigo","de":"","para":"20735"},{"campo":"branet_codigo_cliente","de":"","para":"87918"}]},{"tipo":"branet","codigo":"4151058","material":"PAVIO PARA LAMPARINA (PACOTE COM 10 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"12942"},{"campo":"branet_codigo_cliente","de":"","para":"88626"},{"campo":"branet_nome","de":"","para":"PAVIO PARA LAMPARINA (PCT C/10 UN)"}]},{"tipo":"branet","codigo":"4151059","material":"PAVIO PARA LAMPARINA (PACOTE COM 12 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"21048"},{"campo":"branet_codigo_cliente","de":"","para":"21048"},{"campo":"branet_nome","de":"","para":"PAVIO PARA LAMPARINA (PCT C/12 UN)"}]},{"tipo":"branet","codigo":"4151060","material":"PEDRA DE OXIDO DE ALUMINIO CILINDRICA PARA PEÇA DE MAO","campos":[{"campo":"branet_codigo","de":"","para":"14932"},{"campo":"branet_codigo_cliente","de":"","para":"88911"},{"campo":"branet_nome","de":"","para":"PEDRA DE OXIDO DE ALUMINIO CILINDRICA P/ PECA DE MAO"}]},{"tipo":"branet","codigo":"4151061","material":"PEDRA DE OXIDO DE ALUMINIO CONICA INVERTIDA PARA PEÇA DE MAO","campos":[{"campo":"branet_codigo","de":"","para":"14937"},{"campo":"branet_codigo_cliente","de":"","para":"88912"},{"campo":"branet_nome","de":"","para":"PEDRA DE OXIDO DE ALUMINIO CONICA INVERTIDA P/ PECA DE MAO"}]},{"tipo":"branet","codigo":"4151062","material":"PEDRA DE OXIDO DE ALUMINIO CONICA PARA PEÇA DE MAO","campos":[{"campo":"branet_codigo","de":"","para":"14938"},{"campo":"branet_codigo_cliente","de":"","para":"88913"},{"campo":"branet_nome","de":"","para":"PEDRA DE OXIDO DE ALUMINIO CONICA P/ PECA DE MAO"}]},{"tipo":"branet","codigo":"4150829","material":"PEDRA MONTADA CILINDRICA 0,5MM PARA DESGASTE DE METAL, ESTERILIZAVEL","campos":[{"campo":"branet_codigo","de":"","para":"20731"},{"campo":"branet_codigo_cliente","de":"","para":"88920"}]},{"tipo":"branet","codigo":"4150830","material":"PEDRA MONTADA CILINDRICA 0,7MM PARA DESGASTE DE METAL","campos":[{"campo":"branet_codigo","de":"","para":"20732"},{"campo":"branet_codigo_cliente","de":"","para":"88922"}]},{"tipo":"branet","codigo":"4150832","material":"PEDRA MONTADA TRONCO CONICA 0,42MM PARA DESGASTE DE METAL","campos":[{"campo":"branet_codigo","de":"","para":"20733"},{"campo":"branet_codigo_cliente","de":"","para":"88924"}]},{"tipo":"branet","codigo":"4150652","material":"PEDRA PARA AFIACAO","campos":[{"campo":"branet_codigo","de":"","para":"10466"},{"campo":"branet_codigo_cliente","de":"","para":"88926"}]},{"tipo":"branet","codigo":"4151063","material":"PEDRA POMES PO 100 GR","campos":[{"campo":"branet_codigo","de":"","para":"21059"},{"campo":"branet_codigo_cliente","de":"","para":"21059"}]},{"tipo":"branet","codigo":"4151064","material":"PEDRA POMES PO 1KG","campos":[{"campo":"branet_codigo","de":"","para":"11451"},{"campo":"branet_codigo_cliente","de":"","para":"88932"}]},{"tipo":"branet","codigo":"4150833","material":"PINCA ATRAUMATICA DIETRICH 16 CM","campos":[{"campo":"branet_codigo","de":"","para":"15196"},{"campo":"branet_codigo_cliente","de":"","para":"89965"},{"campo":"branet_nome","de":"","para":"PINCA ATRAUMATICA DIETRICH 16 CM (CEO)"}]},{"tipo":"branet","codigo":"4150656","material":"PINCA CLINICA Nº 17","campos":[{"campo":"branet_codigo","de":"","para":"10467"},{"campo":"branet_codigo_cliente","de":"","para":"90187"}]},{"tipo":"branet","codigo":"4150835","material":"PINCA GOIVA BLUMENTHAL","campos":[{"campo":"branet_codigo","de":"","para":"15755"},{"campo":"branet_codigo_cliente","de":"","para":"15755"},{"campo":"branet_nome","de":"","para":"PINCA GOIVA BLUMENTHAL (CEO)"}]},{"tipo":"branet","codigo":"4150836","material":"PINCA MULLER PARA CARBONO (PROTESE)","campos":[{"campo":"branet_codigo","de":"","para":"12958"},{"campo":"branet_codigo_cliente","de":"","para":"90122"}]},{"tipo":"branet","codigo":"4150657","material":"PINCA PORTA GRAMPO DE PALMER","campos":[{"campo":"branet_codigo","de":"","para":"12925"},{"campo":"branet_codigo_cliente","de":"","para":"12925"}]},{"tipo":"branet","codigo":"4151065","material":"PINCEL PELO DE PONEI","campos":[{"campo":"branet_codigo","de":"","para":"14288"},{"campo":"branet_codigo_cliente","de":"","para":"90681"}]},{"tipo":"branet","codigo":"4150739","material":"PINCEL TIPO PELO DE MARTA 00","campos":[{"campo":"branet_codigo","de":"","para":"14256"},{"campo":"branet_codigo_cliente","de":"","para":"90733"}]},{"tipo":"branet","codigo":"4150659","material":"PLACA DE VIDRO FINA 15X6X06","campos":[{"campo":"branet_codigo","de":"","para":"10443"},{"campo":"branet_codigo_cliente","de":"","para":"91828"}]},{"tipo":"branet","codigo":"4150837","material":"PLANO DE CAMPER PARA PROTESE","campos":[{"campo":"branet_codigo","de":"","para":"15171"},{"campo":"branet_codigo_cliente","de":"","para":"92096"},{"campo":"branet_nome","de":"","para":"PLANO DE CAMPER P/ PROTESE (CEO)"}]},{"tipo":"branet","codigo":"4151066","material":"PONTA DE ASPIRACAO ENDODONTICA VERDE 25MM (PACOTE COM 5)","campos":[{"campo":"branet_codigo","de":"","para":"17098"},{"campo":"branet_codigo_cliente","de":"","para":"93495"},{"campo":"branet_nome","de":"","para":"PONTA DE ASPIRACAO ENDODONTICA VERDE 25MM (PCT C/5)"}]},{"tipo":"branet","codigo":"4151069","material":"PONTA DE GUTA PERCHA ACES TAM RS","campos":[{"campo":"branet_codigo","de":"","para":"14254"},{"campo":"branet_codigo_cliente","de":"","para":"93405"}]},{"tipo":"branet","codigo":"4151070","material":"PONTA DE GUTA PERCHA PRINCIPAL Nº 25","campos":[{"campo":"branet_codigo","de":"","para":"14251"},{"campo":"branet_codigo_cliente","de":"","para":"93407"}]},{"tipo":"branet","codigo":"4151071","material":"PONTA DE GUTA PERCHA PRINCIPAL Nº 30","campos":[{"campo":"branet_codigo","de":"","para":"14252"},{"campo":"branet_codigo_cliente","de":"","para":"93408"}]},{"tipo":"branet","codigo":"4151072","material":"PONTA DE GUTA PERCHA PRINCIPAL Nº 40","campos":[{"campo":"branet_codigo","de":"","para":"14253"},{"campo":"branet_codigo_cliente","de":"","para":"93410"}]},{"tipo":"branet","codigo":"4151073","material":"PONTA DE GUTA PERCHA PRINCIPAL Nº35","campos":[{"campo":"branet_codigo","de":"","para":"14245"},{"campo":"branet_codigo_cliente","de":"","para":"93409"}]},{"tipo":"branet","codigo":"4151074","material":"PONTA DE IRRIGACAO ENDODONTICA AMARELA 21MM","campos":[{"campo":"branet_codigo","de":"","para":"17097"},{"campo":"branet_codigo_cliente","de":"","para":"93497"}]},{"tipo":"branet","codigo":"4151075","material":"PONTA DE IRRIGACAO ENDODONTICA AZUL 25MM","campos":[{"campo":"branet_codigo","de":"","para":"17096"},{"campo":"branet_codigo_cliente","de":"","para":"93496"}]},{"tipo":"branet","codigo":"4151076","material":"PONTA DE PAPEL ABSORVENTE Nº 15-40","campos":[{"campo":"branet_codigo","de":"","para":"15667"},{"campo":"branet_codigo_cliente","de":"","para":"15667"},{"campo":"branet_nome","de":"","para":"PONTA DE PAPEL ABSORVENTE Nº 15-40 (CEO)"}]},{"tipo":"branet","codigo":"4151077","material":"PONTA DE PAPEL ABSORVENTE Nº 25","campos":[{"campo":"branet_codigo","de":"","para":"14243"},{"campo":"branet_codigo_cliente","de":"","para":"93418"}]},{"tipo":"branet","codigo":"4151078","material":"PONTA DE PAPEL ABSORVENTE Nº 30","campos":[{"campo":"branet_codigo","de":"","para":"14242"},{"campo":"branet_codigo_cliente","de":"","para":"93419"}]},{"tipo":"branet","codigo":"4151079","material":"PONTA DE PAPEL ABSORVENTE Nº 35","campos":[{"campo":"branet_codigo","de":"","para":"14250"},{"campo":"branet_codigo_cliente","de":"","para":"93420"}]},{"tipo":"branet","codigo":"4151080","material":"PONTA DE PAPEL ABSORVENTE Nº 40","campos":[{"campo":"branet_codigo","de":"","para":"14249"},{"campo":"branet_codigo_cliente","de":"","para":"93421"}]},{"tipo":"branet","codigo":"4151081","material":"PONTA DE PAPEL ABSORVENTE Nº 45-80","campos":[{"campo":"branet_codigo","de":"","para":"14246"},{"campo":"branet_codigo_cliente","de":"","para":"93417"},{"campo":"branet_nome","de":"","para":"PONTA DE PAPEL ABSORVENTE Nº 45-80 (CEO)"}]},{"tipo":"branet","codigo":"4151082","material":"PONTA MISTURADORA PARA APARELHO PENTAMIX II (PACOTE COM 10)","campos":[{"campo":"branet_codigo","de":"","para":"20352"},{"campo":"branet_codigo_cliente","de":"","para":"20352"},{"campo":"branet_nome","de":"","para":"PONTA MISTURADORA P/ APARELHO PENTAMIX II (PACT/10)"}]},{"tipo":"branet","codigo":"4151083","material":"PONTA MISTURADORA PARA APARELHO PENTAMIX II (PACOTE COM 12)","campos":[{"campo":"branet_codigo","de":"","para":"17122"},{"campo":"branet_codigo_cliente","de":"","para":"17122"},{"campo":"branet_nome","de":"","para":"PONTA MISTURADORA P/ APARELHO PENTAMIX II (PACT/12)"}]},{"tipo":"branet","codigo":"4151084","material":"PONTA MISTURADORA PARA APARELHO PENTAMIX II (PACOTE COM 30)","campos":[{"campo":"branet_codigo","de":"","para":"14370"},{"campo":"branet_codigo_cliente","de":"","para":"93499"},{"campo":"branet_nome","de":"","para":"PONTA MISTURADORA P/ APARELHO PENTAMIX II (PACT/30)"}]},{"tipo":"branet","codigo":"4150638","material":"PONTA PARA ULTRASSOM - KAVO (Nº 6)","campos":[{"campo":"branet_codigo","de":"","para":"15138"},{"campo":"branet_codigo_cliente","de":"","para":"15138"},{"campo":"branet_nome","de":"","para":"PONTA PARA ULTRASON SONIC BORDEN KAVO Nº 6"}]},{"tipo":"branet","codigo":"4150636","material":"PONTA PARA ULTRASSOM - KAVO (Nº 7)","campos":[{"campo":"branet_codigo","de":"","para":"15137"},{"campo":"branet_codigo_cliente","de":"","para":"15137"},{"campo":"branet_nome","de":"","para":"PONTA PARA ULTRASON SONIC BORDEN KAVO Nº 7"}]},{"tipo":"branet","codigo":"4150665","material":"PONTEIRA CROMADA REMOVIVEL PARA KIT SUCTOR IV SCHUSTER","campos":[{"campo":"branet_codigo","de":"","para":"15251"},{"campo":"branet_codigo_cliente","de":"","para":"15251"},{"campo":"branet_nome","de":"","para":"PONTEIRA CROMADA REMOVIVEL P/ KIT SUCTOR IV SCHUSTER"}]},{"tipo":"branet","codigo":"4150662","material":"PONTEIRA UNIVERSAL COMP COM TDS APAR FOTOP 12 MM","campos":[{"campo":"branet_codigo","de":"","para":"18494"},{"campo":"branet_codigo_cliente","de":"","para":"18494"},{"campo":"branet_nome","de":"","para":"PONTEIRA UNIVERSAL COMP C/TDS APAR FOTOP 12 MM"}]},{"tipo":"branet","codigo":"4150664","material":"PONTEIRA UNIVERSAL COMP COM TDS APAR FOTOP 15 MM","campos":[{"campo":"branet_codigo","de":"","para":"18495"},{"campo":"branet_codigo_cliente","de":"","para":"18495"},{"campo":"branet_nome","de":"","para":"PONTEIRA UNIVERSAL COMP C/TDS APAR FOTOP 15 MM"}]},{"tipo":"branet","codigo":"4150838","material":"PORTA AGULHA CASTROVIEJO RETO","campos":[{"campo":"branet_codigo","de":"","para":"15305"},{"campo":"branet_codigo_cliente","de":"","para":"93885"},{"campo":"branet_nome","de":"","para":"PORTA AGULHA CASTROVIEJO RETO (CEO)"}]},{"tipo":"branet","codigo":"4150672","material":"PORTA AGULHA MAYO HEGAR COM WIDEA 14CM","campos":[{"campo":"branet_codigo","de":"","para":"20194"},{"campo":"branet_codigo_cliente","de":"","para":"93892"}]},{"tipo":"branet","codigo":"4150839","material":"PORTA AGULHA MAYO HEGAR COM WIDEA 15CM","campos":[{"campo":"branet_codigo","de":"","para":"10444"},{"campo":"branet_codigo_cliente","de":"","para":"10444"},{"campo":"branet_nome","de":"","para":"PORTA AGULHA MAYO HEGAR COM WIDEA 15CM (CEO)"}]},{"tipo":"branet","codigo":"4150673","material":"PORTA ALGODAO DE INOX UNIDADE","campos":[{"campo":"branet_codigo","de":"","para":"10447"},{"campo":"branet_codigo_cliente","de":"","para":"93906"}]},{"tipo":"branet","codigo":"4150840","material":"PORTA AMALGAMA MICRO PEDIATRICO INOX","campos":[{"campo":"branet_codigo","de":"","para":"15136"},{"campo":"branet_codigo_cliente","de":"","para":"93908"},{"campo":"branet_nome","de":"","para":"PORTA AMALGAMA MICRO PEDIATRICO INOX (CEO)"}]},{"tipo":"branet","codigo":"4150676","material":"PORTA MATRIZ IVORY Nº 8","campos":[{"campo":"branet_codigo","de":"","para":"10455"},{"campo":"branet_codigo_cliente","de":"","para":"119622"}]},{"tipo":"branet","codigo":"4150678","material":"PORTA MATRIZ TOFFLEMIRE","campos":[{"campo":"branet_codigo","de":"","para":"15047"},{"campo":"branet_codigo_cliente","de":"","para":"94152"}]},{"tipo":"branet","codigo":"4150680","material":"PORTA RESIDUO","campos":[{"campo":"branet_codigo","de":"","para":"14878"},{"campo":"branet_codigo_cliente","de":"","para":"94185"}]},{"tipo":"branet","codigo":"4150850","material":"POSICIONADOR DE FILME RX ADULTO","campos":[{"campo":"branet_codigo","de":"","para":"14743"},{"campo":"branet_codigo_cliente","de":"","para":"14743"}]},{"tipo":"branet","codigo":"4150852","material":"POSICIONADOR DE FILME RX INFANTIL","campos":[{"campo":"branet_codigo","de":"","para":"14740"},{"campo":"branet_codigo_cliente","de":"","para":"14740"}]},{"tipo":"branet","codigo":"4150681","material":"POTE DAPPEN DE VIDRO","campos":[{"campo":"branet_codigo","de":"","para":"12961"},{"campo":"branet_codigo_cliente","de":"","para":"94339"}]},{"tipo":"branet","codigo":"4150683","material":"POTE PALADON COM TAMPA DE VIDRO","campos":[{"campo":"branet_codigo","de":"","para":"11569"},{"campo":"branet_codigo_cliente","de":"","para":"94355"}]},{"tipo":"branet","codigo":"4150685","material":"PRENDEDOR DE GUARDANAPO (CORRENTE TIPO JACARE)","campos":[{"campo":"branet_codigo","de":"","para":"15130"},{"campo":"branet_codigo_cliente","de":"","para":"94878"}]},{"tipo":"branet","codigo":"4151085","material":"PROTETOR DE MANGUEIRA EM TNT (PACT/10)","campos":[{"campo":"branet_codigo","de":"","para":"15669"},{"campo":"branet_codigo_cliente","de":"","para":"95806"},{"campo":"branet_nome","de":"","para":"PROTETOR DE MANGUEIRA EM TNT (CEO) - EMBALAGEM COM 10 UN"}]},{"tipo":"branet","codigo":"4150700","material":"PROTETOR DESCARTAVEL TIPO BABADOR (PACOTE COM 100 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"14398"},{"campo":"branet_codigo_cliente","de":"","para":"95828"},{"campo":"branet_nome","de":"","para":"BABADOR DESCARTAVEL (PCT/ 100 UN)"}]},{"tipo":"branet","codigo":"4151086","material":"REFIL DO TAMBOREL (COM 50 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"13097"},{"campo":"branet_codigo_cliente","de":"","para":"97939"},{"campo":"branet_nome","de":"","para":"REFIL DO TAMBOREL (C/ 50 UNID) (CEO)"}]},{"tipo":"branet","codigo":"4151087","material":"REFIL MAT MOLD (IMPRESSAO) PASTA BASE/PASTA CATAL PENTAMIX (PROTESE)","campos":[{"campo":"branet_codigo","de":"","para":"14812"},{"campo":"branet_codigo_cliente","de":"","para":"14812"}]},{"tipo":"branet","codigo":"4150841","material":"REGUA CALIBRADORA EM PPS PARA ENDODONTIA","campos":[{"campo":"branet_codigo","de":"","para":"15133"},{"campo":"branet_codigo_cliente","de":"","para":"98639"},{"campo":"branet_nome","de":"","para":"REGUA CALIBRADORA EM PPS P/ ENDODONTIA"}]},{"tipo":"branet","codigo":"4150842","material":"REGUA DE FOX (PROTESE)","campos":[{"campo":"branet_codigo","de":"","para":"15135"},{"campo":"branet_codigo_cliente","de":"","para":"15135"}]},{"tipo":"branet","codigo":"4150843","material":"REGUA ENDODONTICA MET MILIMETRADA","campos":[{"campo":"branet_codigo","de":"","para":"15244"},{"campo":"branet_codigo_cliente","de":"","para":"15244"},{"campo":"branet_nome","de":"","para":"REGUA ENDODONTICA MET MILIMETRADA (CEO)"}]},{"tipo":"branet","codigo":"4151088","material":"REMOVEDOR DE CERAS E GORDURAS PARA TRABALHOS PROTETICOS","campos":[{"campo":"branet_codigo","de":"","para":"15670"},{"campo":"branet_codigo_cliente","de":"","para":"99027"},{"campo":"branet_nome","de":"","para":"REMOVEDOR DE CERAS E GORDURAS P/ TRABALHOS PROTETICOS"}]},{"tipo":"branet","codigo":"4151089","material":"RESINA ACRIL RAAQ PO INCOLOR (440G)","campos":[{"campo":"branet_codigo","de":"","para":"14273"},{"campo":"branet_codigo_cliente","de":"","para":"14273"}]},{"tipo":"branet","codigo":"4151090","material":"RESINA ACRILICA AUTOPOLIMERIZAVEL INCOLOR (440G)","campos":[{"campo":"branet_codigo","de":"","para":"15673"},{"campo":"branet_codigo_cliente","de":"","para":"99428"}]},{"tipo":"branet","codigo":"4151091","material":"RESINA ACRILICA ODONTO POLIMERIZAVEL POR MICROONDAS INCOLOR (440 GR)","campos":[{"campo":"branet_codigo","de":"","para":"14221"},{"campo":"branet_codigo_cliente","de":"","para":"99430"}]},{"tipo":"branet","codigo":"4151092","material":"RESINA ACRILICA PATTERN KIT PO+LIQ","campos":[{"campo":"branet_codigo","de":"","para":"20736"},{"campo":"branet_codigo_cliente","de":"","para":"20736"}]},{"tipo":"branet","codigo":"4151093","material":"RESINA ACRILICA PO COR Nº 60","campos":[{"campo":"branet_codigo","de":"","para":"17885"},{"campo":"branet_codigo_cliente","de":"","para":"17885"}]},{"tipo":"branet","codigo":"4151094","material":"RESINA ACRILICA PO COR Nº 67","campos":[{"campo":"branet_codigo","de":"","para":"14222"},{"campo":"branet_codigo_cliente","de":"","para":"99438"}]},{"tipo":"branet","codigo":"4151095","material":"RESINA ACRILICA PO COR Nº 69","campos":[{"campo":"branet_codigo","de":"","para":"14220"},{"campo":"branet_codigo_cliente","de":"","para":"99439"}]},{"tipo":"branet","codigo":"4151096","material":"RESINA ACRILICA PO COR Nº 77","campos":[{"campo":"branet_codigo","de":"","para":"15023"},{"campo":"branet_codigo_cliente","de":"","para":"99433"}]},{"tipo":"branet","codigo":"4151097","material":"RESINA ACRILICA PO COR Nº 81","campos":[{"campo":"branet_codigo","de":"","para":"14813"},{"campo":"branet_codigo_cliente","de":"","para":"99440"}]},{"tipo":"branet","codigo":"4151098","material":"RESINA ACRILICA RAAQ LIQUIDA (120ML)","campos":[{"campo":"branet_codigo","de":"","para":"14275"},{"campo":"branet_codigo_cliente","de":"","para":"99422"}]},{"tipo":"branet","codigo":"4151099","material":"RESINA ACRILICA RAAQ PO COR Nº 61","campos":[{"campo":"branet_codigo","de":"","para":"15074"},{"campo":"branet_codigo_cliente","de":"","para":"99434"}]},{"tipo":"branet","codigo":"4151100","material":"RESINA ACRILICA RAAQ PO COR Nº 62","campos":[{"campo":"branet_codigo","de":"","para":"14216"},{"campo":"branet_codigo_cliente","de":"","para":"99435"}]},{"tipo":"branet","codigo":"4151101","material":"RESINA ACRILICA RAAQ PO COR Nº 65","campos":[{"campo":"branet_codigo","de":"","para":"14217"},{"campo":"branet_codigo_cliente","de":"","para":"99436"}]},{"tipo":"branet","codigo":"4151102","material":"RESINA ACRILICA RAAQ PO COR Nº 66","campos":[{"campo":"branet_codigo","de":"","para":"14218"},{"campo":"branet_codigo_cliente","de":"","para":"99437"}]},{"tipo":"branet","codigo":"4151103","material":"RESINA ACRILICA RAAQ PO INCOLOR (1KG)","campos":[{"campo":"branet_codigo","de":"","para":"17002"},{"campo":"branet_codigo_cliente","de":"","para":"99425"}]},{"tipo":"branet","codigo":"4151104","material":"RESINA ACRILICA RAAQ PO INCOLOR (78 G)","campos":[{"campo":"branet_codigo","de":"","para":"14219"},{"campo":"branet_codigo_cliente","de":"","para":"99441"}]},{"tipo":"branet","codigo":"4151105","material":"RESINA ACRILICA RAAQ PO ROSA MEDIO (78G)","campos":[{"campo":"branet_codigo","de":"","para":"14276"},{"campo":"branet_codigo_cliente","de":"","para":"99442"}]},{"tipo":"branet","codigo":"4151107","material":"RESINA ACRILICA TERMO POLIMERIZANTE ROSA","campos":[{"campo":"branet_codigo","de":"","para":"21060"},{"campo":"branet_codigo_cliente","de":"","para":"21060"}]},{"tipo":"branet","codigo":"4151108","material":"RESINA ACRILICA TERMOPOLIMERIZAVEL POR MICRO ONDAS LIQUIDA (250ML)","campos":[{"campo":"branet_codigo","de":"","para":"14274"},{"campo":"branet_codigo_cliente","de":"","para":"99426"},{"campo":"branet_nome","de":"","para":"RESINA ACRILICA TERMOPOLIMERIZAVEL POR MICRO ONDAS LIQUIDA FRASCO 250ML"}]},{"tipo":"branet","codigo":"4151109","material":"RESINA ACRILICA TERMOPOLIMERIZAVEL POR MICRO ONDAS PO ROSA MEDIO (450G)","campos":[{"campo":"branet_codigo","de":"","para":"14234"},{"campo":"branet_codigo_cliente","de":"","para":"99431"}]},{"tipo":"branet","codigo":"4151110","material":"RESINA AUTO POLIMERIZANTE PO INCOLOR (80G)","campos":[{"campo":"branet_codigo","de":"","para":"15315"},{"campo":"branet_codigo_cliente","de":"","para":"15315"},{"campo":"branet_nome","de":"","para":"RESINA AUTO POLIMERIZANTE PO 80G INCOLOR"}]},{"tipo":"branet","codigo":"4150716","material":"RESINA COMPOSTA FLUIDA COR A3","campos":[{"campo":"branet_codigo","de":"","para":"14272"},{"campo":"branet_codigo_cliente","de":"","para":"99515"}]},{"tipo":"branet","codigo":"4150733","material":"RESINA FOTOPOLIMERIZAVEL COR A2 ESMALTE","campos":[{"campo":"branet_codigo","de":"","para":"11615"},{"campo":"branet_codigo_cliente","de":"","para":"99474"},{"campo":"branet_nome","de":"","para":"RESINA COMPOSTA A2 ESMALTE"}]},{"tipo":"branet","codigo":"4150732","material":"RESINA FOTOPOLIMERIZAVEL COR A3 DENTINA","campos":[{"campo":"branet_codigo","de":"","para":"14270"},{"campo":"branet_codigo_cliente","de":"","para":"99475"},{"campo":"branet_nome","de":"","para":"RESINA COMPOSTA A3 DENTINA"}]},{"tipo":"branet","codigo":"4150730","material":"RESINA FOTOPOLIMERIZAVEL COR A3 ESMALTE","campos":[{"campo":"branet_codigo","de":"","para":"14207"},{"campo":"branet_codigo_cliente","de":"","para":"99476"},{"campo":"branet_nome","de":"","para":"RESINA COMPOSTA A3 ESMALTE"}]},{"tipo":"branet","codigo":"4151047","material":"RESINA FOTOPOLIMERIZAVEL UNICROMATICA","campos":[{"campo":"branet_codigo","de":"","para":"21035"},{"campo":"branet_codigo_cliente","de":"","para":"21035"}]},{"tipo":"branet","codigo":"4151111","material":"RESTAURADOR PROVISORIO FOTOPOLIMERIZAVEL","campos":[{"campo":"branet_codigo","de":"","para":"15674"},{"campo":"branet_codigo_cliente","de":"","para":"15674"}]},{"tipo":"branet","codigo":"4150715","material":"REVELADOR DE PLACA BACTERIANA 500ML","campos":[{"campo":"branet_codigo","de":"","para":"14387"},{"campo":"branet_codigo_cliente","de":"","para":"100104"}]},{"tipo":"branet","codigo":"4151114","material":"RODA DE ALGODAO PARA TORNO DE POLIMENTO DE RESINA","campos":[{"campo":"branet_codigo","de":"","para":"14406"},{"campo":"branet_codigo_cliente","de":"","para":"14406"}]},{"tipo":"branet","codigo":"4151115","material":"RODA DE FLANELA PARA TORNO DE POLIMENTO DE RESINA","campos":[{"campo":"branet_codigo","de":"","para":"14405"},{"campo":"branet_codigo_cliente","de":"","para":"100578"}]},{"tipo":"branet","codigo":"4150718","material":"ROLETE DENTAL DE ALGODÃO (COM 100 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"10402"},{"campo":"branet_codigo_cliente","de":"","para":"101004"},{"campo":"branet_nome","de":"","para":"ROLETE DENTAL DE ALGODAO (C/100 UNID)"}]},{"tipo":"branet","codigo":"4150686","material":"SACA BROCA UNIDADE","campos":[{"campo":"branet_codigo","de":"","para":"11456"},{"campo":"branet_codigo_cliente","de":"","para":"101794"}]},{"tipo":"branet","codigo":"4150713","material":"SELANTE DENTAL FOTOPOLIMERIZÁVEL PARA FOSSULAS E FISSURAS","campos":[{"campo":"branet_codigo","de":"","para":"14395"},{"campo":"branet_codigo_cliente","de":"","para":"103086"}]},{"tipo":"branet","codigo":"4150689","material":"SERINGA CARPULE COM REFLUXO","campos":[{"campo":"branet_codigo","de":"","para":"13683"},{"campo":"branet_codigo_cliente","de":"","para":"103435"}]},{"tipo":"branet","codigo":"4150844","material":"SERINGA ENDODONTICA","campos":[{"campo":"branet_codigo","de":"","para":"15143"},{"campo":"branet_codigo_cliente","de":"","para":"103526"},{"campo":"branet_nome","de":"","para":"SERINGA ENDODONTICA (CEO)"}]},{"tipo":"branet","codigo":"4150690","material":"SERINGA TRIPLICE QUADRADO CABO/BOTAO","campos":[{"campo":"branet_codigo","de":"","para":"17880"},{"campo":"branet_codigo_cliente","de":"","para":"103544"}]},{"tipo":"branet","codigo":"4150692","material":"SINDESMOTOMO","campos":[{"campo":"branet_codigo","de":"","para":"10438"},{"campo":"branet_codigo_cliente","de":"","para":"105918"},{"campo":"branet_nome","de":"","para":"SINDESMOTOMO 2"}]},{"tipo":"branet","codigo":"4151118","material":"SOLUCAO DE CLOREXIDINA 2% 100ML","campos":[{"campo":"branet_codigo","de":"","para":"14229"},{"campo":"branet_codigo_cliente","de":"","para":"106335"},{"campo":"branet_nome","de":"","para":"SOLUCAO DE CLOREXIDINA A 2% 100ML (CEO)"}]},{"tipo":"branet","codigo":"4151116","material":"SOLUCAO DE HIPOCLORITO DE SODIO 2,5% 1L","campos":[{"campo":"branet_codigo","de":"","para":"14392"},{"campo":"branet_codigo_cliente","de":"","para":"106355"},{"campo":"branet_nome","de":"","para":"SOLUCAO DE HIPOCLORITO DE SODIO A 2,5% 1L"}]},{"tipo":"branet","codigo":"4151117","material":"SOLUCAO DE HIPOCLORITO DE SODIO 5% 1L","campos":[{"campo":"branet_codigo","de":"","para":"14393"},{"campo":"branet_codigo_cliente","de":"","para":"14393"},{"campo":"branet_nome","de":"","para":"SOLUCAO DE HIPOCLORITO DE SODIO A 5% 1L (CEO)"}]},{"tipo":"branet","codigo":"4150674","material":"SOLUÇÃO HEMOSTÁTICA SEM EPINEFRINA","campos":[{"campo":"branet_codigo","de":"","para":"15681"},{"campo":"branet_codigo_cliente","de":"","para":"106370"},{"campo":"branet_nome","de":"","para":"SOLUCAO HEMOSTATICA S/ EPINEFRINA"}]},{"tipo":"branet","codigo":"4150845","material":"SONDA DE NABERS Nº 2N COLORIDA PARA FURCA","campos":[{"campo":"branet_codigo","de":"","para":"15758"},{"campo":"branet_codigo_cliente","de":"","para":"15758"},{"campo":"branet_nome","de":"","para":"SONDA DE NABERS Nº 2N COLORIDA P/ FURCA"}]},{"tipo":"branet","codigo":"4151172","material":"SONDA EXPLORADORA N°5","campos":[{"campo":"branet_codigo","de":"","para":"12966"},{"campo":"branet_codigo_cliente","de":"","para":"106483"}]},{"tipo":"branet","codigo":"4151171","material":"SONDA EXPLORADORA N°6","campos":[{"campo":"branet_codigo","de":"","para":"12951"},{"campo":"branet_codigo_cliente","de":"","para":"12951"}]},{"tipo":"branet","codigo":"4150694","material":"SONDA MILIMETRADA TIPO WHO (OMS)","campos":[{"campo":"branet_codigo","de":"","para":"15201"},{"campo":"branet_codigo_cliente","de":"","para":"106512"}]},{"tipo":"branet","codigo":"4150695","material":"SONDA RETA ENDO EXPLORACAO DE CANAIS","campos":[{"campo":"branet_codigo","de":"","para":"15200"},{"campo":"branet_codigo_cliente","de":"","para":"106551"}]},{"tipo":"branet","codigo":"4150711","material":"SPRAY LUBRIFICANTE","campos":[{"campo":"branet_codigo","de":"","para":"14332"},{"campo":"branet_codigo_cliente","de":"","para":"106946"}]},{"tipo":"branet","codigo":"4150709","material":"SUGADOR CIRURGICO ESTERIL DESCARTAVEL (CAIXA COM 40 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"14228"},{"campo":"branet_codigo_cliente","de":"","para":"107220"},{"campo":"branet_nome","de":"","para":"SUGADOR CIRURGICO ESTERIL DESCARTAVEL (CX/ 40UNID)"}]},{"tipo":"branet","codigo":"4150708","material":"SUGADOR DESCARTÁVEL (PACOTE COM 40 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"10380"},{"campo":"branet_codigo_cliente","de":"","para":"166221"}]},{"tipo":"branet","codigo":"4150745","material":"SULFATO DE POLIMIXINA B + SULF NEOMICINA + HIDROCORTISONA (OTOSPORIN)","campos":[{"campo":"branet_codigo","de":"","para":"14403"},{"campo":"branet_codigo_cliente","de":"","para":"107264"}]},{"tipo":"branet","codigo":"4150696","material":"SUPORTE PARA APARELHO DE PROFILAXIA","campos":[{"campo":"branet_codigo","de":"","para":"14745"},{"campo":"branet_codigo_cliente","de":"","para":"107653"}]},{"tipo":"branet","codigo":"4150853","material":"TAMBOREL EM PLASTICO AUTOCLAVAVEL","campos":[{"campo":"branet_codigo","de":"","para":"13814"},{"campo":"branet_codigo_cliente","de":"","para":"108541"}]},{"tipo":"branet","codigo":"4150846","material":"TESOURA CIRURGICA GOLDMAN FOX","campos":[{"campo":"branet_codigo","de":"","para":"15259"},{"campo":"branet_codigo_cliente","de":"","para":"110506"},{"campo":"branet_nome","de":"","para":"TESOURA CIRURGICA GOLDMAN FOX (CEO)"}]},{"tipo":"branet","codigo":"4150847","material":"TESOURA METZEMBAUM","campos":[{"campo":"branet_codigo","de":"","para":"15211"},{"campo":"branet_codigo_cliente","de":"","para":"110648"},{"campo":"branet_nome","de":"","para":"TESOURA METZEMBAUM (CEO)"}]},{"tipo":"branet","codigo":"4150848","material":"TESOURA PARA CORTE DE FIO DE AÇO Nº 12","campos":[{"campo":"branet_codigo","de":"","para":"15253"},{"campo":"branet_codigo_cliente","de":"","para":"15253"},{"campo":"branet_nome","de":"","para":"TESOURA P/ CORTE DE FIO DE ACO Nº 12"}]},{"tipo":"branet","codigo":"4150703","material":"TRICRESOL FORMALINA","campos":[{"campo":"branet_codigo","de":"","para":"10479"},{"campo":"branet_codigo_cliente","de":"","para":"113990"},{"campo":"branet_nome","de":"","para":"TRICRESOL FORMALINA 10ML"}]},{"tipo":"branet","codigo":"4151121","material":"TUBO CIRURGICO DE SILICONE º 203","campos":[{"campo":"branet_codigo","de":"","para":"15682"},{"campo":"branet_codigo_cliente","de":"","para":"15682"},{"campo":"branet_nome","de":"","para":"TUBO CIRURGICO DE SILICONE º 203 (CEO)"}]},{"tipo":"branet","codigo":"4150702","material":"VASELINA SÓLIDA ESPECIAL","campos":[{"campo":"branet_codigo","de":"","para":"14386"},{"campo":"branet_codigo_cliente","de":"","para":"115658"},{"campo":"branet_nome","de":"","para":"VASELINA SOLIDA ESPECIAL 20 A 35G"}]},{"tipo":"branet","codigo":"4151122","material":"VASELINA SOLIDA POMADA 500G (PROTESE)","campos":[{"campo":"branet_codigo","de":"","para":"14388"},{"campo":"branet_codigo_cliente","de":"","para":"115662"}]},{"tipo":"branet","codigo":"4150849","material":"VIBRADOR DE GESSO","campos":[{"campo":"branet_codigo","de":"","para":"15760"},{"campo":"branet_codigo_cliente","de":"","para":"116532"}]},{"tipo":"branet","codigo":"4151188","material":"ABRITEC ADULTO (COM 2 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"10374"},{"campo":"branet_codigo_cliente","de":"","para":"98971"},{"campo":"branet_nome","de":"","para":"ABRIDOR DE BOCA TIPO ABRITEC (ADULTO)"}]},{"tipo":"branet","codigo":"4151189","material":"AGULHA GENGIVAL LONGA 27 G DESCARTÁVEL (CAIXA COM 100 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"10378"},{"campo":"branet_codigo_cliente","de":"","para":"113221"},{"campo":"branet_nome","de":"","para":"AGULHA GENGIVAL LONGA 27 G (CAIXA COM 100 UNIDADES)"}]},{"tipo":"branet","codigo":"4151187","material":"KIT CIRÚRGICO DESCATÁVEL ESTÉRIL (AVENTAL + PANO DE CAMPO)","campos":[{"campo":"branet_codigo","de":"","para":"21234"},{"campo":"branet_codigo_cliente","de":"","para":"21234"},{"campo":"branet_nome","de":"","para":"KIT DESCARTAVEL ESTERIL ODONTO (AVENTAIS + PANO DE CAMPO)"}]},{"tipo":"branet","codigo":"4151195","material":"ALAVANCA APEXO 301, 302, 303 (KIT COM 3 PEÇAS)","campos":[{"campo":"branet_codigo","de":"","para":"18479"},{"campo":"branet_codigo_cliente","de":"","para":"11528"},{"campo":"branet_nome","de":"","para":"ALAVANCA APEXO 301,302,303 (KIT 3PECAS)"}]},{"tipo":"branet","codigo":"4151204","material":"SUGADOR CIRURGICO ESTERIL DESCARTAVEL (CAIXA COM 20 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"21225"},{"campo":"branet_codigo_cliente","de":"","para":"21225"},{"campo":"branet_nome","de":"","para":"SUGADOR CIRURGICO ESTERIL DESCARTAVEL (CX/ 20UNID)"}]},{"tipo":"branet","codigo":"4151207","material":"BROCA ALTA ROTAÇÃO DIAMANTADA 2128 F","campos":[{"campo":"branet_codigo","de":"","para":"15321"},{"campo":"branet_codigo_cliente","de":"","para":"22976"},{"campo":"branet_nome","de":"","para":"BROCA AR DIAMANTADA 2128 F"}]},{"tipo":"branet","codigo":"4151208","material":"BROCA TUNGSTENIO ESFERICA PARA PEÇA RETA","campos":[{"campo":"branet_codigo","de":"","para":"14434"},{"campo":"branet_codigo_cliente","de":"","para":"23027"},{"campo":"branet_nome","de":"","para":"BROCA TUNGSTENIO ESFERICA P/ PC RETA (CEO)"}]},{"tipo":"branet","codigo":"4151209","material":"CERA Nº7 (PROTESE)","campos":[{"campo":"branet_codigo","de":"","para":"13083"},{"campo":"branet_codigo_cliente","de":"","para":"33693"}]},{"tipo":"branet","codigo":"4151210","material":"CIMENTO MTA PARA PERFURACAO ENDO (CEO)","campos":[{"campo":"branet_codigo","de":"","para":"14809"},{"campo":"branet_codigo_cliente","de":"","para":"34985"}]},{"tipo":"branet","codigo":"4151211","material":"CURSOR EM SILICONE (CEO)","campos":[{"campo":"branet_codigo","de":"","para":"14946"},{"campo":"branet_codigo_cliente","de":"","para":"46804"}]},{"tipo":"branet","codigo":"4151212","material":"DETERGENTE NEUTRO 500 ML - FRS","campos":[{"campo":"branet_codigo","de":"","para":"20958"},{"campo":"branet_codigo_cliente","de":"","para":"20958"}]},{"tipo":"branet","codigo":"4151214","material":"DISCO DE LIXA DE OXIDO DE AL PARA ACABAM RESINA FOTO (COM 50 DISCOS)","campos":[{"campo":"branet_codigo","de":"","para":"21191"},{"campo":"branet_codigo_cliente","de":"","para":"21191"},{"campo":"branet_nome","de":"","para":"DISCO DE LIXA DE OXIDO DE AL P/ ACABAM RESINA FOTO (C/ 50 DISCOS)"}]},{"tipo":"branet","codigo":"4151215","material":"DISCO DIAMANTADO PICOTADO PARA PEÇA DE MAO","campos":[{"campo":"branet_codigo","de":"","para":"14339"},{"campo":"branet_codigo_cliente","de":"","para":"48416"},{"campo":"branet_nome","de":"","para":"DISCO DIAMANTADO PICOTADO P/ PECA DE MAO"}]},{"tipo":"branet","codigo":"4151216","material":"ESCOVA CIRCULAR DE PELO Nº 10 PARA TORNO","campos":[{"campo":"branet_codigo","de":"","para":"14930"},{"campo":"branet_codigo_cliente","de":"","para":"51855"},{"campo":"branet_nome","de":"","para":"ESCOVA CIRCULAR DE PELO Nº 10 P/ TORNO"}]},{"tipo":"branet","codigo":"4151217","material":"ESCOVA CIRCULAR DE PELO Nº 12 PARA TORNO","campos":[{"campo":"branet_codigo","de":"","para":"20193"},{"campo":"branet_codigo_cliente","de":"","para":"20193"},{"campo":"branet_nome","de":"","para":"ESCOVA CIRCULAR DE PELO Nº 12 P/ TORNO"}]},{"tipo":"branet","codigo":"4151218","material":"ESCOVA CIRCULAR DE PELO Nº 27 PARA TORNO","campos":[{"campo":"branet_codigo","de":"","para":"14950"},{"campo":"branet_codigo_cliente","de":"","para":"51856"},{"campo":"branet_nome","de":"","para":"ESCOVA CIRCULAR DE PELO Nº 27 P/ TORNO"}]},{"tipo":"branet","codigo":"4151219","material":"ESCOVA CIRCULAR DE PELO Nº 29 PARA TORNO","campos":[{"campo":"branet_codigo","de":"","para":"15068"},{"campo":"branet_codigo_cliente","de":"","para":"51857"},{"campo":"branet_nome","de":"","para":"ESCOVA CIRCULAR DE PELO Nº 29 P/ TORNO"}]},{"tipo":"branet","codigo":"4151220","material":"ESPACADOR DIGITAL SORTIDO 25MM CX/4 UNIDADES","campos":[{"campo":"branet_codigo","de":"","para":"13066"},{"campo":"branet_codigo_cliente","de":"","para":"118839"}]},{"tipo":"branet","codigo":"4151222","material":"MULTILAMINADOS BR PARA POLIMENTO AMALGAMA","campos":[{"campo":"branet_codigo","de":"","para":"14973"},{"campo":"branet_codigo_cliente","de":"","para":"81485"},{"campo":"branet_nome","de":"","para":"MULTILAMINADOS BR P/ POLIMENTO AMALGAMA"}]},{"tipo":"branet","codigo":"4151223","material":"AFASTADOR FARABEUF ORAL (PAR) (CEO)","campos":[{"campo":"branet_codigo","de":"","para":"12941"},{"campo":"branet_codigo_cliente","de":"","para":"12941"}]},{"tipo":"branet","codigo":"4151224","material":"AFASTADOR MINESSOTA","campos":[{"campo":"branet_codigo","de":"","para":"15245"},{"campo":"branet_codigo_cliente","de":"","para":"10884"}]},{"tipo":"branet","codigo":"4151225","material":"ALAVANCAS APICAIS (KIT)","campos":[{"campo":"branet_codigo","de":"","para":"20971"},{"campo":"branet_codigo_cliente","de":"","para":"20971"},{"campo":"branet_nome","de":"","para":"ALAVANCA APICAIS (KIT)"}]},{"tipo":"branet","codigo":"4151226","material":"ALICATE BICO DE PAPAGAIO Nº 115 EM ACO INOX","campos":[{"campo":"branet_codigo","de":"","para":"15252"},{"campo":"branet_codigo_cliente","de":"","para":"15252"}]},{"tipo":"branet","codigo":"4151227","material":"ALICATE ORTODONTICO 139","campos":[{"campo":"branet_codigo","de":"","para":"15224"},{"campo":"branet_codigo_cliente","de":"","para":"12062"}]},{"tipo":"branet","codigo":"4151228","material":"ALICATE PARA CORTE DE FIO DE ACO","campos":[{"campo":"branet_codigo","de":"","para":"15202"},{"campo":"branet_codigo_cliente","de":"","para":"15202"},{"campo":"branet_nome","de":"","para":"ALICATE P/ CORTE DE FIO DE ACO"}]},{"tipo":"branet","codigo":"4151229","material":"ALICATE PARA TECIDOS GOLDMAN FOX","campos":[{"campo":"branet_codigo","de":"","para":"13798"},{"campo":"branet_codigo_cliente","de":"","para":"12057"}]},{"tipo":"branet","codigo":"4151230","material":"AMALGAMADOR DE BORRACHA (DEDEIRA)","campos":[{"campo":"branet_codigo","de":"","para":"15693"},{"campo":"branet_codigo_cliente","de":"","para":"12419"}]},{"tipo":"branet","codigo":"4151231","material":"ARCO INOX PARA ISOLAMENTO COM DIQUE","campos":[{"campo":"branet_codigo","de":"","para":"15236"},{"campo":"branet_codigo_cliente","de":"","para":"15236"},{"campo":"branet_nome","de":"","para":"ARCO INOX P/ ISOLAMENTO C/ DIQUE (CEO)"}]},{"tipo":"branet","codigo":"4151232","material":"CALCADOR DE AMALGAMA Nº 01","campos":[{"campo":"branet_codigo","de":"","para":"12935"},{"campo":"branet_codigo_cliente","de":"","para":"27274"}]},{"tipo":"branet","codigo":"4151233","material":"CALCADOR DE AMALGAMA Nº 02","campos":[{"campo":"branet_codigo","de":"","para":"15248"},{"campo":"branet_codigo_cliente","de":"","para":"27275"}]},{"tipo":"branet","codigo":"4151234","material":"CALCADOR DE AMALGAMA Nº 03","campos":[{"campo":"branet_codigo","de":"","para":"15246"},{"campo":"branet_codigo_cliente","de":"","para":"27276"}]},{"tipo":"branet","codigo":"4151235","material":"CAMURCA PARA AMALGAMA","campos":[{"campo":"branet_codigo","de":"","para":"15142"},{"campo":"branet_codigo_cliente","de":"","para":"28671"}]},{"tipo":"branet","codigo":"4151236","material":"CINZEL WEDELSTAEDT 5-6 (CEO)","campos":[{"campo":"branet_codigo","de":"","para":"11543"},{"campo":"branet_codigo_cliente","de":"","para":"35112"}]},{"tipo":"branet","codigo":"4151237","material":"COLGADURA INDIVIDUAL (CEO)","campos":[{"campo":"branet_codigo","de":"","para":"12953"},{"campo":"branet_codigo_cliente","de":"","para":"36820"}]},{"tipo":"branet","codigo":"4151238","material":"COLGADURA TIPO AMERICANA PARA 14 RX","campos":[{"campo":"branet_codigo","de":"","para":"15238"},{"campo":"branet_codigo_cliente","de":"","para":"36819"}]},{"tipo":"branet","codigo":"4151239","material":"DESCOLADOR DE MOLT N2/4","campos":[{"campo":"branet_codigo","de":"","para":"20972"},{"campo":"branet_codigo_cliente","de":"","para":"20972"}]},{"tipo":"branet","codigo":"4151240","material":"ELEVADOR POTT R","campos":[{"campo":"branet_codigo","de":"","para":"21057"},{"campo":"branet_codigo_cliente","de":"","para":"21057"}]},{"tipo":"branet","codigo":"4151241","material":"ESTOJO PARA ENDODONTIA 24 FUROS","campos":[{"campo":"branet_codigo","de":"","para":"14750"},{"campo":"branet_codigo_cliente","de":"","para":"53482"}]},{"tipo":"branet","codigo":"4151242","material":"GRAMPO N210","campos":[{"campo":"branet_codigo","de":"","para":"20973"},{"campo":"branet_codigo_cliente","de":"","para":"20973"}]},{"tipo":"branet","codigo":"4151243","material":"KIT COM 8 MOLDEIRAS PLASTICAS","campos":[{"campo":"branet_codigo","de":"","para":"20967"},{"campo":"branet_codigo_cliente","de":"","para":"20967"},{"campo":"branet_nome","de":"","para":"KIT C/ 8 MOLDEIRAS PLASTICAS"}]},{"tipo":"branet","codigo":"4151245","material":"PINCA BACKHAUS 10CM","campos":[{"campo":"branet_codigo","de":"","para":"15029"},{"campo":"branet_codigo_cliente","de":"","para":"89970"}]},{"tipo":"branet","codigo":"4151246","material":"PINCA PORTA GRAMPO PARA DIQUE","campos":[{"campo":"branet_codigo","de":"","para":"15174"},{"campo":"branet_codigo_cliente","de":"","para":"15174"},{"campo":"branet_nome","de":"","para":"PINCA PORTA GRAMPO P/ DIQUE (CEO)"}]},{"tipo":"branet","codigo":"4151247","material":"PLACA DE FOSFORO INTRAORAL (ADULTO)","campos":[{"campo":"branet_codigo","de":"","para":"20936"},{"campo":"branet_codigo_cliente","de":"","para":"20936"}]},{"tipo":"branet","codigo":"4151248","material":"PLACA DE FOSFORO INTRAORAL (INFANTIL)","campos":[{"campo":"branet_codigo","de":"","para":"20935"},{"campo":"branet_codigo_cliente","de":"","para":"118902"}]},{"tipo":"branet","codigo":"4151249","material":"PORTA AMALGAMA PLASTICO","campos":[{"campo":"branet_codigo","de":"","para":"15017"},{"campo":"branet_codigo_cliente","de":"","para":"93909"}]},{"tipo":"branet","codigo":"4151250","material":"POTTS CABO T","campos":[{"campo":"branet_codigo","de":"","para":"21058"},{"campo":"branet_codigo_cliente","de":"","para":"21058"}]},{"tipo":"branet","codigo":"4151251","material":"PROTETOR DE TIREOIDE ADULTO COM BORRACHA PLUMB","campos":[{"campo":"branet_codigo","de":"","para":"14214"},{"campo":"branet_codigo_cliente","de":"","para":"95824"}]},{"tipo":"branet","codigo":"4151252","material":"SONDA DE NABERS CURVA Nº 2NB","campos":[{"campo":"branet_codigo","de":"","para":"15759"},{"campo":"branet_codigo_cliente","de":"","para":"15759"}]},{"tipo":"branet","codigo":"4151253","material":"AMALGAMA EM CAPSULA (CAIXA COM 50 CAPSULAS)","campos":[{"campo":"branet_codigo","de":"","para":"13006"},{"campo":"branet_codigo_cliente","de":"","para":"12411"},{"campo":"branet_nome","de":"","para":"AMALGAMA EM CAPSULA COM UMA DOSE (C/ 50 CAPSULAS)"}]},{"tipo":"branet","codigo":"4151254","material":"BROCA ALTA ROTAÇÃO DIAMANTADA 3080","campos":[{"campo":"branet_codigo","de":"","para":"14338"},{"campo":"branet_codigo_cliente","de":"","para":"22982"},{"campo":"branet_nome","de":"","para":"BROCA AR DIAMANTADA 3080"}]},{"tipo":"branet","codigo":"4151255","material":"CERA UTILIDADE ODONTOLOGICA LAMINADA","campos":[{"campo":"branet_codigo","de":"","para":"14284"},{"campo":"branet_codigo_cliente","de":"","para":"33701"}]},{"tipo":"branet","codigo":"4151256","material":"CIMENTO CIRURGICO SEM EUGENOL","campos":[{"campo":"branet_codigo","de":"","para":"14287"},{"campo":"branet_codigo_cliente","de":"","para":"14287"},{"campo":"branet_nome","de":"","para":"CIMENTO CIRURGICO SEM EUGENOL (CEO)"}]},{"tipo":"branet","codigo":"4151257","material":"CONE DE FELTRO PARA TORNO DE POLIMENTO DE RESINA","campos":[{"campo":"branet_codigo","de":"","para":"14928"},{"campo":"branet_codigo_cliente","de":"","para":"38085"},{"campo":"branet_nome","de":"","para":"CONE DE FELTRO P/ TORNO DE POLIMENTO DE RESINA"}]},{"tipo":"branet","codigo":"4151258","material":"CREME FIXADOR DE PROTESE TOTAL 19G","campos":[{"campo":"branet_codigo","de":"","para":"14404"},{"campo":"branet_codigo_cliente","de":"","para":"46141"}]},{"tipo":"branet","codigo":"4151259","material":"DISCO DE LIXA DE OXIDO DE AL PARA POLIMENTO RESINA ACRÍLICA (COM 100 DISCOS)","campos":[{"campo":"branet_codigo","de":"","para":"10452"},{"campo":"branet_codigo_cliente","de":"","para":"48401"},{"campo":"branet_nome","de":"","para":"DISCO DE LIXA EM OXIDO DE AL P/ POLIM RESINA ACRILICA (C/ 100 DISCOS)"}]},{"tipo":"branet","codigo":"4151260","material":"EUCALIPTOL (SOLVENTE DE GUTTA PERCHA) 10 A 20 ML","campos":[{"campo":"branet_codigo","de":"","para":"14433"},{"campo":"branet_codigo_cliente","de":"","para":"53799"},{"campo":"branet_nome","de":"","para":"EUCALIPTOL (SOLVENTE DE GUTTA PERCHA) 10 A 20ML (CEO)"}]},{"tipo":"branet","codigo":"4151261","material":"ISOLANTE DE RESINA RAAQ 500ML","campos":[{"campo":"branet_codigo","de":"","para":"14224"},{"campo":"branet_codigo_cliente","de":"","para":"64899"},{"campo":"branet_nome","de":"","para":"ISOLANTE DE RESINA RAAQ 500ML(CEO)"}]},{"tipo":"branet","codigo":"4151262","material":"POTE PARA INSTRUMENTAIS","campos":[{"campo":"branet_codigo","de":"","para":"21227"},{"campo":"branet_codigo_cliente","de":"","para":"21227"}]},{"tipo":"branet","codigo":"4151267","material":"GESSO PEDRA AMARELO TIPO III PACT 1KG (PROTESE)","campos":[{"campo":"branet_codigo","de":"","para":"11491"},{"campo":"branet_codigo_cliente","de":"","para":"61464"}]},{"tipo":"branet","codigo":"4151268","material":"BENZOCAINA ANESTESICO TOPICO 200MG/G (30G)","campos":[{"campo":"branet_codigo","de":"","para":"21216"},{"campo":"branet_codigo_cliente","de":"","para":"21216"}]},{"tipo":"branet","codigo":"4151270","material":"FRESA TUNGSTENIO PARA PEÇA DE MÃO MAXI CUT","campos":[{"campo":"branet_codigo","de":"","para":"15070"},{"campo":"branet_codigo_cliente","de":"","para":"60243"},{"campo":"branet_nome","de":"","para":"FRESA TUNGSTENIO P/ PC DE MAO MAXI CUT"}]},{"tipo":"branet","codigo":"4151271","material":"FRESA TUNGSTENIO PARA PEÇA DE MÃO MINI CUT","campos":[{"campo":"branet_codigo","de":"","para":"15056"},{"campo":"branet_codigo_cliente","de":"","para":"60244"},{"campo":"branet_nome","de":"","para":"FRESA TUNGSTENIO P/ PC DE MAO MINI CUT"}]},{"tipo":"branet","codigo":"4151272","material":"CLOREXIDINA 2% GEL (CAIXA COM 2 SERINGAS)","campos":[{"campo":"branet_codigo","de":"","para":"21093"},{"campo":"branet_codigo_cliente","de":"","para":"21093"},{"campo":"branet_nome","de":"","para":"CLOREXIDINA 2% GEL (CAIXA C/ 2 SERINGAS) (CEO)"}]},{"tipo":"branet","codigo":"4151274","material":"GESSO BRANCO COMUM TIPO II (PACOTE 1KG) (PROTESE)","campos":[{"campo":"branet_codigo","de":"","para":"14225"},{"campo":"branet_codigo_cliente","de":"","para":"61456"},{"campo":"branet_nome","de":"","para":"GESSO BRANCO COMUM TIPO II PACT1KG (PROTESE)"}]},{"tipo":"branet","codigo":"4151275","material":"GESSO ESPECIAL TIPO IV (PROTESE)","campos":[{"campo":"branet_codigo","de":"","para":"11492"},{"campo":"branet_codigo_cliente","de":"","para":"61461"},{"campo":"branet_nome","de":"","para":"GESSO ESPECIAL TIPO IV"}]},{"tipo":"branet","codigo":"4151277","material":"CIMENTO ENDODONTICO COM HIDROCORTISONA","campos":[{"campo":"branet_codigo","de":"","para":"15651"},{"campo":"branet_codigo_cliente","de":"","para":"34955"},{"campo":"branet_nome","de":"","para":"CIMENTO ENDODONTICO PO COM HIDROCORTISONA 1%"}]},{"tipo":"branet","codigo":"4151278","material":"ESPATULA DUPLA SILICATO 6335 N1","campos":[{"campo":"branet_codigo","de":"","para":"20970"},{"campo":"branet_codigo_cliente","de":"","para":"20970"}]},{"tipo":"branet","codigo":"4150445","material":"ADESIVO INSTANTANEO UNIVERSAL BISNAGA 5 A 8 G","campos":[{"campo":"branet_codigo","de":"","para":"20771"},{"campo":"branet_codigo_cliente","de":"","para":"10654"}]},{"tipo":"branet","codigo":"4151281","material":"ALICATE PERFURADOR DE LENÇOL DE BORRACHA (AINSWORTH)","campos":[{"campo":"branet_codigo","de":"","para":"12944"},{"campo":"branet_codigo_cliente","de":"","para":"12076"},{"campo":"branet_nome","de":"","para":"ALICATE PERFURADOR DE LENCOL DE BORRACHA (AINSWORTH) (CEO)"}]}]} -->
 
 ## 23/09/2026, 15:44 — Caio César Borges de Oliveira
 
