@@ -300,6 +300,8 @@ code{background:var(--neutro);padding:1px 6px;border-radius:6px;font-size:12px}
             <span class="tag t-ci" id="stImg">verificando</span></div>
           <div class="linhaArq"><span class="nm mono">descritivos/descritivos.csv</span>
             <span class="tag t-ci" id="stDesc">verificando</span></div>
+          <div class="linhaArq"><span class="nm mono">branet/branet.csv</span>
+            <span class="tag t-ci" id="stBranet">verificando</span></div>
           <div class="linhaArq"><span class="nm mono">editor-catalogo/historico.md</span>
             <span class="tag t-ci" id="stLog">verificando</span></div>
         </div>
@@ -457,6 +459,13 @@ fetch('produtos.csv').then(r=>{if(!r.ok)throw 0;return r.text()}).then(async t=>
     'Abrindo o arquivo direto do disco, o navegador bloqueia a leitura do produtos.csv.</div></div>';
   ['stCsv','stImg','stLog','stDesc'].forEach(id=>{const e=$('#'+id);if(e)e.textContent='não verificado'});
 });
+
+/* Códigos da BRANET: conta os materiais com pelo menos um dos dois códigos. */
+fetch('branet/branet.csv?t='+Date.now()).then(r=>{if(!r.ok)throw 0;return r.text()}).then(t=>{
+  const n=lerCsv(t).filter(b=>b.codigo&&((b.branet_codigo||'').trim()||(b.branet_codigo_cliente||'').trim())).length;
+  $('#stBranet').textContent=n?n+' materiais vinculados':'nenhum vínculo ainda';
+  $('#stBranet').className='tag '+(n?'t-vd':'t-ci');
+}).catch(()=>{$('#stBranet').textContent='não encontrado'});
 
 fetch('editor-catalogo/historico.md').then(r=>{if(!r.ok)throw 0;return r.text()}).then(t=>{
   const n=(t.match(/<!--\s*sessao:/g)||[]).length;
@@ -1288,7 +1297,7 @@ $('#btAjudaChave').onclick=()=>{
    publicação e serve também para comprovar que a chave lê o repositório.
    Nenhuma gravação acontece aqui.
    --------------------------------------------------------------------- */
-const ARQUIVOS_DADOS=['produtos.csv','descritivos/descritivos.csv','editor-catalogo/historico.md'];
+const ARQUIVOS_DADOS=['produtos.csv','descritivos/descritivos.csv','branet/branet.csv','editor-catalogo/historico.md'];
 
 $('#btConferirRepo').onclick=async ()=>{
   const alvo=$('#repoResultado');
@@ -1352,6 +1361,6 @@ $('#btConferirRepo').onclick=async ()=>{
   }
 })();
 </script>
-<div id="versaoPagina">painel · versão 2026-09-09a</div>
+<div id="versaoPagina">painel · versão 2026-09-23a</div>
 </body>
 </html>

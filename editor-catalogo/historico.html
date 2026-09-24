@@ -113,12 +113,15 @@ const TIPOS={
   reativado:['reativado','var(--curacao)','var(--curacao-suave)'],
   excluido:['excluído','var(--sawtooth)','var(--sawtooth-suave)'],
   descritivo:['descritivo','var(--corallite)','var(--corallite-suave)'],
+  branet:['BRANET','var(--curacao-escuro)','var(--curacao-suave)'],
   imagem:['foto','var(--sawtooth)','var(--sawtooth-suave)']
 };
 const ROTULOS={codigo:'Código',material:'Material',unidade:'Unidade de pedido',grupo:'Grupo',
   subgrupo:'Subgrupo',acesso:'Acesso',tipo:'Tipo',especialidade:'Tags',familia:'Família',
   imagem:'Arquivo da imagem',observacao:'Observação',ativo:'Situação',
-  nome_descritivo:'Nome no descritivo',nome_pregao:'Nome no descritivo',descritivo:'Descritivo',unidade_compra:'Unidade de compra'};
+  nome_descritivo:'Nome no descritivo',nome_pregao:'Nome no descritivo',descritivo:'Descritivo',unidade_compra:'Unidade de compra',
+  situacao_compra:'Situação da compra',
+  branet_codigo:'Código BRANET',branet_codigo_cliente:'Código cliente BRANET',branet_nome:'Nome na BRANET'};
 const rotulo=c=>ROTULOS[c]||c;
 const dadosTipo=t=>TIPOS[t]||[t,'var(--secundario)','var(--neutro)'];
 
@@ -170,7 +173,7 @@ const numero=i=>SESSOES.length-i;
 $('#btRecarregar').onclick=carregar;
 
 function montarFiltros(){
-  const opcoes=[['todas','Todas as sessões'],['descritivo','Descritivos'],['editado','Editados'],
+  const opcoes=[['todas','Todas as sessões'],['descritivo','Descritivos'],['branet','BRANET'],['editado','Editados'],
     ['imagem','Fotos'],['excluido','Excluídos'],['material','Por material']];
   $('#filtros').innerHTML=
     opcoes.map(([k,t])=>'<button class="pilula" data-f="'+k+'" aria-pressed="'+(filtro===k)+'">'+t+'</button>').join('')+
@@ -306,6 +309,6 @@ function desenhar(){
 
 carregar();
 </script>
-<div id="versaoPagina">histórico · versão 2026-08-20b</div>
+<div id="versaoPagina">histórico · versão 2026-09-23a</div>
 </body>
 </html>

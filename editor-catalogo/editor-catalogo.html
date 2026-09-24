@@ -271,6 +271,8 @@ select{appearance:none;background-image:none;padding-right:13px}
           <option value="comdesc">Com descritivo</option>
           <option value="semdesc">Sem descritivo</option>
           <option value="aguardandocompra">Aguardando compra</option>
+          <option value="combranet">Com código BRANET</option>
+          <option value="sembranet">Sem código BRANET</option>
         </select>
       </div>
     </div>
@@ -317,6 +319,7 @@ const ROTULOS={codigo:'Código',material:'Material',unidade:'Unidade de pedido',
   subgrupo:'Subgrupo',acesso:'Acesso',tipo:'Tipo',especialidade:'Tags',familia:'Família',
   nome_descritivo:'Nome no descritivo',nome_pregao:'Nome no descritivo',descritivo:'Descritivo',unidade_compra:'Unidade de compra',
   situacao_compra:'Situação da compra',
+  branet_codigo:'Código BRANET',branet_codigo_cliente:'Código cliente BRANET',branet_nome:'Nome na BRANET',
   imagem:'Arquivo da imagem',observacao:'Observação',ativo:'Situação'};
 const rotulo=c=>ROTULOS[c]||c;
 
@@ -497,6 +500,37 @@ async function carregarDescritivos(){
   Object.keys(DESCRITIVOS).forEach(c=>DESC_ORIGINAIS[c]=Object.assign({},DESCRITIVOS[c]));
 }
 
+/* ---------------------------------------------------------------------
+   Almoxarifado BRANET. A central terceirizada que guarda os materiais
+   cadastra cada um com códigos próprios, diferentes do código do CELK:
+   o código BRANET e o código cliente (às vezes só um dos dois existe),
+   e um nome que nem sempre é igual ao do catálogo. Ficam em arquivo
+   próprio, branet/branet.csv, ligado ao catálogo pelo código do CELK,
+   e valem para todos os materiais, inclusive os da Enfermagem.
+   --------------------------------------------------------------------- */
+const CAMINHOS_BRANET=['../branet/branet.csv','branet.csv'];
+const COLUNAS_BRANET=['codigo','branet_codigo','branet_codigo_cliente','branet_nome','modificado_em','modificado_por'];
+const CAMPOS_BRANET=['branet_codigo','branet_codigo_cliente','branet_nome'];
+let BRANET={};             // codigo CELK -> registro
+let BRANET_ORIGINAIS={};   // cópia como estava no arquivo
+
+async function carregarBranet(){
+  for(const caminho of CAMINHOS_BRANET){
+    try{
+      const r=await fetch(caminho+'?t='+Date.now());
+      if(!r.ok)continue;
+      lerCsv(await r.text()).registros.forEach(b=>{if(b.codigo)BRANET[b.codigo]=b});
+      break;
+    }catch(e){}
+  }
+  BRANET_ORIGINAIS={};
+  Object.keys(BRANET).forEach(c=>BRANET_ORIGINAIS[c]=Object.assign({},BRANET[c]));
+}
+const branetDe=codigo=>BRANET[codigo]||{};
+/* Vinculado quando há pelo menos um dos dois códigos da BRANET. */
+const temBranet=codigo=>{const b=branetDe(codigo);
+  return !!((b.branet_codigo||'').trim()||(b.branet_codigo_cliente||'').trim())};
+
 const descDe=codigo=>DESCRITIVOS[codigo]||{};
 const temDescritivo=codigo=>!!(descDe(codigo).descritivo||'').trim();
 /* Materiais da lista da Enfermagem não entram nos empenhos da odontologia. */
@@ -510,12 +544,14 @@ async function tentarCarregar(){
       const t=await r.text();
       await carregarHistorico();
       await carregarDescritivos();
+      await carregarBranet();
       aplicar(lerCsv(t),'produtos.csv');
       return;
     }catch(e){}
   }
   await carregarHistorico();
   await carregarDescritivos();
+  await carregarBranet();
   $('#procurando').classList.add('oculto');
   $('#pedirCsv').classList.remove('oculto');
 }
@@ -536,12 +572,13 @@ $('#entradaCsv').onchange=e=>{
 function salvarRascunho(jaCalculado){
   try{
     const m=jaCalculado||mudancas();
-    const md=mudancasDescritivo();
-    if(!m.length&&!md.length){localStorage.removeItem(CHAVE);return}
+    const md=mudancasDescritivo(), mb=mudancasBranet();
+    if(!m.length&&!md.length&&!mb.length){localStorage.removeItem(CHAVE);return}
     localStorage.setItem(CHAVE,JSON.stringify(
       {quando:new Date().toISOString(),colunas:COLUNAS,itens:ITENS,
        originais:ORIGINAIS,excluidos:EXCLUIDOS,
-       descritivos:DESCRITIVOS,descOriginais:DESC_ORIGINAIS}));
+       descritivos:DESCRITIVOS,descOriginais:DESC_ORIGINAIS,
+       branet:BRANET,branetOriginais:BRANET_ORIGINAIS}));
   }catch(e){}
 }
 
@@ -558,7 +595,13 @@ function alteracoesDoRascunho(r){
   const dA=r.descritivos||{}, dO=r.descOriginais||{};
   new Set(Object.keys(dA).concat(Object.keys(dO))).forEach(cod=>{
     const a=dA[cod]||{}, b=dO[cod]||{};
-    if(['nome_descritivo','descritivo','unidade_compra'].some(c=>(a[c]||'').trim()!==(b[c]||'').trim()))n++;
+    if(CAMPOS_DESC.some(c=>(a[c]||'').trim()!==(b[c]||'').trim()))n++;
+  });
+  // e as da BRANET
+  const bA=r.branet||{}, bO=r.branetOriginais||{};
+  new Set(Object.keys(bA).concat(Object.keys(bO))).forEach(cod=>{
+    const a=bA[cod]||{}, b=bO[cod]||{};
+    if(CAMPOS_BRANET.some(c=>(a[c]||'').trim()!==(b[c]||'').trim()))n++;
   });
   return n;
 }
@@ -578,6 +621,7 @@ function verificarRascunho(){
   $('#btRestaurar').onclick=()=>{
     COLUNAS=r.colunas;ITENS=r.itens;ORIGINAIS=r.originais;EXCLUIDOS=r.excluidos||[];
     if(r.descritivos){DESCRITIVOS=r.descritivos;DESC_ORIGINAIS=r.descOriginais||{}}
+    if(r.branet){BRANET=r.branet;BRANET_ORIGINAIS=r.branetOriginais||{}}
     proximoId=Math.max(0,...ITENS.map(i=>i.__id||0))+1;
     caixa.classList.add('oculto');
     $('#painelCarregar').classList.add('oculto');$('#editor').classList.remove('oculto');
@@ -676,9 +720,13 @@ function montarFiltros(){
   fam.innerHTML='<option value="">Todas as famílias</option>'+
     todasFamilias().map(f=>'<option>'+escapar(f)+'</option>').join('');
 }
+/* A busca redesenha a cada tecla, pelo evento input. O change dela não
+   redesenha de novo: ele dispara quando o campo perde o foco, ou seja, no
+   exato clique em uma linha da lista, e redesenhar ali trocava a linha
+   por outra igual no meio do clique, que então se perdia. */
 ['#busca','#fBloco','#fTag','#fFamilia','#fSituacao'].forEach(s=>{
   document.addEventListener('input',e=>{if(e.target.matches(s))desenhar()});
-  document.addEventListener('change',e=>{if(e.target.matches(s))desenhar()});
+  document.addEventListener('change',e=>{if(e.target.matches(s)&&s!=='#busca')desenhar()});
 });
 
 /* =====================================================================
@@ -716,8 +764,13 @@ function filtrados(){
     if(sit==='comdesc'&&!temDescritivo((it.codigo||'').trim()))return false;
     if(sit==='semdesc'&&(temDescritivo((it.codigo||'').trim())||!aceitaDescritivo(it)))return false;
     if(sit==='aguardandocompra'&&descDe((it.codigo||'').trim()).situacao_compra!=='AGUARDANDO_COMPRA')return false;
+    if(sit==='combranet'&&!temBranet((it.codigo||'').trim()))return false;
+    if(sit==='sembranet'&&temBranet((it.codigo||'').trim()))return false;
     if(termos.length){
-      const alvo=normalizar([it.codigo,it.material,it.familia,it.especialidade,it.subgrupo].join(' '));
+      /* A busca encontra o material também pelos códigos e pelo nome da BRANET. */
+      const b=branetDe((it.codigo||'').trim());
+      const alvo=normalizar([it.codigo,it.material,it.familia,it.especialidade,it.subgrupo,
+        b.branet_codigo,b.branet_codigo_cliente,b.branet_nome].join(' '));
       if(!termos.every(t=>alvo.includes(t)))return false;
     }
     return true;
@@ -756,11 +809,14 @@ function desenhar(){
   $('#rodapeTabela').textContent=lista.length>limite
     ? 'mostrando os primeiros '+limite+' de '+lista.length+' itens, refine a busca para ver os demais'
     : 'mostrando '+lista.length+' de '+ITENS.length+' itens';
-  const m=mudancas(), md=mudancasDescritivo();
-  const totalAlt=m.length+md.length;
+  const m=mudancas(), md=mudancasDescritivo(), mb=mudancasBranet();
+  const totalAlt=m.length+md.length+mb.length;
+  const partes=[];
+  if(md.length)partes.push(md.length+' em descritivos');
+  if(mb.length)partes.push(mb.length+' na BRANET');
   $('#contagem').textContent=ITENS.length+' itens no arquivo'+
     (totalAlt?' · '+totalAlt+' alteração(ões) pendente(s)'+
-      (md.length?' ('+md.length+' em descritivos)':''):' · nenhuma alteração pendente');
+      (partes.length?' ('+partes.join(', ')+')':''):' · nenhuma alteração pendente');
   salvarRascunho(m);
 }
 
@@ -792,6 +848,45 @@ function abrirEdicao(id,novo){
   /* Cópia de trabalho do descritivo deste material. */
   const d=Object.assign({codigo:it.codigo||'',nome_descritivo:'',descritivo:'',
     unidade_compra:'',modificado_em:'',modificado_por:'',situacao_compra:''},descDe(it.codigo));
+
+  /* Cópia de trabalho do vínculo com a BRANET. */
+  const b=Object.assign({codigo:it.codigo||'',branet_codigo:'',branet_codigo_cliente:'',branet_nome:'',
+    modificado_em:'',modificado_por:''},branetDe(it.codigo));
+
+  /* Terceiro cartão: o almoxarifado BRANET. Vale para todos os materiais,
+     inclusive os da Enfermagem. Os dois códigos são da própria BRANET e
+     não têm relação com o código do CELK; às vezes só um deles existe. */
+  function secaoBranet(item,br){
+    const vinculado=!!((br.branet_codigo||'').trim()||(br.branet_codigo_cliente||'').trim());
+    const corpo=
+      '<div class="grade2">'+
+        '<div><label class="rot">Código BRANET</label>'+
+          '<input class="mono" data-branet="branet_codigo" value="'+escapar(br.branet_codigo||'')+'"></div>'+
+        '<div><label class="rot">Código cliente</label>'+
+          '<input class="mono" data-branet="branet_codigo_cliente" value="'+escapar(br.branet_codigo_cliente||'')+'"></div>'+
+      '</div>'+
+      '<div><label class="rot">Nome na BRANET</label>'+
+        '<input data-branet="branet_nome" value="'+escapar(br.branet_nome||'')+'" '+
+        'placeholder="'+escapar(item.material||'')+'">'+
+        '<div class="sub" style="font-size:11px;margin-top:4px">deixe em branco se for igual ao nome do catálogo</div></div>'+
+      '<div class="grade2">'+
+        '<div><label class="rot">Última modificação</label>'+
+          '<div class="sub" style="padding:9px 0 0;font-size:12px">'+
+          (br.modificado_em?escapar(br.modificado_em)+(br.modificado_por?' · '+escapar(br.modificado_por):'')
+            :'nunca modificado')+
+          '<br><span style="font-size:11px">atualiza sozinho ao salvar uma alteração aqui</span></div></div>'+
+      '</div>';
+    return '<section class="cartaoEdicao">'+
+      '<div class="cabCartao" style="background:var(--curacao-suave)">'+
+        '<span class="icCartao" style="background:var(--curacao)">&#9638;</span>'+
+        '<div><div class="ttCartao" style="color:var(--curacao-escuro)">Almoxarifado BRANET</div>'+
+        '<div class="sub" style="font-size:10.5px">como o material está cadastrado na central de distribuição</div></div>'+
+        '<span class="selCartao" style="background:'+(vinculado?'#fff':'var(--neutro)')+
+        ';color:'+(vinculado?'var(--curacao-escuro)':'var(--secundario)')+'">'+
+        (vinculado?'vinculado':'sem código')+'</span>'+
+        '<span class="arqCartao mono" style="color:var(--curacao-escuro)">branet.csv</span></div>'+
+      '<div class="corpoCartao">'+corpo+'</div></section>';
+  }
 
   /* Segundo cartão: o descritivo. Só existe para materiais da
      odontologia, já que os da lista da Enfermagem não entram nestes empenhos. */
@@ -913,6 +1008,7 @@ function abrirEdicao(id,novo){
       cartao('var(--corn)','var(--corn-suave)','&#9636;','Dados do catálogo',
              'o que o dentista vê ao procurar o material','produtos.csv',corpoCatalogo)+
       secaoDescritivo(it,d)+
+      secaoBranet(it,b)+
     '</div>'+
     '<footer>'+(novo?'':'<button class="perigo" id="btExcluir">Excluir do arquivo</button>')+
       '<span class="espaco"></span><button class="sec" data-fechar="1">Cancelar</button>'+
@@ -1062,6 +1158,26 @@ function abrirEdicao(id,novo){
       delete DESCRITIVOS[it.codigo];
     }
 
+    /* BRANET. Mesma regra do descritivo: data e autor só mudam quando
+       algum campo da BRANET mudou de fato. Se o código do CELK mudou (um
+       código provisório que ganhou o código real, por exemplo), o vínculo
+       acompanha o material. Sem nenhum dos três campos, a linha sai do
+       arquivo. */
+    {
+      const novoB=Object.assign({},b,{codigo:trabalho.codigo});
+      fundo.querySelectorAll('[data-branet]').forEach(el=>{novoB[el.dataset.branet]=el.value.trim()});
+      const antigoB=branetDe(it.codigo);
+      const mudouB=CAMPOS_BRANET.some(c=>(novoB[c]||'')!==((antigoB[c]||'').trim()));
+      const temB=CAMPOS_BRANET.some(c=>(novoB[c]||'').trim());
+      if(mudouB){
+        novoB.modificado_em=dataCurta(new Date());
+        novoB.modificado_por=autorAtual();
+      }
+      if(it.codigo&&it.codigo!==trabalho.codigo)delete BRANET[it.codigo];
+      if(temB)BRANET[trabalho.codigo]=novoB;
+      else delete BRANET[trabalho.codigo];
+    }
+
     if(novo){ITENS.push(trabalho)}
     else{Object.assign(it,trabalho)}
     fundo.remove();montarFiltros();desenhar();
@@ -1141,6 +1257,48 @@ function mudancasDescritivo(){
     if(campos.length)lista.push({tipo:'descritivo',codigo:cod,material,campos});
   });
   return lista;
+}
+
+/* ---------------------------------------------------------------------
+   Alterações nos vínculos com a BRANET nesta sessão, apuradas do mesmo
+   jeito que as dos descritivos, para que o branet.csv só entre no pacote
+   quando mudou.
+   --------------------------------------------------------------------- */
+function mudancasBranet(){
+  const lista=[];
+  const codigos=new Set(Object.keys(BRANET).concat(Object.keys(BRANET_ORIGINAIS)));
+  const preenchido=o=>CAMPOS_BRANET.some(c=>((o||{})[c]||'').trim());
+  codigos.forEach(cod=>{
+    const atual=BRANET[cod], antigo=BRANET_ORIGINAIS[cod];
+    const material=(ITENS.find(i=>(i.codigo||'').trim()===cod)||{}).material||'';
+    const a=preenchido(atual)?atual:{}, o=preenchido(antigo)?antigo:{};
+    const campos=[];
+    CAMPOS_BRANET.forEach(c=>{
+      if((o[c]||'').trim()!==(a[c]||'').trim())
+        campos.push({campo:c,de:o[c]||'',para:a[c]||''});
+    });
+    if(campos.length)lista.push({tipo:'branet',codigo:cod,material,campos});
+  });
+  return lista;
+}
+
+/* branet.csv na mesma ordem do catálogo. Só entram materiais com algum
+   dos três campos preenchido. */
+function gerarBranetCsv(){
+  const linhas=[COLUNAS_BRANET.join(',')];
+  const vistos=new Set();
+  const cheio=b=>CAMPOS_BRANET.some(c=>(b[c]||'').trim());
+  const escrever=(cod,b)=>{
+    if(!cheio(b))return;
+    linhas.push(COLUNAS_BRANET.map(c=>campoCsv(c==='codigo'?cod:(b[c]||''))).join(','));
+  };
+  ITENS.forEach(it=>{
+    const cod=(it.codigo||'').trim();
+    if(!cod||vistos.has(cod)||!BRANET[cod])return;
+    vistos.add(cod);escrever(cod,BRANET[cod]);
+  });
+  Object.keys(BRANET).forEach(cod=>{if(!vistos.has(cod))escrever(cod,BRANET[cod])});
+  return '\uFEFF'+linhas.join('\r\n')+'\r\n';
 }
 
 /* Gera o descritivos.csv na mesma ordem do catálogo, o que facilita
@@ -1237,6 +1395,11 @@ function sessaoAtual(){
       codigo:x.codigo,
       material:x.material,
       campos:x.campos.map(c=>({campo:c.campo,de:c.de,para:c.para}))
+    }))).concat(mudancasBranet().map(x=>({
+      tipo:'branet',
+      codigo:x.codigo,
+      material:x.material,
+      campos:x.campos.map(c=>({campo:c.campo,de:c.de,para:c.para}))
     })))
   };
 }
@@ -1272,6 +1435,24 @@ function validar(){
     m.campos.forEach(cp=>{if(cp.campo==='codigo')
       avisos.push('O código mudou de '+cp.de+' para '+cp.para+', renomeie a foto de '+cp.de+'.jpg para '+cp.para+'.jpg')});
   });
+  /* Um código da BRANET em dois materiais costuma ser erro de digitação.
+     Só avisa sobre os vínculos mexidos nesta sessão, para não repetir a
+     cada vez o que já estava no arquivo. */
+  const mexidosB=new Set(mudancasBranet().map(x=>x.codigo));
+  if(mexidosB.size){
+    const donos={};
+    Object.keys(BRANET).forEach(cod=>['branet_codigo','branet_codigo_cliente'].forEach(c=>{
+      const v=(BRANET[cod][c]||'').trim();if(!v)return;
+      (donos[c+'|'+v]=donos[c+'|'+v]||[]).push(cod);
+    }));
+    Object.keys(donos).forEach(k=>{
+      const cods=donos[k];
+      if(cods.length<2||!cods.some(c=>mexidosB.has(c)))return;
+      const [c,v]=k.split('|');
+      avisos.push('O '+(c==='branet_codigo'?'código':'código cliente')+' '+v+' da BRANET está em '+
+        cods.length+' materiais: '+cods.join(', '));
+    });
+  }
   if(!historicoCarregado)
     avisos.push('Não consegui ler o historico.md. O arquivo gerado conterá apenas esta sessão, '+
                 'o que apagaria o histórico anterior. Use o botão Histórico para carregar o arquivo existente antes de baixar.');
@@ -1287,13 +1468,14 @@ function validar(){
    ===================================================================== */
 function corDoTipo(t){
   const m={novo:'var(--curacao)',editado:'var(--corn)',inativado:'var(--secundario)',
-           reativado:'var(--curacao)',excluido:'var(--sawtooth)',descritivo:'var(--corallite)'};
+           reativado:'var(--curacao)',excluido:'var(--sawtooth)',descritivo:'var(--corallite)',
+           branet:'var(--curacao-escuro)'};
   return m[t]||'var(--secundario)';
 }
 function fundoDoTipo(t){
   const m={novo:'var(--curacao-suave)',editado:'var(--corn-suave)',inativado:'var(--neutro)',
            reativado:'var(--curacao-suave)',excluido:'var(--sawtooth-suave)',
-           descritivo:'var(--corallite-suave)'};
+           descritivo:'var(--corallite-suave)',branet:'var(--curacao-suave)'};
   return m[t]||'var(--neutro)';
 }
 
@@ -1420,7 +1602,7 @@ document.addEventListener('click',e=>{
    CONFERÊNCIA E DOWNLOAD
    ===================================================================== */
 const NOMES_TIPO={novo:['novo','t-vd'],editado:['editado','t-az'],inativado:['inativado','t-ci'],
-                  descritivo:['descritivo','t-lr'],
+                  descritivo:['descritivo','t-lr'],branet:['BRANET','t-vd'],
                   reativado:['reativado','t-vd'],excluido:['excluído','t-lr'],
                   imagem:['foto','t-lr']};
 
@@ -1441,7 +1623,8 @@ const TEXTO_DESFAZER={
   inativado:'Voltar este material para ativo?',
   reativado:'Voltar este material para inativo?',
   excluido:'Trazer este material de volta para o catálogo?',
-  descritivo:'Desfazer as alterações no descritivo deste material?\n\nO texto digitado será perdido.'
+  descritivo:'Desfazer as alterações no descritivo deste material?\n\nO texto digitado será perdido.',
+  branet:'Desfazer as alterações nos códigos da BRANET deste material?\n\nEle volta ao que está no arquivo.'
 };
 
 /* Os identificadores são atribuídos na ordem em que o arquivo foi lido,
@@ -1470,6 +1653,13 @@ function desfazerItem(id){
   return true;
 }
 
+function desfazerBranet(codigo){
+  const original=BRANET_ORIGINAIS[codigo];
+  if(original)BRANET[codigo]=Object.assign({},original);
+  else delete BRANET[codigo];
+  return true;
+}
+
 function desfazerDescritivo(codigo){
   const original=DESC_ORIGINAIS[codigo];
   if(original)DESCRITIVOS[codigo]=Object.assign({},original);
@@ -1486,7 +1676,13 @@ function abrirConferencia(){
   const mCat=mudancas();
   const mDesc=mudancasDescritivo().map(x=>({tipo:'descritivo',
     item:{codigo:x.codigo,material:x.material,__id:null},campos:x.campos}));
-  const m=mCat.concat(mDesc);
+  const mBr=mudancasBranet().map(x=>({tipo:'branet',
+    item:{codigo:x.codigo,material:x.material,__id:null},campos:x.campos}));
+  const m=mCat.concat(mDesc,mBr);
+  const partesConf=[];
+  if(mCat.length)partesConf.push(mCat.length+' no catálogo');
+  if(mDesc.length)partesConf.push(mDesc.length+' em descritivos');
+  if(mBr.length)partesConf.push(mBr.length+' na BRANET');
   const v=validar();
   const arquivos=arquivosDoPacote();
   const fundo=document.createElement('div');
@@ -1495,7 +1691,7 @@ function abrirConferencia(){
     '<header><div><h2 style="margin:0">Conferir antes de publicar</h2>'+
     '<div class="sub">'+(m.length
         ? m.length+' alteração(ões) nesta sessão'+
-          (mCat.length&&mDesc.length?' · '+mCat.length+' no catálogo, '+mDesc.length+' em descritivos':'')
+          (partesConf.length>1?' · '+partesConf.join(', '):'')
         : 'nenhuma alteração nesta sessão')+'</div></div>'+
     '<button class="sec mini" data-fechar="1">Fechar</button></header>'+
     '<div class="corpo">'+
@@ -1508,7 +1704,9 @@ function abrirConferencia(){
             : '<div class="diff">'+(x.tipo==='novo'?'item acrescentado ao arquivo':'linha removida do arquivo')+'</div>';
           const alvo=x.tipo==='descritivo'
             ? 'data-desfazer-desc="'+escapar(x.item.codigo||'')+'"'
-            : 'data-desfazer="'+x.item.__id+'"';
+            : x.tipo==='branet'
+              ? 'data-desfazer-branet="'+escapar(x.item.codigo||'')+'"'
+              : 'data-desfazer="'+x.item.__id+'"';
           return '<div class="mudanca"><span class="tag '+cls+'" style="flex:none">'+nome+'</span>'+
             '<div style="min-width:0"><div style="font-size:12.5px"><span class="mono" style="color:var(--azul)">'+
             escapar(x.item.codigo||'')+'</span> '+escapar(x.item.material||'')+'</div>'+det+'</div>'+
@@ -1542,12 +1740,15 @@ function abrirConferencia(){
     const bt=e.target.closest('button');
     if(!bt)return;
     const ehDesc=bt.dataset.desfazerDesc!==undefined;
-    if(!ehDesc&&bt.dataset.desfazer===undefined)return;
+    const ehBranet=bt.dataset.desfazerBranet!==undefined;
+    if(!ehDesc&&!ehBranet&&bt.dataset.desfazer===undefined)return;
 
     const tipo=bt.dataset.tipo||'editado';
     if(!confirm(TEXTO_DESFAZER[tipo]||'Desfazer esta alteração?'))return;
 
-    const ok=ehDesc?desfazerDescritivo(bt.dataset.desfazerDesc):desfazerItem(bt.dataset.desfazer);
+    const ok=ehDesc?desfazerDescritivo(bt.dataset.desfazerDesc)
+            :ehBranet?desfazerBranet(bt.dataset.desfazerBranet)
+            :desfazerItem(bt.dataset.desfazer);
     if(!ok){alert('Não localizei essa alteração para desfazer.');return}
 
     salvarRascunho();
@@ -1647,7 +1848,8 @@ function instrucoesPacote(registro,arquivos){
   (arquivos||[]).forEach(a=>L.push('  '+a.caminho));
   L.push('');
   L.push('Somente os arquivos alterados sao gerados. Se voce editou apenas');
-  L.push('descritivos, o produtos.csv nao vem no pacote, e vice-versa.');
+  L.push('descritivos, o produtos.csv nao vem no pacote, e vice-versa. O mesmo');
+  L.push('vale para o branet/branet.csv, com os codigos da BRANET.');
   L.push('Envie ao repositorio todos os arquivos listados acima, juntos.');
   L.push('');
   L.push('Este arquivo de instrucoes nao precisa ser enviado ao repositorio.');
@@ -1666,6 +1868,9 @@ function arquivosDoPacote(){
   if(mudancasDescritivo().length)
     lista.push({caminho:'descritivos/descritivos.csv',conteudo:gerarDescritivosCsv(),
                 rotulo:'descritivos/descritivos.csv, na pasta dos descritivos'});
+  if(mudancasBranet().length)
+    lista.push({caminho:'branet/branet.csv',conteudo:gerarBranetCsv(),
+                rotulo:'branet/branet.csv, os códigos da BRANET'});
   if(lista.length)
     lista.push({caminho:'editor-catalogo/historico.md',conteudo:gerarHistorico(),
                 rotulo:'editor-catalogo/historico.md, o registro das alterações'});
@@ -1692,6 +1897,8 @@ function baixarTudo(){
       ORIGINAIS={};ITENS.forEach(it=>ORIGINAIS[it.__id]=Object.assign({},it));
       DESC_ORIGINAIS={};
       Object.keys(DESCRITIVOS).forEach(c=>DESC_ORIGINAIS[c]=Object.assign({},DESCRITIVOS[c]));
+      BRANET_ORIGINAIS={};
+      Object.keys(BRANET).forEach(c=>BRANET_ORIGINAIS[c]=Object.assign({},BRANET[c]));
       EXCLUIDOS=[];localStorage.removeItem(CHAVE);desenhar();
     }
   },1400);
@@ -1717,6 +1924,7 @@ function baixarTudo(){
    ===================================================================== */
 const ARQ_CSV='produtos.csv';
 const ARQ_DESC='descritivos/descritivos.csv';
+const ARQ_BRANET='branet/branet.csv';
 const ARQ_LOG='editor-catalogo/historico.md';
 
 const chaveDecisao=(arq,cod,campo)=>arq+'|'+cod+'|'+campo;
@@ -1882,6 +2090,62 @@ function mesclarDescritivos(textoRemoto,decisoes){
 }
 
 /* ---------------------------------------------------------------------
+   Fusão do branet.csv
+   Mesma lógica dos descritivos, campo a campo pelo código do CELK. A
+   diferença é que uma linha que ficou sem nenhum dos três campos sai do
+   arquivo, em vez de ficar vazia. O arquivo pode ainda não existir no
+   repositório: nesse caso ele é criado na primeira publicação.
+   --------------------------------------------------------------------- */
+function mesclarBranet(textoRemoto,decisoes){
+  const remoto=lerCsv(textoRemoto||'');
+  const colunas=COLUNAS_BRANET.slice();
+  const porCodigo=new Map();
+  const ordem=[];
+  remoto.registros.forEach(r=>{
+    const c=(r.codigo||'').trim();
+    if(!c)return;
+    if(!porCodigo.has(c))ordem.push(c);
+    porCodigo.set(c,Object.assign({},r));
+  });
+
+  const conflitos=[],avisos=[];
+
+  mudancasBranet().forEach(m=>{
+    const cod=(m.codigo||'').trim();
+    let linha=porCodigo.get(cod);
+    if(!linha){linha={codigo:cod};ordem.push(cod)}
+    else linha=Object.assign({},linha);
+    let mexeu=false;
+    m.campos.forEach(cp=>{
+      const dele=(linha[cp.campo]||'').trim();
+      const meuDe=(cp.de||'').trim();
+      if(dele===meuDe||dele===(cp.para||'').trim()){
+        linha[cp.campo]=cp.para;mexeu=true;
+      }else if(decisoes&&decisoes.has(chaveDecisao(ARQ_BRANET,cod,cp.campo))){
+        linha[cp.campo]=valorEscolhido(decisoes,ARQ_BRANET,cod,cp.campo,cp.para,linha[cp.campo]);
+        mexeu=true;
+      }else{
+        conflitos.push({arquivo:ARQ_BRANET,codigo:cod,material:m.material||'',campo:cp.campo,
+                        rotulo:rotulo(cp.campo),meu:cp.para,dele:linha[cp.campo]||''});
+      }
+    });
+    if(mexeu){
+      const atual=BRANET[cod]||{};
+      linha.modificado_em=atual.modificado_em||dataCurta(new Date());
+      linha.modificado_por=atual.modificado_por||autorAtual();
+    }
+    porCodigo.set(cod,linha);
+  });
+
+  const registros=[];
+  ordem.forEach(c=>{
+    const l=porCodigo.get(c);
+    if(l&&CAMPOS_BRANET.some(x=>(l[x]||'').trim()))registros.push(l);
+  });
+  return {texto:gerarCsvDe(colunas,registros),conflitos,avisos,total:registros.length};
+}
+
+/* ---------------------------------------------------------------------
    Fusão do historico.md
    O histórico é sempre acréscimo: as duas listas de sessões são
    juntadas e reordenadas por data. Sessões iguais não se repetem.
@@ -1918,6 +2182,14 @@ async function montarPublicacao(decisoes,registroDaSessao){
     saida.push({caminho:ARQ_DESC,texto:m.texto,sha:r.sha,
                 mensagem:Publicar.mensagem('Editor',ARQ_DESC,mudancasDescritivo().length,'descritivo'),
                 resumo:m.total+' linhas no arquivo'});
+  }
+  if(alvos.includes(ARQ_BRANET)){
+    const r=await Publicar.obterTexto(ARQ_BRANET);
+    const m=mesclarBranet(r.texto,decisoes);
+    conflitos.push(...m.conflitos);avisos.push(...m.avisos);
+    saida.push({caminho:ARQ_BRANET,texto:m.texto,sha:r.sha,
+                mensagem:Publicar.mensagem('Editor',ARQ_BRANET,mudancasBranet().length,'vínculo','vínculos'),
+                resumo:m.total+' materiais com código BRANET'});
   }
   if(alvos.includes('editor-catalogo/historico.md')){
     const r=await Publicar.obterTexto(ARQ_LOG);
@@ -2116,6 +2388,8 @@ async function publicarSessao(){
     ORIGINAIS={};ITENS.forEach(it=>ORIGINAIS[it.__id]=Object.assign({},it));
     DESC_ORIGINAIS={};
     Object.keys(DESCRITIVOS).forEach(c=>DESC_ORIGINAIS[c]=Object.assign({},DESCRITIVOS[c]));
+    BRANET_ORIGINAIS={};
+    Object.keys(BRANET).forEach(c=>BRANET_ORIGINAIS[c]=Object.assign({},BRANET[c]));
     EXCLUIDOS=[];localStorage.removeItem(CHAVE);desenhar();
 
     /* O que acabei de publicar não deve disparar o aviso para mim mesmo. */
@@ -2243,9 +2517,35 @@ async function verAlteracoesRemotas(){
       });
     }catch(e){}
 
+    /* ---- BRANET ---- */
+    try{
+      const rb=await Publicar.obterTexto(ARQ_BRANET);
+      const remB=lerCsv(rb.texto||'');
+      const meusB=new Map();
+      mudancasBranet().forEach(m=>meusB.set(m.codigo,new Set(m.campos.map(x=>x.campo))));
+      const vistosB=new Set();
+      const comparar=(c,r)=>{
+        const b=BRANET_ORIGINAIS[c]||{};
+        const campos=[];
+        CAMPOS_BRANET.forEach(col=>{
+          if(((b[col]||'').trim())!==((r[col]||'').trim()))
+            campos.push({campo:col,de:b[col]||'',para:r[col]||''});
+        });
+        if(campos.length){
+          const mc=meusB.get(c);
+          const bate=mc?campos.filter(x=>mc.has(x.campo)).map(x=>x.campo):[];
+          const it=ITENS.find(i=>(i.codigo||'').trim()===c);
+          linhas.push({tipo:'branet',codigo:c,material:(it&&it.material)||'',campos,bate});
+        }
+      };
+      remB.registros.forEach(r=>{const c=(r.codigo||'').trim();if(!c)return;vistosB.add(c);comparar(c,r)});
+      Object.keys(BRANET_ORIGINAIS).forEach(c=>{if(!vistosB.has(c))comparar(c,{})});
+    }catch(e){}
+
     const colidem=linhas.filter(l=>l.bate&&l.bate.length);
     const rotuloTipo={acrescentado:['acrescentado','t-vd'],editado:['editado','t-az'],
-                      removido:['removido','t-ci'],descritivo:['descritivo','t-rx']};
+                      removido:['removido','t-ci'],descritivo:['descritivo','t-rx'],
+                      branet:['BRANET','t-vd']};
 
     const fundo=document.createElement('div');
     fundo.className='fundo-modal';
@@ -2297,10 +2597,10 @@ async function verAlteracoesRemotas(){
 $('#btVerAlteracoes').onclick=verAlteracoesRemotas;
 
 window.addEventListener('beforeunload',e=>{
-  if(mudancas().length||mudancasDescritivo().length){e.preventDefault();e.returnValue=''}
+  if(mudancas().length||mudancasDescritivo().length||mudancasBranet().length){e.preventDefault();e.returnValue=''}
 });
 </script>
-<div id="versaoPagina">editor · versão 2026-08-20b</div>
+<div id="versaoPagina">editor · versão 2026-09-23a</div>
 </div>
 </div>
 </body>

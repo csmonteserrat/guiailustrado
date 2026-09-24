@@ -10,14 +10,14 @@
    administrativas: ano-mês-dia e uma letra para cada entrega do dia.
    Atualize a cada revisão.
    ----------------------------------------------------------------- */
-const VERSAO_SITE = '2026-08-21a';
+const VERSAO_SITE = '2026-09-23a';
 
 /* Data mostrada no cabeçalho das impressões. Não é a data da versão do
    site, e sim a da última vez que a lista de materiais mudou de fato.
    Ela é lida do histórico do editor, e só na hora de imprimir: assim
    quem apenas consulta o catálogo não baixa o arquivo de histórico.
-   Sessões que mexeram somente em descritivos não contam, porque não
-   alteram nada do que sai impresso. */
+   Sessões que mexeram somente em descritivos ou nos códigos da BRANET
+   não contam, porque não alteram nada do que sai impresso. */
 let DATA_CATALOGO = '';
 let dataCatalogoBuscada = false;
 
@@ -34,7 +34,7 @@ async function carregarDataDoCatalogo() {
       let s;
       try { s = JSON.parse(m[1]); } catch (e) { continue; }
       if (!s || !s.data) continue;
-      const mexeuNaLista = (s.alteracoes || []).some(a => a.tipo !== 'descritivo');
+      const mexeuNaLista = (s.alteracoes || []).some(a => a.tipo !== 'descritivo' && a.tipo !== 'branet');
       if (!mexeuNaLista) continue;
       if (!maisRecente || String(s.data) > String(maisRecente)) maisRecente = s.data;
     }

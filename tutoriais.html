@@ -140,6 +140,10 @@
     <li><code>imagens/</code>, uma foto por material, nomeada com o código.</li>
   </ul>
 
+  <p>Um terceiro arquivo, <code>branet/branet.csv</code>, guarda como cada material está cadastrado na
+    BRANET, a central terceirizada que guarda os materiais: dois códigos próprios dela e o nome que ela
+    usa. Ele não aparece no catálogo dos dentistas. Serve ao editor e à página de descritivos.</p>
+
   <p>As ferramentas do painel existem para você nunca precisar abrir esses arquivos à mão:</p>
 
   <div class="demo">
@@ -271,7 +275,7 @@
   </ul>
 
   <h3>Arquivos do projeto</h3>
-  <p>A lista dos três arquivos de dados com a situação de cada um. O botão <b>Conferir no repositório</b>
+  <p>A lista dos quatro arquivos de dados com a situação de cada um. O botão <b>Conferir no repositório</b>
     mostra a versão publicada de cada um, o tamanho, quem enviou por último e quando. É só leitura:
     nada é gravado.</p>
 </section>
@@ -284,13 +288,15 @@
     alterações vão se acumulando numa <b>sessão</b>, que só vira realidade quando você publica.</p>
 
   <h3>Encontrar o material</h3>
-  <p>A busca aceita nome, código, tag ou família, e os seletores ao lado filtram por bloco, tag,
+  <p>A busca aceita nome, código, tag ou família, e também os códigos e o nome do material na BRANET.
+    Os seletores ao lado filtram por bloco, tag,
     família e situação. A lista mostra os primeiros 400 itens: se o que você procura não aparecer,
     refine a busca.</p>
 
   <h3>A janela de edição</h3>
-  <p>Ao clicar num material, abre uma janela com dois cartões. O de cima traz os dados do catálogo —
-    o que o dentista vê. O de baixo, o descritivo — o texto técnico do empenho.</p>
+  <p>Ao clicar num material, abre uma janela com três cartões, um para cada arquivo. O primeiro traz os
+    dados do catálogo, o que o dentista vê. O segundo, o descritivo, o texto técnico do empenho. O
+    terceiro, o almoxarifado BRANET.</p>
 
   <div class="demo">
     <span class="rot">os campos do catálogo</span>
@@ -313,6 +319,19 @@
       </ul>
     </div>
   </div>
+
+  <h3>Os códigos da BRANET</h3>
+  <p>O cartão <b>Almoxarifado BRANET</b> fica abaixo do descritivo e aparece para todos os materiais,
+    inclusive os da lista da Enfermagem. Tem três campos:</p>
+  <ul>
+    <li><b>Código BRANET</b> e <b>Código cliente.</b> Os dois são da própria BRANET e não têm relação com
+      o código do CELK. Às vezes só um deles existe: preencha o que houver.</li>
+    <li><b>Nome na BRANET.</b> Deixe em branco quando for igual ao nome do catálogo.</li>
+  </ul>
+  <p>A etiqueta no alto do cartão diz <b>vinculado</b> quando há pelo menos um dos dois códigos. Se você
+    trocar o código do CELK de um material, como acontece quando um código provisório ganha o código
+    real, os dados da BRANET acompanham o material sozinhos ao salvar. No seletor de situação, as opções
+    <b>Com código BRANET</b> e <b>Sem código BRANET</b> ajudam a achar o que ainda falta preencher.</p>
 
   <h3>Inativar ou excluir</h3>
   <div class="aviso"><b>Prefira inativar.</b> Inativar tira o material do catálogo e mantém a linha no
@@ -362,7 +381,8 @@
   <h3>Os dois modos de busca</h3>
   <p>O botão ao lado do campo alterna entre eles, e a diferença é grande:</p>
   <ul>
-    <li><b>Títulos</b> procura no nome, no código, no nome usado no descritivo e na classificação.</li>
+    <li><b>Títulos</b> procura no nome, no código, no nome usado no descritivo, na classificação e nos
+      códigos e no nome da BRANET.</li>
     <li><b>Descritivos</b> procura <b>dentro do texto</b>. É o que serve para padronizar redação:
       buscar por <code>aço inoxidável</code> ou <code>estéril</code> mostra todos os descritivos que
       usam o termo, com o trecho em destaque.</li>
@@ -374,12 +394,15 @@
       do usado no catálogo. Em branco, vale o nome do catálogo.</li>
     <li><b>Unidade de compra.</b> Diferente da unidade de pedido: a de pedido é como o dentista
       solicita, a de compra é como o material é adquirido na licitação.</li>
+    <li><b>Na BRANET.</b> Logo abaixo do texto do descritivo, os dois códigos e o nome do material na
+      BRANET. Quando o nome é igual ao do catálogo, aparece a indicação "igual ao catálogo".</li>
     <li><b>Data e autor da última modificação.</b> Mudam apenas quando algum campo do descritivo muda.
       Corrigir uma tag no catálogo não altera esse registro.</li>
   </ul>
 
   <p>O botão <b>Exportar</b> gera um CSV com os itens que estiverem na listagem no momento, respeitando
-    busca e filtros. Serve para levar a redação pronta ao processo de compra.</p>
+    busca e filtros, e traz também os códigos e o nome na BRANET. Serve para levar a redação pronta ao
+    processo de compra.</p>
 </section>
 
 <section class="secao" data-grupo="Ferramentas" id="imagens">
@@ -417,7 +440,7 @@
   <p>Cada publicação vira uma <b>sessão</b> no histórico, com quem fez, quando, e a lista das
     alterações. Dentro de cada uma, o detalhamento mostra o valor anterior e o novo, campo por campo.</p>
 
-  <p>Os filtros no alto separam por tipo — descritivos, editados, excluídos — e há ainda o
+  <p>Os filtros no alto separam por tipo (descritivos, BRANET, editados, excluídos) e há ainda o
     agrupamento <b>Por material</b>, que reúne todas as alterações de um mesmo código ao longo do
     tempo. É o modo útil quando a pergunta é "por que este item está assim?".</p>
 
@@ -471,6 +494,7 @@
     <li><b>Editado</b> — todos os campos voltam ao que estão no arquivo.</li>
     <li><b>Inativado</b> ou <b>reativado</b> — volta à situação anterior.</li>
     <li><b>Descritivo</b> — o texto volta ao original, ou some, se não existia antes.</li>
+    <li><b>BRANET</b>: os códigos e o nome voltam ao que estão no arquivo, ou somem, se não existiam.</li>
   </ul>
 
   <p>Confira também os avisos que aparecem nessa janela. Eles não impedem a publicação, mas apontam
@@ -545,7 +569,7 @@
       </div>
     </div>
 
-    <div id="versaoPagina">tutoriais · versão 2026-08-16b</div>
+    <div id="versaoPagina">tutoriais · versão 2026-09-23a</div>
   </div>
 </div>
 

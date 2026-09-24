@@ -215,7 +215,7 @@ O padrão é ano-mês-dia, mais uma letra para cada entrega feita no mesmo dia: 
 
 Isso identifica a **versão do site**, ou seja, quando o visual ou o funcionamento mudaram. Não tem relação com a lista de materiais.
 
-**A data do catálogo impresso é outra coisa e não precisa ser atualizada à mão.** No cabeçalho das páginas impressas aparece a data da última vez que a lista de materiais mudou de fato, lida sozinha do `editor-catalogo/historico.md`. Sessões que mexeram apenas em descritivos não contam, porque não alteram nada do que sai impresso.
+**A data do catálogo impresso é outra coisa e não precisa ser atualizada à mão.** No cabeçalho das páginas impressas aparece a data da última vez que a lista de materiais mudou de fato, lida sozinha do `editor-catalogo/historico.md`. Sessões que mexeram apenas em descritivos ou nos códigos da BRANET não contam, porque não alteram nada do que sai impresso.
 
 ---
 

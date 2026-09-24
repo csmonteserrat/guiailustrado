@@ -154,6 +154,14 @@ select{appearance:none;background-image:none;padding-right:13px}
 .texto mark,.trecho mark{background:rgba(245,205,121,.45)}
 .lightbox img{border-radius:18px}
 .aviso{border-radius:16px}
+/* faixa da BRANET, logo abaixo do texto do descritivo */
+.branet{background:var(--curacao-suave);border-radius:14px;padding:10px 13px;margin-bottom:10px}
+.branet .secao{color:var(--curacao-escuro);margin-bottom:7px}
+.branet .barra{gap:10px 22px;align-items:flex-start}
+.branet .campo{margin-bottom:0}
+.branet .nomeB{flex:1;min-width:180px}
+.branet.vazia{background:#fff;box-shadow:var(--sombra)}
+.branet.vazia .secao{color:var(--secundario)}
 
 /* ---- barra lateral de navegação ---- */
 
@@ -252,9 +260,10 @@ select{appearance:none;background-image:none;padding-right:13px}
 <script>
 /* =====================================================================
    Página de consulta dos descritivos.
-   Lê dois arquivos: o produtos.csv, na raiz, com os dados do catálogo,
-   e o descritivos.csv, nesta pasta, com o texto de cada descritivo.
-   A ligação entre os dois é o código do material.
+   Lê três arquivos: o produtos.csv, na raiz, com os dados do catálogo,
+   o descritivos.csv, nesta pasta, com o texto de cada descritivo, e o
+   branet/branet.csv, com os códigos e o nome do material na BRANET.
+   A ligação entre eles é o código do material no CELK.
    Nada é gravado aqui: a edição fica concentrada no editor do catálogo.
    ===================================================================== */
 const $=s=>document.querySelector(s);
@@ -297,16 +306,20 @@ const valoresDe=(it,col)=>(it[col]||'').split(';').map(t=>t.trim()).filter(Boole
 /* ---------- carregamento ---------- */
 Promise.all([
   fetch('../produtos.csv').then(r=>{if(!r.ok)throw new Error('produtos');return r.text()}),
-  fetch('descritivos.csv').then(r=>r.ok?r.text():'')       // ausente é aceitável: tudo fica pendente
-]).then(([tp,td])=>{
+  fetch('descritivos.csv').then(r=>r.ok?r.text():''),      // ausente é aceitável: tudo fica pendente
+  fetch('../branet/branet.csv?t='+Date.now()).then(r=>r.ok?r.text():'').catch(()=>'')   // idem: todos sem código BRANET
+]).then(([tp,td,tb])=>{
   const produtos=lerCsv(tp).filter(r=>r.codigo);
   const desc={};
   lerCsv(td).forEach(d=>{if(d.codigo)desc[d.codigo]=d});
+  const branet={};
+  lerCsv(tb).forEach(b=>{if(b.codigo)branet[b.codigo]=b});
 
   /* Somente materiais da odontologia. Os da lista da Enfermagem,
      marcados com acesso COORDENACAO, não são objeto destes empenhos. */
   ITENS=produtos.filter(p=>(p.acesso||'').toUpperCase()!=='COORDENACAO').map(p=>{
     const d=desc[p.codigo]||{};
+    const b=branet[p.codigo]||{};
     const descritivo=(d.descritivo||'').trim();
     return {
       codigo:p.codigo,
@@ -328,6 +341,9 @@ Promise.all([
       modificadoEm:(d.modificado_em||'').trim(),
       modificadoPor:(d.modificado_por||'').trim(),
       situacaoCompra:(d.situacao_compra||'').trim(),
+      branetCodigo:(b.branet_codigo||'').trim(),
+      branetCliente:(b.branet_codigo_cliente||'').trim(),
+      branetNome:(b.branet_nome||'').trim(),
       temDescritivo:!!descritivo
     };
   });
@@ -360,7 +376,10 @@ function montarFiltros(){
 
 ['#busca','#fBloco','#fFamilia','#fSituacao','#fInativos'].forEach(sel=>{
   document.addEventListener('input',e=>{if(e.target.matches(sel))desenhar()});
-  document.addEventListener('change',e=>{if(e.target.matches(sel))desenhar()});
+  /* O change da busca não redesenha: ele dispara quando o campo perde o
+     foco, no exato clique em uma linha, e redesenhar ali fazia o clique
+     se perder. A busca já redesenha a cada tecla, pelo input. */
+  document.addEventListener('change',e=>{if(e.target.matches(sel)&&sel!=='#busca')desenhar()});
 });
 
 document.querySelectorAll('#modo span').forEach(el=>{
@@ -393,7 +412,7 @@ function filtrados(){
       const alvo=modo==='texto'
         ? normalizar(it.descritivo)
         : normalizar([it.codigo,it.material,it.nomePregao,it.familias.join(' '),
-                      it.tags.join(' '),it.subgrupo].join(' '));
+                      it.tags.join(' '),it.subgrupo,it.branetCodigo,it.branetCliente,it.branetNome].join(' '));
       if(!termos.every(t=>alvo.includes(t)))return false;
     }
     return true;
@@ -576,6 +595,7 @@ function detalhe(it,termos){
           : '<div class="texto" style="color:var(--laranja)">Descritivo ainda não preenchido. '+
             'Abra o editor do catálogo para acrescentar.</div>')+
       '</div>'+
+      faixaBranet(it)+
       '<div class="barra" style="gap:18px;align-items:flex-start">'+
         campo('Unidade de compra',esc(it.unidadeCompra)||'—')+
         campo('Última modificação do descritivo',it.modificadoEm
@@ -586,15 +606,34 @@ function detalhe(it,termos){
   '</div>';
 }
 
+/* Faixa com os dados da BRANET, logo abaixo do texto do descritivo. Os
+   dois códigos são da BRANET e não têm relação com o código do CELK; às
+   vezes só um deles existe. Nome em branco no arquivo quer dizer que é
+   igual ao do catálogo. */
+function faixaBranet(it){
+  if(!it.branetCodigo&&!it.branetCliente&&!it.branetNome)
+    return '<div class="branet vazia"><div class="secao">Na BRANET</div>'+
+      '<div class="sub">Sem código da BRANET. Abra o editor do catálogo para acrescentar.</div></div>';
+  const campo=(r,v,cls)=>'<div class="campo'+(cls?' '+cls:'')+'"><div class="r">'+r+'</div><div class="v">'+v+'</div></div>';
+  return '<div class="branet"><div class="secao">Na BRANET</div><div class="barra">'+
+    campo('Código','<span class="mono">'+(esc(it.branetCodigo)||'—')+'</span>')+
+    campo('Código cliente','<span class="mono">'+(esc(it.branetCliente)||'—')+'</span>')+
+    campo('Nome',it.branetNome?esc(it.branetNome)
+      :esc(it.material)+' <span class="sub">(igual ao catálogo)</span>','nomeB')+
+  '</div></div>';
+}
+
 /* ---------- exportação ---------- */
 $('#btExportar').onclick=()=>{
   const lista=filtrados();
   if(!lista.length){alert('Não há itens na listagem atual para exportar.');return}
   const campo=v=>{v=String(v==null?'':v);return /[",;\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v};
-  const L=['codigo,nome_descritivo,descritivo,unidade_compra,unidade_pedido,subgrupo,familias,tags,modificado_em,modificado_por'];
+  const L=['codigo,nome_descritivo,descritivo,unidade_compra,unidade_pedido,subgrupo,familias,tags,modificado_em,modificado_por,'+
+           'branet_codigo,branet_codigo_cliente,branet_nome'];
   lista.forEach(it=>L.push([it.codigo,it.nomePregao||it.material,it.descritivo,it.unidadeCompra,
     it.unidade,rotuloBloco(it),it.familias.join('; '),it.tags.join('; '),
-    it.modificadoEm,it.modificadoPor].map(campo).join(',')));
+    it.modificadoEm,it.modificadoPor,
+    it.branetCodigo,it.branetCliente,it.branetNome||(it.branetCodigo||it.branetCliente?it.material:'')].map(campo).join(',')));
   const d=new Date(),p=n=>String(n).padStart(2,'0');
   const a=document.createElement('a');
   a.href=URL.createObjectURL(new Blob(['\uFEFF'+L.join('\r\n')+'\r\n'],{type:'text/csv;charset=utf-8'}));
@@ -603,7 +642,7 @@ $('#btExportar').onclick=()=>{
   setTimeout(()=>URL.revokeObjectURL(a.href),4000);
 };
 </script>
-<div id="versaoPagina">descritivos · versão 2026-08-16d</div>
+<div id="versaoPagina">descritivos · versão 2026-09-23a</div>
 </div>
 </div>
 </body>
