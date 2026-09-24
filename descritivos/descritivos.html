@@ -154,8 +154,8 @@ select{appearance:none;background-image:none;padding-right:13px}
 .texto mark,.trecho mark{background:rgba(245,205,121,.45)}
 .lightbox img{border-radius:18px}
 .aviso{border-radius:16px}
-/* faixa da BRANET, logo abaixo do texto do descritivo */
-.branet{background:var(--curacao-suave);border-radius:14px;padding:10px 13px;margin-bottom:10px}
+/* faixa da BRANET, no fim do detalhe, abaixo da unidade de compra */
+.branet{background:var(--curacao-suave);border-radius:14px;padding:10px 13px;margin-top:4px}
 .branet .secao{color:var(--curacao-escuro);margin-bottom:7px}
 .branet .barra{gap:10px 22px;align-items:flex-start}
 .branet .campo{margin-bottom:0}
@@ -595,18 +595,19 @@ function detalhe(it,termos){
           : '<div class="texto" style="color:var(--laranja)">Descritivo ainda não preenchido. '+
             'Abra o editor do catálogo para acrescentar.</div>')+
       '</div>'+
-      faixaBranet(it)+
       '<div class="barra" style="gap:18px;align-items:flex-start">'+
         campo('Unidade de compra',esc(it.unidadeCompra)||'—')+
         campo('Última modificação do descritivo',it.modificadoEm
           ? esc(it.modificadoEm)+(it.modificadoPor?' · '+esc(it.modificadoPor):'')
           : '—')+
       '</div>'+
+      faixaBranet(it)+
     '</div>'+
   '</div>';
 }
 
-/* Faixa com os dados da BRANET, logo abaixo do texto do descritivo. Os
+/* Faixa com os dados da BRANET, no fim do detalhe, abaixo da unidade de
+   compra e da última modificação do descritivo. Os
    dois códigos são da BRANET e não têm relação com o código do CELK; às
    vezes só um deles existe. Nome em branco no arquivo quer dizer que é
    igual ao do catálogo. */
@@ -642,7 +643,7 @@ $('#btExportar').onclick=()=>{
   setTimeout(()=>URL.revokeObjectURL(a.href),4000);
 };
 </script>
-<div id="versaoPagina">descritivos · versão 2026-09-23a</div>
+<div id="versaoPagina">descritivos · versão 2026-09-23b</div>
 </div>
 </div>
 </body>

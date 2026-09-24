@@ -27,7 +27,7 @@ Formato igual ao dos outros arquivos de dados: separado por vírgula, UTF-8 com 
 ## Onde aparece
 
 * No **editor do catálogo**, no cartão **Almoxarifado BRANET**, abaixo do descritivo. É lá que os dados são preenchidos.
-* Na página de **descritivos**, logo abaixo do texto de cada descritivo.
+* Na página de **descritivos**, no fim de cada item, abaixo da unidade de compra e da última modificação do descritivo.
 
 O catálogo dos dentistas não lê este arquivo.
 
