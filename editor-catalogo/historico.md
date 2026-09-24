@@ -4,10 +4,22 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 86  
-Última atualização: 24/09/2026, 15:13
+Total de sessões registradas: 87  
+Última atualização: 24/09/2026, 15:28
 
 ---
+
+## 24/09/2026, 15:28 — Caio César Borges de Oliveira
+
+Sessão 87 · 1 alteração(ões) · 844 itens no arquivo após a edição
+
+**Resumo:** 1 BRANET
+
+- **[BRANET]** `4150445` ADESIVO INSTANTANEO UNIVERSAL BISNAGA 5 A 8 G
+    - Código BRANET: "20771" → ""
+    - Código cliente BRANET: "10654" → ""
+
+<!-- sessao:{"data":"2026-09-24T18:28:38.505Z","autor":"Caio César Borges de Oliveira","origem":"","total":844,"alteracoes":[{"tipo":"branet","codigo":"4150445","material":"ADESIVO INSTANTANEO UNIVERSAL BISNAGA 5 A 8 G","campos":[{"campo":"branet_codigo","de":"20771","para":""},{"campo":"branet_codigo_cliente","de":"10654","para":""}]}]} -->
 
 ## 24/09/2026, 15:13 — Caio César Borges de Oliveira
 
