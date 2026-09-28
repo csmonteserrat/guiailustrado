@@ -4,10 +4,23 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 89  
-Última atualização: 28/09/2026, 09:23
+Total de sessões registradas: 90  
+Última atualização: 28/09/2026, 09:34
 
 ---
+
+## 28/09/2026, 09:34 — Caio César Borges de Oliveira
+
+Sessão 90 · 2 alteração(ões)
+
+**Resumo:** 2 foto
+
+- **[FOTO]** `4150399` ETIQUETA ADESIVA PARA USO EM IMPRESSORA INJ-JET LASER
+    - foto adicionada · imagens/4150399.jpg
+- **[FOTO]** `4150398` ETIQUETA AUTO ADESIVA FORMATO A4 (FOLHA COM 20 ETIQUETAS)
+    - foto adicionada · imagens/4150398.jpg
+
+<!-- sessao:{"data":"2026-09-28T12:34:29.895Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4150399","material":"ETIQUETA ADESIVA PARA USO EM IMPRESSORA INJ-JET LASER","resumo":"foto adicionada · imagens/4150399.jpg"},{"tipo":"imagem","codigo":"4150398","material":"ETIQUETA AUTO ADESIVA FORMATO A4 (FOLHA COM 20 ETIQUETAS)","resumo":"foto adicionada · imagens/4150398.jpg"}]} -->
 
 ## 28/09/2026, 09:23 — Caio César Borges de Oliveira
 
