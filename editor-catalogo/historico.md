@@ -4,10 +4,21 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 88  
-Última atualização: 28/09/2026, 09:22
+Total de sessões registradas: 89  
+Última atualização: 28/09/2026, 09:23
 
 ---
+
+## 28/09/2026, 09:23 — Caio César Borges de Oliveira
+
+Sessão 89 · 1 alteração(ões)
+
+**Resumo:** 1 foto
+
+- **[FOTO]** `4150385` COLA EM BASTAO
+    - foto substituída · imagens/4150385.jpg
+
+<!-- sessao:{"data":"2026-09-28T12:23:57.264Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4150385","material":"COLA EM BASTAO","resumo":"foto substituída · imagens/4150385.jpg"}]} -->
 
 ## 28/09/2026, 09:22 — Caio César Borges de Oliveira
 
