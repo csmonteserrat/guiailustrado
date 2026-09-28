@@ -4,10 +4,23 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 90  
-Última atualização: 28/09/2026, 09:34
+Total de sessões registradas: 91  
+Última atualização: 28/09/2026, 09:35
 
 ---
+
+## 28/09/2026, 09:35 — Caio César Borges de Oliveira
+
+Sessão 91 · 2 alteração(ões)
+
+**Resumo:** 2 foto
+
+- **[FOTO]** `4150302` FOLDER GESTANTE - SAUDE BUCAL
+    - foto adicionada · imagens/4150302.jpg
+- **[FOTO]** `4150304` FOLDER ODONTOLOGICO DESENHO
+    - foto adicionada · imagens/4150304.jpg
+
+<!-- sessao:{"data":"2026-09-28T12:35:21.119Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4150302","material":"FOLDER GESTANTE - SAUDE BUCAL","resumo":"foto adicionada · imagens/4150302.jpg"},{"tipo":"imagem","codigo":"4150304","material":"FOLDER ODONTOLOGICO DESENHO","resumo":"foto adicionada · imagens/4150304.jpg"}]} -->
 
 ## 28/09/2026, 09:34 — Caio César Borges de Oliveira
 
