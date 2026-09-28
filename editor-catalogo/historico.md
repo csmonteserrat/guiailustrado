@@ -4,10 +4,23 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 91  
-Última atualização: 28/09/2026, 09:35
+Total de sessões registradas: 92  
+Última atualização: 28/09/2026, 12:45
 
 ---
+
+## 28/09/2026, 12:45 — Caio César Borges de Oliveira
+
+Sessão 92 · 2 alteração(ões) · 844 itens no arquivo após a edição
+
+**Resumo:** 2 inativado
+
+- **[INATIVADO]** `4150591` GRAMPO PARA ISOLAMENTO COM DIQUE Nº 214
+    - Situação: "SIM" → "NAO"
+- **[INATIVADO]** `4150593` GRAMPO PARA ISOLAMENTO COM DIQUE Nº 26 A
+    - Situação: "SIM" → "NAO"
+
+<!-- sessao:{"data":"2026-09-28T15:45:22.979Z","autor":"Caio César Borges de Oliveira","origem":"","total":844,"alteracoes":[{"tipo":"inativado","codigo":"4150591","material":"GRAMPO PARA ISOLAMENTO COM DIQUE Nº 214","campos":[{"campo":"ativo","de":"SIM","para":"NAO"}]},{"tipo":"inativado","codigo":"4150593","material":"GRAMPO PARA ISOLAMENTO COM DIQUE Nº 26 A","campos":[{"campo":"ativo","de":"SIM","para":"NAO"}]}]} -->
 
 ## 28/09/2026, 09:35 — Caio César Borges de Oliveira
 
