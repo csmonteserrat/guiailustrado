@@ -4,10 +4,31 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 92  
-Última atualização: 28/09/2026, 12:45
+Total de sessões registradas: 93  
+Última atualização: 28/09/2026, 12:46
 
 ---
+
+## 28/09/2026, 12:46 — Caio César Borges de Oliveira
+
+Sessão 93 · 1 alteração(ões) · 843 itens no arquivo após a edição
+
+**Resumo:** 1 excluído
+
+- **[EXCLUÍDO]** `4150363` CALCULADORA ELETRONICA DE MESA
+    - Código: 4150363
+    - Material: CALCULADORA ELETRONICA DE MESA
+    - Unidade de pedido: U - Unidade
+    - Grupo: 4
+    - Subgrupo: EXPEDIENTE
+    - Acesso: COORDENACAO
+    - Tipo: Consumo
+    - Tags: Uso geral
+    - Família: Papelaria
+    - Arquivo da imagem: 4150363.jpg
+    - Situação: SIM
+
+<!-- sessao:{"data":"2026-09-28T15:46:05.456Z","autor":"Caio César Borges de Oliveira","origem":"","total":843,"alteracoes":[{"tipo":"excluido","codigo":"4150363","material":"CALCULADORA ELETRONICA DE MESA","campos":[],"dados":{"codigo":"4150363","material":"CALCULADORA ELETRONICA DE MESA","unidade":"U - Unidade","grupo":"4","subgrupo":"EXPEDIENTE","acesso":"COORDENACAO","tipo":"Consumo","especialidade":"Uso geral","familia":"Papelaria","imagem":"4150363.jpg","ativo":"SIM"}}]} -->
 
 ## 28/09/2026, 12:45 — Caio César Borges de Oliveira
 
