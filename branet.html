@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Catálogo ilustrado BRANET</title>
+<meta name="description" content="Materiais odontológicos do almoxarifado BRANET, com a equivalência no catálogo da rede.">
+<link rel="stylesheet" href="style.css">
+<!-- =====================================================================
+     CATÁLOGO ILUSTRADO BRANET
+     Mostra os materiais como estão cadastrados na BRANET (código e código
+     cliente), com a equivalência no CELK, a foto e o descritivo.
+     Lê três arquivos: produtos.csv, branet/branet.csv e
+     descritivos/descritivos.csv. A aparência vem toda do style.css do
+     catálogo dos dentistas; aqui ficam só os acréscimos desta página.
+     ===================================================================== -->
+<style>
+/* =====================================================================
+   Acréscimos do catálogo BRANET. Só usam as variáveis do style.css,
+   para acompanhar sozinhos qualquer mudança de cor do catálogo.
+   ===================================================================== */
+.app{display:block}
+.corpo{display:block}
+.principal{max-width:1600px;margin:0 auto}
+.cliente{font-size:12px;color:var(--texto2)}
+.cliente b{font-family:var(--fonte-mono);font-weight:700;color:var(--texto);letter-spacing:.02em}
+.card-celk{border-top:1px dashed var(--borda);padding-top:8px;display:flex;flex-direction:column;gap:2px;font-size:12px;color:var(--texto2);line-height:1.35}
+.card-celk .celk-topo{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px}
+.rot-celk{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--texto2)}
+.codigo-celk{font-family:var(--fonte-mono);font-size:12.5px;font-weight:700;color:var(--texto2)}
+.mesmo-nome{font-style:italic}
+.card-desc{background:var(--campo);border-radius:var(--raio-pequeno);padding:10px 12px;display:flex;flex-direction:column;gap:5px;margin-top:auto}
+.card-desc .rot-desc{font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--texto2)}
+.card-desc p{margin:0;font-size:12.5px;line-height:1.5;color:var(--texto);display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;white-space:pre-line}
+.card-desc button{align-self:flex-start;background:none;border:0;padding:0;font-size:12.5px;font-weight:600;color:var(--acento)}
+.card-desc.sem p{font-style:italic;color:var(--texto2)}
+.linha-celk{font-size:12px;color:var(--texto2)}
+.linha-celk .codigo-celk{font-size:12px}
+.modal-secao{border-top:1px solid var(--borda);padding-top:12px;display:flex;flex-direction:column;gap:8px}
+.modal-secao h3{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--texto2);font-weight:700}
+.modal-desc{margin:0;font-size:14px;line-height:1.6;white-space:pre-line;background:var(--campo);border-radius:var(--raio-pequeno);padding:12px 14px}
+
+/* ============================ impressão ============================
+   As mesmas regras valem na impressão de verdade (.area-impressao) e
+   na área de impressão. */
+.imp{color:#000;font-family:var(--fonte)}
+.imp-cabecalho{text-align:center;border-bottom:1.5pt solid #000;padding-bottom:3pt;margin-bottom:4pt;font-weight:400}
+.imp-cabecalho .imp-titulo{font-size:12pt;font-weight:700}
+.imp-cabecalho .imp-linha{font-size:8pt}
+.imp-secao-titulo{font-size:11pt;font-weight:700;text-transform:uppercase;border-bottom:1pt solid #000;padding-bottom:3pt;margin:0 0 2pt;text-align:left}
+.imp-rodape{margin-top:6pt;border-top:.5pt solid #999;padding-top:3pt;font-size:7.5pt;text-align:center}
+.imp-marca{font-size:6.5pt;font-weight:700;letter-spacing:.04em;border:1pt solid #000;border-radius:1mm;padding:0 1mm}
+.imp-tabela{width:100%;border-collapse:separate;border-spacing:2.5mm 2mm}
+.imp-tabela thead th,.imp-tabela tfoot td{padding:0;text-align:center;font-weight:400}
+.imp-cel{width:33.33%;vertical-align:top}
+.imp-item{break-inside:avoid;page-break-inside:avoid;text-align:center;border:.5pt solid #999;border-radius:2mm;padding:1.6mm 2mm}
+.imp-foto{width:23mm;height:23mm;margin:0 auto 1.2mm;border:.5pt solid #ccc;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#fff}
+.imp-foto img{max-width:100%;max-height:100%;object-fit:contain}
+.imp-codigo{font-family:var(--fonte-mono);font-size:11pt;font-weight:700;display:inline-flex;align-items:center;gap:2mm;justify-content:center}
+.imp-cli{font-size:7.5pt;margin-top:.3mm}
+.imp-cli b{font-family:var(--fonte-mono)}
+.imp-nome{font-size:8pt;line-height:1.25;margin-top:1mm;font-weight:600}
+.imp-celk{font-size:6.8pt;line-height:1.25;color:#333;margin-top:1.2mm;border-top:.5pt dashed #999;padding-top:1mm}
+.imp-celk b{font-family:var(--fonte-mono)}
+/* com descritivo: um material por linha */
+.imp-desc-tabela{width:100%;border-collapse:collapse}
+.imp-desc-tabela thead th,.imp-desc-tabela tfoot td{padding:0;font-weight:400}
+.imp-desc-item{break-inside:avoid;page-break-inside:avoid;display:grid;grid-template-columns:28mm 1fr;gap:3.5mm;border:.5pt solid #999;border-radius:2mm;padding:2.4mm 3mm;margin:0 0 2.4mm}
+.imp-desc-item .imp-foto{width:28mm;height:28mm}
+.imp-desc-item .imp-foto{margin:0}
+.imp-desc-item .imp-cab{display:flex;gap:3mm;align-items:baseline;flex-wrap:wrap}
+.imp-desc-item .imp-nome{font-size:9.5pt;margin-top:.5mm}
+.imp-desc-item .imp-celk{font-size:7.5pt}
+.imp-desc-texto{font-size:7.6pt;line-height:1.35;margin-top:1.5mm;white-space:pre-line}
+.imp-desc-texto b{font-size:7pt;letter-spacing:.05em;text-transform:uppercase}
+/* relatório de equivalência */
+.imp-equiv{width:100%;border-collapse:collapse}
+.imp-equiv thead th.imp-sem-borda{border:0;padding:0;font-weight:400;background:none!important}
+.imp-equiv th,.imp-equiv td{border:.5pt solid #333;padding:.9mm 1.6mm;font-size:7.6pt;line-height:1.25;text-align:left;vertical-align:top}
+.imp-equiv th{background:#eee!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.imp-equiv th.imp-lado{text-align:center;font-size:8.5pt;letter-spacing:.06em}
+.imp-equiv td.imp-mono{font-family:var(--fonte-mono);white-space:nowrap;width:1%}
+.imp-equiv td.imp-un{white-space:nowrap;width:1%;font-size:7pt}
+.imp-equiv td.imp-divisa,.imp-equiv th.imp-divisa{border-left:1.6pt solid #000}
+.imp-equiv tr.imp-grupo td{background:#f6f6f6!important;font-weight:700;font-size:8pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.imp-equiv tbody tr{break-inside:avoid;page-break-inside:avoid}
+.imp-equiv tfoot td{border:0;padding:0}
+
+.area-impressao{display:none}
+@media print{
+  .imp-secao{break-before:page;page-break-before:always}
+  .imp-secao:first-child{break-before:auto;page-break-before:auto}
+}
+</style>
+</head>
+<body>
+
+<div id="aviso-arquivo-local" class="tela-aviso" hidden>
+  <div class="aviso-caixa">
+    <h1>O catálogo precisa ser aberto por um endereço da internet</h1>
+    <p>Você abriu o arquivo diretamente do computador. Nesse modo o navegador bloqueia a leitura dos
+      arquivos de dados por segurança, e por isso nada aparece.</p>
+    <p>Abra o catálogo pelo endereço publicado.</p>
+  </div>
+</div>
+
+<div id="app" class="app">
+  <header class="cabecalho">
+    <div class="cabecalho-linha">
+      <div class="marca">
+        <span class="marca-titulo">Catálogo ilustrado BRANET</span>
+        <span class="marca-sub">Materiais odontológicos do almoxarifado · Secretaria Municipal de Saúde de Florianópolis</span>
+      </div>
+      <div class="cabecalho-acoes">
+        <div class="menu-wrap">
+          <button type="button" id="btn-imprimir" class="btn-icone" aria-haspopup="true" aria-expanded="false" title="Imprimir" aria-label="Imprimir">
+            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9V4h10v5"/><path d="M7 18H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2"/><path d="M7 15h10v5H7z"/></svg>
+          </button>
+          <div class="menu" id="menu-imprimir" hidden>
+            <button type="button" data-imprimir="catalogo">Catálogo ilustrado sem descritivo</button>
+            <button type="button" data-imprimir="catalogo-desc">Catálogo ilustrado com descritivo</button>
+            <button type="button" data-imprimir="equivalencia">Relatório de equivalência BRANET e CELK</button>
+          </div>
+        </div>
+        <button type="button" id="btn-tema" class="btn-icone" title="Modo noturno" aria-label="Alternar modo noturno">
+          <svg class="icone icone-lua" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>
+          <svg class="icone icone-sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="busca-linha">
+      <div class="campo-busca">
+        <svg class="icone icone-busca" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+        <input type="search" id="busca" placeholder="Buscar pelo código ou código cliente da BRANET, código CELK ou nome" aria-label="Buscar" autocomplete="off">
+        <button type="button" id="btn-limpar-busca" class="btn-limpar-busca" aria-label="Limpar busca" hidden>
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <div class="alternar-vista" role="group" aria-label="Modo de visualização">
+        <button type="button" class="btn-vista" data-vista="grade" aria-pressed="true" title="Grade" aria-label="Ver em grade">
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/></svg>
+        </button>
+        <button type="button" class="btn-vista" data-vista="lista" aria-pressed="false" title="Lista compacta" aria-label="Ver em lista compacta">
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <nav class="abas" aria-label="Blocos do catálogo">
+      <button type="button" class="aba" data-aba="tudo" aria-pressed="true">Tudo</button>
+      <button type="button" class="aba aba--basica" data-aba="TODOS" aria-pressed="false">Rede básica</button>
+      <button type="button" class="aba aba--ceo" data-aba="CEO" aria-pressed="false">Exclusivo CEO</button>
+    </nav>
+  </header>
+
+  <div class="faixa-filtros">
+    <div class="grupo-filtro" role="group" aria-label="Tipo de material">
+      <button type="button" class="pilula" data-tipo="Consumo" aria-pressed="false">Consumo</button>
+      <button type="button" class="pilula" data-tipo="Instrumental" aria-pressed="false">Instrumental</button>
+    </div>
+  </div>
+
+  <div class="corpo">
+    <main class="principal">
+      <div class="barra-estado"><p class="contador" id="contador"></p></div>
+      <div id="secoes"></div>
+    </main>
+  </div>
+
+  <footer class="rodape">
+    <p>Fotos ilustrativas. Marca e apresentação podem variar conforme a compra vigente.</p>
+    <p>GT Padronização de Materiais, Insumos e Equipamentos · catálogo BRANET · versão 2026-09-29a</p>
+  </footer>
+</div>
+
+<div id="modal-produto" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-nome" hidden>
+  <div class="modal-caixa">
+    <button type="button" id="fechar-modal" class="btn-icone modal-fechar" aria-label="Fechar">
+      <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      <span class="rotulo-fechar">Fechar</span>
+    </button>
+    <div class="modal-conteudo" id="modal-conteudo"></div>
+  </div>
+</div>
+
+<div id="modal-impressao" class="modal" role="dialog" aria-modal="true" aria-labelledby="impressao-titulo" hidden>
+  <div class="modal-caixa modal-caixa--estreita">
+    <h2 id="impressao-titulo">Antes de imprimir</h2>
+    <p id="impressao-resumo"></p>
+    <p class="impressao-dica">Para as fotos saírem no papel, deixe ativada a opção
+      <strong>“Gráficos de segundo plano”</strong> ou <strong>“Imagens de fundo”</strong> na janela de
+      impressão do navegador. Para gerar um PDF, escolha <strong>“Salvar como PDF”</strong> no destino.</p>
+    <div class="modal-botoes">
+      <button type="button" id="confirmar-impressao" class="btn-solido">Continuar para a impressão</button>
+      <button type="button" id="cancelar-impressao" class="btn-contorno">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Área usada apenas na impressão -->
+<div id="area-impressao" class="area-impressao imp" aria-hidden="true"></div>
+
+<script>
+(function(){
+let ITENS=[];
+const BLOCOS={TODOS:{classe:'basica',selo:'Rede básica',titulo:'Rede básica'},CEO:{classe:'ceo',selo:'Exclusivo CEO',titulo:'Exclusivo CEO'}};
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const norm=s=>(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+const ICOPIA='<svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></svg>';
+const estado={aba:'tudo',tipo:'',vista:'grade',abertos:new Set()};
+
+/* Tema: usa a mesma escolha guardada pelo catálogo dos dentistas. */
+const CHAVE_TEMA='pmf.catalogo.tema';
+const ler=(k,p)=>{try{return localStorage.getItem(k)||p}catch(e){return p}};
+const guardar=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}};
+document.documentElement.dataset.tema=ler(CHAVE_TEMA,matchMedia('(prefers-color-scheme: dark)').matches?'escuro':'claro');
+$('#btn-tema').onclick=()=>{const r=document.documentElement;r.dataset.tema=r.dataset.tema==='escuro'?'claro':'escuro';guardar(CHAVE_TEMA,r.dataset.tema)};
+
+const SEM_FOTO='<div class="sem-foto" hidden><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M4 17l5-4 4 3 3-2 4 3"/></svg><span>Foto ainda não cadastrada</span></div>';
+function moldura(i){return '<div class="moldura"><img src="'+esc(i.img)+'" alt="'+esc(i.bn)+'" loading="lazy" '+
+  'onerror="this.style.display=\'none\';this.nextElementSibling.hidden=false;">'+SEM_FOTO+'</div>'}
+function celk(i){
+  return '<div class="card-celk"><div class="celk-topo"><span class="rot-celk">No CELK</span>'+
+    '<span class="codigo-celk">'+esc(i.c)+'</span><span>'+esc(i.g+' · '+i.sg)+'</span></div>'+
+    '<div>'+(i.igual?'<span class="mesmo-nome">mesmo nome da BRANET</span>':esc(i.m))+'</div></div>';
+}
+function card(i){
+  const b=BLOCOS[i.ac], ab=estado.abertos.has(i.bc);
+  return '<article class="card card--'+b.classe+'">'+
+    '<button type="button" class="card-foto" data-abrir="'+esc(i.bc)+'" aria-label="Ver detalhes de '+esc(i.bn)+'">'+
+      '<span class="card-selo-foto selo selo--'+b.classe+'">'+b.selo+'</span>'+moldura(i)+'</button>'+
+    '<div class="card-corpo">'+
+      '<div class="card-selos"><span class="selo selo--neutro">'+esc(i.sg)+'</span></div>'+
+      '<h3 class="card-nome"><button type="button" data-abrir="'+esc(i.bc)+'">'+esc(i.bn)+'</button></h3>'+
+      '<div class="linha-codigo"><span class="codigo">'+esc(i.bc)+'</span><span class="cliente">cliente <b>'+esc(i.bcli)+'</b></span></div>'+
+      celk(i)+
+      '<div class="card-desc'+(i.d?'':' sem')+'"><span class="rot-desc">Descritivo</span>'+
+        '<p'+(ab?' style="-webkit-line-clamp:unset;display:block"':'')+'>'+(i.d?esc(i.d):'Descritivo ainda não preenchido.')+'</p>'+
+        (i.d?'<button type="button" data-desc="'+esc(i.bc)+'">'+(ab?'Recolher':'Ler descritivo completo')+'</button>':'')+
+      '</div>'+
+    '</div>'+
+    '<div class="card-acoes"><button type="button" class="btn-copiar" data-copiar="'+esc(i.bc)+'">'+ICOPIA+'<span class="rotulo">Copiar código</span></button></div>'+
+  '</article>';
+}
+function linha(i){
+  const b=BLOCOS[i.ac];
+  return '<article class="linha-item linha-item--'+b.classe+'">'+
+    '<button type="button" class="linha-foto" data-abrir="'+esc(i.bc)+'" aria-label="Ver detalhes">'+moldura(i)+'</button>'+
+    '<div class="linha-dados"><span class="linha-nome">'+esc(i.bn)+'</span>'+
+      '<div class="linha-meta"><span class="codigo">'+esc(i.bc)+'</span><span class="cliente">cliente <b>'+esc(i.bcli)+'</b></span>'+
+        '<span class="selo selo--'+b.classe+'">'+b.selo+'</span></div>'+
+      '<span class="linha-celk">No CELK: <span class="codigo-celk">'+esc(i.c)+'</span> · '+esc(i.g+' '+i.sg)+(i.igual?'':' · '+esc(i.m))+'</span></div>'+
+    '<div class="linha-acoes"><button type="button" class="btn-copiar" data-copiar="'+esc(i.bc)+'" title="Copiar código">'+ICOPIA+'<span class="rotulo">Copiar código</span></button></div>'+
+  '</article>';
+}
+function filtrados(){
+  const t=norm($('#busca').value).split(/\s+/).filter(Boolean);
+  return ITENS.filter(i=>{
+    if(estado.aba!=='tudo'&&i.ac!==estado.aba)return false;
+    if(estado.tipo&&i.t!==estado.tipo)return false;
+    if(t.length){const a=norm([i.bc,i.bcli,i.bn,i.c,i.m,i.nd].join(' '));if(!t.every(x=>a.includes(x)))return false}
+    return true;
+  }).sort((a,b)=>a.bn.localeCompare(b.bn,'pt-BR',{sensitivity:'base',numeric:true}));
+}
+function desenhar(){
+  const l=filtrados();
+  $('#contador').textContent=l.length+(l.length===1?' item encontrado':' itens encontrados');
+  $('#btn-limpar-busca').hidden=!$('#busca').value;
+  const blocos=estado.aba==='tudo'?['TODOS','CEO']:[estado.aba];
+  $('#secoes').innerHTML=blocos.map(k=>{
+    const b=BLOCOS[k], its=l.filter(i=>i.ac===k);
+    return '<section class="secao secao--'+b.classe+'"><h2 class="secao-titulo">'+b.titulo+
+      ' <span class="secao-contagem">'+its.length+(its.length===1?' item':' itens')+'</span></h2>'+
+      (its.length?(estado.vista==='lista'?'<div class="lista-compacta">'+its.map(linha).join('')+'</div>'
+        :'<div class="grade">'+its.map(card).join('')+'</div>')
+        :'<div class="estado-vazio"><p>Nenhum item deste bloco corresponde à busca atual.</p></div>')+'</section>';
+  }).join('');
+}
+/* ------------------------------------------------------------------
+   IMPRESSÃO. Três saídas: o catálogo ilustrado com ou sem descritivo,
+   e o relatório de equivalência (BRANET à esquerda, CELK à direita).
+   Imprime o que está na tela: a busca, a aba e o filtro valem.
+   ------------------------------------------------------------------ */
+const GRUPO_NOME=g=>{const i=ITENS.find(x=>x.g===g);return g+' · '+(i?i.sg:'')};
+const TITULOS={catalogo:'Catálogo ilustrado',"catalogo-desc":'Catálogo ilustrado com descritivos',equivalencia:'Relatório de equivalência BRANET e CELK'};
+function cabImp(sub){
+  return '<div class="imp-cabecalho"><div class="imp-titulo">Catálogo ilustrado BRANET · materiais odontológicos</div>'+
+    '<div class="imp-linha">Secretaria Municipal de Saúde de Florianópolis · GT Padronização de Materiais, Insumos e Equipamentos</div>'+
+    '<div class="imp-linha">'+esc(sub)+' · '+new Date().toLocaleDateString('pt-BR')+'</div></div>';
+}
+const RODAPE='<div class="imp-rodape">Fotos ilustrativas. Marca e apresentação podem variar conforme a compra vigente.</div>';
+const marca=i=>i.ac==='CEO'?' <span class="imp-marca">CEO</span>':'';
+const celkImp=i=>'<div class="imp-celk">CELK <b>'+esc(i.c)+'</b> · '+esc(i.m)+'</div>';
+function porGrupo(l){const m=new Map();l.slice().sort((a,b)=>a.g.localeCompare(b.g)||a.bn.localeCompare(b.bn,'pt-BR',{numeric:true})).forEach(i=>{if(!m.has(i.g))m.set(i.g,[]);m.get(i.g).push(i)});return m}
+function montarImpressao(modo){
+  const l=filtrados(), grupos=porGrupo(l);
+  if(modo==='equivalencia'){
+    let corpo='';
+    grupos.forEach((its,g)=>{
+      corpo+='<tr class="imp-grupo"><td colspan="6">'+esc(GRUPO_NOME(g))+' · '+its.length+(its.length===1?' item':' itens')+'</td></tr>'+
+        its.map(i=>'<tr><td class="imp-mono">'+esc(i.bc)+'</td><td class="imp-mono">'+esc(i.bcli)+'</td><td>'+esc(i.bn)+'</td>'+
+          '<td class="imp-mono imp-divisa">'+esc(i.c)+'</td><td>'+esc(i.m)+'</td><td class="imp-un">'+esc(i.u)+'</td></tr>').join('');
+    });
+    return ['<table class="imp-equiv imp-secao"><thead>'+
+      '<tr><th colspan="6" class="imp-sem-borda">'+cabImp(TITULOS.equivalencia)+'</th></tr>'+
+      '<tr><th colspan="3" class="imp-lado">BRANET</th><th colspan="3" class="imp-lado imp-divisa">CATÁLOGO DA REDE (CELK)</th></tr>'+
+      '<tr><th>Código</th><th>Código cliente</th><th>Nome na BRANET</th><th class="imp-divisa">Código</th><th>Material</th><th>Unidade de pedido</th></tr></thead>'+
+      '<tfoot><tr><td colspan="6">'+RODAPE.replace('Fotos ilustrativas. Marca e apresentação podem variar conforme a compra vigente.','Equivalência mantida pelo GT no arquivo branet.csv.')+'</td></tr></tfoot>'+
+      '<tbody>'+corpo+'</tbody></table>'];
+  }
+  const secoes=[];
+  grupos.forEach((its,g)=>{
+    const tit='<div class="imp-secao-titulo">'+esc(GRUPO_NOME(g))+' · '+its.length+(its.length===1?' item':' itens')+'</div>';
+    if(modo==='catalogo-desc'){
+      secoes.push('<table class="imp-desc-tabela imp-secao"><thead><tr><th>'+cabImp(TITULOS[modo])+tit+'</th></tr></thead>'+
+        '<tfoot><tr><td>'+RODAPE+'</td></tr></tfoot><tbody><tr><td>'+
+        its.map(i=>'<div class="imp-desc-item"><div class="imp-foto"><img src="'+esc(i.img)+'" alt="" onerror="this.style.display=\'none\'"></div><div>'+
+          '<div class="imp-cab"><span class="imp-codigo">'+esc(i.bc)+marca(i)+'</span><span class="imp-cli">cliente <b>'+esc(i.bcli)+'</b></span></div>'+
+          '<div class="imp-nome">'+esc(i.bn)+'</div>'+celkImp(i)+
+          '<div class="imp-desc-texto"><b>Descritivo'+(i.uc?' · unidade de compra: '+esc(i.uc):'')+'</b>\n'+(i.d?esc(i.d):'ainda não preenchido')+'</div>'+
+        '</div></div>').join('')+'</td></tr></tbody></table>');
+    }else{
+      let linhas='';
+      for(let k=0;k<its.length;k+=3){
+        linhas+='<tr>'+[0,1,2].map(j=>{const i=its[k+j];return '<td class="imp-cel">'+(i?
+          '<div class="imp-item"><div class="imp-foto"><img src="'+esc(i.img)+'" alt="" onerror="this.style.display=\'none\'"></div>'+
+          '<div class="imp-codigo">'+esc(i.bc)+marca(i)+'</div><div class="imp-cli">cliente <b>'+esc(i.bcli)+'</b></div>'+
+          '<div class="imp-nome">'+esc(i.bn)+'</div>'+celkImp(i)+'</div>':'')+'</td>'}).join('')+'</tr>';
+      }
+      secoes.push('<table class="imp-tabela imp-secao"><thead><tr><th colspan="3">'+cabImp(TITULOS[modo])+'</th></tr>'+
+        '<tr><th colspan="3">'+tit+'</th></tr></thead><tfoot><tr><td colspan="3">'+RODAPE+'</td></tr></tfoot><tbody>'+linhas+'</tbody></table>');
+    }
+  });
+  return secoes;
+}
+let modoImp='catalogo';
+function prepararImpressao(modo){
+  modoImp=modo;
+  const n=filtrados().length;
+  if(!n)return;
+  const porPag={catalogo:12,'catalogo-desc':5,equivalencia:30}[modo];
+  /* cada grupo começa em folha nova, então a conta é feita por grupo */
+  let pag=0;porGrupo(filtrados()).forEach(its=>{pag+=Math.ceil(its.length/porPag)});
+  if(modo==='equivalencia')pag=Math.ceil((n+porGrupo(filtrados()).size)/porPag);
+  pag=Math.max(1,pag);
+  $('#impressao-titulo').textContent=TITULOS[modo];
+  $('#impressao-resumo').innerHTML='Serão impressos <strong>'+n+'</strong> '+(n===1?'item':'itens')+
+    ' (o que está na tela agora), o que deve ocupar cerca de <strong>'+pag+'</strong> '+(pag===1?'página':'páginas')+
+    (modo==='equivalencia'?'. O relatório não tem fotos.':', separadas por grupo do CELK.');
+  $('.impressao-dica').hidden=modo==='equivalencia';
+  $('#area-impressao').innerHTML=montarImpressao(modo).join('');
+  $('#modal-impressao').hidden=false;
+}
+
+function abrirModal(bc){
+  const i=ITENS.find(x=>x.bc===bc), b=BLOCOS[i.ac];
+  $('#modal-conteudo').innerHTML='<div class="modal-foto">'+moldura(i)+'</div>'+
+    '<div class="modal-info"><div class="card-selos"><span class="selo selo--'+b.classe+'">'+b.selo+'</span><span class="selo selo--neutro">'+esc(i.sg)+'</span></div>'+
+    '<h2 id="modal-nome">'+esc(i.bn)+'</h2>'+
+    '<div class="modal-secao" style="border-top:0;padding-top:0"><h3>Na BRANET</h3><dl class="modal-dados"><dt>Código</dt><dd><span class="codigo">'+esc(i.bc)+'</span></dd>'+
+      '<dt>Código cliente</dt><dd>'+esc(i.bcli)+'</dd>'+
+      (i.uc?'<dt>Unidade de compra</dt><dd>'+esc(i.uc)+'</dd>':'')+'</dl></div>'+
+    '<div class="modal-secao"><h3>No catálogo da rede (CELK)</h3><dl class="modal-dados">'+
+      '<dt>Código</dt><dd>'+esc(i.c)+'</dd><dt>Material</dt><dd>'+esc(i.m)+'</dd>'+
+      '<dt>Grupo</dt><dd>'+esc(i.g+' · '+i.sg)+'</dd><dt>Unidade de pedido</dt><dd>'+esc(i.u)+'</dd></dl></div>'+
+    '<div class="modal-secao"><h3>Descritivo</h3><p class="modal-desc">'+(i.d?esc(i.d):'Descritivo ainda não preenchido.')+'</p></div>'+
+    '<div class="modal-acoes"><button type="button" class="btn-solido" data-copiar="'+esc(i.bc)+'">Copiar código</button>'+
+      '<button type="button" class="btn-contorno" data-copiar="'+esc(i.bcli)+'">Copiar código cliente</button></div>'+
+    '<p class="aviso-fotos-modal">Foto ilustrativa. A marca e a apresentação do produto entregue podem variar conforme a compra vigente.</p></div>';
+  $('#modal-produto').hidden=false;
+}
+document.addEventListener('click',e=>{
+  const b=e.target.closest('button');
+  if(e.target.id==='modal-produto'||(b&&b.id==='fechar-modal')){$('#modal-produto').hidden=true;return}
+  const menu=$('#menu-imprimir');
+  if(b&&b.id==='btn-imprimir'){menu.hidden=!menu.hidden;b.setAttribute('aria-expanded',String(!menu.hidden));return}
+  if(!menu.hidden&&!(b&&b.dataset.imprimir)){menu.hidden=true;$('#btn-imprimir').setAttribute('aria-expanded','false')}
+  if(!b)return;
+  if(b.dataset.imprimir){menu.hidden=true;prepararImpressao(b.dataset.imprimir);return}
+  if(b.id==='cancelar-impressao'){$('#modal-impressao').hidden=true;return}
+  if(b.id==='confirmar-impressao'){$('#modal-impressao').hidden=true;setTimeout(()=>window.print(),120);return}
+  if(b.dataset.aba){estado.aba=b.dataset.aba;$$('.aba').forEach(x=>x.setAttribute('aria-pressed',x===b));desenhar();return}
+  if(b.dataset.tipo){estado.tipo=estado.tipo===b.dataset.tipo?'':b.dataset.tipo;$$('[data-tipo]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.tipo===estado.tipo));desenhar();return}
+  if(b.dataset.vista){estado.vista=b.dataset.vista;$$('.btn-vista').forEach(x=>x.setAttribute('aria-pressed',x===b));desenhar();return}
+  if(b.dataset.desc){const k=b.dataset.desc;estado.abertos.has(k)?estado.abertos.delete(k):estado.abertos.add(k);desenhar();return}
+  if(b.dataset.abrir){abrirModal(b.dataset.abrir);return}
+  if(b.dataset.copiar){
+    const ok=()=>{b.classList.add('copiado');const r=b.querySelector('.rotulo');const t=r&&r.textContent;if(r)r.textContent='Copiado';
+      setTimeout(()=>{b.classList.remove('copiado');if(r)r.textContent=t},1300)};
+    if(navigator.clipboard)navigator.clipboard.writeText(b.dataset.copiar).then(ok,ok);else ok();
+    return;
+  }
+  if(b.id==='btn-limpar-busca'){$('#busca').value='';desenhar();return}
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){$('#modal-produto').hidden=true;$('#modal-impressao').hidden=true;const m=$('#menu-imprimir');if(m)m.hidden=true}});
+$('#busca').addEventListener('input',desenhar);
+
+/* ------------------------------------------------------------------
+   CARREGAMENTO. Uma etiqueta por linha do branet.csv, só para os
+   materiais ativos da odontologia (grupos 12 a 15). Nome na BRANET em
+   branco quer dizer que é igual ao do catálogo.
+   ------------------------------------------------------------------ */
+function lerCsv(texto){
+  texto=(texto||'').replace(/^﻿/,'');
+  const corte=texto.indexOf('\n');
+  const primeira=corte>0?texto.slice(0,corte):texto;
+  const sep=(primeira.split(';').length>primeira.split(',').length)?';':',';
+  const linhas=[];let campo='',linha=[],aspas=false;
+  for(let i=0;i<texto.length;i++){
+    const c=texto[i];
+    if(aspas){if(c==='"'&&texto[i+1]==='"'){campo+='"';i++}else if(c==='"')aspas=false;else campo+=c}
+    else{if(c==='"')aspas=true;else if(c===sep){linha.push(campo);campo=''}
+      else if(c==='\n'){linha.push(campo);linhas.push(linha);linha=[];campo=''}else if(c!=='\r')campo+=c}
+  }
+  if(campo||linha.length){linha.push(campo);linhas.push(linha)}
+  if(!linhas.length)return [];
+  const cab=linhas.shift().map(h=>norm(h.trim()).replace(/\s+/g,''));
+  return linhas.filter(l=>l.some(v=>v.trim())).map(l=>{const o={};cab.forEach((h,i)=>o[h]=(l[i]||'').trim());return o});
+}
+const buscar=u=>fetch(u,{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error(u);return r.text()});
+
+$('#contador').textContent='Carregando…';
+Promise.all([buscar('produtos.csv'),buscar('branet/branet.csv'),buscar('descritivos/descritivos.csv').catch(()=>'')])
+.then(([tp,tb,td])=>{
+  const P={};lerCsv(tp).forEach(p=>{if(p.codigo)P[p.codigo]=p});
+  const D={};lerCsv(td).forEach(d=>{if(d.codigo)D[d.codigo]=d});
+  ITENS=lerCsv(tb).map(b=>{
+    const p=P[b.codigo];
+    if(!p)return null;
+    const ac=(p.acesso||'').toUpperCase();
+    if(ac!=='TODOS'&&ac!=='CEO')return null;
+    if((p.ativo||'SIM').toUpperCase()==='NAO')return null;
+    if(!(b.branet_codigo||b.branet_codigo_cliente))return null;
+    const d=D[b.codigo]||{};
+    return {bc:b.branet_codigo||b.branet_codigo_cliente,bcli:b.branet_codigo_cliente,
+      bn:b.branet_nome||p.material,igual:!b.branet_nome,
+      c:p.codigo,m:p.material,g:p.grupo,sg:p.subgrupo,u:p.unidade,t:p.tipo,ac:ac,
+      img:'imagens/'+(p.imagem||p.codigo+'.jpg'),
+      uc:d.unidade_compra||'',nd:d.nome_descritivo||d.nome_pregao||'',d:(d.descritivo||'').trim()};
+  }).filter(Boolean);
+  desenhar();
+}).catch(()=>{
+  if(location.protocol==='file:'){$('#app').hidden=true;$('#aviso-arquivo-local').hidden=false}
+  else $('#contador').textContent='Não consegui carregar os arquivos do catálogo. Recarregue a página em instantes.';
+});
+})();
+
+</script>
+</body>
+</html>

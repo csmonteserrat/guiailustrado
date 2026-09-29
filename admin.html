@@ -110,6 +110,7 @@ code{background:var(--neutro);padding:1px 6px;border-radius:6px;font-size:12px}
     <a class="nav" href="editor-catalogo/historico.html"><span class="ic">&#9711;</span><span class="tx">Histórico</span></a>
     <a class="nav" href="tutoriais.html"><span class="ic">&#9432;</span><span class="tx">Tutoriais</span></a>
     <a class="nav saida" href="index.html"><span class="ic">&#8599;</span><span class="tx">Catálogo</span></a>
+    <a class="nav saida segunda" href="branet.html"><span class="ic">&#9638;</span><span class="tx">Catálogo BRANET</span></a>
   </nav>
 
   <div class="conteudo">
@@ -119,7 +120,10 @@ code{background:var(--neutro);padding:1px 6px;border-radius:6px;font-size:12px}
         <h1>Administração do catálogo</h1>
         <p class="sub" style="margin:3px 0 0">GT Padronização de Materiais, Insumos e Equipamentos</p>
       </div>
-      <a class="pilula principal" href="index.html">abrir o catálogo</a>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end">
+        <a class="pilula acento" href="branet.html">abrir o catálogo BRANET</a>
+        <a class="pilula principal" href="index.html">abrir o catálogo</a>
+      </div>
     </div>
 
     <!-- ============ SAUDAÇÃO E ANÉIS DE PROGRESSO ============ -->
@@ -166,6 +170,14 @@ code{background:var(--neutro);padding:1px 6px;border-radius:6px;font-size:12px}
         <div class="ds">Consultar os descritivos técnicos que compõem os empenhos e as licitações,
         o nome de cada material, a unidade de compra e a data da última revisão.</div>
         <span class="pe" style="color:var(--corallite)">abrir a consulta &rarr;</span>
+      </a>
+
+      <a class="ferr" href="branet.html">
+        <div class="ic" style="background:var(--curacao-suave);color:var(--curacao-escuro)">&#9638;</div>
+        <div class="tt">Catálogo ilustrado BRANET</div>
+        <div class="ds">Os materiais como estão cadastrados na BRANET, pelo código e código cliente, com foto,
+        descritivo e a equivalência no CELK. Serve para conferir o almoxarifado e responder à central.</div>
+        <span class="pe" style="color:var(--curacao-escuro)">abrir o catálogo BRANET &rarr;</span>
       </a>
 
       <a class="ferr" href="preparar-imagens.html">
@@ -1361,6 +1373,6 @@ $('#btConferirRepo').onclick=async ()=>{
   }
 })();
 </script>
-<div id="versaoPagina">painel · versão 2026-09-23a</div>
+<div id="versaoPagina">painel · versão 2026-09-29a</div>
 </body>
 </html>

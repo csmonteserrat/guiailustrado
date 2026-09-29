@@ -213,6 +213,7 @@ select{appearance:none;background-image:none;padding-right:13px}
   <a class="nav" href="historico.html"><span class="ic">&#9711;</span><span class="tx">Histórico</span></a>
   <a class="nav" href="../tutoriais.html"><span class="ic">&#9432;</span><span class="tx">Tutoriais</span></a>
   <a class="nav saida" href="../index.html"><span class="ic">&#8599;</span><span class="tx">Catálogo</span></a>
+  <a class="nav saida segunda" href="../branet.html"><span class="ic">&#9638;</span><span class="tx">Catálogo BRANET</span></a>
 </nav>
 <div class="coluna">
 <div class="wrap">
@@ -271,8 +272,8 @@ select{appearance:none;background-image:none;padding-right:13px}
           <option value="comdesc">Com descritivo</option>
           <option value="semdesc">Sem descritivo</option>
           <option value="aguardandocompra">Aguardando compra</option>
-          <option value="combranet">Com código BRANET</option>
-          <option value="sembranet">Sem código BRANET</option>
+          <option value="combranet">Com item da BRANET</option>
+          <option value="sembranet">Sem item da BRANET</option>
         </select>
       </div>
     </div>
@@ -319,7 +320,7 @@ const ROTULOS={codigo:'Código',material:'Material',unidade:'Unidade de pedido',
   subgrupo:'Subgrupo',acesso:'Acesso',tipo:'Tipo',especialidade:'Tags',familia:'Família',
   nome_descritivo:'Nome no descritivo',nome_pregao:'Nome no descritivo',descritivo:'Descritivo',unidade_compra:'Unidade de compra',
   situacao_compra:'Situação da compra',
-  branet_codigo:'Código BRANET',branet_codigo_cliente:'Código cliente BRANET',branet_nome:'Nome na BRANET',
+  branet_codigo:'Código na BRANET',branet_codigo_cliente:'Código cliente na BRANET',branet_nome:'Nome na BRANET',
   imagem:'Arquivo da imagem',observacao:'Observação',ativo:'Situação'};
 const rotulo=c=>ROTULOS[c]||c;
 
@@ -503,7 +504,7 @@ async function carregarDescritivos(){
 /* ---------------------------------------------------------------------
    Almoxarifado BRANET. A central terceirizada que guarda os materiais
    cadastra cada um com códigos próprios, diferentes do código do CELK:
-   o código BRANET e o código cliente (às vezes só um dos dois existe),
+   o código e o código cliente (às vezes só um dos dois existe),
    e um nome que nem sempre é igual ao do catálogo. Ficam em arquivo
    próprio, branet/branet.csv, ligado ao catálogo pelo código do CELK,
    e valem para todos os materiais, inclusive os da Enfermagem.
@@ -860,7 +861,7 @@ function abrirEdicao(id,novo){
     const vinculado=!!((br.branet_codigo||'').trim()||(br.branet_codigo_cliente||'').trim());
     const corpo=
       '<div class="grade2">'+
-        '<div><label class="rot">Código BRANET</label>'+
+        '<div><label class="rot">Código</label>'+
           '<input class="mono" data-branet="branet_codigo" value="'+escapar(br.branet_codigo||'')+'"></div>'+
         '<div><label class="rot">Código cliente</label>'+
           '<input class="mono" data-branet="branet_codigo_cliente" value="'+escapar(br.branet_codigo_cliente||'')+'"></div>'+
@@ -2189,7 +2190,7 @@ async function montarPublicacao(decisoes,registroDaSessao){
     conflitos.push(...m.conflitos);avisos.push(...m.avisos);
     saida.push({caminho:ARQ_BRANET,texto:m.texto,sha:r.sha,
                 mensagem:Publicar.mensagem('Editor',ARQ_BRANET,mudancasBranet().length,'vínculo','vínculos'),
-                resumo:m.total+' materiais com código BRANET'});
+                resumo:m.total+' materiais com item da BRANET'});
   }
   if(alvos.includes('editor-catalogo/historico.md')){
     const r=await Publicar.obterTexto(ARQ_LOG);
@@ -2600,7 +2601,7 @@ window.addEventListener('beforeunload',e=>{
   if(mudancas().length||mudancasDescritivo().length||mudancasBranet().length){e.preventDefault();e.returnValue=''}
 });
 </script>
-<div id="versaoPagina">editor · versão 2026-09-23a</div>
+<div id="versaoPagina">editor · versão 2026-09-29a</div>
 </div>
 </div>
 </body>

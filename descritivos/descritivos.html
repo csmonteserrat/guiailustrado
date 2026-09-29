@@ -205,6 +205,7 @@ select{appearance:none;background-image:none;padding-right:13px}
   <a class="nav" href="../editor-catalogo/historico.html"><span class="ic">&#9711;</span><span class="tx">Histórico</span></a>
   <a class="nav" href="../tutoriais.html"><span class="ic">&#9432;</span><span class="tx">Tutoriais</span></a>
   <a class="nav saida" href="../index.html"><span class="ic">&#8599;</span><span class="tx">Catálogo</span></a>
+  <a class="nav saida segunda" href="../branet.html"><span class="ic">&#9638;</span><span class="tx">Catálogo BRANET</span></a>
 </nav>
 <div class="coluna">
 <div class="wrap">
@@ -307,7 +308,7 @@ const valoresDe=(it,col)=>(it[col]||'').split(';').map(t=>t.trim()).filter(Boole
 Promise.all([
   fetch('../produtos.csv').then(r=>{if(!r.ok)throw new Error('produtos');return r.text()}),
   fetch('descritivos.csv').then(r=>r.ok?r.text():''),      // ausente é aceitável: tudo fica pendente
-  fetch('../branet/branet.csv?t='+Date.now()).then(r=>r.ok?r.text():'').catch(()=>'')   // idem: todos sem código BRANET
+  fetch('../branet/branet.csv?t='+Date.now()).then(r=>r.ok?r.text():'').catch(()=>'')   // idem: todos sem item da BRANET
 ]).then(([tp,td,tb])=>{
   const produtos=lerCsv(tp).filter(r=>r.codigo);
   const desc={};
@@ -643,7 +644,7 @@ $('#btExportar').onclick=()=>{
   setTimeout(()=>URL.revokeObjectURL(a.href),4000);
 };
 </script>
-<div id="versaoPagina">descritivos · versão 2026-09-23b</div>
+<div id="versaoPagina">descritivos · versão 2026-09-29a</div>
 </div>
 </div>
 </body>

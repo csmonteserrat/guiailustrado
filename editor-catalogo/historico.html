@@ -66,6 +66,7 @@ h1{font-size:17px;font-weight:600;margin:0}
     <a class="nav ativo" href="historico.html"><span class="ic">&#9711;</span><span class="tx">Histórico</span></a>
     <a class="nav" href="../tutoriais.html"><span class="ic">&#9432;</span><span class="tx">Tutoriais</span></a>
     <a class="nav saida" href="../index.html"><span class="ic">&#8599;</span><span class="tx">Catálogo</span></a>
+    <a class="nav saida segunda" href="../branet.html"><span class="ic">&#9638;</span><span class="tx">Catálogo BRANET</span></a>
   </nav>
 
   <div class="coluna">
@@ -121,7 +122,7 @@ const ROTULOS={codigo:'Código',material:'Material',unidade:'Unidade de pedido',
   imagem:'Arquivo da imagem',observacao:'Observação',ativo:'Situação',
   nome_descritivo:'Nome no descritivo',nome_pregao:'Nome no descritivo',descritivo:'Descritivo',unidade_compra:'Unidade de compra',
   situacao_compra:'Situação da compra',
-  branet_codigo:'Código BRANET',branet_codigo_cliente:'Código cliente BRANET',branet_nome:'Nome na BRANET'};
+  branet_codigo:'Código na BRANET',branet_codigo_cliente:'Código cliente na BRANET',branet_nome:'Nome na BRANET'};
 const rotulo=c=>ROTULOS[c]||c;
 const dadosTipo=t=>TIPOS[t]||[t,'var(--secundario)','var(--neutro)'];
 
@@ -309,6 +310,6 @@ function desenhar(){
 
 carregar();
 </script>
-<div id="versaoPagina">histórico · versão 2026-09-23a</div>
+<div id="versaoPagina">histórico · versão 2026-09-29a</div>
 </body>
 </html>

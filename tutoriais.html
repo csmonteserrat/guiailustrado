@@ -105,6 +105,7 @@
     <a class="nav" href="editor-catalogo/historico.html"><span class="ic">&#9711;</span><span class="tx">Histórico</span></a>
     <a class="nav ativo" href="tutoriais.html"><span class="ic">&#9432;</span><span class="tx">Tutoriais</span></a>
     <a class="nav saida" href="index.html"><span class="ic">&#8599;</span><span class="tx">Catálogo</span></a>
+    <a class="nav saida segunda" href="branet.html"><span class="ic">&#9638;</span><span class="tx">Catálogo BRANET</span></a>
   </nav>
 
   <div class="coluna">
@@ -162,6 +163,8 @@
           para a pasta certa, já nomeadas pelo código.</span></li>
         <li><span class="num">6</span><span><b>Histórico.</b> Todas as alterações já feitas, com data,
           responsável e o que mudou em cada campo.</span></li>
+        <li><span class="num">7</span><span><b>Catálogo BRANET.</b> Os materiais como estão na BRANET, a central que
+          guarda o estoque, pelo código e código cliente, com a equivalência no CELK. Só consulta.</span></li>
       </ul>
     </div>
   </div>
@@ -324,14 +327,14 @@
   <p>O cartão <b>Almoxarifado BRANET</b> fica abaixo do descritivo e aparece para todos os materiais,
     inclusive os da lista da Enfermagem. Tem três campos:</p>
   <ul>
-    <li><b>Código BRANET</b> e <b>Código cliente.</b> Os dois são da própria BRANET e não têm relação com
+    <li><b>Código</b> e <b>Código cliente.</b> Os dois são da própria BRANET e não têm relação com
       o código do CELK. Às vezes só um deles existe: preencha o que houver.</li>
     <li><b>Nome na BRANET.</b> Deixe em branco quando for igual ao nome do catálogo.</li>
   </ul>
   <p>A etiqueta no alto do cartão diz <b>vinculado</b> quando há pelo menos um dos dois códigos. Se você
     trocar o código do CELK de um material, como acontece quando um código provisório ganha o código
     real, os dados da BRANET acompanham o material sozinhos ao salvar. No seletor de situação, as opções
-    <b>Com código BRANET</b> e <b>Sem código BRANET</b> ajudam a achar o que ainda falta preencher.</p>
+    <b>Com item da BRANET</b> e <b>Sem item da BRANET</b> ajudam a achar o que ainda falta preencher.</p>
 
   <h3>Inativar ou excluir</h3>
   <div class="aviso"><b>Prefira inativar.</b> Inativar tira o material do catálogo e mantém a linha no
@@ -405,8 +408,35 @@
     processo de compra.</p>
 </section>
 
+<section class="secao" data-grupo="Ferramentas" id="catalogo-branet">
+  <h2><span class="n">7</span> Catálogo ilustrado BRANET</h2>
+  <p class="chamada">Os materiais como estão cadastrados na BRANET, com a equivalência no catálogo da rede.</p>
+
+  <p>O catálogo BRANET fica em <code>branet.html</code> e tem a mesma cara do catálogo dos dentistas. A
+    diferença é o que vem em destaque em cada cartão: o nome e o código da BRANET, com o código cliente ao
+    lado. Logo abaixo, menor, vêm o código, o grupo e o nome do material no CELK. No fim do cartão fica o
+    começo do descritivo, que abre inteiro no link "Ler descritivo completo" ou ao clicar no material.</p>
+
+  <p>Entram só os materiais ativos da odontologia (grupos 12 a 15) que têm item ligado no
+    <code>branet/branet.csv</code>. Esses vínculos são feitos no editor, no cartão <b>Almoxarifado BRANET</b>.
+    A busca aceita o código e o código cliente da BRANET, o código do CELK e o nome.</p>
+
+  <h3>Impressão</h3>
+  <p>O botão da impressora, no topo, oferece três saídas:</p>
+  <ul>
+    <li><b>Catálogo ilustrado sem descritivo</b>: três materiais por linha, com foto, como o catálogo impresso
+      dos dentistas.</li>
+    <li><b>Catálogo ilustrado com descritivo</b>: um material por faixa, com o descritivo inteiro e a unidade
+      de compra.</li>
+    <li><b>Relatório de equivalência BRANET e CELK</b>: uma tabela sem fotos, com a BRANET à esquerda (código,
+      código cliente e nome) e o CELK à direita (código, material e unidade de pedido).</li>
+  </ul>
+  <p>As três saem do que está na tela: se houver busca ou aba escolhida, só aqueles itens entram. Cada grupo
+    do CELK começa em folha nova nos dois catálogos.</p>
+</section>
+
 <section class="secao" data-grupo="Ferramentas" id="imagens">
-  <h2><span class="n">7</span> Preparar imagens</h2>
+  <h2><span class="n">8</span> Preparar imagens</h2>
   <p class="chamada">Padronizar as fotos e enviá-las já nomeadas pelo código.</p>
 
   <p>Todas as fotos do catálogo são quadradas, de 800 por 800 pixels, com fundo branco. É isso que
@@ -434,7 +464,7 @@
 </section>
 
 <section class="secao" data-grupo="Ferramentas" id="historico">
-  <h2><span class="n">8</span> Histórico</h2>
+  <h2><span class="n">9</span> Histórico</h2>
   <p class="chamada">Tudo o que já foi alterado, com data, responsável e detalhe campo a campo.</p>
 
   <p>Cada publicação vira uma <b>sessão</b> no histórico, com quem fez, quando, e a lista das
@@ -457,7 +487,7 @@
      PUBLICAR
      ================================================================ -->
 <section class="secao" data-grupo="Publicar" id="conferir">
-  <h2><span class="n">9</span> Conferir e desfazer</h2>
+  <h2><span class="n">10</span> Conferir e desfazer</h2>
   <p class="chamada">O último ponto antes de a alteração virar permanente.</p>
 
   <p>No editor, o botão <b>Conferir e publicar</b> abre a lista completa do que será gravado: cada
@@ -507,7 +537,7 @@
 </section>
 
 <section class="secao" data-grupo="Publicar" id="dois-editando">
-  <h2><span class="n">10</span> Quando duas pessoas editam</h2>
+  <h2><span class="n">11</span> Quando duas pessoas editam</h2>
   <p class="chamada">Como o sistema evita que uma sobrescreva o trabalho da outra.</p>
 
   <p>Somos quatro no GT, e mais cedo ou mais tarde duas pessoas vão editar ao mesmo tempo. O sistema
@@ -543,7 +573,7 @@
 </section>
 
 <section class="secao" data-grupo="Publicar" id="plano-b">
-  <h2><span class="n">11</span> O pacote .zip, plano B</h2>
+  <h2><span class="n">12</span> O pacote .zip, plano B</h2>
   <p class="chamada">O que fazer quando a rede bloqueia o GitHub.</p>
 
   <p>Se a rede da unidade bloquear o acesso, ou se a chave estiver vencida, a publicação direta não
@@ -569,7 +599,7 @@
       </div>
     </div>
 
-    <div id="versaoPagina">tutoriais · versão 2026-09-23b</div>
+    <div id="versaoPagina">tutoriais · versão 2026-09-29a</div>
   </div>
 </div>
 

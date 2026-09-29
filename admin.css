@@ -83,6 +83,8 @@ h2{font-size:14px;font-weight:600;margin:0 0 12px}
 .nav.ativo{background:#fff;color:var(--curacao);box-shadow:var(--sombra)}
 .nav.saida{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.25);
   border-radius:0 0 16px 16px}
+/* O segundo atalho de saída (catálogo BRANET) fica colado ao primeiro, sem outra linha divisória. */
+.nav.saida.segunda{margin-top:0;padding-top:11px;border-top:none;border-radius:16px}
 
 /* As duas páginas mais antigas chamam a coluna de conteúdo de .conteudo
    e as demais de .coluna. As duas valem. */
@@ -95,6 +97,7 @@ h2{font-size:14px;font-weight:600;margin:0 0 12px}
   .nav{flex:1;min-width:74px;margin-bottom:0}
   .nav.saida{margin-top:0;padding-top:11px;border-top:none;border-radius:16px;
     border-left:1px solid rgba(255,255,255,.25)}
+  .nav.saida.segunda{border-left:none}
 }
 
 /* ===================== celular =====================
