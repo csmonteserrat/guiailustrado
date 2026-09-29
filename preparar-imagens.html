@@ -132,8 +132,8 @@ select{appearance:none;background-image:none;padding-right:13px}
   <a class="nav ativo" href="preparar-imagens.html"><span class="ic">&#9634;</span><span class="tx">Imagens</span></a>
   <a class="nav" href="editor-catalogo/historico.html"><span class="ic">&#9711;</span><span class="tx">Histórico</span></a>
   <a class="nav" href="tutoriais.html"><span class="ic">&#9432;</span><span class="tx">Tutoriais</span></a>
-  <a class="nav saida" href="index.html"><span class="ic">&#8599;</span><span class="tx">Catálogo</span></a>
-  <a class="nav saida segunda" href="branet.html"><span class="ic">&#9638;</span><span class="tx">Catálogo BRANET</span></a>
+  <a class="nav saida" href="index.html" target="_blank" rel="noopener"><span class="ic">&#8599;</span><span class="tx">Catálogo</span></a>
+  <a class="nav saida segunda" href="branet.html" target="_blank" rel="noopener"><span class="ic">&#9638;</span><span class="tx">Catálogo BRANET</span></a>
 </nav>
 <div class="coluna">
 <div class="wrap">
@@ -677,9 +677,8 @@ $('#publicar').onclick=async()=>{
           resumo:(e.substituiu?'foto substituída':'foto adicionada')+' · '+e.caminho
         }))
       };
-      const h=await Publicar.historicoCom(sessao);
-      await Publicar.enviar({caminho:h.caminho,texto:h.texto,sha:h.sha,
-        mensagem:Publicar.mensagem('Imagens','historico.md',enviados.length,'foto')});
+      await Publicar.registrarHistorico(sessao,
+        Publicar.mensagem('Imagens','historico.md',enviados.length,'foto'));
     }catch(e){
       avisoHistorico='<br>As fotos foram publicadas, mas <b>não consegui registrar no histórico</b>: '+
         escapar(e.message||'')+' Publique uma foto de novo mais tarde para o registro entrar.';
@@ -712,7 +711,7 @@ $('#publicar').onclick=async()=>{
   }
 };
 </script>
-<div id="versaoPagina">preparar imagens · versão 2026-09-29a</div>
+<div id="versaoPagina">preparar imagens · versão 2026-09-29b</div>
 </div>
 </div>
 </body>

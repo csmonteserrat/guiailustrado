@@ -104,8 +104,8 @@
     <a class="nav" href="preparar-imagens.html"><span class="ic">&#9634;</span><span class="tx">Imagens</span></a>
     <a class="nav" href="editor-catalogo/historico.html"><span class="ic">&#9711;</span><span class="tx">Histórico</span></a>
     <a class="nav ativo" href="tutoriais.html"><span class="ic">&#9432;</span><span class="tx">Tutoriais</span></a>
-    <a class="nav saida" href="index.html"><span class="ic">&#8599;</span><span class="tx">Catálogo</span></a>
-    <a class="nav saida segunda" href="branet.html"><span class="ic">&#9638;</span><span class="tx">Catálogo BRANET</span></a>
+    <a class="nav saida" href="index.html" target="_blank" rel="noopener"><span class="ic">&#8599;</span><span class="tx">Catálogo</span></a>
+    <a class="nav saida segunda" href="branet.html" target="_blank" rel="noopener"><span class="ic">&#9638;</span><span class="tx">Catálogo BRANET</span></a>
   </nav>
 
   <div class="coluna">
@@ -474,9 +474,20 @@
     agrupamento <b>Por material</b>, que reúne todas as alterações de um mesmo código ao longo do
     tempo. É o modo útil quando a pergunta é "por que este item está assim?".</p>
 
+  <p>A <b>busca</b> no alto da página procura em todo o histórico: código, nome do material, o valor
+    anterior e o novo de cada campo, quem publicou, a origem e a data. Não faz diferença usar acento ou
+    maiúscula. As sessões encontradas já aparecem abertas, só com as alterações que batem, e o trecho
+    procurado fica marcado. A busca funciona junto com os filtros: dá para buscar "branet" só entre os
+    editados, por exemplo.</p>
+
   <p>O histórico é gravado no arquivo <code>editor-catalogo/historico.md</code>, que também pode ser
-    lido direto no GitHub. <b>Não edite esse arquivo à mão</b>: ele é lido e reescrito pelo editor a
-    cada publicação.</p>
+    lido direto no GitHub. Para o arquivo não crescer sem fim, ele guarda <b>até 100 sessões</b>. Na
+    publicação que passaria disso, as 100 mais antigas vão sozinhas para um arquivo fechado na mesma
+    pasta, <code>historico-001.md</code> (sessões 1 a 100), depois <code>historico-002.md</code> (101 a 200),
+    e assim por diante. O <code>historico.md</code> recomeça com as mais novas, e a numeração das sessões
+    continua corrida. A página do histórico junta todos os arquivos, então para quem consulta nada muda.
+    <b>Não edite esses arquivos à mão</b>: eles são lidos e reescritos pelas ferramentas a cada
+    publicação.</p>
 
   <p>A data que aparece no cabeçalho do catálogo impresso vem daqui: é a da última sessão que alterou
     a lista de materiais. Sessões que mexeram só em descritivos não contam, porque não mudam nada do
@@ -590,7 +601,8 @@
 
   <div class="aviso serio"><b>Envie sempre todos os arquivos do pacote.</b> Se você atualizar só o
     <code>produtos.csv</code>, o histórico fica defasado. Se atualizar só o histórico, ele registra uma
-    alteração que não aconteceu.</div>
+    alteração que não aconteceu. Quando o pacote traz um <code>historico-00N.md</code>, é porque o
+    histórico completou 100 sessões: ele também precisa subir, na pasta <code>editor-catalogo</code>.</div>
 
   <p>O pacote também serve para mandar por e-mail a quem for publicar, quando quem edita e quem publica
     não são a mesma pessoa.</p>
@@ -599,7 +611,7 @@
       </div>
     </div>
 
-    <div id="versaoPagina">tutoriais · versão 2026-09-29a</div>
+    <div id="versaoPagina">tutoriais · versão 2026-09-29b</div>
   </div>
 </div>
 

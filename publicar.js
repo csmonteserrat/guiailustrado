@@ -26,7 +26,12 @@
 /* Onde o catálogo mora. Se o repositório for transferido para uma
    organização, basta trocar o dono aqui. */
 var CFG={dono:'csmonteserrat',nome:'guiailustrado',ramo:'main',
-         caminhoHistorico:'editor-catalogo/historico.md'};
+         caminhoHistorico:'editor-catalogo/historico.md',
+         /* Quantas sessões cabem em cada arquivo do histórico. Quando o
+            historico.md passa disso, as 100 mais antigas vão para um
+            arquivo fechado (historico-001.md, historico-002.md...) na
+            mesma pasta, e o historico.md recomeça com as mais novas. */
+         limiteHistorico:100};
 
 var API='https://api.github.com';
 var CHAVE_TOKEN='gh-token';
@@ -326,6 +331,19 @@ function configurar(novo){
    O arquivo tem duas camadas: o texto em markdown, legível no GitHub, e
    um comentário HTML ao fim de cada sessão com os dados exatos, que é o
    que as páginas leem de volta.
+
+   Divisão em arquivos (desde 29/09/2026): cada arquivo guarda no máximo
+   CFG.limiteHistorico sessões. O historico.md é sempre o arquivo aberto,
+   o único que recebe sessões novas. Quando ele passaria do limite, as
+   sessões mais antigas saem em blocos fechados de 100, nos arquivos
+   editor-catalogo/historico-001.md (sessões 1 a 100), historico-002.md
+   (101 a 200) e assim por diante. Esses arquivos nunca mais mudam.
+   O historico.md guarda, num comentário "volumes", quantas sessões já
+   foram para os arquivos fechados, quais são eles e a data da última
+   sessão arquivada. A numeração das sessões continua corrida entre os
+   arquivos, e a data serve para que uma sessão já arquivada não volte a
+   entrar no historico.md numa publicação feita por uma tela aberta há
+   muito tempo.
    ===================================================================== */
 var TIPOS_HIST={novo:'novo',editado:'editado',inativado:'inativado',reativado:'reativado',
                 excluido:'excluído',descritivo:'descritivo',branet:'BRANET',imagem:'foto'};
@@ -352,6 +370,27 @@ function lerHistorico(texto){
   blocos.sort(function(a,b){return String(a.data||'').localeCompare(String(b.data||''))});
   return blocos;
 }
+
+/* Dados da divisão em arquivos, lidos do historico.md. Um arquivo antigo,
+   sem o comentário, é tratado como o único que existe. */
+function metaHistorico(texto){
+  var m=/<!--\s*volumes:(\{[\s\S]*?\})\s*-->/.exec(texto||'');
+  var v={anteriores:0,arquivos:[],ate:''};
+  if(m){
+    try{
+      var j=JSON.parse(m[1]);
+      v.anteriores=+j.anteriores||0;
+      v.arquivos=Array.isArray(j.arquivos)?j.arquivos.slice():[];
+      v.ate=j.ate||'';
+    }catch(e){}
+  }
+  return v;
+}
+
+function nomeVolume(n){return 'historico-'+('00'+n).slice(-3)+'.md'}
+
+/* Pasta dos arquivos do histórico, a mesma do historico.md. */
+function pastaHistorico(){return CFG.caminhoHistorico.replace(/[^\/]*$/,'')}
 
 function blocoHistorico(s,numero){
   var L=[];
@@ -384,7 +423,12 @@ function blocoHistorico(s,numero){
   return L.join('\n');
 }
 
-function gerarHistorico(todas){
+/* Texto do historico.md, o arquivo aberto. todas = só as sessões que
+   ficam nele, da mais antiga para a mais nova; meta = a divisão em
+   arquivos (sem ela, é o único arquivo). */
+function gerarHistorico(todas,meta){
+  meta=meta||{anteriores:0,arquivos:[],ate:''};
+  var base=meta.anteriores||0,total=base+todas.length;
   var L=[];
   L.push('# Histórico de alterações do catálogo');
   L.push('');
@@ -392,42 +436,180 @@ function gerarHistorico(todas){
   L.push('As sessões aparecem da mais recente para a mais antiga.');
   L.push('Não edite este arquivo à mão: ele é lido e reescrito pelo editor.');
   L.push('');
-  L.push('Total de sessões registradas: '+todas.length+'  ');
-  L.push('Última atualização: '+dataLegivelHist(todas[todas.length-1].data));
+  L.push('Total de sessões registradas: '+total+'  ');
+  if(todas.length)L.push('Última atualização: '+dataLegivelHist(todas[todas.length-1].data)+'  ');
+  if(meta.arquivos.length){
+    var lista=meta.arquivos.slice().reverse().map(function(a){return '`'+a+'`'});
+    L.push('Este arquivo guarda a partir da sessão '+(base+1)+'. As anteriores estão '+
+           (lista.length===1?'no arquivo fechado '+lista[0]:
+             'nos arquivos fechados '+lista.slice(0,-1).join(', ')+' e '+lista[lista.length-1])+
+           ', com até '+CFG.limiteHistorico+' sessões cada.');
+  }
+  L.push('');
+  L.push('<!-- volumes:'+JSON.stringify({anteriores:base,arquivos:meta.arquivos,ate:meta.ate||''})+' -->');
   L.push('');
   L.push('---');
   L.push('');
-  todas.slice().reverse().forEach(function(s,i){L.push(blocoHistorico(s,todas.length-i))});
+  todas.slice().reverse().forEach(function(s,i){L.push(blocoHistorico(s,total-i))});
   return L.join('\n');
+}
+
+/* Texto de um arquivo fechado: n é o número do arquivo e primeiro o
+   número da primeira sessão dele. */
+function gerarVolume(sessoes,n,primeiro){
+  var ultimo=primeiro+sessoes.length-1;
+  var L=[];
+  L.push('# Histórico de alterações do catálogo · arquivo '+n+', sessões '+primeiro+' a '+ultimo);
+  L.push('');
+  L.push('Arquivo fechado: guarda '+sessoes.length+' sessões e não recebe mais nenhuma.');
+  L.push('As mais novas estão em `historico.md`. Não edite este arquivo à mão.');
+  L.push('');
+  L.push('De '+dataLegivelHist(sessoes[0].data)+' a '+dataLegivelHist(sessoes[sessoes.length-1].data)+'.');
+  L.push('');
+  L.push('<!-- volume:'+JSON.stringify({numero:n,de:primeiro,ate:ultimo})+' -->');
+  L.push('');
+  L.push('---');
+  L.push('');
+  sessoes.slice().reverse().forEach(function(s,i){L.push(blocoHistorico(s,ultimo-i))});
+  return L.join('\n');
+}
+
+/* Separa em arquivos fechados o que passar do limite. Devolve as sessões
+   que ficam no historico.md, a divisão atualizada e os arquivos fechados
+   novos (caminho completo e texto). */
+function dividirHistorico(todas,meta){
+  meta=meta||{anteriores:0,arquivos:[],ate:''};
+  var m={anteriores:meta.anteriores||0,arquivos:(meta.arquivos||[]).slice(),ate:meta.ate||''};
+  var resto=todas.slice(),volumes=[],lim=CFG.limiteHistorico;
+  while(resto.length>lim){
+    var bloco=resto.slice(0,lim),n=m.arquivos.length+1,nome=nomeVolume(n);
+    volumes.push({caminho:pastaHistorico()+nome,nome:nome,
+                  texto:gerarVolume(bloco,n,m.anteriores+1),
+                  de:m.anteriores+1,ate:m.anteriores+lim});
+    m.anteriores+=lim;
+    m.arquivos.push(nome);
+    m.ate=bloco[bloco.length-1].data||m.ate;
+    resto=resto.slice(lim);
+  }
+  return {atuais:resto,meta:m,volumes:volumes};
+}
+
+/* Todos os arquivos a gravar para registrar estas sessões: primeiro os
+   fechados novos, se houver, e por último o historico.md. */
+function montarHistorico(todas,meta){
+  var d=dividirHistorico(todas,meta);
+  return {
+    arquivos:d.volumes.concat([{caminho:CFG.caminhoHistorico,texto:gerarHistorico(d.atuais,d.meta)}]),
+    volumes:d.volumes,
+    texto:gerarHistorico(d.atuais,d.meta),
+    meta:d.meta,
+    atuais:d.atuais,
+    sessoes:d.meta.anteriores+d.atuais.length
+  };
 }
 
 /* Junta o histórico que está no repositório com as sessões locais mais
    a nova. Sessões repetidas, com a mesma data e o mesmo autor, entram
    uma vez só. */
+/* O que vale é a divisão que está no repositório: sessões locais com
+   data até a última já arquivada ficam de fora, porque já estão num
+   arquivo fechado. texto é o novo historico.md; arquivos traz também os
+   arquivos fechados que precisam ser criados agora. */
 function mesclarHistorico(textoRemoto,locais,nova){
+  var meta=metaHistorico(textoRemoto);
   var mapa=new Map();
   lerHistorico(textoRemoto).concat(locais||[]).concat(nova?[nova]:[]).forEach(function(s){
     if(!s)return;
+    if(meta.ate&&String(s.data||'')<=String(meta.ate))return;
     var k=(s.data||'')+'|'+(s.autor||'');
     if(!mapa.has(k))mapa.set(k,s);
   });
   var todas=[...mapa.values()].sort(function(a,b){
     return String(a.data||'').localeCompare(String(b.data||''))});
-  return {texto:gerarHistorico(todas),sessoes:todas.length};
+  var h=montarHistorico(todas,meta);
+  return {texto:h.texto,arquivos:h.arquivos,volumes:h.volumes,meta:h.meta,sessoes:h.sessoes,
+          anteriores:meta.anteriores+lerHistorico(textoRemoto).length};
 }
 
-/* Lê o histórico publicado, acrescenta a sessão e devolve o arquivo
-   pronto para enviar, junto com o sha da versão que serviu de base. */
+/* Lê o histórico publicado, acrescenta a sessão e devolve os arquivos
+   prontos para enviar. sha é o do historico.md que serviu de base. */
 async function historicoCom(sessao){
   var r=await obterTexto(CFG.caminhoHistorico);
   var m=mesclarHistorico(r.texto,[],sessao);
-  return {caminho:CFG.caminhoHistorico,texto:m.texto,sha:r.sha,sessoes:m.sessoes};
+  return {caminho:CFG.caminhoHistorico,texto:m.texto,sha:r.sha,sessoes:m.sessoes,volumes:m.volumes};
+}
+
+/* Registra a sessão no repositório: grava os arquivos fechados novos,
+   se houver, e depois o historico.md. Se o historico.md mudou no meio
+   do caminho, refaz a leitura e tenta de novo. */
+async function registrarHistorico(sessao,mensagemEnvio){
+  var ultimo;
+  for(var t=0;t<3;t++){
+    var h=await historicoCom(sessao);
+    try{
+      for(var i=0;i<h.volumes.length;i++){
+        var v=h.volumes[i],s=await situacao(v.caminho);
+        await enviar({caminho:v.caminho,texto:v.texto,sha:s.sha,
+                      mensagem:'Histórico: fecha o arquivo '+v.nome+' (sessões '+v.de+' a '+v.ate+')'});
+      }
+      return await enviar({caminho:h.caminho,texto:h.texto,sha:h.sha,mensagem:mensagemEnvio});
+    }catch(e){
+      ultimo=e;
+      if(e.tipo!=='conflito')throw e;
+    }
+  }
+  throw ultimo;
+}
+
+/* Lê do próprio site o histórico inteiro: o historico.md e os arquivos
+   fechados que ele aponta. base é o caminho da pasta do histórico a
+   partir da página (por exemplo 'editor-catalogo/' ou ''). Devolve as
+   sessões da mais antiga para a mais nova, a divisão e os arquivos que
+   não puderam ser lidos. */
+async function carregarHistoricoDoSite(base){
+  base=base||'';
+  var r=await fetch(base+'historico.md?t='+Date.now());
+  if(!r.ok)throw erro('rede','Não consegui ler o historico.md.');
+  var texto=await r.text();
+  var meta=metaHistorico(texto);
+  var textos=await Promise.all(meta.arquivos.map(function(a){
+    return fetch(base+a+'?t='+Date.now()).then(function(x){return x.ok?x.text():null})
+      .catch(function(){return null});
+  }));
+  /* O número de cada sessão vem do arquivo onde ela está, e não da
+     posição na lista: assim, se um arquivo fechado não puder ser lido,
+     as demais sessões continuam com o número certo. */
+  var faltando=[],mapa=new Map(),numeros=new Map();
+  function juntar(t,primeiro){
+    lerHistorico(t||'').forEach(function(s,j){
+      var k=(s.data||'')+'|'+(s.autor||'');
+      if(!mapa.has(k)){mapa.set(k,s);numeros.set(s,primeiro+j)}
+    });
+  }
+  textos.forEach(function(t,i){
+    if(t===null){faltando.push(meta.arquivos[i]);return}
+    var v=/<!--\s*volume:(\{[\s\S]*?\})\s*-->/.exec(t),de=i*CFG.limiteHistorico+1;
+    if(v){try{de=+JSON.parse(v[1]).de||de}catch(e){}}
+    juntar(t,de);
+  });
+  juntar(texto,meta.anteriores+1);
+  var todas=[...mapa.values()].sort(function(a,b){
+    return String(a.data||'').localeCompare(String(b.data||''))});
+  return {sessoes:todas,meta:meta,faltando:faltando,atuais:lerHistorico(texto),
+          numero:function(s){return numeros.get(s)||0},
+          total:meta.anteriores+lerHistorico(texto).length};
 }
 
 global.Publicar={
   cfg:CFG,
   lerHistorico:lerHistorico,
   gerarHistorico:gerarHistorico,
+  gerarVolume:gerarVolume,
+  metaHistorico:metaHistorico,
+  dividirHistorico:dividirHistorico,
+  montarHistorico:montarHistorico,
+  registrarHistorico:registrarHistorico,
+  carregarHistoricoDoSite:carregarHistoricoDoSite,
   blocoHistorico:blocoHistorico,
   mesclarHistorico:mesclarHistorico,
   historicoCom:historicoCom,

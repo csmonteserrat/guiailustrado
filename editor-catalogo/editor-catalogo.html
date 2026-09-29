@@ -212,8 +212,8 @@ select{appearance:none;background-image:none;padding-right:13px}
   <a class="nav" href="../preparar-imagens.html"><span class="ic">&#9634;</span><span class="tx">Imagens</span></a>
   <a class="nav" href="historico.html"><span class="ic">&#9711;</span><span class="tx">Histórico</span></a>
   <a class="nav" href="../tutoriais.html"><span class="ic">&#9432;</span><span class="tx">Tutoriais</span></a>
-  <a class="nav saida" href="../index.html"><span class="ic">&#8599;</span><span class="tx">Catálogo</span></a>
-  <a class="nav saida segunda" href="../branet.html"><span class="ic">&#9638;</span><span class="tx">Catálogo BRANET</span></a>
+  <a class="nav saida" href="../index.html" target="_blank" rel="noopener"><span class="ic">&#8599;</span><span class="tx">Catálogo</span></a>
+  <a class="nav saida segunda" href="../branet.html" target="_blank" rel="noopener"><span class="ic">&#9638;</span><span class="tx">Catálogo BRANET</span></a>
 </nav>
 <div class="coluna">
 <div class="wrap">
@@ -1332,18 +1332,32 @@ function gerarDescritivosCsv(){
    histórico existente, acrescenta a sessão nova e devolve o arquivo
    completo para você substituir.
    ===================================================================== */
-let HISTORICO=[];        // sessões já registradas, da mais antiga para a mais nova
+let HISTORICO=[];        // sessões do historico.md, da mais antiga para a mais nova
 let historicoCarregado=false;
+/* O histórico é dividido em arquivos de até 100 sessões (ver publicar.js).
+   O editor só precisa do historico.md, o arquivo aberto; META diz quantas
+   sessões já estão nos arquivos fechados, para a numeração continuar. */
+let META_HIST={anteriores:0,arquivos:[],ate:''};
+const totalSessoes=()=>META_HIST.anteriores+HISTORICO.length;
 
 async function carregarHistorico(){
   try{
     const r=await fetch(CAMINHO_LOG+'?t='+Date.now());
     if(!r.ok)throw 0;
-    HISTORICO=lerHistorico(await r.text());
+    const texto=await r.text();
+    HISTORICO=lerHistorico(texto);
+    META_HIST=Publicar.metaHistorico(texto);
     historicoCarregado=true;
   }catch(e){
-    HISTORICO=[];historicoCarregado=false;
+    HISTORICO=[];META_HIST={anteriores:0,arquivos:[],ate:''};historicoCarregado=false;
   }
+}
+
+/* Depois de uma sessão entrar no histórico em memória: se o arquivo
+   aberto passou de 100, as mais antigas vão para um arquivo fechado. */
+function acomodarHistorico(){
+  const d=Publicar.dividirHistorico(HISTORICO,META_HIST);
+  HISTORICO=d.atuais;META_HIST=d.meta;
 }
 
 /* A leitura, a junção e a escrita do historico.md moram no publicar.js,
@@ -1360,7 +1374,7 @@ function importarHistorico(){
     const f=e.target.files[0];if(!f)return;
     const fr=new FileReader();
     fr.onload=()=>{
-      HISTORICO=lerHistorico(fr.result);historicoCarregado=true;
+      HISTORICO=lerHistorico(fr.result);META_HIST=Publicar.metaHistorico(fr.result);historicoCarregado=true;
       alert(HISTORICO.length+' sessão(ões) encontrada(s) no arquivo.');
       abrirHistorico();
     };
@@ -1410,10 +1424,12 @@ function dataLegivel(iso){
   catch(e){return iso}
 }
 
-/* A escrita do historico.md mora no publicar.js. */
+/* A escrita do historico.md mora no publicar.js. Devolve a lista de
+   arquivos a gravar: normalmente só o historico.md; quando ele passaria
+   de 100 sessões, também o arquivo fechado novo. */
 
 function gerarHistorico(){
-  return Publicar.gerarHistorico(HISTORICO.concat([sessaoAtual()]));
+  return Publicar.montarHistorico(HISTORICO.concat([sessaoAtual()]),META_HIST).arquivos;
 }
 
 /* ---------- validação ---------- */
@@ -1545,7 +1561,7 @@ function abrirHistorico(){
     '<header><div><h2 style="margin:0">Histórico de alterações</h2>'+
     '<div class="sub">'+(historicoCarregado
         ? (HISTORICO.length
-            ? HISTORICO.length+' sessão(ões) registrada(s)'+
+            ? totalSessoes()+' sessão(ões) registrada(s)'+
               (HISTORICO.length>2?', mostrando as duas mais recentes':'')
             : 'nenhuma sessão registrada ainda')
         : 'não consegui ler o historico.md automaticamente')+'</div></div>'+
@@ -1560,7 +1576,7 @@ function abrirHistorico(){
       (pendente||ultimas.length
         ? '<div class="linhaTempo" style="flex:none">'+
           (pendente?marcoHistorico(atual,0,true):'')+
-          ultimas.map((s,i)=>marcoHistorico(s,HISTORICO.length-i,false)).join('')+
+          ultimas.map((s,i)=>marcoHistorico(s,totalSessoes()-i,false)).join('')+
           '</div>'
         : '<div class="sub">Nada foi alterado nesta sessão e não há registros anteriores.</div>')+
       '<div style="text-align:center;margin-top:2px;flex:none">'+
@@ -1873,8 +1889,10 @@ function arquivosDoPacote(){
     lista.push({caminho:'branet/branet.csv',conteudo:gerarBranetCsv(),
                 rotulo:'branet/branet.csv, os códigos da BRANET'});
   if(lista.length)
-    lista.push({caminho:'editor-catalogo/historico.md',conteudo:gerarHistorico(),
-                rotulo:'editor-catalogo/historico.md, o registro das alterações'});
+    gerarHistorico().forEach(a=>lista.push({caminho:a.caminho,conteudo:a.texto,
+      rotulo:a.caminho==='editor-catalogo/historico.md'
+        ? 'editor-catalogo/historico.md, o registro das alterações'
+        : a.caminho+', arquivo fechado com as 100 sessões mais antigas do histórico'}));
   return lista;
 }
 
@@ -1894,7 +1912,7 @@ function baixarTudo(){
                'Ao confirmar, a sessão entra no histórico em memória, o estado atual passa a ser '+
                'o novo ponto de partida e a próxima sessão começa em branco.\n\n'+
                'Confirme somente depois de enviar os arquivos ao GitHub.')){
-      HISTORICO.push(registro);
+      HISTORICO.push(registro);acomodarHistorico();
       ORIGINAIS={};ITENS.forEach(it=>ORIGINAIS[it.__id]=Object.assign({},it));
       DESC_ORIGINAIS={};
       Object.keys(DESCRITIVOS).forEach(c=>DESC_ORIGINAIS[c]=Object.assign({},DESCRITIVOS[c]));
@@ -2157,8 +2175,7 @@ function gerarHistoricoDe(todas){
 
 function mesclarHistorico(textoRemoto,registroDaSessao){
   const m=Publicar.mesclarHistorico(textoRemoto,HISTORICO,registroDaSessao);
-  return {texto:m.texto,sessoes:m.sessoes,
-          novas:m.sessoes-Publicar.lerHistorico(textoRemoto||'').length};
+  return {texto:m.texto,sessoes:m.sessoes,volumes:m.volumes,novas:m.sessoes-m.anteriores};
 }
 
 /* ---------------------------------------------------------------------
@@ -2195,6 +2212,16 @@ async function montarPublicacao(decisoes,registroDaSessao){
   if(alvos.includes('editor-catalogo/historico.md')){
     const r=await Publicar.obterTexto(ARQ_LOG);
     const m=mesclarHistorico(r.texto,registroDaSessao);
+    /* Arquivo fechado novo, quando o historico.md passaria de 100
+       sessões. Vai antes do historico.md: se a publicação parar entre
+       os dois, o historico.md continua inteiro e a próxima tentativa
+       grava o fechado de novo, igual. */
+    for(const v of m.volumes){
+      const sv=await Publicar.situacao(v.caminho);
+      saida.push({caminho:v.caminho,texto:v.texto,sha:sv.sha,
+                  mensagem:'Editor: fecha o arquivo '+v.nome+' do histórico (sessões '+v.de+' a '+v.ate+')',
+                  resumo:'sessões '+v.de+' a '+v.ate+' arquivadas'});
+    }
     saida.push({caminho:ARQ_LOG,texto:m.texto,sha:r.sha,
                 mensagem:'Editor: registra a sessão no histórico',
                 resumo:m.sessoes+' sessões registradas'});
@@ -2384,7 +2411,7 @@ async function publicarSessao(){
     const semConferir=enviados.filter(e=>e.conferido===false);
     const naoVerificados=enviados.filter(e=>e.conferido===null).length;
 
-    HISTORICO.push(registro);
+    HISTORICO.push(registro);acomodarHistorico();
     historicoCarregado=true;
     ORIGINAIS={};ITENS.forEach(it=>ORIGINAIS[it.__id]=Object.assign({},it));
     DESC_ORIGINAIS={};
@@ -2601,7 +2628,7 @@ window.addEventListener('beforeunload',e=>{
   if(mudancas().length||mudancasDescritivo().length||mudancasBranet().length){e.preventDefault();e.returnValue=''}
 });
 </script>
-<div id="versaoPagina">editor · versão 2026-09-29a</div>
+<div id="versaoPagina">editor · versão 2026-09-29b</div>
 </div>
 </div>
 </body>

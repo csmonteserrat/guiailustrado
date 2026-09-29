@@ -109,8 +109,8 @@ code{background:var(--neutro);padding:1px 6px;border-radius:6px;font-size:12px}
     <a class="nav" href="preparar-imagens.html"><span class="ic">&#9634;</span><span class="tx">Imagens</span></a>
     <a class="nav" href="editor-catalogo/historico.html"><span class="ic">&#9711;</span><span class="tx">Histórico</span></a>
     <a class="nav" href="tutoriais.html"><span class="ic">&#9432;</span><span class="tx">Tutoriais</span></a>
-    <a class="nav saida" href="index.html"><span class="ic">&#8599;</span><span class="tx">Catálogo</span></a>
-    <a class="nav saida segunda" href="branet.html"><span class="ic">&#9638;</span><span class="tx">Catálogo BRANET</span></a>
+    <a class="nav saida" href="index.html" target="_blank" rel="noopener"><span class="ic">&#8599;</span><span class="tx">Catálogo</span></a>
+    <a class="nav saida segunda" href="branet.html" target="_blank" rel="noopener"><span class="ic">&#9638;</span><span class="tx">Catálogo BRANET</span></a>
   </nav>
 
   <div class="conteudo">
@@ -121,8 +121,8 @@ code{background:var(--neutro);padding:1px 6px;border-radius:6px;font-size:12px}
         <p class="sub" style="margin:3px 0 0">GT Padronização de Materiais, Insumos e Equipamentos</p>
       </div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end">
-        <a class="pilula acento" href="branet.html">abrir o catálogo BRANET</a>
-        <a class="pilula principal" href="index.html">abrir o catálogo</a>
+        <a class="pilula acento" href="branet.html" target="_blank" rel="noopener">abrir o catálogo BRANET</a>
+        <a class="pilula principal" href="index.html" target="_blank" rel="noopener">abrir o catálogo</a>
       </div>
     </div>
 
@@ -172,7 +172,7 @@ code{background:var(--neutro);padding:1px 6px;border-radius:6px;font-size:12px}
         <span class="pe" style="color:var(--corallite)">abrir a consulta &rarr;</span>
       </a>
 
-      <a class="ferr" href="branet.html">
+      <a class="ferr" href="branet.html" target="_blank" rel="noopener">
         <div class="ic" style="background:var(--curacao-suave);color:var(--curacao-escuro)">&#9638;</div>
         <div class="tt">Catálogo ilustrado BRANET</div>
         <div class="ds">Os materiais como estão cadastrados na BRANET, pelo código e código cliente, com foto,
@@ -479,9 +479,13 @@ fetch('branet/branet.csv?t='+Date.now()).then(r=>{if(!r.ok)throw 0;return r.text
   $('#stBranet').className='tag '+(n?'t-vd':'t-ci');
 }).catch(()=>{$('#stBranet').textContent='não encontrado'});
 
-fetch('editor-catalogo/historico.md').then(r=>{if(!r.ok)throw 0;return r.text()}).then(t=>{
-  const n=(t.match(/<!--\s*sessao:/g)||[]).length;
-  $('#stLog').textContent=n+' sessão(ões)';
+/* O histórico pode estar dividido em arquivos de 100 sessões: o total
+   soma as do historico.md com as que ele diz já estarem nos fechados. */
+fetch('editor-catalogo/historico.md?t='+Date.now()).then(r=>{if(!r.ok)throw 0;return r.text()}).then(t=>{
+  const meta=Publicar.metaHistorico(t);
+  const n=meta.anteriores+(t.match(/<!--\s*sessao:/g)||[]).length;
+  const arqs=meta.arquivos.length+1;
+  $('#stLog').textContent=n+' sessão(ões)'+(arqs>1?' em '+arqs+' arquivos':'');
   $('#stLog').className='tag '+(n?'t-vd':'t-ci');
 }).catch(()=>{});
 
@@ -944,9 +948,8 @@ async function excluirImagens(lista,botao,grupo){
           resumo:'foto excluída · '+e.caminho
         }))
       };
-      const h=await Publicar.historicoCom(sessao);
-      await Publicar.enviar({caminho:h.caminho,texto:h.texto,sha:h.sha,
-        mensagem:Publicar.mensagem('Conferência de imagens','historico.md',excluidos.length,'foto')});
+      await Publicar.registrarHistorico(sessao,
+        Publicar.mensagem('Conferência de imagens','historico.md',excluidos.length,'foto'));
     }catch(e){
       falhas.push({item:{caminho:'editor-catalogo/historico.md'},
         motivo:'os arquivos foram excluídos, mas o histórico não foi atualizado: '+(e.message||'')});
@@ -1249,17 +1252,11 @@ async function contarUltimaPublicacao(nome){
   const alvo=$('#olaDizer');
   alvo.textContent='';
   try{
-    const r=await fetch('editor-catalogo/historico.md?t='+Date.now());
-    if(!r.ok)throw 0;
-    const texto=await r.text();
-    const re=/<!--\s*sessao:(\{[\s\S]*?\})\s*-->/g;
-    const sessoes=[];
-    let m;
-    while((m=re.exec(texto))!==null){
-      try{const s=JSON.parse(m[1]); if(s&&s.data)sessoes.push(s)}catch(e){}
-    }
+    /* Lê o histórico inteiro, inclusive os arquivos fechados: a última
+       publicação da pessoa pode estar num deles. */
+    const h=await Publicar.carregarHistoricoDoSite('editor-catalogo/');
+    const sessoes=h.sessoes.filter(s=>s&&s.data);
     if(!sessoes.length)return;
-    sessoes.sort((a,b)=>String(a.data).localeCompare(String(b.data)));
 
     /* A comparação é pelo primeiro nome, sem acento e sem maiúsculas.
        O histórico antigo tem "Caio" e "Caio Borges" na mesma pessoa,
@@ -1373,6 +1370,6 @@ $('#btConferirRepo').onclick=async ()=>{
   }
 })();
 </script>
-<div id="versaoPagina">painel · versão 2026-09-29a</div>
+<div id="versaoPagina">painel · versão 2026-09-29b</div>
 </body>
 </html>

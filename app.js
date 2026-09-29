@@ -10,7 +10,7 @@
    administrativas: ano-mês-dia e uma letra para cada entrega do dia.
    Atualize a cada revisão.
    ----------------------------------------------------------------- */
-const VERSAO_SITE = '2026-09-23a';
+const VERSAO_SITE = '2026-09-29a';
 
 /* Data mostrada no cabeçalho das impressões. Não é a data da versão do
    site, e sim a da última vez que a lista de materiais mudou de fato.
@@ -28,15 +28,33 @@ async function carregarDataDoCatalogo() {
     const r = await fetch('editor-catalogo/historico.md?t=' + Date.now());
     if (!r.ok) return DATA_CATALOGO;
     const texto = await r.text();
-    const re = /<!--\s*sessao:(\{[\s\S]*?\})\s*-->/g;
-    let m, maisRecente = null;
-    while ((m = re.exec(texto)) !== null) {
-      let s;
-      try { s = JSON.parse(m[1]); } catch (e) { continue; }
-      if (!s || !s.data) continue;
-      const mexeuNaLista = (s.alteracoes || []).some(a => a.tipo !== 'descritivo' && a.tipo !== 'branet');
-      if (!mexeuNaLista) continue;
-      if (!maisRecente || String(s.data) > String(maisRecente)) maisRecente = s.data;
+    const maisRecenteEm = t => {
+      const re = /<!--\s*sessao:(\{[\s\S]*?\})\s*-->/g;
+      let m, achou = null;
+      while ((m = re.exec(t)) !== null) {
+        let s;
+        try { s = JSON.parse(m[1]); } catch (e) { continue; }
+        if (!s || !s.data) continue;
+        const mexeuNaLista = (s.alteracoes || []).some(a => a.tipo !== 'descritivo' && a.tipo !== 'branet');
+        if (!mexeuNaLista) continue;
+        if (!achou || String(s.data) > String(achou)) achou = s.data;
+      }
+      return achou;
+    };
+    let maisRecente = maisRecenteEm(texto);
+    /* O histórico é dividido em arquivos de até 100 sessões. Se o
+       historico.md só tem sessões de descritivos ou da BRANET, a data
+       está num arquivo fechado: procura do mais novo para o mais antigo. */
+    if (!maisRecente) {
+      let arquivos = [];
+      const v = /<!--\s*volumes:(\{[\s\S]*?\})\s*-->/.exec(texto);
+      try { if (v) arquivos = JSON.parse(v[1]).arquivos || []; } catch (e) {}
+      for (let i = arquivos.length - 1; i >= 0 && !maisRecente; i--) {
+        try {
+          const ra = await fetch('editor-catalogo/' + arquivos[i]);
+          if (ra.ok) maisRecente = maisRecenteEm(await ra.text());
+        } catch (e) {}
+      }
     }
     if (maisRecente) {
       const d = new Date(maisRecente);
