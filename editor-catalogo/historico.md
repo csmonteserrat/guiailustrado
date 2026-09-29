@@ -4,36 +4,115 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 90  
-Última atualização: 29/09/2026, 13:31  
+Total de sessões registradas: 89  
+Última atualização: 29/09/2026, 13:33  
 
 <!-- volumes:{"anteriores":0,"arquivos":[],"ate":""} -->
 
 ---
 
-## 29/09/2026, 13:31 — Caio César Borges de Oliveira
+## 29/09/2026, 13:33 — Caio César Borges de Oliveira
 
-Sessão 90 · 2 alteração(ões) · 843 itens no arquivo após a edição
+Sessão 89 · 26 alteração(ões) · 844 itens no arquivo após a edição
 
-**Resumo:** 2 inativado
+**Origem:** Relatório de estoque BRANET.
 
-- **[INATIVADO]** `4150600` PORTA AGULHA MAYO HEGAR 14CM
-    - Situação: "SIM" → "NAO"
-- **[INATIVADO]** `4150706` TIRAS DE AÇO PARA AMÁLGAMA
-    - Situação: "SIM" → "NAO"
+**Resumo:** 26 BRANET
 
-<!-- sessao:{"data":"2026-09-29T16:31:29.616Z","autor":"Caio César Borges de Oliveira","origem":"","total":843,"alteracoes":[{"tipo":"inativado","codigo":"4150600","material":"PORTA AGULHA MAYO HEGAR 14CM","campos":[{"campo":"ativo","de":"SIM","para":"NAO"}]},{"tipo":"inativado","codigo":"4150706","material":"TIRAS DE AÇO PARA AMÁLGAMA","campos":[{"campo":"ativo","de":"SIM","para":"NAO"}]}]} -->
+- **[BRANET]** `4150511` ANESTÉSICO INJETÁVEL LIDOCAÍNA COM EPINEFRINA 1:100.000 (CAIXA COM 50 TUBETES)
+    - Código na BRANET: "" → "14773"
+    - Código cliente na BRANET: "" → "13137"
+    - Nome na BRANET: "" → "ANESTESICO INJ LIDOCAINA C/ EPINEFRINA 1/100,000 (CX/ 50 TUBETES)"
+- **[BRANET]** `4150750` BORRACHA ABRASIVA FINA PARA PEÇA DE MÃO
+    - Código na BRANET: "" → "21061"
+    - Código cliente na BRANET: "" → "21061"
+    - Nome na BRANET: "" → "BORRACHA ABRASIVA FINA P/ PECA DE MAO"
+- **[BRANET]** `4150751` BORRACHA ABRASIVA GROSSA PARA PEÇA DE MÃO
+    - Código na BRANET: "" → "21043"
+    - Código cliente na BRANET: "" → "21043"
+    - Nome na BRANET: "" → "BORRACHA ABRASIVA GROSSA P/ PECA DE MAO"
+- **[BRANET]** `4151129` BROCA ALTA ROTAÇÃO DIAMANTADA 1032
+    - Código na BRANET: "" → "10388"
+    - Código cliente na BRANET: "" → "22966"
+    - Nome na BRANET: "" → "BROCA AR DIAMANTADA 1032"
+- **[BRANET]** `4150535` BROCA BAIXA ROTAÇÃO ESFÉRICA Nº 4
+    - Código na BRANET: "" → "21092"
+    - Código cliente na BRANET: "" → "21092"
+    - Nome na BRANET: "" → "BROCA BR ESFERICA N 04 (CAIXA C/6)"
+- **[BRANET]** `4150619` CIMENTO IRM (KIT)
+    - Código na BRANET: "" → "14802"
+    - Código cliente na BRANET: "" → "34969"
+    - Nome na BRANET: "" → "CIMENTO IRM PO E LIQUIDO (MATERIAL RESTAURADOR PROVISORIO) KIT"
+- **[BRANET]** `4150510` HOLEMBACK Nº 3S
+    - Código na BRANET: "" → "12947"
+    - Código cliente na BRANET: "" → "12947"
+    - Nome na BRANET: "" → "ESCULPIDOR HOLLEMBACK 3S"
+- **[BRANET]** `4150616` IONOMERO DE VIDRO PARA RESTAURACAO PÓ + LIQUIDO (KIT)
+    - Código na BRANET: "" → "14235"
+    - Código cliente na BRANET: "" → "64823"
+- **[BRANET]** `4150679` LÂMINA BISTURI ACO CARBONO Nº 11
+    - Código na BRANET: "" → "16867"
+    - Código cliente na BRANET: "" → "68007"
+- **[BRANET]** `4150684` LAMINA BISTURI ACO CARBONO Nº 15
+    - Código na BRANET: "" → "16866"
+    - Código cliente na BRANET: "" → "118949"
+- **[BRANET]** `4150937` LIMA FLEXOFILE 15/21 MM (CARTELA COM 6 UNIDADES)
+    - Código na BRANET: "" → "15020"
+    - Código cliente na BRANET: "" → "69890"
+    - Nome na BRANET: "" → "LIMA FLEXOFILE Nº 15/21 MM (CARTELA C/ 6)"
+- **[BRANET]** `4150954` LIMA K-FILE 06/25 MM (CARTELA COM 6 UNIDADES)
+    - Código na BRANET: "" → "15025"
+    - Código cliente na BRANET: "" → "69912"
+    - Nome na BRANET: "" → "LIMA K-FILE Nº 6/25 MM (CEO) (CART C/ 6)"
+- **[BRANET]** `4150945` LIMA K-FILE 10/25 MM (CARTELA COM 6 UNIDADES)
+    - Código na BRANET: "" → "15008"
+    - Código cliente na BRANET: "" → "69918"
+    - Nome na BRANET: "" → "LIMA K-FILE Nº 10/25 MM (CEO) (CARTELA C/ 6)"
+- **[BRANET]** `4151052` MATERIAL DE MOLDAGEM (SILICONE DE CONDENSACAO) DENSO
+    - Código na BRANET: "" → "21006"
+    - Código cliente na BRANET: "" → "21006"
+- **[BRANET]** `4151068` PONTA DE GUTA PERCHA ACES B8 (R8,FF)
+    - Código na BRANET: "" → "14248"
+    - Código cliente na BRANET: "" → "93403"
+- **[BRANET]** `4150677` SERIADO DE BORRACHA PARA RESINA
+    - Código na BRANET: "" → "14283"
+    - Código cliente na BRANET: "" → "103294"
+- **[BRANET]** `4150623` SOLUCAO DE CLOREXIDINA 0,12% 1L
+    - Código na BRANET: "" → "14331"
+    - Código cliente na BRANET: "" → "14331"
+- **[BRANET]** `4151119` SOLUCAO FIXADORA PARA RX
+    - Código na BRANET: "" → "14335"
+    - Código cliente na BRANET: "" → "58043"
+- **[BRANET]** `4151120` SOLUCAO REVELADORA PARA RX
+    - Código na BRANET: "" → "15676"
+    - Código cliente na BRANET: "" → "15676"
+- **[BRANET]** `4150707` TACAS DE BORRACHA PARA PROFILAXIA
+    - Código na BRANET: "" → "10426"
+    - Código cliente na BRANET: "" → "10426"
+    - Nome na BRANET: "" → "TACA DE BORRACHA"
+- **[BRANET]** `4150697` TESOURA CIRURGICA IRIS CURVA
+    - Código na BRANET: "" → "15159"
+    - Código cliente na BRANET: "" → "15159"
+- **[BRANET]** `4150698` TESOURA CIRURGICA IRIS RETA
+    - Código na BRANET: "" → "10469"
+    - Código cliente na BRANET: "" → "110615"
+- **[BRANET]** `4150701` VERNIZ COM FLÚOR
+    - Código na BRANET: "" → "14227"
+    - Código cliente na BRANET: "" → "116487"
+- **[BRANET]** `4151196` ANESTÉSICO INJ MEPIVACAÍNA 3% SEM VASO (CAIXA COM 50 TUBETES)
+    - Código na BRANET: "" → "11397"
+    - Código cliente na BRANET: "" → "13143"
+    - Nome na BRANET: "" → "ANESTESICO INJ MEPIVACAINA 3% SEM VASO (CX/ 50 TUBETES)"
+- **[BRANET]** `4151200` SUGADOR ENDO LUER
+    - Código na BRANET: "" → "15059"
+    - Código cliente na BRANET: "" → "15059"
+    - Nome na BRANET: "" → "KIT SUCTOR ENDO LUER COM AGULHA (CEO)"
+- **[BRANET]** `4151205` ADESIVO PARA MAT MOLDAGEM A BASE DE POLIETER 10 ML
+    - Código na BRANET: "" → "19526"
+    - Código cliente na BRANET: "" → "10655"
+    - Nome na BRANET: "" → "ADESIVO P/ MAT MOLDAGEM A BASE DE POLIETER (PROTESE) 10 ML"
 
-## 29/09/2026, 12:49 — Caio César Borges de Oliveira
-
-Sessão 89 · 1 alteração(ões)
-
-**Resumo:** 1 foto
-
-- **[FOTO]** `4150787` ALAVANCAS DE POTT
-    - foto adicionada · imagens/4150787.jpg
-
-<!-- sessao:{"data":"2026-09-29T15:49:38.039Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4150787","material":"ALAVANCAS DE POTT","resumo":"foto adicionada · imagens/4150787.jpg"}]} -->
+<!-- sessao:{"data":"2026-09-29T16:33:13.739Z","autor":"Caio César Borges de Oliveira","origem":"Relatório de estoque BRANET","total":844,"alteracoes":[{"tipo":"branet","codigo":"4150511","material":"ANESTÉSICO INJETÁVEL LIDOCAÍNA COM EPINEFRINA 1:100.000 (CAIXA COM 50 TUBETES)","campos":[{"campo":"branet_codigo","de":"","para":"14773"},{"campo":"branet_codigo_cliente","de":"","para":"13137"},{"campo":"branet_nome","de":"","para":"ANESTESICO INJ LIDOCAINA C/ EPINEFRINA 1/100,000 (CX/ 50 TUBETES)"}]},{"tipo":"branet","codigo":"4150750","material":"BORRACHA ABRASIVA FINA PARA PEÇA DE MÃO","campos":[{"campo":"branet_codigo","de":"","para":"21061"},{"campo":"branet_codigo_cliente","de":"","para":"21061"},{"campo":"branet_nome","de":"","para":"BORRACHA ABRASIVA FINA P/ PECA DE MAO"}]},{"tipo":"branet","codigo":"4150751","material":"BORRACHA ABRASIVA GROSSA PARA PEÇA DE MÃO","campos":[{"campo":"branet_codigo","de":"","para":"21043"},{"campo":"branet_codigo_cliente","de":"","para":"21043"},{"campo":"branet_nome","de":"","para":"BORRACHA ABRASIVA GROSSA P/ PECA DE MAO"}]},{"tipo":"branet","codigo":"4151129","material":"BROCA ALTA ROTAÇÃO DIAMANTADA 1032","campos":[{"campo":"branet_codigo","de":"","para":"10388"},{"campo":"branet_codigo_cliente","de":"","para":"22966"},{"campo":"branet_nome","de":"","para":"BROCA AR DIAMANTADA 1032"}]},{"tipo":"branet","codigo":"4150535","material":"BROCA BAIXA ROTAÇÃO ESFÉRICA Nº 4","campos":[{"campo":"branet_codigo","de":"","para":"21092"},{"campo":"branet_codigo_cliente","de":"","para":"21092"},{"campo":"branet_nome","de":"","para":"BROCA BR ESFERICA N 04 (CAIXA C/6)"}]},{"tipo":"branet","codigo":"4150619","material":"CIMENTO IRM (KIT)","campos":[{"campo":"branet_codigo","de":"","para":"14802"},{"campo":"branet_codigo_cliente","de":"","para":"34969"},{"campo":"branet_nome","de":"","para":"CIMENTO IRM PO E LIQUIDO (MATERIAL RESTAURADOR PROVISORIO) KIT"}]},{"tipo":"branet","codigo":"4150510","material":"HOLEMBACK Nº 3S","campos":[{"campo":"branet_codigo","de":"","para":"12947"},{"campo":"branet_codigo_cliente","de":"","para":"12947"},{"campo":"branet_nome","de":"","para":"ESCULPIDOR HOLLEMBACK 3S"}]},{"tipo":"branet","codigo":"4150616","material":"IONOMERO DE VIDRO PARA RESTAURACAO PÓ + LIQUIDO (KIT)","campos":[{"campo":"branet_codigo","de":"","para":"14235"},{"campo":"branet_codigo_cliente","de":"","para":"64823"}]},{"tipo":"branet","codigo":"4150679","material":"LÂMINA BISTURI ACO CARBONO Nº 11","campos":[{"campo":"branet_codigo","de":"","para":"16867"},{"campo":"branet_codigo_cliente","de":"","para":"68007"}]},{"tipo":"branet","codigo":"4150684","material":"LAMINA BISTURI ACO CARBONO Nº 15","campos":[{"campo":"branet_codigo","de":"","para":"16866"},{"campo":"branet_codigo_cliente","de":"","para":"118949"}]},{"tipo":"branet","codigo":"4150937","material":"LIMA FLEXOFILE 15/21 MM (CARTELA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"15020"},{"campo":"branet_codigo_cliente","de":"","para":"69890"},{"campo":"branet_nome","de":"","para":"LIMA FLEXOFILE Nº 15/21 MM (CARTELA C/ 6)"}]},{"tipo":"branet","codigo":"4150954","material":"LIMA K-FILE 06/25 MM (CARTELA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"15025"},{"campo":"branet_codigo_cliente","de":"","para":"69912"},{"campo":"branet_nome","de":"","para":"LIMA K-FILE Nº 6/25 MM (CEO) (CART C/ 6)"}]},{"tipo":"branet","codigo":"4150945","material":"LIMA K-FILE 10/25 MM (CARTELA COM 6 UNIDADES)","campos":[{"campo":"branet_codigo","de":"","para":"15008"},{"campo":"branet_codigo_cliente","de":"","para":"69918"},{"campo":"branet_nome","de":"","para":"LIMA K-FILE Nº 10/25 MM (CEO) (CARTELA C/ 6)"}]},{"tipo":"branet","codigo":"4151052","material":"MATERIAL DE MOLDAGEM (SILICONE DE CONDENSACAO) DENSO","campos":[{"campo":"branet_codigo","de":"","para":"21006"},{"campo":"branet_codigo_cliente","de":"","para":"21006"}]},{"tipo":"branet","codigo":"4151068","material":"PONTA DE GUTA PERCHA ACES B8 (R8,FF)","campos":[{"campo":"branet_codigo","de":"","para":"14248"},{"campo":"branet_codigo_cliente","de":"","para":"93403"}]},{"tipo":"branet","codigo":"4150677","material":"SERIADO DE BORRACHA PARA RESINA","campos":[{"campo":"branet_codigo","de":"","para":"14283"},{"campo":"branet_codigo_cliente","de":"","para":"103294"}]},{"tipo":"branet","codigo":"4150623","material":"SOLUCAO DE CLOREXIDINA 0,12% 1L","campos":[{"campo":"branet_codigo","de":"","para":"14331"},{"campo":"branet_codigo_cliente","de":"","para":"14331"}]},{"tipo":"branet","codigo":"4151119","material":"SOLUCAO FIXADORA PARA RX","campos":[{"campo":"branet_codigo","de":"","para":"14335"},{"campo":"branet_codigo_cliente","de":"","para":"58043"}]},{"tipo":"branet","codigo":"4151120","material":"SOLUCAO REVELADORA PARA RX","campos":[{"campo":"branet_codigo","de":"","para":"15676"},{"campo":"branet_codigo_cliente","de":"","para":"15676"}]},{"tipo":"branet","codigo":"4150707","material":"TACAS DE BORRACHA PARA PROFILAXIA","campos":[{"campo":"branet_codigo","de":"","para":"10426"},{"campo":"branet_codigo_cliente","de":"","para":"10426"},{"campo":"branet_nome","de":"","para":"TACA DE BORRACHA"}]},{"tipo":"branet","codigo":"4150697","material":"TESOURA CIRURGICA IRIS CURVA","campos":[{"campo":"branet_codigo","de":"","para":"15159"},{"campo":"branet_codigo_cliente","de":"","para":"15159"}]},{"tipo":"branet","codigo":"4150698","material":"TESOURA CIRURGICA IRIS RETA","campos":[{"campo":"branet_codigo","de":"","para":"10469"},{"campo":"branet_codigo_cliente","de":"","para":"110615"}]},{"tipo":"branet","codigo":"4150701","material":"VERNIZ COM FLÚOR","campos":[{"campo":"branet_codigo","de":"","para":"14227"},{"campo":"branet_codigo_cliente","de":"","para":"116487"}]},{"tipo":"branet","codigo":"4151196","material":"ANESTÉSICO INJ MEPIVACAÍNA 3% SEM VASO (CAIXA COM 50 TUBETES)","campos":[{"campo":"branet_codigo","de":"","para":"11397"},{"campo":"branet_codigo_cliente","de":"","para":"13143"},{"campo":"branet_nome","de":"","para":"ANESTESICO INJ MEPIVACAINA 3% SEM VASO (CX/ 50 TUBETES)"}]},{"tipo":"branet","codigo":"4151200","material":"SUGADOR ENDO LUER","campos":[{"campo":"branet_codigo","de":"","para":"15059"},{"campo":"branet_codigo_cliente","de":"","para":"15059"},{"campo":"branet_nome","de":"","para":"KIT SUCTOR ENDO LUER COM AGULHA (CEO)"}]},{"tipo":"branet","codigo":"4151205","material":"ADESIVO PARA MAT MOLDAGEM A BASE DE POLIETER 10 ML","campos":[{"campo":"branet_codigo","de":"","para":"19526"},{"campo":"branet_codigo_cliente","de":"","para":"10655"},{"campo":"branet_nome","de":"","para":"ADESIVO P/ MAT MOLDAGEM A BASE DE POLIETER (PROTESE) 10 ML"}]}]} -->
 
 ## 29/09/2026, 10:46 — Caio César Borges de Oliveira
 
