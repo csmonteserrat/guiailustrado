@@ -4,12 +4,25 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 89  
-Última atualização: 29/09/2026, 12:49  
+Total de sessões registradas: 90  
+Última atualização: 29/09/2026, 13:31  
 
 <!-- volumes:{"anteriores":0,"arquivos":[],"ate":""} -->
 
 ---
+
+## 29/09/2026, 13:31 — Caio César Borges de Oliveira
+
+Sessão 90 · 2 alteração(ões) · 843 itens no arquivo após a edição
+
+**Resumo:** 2 inativado
+
+- **[INATIVADO]** `4150600` PORTA AGULHA MAYO HEGAR 14CM
+    - Situação: "SIM" → "NAO"
+- **[INATIVADO]** `4150706` TIRAS DE AÇO PARA AMÁLGAMA
+    - Situação: "SIM" → "NAO"
+
+<!-- sessao:{"data":"2026-09-29T16:31:29.616Z","autor":"Caio César Borges de Oliveira","origem":"","total":843,"alteracoes":[{"tipo":"inativado","codigo":"4150600","material":"PORTA AGULHA MAYO HEGAR 14CM","campos":[{"campo":"ativo","de":"SIM","para":"NAO"}]},{"tipo":"inativado","codigo":"4150706","material":"TIRAS DE AÇO PARA AMÁLGAMA","campos":[{"campo":"ativo","de":"SIM","para":"NAO"}]}]} -->
 
 ## 29/09/2026, 12:49 — Caio César Borges de Oliveira
 
