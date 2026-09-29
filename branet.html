@@ -38,6 +38,7 @@
 .linha-celk .codigo-celk{font-size:12px}
 .modal-secao{border-top:1px solid var(--borda);padding-top:12px;display:flex;flex-direction:column;gap:8px}
 .modal-secao h3{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--texto2);font-weight:700}
+.modal-largo{grid-column:1/-1}
 .modal-desc{margin:0;font-size:14px;line-height:1.6;white-space:pre-line;background:var(--campo);border-radius:var(--raio-pequeno);padding:12px 14px}
 
 /* ============================ impressão ============================
@@ -170,7 +171,7 @@
 
   <footer class="rodape">
     <p>Fotos ilustrativas. Marca e apresentação podem variar conforme a compra vigente.</p>
-    <p>GT Padronização de Materiais, Insumos e Equipamentos · catálogo BRANET · versão 2026-09-29a</p>
+    <p>GT Padronização de Materiais, Insumos e Equipamentos · catálogo BRANET · versão 2026-09-29b</p>
   </footer>
 </div>
 
@@ -365,10 +366,10 @@ function abrirModal(bc){
     '<div class="modal-secao"><h3>No catálogo da rede (CELK)</h3><dl class="modal-dados">'+
       '<dt>Código</dt><dd>'+esc(i.c)+'</dd><dt>Material</dt><dd>'+esc(i.m)+'</dd>'+
       '<dt>Grupo</dt><dd>'+esc(i.g+' · '+i.sg)+'</dd><dt>Unidade de pedido</dt><dd>'+esc(i.u)+'</dd></dl></div>'+
-    '<div class="modal-secao"><h3>Descritivo</h3><p class="modal-desc">'+(i.d?esc(i.d):'Descritivo ainda não preenchido.')+'</p></div>'+
     '<div class="modal-acoes"><button type="button" class="btn-solido" data-copiar="'+esc(i.bc)+'">Copiar código</button>'+
       '<button type="button" class="btn-contorno" data-copiar="'+esc(i.bcli)+'">Copiar código cliente</button></div>'+
-    '<p class="aviso-fotos-modal">Foto ilustrativa. A marca e a apresentação do produto entregue podem variar conforme a compra vigente.</p></div>';
+    '<p class="aviso-fotos-modal">Foto ilustrativa. A marca e a apresentação do produto entregue podem variar conforme a compra vigente.</p></div>'+
+    '<div class="modal-secao modal-largo"><h3>Descritivo</h3><p class="modal-desc">'+(i.d?esc(i.d):'Descritivo ainda não preenchido.')+'</p></div>';
   $('#modal-produto').hidden=false;
 }
 document.addEventListener('click',e=>{
