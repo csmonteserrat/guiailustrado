@@ -4,12 +4,33 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 90  
-Última atualização: 30/09/2026, 09:51  
+Total de sessões registradas: 91  
+Última atualização: 30/09/2026, 15:15  
 
 <!-- volumes:{"anteriores":0,"arquivos":[],"ate":""} -->
 
 ---
+
+## 30/09/2026, 15:15 — Caio César Borges de Oliveira
+
+Sessão 91 · 3 alteração(ões) · 843 itens no arquivo após a edição
+
+**Origem:** relatório do CELK emitido em 30/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 12, 14, 15, 13.
+
+**Resumo:** 3 editado
+
+- **[EDITADO]** `4150491` CHAVE PARA PONTA DE ULTRASSOM UNIVERSAL
+    - Material: "CHAVE PARA INSERTO DE ULTRASSOM/CHAVE TORQUE UNIVERSAL" → "CHAVE PARA PONTA DE ULTRASSOM UNIVERSAL"
+- **[EDITADO]** `4150688` LÁPIS CÓPIA (PROTESE)
+    - Grupo: "15" → "13"
+    - Subgrupo: "CEO" → "Odontologia"
+    - Acesso: "CEO" → "TODOS"
+- **[EDITADO]** `4150691` LENÇOL DE BORRACHA (CAIXA COM 26)
+    - Grupo: "15" → "13"
+    - Subgrupo: "CEO" → "Odontologia"
+    - Acesso: "CEO" → "TODOS"
+
+<!-- sessao:{"data":"2026-09-30T18:15:15.957Z","autor":"Caio César Borges de Oliveira","origem":"relatório do CELK emitido em 30/09/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 12, 14, 15, 13","total":843,"alteracoes":[{"tipo":"editado","codigo":"4150491","material":"CHAVE PARA PONTA DE ULTRASSOM UNIVERSAL","campos":[{"campo":"material","de":"CHAVE PARA INSERTO DE ULTRASSOM/CHAVE TORQUE UNIVERSAL","para":"CHAVE PARA PONTA DE ULTRASSOM UNIVERSAL"}]},{"tipo":"editado","codigo":"4150688","material":"LÁPIS CÓPIA (PROTESE)","campos":[{"campo":"grupo","de":"15","para":"13"},{"campo":"subgrupo","de":"CEO","para":"Odontologia"},{"campo":"acesso","de":"CEO","para":"TODOS"}]},{"tipo":"editado","codigo":"4150691","material":"LENÇOL DE BORRACHA (CAIXA COM 26)","campos":[{"campo":"grupo","de":"15","para":"13"},{"campo":"subgrupo","de":"CEO","para":"Odontologia"},{"campo":"acesso","de":"CEO","para":"TODOS"}]}]} -->
 
 ## 30/09/2026, 09:51 — Caio César Borges de Oliveira
 
