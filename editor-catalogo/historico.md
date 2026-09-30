@@ -4,12 +4,23 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 91  
-Última atualização: 30/09/2026, 15:15  
+Total de sessões registradas: 92  
+Última atualização: 30/09/2026, 15:29  
 
 <!-- volumes:{"anteriores":0,"arquivos":[],"ate":""} -->
 
 ---
+
+## 30/09/2026, 15:29 — Caio César Borges de Oliveira
+
+Sessão 92 · 1 alteração(ões)
+
+**Resumo:** 1 foto
+
+- **[FOTO]** `4150641` ESCOVA DENTAL PLASTICA PARA BEBE
+    - foto adicionada · imagens/4150641.jpg
+
+<!-- sessao:{"data":"2026-09-30T18:29:05.716Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4150641","material":"ESCOVA DENTAL PLASTICA PARA BEBE","resumo":"foto adicionada · imagens/4150641.jpg"}]} -->
 
 ## 30/09/2026, 15:15 — Caio César Borges de Oliveira
 
