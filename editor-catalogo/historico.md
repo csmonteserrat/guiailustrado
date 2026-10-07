@@ -4,12 +4,33 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 92  
-Última atualização: 30/09/2026, 15:29  
+Total de sessões registradas: 93  
+Última atualização: 07/10/2026, 14:01  
 
 <!-- volumes:{"anteriores":0,"arquivos":[],"ate":""} -->
 
 ---
+
+## 07/10/2026, 14:01 — Caio César Borges de Oliveira
+
+Sessão 93 · 2 alteração(ões) · 844 itens no arquivo após a edição
+
+**Resumo:** 1 editado · 1 novo
+
+- **[EDITADO]** `4150649` FIO DE NYLON 4-0 (ODONTO)
+    - Material: "FIO DE NYLON PARA CONTENÇÃO DENTAL" → "FIO DE NYLON 4-0 (ODONTO)"
+- **[NOVO]** `4151287` CARIOSTATICO 30% 5ML
+    - Código: 4151287
+    - Material: CARIOSTATICO 30% 5ML
+    - Unidade de pedido: U - Unidade
+    - Grupo: 13
+    - Subgrupo: Odontologia
+    - Acesso: TODOS
+    - Tipo: Consumo
+    - Arquivo da imagem: 4151287.jpg
+    - Situação: SIM
+
+<!-- sessao:{"data":"2026-10-07T17:01:03.448Z","autor":"Caio César Borges de Oliveira","origem":"","total":844,"alteracoes":[{"tipo":"editado","codigo":"4150649","material":"FIO DE NYLON 4-0 (ODONTO)","campos":[{"campo":"material","de":"FIO DE NYLON PARA CONTENÇÃO DENTAL","para":"FIO DE NYLON 4-0 (ODONTO)"}]},{"tipo":"novo","codigo":"4151287","material":"CARIOSTATICO 30% 5ML","campos":[],"dados":{"codigo":"4151287","material":"CARIOSTATICO 30% 5ML","unidade":"U - Unidade","grupo":"13","subgrupo":"Odontologia","acesso":"TODOS","tipo":"Consumo","imagem":"4151287.jpg","ativo":"SIM"}}]} -->
 
 ## 30/09/2026, 15:29 — Caio César Borges de Oliveira
 
