@@ -4,12 +4,36 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 93  
-Última atualização: 07/10/2026, 14:01  
+Total de sessões registradas: 94  
+Última atualização: 07/10/2026, 14:03  
 
 <!-- volumes:{"anteriores":0,"arquivos":[],"ate":""} -->
 
 ---
+
+## 07/10/2026, 14:03 — Caio César Borges de Oliveira
+
+Sessão 94 · 3 alteração(ões) · 844 itens no arquivo após a edição
+
+**Resumo:** 1 editado · 2 descritivo
+
+- **[EDITADO]** `4151287` CARIOSTATICO 30% 5ML
+    - Tags: "" → "Odontopediatria;Prevenção"
+    - Família: "" → "Selantes e cariostático"
+- **[DESCRITIVO]** `4150615` CARIOSTÁTICO 12% 10 ML
+    - Nome no descritivo: "CARIOSTÁTICO" → ""
+    - Descritivo: "Características: cariostático a 30%. Solução aquosa com ácido fluorídrico, nitrato de prata e hidróxido de amônia, que reagem formando fluoreto de cálcio e fosfato de prata na presença de dentina.
+ Indicação: impedir a instalação de cárie e interromper sua progressão quando já iniciada, tanto em esmalte quanto em dentina.
+ Apresentação: embalagem primária: frasco de vidro com tampa rosca, contendo 10 ml do produto, Embalagem secundária: caixa de papel com dados de identificação, lote, procedência e rastreabilidade, responsável técnico, garantia, certificações (fabricado de acordo com padrões internacionais de qualidade, normas da ABNT) e registro na ANVISA." → ""
+    - Unidade de compra: "Frasco" → ""
+- **[DESCRITIVO]** `4151287` CARIOSTATICO 30% 5ML
+    - Nome no descritivo: "" → "CARIOSTÁTICO"
+    - Descritivo: "" → "Características: cariostático a 30%. Solução aquosa com ácido fluorídrico, nitrato de prata e hidróxido de amônia, que reagem formando fluoreto de cálcio e fosfato de prata na presença de dentina.
+ Indicação: impedir a instalação de cárie e interromper sua progressão quando já iniciada, tanto em esmalte quanto em dentina.
+ Apresentação: embalagem primária: frasco de vidro com tampa rosca, contendo 10 ml do produto, Embalagem secundária: caixa de papel com dados de identificação, lote, procedência e rastreabilidade, responsável técnico, garantia, certificações (fabricado de acordo com padrões internacionais de qualidade, normas da ABNT) e registro na ANVISA."
+    - Unidade de compra: "" → "Frasco"
+
+<!-- sessao:{"data":"2026-10-07T17:03:49.489Z","autor":"Caio César Borges de Oliveira","origem":"","total":844,"alteracoes":[{"tipo":"editado","codigo":"4151287","material":"CARIOSTATICO 30% 5ML","campos":[{"campo":"especialidade","de":"","para":"Odontopediatria;Prevenção"},{"campo":"familia","de":"","para":"Selantes e cariostático"}]},{"tipo":"descritivo","codigo":"4150615","material":"CARIOSTÁTICO 12% 10 ML","campos":[{"campo":"nome_descritivo","de":"CARIOSTÁTICO","para":""},{"campo":"descritivo","de":"Características: cariostático a 30%. Solução aquosa com ácido fluorídrico, nitrato de prata e hidróxido de amônia, que reagem formando fluoreto de cálcio e fosfato de prata na presença de dentina.\n Indicação: impedir a instalação de cárie e interromper sua progressão quando já iniciada, tanto em esmalte quanto em dentina.\n Apresentação: embalagem primária: frasco de vidro com tampa rosca, contendo 10 ml do produto, Embalagem secundária: caixa de papel com dados de identificação, lote, procedência e rastreabilidade, responsável técnico, garantia, certificações (fabricado de acordo com padrões internacionais de qualidade, normas da ABNT) e registro na ANVISA.","para":""},{"campo":"unidade_compra","de":"Frasco","para":""}]},{"tipo":"descritivo","codigo":"4151287","material":"CARIOSTATICO 30% 5ML","campos":[{"campo":"nome_descritivo","de":"","para":"CARIOSTÁTICO"},{"campo":"descritivo","de":"","para":"Características: cariostático a 30%. Solução aquosa com ácido fluorídrico, nitrato de prata e hidróxido de amônia, que reagem formando fluoreto de cálcio e fosfato de prata na presença de dentina.\n Indicação: impedir a instalação de cárie e interromper sua progressão quando já iniciada, tanto em esmalte quanto em dentina.\n Apresentação: embalagem primária: frasco de vidro com tampa rosca, contendo 10 ml do produto, Embalagem secundária: caixa de papel com dados de identificação, lote, procedência e rastreabilidade, responsável técnico, garantia, certificações (fabricado de acordo com padrões internacionais de qualidade, normas da ABNT) e registro na ANVISA."},{"campo":"unidade_compra","de":"","para":"Frasco"}]}]} -->
 
 ## 07/10/2026, 14:01 — Caio César Borges de Oliveira
 
