@@ -4,12 +4,28 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 98  
-Última atualização: 14/10/2026, 17:34  
+Total de sessões registradas: 99  
+Última atualização: 14/10/2026, 17:38  
 
 <!-- volumes:{"anteriores":0,"arquivos":[],"ate":""} -->
 
 ---
+
+## 14/10/2026, 17:38 — Ana Carolina Oliveira Peres
+
+Sessão 99 · 2 alteração(ões) · 844 itens no arquivo após a edição
+
+**Resumo:** 2 descritivo
+
+- **[DESCRITIVO]** `4150524` BENZOCAINA ANESTESICO TOPICO 200MG/G (12G)
+    - Descritivo: "" → "Anestésico tópico à base de benzocaína. Indicada para aplicação tópica em mucosa oral. Apresentação: gel sabor tutti-frutti, com 20% de benzocaína, consistência semisólida, coloração rosa translúcida, atóxico, acondicionado em pote plástico de 12g. Apresentação: Embalagem interna no formato de pote plástico contendo 12g do produto, com marca, lote e data de validade impressas. Embalagem externa: caixa de papelão com dados de identificação, lote, procedência, rastreabilidade, responsável técnico, garantia, certificações de qualidade conforme padrões internacionais e normas da ABNT, além do registro na ANVISA."
+- **[DESCRITIVO]** `4150814` FACILITADOR DE GODOY ADULTO/INFANTIL (KIT)
+    - Descritivo: "" → "Estabilizador de GOooy. Dispositivo de estabilização protetora para pacientes com distúrbios neuromotores, paralisia cerebral, lesão medular, hipotonia cervical ou deficiências que dificultam a colaboração durante o procedimento. O kit é composto por: • Assento com velcros (membros inferiores): Imobiliza as pernas - confeccionado em courvin acoplado com espuma em estrutura de madeira com alças em velcro, com comprimento de aprox 112 cm, largura de 45 cm em base proximal ao assento e 35 cm em base de apoio para os pés. • Blusa Superior: Confeccionada em tela com alças em velcro. Adulto: 95cm comp X 50cm largura. Infantil: 60cm comp x 45cm largura.
+• Blusa inferior: Confeccionados em tela com alças em velcro. Adulto: 85cm comp X 50cm largura. Infantil: 60cm comp x 40cm largura.
+• Triângulo lombar: confeccionado em courvin e espuma, acoplado em entrutura de madeira, com alças em velcro medindo aprox 50cm na base e 25cm de altura.
+• Colar cervical regulável: confeccionado em estrutura plástica semi-rígida, espuma plástica e velcro tam M. Apresentação: Kit contendo 1 unidade de cada item. Embalagem externa deve conter dados de identificação, lote, procedência, rastreabilidade, responsável técnico, garantia, certificações de qualidade conforme padrões internacionais e normas da ABNT, além do registro na ANVISA."
+
+<!-- sessao:{"data":"2026-10-14T20:38:56.256Z","autor":"Ana Carolina Oliveira Peres","origem":"","total":844,"alteracoes":[{"tipo":"descritivo","codigo":"4150524","material":"BENZOCAINA ANESTESICO TOPICO 200MG/G (12G)","campos":[{"campo":"descritivo","de":"","para":"Anestésico tópico à base de benzocaína. Indicada para aplicação tópica em mucosa oral. Apresentação: gel sabor tutti-frutti, com 20% de benzocaína, consistência semisólida, coloração rosa translúcida, atóxico, acondicionado em pote plástico de 12g. Apresentação: Embalagem interna no formato de pote plástico contendo 12g do produto, com marca, lote e data de validade impressas. Embalagem externa: caixa de papelão com dados de identificação, lote, procedência, rastreabilidade, responsável técnico, garantia, certificações de qualidade conforme padrões internacionais e normas da ABNT, além do registro na ANVISA."}]},{"tipo":"descritivo","codigo":"4150814","material":"FACILITADOR DE GODOY ADULTO/INFANTIL (KIT)","campos":[{"campo":"descritivo","de":"","para":"Estabilizador de GOooy. Dispositivo de estabilização protetora para pacientes com distúrbios neuromotores, paralisia cerebral, lesão medular, hipotonia cervical ou deficiências que dificultam a colaboração durante o procedimento. O kit é composto por: • Assento com velcros (membros inferiores): Imobiliza as pernas - confeccionado em courvin acoplado com espuma em estrutura de madeira com alças em velcro, com comprimento de aprox 112 cm, largura de 45 cm em base proximal ao assento e 35 cm em base de apoio para os pés. • Blusa Superior: Confeccionada em tela com alças em velcro. Adulto: 95cm comp X 50cm largura. Infantil: 60cm comp x 45cm largura.\n• Blusa inferior: Confeccionados em tela com alças em velcro. Adulto: 85cm comp X 50cm largura. Infantil: 60cm comp x 40cm largura.\n• Triângulo lombar: confeccionado em courvin e espuma, acoplado em entrutura de madeira, com alças em velcro medindo aprox 50cm na base e 25cm de altura.\n• Colar cervical regulável: confeccionado em estrutura plástica semi-rígida, espuma plástica e velcro tam M. Apresentação: Kit contendo 1 unidade de cada item. Embalagem externa deve conter dados de identificação, lote, procedência, rastreabilidade, responsável técnico, garantia, certificações de qualidade conforme padrões internacionais e normas da ABNT, além do registro na ANVISA."}]}]} -->
 
 ## 14/10/2026, 17:34 — Caio César Borges de Oliveira
 
