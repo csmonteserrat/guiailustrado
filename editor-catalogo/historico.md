@@ -4,12 +4,43 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 97  
-Última atualização: 14/10/2026, 16:56  
+Total de sessões registradas: 98  
+Última atualização: 14/10/2026, 17:34  
 
 <!-- volumes:{"anteriores":0,"arquivos":[],"ate":""} -->
 
 ---
+
+## 14/10/2026, 17:34 — Caio César Borges de Oliveira
+
+Sessão 98 · 11 alteração(ões) · 844 itens no arquivo após a edição
+
+**Resumo:** 11 editado
+
+- **[EDITADO]** `4150500` AGULHA GENGIVAL CURTA 30 G DESCARTÁVEL (CAIXA COM 100 UNIDADES)
+    - Tags: "Anestesia" → "Cirurgia;Clínica Geral"
+- **[EDITADO]** `4150502` AGULHA GENGIVAL EXTRA CURTA 30 G DESCARTÁVEL (CAIXA COM 100 UNIDADES)
+    - Tags: "Anestesia" → "Cirurgia;Clínica Geral"
+- **[EDITADO]** `4150513` ANESTÉSICO INJ MEPIVACAÍNA 2% COM VASOC EPINEFRINA 1:100.000 (CAIXA COM 50 TUBETES)
+    - Tags: "Anestesia" → "Cirurgia;Clínica Geral"
+- **[EDITADO]** `4150508` ANESTÉSICO INJETÁVEL ARTICAÍNA 4% COM EPINEFRINA (CAIXA COM 50 TUBETES)
+    - Tags: "Anestesia" → "Cirurgia;Clínica Geral"
+- **[EDITADO]** `4150511` ANESTÉSICO INJETÁVEL LIDOCAÍNA COM EPINEFRINA 1:100.000 (CAIXA COM 50 TUBETES)
+    - Tags: "Anestesia" → "Cirurgia;Clínica Geral"
+- **[EDITADO]** `4150524` BENZOCAINA ANESTESICO TOPICO 200MG/G (12G)
+    - Tags: "Anestesia" → "Odontopediatria"
+- **[EDITADO]** `4150689` SERINGA CARPULE COM REFLUXO
+    - Tags: "Anestesia" → "Clínica Geral"
+- **[EDITADO]** `4151189` AGULHA GENGIVAL LONGA 27 G DESCARTÁVEL (CAIXA COM 100 UNIDADES)
+    - Tags: "Anestesia;Cirurgia" → "Cirurgia;Clínica Geral"
+- **[EDITADO]** `4151196` ANESTÉSICO INJ MEPIVACAÍNA 3% SEM VASO (CAIXA COM 50 TUBETES)
+    - Tags: "Anestesia" → "Cirurgia;Clínica Geral"
+- **[EDITADO]** `4151206` ANESTESICO PRILOCAINA 3% COM VASOCONSTRUTOR FELIPRESSINA(CX50)
+    - Tags: "Anestesia" → "Cirurgia"
+- **[EDITADO]** `4151268` BENZOCAINA ANESTESICO TOPICO 200MG/G (30G)
+    - Tags: "Anestesia" → "Odontopediatria"
+
+<!-- sessao:{"data":"2026-10-14T20:34:38.945Z","autor":"Caio César Borges de Oliveira","origem":"","total":844,"alteracoes":[{"tipo":"editado","codigo":"4150500","material":"AGULHA GENGIVAL CURTA 30 G DESCARTÁVEL (CAIXA COM 100 UNIDADES)","campos":[{"campo":"especialidade","de":"Anestesia","para":"Cirurgia;Clínica Geral"}]},{"tipo":"editado","codigo":"4150502","material":"AGULHA GENGIVAL EXTRA CURTA 30 G DESCARTÁVEL (CAIXA COM 100 UNIDADES)","campos":[{"campo":"especialidade","de":"Anestesia","para":"Cirurgia;Clínica Geral"}]},{"tipo":"editado","codigo":"4150513","material":"ANESTÉSICO INJ MEPIVACAÍNA 2% COM VASOC EPINEFRINA 1:100.000 (CAIXA COM 50 TUBETES)","campos":[{"campo":"especialidade","de":"Anestesia","para":"Cirurgia;Clínica Geral"}]},{"tipo":"editado","codigo":"4150508","material":"ANESTÉSICO INJETÁVEL ARTICAÍNA 4% COM EPINEFRINA (CAIXA COM 50 TUBETES)","campos":[{"campo":"especialidade","de":"Anestesia","para":"Cirurgia;Clínica Geral"}]},{"tipo":"editado","codigo":"4150511","material":"ANESTÉSICO INJETÁVEL LIDOCAÍNA COM EPINEFRINA 1:100.000 (CAIXA COM 50 TUBETES)","campos":[{"campo":"especialidade","de":"Anestesia","para":"Cirurgia;Clínica Geral"}]},{"tipo":"editado","codigo":"4150524","material":"BENZOCAINA ANESTESICO TOPICO 200MG/G (12G)","campos":[{"campo":"especialidade","de":"Anestesia","para":"Odontopediatria"}]},{"tipo":"editado","codigo":"4150689","material":"SERINGA CARPULE COM REFLUXO","campos":[{"campo":"especialidade","de":"Anestesia","para":"Clínica Geral"}]},{"tipo":"editado","codigo":"4151189","material":"AGULHA GENGIVAL LONGA 27 G DESCARTÁVEL (CAIXA COM 100 UNIDADES)","campos":[{"campo":"especialidade","de":"Anestesia;Cirurgia","para":"Cirurgia;Clínica Geral"}]},{"tipo":"editado","codigo":"4151196","material":"ANESTÉSICO INJ MEPIVACAÍNA 3% SEM VASO (CAIXA COM 50 TUBETES)","campos":[{"campo":"especialidade","de":"Anestesia","para":"Cirurgia;Clínica Geral"}]},{"tipo":"editado","codigo":"4151206","material":"ANESTESICO PRILOCAINA 3% COM VASOCONSTRUTOR FELIPRESSINA(CX50)","campos":[{"campo":"especialidade","de":"Anestesia","para":"Cirurgia"}]},{"tipo":"editado","codigo":"4151268","material":"BENZOCAINA ANESTESICO TOPICO 200MG/G (30G)","campos":[{"campo":"especialidade","de":"Anestesia","para":"Odontopediatria"}]}]} -->
 
 ## 14/10/2026, 16:56 — Ana Carolina Oliveira Peres
 
