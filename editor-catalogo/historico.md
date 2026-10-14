@@ -4,12 +4,25 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 96  
-Última atualização: 14/10/2026, 16:34  
+Total de sessões registradas: 97  
+Última atualização: 14/10/2026, 16:56  
 
 <!-- volumes:{"anteriores":0,"arquivos":[],"ate":""} -->
 
 ---
+
+## 14/10/2026, 16:56 — Ana Carolina Oliveira Peres
+
+Sessão 97 · 2 alteração(ões) · 844 itens no arquivo após a edição
+
+**Resumo:** 1 inativado · 1 descritivo
+
+- **[INATIVADO]** `4150785` ALAVANCA TIPO SELDIN COM CURVATURA E RANHURAS
+    - Situação: "SIM" → "NAO"
+- **[DESCRITIVO]** `4151226` ALICATE BICO DE PAPAGAIO Nº 115 EM ACO INOX
+    - Descritivo: "" → "Alicate Bico de Papagaio Nº 115. Instrumental de uso odontológico, indicado para remoção de bandas ortodônticas. Fabricado em aço inoxidável AISI-420, autoclavável, com pontas curvas em formato bico de papagaio. Design ergonômico. Comprimento aproximado de 13cm e peso aproximado de 70g. Marca e lote impressos no corpo do instrumental. Apresentação: Embalagem contendo 1 unidade. A embalagem deve conter dados de identificação, lote, procedência, rastreabilidade, responsável técnico, garantia, certificações de qualidade conforme padrões internacionais e normas da ABNT, além do registro na ANVISA."
+
+<!-- sessao:{"data":"2026-10-14T19:56:13.201Z","autor":"Ana Carolina Oliveira Peres","origem":"","total":844,"alteracoes":[{"tipo":"inativado","codigo":"4150785","material":"ALAVANCA TIPO SELDIN COM CURVATURA E RANHURAS","campos":[{"campo":"ativo","de":"SIM","para":"NAO"}]},{"tipo":"descritivo","codigo":"4151226","material":"ALICATE BICO DE PAPAGAIO Nº 115 EM ACO INOX","campos":[{"campo":"descritivo","de":"","para":"Alicate Bico de Papagaio Nº 115. Instrumental de uso odontológico, indicado para remoção de bandas ortodônticas. Fabricado em aço inoxidável AISI-420, autoclavável, com pontas curvas em formato bico de papagaio. Design ergonômico. Comprimento aproximado de 13cm e peso aproximado de 70g. Marca e lote impressos no corpo do instrumental. Apresentação: Embalagem contendo 1 unidade. A embalagem deve conter dados de identificação, lote, procedência, rastreabilidade, responsável técnico, garantia, certificações de qualidade conforme padrões internacionais e normas da ABNT, além do registro na ANVISA."}]}]} -->
 
 ## 14/10/2026, 16:34 — Ana Carolina Oliveira Peres
 
