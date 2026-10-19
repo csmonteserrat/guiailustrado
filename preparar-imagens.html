@@ -10,141 +10,125 @@
    etiquetas) fica em admin.css. Aqui ficam só as regras desta
    página. */
 
-/* Esta página usa textos maiores que as demais e mantém a
-   entrelinha um pouco mais folgada. */
-body{line-height:1.5}
+.wrap{display:flex;flex-direction:column;gap:18px;padding-bottom:30px}
+.titulo{padding-top:6px}
+.titulo h1{font-size:30px;letter-spacing:-.028em}
+.titulo .sub{margin:5px 0 0;max-width:70ch;font-size:13.5px}
+h2{font-size:17px;margin:0 0 12px;display:flex;align-items:center;gap:10px}
+h2 .n{width:24px;height:24px;border-radius:50%;background:var(--acento-suave);color:var(--acento-texto);display:grid;
+  place-items:center;font-size:12px;font-weight:700;flex:none}
+.painel{background:var(--superficie);border-radius:var(--raio);padding:18px 20px;box-shadow:var(--sombra)}
+button.sec{background:var(--neutro)}
+.etiqueta{font-size:12px;font-weight:500;padding:2px 10px;border-radius:999px;background:var(--acento-suave);color:var(--acento-texto)}
 
-.wrap{max-width:1040px;margin:0 auto;padding:26px 18px 70px}
-h1{font-size:22px;font-weight:600;margin:0 0 4px}
-h2{font-size:15px;font-weight:600;margin:0 0 10px}
-.sub{color:var(--secundario);font-size:14px;margin-bottom:22px}
-.painel{background:#fff;border:1px solid var(--linha);border-radius:12px;padding:18px;margin-bottom:14px}
+/* situação das fotos */
+.progresso{height:8px;background:var(--neutro);border-radius:4px;overflow:hidden;margin:4px 0 14px}
+.progresso i{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,var(--acento),var(--curacao));width:0;transition:width 1s var(--mola)}
+.numeros{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.numeros div{background:var(--neutro);border-radius:14px;padding:11px 14px}
+.numeros b{display:block;font:700 22px/1.1 var(--fonte-titulo);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.numeros span{font-size:12.5px;color:var(--secundario)}
 
-button{font:inherit;font-size:14px;padding:9px 16px;border-radius:8px;border:none;
-  background:var(--azul);color:#fff;cursor:pointer}
-button:disabled{opacity:.45;cursor:default}
-button.sec{background:#fff;color:var(--texto);border:1px solid var(--linha)}
-button.mini{font-size:12px;padding:5px 10px}
-input[type=text],input[type=search],input[type=number]{font:inherit;font-size:14px;padding:8px 10px;
-  border:1px solid var(--linha);border-radius:8px;background:#fff;color:var(--texto)}
-input[type=file]{display:none}
-.barra{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-
-.progresso{height:9px;background:var(--linha);border-radius:20px;overflow:hidden;margin:10px 0 8px}
-.progresso i{display:block;height:100%;background:var(--verde);width:0;transition:width .4s}
-.numeros{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--secundario)}
-.numeros b{color:var(--texto);font-weight:600}
-#zona{border:2px dashed var(--azul);background:var(--azul-suave);border-radius:12px;
-  padding:38px 20px;text-align:center;cursor:pointer;transition:.15s}
-#zona:hover,#zona.ativo{background:#dde3fb}
-#zona strong{display:block;font-size:16px;margin-bottom:5px}
+/* zona de envio */
+#zona{border:1.5px dashed var(--terciario);border-radius:20px;padding:32px 20px;text-align:center;cursor:pointer;
+  transition:background .2s,border-color .2s,transform .2s var(--mola)}
+#zona:hover,#zona.ativo{background:var(--acento-suave);border-color:var(--acento);transform:scale(1.005)}
+#zona .ic{width:48px;height:48px;border-radius:14px;margin:0 auto 10px;background:var(--acento-suave);color:var(--acento-texto);display:grid;place-items:center}
+#zona strong{display:block;font:600 17px var(--fonte-titulo);letter-spacing:-.01em;margin-bottom:3px}
 #zona span{color:var(--secundario);font-size:13px}
-.fila{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:12px;margin-top:16px}
-.foto{border:1px solid var(--linha);border-radius:10px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
-.foto.pendente{border-color:var(--laranja);background:var(--laranja-suave)}
-.foto.pronta{border-color:var(--verde)}
-.foto img{width:100%;display:block;background:#fff;aspect-ratio:1;object-fit:contain}
-.foto .corpo{padding:9px;font-size:12px;flex:1;display:flex;flex-direction:column;gap:6px}
-.foto .cod{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;color:var(--azul)}
-.foto .nome{color:var(--secundario);font-size:11px;line-height:1.35}
-.foto .aviso{color:var(--laranja);font-size:11px}
-.foto .acoes{display:flex;gap:6px;margin-top:auto}
-.fundo-modal{position:fixed;inset:0;background:rgba(48,57,82,.55);display:flex;
-  align-items:flex-start;justify-content:center;padding:24px 14px;z-index:50}
-.modal{background:#fff;border-radius:14px;width:100%;max-width:620px;max-height:88vh;
-  display:flex;flex-direction:column;overflow:hidden}
-.modal header{padding:16px 18px 12px;border-bottom:1px solid var(--linha)}
+
+/* opções: chave para aparar, passos para o lado */
+.opcoes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin-top:14px}
+.opcoes>label,.opcoes>div{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--neutro);border-radius:12px;padding:9px 14px;font-size:13.5px;cursor:pointer}
+#aparar{appearance:none;width:44px;height:26px;border-radius:13px;background:var(--terciario);position:relative;flex:none;cursor:pointer;transition:background .2s;margin:0}
+#aparar::after{content:"";position:absolute;top:2px;left:2px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:transform .22s cubic-bezier(.3,1.4,.5,1)}
+#aparar:checked{background:var(--ok)}
+#aparar:checked::after{transform:translateX(18px)}
+.passo{display:inline-flex;align-items:center;background:var(--superficie);border-radius:9px;box-shadow:0 1px 2px rgba(0,0,0,.1);overflow:hidden}
+.passo button{width:30px;height:28px;padding:0;border-radius:0;background:none;color:var(--acento-texto);font-size:16px}
+.passo input{width:58px;text-align:center;background:none;padding:4px 0;border-radius:0;font-weight:600;-moz-appearance:textfield}
+.passo input::-webkit-outer-spin-button,.passo input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.resumo{font-size:13px;color:var(--secundario)}
+
+/* fila de fotos */
+.fila{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-top:16px}
+.foto{border-radius:18px;overflow:hidden;background:var(--superficie);display:flex;flex-direction:column;
+  box-shadow:0 0 0 1px var(--linha),var(--sombra);position:relative;animation:entrar .3s var(--mola)}
+@keyframes entrar{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
+.foto.pendente{box-shadow:0 0 0 2px var(--sawtooth-suave),var(--sombra)}
+.foto img{width:100%;display:block;background:#fff;aspect-ratio:1;object-fit:contain;border-bottom:1px solid var(--linha)}
+.foto .selo{position:absolute;left:10px;top:10px;font-size:11.5px;font-weight:600;padding:3px 10px;border-radius:999px;
+  background:var(--superficie) !important;box-shadow:0 1px 4px rgba(0,0,0,.14)}
+.foto.pronta .selo{background:var(--ok-suave);color:var(--ok)}
+.foto.pendente .selo{background:var(--sawtooth-suave);color:var(--sawtooth)}
+.foto .corpo{padding:11px 13px 13px;font-size:12.5px;flex:1;display:flex;flex-direction:column;gap:4px}
+.foto .cod{font-family:var(--fonte-mono);font-size:12.5px;color:var(--corn)}
+.foto .nome{color:var(--texto);font-size:12.5px;font-weight:500;line-height:1.35}
+.foto .aviso{color:var(--sawtooth);font-size:12px}
+.foto .acoes{display:flex;gap:6px;margin-top:auto;padding-top:8px}
+
+/* seletor de material */
+.fundo-modal{position:fixed;inset:0;background:var(--veu);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;
+  align-items:flex-start;justify-content:center;padding:5vh 14px;z-index:50;animation:surgir .2s ease}
+.modal{background:var(--superficie);border-radius:24px;width:100%;max-width:620px;max-height:88vh;
+  display:flex;flex-direction:column;overflow:hidden;box-shadow:var(--sombra-alta);animation:subir .35s var(--mola)}
+.modal header{padding:18px 20px 12px;border-bottom:1px solid var(--linha)}
 .modal header .tit{display:flex;gap:12px;align-items:center;justify-content:space-between}
+.modal header input[type=search]{width:100%;margin-top:12px}
 .modal .lista{overflow:auto;padding:6px}
-.opcao{padding:10px 12px;border-radius:8px;cursor:pointer;display:flex;gap:10px;align-items:baseline}
-.opcao:hover{background:var(--azul-suave)}
-.opcao .c{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:var(--azul);flex:none}
-.opcao .m{font-size:13px}
-.opcao .t{font-size:11px;color:var(--secundario);margin-left:auto;flex:none;padding-left:10px}
+.opcao{padding:10px 12px;border-radius:12px;cursor:pointer;display:flex;gap:10px;align-items:baseline}
+.opcao:hover{background:var(--acento-suave)}
+.opcao .c{font-family:var(--fonte-mono);font-size:12.5px;color:var(--corn);flex:none}
+.opcao .m{font-size:13.5px}
+.opcao .t{font-size:12px;color:var(--secundario);margin-left:auto;flex:none;padding-left:10px}
 .opcao.temfoto .m{color:var(--secundario)}
+@keyframes surgir{from{opacity:0}to{opacity:1}}
+@keyframes subir{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
+
 .vazio{padding:22px;text-align:center;color:var(--secundario);font-size:13px}
-.nota{background:var(--laranja-suave);border-left:3px solid var(--laranja);
-  border-radius:8px;padding:11px 13px;font-size:13px;margin-top:12px}
-.nota.info{background:var(--azul-suave);border-color:var(--azul)}
+.nota{background:var(--sawtooth-suave);border-radius:14px;padding:11px 14px;font-size:13px;margin-top:12px}
+.nota.info{background:var(--acento-suave)}
 .cfg{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:13px;color:var(--secundario)}
-.cfg label{display:flex;gap:7px;align-items:center;cursor:pointer}
-ol{padding-left:20px;font-size:14px;color:var(--secundario);margin:0}
+ol{padding-left:20px;font-size:13.5px;color:var(--secundario);margin:0}
 ol li{margin-bottom:6px}
-code{background:var(--neutro);padding:1px 5px;border-radius:4px;font-size:13px}
-.etiqueta{font-size:11px;padding:2px 8px;border-radius:20px;background:var(--azul-suave);color:var(--azul)}
-
-/* =====================================================================
-   Identidade visual comum: superfícies brancas arredondadas flutuando
-   sobre fundo claro, sombras suaves no lugar de bordas e pílulas para
-   ações e filtros. Paleta Russian do Flat UI Colors com neutros.
-   ===================================================================== */
-
-.painel,.lista,.rolagem,.cartao{background:#fff;border:none !important;
-  border-radius:var(--raio);box-shadow:var(--sombra)}
-
-button,.pilula{font:inherit;border:none;border-radius:20px;padding:9px 17px;
-  background:#fff;color:var(--texto);box-shadow:var(--sombra);cursor:pointer;
-  white-space:nowrap;font-size:13px}
-button.principal{background:var(--peach);color:#fff}
-button.acento{background:var(--curacao);color:#fff}
-button.sec{background:#fff;color:var(--texto);border:none;box-shadow:var(--sombra)}
-button.plana{box-shadow:none;background:var(--neutro)}
-button.perigo{background:#fff;color:var(--geranium);box-shadow:var(--sombra)}
-button.mini{font-size:11.5px;padding:6px 13px}
-button:disabled{opacity:.5;cursor:default}
-
-input,select,textarea{font:inherit;border:none;border-radius:14px;background:var(--neutro);
-  color:var(--texto);padding:10px 13px;font-size:13px}
-input[type=search],input[type=text].busca{background:#fff;box-shadow:var(--sombra);border-radius:20px;padding:11px 16px}
-input[type=checkbox],input[type=radio]{width:auto;box-shadow:none;background:none}
-input[type=file]{display:none}
-select{appearance:none;background-image:none;padding-right:13px}
-
-.tag{border-radius:20px}
-.nota{border-radius:16px;border-left:3px solid}
-
-/* ---- preparar imagens ---- */
-#zona{border:2px dashed var(--curacao);background:#fff;border-radius:24px;box-shadow:var(--sombra)}
-#zona:hover,#zona.ativo{background:var(--curacao-suave)}
-.foto{border:none;border-radius:18px;box-shadow:var(--sombra);background:#fff}
-.foto.pendente{box-shadow:0 0 0 2px var(--sawtooth),var(--sombra);background:#fff}
-.foto.pronta{box-shadow:0 0 0 2px var(--curacao),var(--sombra)}
-.foto img{border-radius:14px 14px 0 0}
-.progresso{height:8px;border-radius:20px;background:var(--borda)}
-.progresso i{background:var(--curacao)}
-.modal{border-radius:24px;box-shadow:var(--sombra-alta)}
-.modal header{border-color:var(--borda)}
-.opcao{border-radius:12px}
-.fundo-modal{background:rgba(48,57,82,.45);backdrop-filter:blur(2px)}
-.etiqueta{border-radius:20px}
-
-.wrap{max-width:none;margin:0;padding:0 0 30px}
+code{background:var(--neutro);padding:1px 6px;border-radius:6px;font-size:12.5px;font-family:var(--fonte-mono)}
+@media(max-width:640px){
+  .fundo-modal{align-items:flex-end;padding:0}
+  .modal{border-radius:22px 22px 0 0}
+  .titulo h1{font-size:26px}
+  .fila{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+}
 </style>
 </head>
 <body>
 <div class="app">
-<nav class="lateral">
-  <div class="marca"><b>Admin</b>catálogo</div>
-  <a class="nav" href="admin.html"><span class="ic">&#9635;</span><span class="tx">Painel</span></a>
-  <a class="nav" href="editor-catalogo/editor-catalogo.html"><span class="ic">&#9998;</span><span class="tx">Editor</span></a>
-  <a class="nav" href="editor-catalogo/comparar-celk.html"><span class="ic">&#8646;</span><span class="tx">CELK</span></a>
-  <a class="nav" href="descritivos/descritivos.html"><span class="ic">&#9776;</span><span class="tx">Descritivos</span></a>
-  <a class="nav ativo" href="preparar-imagens.html"><span class="ic">&#9634;</span><span class="tx">Imagens</span></a>
-  <a class="nav" href="editor-catalogo/historico.html"><span class="ic">&#9711;</span><span class="tx">Histórico</span></a>
-  <a class="nav" href="tutoriais.html"><span class="ic">&#9432;</span><span class="tx">Tutoriais</span></a>
-  <a class="nav saida" href="index.html" target="_blank" rel="noopener"><span class="ic">&#8599;</span><span class="tx">Catálogo</span></a>
-  <a class="nav saida segunda" href="branet.html" target="_blank" rel="noopener"><span class="ic">&#9638;</span><span class="tx">Catálogo BRANET</span></a>
+<nav class="lateral" aria-label="Seções do admin">
+  <div class="marca"><b>Admin do catálogo</b>GT Padronização</div>
+  <a class="nav" href="admin.html"><span class="ic i-painel"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.6"/></svg></span><span class="tx">Painel</span></a>
+  <div class="grupo">Trabalho</div>
+  <a class="nav" href="editor-catalogo/editor-catalogo.html"><span class="ic i-editor"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1-4L16.5 4.5a2 2 0 013 3L8 19z"/><path d="M14.5 6.5l3 3"/></svg></span><span class="tx">Editor</span></a>
+  <a class="nav" href="editor-catalogo/comparar-celk.html"><span class="ic i-celk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h13M14 4l4 4-4 4M19 16H6M10 12l-4 4 4 4"/></svg></span><span class="tx">Comparar CELK</span></a>
+  <a class="nav" href="descritivos/descritivos.html"><span class="ic i-desc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7h11M8 12h11M8 17h11M4.5 7h.01M4.5 12h.01M4.5 17h.01"/></svg></span><span class="tx">Descritivos</span></a>
+  <a class="nav ativo" aria-current="page" href="preparar-imagens.html"><span class="ic i-imagens"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2.5"/><circle cx="9" cy="10.5" r="1.6"/><path d="M4 17l5-4.5 4 3.5 3-2.5 4 3.5"/></svg></span><span class="tx">Imagens</span></a>
+  <div class="grupo">Registro</div>
+  <a class="nav" href="editor-catalogo/historico.html"><span class="ic i-hist"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><span class="tx">Histórico</span></a>
+  <a class="nav" href="tutoriais.html"><span class="ic i-tut"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5.5A2.5 2.5 0 017.5 3H19v15H7.5A2.5 2.5 0 005 20.5z"/><path d="M5 20.5A2.5 2.5 0 007.5 23H19v-5"/></svg></span><span class="tx">Tutoriais</span></a>
+  <div class="grupo">Abrir fora</div>
+  <a class="nav saida" href="index.html" target="_blank" rel="noopener"><span class="tx">Catálogo</span><svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6H6.5A2.5 2.5 0 004 8.5v9A2.5 2.5 0 006.5 20h9a2.5 2.5 0 002.5-2.5V15M13 4h7v7M20 4l-9 9"/></svg></a>
+  <a class="nav saida" href="branet.html" target="_blank" rel="noopener"><span class="tx">Catálogo BRANET</span><svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6H6.5A2.5 2.5 0 004 8.5v9A2.5 2.5 0 006.5 20h9a2.5 2.5 0 002.5-2.5V15M13 4h7v7M20 4l-9 9"/></svg></a>
 </nav>
 <div class="coluna">
 <div class="wrap">
 
-<h1>Preparar imagens do catálogo</h1>
+<div class="titulo">
+<h1>Preparar imagens</h1>
 <p class="sub">Envie a foto do jeito que estiver, vincule ao material e a ferramenta salva já no padrão
-do catálogo: 800x800, quadrada, fundo branco e nome do código.
-Tudo acontece dentro deste computador, nenhuma imagem é enviada para a internet.</p>
+do catálogo: 800×800, quadrada, fundo branco e nome do código.
+Nenhuma imagem sai deste computador até você publicar.</p>
+</div>
 
 <div class="painel" id="painelDados">
-  <h2>1. Carregar a lista de materiais</h2>
+  <h2><span class="n">1</span>Carregar a lista de materiais</h2>
   <div id="carregando" class="sub" style="margin:0">Procurando o arquivo produtos.csv...</div>
   <div id="pedirCsv" class="oculto">
     <p class="sub" style="margin:0 0 12px">Não encontrei o <code>produtos.csv</code> automaticamente.
@@ -155,20 +139,20 @@ Tudo acontece dentro deste computador, nenhuma imagem é enviada para a internet
 </div>
 
 <div class="painel oculto" id="painelProgresso">
-  <div class="barra"><h2 style="margin:0">2. Situação das fotos</h2>
+  <div class="barra" style="margin-bottom:8px"><h2 style="margin:0"><span class="n">2</span>Situação das fotos</h2>
     <span class="etiqueta espaco" id="origemStatus">ainda não verificado</span></div>
   <div class="progresso"><i id="barra"></i></div>
   <div class="numeros" id="numeros"></div>
   <div class="barra" style="margin-top:12px">
-    <button class="sec mini" id="btVerificar">Verificar quais já têm foto</button>
-    <button class="sec mini" id="btGithub">Repositório do GitHub</button>
+    <button class="mini" id="btVerificar">Verificar quais já têm foto</button>
+    <button class="mini" id="btGithub">Repositório do GitHub</button>
   </div>
   <div id="cfgGithub" class="oculto" style="margin-top:12px">
     <div class="cfg">
       <input type="text" id="ghUser" placeholder="usuário do GitHub" style="width:180px">
       <input type="text" id="ghRepo" placeholder="nome do repositório" style="width:200px">
       <input type="text" id="ghPasta" placeholder="pasta" value="imagens" style="width:110px">
-      <button class="mini" id="btSalvarGh">Salvar e verificar</button>
+      <button class="mini principal" id="btSalvarGh">Salvar e verificar</button>
     </div>
     <div class="nota info">Com o repositório preenchido, a ferramenta consulta o GitHub e mostra quais
     materiais já receberam foto, inclusive as enviadas por outras pessoas. É apenas leitura de dados
@@ -177,25 +161,25 @@ Tudo acontece dentro deste computador, nenhuma imagem é enviada para a internet
 </div>
 
 <div class="painel oculto" id="painelFotos">
-  <h2>3. Enviar as fotos</h2>
+  <h2><span class="n">3</span>Enviar as fotos</h2>
   <div id="zona" role="button" tabindex="0">
+    <div class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V5M7 10l5-5 5 5M5 19h14"/></svg></div>
     <strong>Arraste as fotos para cá</strong>
     <span>Pode ser qualquer nome de arquivo. Aceita JPG, PNG e WEBP, várias de uma vez.</span>
   </div>
   <input type="file" id="entrada" multiple accept="image/*">
 
-  <div class="barra" style="margin-top:14px">
-    <div class="cfg">
-      <label><input type="checkbox" id="aparar" checked> Aparar borda vazia</label>
-      <label>Lado <input type="number" id="lado" value="800" min="200" max="2000" step="100" style="width:74px"> px</label>
-    </div>
-    <span class="espaco" style="font-size:13px;color:var(--secundario)" id="resumoFila"></span>
+  <div class="opcoes">
+    <label for="aparar">Aparar borda vazia <input type="checkbox" id="aparar" checked></label>
+    <div>Lado da imagem, em pixels
+      <span class="passo"><button type="button" id="ladoMenos" aria-label="Diminuir">&minus;</button><input type="number" id="lado" value="800" min="200" max="2000" step="100" aria-label="Lado em pixels"><button type="button" id="ladoMais" aria-label="Aumentar">+</button></span></div>
   </div>
 
-  <div class="barra" style="margin-top:12px">
+  <div class="barra" style="margin-top:14px">
     <button class="principal" id="publicar" disabled>Publicar as fotos no site</button>
-    <button class="sec" id="baixar" disabled>Baixar as fotos vinculadas</button>
-    <button class="sec" id="limpar" disabled>Limpar a fila</button>
+    <button id="baixar" disabled>Baixar as fotos vinculadas</button>
+    <button id="limpar" disabled>Limpar a fila</button>
+    <span class="espaco resumo" id="resumoFila"></span>
   </div>
 
   <div class="nota oculto" id="notaPublicacao"></div>
@@ -294,9 +278,9 @@ function atualizarProgresso(){
   const pct=total?Math.round(com/total*100):0;
   $('#barra').style.width=pct+'%';
   $('#numeros').innerHTML=
-    '<span><b>'+com+'</b> de <b>'+total+'</b> materiais com foto ('+pct+'%)</span>'+
-    '<span>faltam <b>'+Math.max(0,total-com-naFila)+'</b></span>'+
-    (naFila?'<span>nesta fila: <b>'+naFila+'</b></span>':'');
+    '<div><b>'+com+'</b><span>de '+total+' materiais com foto ('+pct+'%)</span></div>'+
+    '<div><b>'+Math.max(0,total-com-naFila)+'</b><span>faltam</span></div>'+
+    (naFila?'<div><b>'+naFila+'</b><span>nesta fila</span></div>':'');
 }
 
 $('#btVerificar').onclick=async()=>{
@@ -459,13 +443,14 @@ function desenharFila(){
     const jaTinha=prod&&COM_FOTO.has(prod.codigo);
     div.className='foto '+(prod?'pronta':'pendente');
     div.innerHTML='<img src="'+item.url+'" alt="">'+
+      '<span class="selo">'+(prod?'Vinculada':'Aguardando vínculo')+'</span>'+
       '<div class="corpo">'+
         (prod?'<div class="cod">'+prod.codigo+'</div><div class="nome">'+escapar(prod.material)+'</div>'
-             :'<div class="aviso"><b>aguardando vínculo</b></div><div class="nome">'+escapar(item.arquivo)+'</div>')+
+             :'<div class="nome">'+escapar(item.arquivo)+'</div><div class="aviso">escolha a qual material pertence</div>')+
         (item.fraca?'<div class="aviso">resolução baixa ('+item.original+')</div>':'')+
         (jaTinha?'<div class="aviso">este material já tem foto publicada, ela será substituída</div>':'')+
         '<div class="acoes">'+
-          '<button class="'+(prod?'sec ':'')+'mini" data-vincular="'+item.id+'">'+(prod?'Trocar':'Vincular')+'</button>'+
+          '<button class="'+(prod?'sec ':'principal ')+'mini" data-vincular="'+item.id+'">'+(prod?'Trocar':'Vincular')+'</button>'+
           '<button class="sec mini" data-remover="'+item.id+'">Remover</button>'+
         '</div></div>';
     el.appendChild(div);
@@ -490,6 +475,15 @@ document.addEventListener('click',e=>{
 
 $('#limpar').onclick=()=>{fila=[];desenharFila();$('#notaFila').classList.add('oculto')};
 
+/* Botões de menos e mais ao lado do campo do tamanho, de 100 em 100. */
+['ladoMenos','ladoMais'].forEach(id=>{
+  $('#'+id).onclick=()=>{
+    const c=$('#lado');
+    id==='ladoMais'?c.stepUp():c.stepDown();
+    c.dispatchEvent(new Event('input',{bubbles:true}));c.dispatchEvent(new Event('change',{bubbles:true}));
+  };
+});
+
 /* ---------- seletor de material ---------- */
 function abrirSeletor(id){
   const item=fila.find(f=>f.id===id);if(!item)return;
@@ -499,8 +493,8 @@ function abrirSeletor(id){
   fundo.innerHTML='<div class="modal">'+
     '<header><div class="tit"><h2 style="margin:0">A qual material pertence esta foto?</h2>'+
     '<button class="sec mini" data-fechar="1">Fechar</button></div>'+
-    '<input type="search" id="busca" placeholder="Buscar pelo nome, código ou família" style="width:100%;margin-top:10px" autocomplete="off">'+
-    '<label style="display:flex;gap:7px;align-items:center;font-size:13px;color:#6b7291;margin-top:8px">'+
+    '<input type="search" id="busca" placeholder="Buscar pelo nome, código ou família" autocomplete="off">'+
+    '<label style="display:flex;gap:7px;align-items:center;font-size:13px;color:var(--secundario);margin-top:10px">'+
     '<input type="checkbox" id="soFaltantes" checked> Mostrar apenas os que ainda não têm foto</label>'+
     '</header><div class="lista" id="lista"></div></div>';
   document.body.appendChild(fundo);
@@ -711,7 +705,7 @@ $('#publicar').onclick=async()=>{
   }
 };
 </script>
-<div id="versaoPagina">preparar imagens · versão 2026-09-29b</div>
+<div id="versaoPagina">preparar imagens · versão 2026-10-19a</div>
 </div>
 </div>
 </body>

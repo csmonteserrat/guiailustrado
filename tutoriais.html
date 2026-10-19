@@ -22,67 +22,67 @@
 
 /* ---------- índice ---------- */
 .indice{width:210px;flex:none;position:sticky;top:16px;max-height:calc(100vh - 32px);
-  overflow-y:auto;background:#fff;border-radius:var(--raio);box-shadow:var(--sombra);padding:14px 12px}
-.indice .grupo{font-size:9.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--secundario);
+  overflow-y:auto;background:var(--superficie);border-radius:var(--raio);box-shadow:var(--sombra);padding:14px 12px}
+.indice .grupo{font-size:11px;font-weight:600;color:var(--terciario);
   margin:12px 0 4px;padding:0 8px}
 .indice .grupo:first-child{margin-top:0}
-.indice a{display:block;text-decoration:none;color:var(--texto);font-size:12px;line-height:1.35;
-  padding:7px 8px;border-radius:10px}
+.indice a{display:block;text-decoration:none;color:var(--texto);font-size:13px;line-height:1.35;
+  padding:7px 9px;border-radius:9px;transition:background .12s}
 .indice a:hover{background:var(--neutro)}
-.indice a.aqui{background:var(--curacao-suave);color:var(--curacao)}
+.indice a.aqui{background:var(--acento-suave);color:var(--acento-texto);font-weight:600}
 
 /* ---------- conteúdo ---------- */
 .texto{flex:1;min-width:0}
-.secao{background:#fff;border-radius:var(--raio);box-shadow:var(--sombra);
-  padding:20px 22px;margin-bottom:14px;scroll-margin-top:16px}
-.secao h2{font-size:16px;margin:0 0 3px;display:flex;gap:9px;align-items:baseline}
-.secao h2 .n{width:22px;height:22px;flex:none;border-radius:50%;background:var(--curacao-suave);
-  color:var(--curacao);font-size:11px;display:inline-flex;align-items:center;justify-content:center;
+.secao{background:var(--superficie);border-radius:var(--raio);box-shadow:var(--sombra);
+  padding:22px 26px;margin-bottom:16px;scroll-margin-top:16px}
+.secao h2{font-size:20px;letter-spacing:-.018em;margin:0 0 3px;display:flex;gap:10px;align-items:baseline}
+.secao h2 .n{width:24px;height:24px;flex:none;border-radius:50%;background:var(--acento-suave);
+  color:var(--acento-texto);font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;
   align-self:center}
-.secao .chamada{color:var(--secundario);font-size:12.5px;margin:0 0 14px;padding-left:31px}
-.secao p{font-size:13px;line-height:1.65;margin:0 0 11px;max-width:74ch}
-.secao ul,.secao ol{font-size:13px;line-height:1.65;margin:0 0 11px;padding-left:20px;max-width:74ch}
+.secao .chamada{color:var(--secundario);font-size:13.5px;margin:0 0 16px;padding-left:34px}
+.secao p{font-size:14px;line-height:1.65;margin:0 0 11px;max-width:74ch}
+.secao ul,.secao ol{font-size:14px;line-height:1.65;margin:0 0 11px;padding-left:20px;max-width:74ch}
 .secao li{margin-bottom:5px}
-.secao h3{font-size:13px;margin:18px 0 7px}
+.secao h3{font-size:15px;font-weight:600;margin:20px 0 7px}
 .secao code{background:var(--neutro);padding:1px 6px;border-radius:6px;font-size:12px;
-  font-family:ui-monospace,Menlo,Consolas,monospace}
+  font-family:var(--fonte-mono)}
 
 /* ---------- ilustrações ---------- */
 .demo{background:var(--neutro);border-radius:16px;padding:14px;margin:0 0 14px}
-.demo .rot{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--secundario);
+.demo .rot{font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--terciario);
   display:block;margin-bottom:9px}
 .demo .par{display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap}
 .demo .peca{flex:none;max-width:100%}
 .demo .peca.larga{flex:1 1 260px}
 .legenda{flex:1 1 240px;margin:0;padding:0;list-style:none;min-width:0}
-.legenda li{display:flex;gap:9px;font-size:12.5px;line-height:1.5;margin-bottom:9px}
+.legenda li{display:flex;gap:9px;font-size:13.5px;line-height:1.5;margin-bottom:9px}
 .legenda li:last-child{margin-bottom:0}
-.num{width:19px;height:19px;flex:none;border-radius:50%;background:var(--corn);color:#fff;
+.num{width:20px;height:20px;flex:none;border-radius:50%;background:var(--acento);color:#fff;
   font-size:10.5px;display:inline-flex;align-items:center;justify-content:center}
 .num.solto{width:17px;height:17px;font-size:9.5px;vertical-align:middle;margin-left:5px}
 
 /* peças de exemplo montadas com as classes reais */
-.exCartao{background:#fff;border-radius:var(--raio);box-shadow:var(--sombra);padding:13px 15px;
+.exCartao{background:var(--superficie);border-radius:var(--raio);box-shadow:var(--sombra);padding:13px 15px;
   font-size:12px;max-width:280px}
 .exCampo{background:var(--neutro);border-radius:14px;height:34px}
 .exLinha{display:flex;gap:8px;align-items:center;padding:8px 0;font-size:12px;
   border-bottom:1px solid var(--borda)}
 .exLinha:last-child{border-bottom:none}
 
-.aviso{border-left:3px solid var(--sawtooth);background:var(--sawtooth-suave);border-radius:14px;
-  padding:12px 14px;font-size:12.5px;line-height:1.6;margin:0 0 12px;max-width:74ch}
-.aviso.bom{border-color:var(--curacao);background:var(--curacao-suave)}
-.aviso.serio{border-color:var(--geranium);background:var(--geranium-suave)}
+.aviso{background:var(--sawtooth-suave);border-radius:14px;
+  padding:12px 14px;font-size:13.5px;line-height:1.6;margin:0 0 12px;max-width:74ch}
+.aviso.bom{background:var(--acento-suave)}
+.aviso.serio{background:var(--geranium-suave)}
 .aviso b{font-weight:600}
 
 .passos{counter-reset:p;list-style:none;padding-left:0;max-width:74ch}
-.passos li{counter-increment:p;position:relative;padding-left:30px;margin-bottom:9px;font-size:13px;line-height:1.6}
+.passos li{counter-increment:p;position:relative;padding-left:32px;margin-bottom:9px;font-size:14px;line-height:1.6}
 .passos li:before{content:counter(p);position:absolute;left:0;top:1px;width:21px;height:21px;
-  border-radius:50%;background:var(--neutro);color:var(--secundario);font-size:11px;
+  border-radius:50%;background:var(--acento-suave);color:var(--acento-texto);font-size:11.5px;font-weight:700;
   display:flex;align-items:center;justify-content:center}
 
 .atalho{display:inline-block;background:var(--neutro);border-radius:8px;padding:2px 8px;
-  font-size:11.5px;font-family:ui-monospace,Menlo,Consolas,monospace}
+  font-size:12px;font-family:var(--fonte-mono)}
 
 @media(max-width:900px){
   .tudo{flex-direction:column}
@@ -95,24 +95,27 @@
 <body>
 <div class="app">
 
-  <nav class="lateral">
-    <div class="marca"><b>Admin</b>catálogo</div>
-    <a class="nav" href="admin.html"><span class="ic">&#9635;</span><span class="tx">Painel</span></a>
-    <a class="nav" href="editor-catalogo/editor-catalogo.html"><span class="ic">&#9998;</span><span class="tx">Editor</span></a>
-    <a class="nav" href="editor-catalogo/comparar-celk.html"><span class="ic">&#8646;</span><span class="tx">CELK</span></a>
-    <a class="nav" href="descritivos/descritivos.html"><span class="ic">&#9776;</span><span class="tx">Descritivos</span></a>
-    <a class="nav" href="preparar-imagens.html"><span class="ic">&#9634;</span><span class="tx">Imagens</span></a>
-    <a class="nav" href="editor-catalogo/historico.html"><span class="ic">&#9711;</span><span class="tx">Histórico</span></a>
-    <a class="nav ativo" href="tutoriais.html"><span class="ic">&#9432;</span><span class="tx">Tutoriais</span></a>
-    <a class="nav saida" href="index.html" target="_blank" rel="noopener"><span class="ic">&#8599;</span><span class="tx">Catálogo</span></a>
-    <a class="nav saida segunda" href="branet.html" target="_blank" rel="noopener"><span class="ic">&#9638;</span><span class="tx">Catálogo BRANET</span></a>
+  <nav class="lateral" aria-label="Seções do admin">
+    <div class="marca"><b>Admin do catálogo</b>GT Padronização</div>
+    <a class="nav" href="admin.html"><span class="ic i-painel"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.6"/></svg></span><span class="tx">Painel</span></a>
+    <div class="grupo">Trabalho</div>
+    <a class="nav" href="editor-catalogo/editor-catalogo.html"><span class="ic i-editor"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1-4L16.5 4.5a2 2 0 013 3L8 19z"/><path d="M14.5 6.5l3 3"/></svg></span><span class="tx">Editor</span></a>
+    <a class="nav" href="editor-catalogo/comparar-celk.html"><span class="ic i-celk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h13M14 4l4 4-4 4M19 16H6M10 12l-4 4 4 4"/></svg></span><span class="tx">Comparar CELK</span></a>
+    <a class="nav" href="descritivos/descritivos.html"><span class="ic i-desc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7h11M8 12h11M8 17h11M4.5 7h.01M4.5 12h.01M4.5 17h.01"/></svg></span><span class="tx">Descritivos</span></a>
+    <a class="nav" href="preparar-imagens.html"><span class="ic i-imagens"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2.5"/><circle cx="9" cy="10.5" r="1.6"/><path d="M4 17l5-4.5 4 3.5 3-2.5 4 3.5"/></svg></span><span class="tx">Imagens</span></a>
+    <div class="grupo">Registro</div>
+    <a class="nav" href="editor-catalogo/historico.html"><span class="ic i-hist"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><span class="tx">Histórico</span></a>
+    <a class="nav ativo" aria-current="page" href="tutoriais.html"><span class="ic i-tut"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5.5A2.5 2.5 0 017.5 3H19v15H7.5A2.5 2.5 0 005 20.5z"/><path d="M5 20.5A2.5 2.5 0 007.5 23H19v-5"/></svg></span><span class="tx">Tutoriais</span></a>
+    <div class="grupo">Abrir fora</div>
+    <a class="nav saida" href="index.html" target="_blank" rel="noopener"><span class="tx">Catálogo</span><svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6H6.5A2.5 2.5 0 004 8.5v9A2.5 2.5 0 006.5 20h9a2.5 2.5 0 002.5-2.5V15M13 4h7v7M20 4l-9 9"/></svg></a>
+    <a class="nav saida" href="branet.html" target="_blank" rel="noopener"><span class="tx">Catálogo BRANET</span><svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6H6.5A2.5 2.5 0 004 8.5v9A2.5 2.5 0 006.5 20h9a2.5 2.5 0 002.5-2.5V15M13 4h7v7M20 4l-9 9"/></svg></a>
   </nav>
 
   <div class="coluna">
-    <div class="cabecalho" style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px">
+    <div class="cabecalho" style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px;padding-top:6px">
       <div>
-        <h1>Tutoriais do painel</h1>
-        <p class="sub" style="margin:3px 0 0">Como usar cada ferramenta da administração do catálogo</p>
+        <h1 style="font-size:30px;letter-spacing:-.028em">Tutoriais</h1>
+        <p class="sub" style="margin:4px 0 0">Como usar cada ferramenta da administração do catálogo</p>
       </div>
     </div>
 
@@ -296,10 +299,12 @@
     família e situação. A lista mostra os primeiros 400 itens: se o que você procura não aparecer,
     refine a busca.</p>
 
-  <h3>A janela de edição</h3>
-  <p>Ao clicar num material, abre uma janela com três cartões, um para cada arquivo. O primeiro traz os
-    dados do catálogo, o que o dentista vê. O segundo, o descritivo, o texto técnico do empenho. O
-    terceiro, o almoxarifado BRANET.</p>
+  <h3>O painel de edição</h3>
+  <p>Ao clicar num material, ele abre no painel à direita da lista, com três abas, uma para cada
+    arquivo: <b>Catálogo</b>, com o que o dentista vê; <b>Descritivo</b>, o texto técnico do empenho;
+    e <b>BRANET</b>, o cadastro no almoxarifado. A lista continua à vista, e o painel avisa
+    <b>Alterações não salvas</b> enquanto você não clicar em <b>Salvar</b>. Em tela estreita, o
+    painel cobre a lista e o botão &times; volta para ela.</p>
 
   <div class="demo">
     <span class="rot">os campos do catálogo</span>
@@ -324,14 +329,14 @@
   </div>
 
   <h3>Os códigos da BRANET</h3>
-  <p>O cartão <b>Almoxarifado BRANET</b> fica abaixo do descritivo e aparece para todos os materiais,
+  <p>A aba <b>BRANET</b> fica ao lado da aba do descritivo e aparece para todos os materiais,
     inclusive os da lista da Enfermagem. Tem três campos:</p>
   <ul>
     <li><b>Código</b> e <b>Código cliente.</b> Os dois são da própria BRANET e não têm relação com
       o código do CELK. Às vezes só um deles existe: preencha o que houver.</li>
     <li><b>Nome na BRANET.</b> Deixe em branco quando for igual ao nome do catálogo.</li>
   </ul>
-  <p>A etiqueta no alto do cartão diz <b>vinculado</b> quando há pelo menos um dos dois códigos. Se você
+  <p>A etiqueta no alto da aba diz <b>vinculado</b> quando há pelo menos um dos dois códigos. Se você
     trocar o código do CELK de um material, como acontece quando um código provisório ganha o código
     real, os dados da BRANET acompanham o material sozinhos ao salvar. No seletor de situação, as opções
     <b>Com item da BRANET</b> e <b>Sem item da BRANET</b> ajudam a achar o que ainda falta preencher.</p>
@@ -378,18 +383,16 @@
   <h2><span class="n">6</span> Descritivos</h2>
   <p class="chamada">Consulta dos textos técnicos que compõem os empenhos.</p>
 
-  <p>Esta página é <b>somente de consulta</b>. O preenchimento acontece no editor, na mesma janela onde
-    se editam os dados do material.</p>
+  <p>Esta página é <b>somente de consulta</b>. O preenchimento acontece no editor, na aba
+    Descritivo do material. A lista fica à esquerda, com a foto de cada item, e o material escolhido
+    abre à direita, com a foto grande ao lado do título. Clicar na foto amplia; as setas do teclado
+    passam para o próximo item.</p>
 
-  <h3>Os dois modos de busca</h3>
-  <p>O botão ao lado do campo alterna entre eles, e a diferença é grande:</p>
-  <ul>
-    <li><b>Títulos</b> procura no nome, no código, no nome usado no descritivo, na classificação e nos
-      códigos e no nome da BRANET.</li>
-    <li><b>Descritivos</b> procura <b>dentro do texto</b>. É o que serve para padronizar redação:
-      buscar por <code>aço inoxidável</code> ou <code>estéril</code> mostra todos os descritivos que
-      usam o termo, com o trecho em destaque.</li>
-  </ul>
+  <h3>A busca</h3>
+  <p>O campo de busca procura no nome, no código, no nome usado no descritivo, na classificação, nos
+    códigos e no nome da BRANET e também <b>dentro do texto</b> do descritivo. É o que serve para
+    padronizar redação: buscar por <code>aço inoxidável</code> ou <code>estéril</code> mostra todos os
+    descritivos que usam o termo, e a lista exibe o trecho em que ele aparece, em destaque.</p>
 
   <h3>O que consta em cada item</h3>
   <ul>
@@ -611,7 +614,7 @@
       </div>
     </div>
 
-    <div id="versaoPagina">tutoriais · versão 2026-09-29b</div>
+    <div id="versaoPagina">tutoriais · versão 2026-10-19a</div>
   </div>
 </div>
 

@@ -10,94 +10,114 @@
    etiquetas) fica em admin.css. Aqui ficam só as regras desta
    página. */
 
-h1{font-size:17px;font-weight:600;margin:0}
-h2{font-size:14px;font-weight:600;margin:0}
-.sub{color:var(--secundario);font-size:11.5px}
+.coluna{flex:1;min-width:0;padding-bottom:30px;display:flex;flex-direction:column;gap:18px}
+.titulo{padding-top:6px}
+.titulo h1{font-size:30px;letter-spacing:-.028em}
+.titulo .sub{margin:5px 0 0;max-width:70ch;font-size:13.5px}
+h2{font-size:19px;letter-spacing:-.015em;margin:0}
+button.plana{background:var(--neutro)}
 
-.barra{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-
-/* barra lateral */
-
-.coluna{flex:1;min-width:0;padding-bottom:30px}
-
-button{font:inherit;font-size:12.5px;padding:9px 17px;border-radius:20px;border:none;
-  background:#fff;color:var(--texto);box-shadow:var(--sombra);cursor:pointer;white-space:nowrap}
-button.principal{background:var(--peach);color:#fff}
-button.acento{background:var(--curacao);color:#fff}
-button.plana{box-shadow:none;background:var(--neutro);font-size:11.5px;padding:7px 13px}
-button:disabled{opacity:.5;cursor:default}
+/* indicador das três etapas */
+.etapas{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--terciario);flex-wrap:wrap;margin-top:14px}
+.etapas b{display:inline-flex;align-items:center;gap:8px;font-weight:500}
+.etapas b i{font-style:normal;width:24px;height:24px;border-radius:50%;background:var(--neutro);display:grid;place-items:center;font-size:12px;font-weight:700}
+.etapas b.atual{color:var(--texto)}
+.etapas b.atual i{background:var(--acento);color:#fff}
+.etapas b.feita i{background:var(--ok);color:#fff}
+.etapas u{width:28px;height:1.5px;background:var(--linha);text-decoration:none}
 
 /* zona de arraste */
-#zona{background:#fff;border:2px dashed var(--curacao);border-radius:24px;padding:26px 20px;
-  text-align:center;cursor:pointer;box-shadow:var(--sombra);transition:.15s}
-#zona:hover,#zona.ativo{background:var(--curacao-suave)}
-#zona .ic{font-size:26px;color:var(--curacao);margin-bottom:7px}
-#zona strong{display:block;font-size:13.5px;margin-bottom:3px}
+#zona{background:var(--superficie);border:1.5px dashed var(--terciario);border-radius:22px;padding:32px 20px;
+  text-align:center;cursor:pointer;box-shadow:var(--sombra);transition:background .2s,border-color .2s,transform .2s var(--mola)}
+#zona:hover,#zona.ativo{background:var(--acento-suave);border-color:var(--acento);transform:scale(1.005)}
+#zona .ic{width:48px;height:48px;border-radius:14px;margin:0 auto 10px;background:var(--acento-suave);color:var(--acento-texto);
+  display:grid;place-items:center;font-size:22px}
+#zona strong{display:block;font:600 17px var(--fonte-titulo);letter-spacing:-.01em;margin-bottom:3px}
 
-.cartao{background:#fff;border-radius:var(--raio);box-shadow:var(--sombra);overflow:hidden;margin-bottom:12px}
-.arq{display:flex;gap:11px;align-items:center;padding:11px 14px;border-top:1px solid var(--borda)}
-.arq .ic{width:32px;height:32px;flex:none;border-radius:11px;display:flex;align-items:center;
+.cartao{background:var(--superficie);border-radius:var(--raio);box-shadow:var(--sombra);overflow:hidden}
+.arq{display:flex;gap:12px;align-items:center;padding:11px 16px;border-top:1px solid var(--linha)}
+.arq .ic{width:32px;height:32px;flex:none;border-radius:10px;display:flex;align-items:center;
   justify-content:center;font-size:13px}
-.aviso{border-radius:16px;padding:11px 13px;font-size:11.5px;border-left:3px solid;margin-bottom:12px}
-.a-info{background:var(--curacao-suave);border-color:var(--curacao)}
-.a-alerta{background:var(--sawtooth-suave);border-color:var(--sawtooth)}
-.a-erro{background:var(--geranium-suave);border-color:var(--geranium)}
+.aviso{border-radius:14px;padding:11px 14px;font-size:13px;margin-top:12px;background:var(--neutro)}
+.a-info{background:var(--acento-suave)}
+.a-alerta{background:var(--sawtooth-suave)}
+.a-erro{background:var(--geranium-suave)}
 
-/* blocos de divergência */
-.bloco{background:#fff;border-radius:18px;box-shadow:var(--sombra);margin-bottom:11px;overflow:hidden}
-.cabBloco{padding:12px 15px;display:flex;gap:11px;align-items:center;flex-wrap:wrap;cursor:pointer}
-.cabBloco .qt{font-size:17px;font-weight:600}
-.cabBloco .tt{font-size:12.5px;font-weight:600}
-.item{display:flex;gap:11px;padding:10px 15px;border-top:1px solid var(--borda)}
-.cx{width:17px;height:17px;flex:none;border-radius:6px;border:1.5px solid #cbd3de;background:#fff;
-  color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center;margin-top:2px;cursor:pointer}
-.cx.marc{background:var(--corn);border-color:var(--corn)}
-.acao{font-size:10.5px;color:var(--secundario);flex:none;align-self:center;padding-left:8px}
-.det{font-size:10.5px;color:var(--secundario);margin-top:2px}
-.et{font-size:10px;padding:3px 10px;border-radius:20px;flex:none;align-self:flex-start;white-space:nowrap}
-.vazio{background:#fff;border-radius:var(--raio);box-shadow:var(--sombra);padding:34px 20px;
-  text-align:center;color:var(--secundario);font-size:13px}
-.progresso{height:6px;background:var(--borda);border-radius:20px;overflow:hidden;margin-top:9px}
+/* blocos de divergência: grupos de lista com marcadores redondos */
+.bloco{background:var(--superficie);border-radius:18px;box-shadow:var(--sombra);margin-bottom:14px;overflow:hidden}
+.cabBloco{padding:14px 18px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;cursor:pointer;background:var(--superficie) !important}
+.cabBloco .qt{font:700 20px var(--fonte-titulo);letter-spacing:-.015em;min-width:36px;height:36px;border-radius:10px;
+  display:grid;place-items:center;font-variant-numeric:tabular-nums;padding:0 8px}
+.cabBloco .tt{font:600 15px var(--fonte-titulo);letter-spacing:-.01em}
+.cabBloco .espaco{color:var(--acento-texto);font-weight:500}
+.item{display:flex;gap:12px;padding:11px 18px;border-top:1px solid var(--linha);align-items:flex-start}
+.cx{width:22px;height:22px;flex:none;border-radius:50%;border:1.5px solid var(--terciario);background:none;
+  color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:0;cursor:pointer;transition:background .15s,transform .1s}
+.cx:active{transform:scale(.9)}
+.cx.marc{background:var(--acento);border-color:var(--acento)}
+.acao{font-size:12px;color:var(--secundario);flex:none;align-self:center;padding-left:8px}
+.det{font-size:12px;color:var(--secundario);margin-top:2px}
+.et{font-size:11px;font-weight:500;padding:2px 10px;border-radius:20px;flex:none;align-self:flex-start;white-space:nowrap}
+.vazio{background:var(--superficie);border-radius:var(--raio);box-shadow:var(--sombra);padding:40px 20px;
+  text-align:center;color:var(--secundario);font-size:14px}
+.progresso{height:6px;background:var(--linha);border-radius:20px;overflow:hidden;margin-top:9px}
 .progresso i{display:block;height:100%;background:var(--curacao);width:0;transition:width .3s}
 
-.fundo-modal{position:fixed;inset:0;background:rgba(48,57,82,.45);backdrop-filter:blur(2px);
-  display:flex;align-items:flex-start;justify-content:center;padding:24px 14px;z-index:50;overflow:auto}
-.modal{background:#fff;border-radius:24px;width:100%;max-width:700px;overflow:hidden;
-  box-shadow:var(--sombra-alta)}
-.modal header,.modal footer{padding:15px 18px;border-bottom:1px solid var(--borda)}
-.modal footer{border-bottom:none;border-top:1px solid var(--borda);display:flex;gap:8px;align-items:center}
-.modal .corpo{padding:16px 18px}
+.fundo-modal{position:fixed;inset:0;background:var(--veu);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  display:flex;align-items:flex-start;justify-content:center;padding:5vh 14px;z-index:50;overflow:auto;animation:surgir .2s ease}
+.modal{background:var(--superficie);border-radius:24px;width:100%;max-width:700px;overflow:hidden;
+  box-shadow:var(--sombra-alta);animation:subir .35s var(--mola)}
+.modal header{padding:18px 22px 12px}
+.modal footer{padding:12px 22px;border-top:1px solid var(--linha);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.modal .corpo{padding:14px 22px}
+.modal footer>.sub{flex:1 1 220px}
+.modal footer>.espaco{display:none}
+@keyframes surgir{from{opacity:0}to{opacity:1}}
+@keyframes subir{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
+@media(max-width:640px){
+  .fundo-modal{align-items:flex-end;padding:0}
+  .modal{border-radius:22px 22px 0 0;max-height:92vh;overflow:auto}
+  .titulo h1{font-size:26px}
+}
 </style>
 </head>
 <body>
 <div class="app">
 
-  <nav class="lateral">
-    <div class="marca"><b>Admin</b>catálogo</div>
-    <a class="nav" href="../admin.html"><span class="ic">&#9635;</span><span class="tx">Painel</span></a>
-    <a class="nav" href="editor-catalogo.html"><span class="ic">&#9998;</span><span class="tx">Editor</span></a>
-    <a class="nav ativo" href="comparar-celk.html"><span class="ic">&#8646;</span><span class="tx">CELK</span></a>
-    <a class="nav" href="../descritivos/descritivos.html"><span class="ic">&#9776;</span><span class="tx">Descritivos</span></a>
-    <a class="nav" href="../preparar-imagens.html"><span class="ic">&#9634;</span><span class="tx">Imagens</span></a>
-    <a class="nav" href="historico.html"><span class="ic">&#9711;</span><span class="tx">Histórico</span></a>
-    <a class="nav" href="../tutoriais.html"><span class="ic">&#9432;</span><span class="tx">Tutoriais</span></a>
-    <a class="nav saida" href="../index.html" target="_blank" rel="noopener"><span class="ic">&#8599;</span><span class="tx">Catálogo</span></a>
-    <a class="nav saida segunda" href="../branet.html" target="_blank" rel="noopener"><span class="ic">&#9638;</span><span class="tx">Catálogo BRANET</span></a>
+  <nav class="lateral" aria-label="Seções do admin">
+    <div class="marca"><b>Admin do catálogo</b>GT Padronização</div>
+    <a class="nav" href="../admin.html"><span class="ic i-painel"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.6"/></svg></span><span class="tx">Painel</span></a>
+    <div class="grupo">Trabalho</div>
+    <a class="nav" href="editor-catalogo.html"><span class="ic i-editor"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1-4L16.5 4.5a2 2 0 013 3L8 19z"/><path d="M14.5 6.5l3 3"/></svg></span><span class="tx">Editor</span></a>
+    <a class="nav ativo" aria-current="page" href="comparar-celk.html"><span class="ic i-celk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h13M14 4l4 4-4 4M19 16H6M10 12l-4 4 4 4"/></svg></span><span class="tx">Comparar CELK</span></a>
+    <a class="nav" href="../descritivos/descritivos.html"><span class="ic i-desc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7h11M8 12h11M8 17h11M4.5 7h.01M4.5 12h.01M4.5 17h.01"/></svg></span><span class="tx">Descritivos</span></a>
+    <a class="nav" href="../preparar-imagens.html"><span class="ic i-imagens"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2.5"/><circle cx="9" cy="10.5" r="1.6"/><path d="M4 17l5-4.5 4 3.5 3-2.5 4 3.5"/></svg></span><span class="tx">Imagens</span></a>
+    <div class="grupo">Registro</div>
+    <a class="nav" href="historico.html"><span class="ic i-hist"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><span class="tx">Histórico</span></a>
+    <a class="nav" href="../tutoriais.html"><span class="ic i-tut"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5.5A2.5 2.5 0 017.5 3H19v15H7.5A2.5 2.5 0 005 20.5z"/><path d="M5 20.5A2.5 2.5 0 007.5 23H19v-5"/></svg></span><span class="tx">Tutoriais</span></a>
+    <div class="grupo">Abrir fora</div>
+    <a class="nav saida" href="../index.html" target="_blank" rel="noopener"><span class="tx">Catálogo</span><svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6H6.5A2.5 2.5 0 004 8.5v9A2.5 2.5 0 006.5 20h9a2.5 2.5 0 002.5-2.5V15M13 4h7v7M20 4l-9 9"/></svg></a>
+    <a class="nav saida" href="../branet.html" target="_blank" rel="noopener"><span class="tx">Catálogo BRANET</span><svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6H6.5A2.5 2.5 0 004 8.5v9A2.5 2.5 0 006.5 20h9a2.5 2.5 0 002.5-2.5V15M13 4h7v7M20 4l-9 9"/></svg></a>
   </nav>
 
   <div class="coluna">
 
-    <div style="margin-bottom:13px">
+    <div class="titulo">
       <h1>Comparar com o CELK</h1>
-      <p class="sub" style="margin:3px 0 0">Envie os relatórios de listagem de produtos e veja o que
+      <p class="sub">Envie os relatórios de listagem de produtos e veja o que
       mudou desde a última atualização do catálogo. Nada é enviado para a internet: os arquivos são
       lidos neste computador.</p>
+      <div class="etapas" id="etapas" aria-label="Etapas">
+        <b class="atual" data-etapa="1"><i>1</i>Enviar</b><u></u>
+        <b data-etapa="2"><i>2</i>Revisar</b><u></u>
+        <b data-etapa="3"><i>3</i>Aplicar</b>
+      </div>
     </div>
 
     <!-- ETAPA 1: envio -->
     <div id="etapaEnvio">
       <div id="zona" role="button" tabindex="0">
-        <div class="ic">&#8679;</div>
+        <div class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V5M7 10l5-5 5 5M5 19h14"/></svg></div>
         <strong>Arraste os relatórios em PDF</strong>
         <span class="sub">um por subgrupo · pode enviar de 1 a 4 de uma vez</span>
       </div>
@@ -105,7 +125,7 @@ button:disabled{opacity:.5;cursor:default}
 
       <div id="listaArquivos"></div>
       <div id="avisoEnvio"></div>
-      <div class="barra" style="margin-top:13px">
+      <div class="barra" style="margin-top:16px">
         <span class="sub" id="statusCsv">carregando o produtos.csv...</span>
         <span class="espaco"></span>
         <button class="plana" id="btLimpar" disabled>Limpar</button>
@@ -324,22 +344,22 @@ function desenharArquivos(){
   if(!RELATORIOS.length){el.innerHTML='';$('#avisoEnvio').innerHTML='';atualizarBotao();return}
   el.innerHTML='<div class="cartao" style="margin-top:12px">'+
     '<div style="padding:12px 14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">'+
-      '<b style="font-size:12.5px">'+RELATORIOS.length+' relatório(s) carregado(s)</b>'+
+      '<b style="font-size:14px">'+RELATORIOS.length+' relatório(s) carregado(s)</b>'+
       (emissao()?'<span class="sub">emitido em '+esc(emissao().em)+' por '+esc(emissao().por)+'</span>':'')+
     '</div>'+
     RELATORIOS.map((r,i)=>{
       const ok=!r.erro&&r.subgrupo&&r.registros.length;
       return '<div class="arq">'+
         '<span class="ic" style="background:'+(ok?'var(--curacao-suave)':'var(--geranium-suave)')+
-          ';color:'+(ok?'var(--curacao)':'var(--geranium)')+'">'+(ok?'&#10003;':'!')+'</span>'+
+          ';color:'+(ok?'var(--curacao-escuro)':'var(--geranium)')+'">'+(ok?'&#10003;':'!')+'</span>'+
         '<div style="flex:1;min-width:0">'+
-          '<div style="font-size:12px">'+esc(r.nome)+'</div>'+
+          '<div style="font-size:13.5px;font-weight:500">'+esc(r.nome)+'</div>'+
           '<div class="sub">'+(ok
             ? 'subgrupo ( '+esc(r.subgrupo.grupo)+' ) '+esc(r.subgrupo.nome)+' · '+
               r.registros.length+' itens em '+r.paginas+' páginas'
             : 'não consegui reconhecer este arquivo como um relatório de listagem de produtos')+
           '</div></div>'+
-        '<button class="plana" data-remover="'+i+'">remover</button></div>';
+        '<button class="mini plana" data-remover="'+i+'">Remover</button></div>';
     }).join('')+'</div>';
   el.querySelectorAll('[data-remover]').forEach(b=>{
     b.onclick=()=>{RELATORIOS.splice(parseInt(b.dataset.remover),1);desenharArquivos()};
@@ -440,9 +460,9 @@ function comparar(){
    --------------------------------------------------------------------- */
 const TIPOS={
   novo:{titulo:'Códigos novos no CELK',sub:'ainda não existem no catálogo · serão acrescentados como itens novos',
-        cor:'var(--curacao)',fundo:'var(--curacao-suave)',acao:'acrescentar'},
+        cor:'var(--curacao-escuro)',fundo:'var(--curacao-suave)',acao:'acrescentar'},
   reativar:{titulo:'Itens inativos que voltaram a aparecer',sub:'estão no CELK, mas foram inativados no catálogo',
-        cor:'var(--curacao)',fundo:'var(--curacao-suave)',acao:'reativar'},
+        cor:'var(--curacao-escuro)',fundo:'var(--curacao-suave)',acao:'reativar'},
   ausente:{titulo:'Códigos ausentes no CELK',sub:'estão no catálogo mas não vieram em nenhum relatório enviado',
         cor:'var(--sawtooth)',fundo:'var(--sawtooth-suave)',acao:'inativar'},
   subgrupo:{titulo:'Mudança de subgrupo',sub:'o item aparece em outro subgrupo no CELK',
@@ -455,13 +475,23 @@ const TIPOS={
 const ORDEM=['novo','reativar','ausente','subgrupo','descricao','unidade'];
 let recolhidos={};
 
+/* Marca no indicador do topo em que etapa a pessoa está. */
+function marcarEtapa(n){
+  document.querySelectorAll('#etapas [data-etapa]').forEach(b=>{
+    const e=+b.dataset.etapa;
+    b.className=e<n?'feita':e===n?'atual':'';
+    b.querySelector('i').textContent=e<n?'✓':e;
+  });
+}
+
 function desenharResultado(totalCelk){
+  marcarEtapa(2);
   $('#etapaEnvio').classList.add('oculto');
   const el=$('#etapaResultado');
   el.classList.remove('oculto');
 
   const marcadas=DIVERGENCIAS.filter(d=>d.marcado).length;
-  let html='<div class="barra" style="margin-bottom:13px">'+
+  let html='<div class="barra" style="margin-bottom:16px">'+
     '<div><h2>Divergências encontradas</h2>'+
     '<div class="sub">'+totalCelk+' itens nos relatórios · '+
       CATALOGO.filter(r=>(r.ativo||'SIM').toUpperCase()!=='NAO').length+' ativos no catálogo · '+
@@ -474,11 +504,11 @@ function desenharResultado(totalCelk){
 
   if(IRREGULARES.length){
     html+='<div class="bloco"><div class="cabBloco" style="background:var(--geranium-suave)">'+
-      '<span class="qt" style="color:var(--geranium)">'+IRREGULARES.length+'</span>'+
+      '<span class="qt" style="color:var(--geranium);background:var(--geranium-suave)">'+IRREGULARES.length+'</span>'+
       '<div><div class="tt">Precisa de conferência manual</div>'+
       '<div class="sub">o CELK trouxe registro sem código numérico</div></div></div>'+
       IRREGULARES.map(r=>'<div class="item"><div style="flex:1">'+
-        '<div style="font-size:12px">'+esc(r.material)+'</div>'+
+        '<div style="font-size:13px">'+esc(r.material)+'</div>'+
         '<div class="det">no relatório do subgrupo '+esc(r.grupo)+', o código veio como '+
         '<span class="mono" style="background:var(--geranium-suave);padding:1px 6px;border-radius:6px">'+
         esc(r.codigo)+'</span> em vez de um número. É um cadastro irregular no próprio CELK: '+
@@ -494,7 +524,7 @@ function desenharResultado(totalCelk){
       if(!lista.length)return;
       const t=TIPOS[tipo], aberto=!recolhidos[tipo];
       html+='<div class="bloco"><div class="cabBloco" style="background:'+t.fundo+'" data-tipo="'+tipo+'">'+
-        '<span class="qt" style="color:'+t.cor+'">'+lista.length+'</span>'+
+        '<span class="qt" style="color:'+t.cor+';background:'+t.fundo+'">'+lista.length+'</span>'+
         '<div><div class="tt">'+t.titulo+'</div><div class="sub">'+t.sub+'</div></div>'+
         '<span class="espaco sub">'+(aberto?'ocultar':'ver a lista')+'</span></div>'+
         (aberto?lista.map(d=>itemHtml(d,t)).join(''):'')+'</div>';
@@ -516,7 +546,7 @@ function desenharResultado(totalCelk){
     };
   });
   $('#btVoltar').onclick=()=>{$('#etapaResultado').classList.add('oculto');
-    $('#etapaEnvio').classList.remove('oculto')};
+    $('#etapaEnvio').classList.remove('oculto');marcarEtapa(1)};
   $('#btTodas').onclick=()=>{DIVERGENCIAS.forEach(d=>d.marcado=true);desenharResultado(totalCelk)};
   $('#btNenhuma').onclick=()=>{DIVERGENCIAS.forEach(d=>d.marcado=false);desenharResultado(totalCelk)};
   $('#btAplicar').onclick=()=>confirmarAplicacao();
@@ -527,12 +557,12 @@ function itemHtml(d,t){
     'aria-checked="'+d.marcado+'">'+(d.marcado?'&#10003;':'')+'</span>';
   let corpo='';
   if(d.tipo==='descricao'){
-    corpo='<div style="font-size:12px"><span class="mono" style="color:var(--corn)">'+esc(d.codigo)+'</span></div>'+
+    corpo='<div style="font-size:13px"><span class="mono" style="color:var(--corn)">'+esc(d.codigo)+'</span></div>'+
       '<div style="font-size:11.5px;margin-top:4px"><span class="sub">catálogo</span> '+esc(d.de)+'</div>'+
       '<div style="font-size:11.5px"><span class="sub">CELK</span> '+esc(d.para)+'</div>'+
       '<div class="det">deixe desmarcado para manter o texto do catálogo</div>';
   }else if(d.tipo==='unidade'||d.tipo==='subgrupo'){
-    corpo='<div style="font-size:12px"><span class="mono" style="color:var(--corn)">'+esc(d.codigo)+
+    corpo='<div style="font-size:13px"><span class="mono" style="color:var(--corn)">'+esc(d.codigo)+
       '</span> '+esc(d.material||'')+'</div>'+
       '<div class="det">'+esc(d.de||'vazio')+' &rarr; '+esc(d.para)+'</div>';
   }else{
@@ -542,7 +572,7 @@ function itemHtml(d,t){
       : d.tipo==='reativar'
       ? 'inativo no catálogo, presente no relatório do subgrupo '+esc(c.grupo)
       : 'no catálogo em ( '+esc((d.catalogo||{}).grupo)+' ) '+esc((d.catalogo||{}).subgrupo);
-    corpo='<div style="font-size:12px"><span class="mono" style="color:var(--corn)">'+esc(d.codigo)+
+    corpo='<div style="font-size:13px"><span class="mono" style="color:var(--corn)">'+esc(d.codigo)+
       '</span> '+esc(d.material||'')+'</div><div class="det">'+det+'</div>';
   }
   return '<div class="item">'+cx+'<div style="flex:1;min-width:0">'+corpo+'</div>'+
@@ -572,7 +602,7 @@ function confirmarAplicacao(){
         const t=TIPOS[d.tipo];
         return '<div class="item">'+
           '<span class="et" style="background:'+t.fundo+';color:'+t.cor+'">'+t.acao+'</span>'+
-          '<div><div style="font-size:12px"><span class="mono" style="color:var(--corn)">'+
+          '<div><div style="font-size:13px"><span class="mono" style="color:var(--corn)">'+
           esc(d.codigo)+'</span> '+esc(d.material||d.de||'')+'</div>'+
           (d.tipo==='descricao'||d.tipo==='unidade'||d.tipo==='subgrupo'
             ? '<div class="det">'+esc(d.de||'vazio')+' &rarr; '+esc(d.para)+'</div>':'')+
@@ -580,8 +610,8 @@ function confirmarAplicacao(){
       }).join('')+
     '</div>'+
     '<div class="corpo" style="background:var(--neutro)">'+
-      '<div class="sub" style="text-transform:uppercase;letter-spacing:.05em;margin-bottom:7px">Como ficará no histórico</div>'+
-      '<div style="background:#fff;border-radius:14px;padding:12px 14px;font-size:11.5px;line-height:1.65;box-shadow:var(--sombra)">'+
+      '<div class="sub" style="text-transform:uppercase;letter-spacing:.05em;font-size:11.5px;font-weight:600;margin-bottom:7px">Como ficará no histórico</div>'+
+      '<div style="background:var(--superficie);border-radius:14px;padding:12px 14px;font-size:12.5px;line-height:1.65">'+
         '<b>origem:</b> '+esc(origem)+'</div>'+
       (novos?'<div class="aviso a-alerta" style="margin:12px 0 0">Os '+novos+
         ' item(ns) novo(s) entram sem tag, sem família e sem foto. Eles aparecem no catálogo com o '+
@@ -597,6 +627,7 @@ function confirmarAplicacao(){
 }
 
 function gravarImportacao(sel,origem){
+  marcarEtapa(3);
   /* O editor é quem sabe montar o CSV e o histórico. Aqui gravamos apenas as
      instruções, que ele aplica ao abrir. */
   const pacote={
@@ -623,18 +654,18 @@ function gravarImportacao(sel,origem){
   fundo.innerHTML='<div class="modal" style="max-width:520px">'+
     '<header><h2>Alterações prontas</h2>'+
     '<div class="sub">'+sel.length+' alteração(ões) aguardando o editor</div></header>'+
-    '<div class="corpo"><p style="margin:0 0 12px;font-size:12.5px;line-height:1.6">'+
+    '<div class="corpo"><p style="margin:0 0 12px;font-size:13.5px;line-height:1.6">'+
     'Abra o editor do catálogo para revisar e baixar o pacote. As alterações entram '+
     'na sessão atual e o histórico já registra que vieram do relatório do CELK.</p>'+
     '<div class="aviso a-info" style="margin:0">Enquanto você não abrir o editor, nada foi alterado '+
     'no catálogo. Se preferir, pode voltar e revisar as seleções.</div></div>'+
     '<footer><span class="espaco"></span><button class="plana" data-fechar="1">Depois</button>'+
-    '<a href="editor-catalogo.html"><button class="principal">Abrir o editor</button></a></footer></div>';
+    '<a class="pilula principal" href="editor-catalogo.html">Abrir o editor</a></footer></div>';
   document.body.appendChild(fundo);
   fundo.addEventListener('click',ev=>{
     if(ev.target===fundo||(ev.target.dataset&&ev.target.dataset.fechar))fundo.remove()});
 }
 </script>
-<div id="versaoPagina">comparador CELK · versão 2026-09-29b</div>
+<div id="versaoPagina">comparador CELK · versão 2026-10-19a</div>
 </body>
 </html>

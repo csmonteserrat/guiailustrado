@@ -8,212 +8,225 @@
 <style>
 /* Identidade comum (cores, estrutura, barra lateral, botões e
    etiquetas) fica em admin.css. Aqui ficam só as regras desta
-   página. */
+   página.
 
-.wrap{max-width:1180px;margin:0 auto;padding:22px 16px 70px}
-h1{font-size:21px;font-weight:600;margin:0}
-h2{font-size:15px;font-weight:600;margin:0 0 10px}
-.sub{color:var(--secundario);font-size:12.5px}
-.painel{background:#fff;border:1px solid var(--linha);border-radius:12px;padding:16px;margin-bottom:14px}
+   Disposição em lista e inspetor, como no Mail e no Arquivos: a lista de
+   materiais continua à vista e o item escolhido abre à direita, dividido
+   em três abas, uma para cada arquivo que ele grava (produtos.csv,
+   descritivos.csv e branet.csv). Em tela estreita o inspetor desliza
+   por cima da lista. */
 
-button{font:inherit;font-size:13.5px;padding:8px 14px;border-radius:8px;border:none;
-  background:var(--azul);color:#fff;cursor:pointer}
-button:disabled{opacity:.45;cursor:default}
-button.sec{background:#fff;color:var(--texto);border:1px solid var(--linha)}
-button.perigo{background:#fff;color:var(--vermelho);border:1px solid #f0cdd8}
-button.mini{font-size:12px;padding:5px 10px}
-input,select,textarea{font:inherit;font-size:13px;padding:7px 9px;border:1px solid var(--linha);
-  border-radius:8px;background:#fff;color:var(--texto);width:100%}
-textarea{resize:vertical;min-height:56px}
-input[type=file]{display:none}
-label.rot{display:block;font-size:11px;color:var(--secundario);margin-bottom:3px}
-.barra{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.wrap{display:flex;flex-direction:column;gap:14px}
+h2{font-size:17px}
+.sub{color:var(--secundario);font-size:13px}
+.painel{background:var(--superficie);border-radius:var(--raio);padding:20px 22px;box-shadow:var(--sombra)}
+label.rot{display:block;font-size:12px;font-weight:600;color:var(--secundario);margin-bottom:6px}
+textarea{resize:vertical;min-height:70px;line-height:1.55}
+.inspetor input:not([type=radio]):not([type=checkbox]),.inspetor select,.inspetor textarea{width:100%}
+button.sec{background:var(--neutro)}
+button.perigo{background:var(--geranium-suave);color:var(--geranium)}
 
-.tag{font-size:10.5px;padding:2px 8px;border-radius:20px;display:inline-block;white-space:nowrap}
-.t-az{background:var(--azul-suave);color:var(--azul)}
-.t-rx{background:var(--roxo-suave);color:var(--roxo)}
-.t-lr{background:var(--laranja-suave);color:var(--laranja)}
-.t-vd{background:var(--verde-suave);color:var(--verde)}
-.t-ci{background:#f1f2f6;color:var(--secundario)}
+/* ---------- topo: título, ações e filtros ---------- */
+.cabecalho{display:flex;flex-direction:column;gap:12px;padding-top:6px}
+.cabecalho .l1{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.cabecalho h1{font-size:30px;letter-spacing:-.028em}
+.cabecalho .acoes{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.contaBadge{display:inline-grid;place-items:center;min-width:19px;height:19px;padding:0 6px;border-radius:10px;
+  background:#fff;color:var(--acento);font-size:11px;font-weight:700;margin-left:6px;font-variant-numeric:tabular-nums}
+.filtros{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.busca{flex:1 1 220px;min-width:180px;display:flex;align-items:center;gap:8px;background:var(--superficie);
+  box-shadow:var(--sombra);border-radius:12px;padding:0 12px;height:38px;color:var(--terciario)}
+.busca:focus-within{box-shadow:0 0 0 3px var(--acento-suave),0 0 0 1.5px var(--acento)}
+.busca svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;flex:none}
+.busca input{flex:1;min-width:0;background:none;padding:0;height:100%;font-size:14px}
+.busca input:focus{box-shadow:none}
+.menu{position:relative;display:inline-flex;align-items:center}
+.menu select{appearance:none;height:38px;background:var(--superficie);box-shadow:var(--sombra);font-size:13px;
+  padding:0 30px 0 12px;cursor:pointer;max-width:170px;border-radius:12px}
+.menu::after{content:"";position:absolute;right:12px;width:5px;height:5px;border-right:1.5px solid var(--terciario);
+  border-bottom:1.5px solid var(--terciario);transform:translateY(-1px) rotate(45deg);pointer-events:none}
+.menu.ativo select{background:var(--acento-suave);color:var(--acento-texto);font-weight:600;box-shadow:none}
 
-/* topo fixo */
-.cabecalho{position:sticky;top:0;z-index:15;background:var(--fundo);padding-top:2px}
-.cabecalho .painel{margin-bottom:10px}
+/* ---------- faixa de aviso: alguém publicou ---------- */
+#faixaVigia{display:flex;align-items:center;gap:10px;background:var(--sawtooth-suave);border-radius:14px;
+  padding:11px 16px;font-size:13px;color:var(--texto)}
 
-/* tabela */
-.tabela{width:100%;border-collapse:collapse}
-.tabela th{position:sticky;top:0;background:#fff;font-size:10px;text-transform:uppercase;
-  letter-spacing:.04em;color:var(--secundario);font-weight:500;text-align:left;
-  padding:9px 10px;border-bottom:1px solid var(--linha);z-index:1}
-.tabela td{padding:8px 10px;font-size:12.5px;border-bottom:1px solid #eef0f6;vertical-align:middle}
+/* ---------- lista e inspetor ---------- */
+.md{display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:16px;height:calc(100vh - 196px);min-height:540px}
+.rolagem{background:var(--superficie);border-radius:20px;box-shadow:var(--sombra);overflow:auto;overscroll-behavior:contain;min-width:0}
+.tabela{width:100%;border-collapse:separate;border-spacing:0}
+.tabela th{position:sticky;top:0;z-index:1;background:var(--vidro);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  font-size:11.5px;font-weight:600;color:var(--terciario);text-align:left;padding:10px 12px;border-bottom:1px solid var(--linha)}
+.tabela td{padding:9px 12px;font-size:13px;border-bottom:1px solid var(--linha);vertical-align:middle}
 .tabela tr{cursor:pointer}
-.tabela tr:hover td{background:#fafbff}
-.tabela tr.editado td{background:var(--azul-suave)}
-.tabela tr.novo td{background:var(--verde-suave)}
-.tabela tr.inativo td{color:var(--secundario)}
-.tabela tr.inativo td.material span.nome{text-decoration:line-through}
-.rolagem{max-height:60vh;overflow:auto;border:1px solid var(--linha);border-radius:10px;background:#fff}
+.tabela tbody tr:hover td{background:var(--neutro)}
+.tabela td.cod{font-family:var(--fonte-mono);font-size:12.5px;color:var(--corn);white-space:nowrap}
+.tabela td.material .nome{display:block;font-weight:500;line-height:1.3}
+.tabela td.material .info{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:3px;font-size:12px;color:var(--terciario)}
+.tabela td.material .info .tag{font-size:10.5px;padding:1px 8px}
+.tabela td.un{color:var(--secundario);font-size:12px;white-space:nowrap}
+.tabela td .tag.bloco{max-width:128px;overflow:hidden;text-overflow:ellipsis;vertical-align:middle}
+.inspetor .grade3{grid-template-columns:1fr 1fr}
+.inspetor .grade3>div:first-child{grid-column:1/-1}
+@media(max-width:1440px){.tabela th:nth-child(3),.tabela td:nth-child(3){display:none}}
+.tabela tr.editado td.cod,.tabela tr.novo td.cod{box-shadow:inset 3px 0 0 var(--acento)}
+.tabela tr.inativo td{color:var(--terciario)}
+.tabela tr.inativo td.material .nome{text-decoration:line-through;text-decoration-color:var(--terciario)}
+.tabela tr.sel td{background:var(--acento-suave) !important}
+.tabela tr.sel td.material .nome{color:var(--acento-texto)}
+#rodapeTabela{padding:10px 14px;font-size:12px;color:var(--terciario)}
 
-/* modal */
-.fundo-modal{position:fixed;inset:0;background:rgba(48,57,82,.55);display:flex;
-  align-items:flex-start;justify-content:center;padding:22px 12px;z-index:50;overflow:auto}
-.modal{background:#fff;border-radius:14px;width:100%;max-width:720px;overflow:hidden}
-.modal header{padding:15px 18px;border-bottom:1px solid var(--linha);
-  display:flex;justify-content:space-between;align-items:center;gap:10px}
-.modal .corpo{padding:16px 18px;display:flex;flex-direction:column;gap:12px}
-.modal footer{padding:13px 18px;border-top:1px solid var(--linha);
-  display:flex;gap:9px;align-items:center}
+.inspetor{background:var(--superficie);border-radius:20px;box-shadow:var(--sombra);display:flex;flex-direction:column;min-height:0;overflow:hidden;min-width:0}
+.inspetor .vazioInsp{margin:auto;text-align:center;color:var(--secundario);padding:30px;max-width:280px;font-size:13px}
+.inspetor .vazioInsp b{display:block;font:600 16px var(--fonte-titulo);color:var(--texto);margin-bottom:4px}
+.inspetorCorpo{display:flex;flex-direction:column;min-height:0;height:100%}
+.inspetorCorpo>header{padding:16px 20px 12px;display:flex;flex-direction:column;gap:12px}
+.inspetorCorpo>header .l1{display:flex;align-items:flex-start;gap:10px}
+.inspetorCorpo>header h2{font:600 17px/1.25 var(--fonte-titulo);letter-spacing:-.015em;margin:0}
+.inspetorCorpo>header .sub{font-size:12.5px;margin-top:2px}
+.inspetorCorpo>header .fecharInsp{margin-left:auto;width:30px;height:30px;padding:0;border-radius:50%;font-size:16px;flex:none;display:none}
+.abas{display:flex;background:var(--neutro);border-radius:10px;padding:2px;gap:2px}
+.abas button{flex:1;padding:6px 8px;border-radius:8px;background:none;font-size:12.5px;color:var(--secundario);font-weight:500;
+  display:flex;align-items:center;justify-content:center;gap:6px}
+.abas button[aria-selected="true"]{background:var(--superficie);color:var(--texto);box-shadow:0 1px 3px rgba(0,0,0,.14);font-weight:600}
+.abas .pt{width:7px;height:7px;border-radius:50%;background:var(--terciario);flex:none}
+.abas .pt.ok{background:var(--ok)}.abas .pt.pend{background:var(--sawtooth)}
+.corpoEdicao{flex:1;overflow:auto;padding:4px 20px 20px;overscroll-behavior:contain}
+.cartaoEdicao{display:none}
+.cartaoEdicao.ativa{display:block;animation:entrar .25s var(--mola)}
+@keyframes entrar{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.cabCartao{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.cabCartao .legenda{font-size:12.5px;color:var(--secundario);flex:1;min-width:0}
+.arqCartao{font-size:11px;background:var(--neutro);color:var(--secundario);padding:2px 9px;border-radius:999px;white-space:nowrap}
+.corpoCartao{display:flex;flex-direction:column;gap:16px}
+.corpoCartao .nota{margin-top:0}
+.inspetorCorpo>footer{padding:12px 20px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;border-top:1px solid var(--linha);
+  background:var(--vidro);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.inspetorCorpo>footer .estado{font-size:12.5px;color:var(--secundario);flex:1;min-width:120px}
+.inspetorCorpo>footer .estado.sujo{color:var(--acento-texto);font-weight:600}
 .grade2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .grade3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
-@media(max-width:640px){.grade2,.grade3{grid-template-columns:1fr}}
+.dica{font-size:12px;color:var(--terciario);margin-top:5px}
 
-/* fichas de tags */
-.fichas{display:flex;gap:6px;flex-wrap:wrap;align-items:center;border:1px solid var(--linha);
-  border-radius:8px;padding:7px 8px;min-height:38px;background:#fff}
-.ficha{background:var(--azul-suave);color:var(--azul);font-size:12px;padding:3px 8px;
-  border-radius:20px;display:inline-flex;gap:6px;align-items:center}
-.ficha b{cursor:pointer;font-weight:600}
+/* situação ativo/inativo: controle segmentado */
+.segmento{display:flex;background:var(--neutro);border-radius:10px;padding:2px;gap:2px}
+.segmento label{flex:1;cursor:pointer;margin:0}
+.segmento input{position:absolute;opacity:0;pointer-events:none}
+.segmento span{display:block;text-align:center;padding:7px 10px;border-radius:8px;font-size:13px;color:var(--secundario);transition:background .15s}
+.segmento input:checked+span{background:var(--superficie);color:var(--texto);font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.14)}
+.segmento input[value=NAO]:checked+span{color:var(--geranium)}
+.segmento input:focus-visible+span{box-shadow:0 0 0 3px var(--acento-suave)}
 
-.nota{border-radius:8px;padding:10px 12px;font-size:12.5px;margin-top:10px;border-left:3px solid}
-.nota.aviso{background:var(--laranja-suave);border-color:var(--laranja)}
-.nota.erro{background:var(--vermelho-suave);border-color:var(--vermelho)}
-.nota.info{background:var(--azul-suave);border-color:var(--azul)}
-.mudanca{display:flex;gap:10px;padding:10px 12px;border-bottom:1px solid #eef0f6}
+/* fichas de tags e famílias */
+.fichas{display:flex;gap:6px;flex-wrap:wrap;align-items:center;min-height:30px;margin-bottom:8px}
+.ficha{background:var(--acento-suave);color:var(--acento-texto);font-size:12.5px;font-weight:500;padding:3px 4px 3px 11px;
+  border-radius:999px;display:inline-flex;gap:4px;align-items:center}
+.ficha b{cursor:pointer;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;font-size:10px;opacity:.75}
+.ficha b:hover{opacity:1;background:var(--acento-suave)}
+
+/* avisos */
+.nota{border-radius:14px;padding:11px 14px;font-size:13px;margin-top:10px;background:var(--neutro);color:var(--texto)}
+.nota.aviso{background:var(--sawtooth-suave)}
+.nota.erro{background:var(--geranium-suave)}
+.nota.info{background:var(--acento-suave)}
+
+/* ---------- janelas sobre a página (conferência, histórico, conflito) ----------
+   Painéis centrais com o fundo escurecido e desfocado. No celular, sobem
+   da borda de baixo, como uma folha. */
+.fundo-modal{position:fixed;inset:0;background:var(--veu);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;
+  align-items:flex-start;justify-content:center;padding:5vh 14px;z-index:50;overflow:auto;animation:surgir .2s ease}
+.modal{background:var(--superficie);border-radius:24px;width:100%;max-width:720px;overflow:hidden;box-shadow:var(--sombra-alta);
+  animation:subir .35s var(--mola)}
+.modal header{padding:18px 22px 12px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.modal header h2{font:600 19px/1.25 var(--fonte-titulo);letter-spacing:-.015em}
+.modal .corpo{padding:6px 22px 18px;display:flex;flex-direction:column;gap:12px}
+.modal footer{padding:12px 22px;border-top:1px solid var(--linha);display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+@keyframes surgir{from{opacity:0}to{opacity:1}}
+@keyframes subir{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
+.mudanca{display:flex;gap:10px;padding:11px 14px;border-bottom:1px solid var(--linha)}
 .mudanca:last-child{border-bottom:none}
-.diff{font-size:11.5px;color:var(--secundario)}
-.diff .de{text-decoration:line-through}
-.diff .para{color:var(--texto)}
+.mudanca>.tag{align-self:flex-start;margin-top:1px}
+.mudanca button{background:var(--superficie)}
+.diff{font-size:12px;color:var(--secundario);margin-top:2px}
+.diff .de{text-decoration:line-through;color:var(--geranium)}
+.diff .para{color:var(--ok);font-weight:500}
+.listaMudancas{flex:none;background:var(--neutro);border-radius:14px;max-height:42vh;overflow:auto}
 
-/* =====================================================================
-   Identidade visual comum: superfícies brancas arredondadas flutuando
-   sobre fundo claro, sombras suaves no lugar de bordas e pílulas para
-   ações e filtros. Paleta Russian do Flat UI Colors com neutros.
-   ===================================================================== */
-
-.painel,.lista,.rolagem,.cartao{background:#fff;border:none !important;
-  border-radius:var(--raio);box-shadow:var(--sombra)}
-
-button,.pilula{font:inherit;border:none;border-radius:20px;padding:9px 17px;
-  background:#fff;color:var(--texto);box-shadow:var(--sombra);cursor:pointer;
-  white-space:nowrap;font-size:13px}
-button.principal{background:var(--peach);color:#fff}
-button.acento{background:var(--curacao);color:#fff}
-button.sec{background:#fff;color:var(--texto);border:none;box-shadow:var(--sombra)}
-button.plana{box-shadow:none;background:var(--neutro)}
-button.perigo{background:#fff;color:var(--geranium);box-shadow:var(--sombra)}
-button.mini{font-size:11.5px;padding:6px 13px}
-button:disabled{opacity:.5;cursor:default}
-
-input,select,textarea{font:inherit;border:none;border-radius:14px;background:var(--neutro);
-  color:var(--texto);padding:10px 13px;font-size:13px}
-input[type=search],input[type=text].busca{background:#fff;box-shadow:var(--sombra);border-radius:20px;padding:11px 16px}
-input[type=checkbox],input[type=radio]{width:auto;box-shadow:none;background:none}
-input[type=file]{display:none}
-select{appearance:none;background-image:none;padding-right:13px}
-
-.tag{border-radius:20px}
-.nota{border-radius:16px;border-left:3px solid}
-
-/* ---- editor ---- */
-.cabecalho{background:transparent}
-.cabecalho .painel{padding:16px 18px}
-.tabela th{background:#fff;border-bottom:1px solid var(--borda);border-radius:0}
-.tabela td{border-bottom:1px solid var(--borda)}
-/* A lista precisa rolar: o arredondamento não exige esconder o excesso. */
-.rolagem{overflow:auto}
-.rolagem .tabela{border-radius:var(--raio)}
-.modal{border-radius:24px;box-shadow:var(--sombra-alta)}
-.modal header,.modal footer{border-color:var(--borda)}
-.fichas{border:none;background:var(--neutro);border-radius:14px}
-.ficha{background:var(--corn);color:#fff}
-.ficha b{color:rgba(255,255,255,.8)}
-.opcao{border-radius:12px}
-.mudanca{border-bottom:1px solid var(--borda)}
-.fundo-modal{background:rgba(48,57,82,.45);backdrop-filter:blur(2px)}
-
-/* ---- barra lateral de navegação ---- */
-
-.wrap{max-width:none;margin:0;padding:0 0 30px}
-
-/* ---- histórico dentro do editor: linha do tempo ---- */
+/* ---------- histórico dentro do editor: linha do tempo ---------- */
 .linhaTempo{position:relative;padding-left:22px}
-.linhaTempo:before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:var(--borda)}
+.linhaTempo:before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:var(--linha)}
 .marco{position:relative;margin-bottom:16px}
 .marco:last-child{margin-bottom:4px}
 .marco .ponto{position:absolute;left:-22px;top:4px;width:12px;height:12px;border-radius:20px;
-  background:#fff;border:3px solid var(--corn)}
+  background:var(--superficie);border:3px solid var(--corn)}
 .altHist{margin-top:8px;background:var(--neutro);border-radius:14px;padding:10px 12px}
 .topoHist{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
-.etHist{font-size:10px;padding:3px 10px;border-radius:20px;flex:none;align-self:flex-start;white-space:nowrap}
-.campoHist{font-size:11.5px;color:var(--secundario);margin-top:2px}
-.campoHist .de{text-decoration:line-through;opacity:.6}
-.campoHist .para{color:var(--texto)}
+.etHist{font-size:11px;font-weight:500;padding:2px 10px;border-radius:20px;flex:none;align-self:flex-start;white-space:nowrap}
+.campoHist{font-size:12px;color:var(--secundario);margin-top:2px}
+.campoHist .de{text-decoration:line-through;color:var(--geranium)}
+.campoHist .para{color:var(--ok)}
 .longoHist{margin-top:5px}
-.longoHist .rot{font-size:10px;color:var(--secundario)}
-.txtHist{background:#fff;border-radius:12px;padding:9px 11px;font-size:11.5px;line-height:1.6;
+.longoHist .rot{font-size:11px;color:var(--secundario)}
+.txtHist{background:var(--superficie);border-radius:12px;padding:9px 11px;font-size:12px;line-height:1.6;
   margin-top:3px;position:relative;white-space:pre-wrap}
 .txtHist.recolhido{max-height:58px;overflow:hidden}
 .txtHist.recolhido:after{content:"";position:absolute;left:0;right:0;bottom:0;height:24px;
-  background:linear-gradient(transparent,#fff)}
-.longoHist .verHist{font-size:10.5px;color:var(--corn);margin-top:3px;cursor:pointer;display:inline-block}
+  background:linear-gradient(transparent,var(--superficie))}
+.longoHist .verHist{font-size:11.5px;color:var(--acento-texto);margin-top:3px;cursor:pointer;display:inline-block}
 .longoHist .txtHist.riscado{text-decoration:line-through;color:var(--secundario)}
-.linkCompleto{display:inline-block;font-size:11.5px;padding:9px 18px;border-radius:20px;
-  background:#fff;box-shadow:var(--sombra);color:var(--corn);text-decoration:none}
+.linkCompleto{display:inline-block;font-size:12.5px;padding:8px 16px;border-radius:999px;
+  background:var(--neutro);color:var(--acento-texto);text-decoration:none;font-weight:500}
 
-/* ---- modal de edição em dois cartões ---- */
-.modalEdicao{max-width:660px;background:var(--fundo)}
-.modalEdicao header,.modalEdicao footer{background:#fff}
-.corpoEdicao{padding:14px;gap:12px;background:var(--fundo);max-height:70vh;overflow:auto}
-.cartaoEdicao{flex:none;background:#fff;border-radius:18px;box-shadow:var(--sombra);overflow:hidden}
-.cabCartao{padding:12px 16px;display:flex;gap:11px;align-items:center;flex-wrap:wrap}
-.icCartao{width:30px;height:30px;flex:none;border-radius:10px;color:#fff;
-  display:flex;align-items:center;justify-content:center;font-size:14px}
-.ttCartao{font-size:12.5px;font-weight:600}
-.selCartao{margin-left:auto;font-size:9.5px;padding:3px 10px;border-radius:20px;white-space:nowrap}
-.arqCartao{font-size:9.5px;background:#fff;padding:3px 9px;border-radius:20px;white-space:nowrap}
-.cabCartao .selCartao+.arqCartao{margin-left:0}
-.cabCartao .arqCartao:first-of-type{margin-left:auto}
-.corpoCartao{padding:15px 16px;display:flex;flex-direction:column;gap:12px}
-.corpoCartao .nota{margin-top:0}
-@media(max-width:640px){
-  .corpoEdicao{padding:11px}
-  .cabCartao{gap:9px}
-  .arqCartao{display:none}
+/* ---------- aviso flutuante da publicação ---------- */
+#avisoPublicacao{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;z-index:60;max-width:min(620px,92vw);
+  padding:13px 17px;border-radius:16px;box-shadow:var(--sombra-alta);font-size:13px;line-height:1.5;
+  background:var(--vidro);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);
+  border:1px solid var(--vidro-borda);animation:subir .35s var(--mola)}
+
+@media(max-width:1180px){
+  .md{grid-template-columns:minmax(0,1fr)}
+  .inspetor{position:fixed;top:0;right:0;bottom:0;width:min(460px,100%);z-index:45;border-radius:22px 0 0 22px;
+    transform:translateX(105%);transition:transform .4s var(--mola);visibility:hidden;box-shadow:var(--sombra-alta)}
+  .inspetor.aberto{transform:none;visibility:visible}
+  .inspetorCorpo>header .fecharInsp{display:grid;place-items:center}
+  .veuInsp{position:fixed;inset:0;background:var(--veu);z-index:44;opacity:0;pointer-events:none;transition:opacity .3s}
+  .veuInsp.ativo{opacity:1;pointer-events:auto}
 }
-
-/* ---------------------- celular ----------------------
-   A tabela tem larguras fixas somando mais de 500px, o que empurrava a
-   página inteira para além da borda da tela. No celular ela mostra só
-   o código e o material: as demais colunas continuam disponíveis ao
-   abrir o item, que é o gesto natural ali de qualquer forma.
-   A faixa do topo também deixa de grudar, porque numa tela pequena ela
-   ocupava quase toda a altura e sobrava uma fresta para a lista. */
 @media(max-width:640px){
-  .cabecalho{position:static}
-  .rolagem{max-height:none;overflow-x:auto}
+  .md{height:auto;min-height:0}
+  .rolagem{overflow:visible}
   .tabela th:nth-child(3),.tabela td:nth-child(3),
-  .tabela th:nth-child(4),.tabela td:nth-child(4),
-  .tabela th:nth-child(5),.tabela td:nth-child(5){display:none}
+  .tabela th:nth-child(4),.tabela td:nth-child(4){display:none}
   .tabela th:first-child{width:78px}
-  .tabela th:last-child{width:44px}
-  .tabela td,.tabela th{padding:8px 7px}
-  .wrap{padding-bottom:40px}
+  .tabela td,.tabela th{padding:9px 8px}
+  .tabela th{position:static}
+  .grade2,.grade3{grid-template-columns:1fr}
+  .inspetor{width:100%;border-radius:0}
+  .menu{flex:1 1 45%}.menu select{max-width:none;width:100%}
+  .fundo-modal{align-items:flex-end;padding:0}
+  .modal{border-radius:22px 22px 0 0;max-height:92vh;overflow:auto}
+  .cabecalho .acoes{margin-left:0}
+  .inspetorCorpo>footer .estado{flex-basis:100%}
+  .inspetorCorpo>footer #btSalvar{margin-left:auto}
 }
 </style>
 </head>
 <body>
 <div class="app">
-<nav class="lateral">
-  <div class="marca"><b>Admin</b>catálogo</div>
-  <a class="nav" href="../admin.html"><span class="ic">&#9635;</span><span class="tx">Painel</span></a>
-  <a class="nav ativo" href="../editor-catalogo/editor-catalogo.html"><span class="ic">&#9998;</span><span class="tx">Editor</span></a>
-  <a class="nav" href="comparar-celk.html"><span class="ic">&#8646;</span><span class="tx">CELK</span></a>
-  <a class="nav" href="../descritivos/descritivos.html"><span class="ic">&#9776;</span><span class="tx">Descritivos</span></a>
-  <a class="nav" href="../preparar-imagens.html"><span class="ic">&#9634;</span><span class="tx">Imagens</span></a>
-  <a class="nav" href="historico.html"><span class="ic">&#9711;</span><span class="tx">Histórico</span></a>
-  <a class="nav" href="../tutoriais.html"><span class="ic">&#9432;</span><span class="tx">Tutoriais</span></a>
-  <a class="nav saida" href="../index.html" target="_blank" rel="noopener"><span class="ic">&#8599;</span><span class="tx">Catálogo</span></a>
-  <a class="nav saida segunda" href="../branet.html" target="_blank" rel="noopener"><span class="ic">&#9638;</span><span class="tx">Catálogo BRANET</span></a>
+<nav class="lateral" aria-label="Seções do admin">
+  <div class="marca"><b>Admin do catálogo</b>GT Padronização</div>
+  <a class="nav" href="../admin.html"><span class="ic i-painel"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.6"/></svg></span><span class="tx">Painel</span></a>
+  <div class="grupo">Trabalho</div>
+  <a class="nav ativo" aria-current="page" href="editor-catalogo.html"><span class="ic i-editor"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1-4L16.5 4.5a2 2 0 013 3L8 19z"/><path d="M14.5 6.5l3 3"/></svg></span><span class="tx">Editor</span></a>
+  <a class="nav" href="comparar-celk.html"><span class="ic i-celk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h13M14 4l4 4-4 4M19 16H6M10 12l-4 4 4 4"/></svg></span><span class="tx">Comparar CELK</span></a>
+  <a class="nav" href="../descritivos/descritivos.html"><span class="ic i-desc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7h11M8 12h11M8 17h11M4.5 7h.01M4.5 12h.01M4.5 17h.01"/></svg></span><span class="tx">Descritivos</span></a>
+  <a class="nav" href="../preparar-imagens.html"><span class="ic i-imagens"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2.5"/><circle cx="9" cy="10.5" r="1.6"/><path d="M4 17l5-4.5 4 3.5 3-2.5 4 3.5"/></svg></span><span class="tx">Imagens</span></a>
+  <div class="grupo">Registro</div>
+  <a class="nav" href="historico.html"><span class="ic i-hist"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><span class="tx">Histórico</span></a>
+  <a class="nav" href="../tutoriais.html"><span class="ic i-tut"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5.5A2.5 2.5 0 017.5 3H19v15H7.5A2.5 2.5 0 005 20.5z"/><path d="M5 20.5A2.5 2.5 0 007.5 23H19v-5"/></svg></span><span class="tx">Tutoriais</span></a>
+  <div class="grupo">Abrir fora</div>
+  <a class="nav saida" href="../index.html" target="_blank" rel="noopener"><span class="tx">Catálogo</span><svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6H6.5A2.5 2.5 0 004 8.5v9A2.5 2.5 0 006.5 20h9a2.5 2.5 0 002.5-2.5V15M13 4h7v7M20 4l-9 9"/></svg></a>
+  <a class="nav saida" href="../branet.html" target="_blank" rel="noopener"><span class="tx">Catálogo BRANET</span><svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6H6.5A2.5 2.5 0 004 8.5v9A2.5 2.5 0 006.5 20h9a2.5 2.5 0 002.5-2.5V15M13 4h7v7M20 4l-9 9"/></svg></a>
 </nav>
 <div class="coluna">
 <div class="wrap">
@@ -221,7 +234,7 @@ select{appearance:none;background-image:none;padding-right:13px}
 <!-- ================= CARREGAMENTO ================= -->
 <div class="painel" id="painelCarregar">
   <h1>Editor do catálogo</h1>
-  <p class="sub" style="margin:6px 0 14px">Edita o arquivo <span class="mono">produtos.csv</span> em uma
+  <p class="sub" style="margin:8px 0 14px;max-width:70ch">Edita o arquivo <span class="mono">produtos.csv</span> em uma
   interface visual e devolve o arquivo pronto para substituir no GitHub, junto com o histórico de alterações
   atualizado. Nada é enviado para a internet: o arquivo é lido e gravado neste computador.</p>
   <div id="procurando" class="sub">Procurando o arquivo produtos.csv...</div>
@@ -232,67 +245,67 @@ select{appearance:none;background-image:none;padding-right:13px}
     pasta do arquivo, publicada em um endereço. Abrindo direto do disco, escolha o arquivo acima.</p>
   </div>
   <div id="restaurar" class="nota info oculto"></div>
-  <div style="margin-top:12px"><button class="sec mini" id="btHistorico2">Ver histórico de alterações</button></div>
+  <div style="margin-top:14px"><button class="mini" id="btHistorico2">Ver histórico de alterações</button></div>
 </div>
 
 <!-- ================= EDITOR ================= -->
 <div id="editor" class="oculto">
 
-  <div id="faixaVigia" class="oculto" style="display:flex;align-items:center;gap:10px;
-       background:#fdefe8;border-radius:14px;padding:11px 16px;margin-bottom:12px;font-size:13px;color:#7a4a1c">
+  <div id="faixaVigia" class="oculto">
     <span id="faixaVigiaTexto"></span>
-    <button class="sec mini" id="btVerAlteracoes" style="margin-left:auto;white-space:nowrap">Atualizar e ver alterações</button>
+    <button class="mini" id="btVerAlteracoes" style="margin-left:auto;background:var(--superficie)">Atualizar e ver alterações</button>
   </div>
 
   <div class="cabecalho">
-    <div class="painel">
-      <div class="barra">
-        <div>
-          <h1>Editor do catálogo</h1>
-          <div class="sub" id="contagem"></div>
-        </div>
-        <div class="barra espaco">
-          <button class="sec" id="btHistorico">Histórico</button>
-          <button class="sec" id="btNovo">Novo item</button>
-          <button class="principal" id="btConferir">Conferir e baixar</button>
-        </div>
+    <div class="l1">
+      <div>
+        <h1>Materiais</h1>
+        <div class="sub" id="contagem"></div>
       </div>
-
-      <div class="barra" style="margin-top:12px">
-        <input type="search" id="busca" placeholder="Buscar por nome, código, tag ou família" style="flex:2;min-width:220px">
-        <select id="fBloco" style="flex:1;min-width:150px"></select>
-        <select id="fTag" style="flex:1;min-width:150px"></select>
-        <select id="fFamilia" style="flex:1;min-width:150px"></select>
-        <select id="fSituacao" style="flex:1;min-width:150px">
-          <option value="">Todas as situações</option>
-          <option value="ativos">Somente ativos</option>
-          <option value="inativos">Somente inativos</option>
-          <option value="alterados">Somente alterados nesta sessão</option>
-          <option value="semtag">Sem tag ou sem família</option>
-          <option value="comdesc">Com descritivo</option>
-          <option value="semdesc">Sem descritivo</option>
-          <option value="aguardandocompra">Aguardando compra</option>
-          <option value="combranet">Com item da BRANET</option>
-          <option value="sembranet">Sem item da BRANET</option>
-        </select>
+      <div class="acoes">
+        <button id="btHistorico">Histórico</button>
+        <button class="acento" id="btNovo">Novo item</button>
+        <button class="principal" id="btConferir">Conferir e publicar<span class="contaBadge oculto" id="contaAlt">0</span></button>
       </div>
+    </div>
+    <div class="filtros">
+      <label class="busca"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><input type="search" id="busca" placeholder="Buscar por nome, código, tag ou família" autocomplete="off"></label>
+      <span class="menu"><select id="fBloco" aria-label="Bloco"></select></span>
+      <span class="menu"><select id="fTag" aria-label="Tag"></select></span>
+      <span class="menu"><select id="fFamilia" aria-label="Família"></select></span>
+      <span class="menu"><select id="fSituacao" aria-label="Situação">
+        <option value="">Todas as situações</option>
+        <option value="ativos">Somente ativos</option>
+        <option value="inativos">Somente inativos</option>
+        <option value="alterados">Somente alterados nesta sessão</option>
+        <option value="semtag">Sem tag ou sem família</option>
+        <option value="comdesc">Com descritivo</option>
+        <option value="semdesc">Sem descritivo</option>
+        <option value="aguardandocompra">Aguardando compra</option>
+        <option value="combranet">Com item da BRANET</option>
+        <option value="sembranet">Sem item da BRANET</option>
+      </select></span>
     </div>
   </div>
 
-  <div class="rolagem">
-    <table class="tabela">
-      <thead><tr>
-        <th style="width:96px">Código</th>
-        <th>Material</th>
-        <th style="width:74px">Unidade</th>
-        <th style="width:118px">Bloco</th>
-        <th style="width:210px">Família e tags</th>
-        <th style="width:64px"></th>
-      </tr></thead>
-      <tbody id="corpoTabela"></tbody>
-    </table>
+  <div class="md">
+    <div class="rolagem">
+      <table class="tabela">
+        <thead><tr>
+          <th style="width:98px">Código</th>
+          <th>Material</th>
+          <th style="width:62px">Un.</th>
+          <th style="width:140px">Bloco</th>
+        </tr></thead>
+        <tbody id="corpoTabela"></tbody>
+      </table>
+      <div id="rodapeTabela"></div>
+    </div>
+    <aside class="inspetor" id="inspetor" aria-label="Item selecionado">
+      <div class="vazioInsp"><b>Selecione um material</b>Escolha um item da lista para editar os dados do catálogo, o descritivo e o cadastro na BRANET.</div>
+    </aside>
   </div>
-  <div class="sub" id="rodapeTabela" style="margin-top:8px"></div>
+  <div class="veuInsp" id="veuInsp"></div>
 </div>
 
 </div>
@@ -383,6 +396,7 @@ function aplicar(dados,nome){
   aplicarImportacaoCelk();
   desenhar();
   iniciarVigia();
+  abrirDoEndereco();
 }
 
 /* =====================================================================
@@ -626,7 +640,7 @@ function verificarRascunho(){
     proximoId=Math.max(0,...ITENS.map(i=>i.__id||0))+1;
     caixa.classList.add('oculto');
     $('#painelCarregar').classList.add('oculto');$('#editor').classList.remove('oculto');
-    montarFiltros();desenhar();
+    montarFiltros();desenhar();abrirDoEndereco();
   };
   $('#btDescartar').onclick=()=>{
     localStorage.removeItem(CHAVE);
@@ -709,6 +723,9 @@ function padraoDoSubgrupo(subgrupo){
 }
 
 function montarFiltros(){
+  /* Remontar as listas não pode limpar o que a pessoa escolheu: depois de
+     salvar um item, a lista continua filtrada como estava. */
+  const antes={b:$('#fBloco').value,t:$('#fTag').value,f:$('#fFamilia').value};
   const bloco=$('#fBloco');
   // o filtro mostra o rótulo combinado, mas continua filtrando pela coluna subgrupo
   bloco.innerHTML='<option value="">Todos os blocos</option>'+
@@ -720,6 +737,10 @@ function montarFiltros(){
   const fam=$('#fFamilia');
   fam.innerHTML='<option value="">Todas as famílias</option>'+
     todasFamilias().map(f=>'<option>'+escapar(f)+'</option>').join('');
+  bloco.value=antes.b;tag.value=antes.t;fam.value=antes.f;
+  if(bloco.value!==antes.b)bloco.value='';
+  if(tag.value!==antes.t)tag.value='';
+  if(fam.value!==antes.f)fam.value='';
 }
 /* A busca redesenha a cada tecla, pelo evento input. O change dela não
    redesenha de novo: ele dispara quando o campo perde o foco, ou seja, no
@@ -789,23 +810,29 @@ function desenhar(){
   const lista=filtrados();
   const corpo=$('#corpoTabela');
   const limite=400;
-  corpo.innerHTML=lista.slice(0,limite).map(it=>{
+  /* O item aberto no inspetor aparece sempre, mesmo além do limite. */
+  const mostrar=lista.slice(0,limite);
+  const aberto=lista.find(i=>i.__id===INSP.id);
+  if(aberto&&!mostrar.includes(aberto))mostrar.push(aberto);
+  corpo.innerHTML=mostrar.map(it=>{
     const sit=situacao(it);
     const inativo=(it.ativo||'SIM').toUpperCase()==='NAO';
-    const tags=tagsDe(it);
-    return '<tr class="'+sit+(inativo?' inativo':'')+'" data-id="'+it.__id+'">'+
-      '<td class="mono" style="color:var(--azul)">'+escapar(it.codigo)+'</td>'+
+    const cod=(it.codigo||'').trim();
+    const classes=familiasDe(it).concat(tagsDe(it));
+    return '<tr class="'+sit+(inativo?' inativo':'')+(INSP.id===it.__id?' sel':'')+'" data-id="'+it.__id+'">'+
+      '<td class="cod">'+escapar(it.codigo)+'</td>'+
       '<td class="material"><span class="nome">'+escapar(it.material)+'</span>'+
-        (sit==='novo'?' <span class="tag t-vd">novo</span>':'')+
-        (sit==='editado'?' <span class="tag t-az">editado</span>':'')+
-        (inativo?' <span class="tag t-ci">inativo</span>':'')+
-        (temDescritivo((it.codigo||'').trim())?' <span class="tag t-lr">descritivo</span>':'')+
-        (descDe((it.codigo||'').trim()).situacao_compra==='AGUARDANDO_COMPRA'?
-          ' <span class="tag t-ci" title="material novo, ainda sem código do CELK">aguardando compra</span>':'')+'</td>'+
-      '<td class="sub">'+escapar((it.unidade||'').split(' - ')[0])+'</td>'+
-      '<td><span class="tag '+corBloco(it)+'">'+escapar(juntarGrupo(it.grupo,it.subgrupo))+'</span></td>'+
-      '<td class="sub">'+escapar(familiasDe(it).concat(tags).join(', '))+'</td>'+
-      '<td style="text-align:right;color:var(--azul)">editar</td></tr>';
+        '<span class="info">'+
+        (sit==='novo'?'<span class="tag t-vd">novo</span>':'')+
+        (sit==='editado'?'<span class="tag t-az">editado</span>':'')+
+        (inativo?'<span class="tag t-ci">inativo</span>':'')+
+        (temDescritivo(cod)?'<span class="tag t-rx">descritivo</span>':'')+
+        (descDe(cod).situacao_compra==='AGUARDANDO_COMPRA'?
+          '<span class="tag t-ci" title="material novo, ainda sem código do CELK">aguardando compra</span>':'')+
+        (classes.length?'<span>'+escapar(classes.join(' · '))+'</span>':'')+
+        '</span></td>'+
+      '<td class="un">'+escapar((it.unidade||'').split(' - ')[0])+'</td>'+
+      '<td><span class="tag bloco '+corBloco(it)+'" title="'+escapar(juntarGrupo(it.grupo,it.subgrupo))+'">'+escapar(juntarGrupo(it.grupo,it.subgrupo))+'</span></td></tr>';
   }).join('');
   $('#rodapeTabela').textContent=lista.length>limite
     ? 'mostrando os primeiros '+limite+' de '+lista.length+' itens, refine a busca para ver os demais'
@@ -815,6 +842,12 @@ function desenhar(){
   const partes=[];
   if(md.length)partes.push(md.length+' em descritivos');
   if(mb.length)partes.push(mb.length+' na BRANET');
+  const badge=$('#contaAlt');
+  badge.textContent=totalAlt;badge.classList.toggle('oculto',!totalAlt);
+  document.querySelectorAll('.menu select').forEach(el=>el.parentNode.classList.toggle('ativo',!!el.value));
+  /* Se o item aberto no inspetor deixou de existir (excluído ou desfeito
+     na conferência), o inspetor volta ao estado vazio. */
+  if(INSP.id!==null&&!INSP.novo&&!ITENS.some(i=>i.__id===INSP.id))fecharInspetor(true);
   $('#contagem').textContent=ITENS.length+' itens no arquivo'+
     (totalAlt?' · '+totalAlt+' alteração(ões) pendente(s)'+
       (partes.length?' ('+partes.join(', ')+')':''):' · nenhuma alteração pendente');
@@ -825,6 +858,59 @@ $('#corpoTabela').addEventListener('click',e=>{
   const tr=e.target.closest('tr');if(!tr)return;
   abrirEdicao(parseInt(tr.dataset.id));
 });
+
+/* =====================================================================
+   INSPETOR
+   ---------------------------------------------------------------------
+   Guarda qual item está aberto e se há edição ainda não salva nele.
+   Trocar de item com edição pendente pede confirmação, para ninguém
+   perder o que digitou por um clique na lista.
+   ===================================================================== */
+const INSP={id:null,novo:false,sujo:false,aba:'cat'};
+
+function marcarSelecao(){
+  document.querySelectorAll('#corpoTabela tr').forEach(tr=>tr.classList.toggle('sel',+tr.dataset.id===INSP.id));
+}
+function podeTrocar(){
+  return !INSP.sujo||confirm('Há alterações não salvas neste item.\n\nDescartar e continuar?');
+}
+function fecharInspetor(forcar){
+  if(!forcar&&!podeTrocar())return false;
+  INSP.id=null;INSP.novo=false;INSP.sujo=false;
+  $('#inspetor').innerHTML='<div class="vazioInsp"><b>Selecione um material</b>Escolha um item da lista para editar '+
+    'os dados do catálogo, o descritivo e o cadastro na BRANET.</div>';
+  $('#inspetor').classList.remove('aberto');$('#veuInsp').classList.remove('ativo');
+  marcarSelecao();
+  return true;
+}
+function marcarSujo(){
+  if(INSP.sujo)return;
+  INSP.sujo=true;
+  const e=$('#inspetor .estado');
+  if(e){e.textContent='Alterações não salvas';e.classList.add('sujo')}
+  const d=$('#inspetor [data-descartar]');if(d)d.disabled=false;
+}
+/* Reabre o item no inspetor com o que está salvo agora. Usado depois de
+   desfazer algo na conferência, para o inspetor não mostrar dado antigo. */
+function recarregarInspetor(){
+  if(INSP.id===null||INSP.novo||INSP.sujo)return;
+  if(ITENS.some(i=>i.__id===INSP.id))abrirEdicao(INSP.id,null,true);
+}
+$('#veuInsp').onclick=()=>fecharInspetor(false);
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&$('#inspetor').classList.contains('aberto')&&!document.querySelector('.fundo-modal'))
+    fecharInspetor(false);
+});
+
+/* Abre direto um material quando o endereço traz #item=CODIGO, como faz
+   o botão "Editar no editor" da página de descritivos. */
+function abrirDoEndereco(){
+  const m=/item=([^&]+)/.exec(location.hash||'');
+  if(!m)return;
+  const cod=decodeURIComponent(m[1]);
+  const it=ITENS.find(i=>(i.codigo||'').trim()===cod);
+  if(it){abrirEdicao(it.__id);const tr=document.querySelector('#corpoTabela tr.sel');if(tr)tr.scrollIntoView({block:'center'})}
+}
 
 /* =====================================================================
    EDIÇÃO
@@ -838,9 +924,13 @@ function seletor(campo,valor,opcoes){
     '<option value="__novo">outro valor...</option></select>';
 }
 
-function abrirEdicao(id,novo){
+function abrirEdicao(id,novo,semPerguntar){
   const it=novo?novo:ITENS.find(i=>i.__id===id);
   if(!it)return;
+  if(!semPerguntar&&(INSP.id!==(novo?null:id)||novo)&&!podeTrocar())return;
+  const mesmoItem=INSP.id===it.__id;
+  INSP.id=it.__id;INSP.novo=!!novo;INSP.sujo=false;
+  if(!mesmoItem)INSP.aba='cat';
   const trabalho=Object.assign({},it);
 
   /* Valores dos campos que aceitam mais de uma opção. */
@@ -869,23 +959,16 @@ function abrirEdicao(id,novo){
       '<div><label class="rot">Nome na BRANET</label>'+
         '<input data-branet="branet_nome" value="'+escapar(br.branet_nome||'')+'" '+
         'placeholder="'+escapar(item.material||'')+'">'+
-        '<div class="sub" style="font-size:11px;margin-top:4px">deixe em branco se for igual ao nome do catálogo</div></div>'+
-      '<div class="grade2">'+
-        '<div><label class="rot">Última modificação</label>'+
-          '<div class="sub" style="padding:9px 0 0;font-size:12px">'+
-          (br.modificado_em?escapar(br.modificado_em)+(br.modificado_por?' · '+escapar(br.modificado_por):'')
-            :'nunca modificado')+
-          '<br><span style="font-size:11px">atualiza sozinho ao salvar uma alteração aqui</span></div></div>'+
-      '</div>';
-    return '<section class="cartaoEdicao">'+
-      '<div class="cabCartao" style="background:var(--curacao-suave)">'+
-        '<span class="icCartao" style="background:var(--curacao)">&#9638;</span>'+
-        '<div><div class="ttCartao" style="color:var(--curacao-escuro)">Almoxarifado BRANET</div>'+
-        '<div class="sub" style="font-size:10.5px">como o material está cadastrado na central de distribuição</div></div>'+
-        '<span class="selCartao" style="background:'+(vinculado?'#fff':'var(--neutro)')+
-        ';color:'+(vinculado?'var(--curacao-escuro)':'var(--secundario)')+'">'+
-        (vinculado?'vinculado':'sem código')+'</span>'+
-        '<span class="arqCartao mono" style="color:var(--curacao-escuro)">branet.csv</span></div>'+
+        '<div class="dica">deixe em branco se for igual ao nome do catálogo</div></div>'+
+      '<div><label class="rot">Última modificação</label>'+
+        '<div class="sub">'+
+        (br.modificado_em?escapar(br.modificado_em)+(br.modificado_por?' · '+escapar(br.modificado_por):'')
+          :'nunca modificado')+'</div>'+
+        '<div class="dica">atualiza sozinho ao salvar uma alteração aqui</div></div>';
+    return '<section class="cartaoEdicao" data-aba="br">'+
+      '<div class="cabCartao"><span class="legenda">Como o material está cadastrado na central de distribuição.</span>'+
+        '<span class="tag '+(vinculado?'t-vd':'t-ci')+'">'+(vinculado?'vinculado':'sem código')+'</span>'+
+        '<span class="arqCartao mono">branet.csv</span></div>'+
       '<div class="corpoCartao">'+corpo+'</div></section>';
   }
 
@@ -893,12 +976,10 @@ function abrirEdicao(id,novo){
      odontologia, já que os da lista da Enfermagem não entram nestes empenhos. */
   function secaoDescritivo(item,dsc){
     if(!aceitaDescritivo(item))
-      return '<section class="cartaoEdicao">'+
-        '<div class="cabCartao" style="background:var(--neutro)">'+
-          '<span class="icCartao" style="background:var(--secundario)">&#9776;</span>'+
-          '<div><div class="ttCartao" style="color:var(--secundario)">Descritivo</div>'+
-          '<div class="sub" style="font-size:10.5px">não se aplica a este material</div></div></div>'+
-        '<div class="corpoCartao"><div class="sub" style="font-size:12px">Este material pertence à '+
+      return '<section class="cartaoEdicao" data-aba="desc">'+
+        '<div class="cabCartao"><span class="legenda">Não se aplica a este material.</span>'+
+          '<span class="arqCartao mono">descritivos.csv</span></div>'+
+        '<div class="corpoCartao"><div class="nota" style="margin:0">Este material pertence à '+
         'lista da Enfermagem, então não recebe descritivo da odontologia.</div></div></section>';
 
     const unidades=[...new Set(Object.values(DESCRITIVOS)
@@ -909,9 +990,9 @@ function abrirEdicao(id,novo){
       '<div><label class="rot">Nome no descritivo</label>'+
         '<input data-desc="nome_descritivo" value="'+escapar(dsc.nome_descritivo||'')+'" '+
         'placeholder="'+escapar(item.material||'')+'">'+
-        '<div class="sub" style="font-size:11px;margin-top:4px">deixe em branco para usar o mesmo nome do catálogo</div></div>'+
+        '<div class="dica">deixe em branco para usar o mesmo nome do catálogo</div></div>'+
       '<div><label class="rot">Descritivo</label>'+
-        '<textarea data-desc="descritivo" style="min-height:130px;line-height:1.6">'+
+        '<textarea data-desc="descritivo" style="min-height:190px;line-height:1.6">'+
         escapar(dsc.descritivo||'')+'</textarea></div>'+
       '<div class="grade2">'+
         '<div><label class="rot">Unidade de compra</label>'+
@@ -920,10 +1001,10 @@ function abrirEdicao(id,novo){
           '<datalist id="lista-unidade-compra">'+
           unidades.map(u=>'<option value="'+escapar(u)+'">').join('')+'</datalist></div>'+
         '<div><label class="rot">Última modificação</label>'+
-          '<div class="sub" style="padding:9px 0;font-size:12px">'+
+          '<div class="sub" style="padding-top:8px">'+
           (dsc.modificado_em?escapar(dsc.modificado_em)+(dsc.modificado_por?' · '+escapar(dsc.modificado_por):'')
-            :'nunca modificado')+
-          '<br><span style="font-size:11px">atualiza sozinho ao salvar uma alteração aqui</span></div></div>'+
+            :'nunca modificado')+'</div>'+
+          '<div class="dica">atualiza sozinho ao salvar</div></div>'+
       '</div>'+
       '<div><label class="rot">Situação da compra</label>'+
         '<select data-desc="situacao_compra">'+
@@ -931,19 +1012,14 @@ function abrirEdicao(id,novo){
           '<option value="AGUARDANDO_COMPRA"'+(dsc.situacao_compra==='AGUARDANDO_COMPRA'?' selected':'')+
             '>Aguardando compra e código do CELK</option>'+
         '</select>'+
-        '<div class="sub" style="font-size:11px;margin-top:4px">use para um material que ainda não existe no '+
+        '<div class="dica">use para um material que ainda não existe no '+
         'catálogo, criado só para deixar o descritivo pronto até a compra. Não muda a Situação do material, '+
         'que continua controlada pelo campo acima, no cartão do catálogo.</div></div>';
 
-    return '<section class="cartaoEdicao">'+
-      '<div class="cabCartao" style="background:var(--corallite-suave)">'+
-        '<span class="icCartao" style="background:var(--corallite)">&#9776;</span>'+
-        '<div><div class="ttCartao" style="color:var(--corallite)">Descritivo</div>'+
-        '<div class="sub" style="font-size:10.5px">o que compõe os empenhos e as licitações</div></div>'+
-        '<span class="selCartao" style="background:'+(preenchido?'var(--curacao-suave)':'var(--sawtooth-suave)')+
-        ';color:'+(preenchido?'var(--curacao)':'var(--sawtooth)')+'">'+
-        (preenchido?'preenchido':'pendente')+'</span>'+
-        '<span class="arqCartao mono" style="color:var(--corallite)">descritivos.csv</span></div>'+
+    return '<section class="cartaoEdicao" data-aba="desc">'+
+      '<div class="cabCartao"><span class="legenda">O que compõe os empenhos e as licitações.</span>'+
+        '<span class="tag '+(preenchido?'t-vd':'t-lr')+'">'+(preenchido?'preenchido':'pendente')+'</span>'+
+        '<span class="arqCartao mono">descritivos.csv</span></div>'+
       '<div class="corpoCartao">'+corpo+'</div></section>';
   }
 
@@ -952,7 +1028,7 @@ function abrirEdicao(id,novo){
   function campoFichas(col,titulo,singular){
     return '<div><label class="rot">'+titulo+'</label>'+
       '<div class="fichas" id="fichas-'+col+'"></div>'+
-      '<div class="barra" style="margin-top:7px">'+
+      '<div class="barra">'+
       '<select data-add="'+col+'" style="flex:1">'+
         '<option value="">adicionar '+singular+' existente...</option>'+
         todosValores(col).map(v=>'<option>'+escapar(v)+'</option>').join('')+
@@ -961,18 +1037,15 @@ function abrirEdicao(id,novo){
   }
 
   const fundo=document.createElement('div');
-  fundo.className='fundo-modal';
-  /* O modal é dividido em dois cartões: os dados do catálogo, gravados no
+  fundo.className='inspetorCorpo';
+  /* O inspetor é dividido em três abas: os dados do catálogo, gravados no
      produtos.csv, e o descritivo, gravado em descritivos.csv. A
      separação é visual e explícita, porque são dois arquivos diferentes e
      nem sempre os dois entram no pacote de download. */
-  const cartao=(cor,fundoCor,icone,titulo,legenda,arquivo,corpo)=>
-    '<section class="cartaoEdicao">'+
-      '<div class="cabCartao" style="background:'+fundoCor+'">'+
-        '<span class="icCartao" style="background:'+cor+'">'+icone+'</span>'+
-        '<div><div class="ttCartao" style="color:'+cor+'">'+titulo+'</div>'+
-        '<div class="sub" style="font-size:10.5px">'+legenda+'</div></div>'+
-        '<span class="arqCartao mono" style="color:'+cor+'">'+arquivo+'</span></div>'+
+  const cartao=(aba,legenda,arquivo,corpo)=>
+    '<section class="cartaoEdicao" data-aba="'+aba+'">'+
+      '<div class="cabCartao"><span class="legenda">'+legenda+'</span>'+
+        '<span class="arqCartao mono">'+arquivo+'</span></div>'+
       '<div class="corpoCartao">'+corpo+'</div></section>';
 
   const corpoCatalogo=
@@ -992,30 +1065,56 @@ function abrirEdicao(id,novo){
       campoFichas('especialidade','Tags','tag')+
       '<div><label class="rot">Observação</label><textarea data-campo="observacao">'+escapar(it.observacao||'')+'</textarea></div>'+
       '<div><label class="rot">Situação</label>'+
-        '<div class="barra"><label class="barra" style="gap:6px;cursor:pointer">'+
-        '<input type="radio" name="sit" value="SIM" style="width:auto"'+((it.ativo||'SIM').toUpperCase()!=='NAO'?' checked':'')+'> Ativo</label>'+
-        '<label class="barra" style="gap:6px;cursor:pointer;margin-left:16px">'+
-        '<input type="radio" name="sit" value="NAO" style="width:auto"'+((it.ativo||'').toUpperCase()==='NAO'?' checked':'')+
-        '> Inativo, some do catálogo e permanece no arquivo</label></div></div>'+
+        '<div class="segmento" role="radiogroup" aria-label="Situação">'+
+        '<label><input type="radio" name="sit" value="SIM"'+((it.ativo||'SIM').toUpperCase()!=='NAO'?' checked':'')+'><span>Ativo</span></label>'+
+        '<label><input type="radio" name="sit" value="NAO"'+((it.ativo||'').toUpperCase()==='NAO'?' checked':'')+'><span>Inativo</span></label>'+
+        '</div><div class="dica">Inativo some do catálogo e permanece no arquivo.</div></div>'+
       '<div class="nota info" id="avisoCodigo">A foto deste item é o arquivo '+
         '<span class="mono">'+escapar((it.codigo||'')+'.jpg')+'</span>. Se você alterar o código, renomeie também a imagem.</div>';
 
-  fundo.innerHTML='<div class="modal modalEdicao">'+
-    '<header><div><h2 style="margin:0">'+(novo?'Novo item':'Editar item')+'</h2>'+
-    '<div class="sub">'+(novo?'as alterações ficam guardadas até você baixar o pacote'
-      :'<span class="mono">'+escapar(it.codigo||'')+'</span> · '+escapar((it.material||'').toLowerCase()))+'</div></div>'+
-    '<button class="sec mini" data-fechar="1">Fechar</button></header>'+
-    '<div class="corpo corpoEdicao">'+
-      cartao('var(--corn)','var(--corn-suave)','&#9636;','Dados do catálogo',
-             'o que o dentista vê ao procurar o material','produtos.csv',corpoCatalogo)+
+  const descOk=temDescritivo((it.codigo||'').trim());
+  const brOk=temBranet((it.codigo||'').trim());
+  fundo.innerHTML=
+    '<header><div class="l1"><div style="min-width:0">'+
+      '<h2>'+(novo?'Novo item':escapar(it.material||''))+'</h2>'+
+      '<div class="sub">'+(novo?'as alterações ficam guardadas até você publicar ou baixar o pacote'
+        :'<span class="mono" style="color:var(--corn)">'+escapar(it.codigo||'')+'</span> · '+escapar(juntarGrupo(it.grupo,it.subgrupo)))+'</div>'+
+      '</div><button class="fecharInsp" data-fechar="1" aria-label="Fechar">&times;</button></div>'+
+      '<div class="abas" role="tablist">'+
+        '<button type="button" role="tab" data-ir="cat">Catálogo</button>'+
+        '<button type="button" role="tab" data-ir="desc"><span class="pt '+(aceitaDescritivo(it)?(descOk?'ok':'pend'):'')+'"></span>Descritivo</button>'+
+        '<button type="button" role="tab" data-ir="br"><span class="pt '+(brOk?'ok':'')+'"></span>BRANET</button>'+
+      '</div></header>'+
+    '<div class="corpoEdicao">'+
+      cartao('cat','O que o dentista vê ao procurar o material.','produtos.csv',corpoCatalogo)+
       secaoDescritivo(it,d)+
       secaoBranet(it,b)+
     '</div>'+
-    '<footer>'+(novo?'':'<button class="perigo" id="btExcluir">Excluir do arquivo</button>')+
-      '<span class="espaco"></span><button class="sec" data-fechar="1">Cancelar</button>'+
-      '<button class="principal" id="btSalvar">Salvar</button></footer>'+
-  '</div>';
-  document.body.appendChild(fundo);
+    '<footer><span class="estado">'+(novo?'Item novo, ainda não salvo':'Tudo salvo')+'</span>'+
+      (novo?'':'<button class="perigo mini" id="btExcluir">Excluir</button>')+
+      '<button class="mini" data-descartar="1" disabled>Descartar</button>'+
+      '<button class="principal" id="btSalvar">Salvar</button></footer>';
+  const insp=$('#inspetor');
+  insp.innerHTML='';insp.appendChild(fundo);
+  insp.classList.add('aberto');
+  if(matchMedia('(max-width:1180px)').matches)$('#veuInsp').classList.add('ativo');
+  marcarSelecao();
+
+  /* Abas: só a escolhida aparece, mas as três continuam no formulário,
+     então Salvar grava o que foi mexido em qualquer uma delas. */
+  function mostrarAba(nome){
+    INSP.aba=nome;
+    fundo.querySelectorAll('.cartaoEdicao').forEach(c=>c.classList.toggle('ativa',c.dataset.aba===nome));
+    fundo.querySelectorAll('[data-ir]').forEach(b=>b.setAttribute('aria-selected',b.dataset.ir===nome));
+  }
+  mostrarAba(INSP.aba);
+  fundo.querySelectorAll('[data-ir]').forEach(b=>b.onclick=()=>mostrarAba(b.dataset.ir));
+  fundo.addEventListener('input',e=>{if(e.target.closest('.corpoEdicao'))marcarSujo()});
+  fundo.addEventListener('change',e=>{if(e.target.closest('.corpoEdicao'))marcarSujo()});
+  fundo.querySelector('[data-descartar]').onclick=()=>{
+    if(novo){INSP.sujo=false;fecharInspetor(true);return}
+    INSP.sujo=false;abrirEdicao(it.__id,null,true);
+  };
 
   const VAZIO={especialidade:'nenhuma tag',familia:'nenhuma família'};
   const NOVO={especialidade:'Nome da nova tag:',familia:'Nome da nova família:'};
@@ -1039,7 +1138,7 @@ function abrirEdicao(id,novo){
     if(!alvo)return;
     const [col,i]=alvo.split(':');
     multi[col].splice(parseInt(i),1);
-    desenharFichas(col);
+    desenharFichas(col);marcarSujo();
   });
 
   // acrescentar uma ficha, existente ou nova
@@ -1053,7 +1152,7 @@ function abrirEdicao(id,novo){
         if(![...sel.options].some(o=>o.textContent===v))
           sel.insertBefore(Object.assign(document.createElement('option'),{textContent:v}),sel.lastElementChild);
       }
-      sel.value='';desenharFichas(col);
+      sel.value='';desenharFichas(col);marcarSujo();
     };
   });
 
@@ -1102,7 +1201,7 @@ function abrirEdicao(id,novo){
   });
 
   fundo.addEventListener('click',e=>{
-    if(e.target===fundo||(e.target.dataset&&e.target.dataset.fechar)){fundo.remove();return}
+    if(e.target.dataset&&e.target.dataset.fechar){fecharInspetor(false);return}
   });
 
   const btEx=fundo.querySelector('#btExcluir');
@@ -1111,7 +1210,7 @@ function abrirEdicao(id,novo){
                 'o que tira o item do catálogo e mantém a linha no arquivo.'))return;
     EXCLUIDOS.push(Object.assign({},it));
     ITENS=ITENS.filter(i=>i.__id!==it.__id);
-    fundo.remove();montarFiltros();desenhar();
+    fecharInspetor(true);montarFiltros();desenhar();
   };
 
   fundo.querySelector('#btSalvar').onclick=()=>{
@@ -1181,11 +1280,13 @@ function abrirEdicao(id,novo){
 
     if(novo){ITENS.push(trabalho)}
     else{Object.assign(it,trabalho)}
-    fundo.remove();montarFiltros();desenhar();
+    INSP.sujo=false;INSP.novo=false;INSP.id=trabalho.__id;
+    montarFiltros();desenhar();
+    /* O inspetor continua aberto no mesmo item, já com o que foi salvo. */
+    abrirEdicao(trabalho.__id,null,true);
+    const est=$('#inspetor .estado');
+    if(est){est.textContent='Salvo';setTimeout(()=>{if(est.textContent==='Salvo')est.textContent='Tudo salvo'},1800)}
   };
-
-  document.addEventListener('keydown',function esc(ev){
-    if(ev.key==='Escape'){fundo.remove();document.removeEventListener('keydown',esc)}});
 }
 
 $('#btNovo').onclick=()=>{
@@ -1712,7 +1813,7 @@ function abrirConferencia(){
         : 'nenhuma alteração nesta sessão')+'</div></div>'+
     '<button class="sec mini" data-fechar="1">Fechar</button></header>'+
     '<div class="corpo">'+
-      (m.length?'<div style="flex:none;border:1px solid var(--linha);border-radius:10px;max-height:40vh;overflow:auto">'+
+      (m.length?'<div class="listaMudancas">'+
         m.map(x=>{
           const [nome,cls]=NOMES_TIPO[x.tipo];
           const det=x.campos.length
@@ -1746,7 +1847,7 @@ function abrirConferencia(){
     '</div>'+
     '<footer><span class="espaco"></span><button class="sec" data-fechar="1">Voltar</button>'+
     '<button class="sec" id="btBaixar"'+(arquivos.length?'':' disabled')+'>Baixar o pacote .zip</button>'+
-    '<button id="btPublicar"'+(arquivos.length&&podePublicar()?'':' disabled')+
+    '<button class="principal" id="btPublicar"'+(arquivos.length&&podePublicar()?'':' disabled')+
       ' title="'+(podePublicar()?'envia os arquivos direto ao repositório'
                                :'cadastre a chave de publicação no painel de administração')+'">'+
       'Publicar no site</button></footer></div>';
@@ -1775,6 +1876,7 @@ function abrirConferencia(){
     montarFiltros();
     $('#fBloco').value=escolhido.b;$('#fTag').value=escolhido.t;$('#fFamilia').value=escolhido.f;
     desenhar();
+    recarregarInspetor();
     fundo.remove();
     abrirConferencia();   /* reabre já sem a linha desfeita */
   });
@@ -2263,7 +2365,7 @@ function telaConflito(conflitos,quem){
       '<div class="corpo">'+conflitos.map(bloco).join('')+'</div>'+
       '<footer><span class="espaco"></span>'+
       '<button class="sec" data-cancelar="1">Cancelar a publicação</button>'+
-      '<button id="btResolver" disabled>Publicar com estas escolhas</button></footer></div>';
+      '<button class="principal" id="btResolver" disabled>Publicar com estas escolhas</button></footer></div>';
     document.body.appendChild(fundo);
 
     const decisoes=new Map();
@@ -2316,13 +2418,9 @@ function painelPublicacao(html,tipo){
   if(!el){
     el=document.createElement('div');
     el.id='avisoPublicacao';
-    el.style.cssText='position:fixed;left:50%;transform:translateX(-50%);bottom:18px;z-index:60;'+
-      'max-width:min(620px,92vw);padding:13px 17px;border-radius:14px;box-shadow:0 12px 34px rgba(0,0,0,.18);'+
-      'font-size:12.5px;line-height:1.5;background:#fff';
     document.body.appendChild(el);
   }
-  el.style.borderLeft='5px solid '+(tipo==='erro'?'var(--vermelho,#cf6a87)':
-                                    tipo==='ok'?'var(--verde,#3dc1d3)':'var(--secundario,#596275)');
+  el.style.boxShadow='inset 4px 0 0 '+(tipo==='erro'?'var(--geranium)':tipo==='ok'?'var(--ok)':'var(--terciario)')+',var(--sombra-alta)';
   el.innerHTML=html+' <button class="sec mini" style="margin-left:8px" '+
                'onclick="this.parentNode.remove()">fechar</button>';
   return el;
@@ -2592,7 +2690,7 @@ async function verAlteracoesRemotas(){
             ? '<div class="nota info">Nenhum deles é material que você alterou. Ao publicar, as duas '+
               'edições serão somadas sozinhas, sem perguntar nada.</div>'
             : '')+
-        (linhas.length?'<div style="flex:none;border:1px solid var(--linha);border-radius:10px;max-height:46vh;overflow:auto">'+
+        (linhas.length?'<div class="listaMudancas" style="max-height:46vh">'+
           linhas.map(l=>{
             const [nome,cls]=rotuloTipo[l.tipo]||['alterado','t-ci'];
             const det=l.campos.length
@@ -2628,7 +2726,7 @@ window.addEventListener('beforeunload',e=>{
   if(mudancas().length||mudancasDescritivo().length||mudancasBranet().length){e.preventDefault();e.returnValue=''}
 });
 </script>
-<div id="versaoPagina">editor · versão 2026-09-29b</div>
+<div id="versaoPagina">editor · versão 2026-10-19a</div>
 </div>
 </div>
 </body>

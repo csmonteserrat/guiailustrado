@@ -8,29 +8,37 @@
      editor-catalogo/comparar-celk.html     descritivos/descritivos.html
      tutoriais.html
 
-   Antes, este bloco estava copiado dentro de cada uma delas. Foi assim
-   que a página de imagens acabou com um fundo diferente e uma largura
-   diferente das demais, o que fazia a barra lateral saltar de lugar ao
-   navegar. Com um arquivo só, isso não volta a acontecer, e a página de
-   tutoriais acompanha sozinha qualquer mudança de visual.
+   Visual inspirado nas interfaces da Apple: barra lateral translúcida,
+   títulos grandes com espaçamento negativo, superfícies brancas sobre um
+   fundo neutro, botões em pílula, resposta imediata ao toque e respeito
+   às preferências do sistema (tema escuro, movimento e transparência
+   reduzidos).
 
-   PARA MUDAR AS CORES DO PAINEL, ALTERE APENAS O BLOCO :root ABAIXO.
+   PARA MUDAR AS CORES DO PAINEL, ALTERE APENAS OS BLOCOS DE CORES
+   ABAIXO: o primeiro vale para o tema claro, os dois seguintes repetem
+   os mesmos nomes com os valores do tema escuro.
 
    Cada página continua tendo o próprio <style> para o que é só dela.
    Como ele vem depois deste arquivo, qualquer regra de página vence a
-   daqui: é assim que as diferenças propositais são feitas.
+   daqui: é assim que as diferenças propositais são feitas. Nas páginas,
+   use sempre as variáveis daqui em vez de cores escritas à mão (#fff,
+   #303952...), senão o tema escuro deixa de funcionar naquele trecho.
    ===================================================================== */
 
 :root{
   /* ---- cores dos blocos do catálogo ---- */
-  --corn:#546de5;        --corn-suave:#eceffd;      /* rede básica, grupos 12 e 13 */
-  --corallite:#574b90;   --corallite-suave:#eeecf5; /* CEO, grupos 14 e 15 */
-  --sawtooth:#f19066;    --sawtooth-suave:#fdefe8;  /* interesse odontológico */
-  --curacao:#3dc1d3;     --curacao-suave:#e6f7fa;   /* ferramentas administrativas */
-  --curacao-escuro:#1b7a89;                          /* texto sobre --curacao-suave (BRANET) */
-  --peach:#f3a683;                                  /* ação principal */
-  --geranium:#cf6a87;    --geranium-suave:#fbeef1;  /* erro */
-  --summer:#f5cd79;                                 /* destaque de busca */
+  --corn:#546de5;        --corn-suave:rgba(84,109,229,.12);      /* rede básica, grupos 12 e 13 */
+  --corallite:#574b90;   --corallite-suave:rgba(87,75,144,.12);  /* CEO, grupos 14 e 15 */
+  --sawtooth:#d9733f;    --sawtooth-suave:rgba(241,144,102,.18); /* interesse odontológico, alerta */
+  --curacao:#3dc1d3;     --curacao-suave:rgba(61,193,211,.16);   /* ferramentas administrativas */
+  --curacao-escuro:#0f6573;                                      /* texto sobre --curacao-suave */
+  --geranium:#cf4a6d;    --geranium-suave:rgba(207,74,109,.12);  /* erro */
+  --summer:#f5cd79;                                              /* destaque de busca */
+  --ok:#1f9d6b;          --ok-suave:rgba(31,157,107,.13);        /* concluído */
+
+  /* ---- acento: botões principais, seleção e foco ---- */
+  --acento:#167f8f;      --acento-suave:rgba(61,193,211,.16);    --acento-texto:#0f6573;
+  --peach:var(--acento);                                         /* nome antigo da ação principal */
 
   /* Apelidos antigos, mantidos porque várias páginas ainda os usam.
      Não crie regras novas com estes nomes. */
@@ -41,63 +49,128 @@
   --vermelho:var(--geranium);    --vermelho-suave:var(--geranium-suave);
 
   /* ---- neutros ---- */
-  --texto:#303952;       /* Biscay */
-  --secundario:#596275;  /* Pencil Lead */
-  --fundo:#eef3f9;
-  --neutro:#f7f8fa;
-  --borda:#eef2f6;
-  --linha:#eef2f6;
+  --texto:#1c2233;       /* texto principal */
+  --secundario:#5a6377;  /* texto de apoio */
+  --terciario:#8b93a5;   /* legendas, ícones apagados */
+  --fundo:#eef2f6;       /* fundo da página */
+  --superficie:#ffffff;  /* cartões, painéis */
+  --neutro:#f0f3f7;      /* campos, áreas internas dos cartões */
+  --borda:rgba(28,34,51,.09);
+  --linha:rgba(28,34,51,.09);
+  --vidro:rgba(250,252,254,.72);       /* barras translúcidas */
+  --vidro-borda:rgba(255,255,255,.7);
+  --veu:rgba(20,26,40,.32);            /* fundo escurecido atrás de janelas */
+  --marca-texto:#fff8d6;               /* texto destacado pela busca, tema escuro */
 
   /* ---- forma ---- */
-  --sombra:0 6px 22px rgba(48,57,82,.07);
-  --sombra-alta:0 12px 34px rgba(48,57,82,.12);
-  --raio:20px;
+  --sombra:0 1px 2px rgba(28,34,51,.05),0 8px 26px rgba(28,34,51,.07);
+  --sombra-alta:0 2px 6px rgba(28,34,51,.06),0 22px 50px rgba(28,34,51,.14);
+  --raio:18px;
+  --mola:cubic-bezier(.2,.9,.25,1);    /* curva padrão: rápida no início, assenta sem quicar */
+
+  --fonte:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",system-ui,Roboto,Arial,sans-serif;
+  --fonte-titulo:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",system-ui,Roboto,Arial,sans-serif;
+  --fonte-mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  color-scheme:light;
 }
+
+/* Tema escuro: os mesmos nomes, com valores pensados para fundo escuro.
+   O bloco aparece duas vezes, uma para quem usa o tema do sistema e outra
+   para quem escolheu o escuro explicitamente. */
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --corn:#8396f2;        --corn-suave:rgba(131,150,242,.17);
+  --corallite:#a79bdc;   --corallite-suave:rgba(167,155,220,.17);
+  --sawtooth:#f3a683;    --sawtooth-suave:rgba(243,166,131,.16);
+  --curacao:#3dc1d3;     --curacao-suave:rgba(61,193,211,.17);
+  --curacao-escuro:#7fdbe8;
+  --geranium:#ec7f9c;    --geranium-suave:rgba(236,127,156,.16);
+  --ok:#47c997;          --ok-suave:rgba(71,201,151,.15);
+  --acento:#1d8a9b;      --acento-suave:rgba(61,193,211,.18);    --acento-texto:#7fdbe8;
+  --texto:#eef1f6;       --secundario:#a2abbd;  --terciario:#6f788b;
+  --fundo:#0d1017;       --superficie:#191e28;  --neutro:#232a36;
+  --borda:rgba(255,255,255,.09);  --linha:rgba(255,255,255,.09);
+  --vidro:rgba(25,30,40,.72);     --vidro-borda:rgba(255,255,255,.08);
+  --veu:rgba(0,0,0,.55);
+  --sombra:0 1px 2px rgba(0,0,0,.3),0 8px 26px rgba(0,0,0,.28);
+  --sombra-alta:0 2px 6px rgba(0,0,0,.4),0 22px 50px rgba(0,0,0,.5);
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --corn:#8396f2;        --corn-suave:rgba(131,150,242,.17);
+  --corallite:#a79bdc;   --corallite-suave:rgba(167,155,220,.17);
+  --sawtooth:#f3a683;    --sawtooth-suave:rgba(243,166,131,.16);
+  --curacao:#3dc1d3;     --curacao-suave:rgba(61,193,211,.17);
+  --curacao-escuro:#7fdbe8;
+  --geranium:#ec7f9c;    --geranium-suave:rgba(236,127,156,.16);
+  --ok:#47c997;          --ok-suave:rgba(71,201,151,.15);
+  --acento:#1d8a9b;      --acento-suave:rgba(61,193,211,.18);    --acento-texto:#7fdbe8;
+  --texto:#eef1f6;       --secundario:#a2abbd;  --terciario:#6f788b;
+  --fundo:#0d1017;       --superficie:#191e28;  --neutro:#232a36;
+  --borda:rgba(255,255,255,.09);  --linha:rgba(255,255,255,.09);
+  --vidro:rgba(25,30,40,.72);     --vidro-borda:rgba(255,255,255,.08);
+  --veu:rgba(0,0,0,.55);
+  --sombra:0 1px 2px rgba(0,0,0,.3),0 8px 26px rgba(0,0,0,.28);
+  --sombra-alta:0 2px 6px rgba(0,0,0,.4),0 22px 50px rgba(0,0,0,.5);
+  color-scheme:dark}
 
 /* ============================== base ============================== */
 *{box-sizing:border-box}
-body{margin:0;background:var(--fundo);color:var(--texto);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.45}
-h1{font-size:19px;font-weight:600;margin:0}
-h2{font-size:14px;font-weight:600;margin:0 0 12px}
-.sub{color:var(--secundario);font-size:12px}
-.mono{font-family:ui-monospace,Menlo,Consolas,monospace}
+body{margin:0;background:var(--fundo);color:var(--texto);font-family:var(--fonte);font-size:14px;line-height:1.5;
+  -webkit-font-smoothing:antialiased}
+/* Títulos grandes pedem espaçamento negativo; textos pequenos ficam no padrão. */
+h1{font:700 28px/1.1 var(--fonte-titulo);letter-spacing:-.025em;margin:0;text-wrap:balance}
+h2{font:600 17px/1.25 var(--fonte-titulo);letter-spacing:-.012em;margin:0 0 12px}
+.sub{color:var(--secundario);font-size:13px}
+.mono{font-family:var(--fonte-mono)}
 .oculto{display:none !important}
 .espaco{margin-left:auto}
 .barra{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+a{color:var(--acento-texto)}
+:focus-visible{outline:3px solid var(--acento-suave);outline-offset:1px;box-shadow:0 0 0 1.5px var(--acento)}
+mark{background:rgba(245,205,121,.55);color:inherit;border-radius:3px;padding:0 1px}
 
 /* ===================== estrutura da página =====================
    A largura máxima precisa ser a mesma em todas as páginas: como o
    conjunto é centralizado, qualquer diferença faz a barra lateral
    mudar de lugar ao navegar de uma para outra. */
-.app{display:flex;gap:16px;padding:16px;max-width:1240px;margin:0 auto;align-items:flex-start}
-.lateral{width:82px;flex:none;background:var(--curacao);border-radius:24px;padding:16px 10px;
-  position:sticky;top:16px;z-index:30}
-.marca{text-align:center;color:#fff;font-size:10px;line-height:1.3;opacity:.9;margin-bottom:14px}
-.marca b{display:block;font-size:12px;font-weight:600;opacity:1}
-.nav{display:block;text-decoration:none;text-align:center;padding:11px 4px;border-radius:16px;
-  margin-bottom:6px;color:rgba(255,255,255,.85);transition:.15s}
-.nav:hover{background:rgba(255,255,255,.15)}
-.nav .ic{font-size:17px;line-height:1.2}
-.nav .tx{font-size:9px;margin-top:3px;display:block}
-.nav.ativo{background:#fff;color:var(--curacao);box-shadow:var(--sombra)}
-.nav.saida{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.25);
-  border-radius:0 0 16px 16px}
-/* O segundo atalho de saída (catálogo BRANET) fica colado ao primeiro, sem outra linha divisória. */
-.nav.saida.segunda{margin-top:0;padding-top:11px;border-top:none;border-radius:16px}
+.app{display:flex;gap:22px;padding:16px max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px));
+  max-width:1320px;margin:0 auto;align-items:flex-start}
+
+/* Barra lateral: uma lista translúcida, como a das janelas do macOS.
+   Fica presa no topo e ocupa a altura da tela, rolando sozinha se faltar espaço. */
+.lateral{width:214px;flex:none;position:sticky;top:16px;z-index:30;max-height:calc(100vh - 32px);overflow-y:auto;
+  display:flex;flex-direction:column;gap:2px;padding:16px 10px 14px;border-radius:20px;
+  background:var(--vidro);backdrop-filter:blur(26px) saturate(180%);-webkit-backdrop-filter:blur(26px) saturate(180%);
+  border:1px solid var(--borda);box-shadow:var(--sombra)}
+.lateral .marca{padding:2px 10px 12px;font-size:11.5px;line-height:1.3;color:var(--terciario)}
+.lateral .marca b{display:block;font-size:14px;font-weight:600;color:var(--texto);letter-spacing:-.01em}
+.lateral .grupo{font-size:11px;font-weight:600;color:var(--terciario);padding:12px 10px 4px}
+.nav{display:flex;align-items:center;gap:10px;text-decoration:none;padding:6px 10px;border-radius:10px;
+  color:var(--texto);font-size:13.5px;transition:background .14s,transform .1s}
+.nav:hover{background:var(--borda)}
+.nav:active{transform:scale(.97)}
+.nav .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;color:#fff;flex:none;background:var(--terciario)}
+.nav .ic svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.nav .tx{flex:1;min-width:0}
+.nav.ativo{background:var(--acento-suave);color:var(--acento-texto);font-weight:600}
+.nav .ext{width:13px;height:13px;stroke:var(--terciario);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.nav.saida{color:var(--secundario)}
+.nav.saida .ic{background:none;color:var(--terciario);width:auto;padding-left:4px}
+.ic.i-painel{background:#4fb3c2}.ic.i-editor{background:#546de5}.ic.i-celk{background:#4aa3df}
+.ic.i-desc{background:#6a5cad}.ic.i-imagens{background:#2fa4b4}.ic.i-hist{background:#e0814f}.ic.i-tut{background:#8b93a5}
 
 /* As duas páginas mais antigas chamam a coluna de conteúdo de .conteudo
    e as demais de .coluna. As duas valem. */
 .conteudo,.coluna{flex:1;min-width:0}
 
 @media(max-width:820px){
-  .app{flex-direction:column;padding:12px}
-  .lateral{width:100%;position:static;display:flex;gap:6px;overflow-x:auto;padding:10px;border-radius:20px}
-  .marca{display:none}
-  .nav{flex:1;min-width:74px;margin-bottom:0}
-  .nav.saida{margin-top:0;padding-top:11px;border-top:none;border-radius:16px;
-    border-left:1px solid rgba(255,255,255,.25)}
-  .nav.saida.segunda{border-left:none}
+  .app{flex-direction:column;gap:14px;padding-top:12px}
+  .conteudo,.coluna{align-self:stretch;width:100%}
+  .lateral{width:100%;position:static;max-height:none;flex-direction:row;gap:4px;overflow-x:auto;padding:8px;border-radius:16px}
+  .lateral .marca,.lateral .grupo{display:none}
+  .nav{flex-direction:column;gap:3px;font-size:11px;padding:6px 8px;min-width:72px;text-align:center}
+  .nav .tx{flex:none}
+  .nav .ext{display:none}
+  .nav.saida .ic{padding-left:0}
 }
 
 /* ===================== celular =====================
@@ -109,6 +182,7 @@ h2{font-size:14px;font-weight:600;margin:0 0 12px}
   .barra{gap:8px}
   .barra>input,.barra>select{flex:1 1 100%;min-width:0;width:100%}
   img{max-width:100%}
+  h1{font-size:24px}
 }
 
 /* NÃO coloque aqui .cartao nem .cabecalho: essas duas classes têm
@@ -117,30 +191,46 @@ h2{font-size:14px;font-weight:600;margin:0 0 12px}
    Regras com o mesmo nome e sentidos diferentes quebram a página que
    não esperava por elas. */
 
-/* ========================= botões e campos ========================= */
-button,.pilula{font:inherit;font-size:12.5px;padding:9px 17px;border-radius:20px;border:none;
-  background:#fff;color:var(--texto);cursor:pointer;box-shadow:var(--sombra);text-decoration:none;
-  display:inline-block;white-space:nowrap}
-button.principal,.pilula.principal{background:var(--peach);color:#fff}
-button.acento,.pilula.acento{background:var(--curacao);color:#fff}
-button:disabled{opacity:.5;cursor:default}
-button.mini,.pilula.mini{font-size:11.5px;padding:6px 13px}
-button.plana,.pilula.plana{box-shadow:none;background:var(--neutro)}
+/* ========================= botões e campos =========================
+   Pílulas sem borda. A resposta vem no instante do toque (escala),
+   não só quando o dedo sai. */
+button,.pilula{font:inherit;font-size:13px;font-weight:500;padding:8px 16px;border-radius:999px;border:none;
+  background:var(--neutro);color:var(--texto);cursor:pointer;text-decoration:none;
+  display:inline-block;white-space:nowrap;transition:transform .12s,background .15s,opacity .15s,box-shadow .15s}
+button:active:not(:disabled),.pilula:active{transform:scale(.96)}
+button.principal,.pilula.principal{background:var(--acento);color:#fff}
+button.acento,.pilula.acento{background:var(--acento-suave);color:var(--acento-texto)}
+button:disabled{opacity:.45;cursor:default}
+button.mini,.pilula.mini{font-size:12.5px;padding:5px 12px}
+button.plana,.pilula.plana{background:var(--neutro)}
 
-/* Só o essencial em campos. Regras como input[type=text] não entram
-   aqui: por serem seletor de atributo, venceriam o "input,select" que
-   cada página escreve, mesmo estando neste arquivo, que vem antes. */
+/* Campos: regras com especificidade zero (:where), para que qualquer
+   regra escrita numa página continue valendo por cima destas. */
+:where(input:not([type]),input[type=text],input[type=search],input[type=password],input[type=number],input[type=date],select,textarea){
+  font:inherit;font-size:13.5px;color:var(--texto);background:var(--neutro);border:0;border-radius:11px;padding:9px 12px;outline:none}
+:where(input:not([type]),input[type=text],input[type=search],input[type=password],input[type=number],input[type=date],select,textarea):focus{
+  box-shadow:0 0 0 3px var(--acento-suave),0 0 0 1.5px var(--acento)}
+:where(input,textarea)::placeholder{color:var(--terciario)}
+:where(input[type=checkbox],input[type=radio]){accent-color:var(--acento)}
 input[type=file]{display:none}
 
 /* ============================= etiquetas ============================= */
-.tag{font-size:10.5px;padding:3px 10px;border-radius:20px;display:inline-block;white-space:nowrap}
+.tag{font-size:11.5px;font-weight:500;padding:2px 10px;border-radius:999px;display:inline-block;white-space:nowrap}
 .t-az{background:var(--corn-suave);color:var(--corn)}
 .t-rx{background:var(--corallite-suave);color:var(--corallite)}
 .t-lr{background:var(--sawtooth-suave);color:var(--sawtooth)}
-.t-vd{background:var(--curacao-suave);color:var(--curacao)}
+.t-vd{background:var(--curacao-suave);color:var(--curacao-escuro)}
 .t-vm{background:var(--geranium-suave);color:var(--geranium)}
 .t-ci{background:var(--neutro);color:var(--secundario)}
 
 /* ====================== marcador de versão ======================
    Aparece no pé de todas as páginas administrativas. */
-#versaoPagina{text-align:center;font-size:10px;color:var(--secundario);opacity:.7;padding:14px 0 4px}
+#versaoPagina{text-align:center;font-size:11px;color:var(--terciario);padding:14px 0 4px}
+
+/* ====================== preferências do sistema ====================== */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important;scroll-behavior:auto !important}
+}
+@media (prefers-reduced-transparency:reduce){
+  .lateral{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--superficie)}
+}

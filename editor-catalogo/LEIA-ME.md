@@ -18,7 +18,7 @@ O arquivo de dados, `produtos.csv`, **não fica aqui**: ele permanece na raiz do
 1. Abra o editor pelo endereço publicado, acrescentando `/editor-catalogo/editor-catalogo.html` ao endereço do site.
 2. Confira, no botão **Histórico**, se aparece a mensagem de que o `historico.md` foi lido. Isso garante que os registros anteriores não serão perdidos.
 3. Faça as alterações: buscar o item, clicar nele, editar e salvar. Use **Novo item** para acrescentar.
-4. Clique em **Conferir e baixar**. Revise a lista de alterações e os avisos.
+4. Clique em **Conferir e publicar**. Revise a lista de alterações e os avisos.
 5. Será baixado um arquivo `.zip` contendo:
    - `produtos.csv`, que substitui o arquivo na **raiz** do repositório;
    - `editor-catalogo/historico.md`, que substitui o arquivo **desta pasta**.
