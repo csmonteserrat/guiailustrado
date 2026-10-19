@@ -129,48 +129,50 @@ a{color:var(--acento-texto)}
 mark{background:rgba(245,205,121,.55);color:inherit;border-radius:3px;padding:0 1px}
 
 /* ===================== estrutura da página =====================
-   A largura máxima precisa ser a mesma em todas as páginas: como o
-   conjunto é centralizado, qualquer diferença faz a barra lateral
-   mudar de lugar ao navegar de uma para outra. */
-.app{display:flex;gap:22px;padding:16px max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px));
-  max-width:1320px;margin:0 auto;align-items:flex-start}
+   Como uma janela do macOS: a barra lateral fica presa à borda
+   esquerda, com a altura inteira da tela, e o conteúdo ocupa todo o
+   resto da largura. Nada é centralizado, então a barra nunca muda de
+   lugar ao navegar entre as páginas. */
+.app{display:flex;min-height:100vh;align-items:stretch}
 
-/* Barra lateral: uma lista translúcida, como a das janelas do macOS.
-   Fica presa no topo e ocupa a altura da tela, rolando sozinha se faltar espaço. */
-.lateral{width:214px;flex:none;position:sticky;top:16px;z-index:30;max-height:calc(100vh - 32px);overflow-y:auto;
-  display:flex;flex-direction:column;gap:2px;padding:16px 10px 14px;border-radius:20px;
+/* Barra lateral: uma lista translúcida, como a do Finder e do Mail.
+   Fica presa ao topo e rola sozinha se faltar altura. */
+.lateral{width:220px;flex:none;position:sticky;top:0;height:100vh;z-index:30;overflow-y:auto;
+  display:flex;flex-direction:column;gap:2px;padding:16px 12px 14px max(12px,env(safe-area-inset-left,0px));
   background:var(--vidro);backdrop-filter:blur(26px) saturate(180%);-webkit-backdrop-filter:blur(26px) saturate(180%);
-  border:1px solid var(--borda);box-shadow:var(--sombra)}
-.lateral .marca{padding:2px 10px 12px;font-size:11.5px;line-height:1.3;color:var(--terciario)}
-.lateral .marca b{display:block;font-size:14px;font-weight:600;color:var(--texto);letter-spacing:-.01em}
+  border-right:1px solid var(--borda)}
+.lateral .luzes{display:flex;gap:8px;padding:2px 8px 16px}
+.lateral .luzes i{width:12px;height:12px;border-radius:50%;background:#ff5f57}
+.lateral .luzes i:nth-child(2){background:#febc2e}.lateral .luzes i:nth-child(3){background:#28c840}
+.lateral .marca{padding:0 10px 12px;font-size:11px;line-height:1.3;color:var(--terciario);letter-spacing:.02em}
+.lateral .marca b{display:block;font-size:13px;font-weight:600;color:var(--texto);letter-spacing:-.01em}
 .lateral .grupo{font-size:11px;font-weight:600;color:var(--terciario);padding:12px 10px 4px}
-.nav{display:flex;align-items:center;gap:10px;text-decoration:none;padding:6px 10px;border-radius:10px;
+.lateral .vao{flex:1}
+.nav{display:flex;align-items:center;gap:10px;text-decoration:none;padding:7px 10px;border-radius:9px;
   color:var(--texto);font-size:13.5px;transition:background .14s,transform .1s}
 .nav:hover{background:var(--borda)}
 .nav:active{transform:scale(.97)}
-.nav .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;color:#fff;flex:none;background:var(--terciario)}
-.nav .ic svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.nav .ic{width:24px;height:24px;border-radius:7px;display:grid;place-items:center;color:#fff;flex:none;background:var(--terciario)}
+.nav .ic svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .nav .tx{flex:1;min-width:0}
 .nav.ativo{background:var(--acento-suave);color:var(--acento-texto);font-weight:600}
-.nav .ext{width:13px;height:13px;stroke:var(--terciario);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
-.nav.saida{color:var(--secundario)}
-.nav.saida .ic{background:none;color:var(--terciario);width:auto;padding-left:4px}
+.nav .ext{width:12px;height:12px;stroke:var(--terciario);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
 .ic.i-painel{background:#4fb3c2}.ic.i-editor{background:#546de5}.ic.i-celk{background:#4aa3df}
 .ic.i-desc{background:#6a5cad}.ic.i-imagens{background:#2fa4b4}.ic.i-hist{background:#e0814f}.ic.i-tut{background:#8b93a5}
 
 /* As duas páginas mais antigas chamam a coluna de conteúdo de .conteudo
    e as demais de .coluna. As duas valem. */
-.conteudo,.coluna{flex:1;min-width:0}
+.conteudo,.coluna{flex:1;min-width:0;padding:22px max(32px,env(safe-area-inset-right,0px)) 28px 32px}
 
 @media(max-width:820px){
-  .app{flex-direction:column;gap:14px;padding-top:12px}
-  .conteudo,.coluna{align-self:stretch;width:100%}
-  .lateral{width:100%;position:static;max-height:none;flex-direction:row;gap:4px;overflow-x:auto;padding:8px;border-radius:16px}
-  .lateral .marca,.lateral .grupo{display:none}
+  .app{flex-direction:column;min-height:0}
+  .lateral{width:100%;height:auto;position:static;flex-direction:row;gap:4px;overflow-x:auto;padding:8px max(10px,env(safe-area-inset-left,0px));
+    border-right:none;border-bottom:1px solid var(--borda)}
+  .lateral .luzes,.lateral .marca,.lateral .grupo,.lateral .vao{display:none}
   .nav{flex-direction:column;gap:3px;font-size:11px;padding:6px 8px;min-width:72px;text-align:center}
   .nav .tx{flex:none}
   .nav .ext{display:none}
-  .nav.saida .ic{padding-left:0}
+  .conteudo,.coluna{padding:16px max(16px,env(safe-area-inset-right,0px)) 24px max(16px,env(safe-area-inset-left,0px))}
 }
 
 /* ===================== celular =====================

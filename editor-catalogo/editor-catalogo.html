@@ -10,11 +10,10 @@
    etiquetas) fica em admin.css. Aqui ficam só as regras desta
    página.
 
-   Disposição em lista e inspetor, como no Mail e no Arquivos: a lista de
-   materiais continua à vista e o item escolhido abre à direita, dividido
-   em três abas, uma para cada arquivo que ele grava (produtos.csv,
-   descritivos.csv e branet.csv). Em tela estreita o inspetor desliza
-   por cima da lista. */
+   A lista de materiais ocupa a largura toda. Ao clicar num material,
+   uma gaveta desliza da direita com ele aberto, dividido em três abas,
+   uma para cada arquivo que ele grava (produtos.csv, descritivos.csv e
+   branet.csv). Fechar a gaveta devolve a lista inteira. */
 
 .wrap{display:flex;flex-direction:column;gap:14px}
 h2{font-size:17px}
@@ -52,23 +51,24 @@ button.perigo{background:var(--geranium-suave);color:var(--geranium)}
   padding:11px 16px;font-size:13px;color:var(--texto)}
 
 /* ---------- lista e inspetor ---------- */
-.md{display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:16px;height:calc(100vh - 196px);min-height:540px}
-.rolagem{background:var(--superficie);border-radius:20px;box-shadow:var(--sombra);overflow:auto;overscroll-behavior:contain;min-width:0}
+.md{display:block;height:calc(100vh - 186px);min-height:480px}
+.rolagem{background:var(--superficie);border-radius:20px;box-shadow:var(--sombra);overflow:auto;overscroll-behavior:contain;min-width:0;height:100%}
 .tabela{width:100%;border-collapse:separate;border-spacing:0}
-.tabela th{position:sticky;top:0;z-index:1;background:var(--vidro);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+.tabela th{position:sticky;top:0;z-index:1;padding-left:14px !important;background:var(--vidro);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
   font-size:11.5px;font-weight:600;color:var(--terciario);text-align:left;padding:10px 12px;border-bottom:1px solid var(--linha)}
-.tabela td{padding:9px 12px;font-size:13px;border-bottom:1px solid var(--linha);vertical-align:middle}
+.tabela td{padding:10px 14px;font-size:13.5px;border-bottom:1px solid var(--linha);vertical-align:middle}
 .tabela tr{cursor:pointer}
 .tabela tbody tr:hover td{background:var(--neutro)}
 .tabela td.cod{font-family:var(--fonte-mono);font-size:12.5px;color:var(--corn);white-space:nowrap}
-.tabela td.material .nome{display:block;font-weight:500;line-height:1.3}
-.tabela td.material .info{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:3px;font-size:12px;color:var(--terciario)}
-.tabela td.material .info .tag{font-size:10.5px;padding:1px 8px}
+.tabela td.material .nome{font-weight:500;line-height:1.35;margin-right:6px}
+.tabela td.material .tag{font-size:10.5px;padding:1px 8px;margin:1px 4px 1px 0;vertical-align:1px}
+.tabela td.classes{font-size:12.5px;color:var(--secundario);line-height:1.4}
 .tabela td.un{color:var(--secundario);font-size:12px;white-space:nowrap}
-.tabela td .tag.bloco{max-width:128px;overflow:hidden;text-overflow:ellipsis;vertical-align:middle}
+.tabela td .tag.bloco{max-width:160px;overflow:hidden;text-overflow:ellipsis;vertical-align:middle}
 .inspetor .grade3{grid-template-columns:1fr 1fr}
 .inspetor .grade3>div:first-child{grid-column:1/-1}
-@media(max-width:1440px){.tabela th:nth-child(3),.tabela td:nth-child(3){display:none}}
+@media(max-width:1100px){.tabela th:nth-child(3),.tabela td:nth-child(3){display:none}}
+@media(max-width:860px){.tabela th:nth-child(4),.tabela td:nth-child(4){display:none}}
 .tabela tr.editado td.cod,.tabela tr.novo td.cod{box-shadow:inset 3px 0 0 var(--acento)}
 .tabela tr.inativo td{color:var(--terciario)}
 .tabela tr.inativo td.material .nome{text-decoration:line-through;text-decoration-color:var(--terciario)}
@@ -76,7 +76,13 @@ button.perigo{background:var(--geranium-suave);color:var(--geranium)}
 .tabela tr.sel td.material .nome{color:var(--acento-texto)}
 #rodapeTabela{padding:10px 14px;font-size:12px;color:var(--terciario)}
 
-.inspetor{background:var(--superficie);border-radius:20px;box-shadow:var(--sombra);display:flex;flex-direction:column;min-height:0;overflow:hidden;min-width:0}
+.inspetor{background:var(--superficie);display:flex;flex-direction:column;overflow:hidden;min-width:0;
+  position:fixed;top:0;right:0;bottom:0;width:min(500px,100%);z-index:45;border-radius:22px 0 0 22px;
+  box-shadow:var(--sombra-alta);transform:translateX(105%);visibility:hidden;
+  transition:transform .42s var(--mola),visibility 0s linear .42s}
+.inspetor.aberto{transform:none;visibility:visible;transition:transform .42s var(--mola),visibility 0s}
+.veuInsp{position:fixed;inset:0;background:var(--veu);z-index:44;opacity:0;pointer-events:none;transition:opacity .3s}
+.veuInsp.ativo{opacity:1;pointer-events:auto}
 .inspetor .vazioInsp{margin:auto;text-align:center;color:var(--secundario);padding:30px;max-width:280px;font-size:13px}
 .inspetor .vazioInsp b{display:block;font:600 16px var(--fonte-titulo);color:var(--texto);margin-bottom:4px}
 .inspetorCorpo{display:flex;flex-direction:column;min-height:0;height:100%}
@@ -84,7 +90,7 @@ button.perigo{background:var(--geranium-suave);color:var(--geranium)}
 .inspetorCorpo>header .l1{display:flex;align-items:flex-start;gap:10px}
 .inspetorCorpo>header h2{font:600 17px/1.25 var(--fonte-titulo);letter-spacing:-.015em;margin:0}
 .inspetorCorpo>header .sub{font-size:12.5px;margin-top:2px}
-.inspetorCorpo>header .fecharInsp{margin-left:auto;width:30px;height:30px;padding:0;border-radius:50%;font-size:16px;flex:none;display:none}
+.inspetorCorpo>header .fecharInsp{margin-left:auto;width:30px;height:30px;padding:0;border-radius:50%;font-size:16px;flex:none;display:grid;place-items:center}
 .abas{display:flex;background:var(--neutro);border-radius:10px;padding:2px;gap:2px}
 .abas button{flex:1;padding:6px 8px;border-radius:8px;background:none;font-size:12.5px;color:var(--secundario);font-weight:500;
   display:flex;align-items:center;justify-content:center;gap:6px}
@@ -183,20 +189,10 @@ button.perigo{background:var(--geranium-suave);color:var(--geranium)}
   background:var(--vidro);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);
   border:1px solid var(--vidro-borda);animation:subir .35s var(--mola)}
 
-@media(max-width:1180px){
-  .md{grid-template-columns:minmax(0,1fr)}
-  .inspetor{position:fixed;top:0;right:0;bottom:0;width:min(460px,100%);z-index:45;border-radius:22px 0 0 22px;
-    transform:translateX(105%);transition:transform .4s var(--mola);visibility:hidden;box-shadow:var(--sombra-alta)}
-  .inspetor.aberto{transform:none;visibility:visible}
-  .inspetorCorpo>header .fecharInsp{display:grid;place-items:center}
-  .veuInsp{position:fixed;inset:0;background:var(--veu);z-index:44;opacity:0;pointer-events:none;transition:opacity .3s}
-  .veuInsp.ativo{opacity:1;pointer-events:auto}
-}
 @media(max-width:640px){
   .md{height:auto;min-height:0}
   .rolagem{overflow:visible}
-  .tabela th:nth-child(3),.tabela td:nth-child(3),
-  .tabela th:nth-child(4),.tabela td:nth-child(4){display:none}
+  .tabela th:nth-child(5),.tabela td:nth-child(5){display:none}
   .tabela th:first-child{width:78px}
   .tabela td,.tabela th{padding:9px 8px}
   .tabela th{position:static}
@@ -214,7 +210,8 @@ button.perigo{background:var(--geranium-suave);color:var(--geranium)}
 <body>
 <div class="app">
 <nav class="lateral" aria-label="Seções do admin">
-  <div class="marca"><b>Admin do catálogo</b>GT Padronização</div>
+  <div class="luzes" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="marca"><b>Catálogo</b>GT Padronização</div>
   <a class="nav" href="../admin.html"><span class="ic i-painel"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.6"/></svg></span><span class="tx">Painel</span></a>
   <div class="grupo">Trabalho</div>
   <a class="nav ativo" aria-current="page" href="editor-catalogo.html"><span class="ic i-editor"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1-4L16.5 4.5a2 2 0 013 3L8 19z"/><path d="M14.5 6.5l3 3"/></svg></span><span class="tx">Editor</span></a>
@@ -224,6 +221,7 @@ button.perigo{background:var(--geranium-suave);color:var(--geranium)}
   <div class="grupo">Registro</div>
   <a class="nav" href="historico.html"><span class="ic i-hist"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><span class="tx">Histórico</span></a>
   <a class="nav" href="../tutoriais.html"><span class="ic i-tut"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5.5A2.5 2.5 0 017.5 3H19v15H7.5A2.5 2.5 0 005 20.5z"/><path d="M5 20.5A2.5 2.5 0 007.5 23H19v-5"/></svg></span><span class="tx">Tutoriais</span></a>
+  <div class="vao"></div>
   <div class="grupo">Abrir fora</div>
   <a class="nav saida" href="../index.html" target="_blank" rel="noopener"><span class="tx">Catálogo</span><svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6H6.5A2.5 2.5 0 004 8.5v9A2.5 2.5 0 006.5 20h9a2.5 2.5 0 002.5-2.5V15M13 4h7v7M20 4l-9 9"/></svg></a>
   <a class="nav saida" href="../branet.html" target="_blank" rel="noopener"><span class="tx">Catálogo BRANET</span><svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6H6.5A2.5 2.5 0 004 8.5v9A2.5 2.5 0 006.5 20h9a2.5 2.5 0 002.5-2.5V15M13 4h7v7M20 4l-9 9"/></svg></a>
@@ -292,18 +290,17 @@ button.perigo{background:var(--geranium-suave);color:var(--geranium)}
     <div class="rolagem">
       <table class="tabela">
         <thead><tr>
-          <th style="width:98px">Código</th>
+          <th style="width:110px">Código</th>
           <th>Material</th>
-          <th style="width:62px">Un.</th>
-          <th style="width:140px">Bloco</th>
+          <th style="width:30%">Família e tags</th>
+          <th style="width:70px">Un.</th>
+          <th style="width:170px">Bloco</th>
         </tr></thead>
         <tbody id="corpoTabela"></tbody>
       </table>
       <div id="rodapeTabela"></div>
     </div>
-    <aside class="inspetor" id="inspetor" aria-label="Item selecionado">
-      <div class="vazioInsp"><b>Selecione um material</b>Escolha um item da lista para editar os dados do catálogo, o descritivo e o cadastro na BRANET.</div>
-    </aside>
+    <aside class="inspetor" id="inspetor" aria-label="Item selecionado"></aside>
   </div>
   <div class="veuInsp" id="veuInsp"></div>
 </div>
@@ -822,15 +819,14 @@ function desenhar(){
     return '<tr class="'+sit+(inativo?' inativo':'')+(INSP.id===it.__id?' sel':'')+'" data-id="'+it.__id+'">'+
       '<td class="cod">'+escapar(it.codigo)+'</td>'+
       '<td class="material"><span class="nome">'+escapar(it.material)+'</span>'+
-        '<span class="info">'+
         (sit==='novo'?'<span class="tag t-vd">novo</span>':'')+
         (sit==='editado'?'<span class="tag t-az">editado</span>':'')+
         (inativo?'<span class="tag t-ci">inativo</span>':'')+
         (temDescritivo(cod)?'<span class="tag t-rx">descritivo</span>':'')+
         (descDe(cod).situacao_compra==='AGUARDANDO_COMPRA'?
           '<span class="tag t-ci" title="material novo, ainda sem código do CELK">aguardando compra</span>':'')+
-        (classes.length?'<span>'+escapar(classes.join(' · '))+'</span>':'')+
-        '</span></td>'+
+        '</td>'+
+      '<td class="classes">'+escapar(classes.join(' · '))+'</td>'+
       '<td class="un">'+escapar((it.unidade||'').split(' - ')[0])+'</td>'+
       '<td><span class="tag bloco '+corBloco(it)+'" title="'+escapar(juntarGrupo(it.grupo,it.subgrupo))+'">'+escapar(juntarGrupo(it.grupo,it.subgrupo))+'</span></td></tr>';
   }).join('');
@@ -877,9 +873,10 @@ function podeTrocar(){
 function fecharInspetor(forcar){
   if(!forcar&&!podeTrocar())return false;
   INSP.id=null;INSP.novo=false;INSP.sujo=false;
-  $('#inspetor').innerHTML='<div class="vazioInsp"><b>Selecione um material</b>Escolha um item da lista para editar '+
-    'os dados do catálogo, o descritivo e o cadastro na BRANET.</div>';
   $('#inspetor').classList.remove('aberto');$('#veuInsp').classList.remove('ativo');
+  /* Esvazia a gaveta depois que ela terminou de sair, para nenhum campo
+     de um item fechado continuar na página. */
+  setTimeout(()=>{if(INSP.id===null)$('#inspetor').innerHTML=''},450);
   marcarSelecao();
   return true;
 }
@@ -1097,7 +1094,7 @@ function abrirEdicao(id,novo,semPerguntar){
   const insp=$('#inspetor');
   insp.innerHTML='';insp.appendChild(fundo);
   insp.classList.add('aberto');
-  if(matchMedia('(max-width:1180px)').matches)$('#veuInsp').classList.add('ativo');
+  $('#veuInsp').classList.add('ativo');
   marcarSelecao();
 
   /* Abas: só a escolhida aparece, mas as três continuam no formulário,
