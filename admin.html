@@ -8,82 +8,123 @@
 <style>
 /* Identidade comum (cores, estrutura, barra lateral, botões e
    etiquetas) fica em admin.css. Aqui ficam só as regras desta
-   página. */
+   página.
 
-.conteudo{display:flex;flex-direction:column;gap:28px;padding-bottom:10px}
+   A página inicial é uma grade de cartões de tamanhos diferentes, como
+   os widgets do iPhone: cada cartão responde a uma pergunta (quantas
+   fotos faltam, como está a chave, o que tem na pasta) e tudo cabe numa
+   tela. A conferência de imagens é o cartão maior, porque é o único que
+   pede ação item por item. */
 
-/* ---------- título grande ---------- */
+.conteudo{display:flex;flex-direction:column;gap:22px}
+
+/* ---------- título ---------- */
 .cabecalho{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;padding-top:6px}
 .cabecalho h1{font-size:34px;letter-spacing:-.03em}
-.cabecalho .sub{margin:4px 0 0;font-size:14px}
+.cabecalho .sub{margin:5px 0 0;font-size:14px;max-width:80ch}
+.cabecalho .sub br{display:none}
+/* A ilustração da pessoa não aparece nesta disposição, mas os elementos
+   continuam na página porque a saudação os preenche. */
+.retrato{display:none}
 
-/* ---------- cartões e seções ---------- */
-.cartao{background:var(--superficie);border-radius:var(--raio);padding:18px 20px;box-shadow:var(--sombra)}
-.secao>h2{font-size:22px;letter-spacing:-.018em;margin:0 0 4px}
-.secao>.sub{margin:0 0 12px;max-width:72ch}
-.secao .topo{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
-.secao .topo h2{font-size:22px;letter-spacing:-.018em;margin:0}
-.secao .topo .sub{margin:3px 0 0;max-width:72ch}
+/* ---------- grade de cartões ---------- */
+.grade{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;align-items:stretch}
+.w{background:var(--superficie);border-radius:22px;box-shadow:var(--sombra);padding:18px 20px;display:flex;flex-direction:column;min-width:0}
+.w2{grid-column:span 2}.r2{grid-row:span 2}
+.w .topo{display:flex;align-items:center;gap:8px;margin-bottom:12px;min-width:0}
+.w .topo .rot{font-size:11.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--terciario);margin:0;white-space:nowrap}
+.w .topo .ver{margin-left:auto;font-size:12.5px;color:var(--terciario);text-align:right;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.w .acao{align-self:flex-start;margin-top:auto}
 
-/* ---------- saudação e anéis, no mesmo cartão ----------
-   O disco é um pouco MAIOR que a figura e começa abaixo do queixo:
-   assim ele aparece atrás dos ombros e a cabeça fica por cima da borda
-   de cima. O pé do disco é cortado pelo quadro, o que faz a pessoa
-   parecer apoiada no cartão em vez de flutuando dentro de um círculo.
-   As ilustrações estão todas no mesmo enquadramento, em ilustracoes/,
-   com 344 por 440 pixels. */
-.ola{background:var(--superficie);border-radius:22px;box-shadow:var(--sombra);
-  display:flex;align-items:center;gap:22px;padding:16px 26px 0;flex-wrap:wrap}
-.ola .retrato{position:relative;flex:none;overflow:hidden;width:114px;height:138px;align-self:flex-end}
-.ola .disco{position:absolute;left:0;right:0;height:114px;top:41px;border-radius:50%;
-  background:linear-gradient(160deg,var(--acento),var(--corallite))}
-.ola .retrato img{position:absolute;left:50%;bottom:0;transform:translateX(-50%);
-  height:138px;width:auto;display:block}
-.ola .iniciais{position:absolute;left:0;right:0;height:114px;top:41px;border-radius:50%;
-  background:linear-gradient(160deg,var(--acento),var(--corallite));color:#fff;font-size:34px;font-weight:600;
-  display:flex;align-items:center;justify-content:center}
-.ola .quem{min-width:220px;flex:1;padding-bottom:16px}
-.ola .oi{font:600 21px/1.2 var(--fonte-titulo);letter-spacing:-.018em}
-.ola .dizer{font-size:13.5px;color:var(--secundario);margin-top:5px;line-height:1.55;max-width:46ch}
-.ola .aneis{display:flex;gap:26px;flex-wrap:wrap;padding-bottom:16px}
-.ola .par{display:flex;align-items:center;gap:12px}
-.ola .par .lado{font-size:12.5px;line-height:1.6;color:var(--secundario)}
-.ola .par .lado b{font-weight:600}
-.ola .par svg{flex:none}
+/* anéis de fotos e descritivos */
+.par{display:flex;align-items:center;gap:18px;flex:1;margin-bottom:12px}
+.par svg{flex:none}
+.par .info b{display:block;font:700 30px/1 var(--fonte-titulo);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.par .info span{font-size:13px;color:var(--secundario)}
 
-@media(max-width:820px){
-  .ola{gap:14px;padding:14px 16px 0}
-  .ola .quem{min-width:0}
-}
+/* catálogo por bloco */
+.total{display:flex;align-items:baseline;gap:8px}
+.total b{font:700 34px/1 var(--fonte-titulo);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.faixa{display:flex;height:12px;border-radius:6px;overflow:hidden;gap:2px;margin:14px 0 12px;background:var(--neutro)}
+.faixa i{display:block;height:100%}
+.legenda{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 18px}
+.legenda div{display:flex;align-items:center;gap:8px;font-size:13px;min-width:0}
+.legenda i{width:9px;height:9px;border-radius:3px;flex:none}
+.legenda b{margin-left:auto;font-variant-numeric:tabular-nums}
 
-/* ---------- números ---------- */
-.numeros{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
-.numero{background:var(--superficie);border-radius:var(--raio);padding:16px 18px;box-shadow:var(--sombra)}
-.numero .v{font:700 28px/1.1 var(--fonte-titulo);letter-spacing:-.025em;font-variant-numeric:tabular-nums}
-.numero .r{font-size:12.5px;color:var(--secundario);margin-top:3px}
-.progresso{height:6px;background:var(--borda);border-radius:20px;overflow:hidden;margin-top:9px}
-.progresso i{display:block;height:100%;background:var(--curacao);width:0;transition:width .5s}
+/* publicação */
+.chaveW{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.chaveW .ico{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;flex:none;background:var(--neutro);color:var(--terciario)}
+.chaveW .ico svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.chaveW.ok .ico{background:var(--ok-suave);color:var(--ok)}
+.chaveW .sub{margin-top:6px;font-size:12.5px}
+#wAutor.falta{color:var(--sawtooth)}
 
-/* ---------- ferramentas: lista agrupada, como nos Ajustes ---------- */
-.lista{background:var(--superficie);border-radius:var(--raio);box-shadow:var(--sombra);overflow:hidden}
-a.ferr{display:flex;align-items:center;gap:14px;padding:12px 18px;text-decoration:none;color:inherit;
-  position:relative;transition:background .12s}
-a.ferr+a.ferr::before{content:"";position:absolute;top:0;left:70px;right:0;height:1px;background:var(--linha)}
-a.ferr:hover{background:var(--neutro)}
-a.ferr:active{background:var(--borda)}
-.ferr .ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;flex:none}
-.ferr .ic svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.ferr .tx{flex:1;min-width:0}
-.ferr .tt{font-size:14.5px;font-weight:600;letter-spacing:-.005em}
-.ferr .ds{font-size:12.5px;color:var(--secundario);line-height:1.45;margin-top:1px}
-.ferr .seta{width:16px;height:16px;stroke:var(--terciario);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;transition:transform .2s}
-a.ferr:hover .seta{transform:translateX(2px)}
-.ferr .fora{font-size:11.5px;color:var(--terciario);flex:none}
+/* arquivos */
+.arqs{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.arqs .l{display:flex;align-items:center;gap:10px;font-size:13px;min-width:0}
+.arqs .nm{flex:1;min-width:0;font-family:var(--fonte-mono);font-size:12.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.arqs .tag{font-size:11px;flex:none}
 
-/* ---------- chave de publicação ---------- */
-.duas{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px;align-items:start}
-.cartao .tit{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}
-.cartao .tit b{font-size:15px;font-weight:600}
+/* ferramentas, como ícones de app */
+.apps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 8px;flex:1;align-content:center}
+.atalho{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:12.5px;text-align:center;text-decoration:none;color:var(--texto);
+  transition:transform 140ms cubic-bezier(.23,1,.32,1)}
+.atalho:active{transform:scale(.95)}
+.atalho .ic{width:48px;height:48px;border-radius:13px;display:grid;place-items:center;color:#fff;box-shadow:0 2px 6px rgba(0,0,0,.12)}
+.atalho .ic svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- conferência de imagens ---------- */
+.cfCorpo{flex:1;min-height:0;display:flex;flex-direction:column}
+.cfAbas{display:flex;background:var(--neutro);border-radius:10px;padding:2px;gap:2px;margin-bottom:10px}
+.cfAbas button{flex:1;padding:6px 8px;border-radius:8px;font-size:12.5px;color:var(--secundario);font-weight:500;background:none;
+  display:flex;justify-content:center;align-items:center;gap:6px;white-space:nowrap}
+.cfAbas button:active:not(:disabled){transform:none}
+.cfAbas button[aria-selected="true"]{background:var(--superficie);color:var(--texto);box-shadow:0 1px 3px rgba(0,0,0,.14);font-weight:600}
+.cfAbas .n{min-width:20px;height:18px;padding:0 6px;border-radius:9px;background:var(--ok-suave);color:var(--ok);font-size:11px;font-weight:700;
+  display:inline-grid;place-items:center;font-variant-numeric:tabular-nums}
+.cfAbas .n.tem{background:var(--sawtooth-suave);color:var(--sawtooth)}
+.cfPainel{flex:1;overflow:auto;max-height:400px;margin:0 -8px;overscroll-behavior:contain}
+.cfPainel .item{display:flex;align-items:center;gap:12px;padding:8px;border-radius:12px;position:relative;font-size:13px}
+.cfPainel .item+.item::before{content:"";position:absolute;top:0;left:58px;right:8px;height:1px;background:var(--linha)}
+.cfPainel label.item{cursor:pointer}
+.cfPainel .item input[type=checkbox]{width:18px;height:18px;flex:none;margin:0 10px}
+.cfPainel .ph{width:38px;height:38px;border-radius:10px;border:1.5px dashed var(--terciario);color:var(--terciario);display:grid;place-items:center;font-size:15px;flex:none}
+.cfPainel .tx{flex:1;min-width:0}
+.cfPainel .tx b{display:block;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cfPainel .tx>span{display:block;font-size:12px;color:var(--secundario);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cfPainel .cd{font-family:var(--fonte-mono);font-size:11.5px;color:var(--corn)}
+.cfPainel .tag,.cfPainel .pilula{flex:none}
+.rodapeExcluir{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 8px 4px}
+.rodapeExcluir label{display:flex;align-items:center;gap:7px;font-size:13px;cursor:pointer}
+.rodapeExcluir .excluir{margin-left:auto;background:var(--geranium-suave);color:var(--geranium)}
+.cfVazio{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:4px;padding:34px 20px;color:var(--secundario);font-size:13px}
+.cfVazio .okc{width:40px;height:40px;border-radius:50%;background:var(--ok-suave);color:var(--ok);display:grid;place-items:center;font-size:18px;margin-bottom:6px}
+.cfVazio b{color:var(--texto);font-size:14.5px}
+.cfPe{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding-top:12px;margin-top:8px;border-top:1px solid var(--linha)}
+#cfgGh{margin-top:10px;padding:14px;border-radius:14px;background:var(--neutro)}
+#cfgGh input{background:var(--superficie)}
+
+/* mensagens de resultado (chave, repositório, erros da conferência) */
+.bloco{border-radius:14px;margin-bottom:10px;overflow:hidden;background:var(--neutro)}
+.bloco>.cab{padding:11px 14px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;border-radius:14px}
+.bloco>.cab .tt{font-size:13px;flex:1;min-width:0}
+.bloco .conteudo2{background:var(--superficie);border-radius:12px;margin:0 6px 6px;max-height:280px;overflow:auto}
+.bloco .item{padding:9px 14px;font-size:12.5px;border-bottom:1px solid var(--linha);display:flex;gap:10px;align-items:center}
+.bloco .item:last-child{border-bottom:none}
+.bloco .item .cd{font-family:var(--fonte-mono);color:var(--corn);flex:none}
+.bloco .item .obs{margin-left:auto;color:var(--secundario);font-size:11.5px;flex:none;padding-left:10px}
+.b-ok{background:var(--ok-suave)}.b-al{background:var(--sawtooth-suave)}.b-er{background:var(--geranium-suave)}.b-nt{background:var(--neutro)}
+
+/* ---------- janela da chave ---------- */
+.fundo-modal{position:fixed;inset:0;background:var(--veu);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;
+  align-items:flex-start;justify-content:center;padding:6vh 14px;z-index:50;overflow:auto;animation:surgir .2s ease}
+.modal{background:var(--superficie);border-radius:24px;width:100%;max-width:640px;box-shadow:var(--sombra-alta);animation:subir .3s cubic-bezier(.23,1,.32,1)}
+.modal header{padding:18px 22px 6px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.modal header h2{font-size:19px;margin:0}
+.modal .corpo{padding:8px 22px 22px}
+@keyframes surgir{from{opacity:0}to{opacity:1}}
+@keyframes subir{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
 .rot{display:block;font-size:12px;font-weight:600;color:var(--secundario);margin:14px 0 6px}
 .campo{display:flex;align-items:center;gap:6px;background:var(--neutro);border-radius:12px;padding:0 5px 0 0}
 .campo:focus-within{box-shadow:0 0 0 3px var(--acento-suave),0 0 0 1.5px var(--acento)}
@@ -91,56 +132,28 @@ a.ferr:hover .seta{transform:translateX(2px)}
 .campo input:focus{box-shadow:none}
 #chaveAutor{width:100%;height:42px}
 #chaveAutorOutro{width:100%;margin-top:8px}
-.privado{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--secundario);margin:0}
+.privado{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--secundario);margin:18px 0 0}
 .privado svg{width:18px;height:18px;stroke:var(--terciario);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none;margin-top:1px}
-#chaveAjuda{margin-top:14px;padding:14px;border-radius:14px;background:var(--neutro)}
+#chaveAjuda{margin-top:12px;padding:14px;border-radius:14px;background:var(--neutro)}
 #chaveAjuda p{margin:0 0 8px}#chaveAjuda p:last-child{margin:0}
-.ligacao{background:none;padding:0;color:var(--acento-texto);font-size:13px;margin-top:12px;box-shadow:none}
+.ligacao{background:none;padding:0;color:var(--acento-texto);font-size:13px;margin-top:10px;margin-right:16px}
 .ligacao:active:not(:disabled){transform:none;opacity:.6}
 
-/* ---------- conferência: blocos de resultado ---------- */
-#cfgGh{margin-top:14px;padding:14px;border-radius:14px;background:var(--neutro)}
-#cfgGh input{background:var(--superficie)}
-.bloco{border-radius:14px;margin-bottom:10px;overflow:hidden;background:var(--neutro)}
-.bloco>.cab{padding:11px 14px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;cursor:pointer;border-radius:14px}
-.bloco>.cab .qt{font:700 19px var(--fonte-titulo);letter-spacing:-.015em;font-variant-numeric:tabular-nums}
-.bloco>.cab .tt{font-size:13px;flex:1;min-width:0}
-.bloco>.cab .seta{margin-left:auto;color:var(--acento-texto);font-size:12.5px;font-weight:500}
-.bloco .conteudo2{background:var(--superficie);border-radius:12px;margin:0 6px 6px;max-height:280px;overflow:auto}
-.bloco .item{padding:9px 14px;font-size:12.5px;border-bottom:1px solid var(--linha);display:flex;gap:10px;align-items:center}
-.bloco .item:last-child{border-bottom:none}
-.bloco .item .cd{font-family:var(--fonte-mono);color:var(--corn);flex:none}
-.bloco .item .obs{margin-left:auto;color:var(--secundario);font-size:11.5px;flex:none;padding-left:10px}
-.bloco .item input[type=checkbox]{flex:none;width:16px;height:16px;cursor:pointer}
-.bloco .rodapeExcluir label{cursor:pointer}
-.b-ok{background:var(--ok-suave)} .b-ok .qt{color:var(--ok)}
-.b-al{background:var(--sawtooth-suave)} .b-al .qt{color:var(--sawtooth)}
-.b-er{background:var(--geranium-suave)} .b-er .qt{color:var(--geranium)}
-.b-nt{background:var(--neutro)} .b-nt .qt{color:var(--secundario)}
-.bloco.b-ok,.bloco.b-al,.bloco.b-er{background:var(--neutro)}
+.rodape{font-size:12px;color:var(--terciario);text-align:center;padding:4px 0}
 
-/* ---------- como publicar ---------- */
-.passos{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:0;margin:0;list-style:none}
-.passos li{background:var(--superficie);border-radius:var(--raio);box-shadow:var(--sombra);padding:16px 18px;font-size:13px;color:var(--secundario)}
-.passos li b.t{display:block;font-size:14.5px;color:var(--texto);font-weight:600;margin:10px 0 2px}
-.passos .n{width:26px;height:26px;border-radius:50%;background:var(--acento-suave);color:var(--acento-texto);display:grid;place-items:center;font-weight:700;font-size:13px}
-.passos li b:not(.t){color:var(--texto);font-weight:600}
-code{background:var(--neutro);padding:1px 6px;border-radius:6px;font-size:12px;font-family:var(--fonte-mono)}
-
-/* ---------- arquivos do projeto ---------- */
-.linhaArq{display:flex;gap:10px;align-items:center;padding:11px 18px;font-size:13px;position:relative}
-.linhaArq+.linhaArq::before{content:"";position:absolute;top:0;left:18px;right:0;height:1px;background:var(--linha)}
-.linhaArq .nm{flex:1;min-width:0;overflow-wrap:anywhere}
-.rodape{margin-top:4px;font-size:12px;color:var(--terciario);text-align:center;padding-bottom:4px}
-
-@media(max-width:960px){
-  .duas{grid-template-columns:1fr}
-  .passos{grid-template-columns:repeat(2,1fr)}
+@media(max-width:1200px){
+  .grade{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .r2{grid-row:auto}
 }
-@media(max-width:520px){
-  .passos{grid-template-columns:1fr}
+@media(max-width:640px){
+  .grade{grid-template-columns:1fr}
+  .w2{grid-column:auto}
   .cabecalho h1{font-size:28px}
-  a.ferr+a.ferr::before{left:18px}
+  .cfPainel .tag{display:none}
+  .cfAbas button{font-size:11.5px;flex-direction:column;gap:3px;padding:6px 4px}
+  .w .topo .ver{display:none}
+  .fundo-modal{align-items:flex-end;padding:0}
+  .modal{border-radius:22px 22px 0 0;max-height:92vh;overflow:auto}
 }
 </style>
 </head>
@@ -171,79 +184,118 @@ code{background:var(--neutro);padding:1px 6px;border-radius:6px;font-size:12px;f
     <div class="cabecalho">
       <div>
         <h1>Painel</h1>
-        <p class="sub">Administração do catálogo · GT Padronização de Materiais, Insumos e Equipamentos</p>
+        <p class="sub"><span id="olaOi">Olá</span> <span id="olaDizer"></span></p>
+        <div class="retrato"><img id="olaFoto" alt="" class="oculto"><div class="iniciais oculto" id="olaIniciais"></div></div>
       </div>
       <div class="barra" style="justify-content:flex-end">
-        <a class="pilula" href="branet.html" target="_blank" rel="noopener">Catálogo BRANET</a>
+        <a class="pilula" href="branet.html" target="_blank" rel="noopener" style="background:var(--superficie);box-shadow:var(--sombra)">Catálogo BRANET</a>
         <a class="pilula principal" href="index.html" target="_blank" rel="noopener">Abrir o catálogo</a>
       </div>
     </div>
 
-    <!-- ============ SAUDAÇÃO E ANÉIS DE PROGRESSO ============ -->
-    <section class="ola" aria-label="Resumo">
-      <div class="retrato">
-        <span class="disco"></span>
-        <img id="olaFoto" alt="" class="oculto">
-        <div class="iniciais oculto" id="olaIniciais"></div>
-      </div>
-      <div class="quem">
-        <div class="oi" id="olaOi">Olá</div>
-        <div class="dizer" id="olaDizer"></div>
-      </div>
-      <div class="aneis">
-        <div class="par" id="anel-fotos"><div class="sub">conferindo as fotos...</div></div>
-        <div class="par" id="anel-desc"><div class="sub">lendo o arquivo...</div></div>
-      </div>
-    </section>
+    <div class="grade">
 
-    <!-- ================= NÚMEROS ================= -->
-    <div class="numeros" id="numeros"></div>
+      <!-- fotos -->
+      <section class="w" aria-label="Fotos">
+        <div class="topo"><p class="rot">Fotos</p></div>
+        <div class="par" id="anel-fotos"><span class="sub">conferindo as fotos...</span></div>
+        <a class="pilula mini acento acao" href="preparar-imagens.html">Preparar imagens</a>
+      </section>
 
-    <!-- ================= FERRAMENTAS ================= -->
-    <section class="secao">
-      <h2>Ferramentas</h2>
-      <div class="lista">
-      <a class="ferr" href="editor-catalogo/editor-catalogo.html">
-        <span class="ic" style="background:var(--corn-suave);color:var(--corn)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1-4L16.5 4.5a2 2 0 013 3L8 19z"/><path d="M14.5 6.5l3 3"/></svg></span>
-        <span class="tx"><span class="tt">Editor do catálogo</span><span class="ds" style="display:block">Alterar dados dos materiais, acrescentar itens novos, inativar os que saíram de linha e gerar o pacote de atualização.</span></span>
-        <svg class="seta" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
-      </a>
-      <a class="ferr" href="editor-catalogo/comparar-celk.html">
-        <span class="ic" style="background:var(--curacao-suave);color:var(--curacao-escuro)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h13M14 4l4 4-4 4M19 16H6M10 12l-4 4 4 4"/></svg></span>
-        <span class="tx"><span class="tt">Comparar com o CELK</span><span class="ds" style="display:block">Enviar os relatórios de listagem e ver códigos novos, itens que saíram e descrições alteradas.</span></span>
-        <svg class="seta" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
-      </a>
-      <a class="ferr" href="descritivos/descritivos.html">
-        <span class="ic" style="background:var(--corallite-suave);color:var(--corallite)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7h11M8 12h11M8 17h11M4.5 7h.01M4.5 12h.01M4.5 17h.01"/></svg></span>
-        <span class="tx"><span class="tt">Descritivos</span><span class="ds" style="display:block">Consultar os descritivos técnicos dos empenhos e licitações, com unidade de compra e data da revisão.</span></span>
-        <svg class="seta" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
-      </a>
-      <a class="ferr" href="preparar-imagens.html">
-        <span class="ic" style="background:var(--curacao-suave);color:var(--curacao-escuro)"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2.5"/><circle cx="9" cy="10.5" r="1.6"/><path d="M4 17l5-4.5 4 3.5 3-2.5 4 3.5"/></svg></span>
-        <span class="tx"><span class="tt">Preparar imagens</span><span class="ds" style="display:block">Padronizar fotos em 800×800 com fundo branco, vincular ao material e publicar já nomeadas pelo código.</span></span>
-        <svg class="seta" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
-      </a>
-      <a class="ferr" href="editor-catalogo/historico.html">
-        <span class="ic" style="background:var(--sawtooth-suave);color:var(--sawtooth)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span>
-        <span class="tx"><span class="tt">Histórico de alterações</span><span class="ds" style="display:block">Todas as edições da lista de materiais e dos descritivos, com data, responsável e detalhe campo a campo.</span></span>
-        <svg class="seta" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
-      </a>
-      <a class="ferr" href="branet.html" target="_blank" rel="noopener">
-        <span class="ic" style="background:var(--curacao-suave);color:var(--curacao-escuro)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4.2v9.6L12 21l-8-4.2V7.2z"/><path d="M4 7.2l8 4.3 8-4.3M12 11.5V21"/></svg></span>
-        <span class="tx"><span class="tt">Catálogo ilustrado BRANET</span><span class="ds" style="display:block">Os materiais como estão cadastrados na BRANET, com foto, descritivo e a equivalência no CELK.</span></span>
-        <span class="fora">abre em nova aba</span>
-      </a>
-      </div>
-    </section>
+      <!-- descritivos -->
+      <section class="w" aria-label="Descritivos">
+        <div class="topo"><p class="rot">Descritivos</p></div>
+        <div class="par" id="anel-desc"><span class="sub">lendo o arquivo...</span></div>
+        <a class="pilula mini acento acao" href="descritivos/descritivos.html">Ver os descritivos</a>
+      </section>
 
-    <!-- ================= CHAVE DE PUBLICAÇÃO ================= -->
-    <section class="secao" id="painelChave">
-      <h2>Publicação</h2>
-      <p class="sub">A chave permite que as ferramentas enviem as alterações direto ao repositório, sem baixar e reenviar arquivos à mão.</p>
-      <div class="duas">
-        <div class="cartao">
-          <div class="tit"><b>Chave de publicação</b><span class="tag t-ci" id="chaveSelo">nenhuma chave cadastrada</span></div>
-          <label class="rot" for="chaveToken" style="margin-top:0">Chave</label>
+      <!-- catálogo -->
+      <section class="w w2" aria-label="Catálogo">
+        <div class="topo"><p class="rot">Catálogo</p><span class="ver" id="catInativos"></span></div>
+        <div class="total"><b id="catAtivos">—</b><span class="sub">materiais ativos</span></div>
+        <div class="faixa" id="catFaixa"></div>
+        <div class="legenda" id="numeros">
+          <div><i style="background:var(--corn)"></i>Rede básica<b id="catBasica">—</b></div>
+          <div><i style="background:var(--corallite)"></i>CEO<b id="catCeo">—</b></div>
+          <div><i style="background:var(--sawtooth)"></i>Interesse odontológico<b id="catCoord">—</b></div>
+          <div><i style="background:var(--terciario)"></i>BRANET vinculados<b id="catBranet">—</b></div>
+        </div>
+      </section>
+
+      <!-- conferência de imagens -->
+      <section class="w w2 r2" id="painelConferencia" aria-label="Conferência de imagens">
+        <div class="topo"><p class="rot">Conferência de imagens</p><span class="ver" id="cfOrigem">aguardando a lista de materiais</span></div>
+        <div class="cfCorpo" id="resultado"><p class="sub">A conferência começa sozinha assim que a lista de materiais for lida.</p></div>
+        <div id="cfgGh" class="oculto">
+          <div class="barra">
+            <input type="text" id="ghUser" placeholder="usuário do GitHub" style="width:160px">
+            <span class="sub">/</span>
+            <input type="text" id="ghRepo" placeholder="repositório" style="width:170px">
+            <span class="sub">/</span>
+            <input type="text" id="ghPasta" placeholder="pasta" value="imagens" style="width:100px">
+            <button class="mini principal" id="btSalvarGh">Salvar e analisar</button>
+            <button class="mini" id="btLimparGh" style="background:var(--superficie)">Esquecer</button>
+          </div>
+          <p class="sub" style="margin:10px 0 0">Somente leitura de dados públicos, nenhuma senha é pedida. O GitHub
+          informa todos os arquivos da pasta, o que permite descobrir também as imagens que sobraram. A
+          configuração fica salva neste navegador e é a mesma usada pela ferramenta de preparar imagens.</p>
+        </div>
+        <div class="cfPe">
+          <button class="mini oculto" id="btBaixarRel">Baixar relatório em CSV</button>
+          <button class="mini" id="btAnalisar">Analisar de novo</button>
+          <button class="mini" id="btAnalisarGh">Pelo GitHub</button>
+          <button class="mini" id="btAnalisarPasta">Pasta do computador</button>
+          <input type="file" id="entradaPasta" webkitdirectory directory multiple>
+          <a class="pilula mini principal" href="preparar-imagens.html" style="margin-left:auto">Preparar imagens</a>
+        </div>
+      </section>
+
+      <!-- publicação -->
+      <section class="w" id="painelChave" aria-label="Publicação">
+        <div class="topo"><p class="rot">Publicação</p></div>
+        <div class="chaveW" id="chaveW"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2.5"/><path d="M8.5 10.5V8a3.5 3.5 0 017 0v2.5"/></svg></span>
+          <div style="min-width:0"><span class="tag t-ci" id="chaveSelo">nenhuma chave cadastrada</span>
+            <div class="sub">Publicando como <b id="wAutor">—</b></div></div></div>
+        <button class="mini acento acao" id="btGerenciarChave">Gerenciar a chave</button>
+      </section>
+
+      <!-- arquivos -->
+      <section class="w" aria-label="Arquivos do projeto">
+        <div class="topo"><p class="rot">Arquivos</p></div>
+        <div class="arqs" id="arquivos">
+          <div class="l"><span class="nm">produtos.csv</span><span class="tag t-ci" id="stCsv">verificando</span></div>
+          <div class="l"><span class="nm">imagens/</span><span class="tag t-ci" id="stImg">verificando</span></div>
+          <div class="l"><span class="nm">descritivos.csv</span><span class="tag t-ci" id="stDesc">verificando</span></div>
+          <div class="l"><span class="nm">branet.csv</span><span class="tag t-ci" id="stBranet">verificando</span></div>
+          <div class="l"><span class="nm">historico.md</span><span class="tag t-ci" id="stLog">verificando</span></div>
+        </div>
+        <button class="mini acao" id="btConferirRepo" title="Mostra a versão publicada e quem a enviou por último. Somente leitura.">Conferir no repositório</button>
+        <div id="repoResultado" style="margin-top:10px"></div>
+      </section>
+
+      <!-- ferramentas -->
+      <section class="w w2" aria-label="Ferramentas">
+        <div class="topo"><p class="rot">Ferramentas</p></div>
+        <div class="apps">
+          <a class="atalho" href="editor-catalogo/editor-catalogo.html"><span class="ic i-editor"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1-4L16.5 4.5a2 2 0 013 3L8 19z"/><path d="M14.5 6.5l3 3"/></svg></span>Editor</a>
+          <a class="atalho" href="editor-catalogo/comparar-celk.html"><span class="ic i-celk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h13M14 4l4 4-4 4M19 16H6M10 12l-4 4 4 4"/></svg></span>Comparar CELK</a>
+          <a class="atalho" href="descritivos/descritivos.html"><span class="ic i-desc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7h11M8 12h11M8 17h11M4.5 7h.01M4.5 12h.01M4.5 17h.01"/></svg></span>Descritivos</a>
+          <a class="atalho" href="preparar-imagens.html"><span class="ic i-imagens"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2.5"/><circle cx="9" cy="10.5" r="1.6"/><path d="M4 17l5-4.5 4 3.5 3-2.5 4 3.5"/></svg></span>Imagens</a>
+          <a class="atalho" href="editor-catalogo/historico.html"><span class="ic i-hist"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span>Histórico</a>
+          <a class="atalho" href="tutoriais.html"><span class="ic i-tut"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5.5A2.5 2.5 0 017.5 3H19v15H7.5A2.5 2.5 0 005 20.5z"/><path d="M5 20.5A2.5 2.5 0 007.5 23H19v-5"/></svg></span>Tutoriais</a>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ================= JANELA DA CHAVE DE PUBLICAÇÃO ================= -->
+    <div class="fundo-modal oculto" id="janelaChave" role="dialog" aria-modal="true" aria-labelledby="tituloChave">
+      <div class="modal">
+        <header><div><h2 id="tituloChave">Chave de publicação</h2>
+          <p class="sub" style="margin:4px 0 0">Permite que as ferramentas enviem as alterações direto ao repositório, sem baixar e reenviar arquivos à mão.</p></div>
+          <button class="mini" data-fechar-chave>Fechar</button></header>
+        <div class="corpo">
+          <label class="rot" for="chaveToken" style="margin-top:4px">Chave</label>
           <div class="campo">
             <input type="password" id="chaveToken" placeholder="Cole aqui a chave" autocomplete="off" spellcheck="false">
             <button class="mini" id="btVerChave" title="mostrar ou ocultar" style="background:var(--superficie)">mostrar</button>
@@ -256,11 +308,8 @@ code{background:var(--neutro);padding:1px 6px;border-radius:6px;font-size:12px;f
             <button id="btRemoverChave">Remover chave</button>
           </div>
           <div id="chaveResultado" style="margin-top:13px"></div>
-        </div>
-
-        <div class="cartao">
           <p class="privado"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2.5"/><path d="M8.5 10.5V8a3.5 3.5 0 017 0v2.5"/></svg><span>A chave fica guardada somente <b>neste navegador</b> e nunca é gravada em nenhum arquivo do projeto. Em computador de uso comum, clique em <b>Remover chave</b> ao terminar.</span></p>
-          <button class="ligacao" id="btAjudaChave">como conseguir a chave</button>
+          <button class="ligacao" id="btAjudaChave">como conseguir a chave</button><a class="ligacao" href="tutoriais.html#chave">tutorial da chave</a>
           <div id="chaveAjuda" class="oculto">
             <p class="sub"><b>Se você recebeu a chave de alguém do GT:</b>
             basta colar no campo e clicar em <b>Testar chave</b>. Não é preciso ter conta no GitHub.</p>
@@ -277,87 +326,7 @@ code{background:var(--neutro);padding:1px 6px;border-radius:6px;font-size:12px;f
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- ================= CONFERÊNCIA DE IMAGENS ================= -->
-    <section class="secao" id="painelConferencia">
-      <div class="topo">
-        <div>
-          <h2>Conferência de imagens</h2>
-          <p class="sub">Compara o <span class="mono">produtos.csv</span> com a pasta <span class="mono">imagens</span> e aponta
-          materiais sem imagem, arquivos sem material e nomes fora do padrão. Imagens sem material e de
-          materiais inativos podem ser excluídas daqui, com a chave de publicação.</p>
-        </div>
-      </div>
-      <div class="cartao">
-        <div class="barra">
-          <button class="principal" id="btAnalisar">Analisar agora</button>
-          <button id="btAnalisarGh">Analisar pelo GitHub</button>
-          <button id="btAnalisarPasta">Conferir uma pasta do computador</button>
-          <input type="file" id="entradaPasta" webkitdirectory directory multiple>
-        </div>
-
-        <div id="cfgGh" class="oculto">
-          <div class="barra">
-            <input type="text" id="ghUser" placeholder="usuário do GitHub" style="width:170px">
-            <span class="sub">/</span>
-            <input type="text" id="ghRepo" placeholder="repositório" style="width:190px">
-            <span class="sub">/</span>
-            <input type="text" id="ghPasta" placeholder="pasta" value="imagens" style="width:110px">
-            <button class="mini principal" id="btSalvarGh">Salvar e analisar</button>
-            <button class="mini" id="btLimparGh" style="background:var(--superficie)">Esquecer</button>
-          </div>
-          <p class="sub" style="margin:10px 0 0">Somente leitura de dados públicos, nenhuma senha é pedida.
-          O repositório precisa ser público. Esta é a forma mais completa de conferência, porque o GitHub
-          informa todos os arquivos da pasta, o que permite descobrir também as imagens que sobraram.
-          A configuração fica salva neste navegador e é a mesma usada pela ferramenta de preparar imagens.</p>
-        </div>
-
-        <div id="resultado" style="margin-top:14px"></div>
-      </div>
-    </section>
-
-    <!-- ================= FLUXO ================= -->
-    <section class="secao">
-      <h2>Como publicar uma atualização</h2>
-      <p class="sub">Publicar exige a chave cadastrada acima. Sem ela, ou se a rede bloquear o GitHub, o botão de
-      baixar o pacote <code>.zip</code> continua em todas as ferramentas e leva ao mesmo resultado.</p>
-      <ol class="passos">
-        <li><span class="n">1</span><b class="t">Edite</b>Faça as alterações no <b>Editor do catálogo</b>, ou trate as fotos em <b>Preparar imagens</b>.</li>
-        <li><span class="n">2</span><b class="t">Confira</b>Veja a lista do que será gravado e desfaça o que não era para estar ali.</li>
-        <li><span class="n">3</span><b class="t">Publique</b>Os arquivos vão direto ao repositório, e só os que mudaram.</li>
-        <li><span class="n">4</span><b class="t">Verifique</b>O site republica sozinho em cerca de um minuto. Confira no endereço público antes de avisar a rede.</li>
-      </ol>
-      <div class="barra" style="margin-top:12px">
-        <a class="pilula mini" href="tutoriais.html#conferir">Conferir e desfazer</a>
-        <a class="pilula mini" href="tutoriais.html#dois-editando">Quando dois editam</a>
-        <a class="pilula mini" href="tutoriais.html#plano-b">O pacote .zip</a>
-      </div>
-    </section>
-
-    <!-- ================= ARQUIVOS ================= -->
-    <section class="secao">
-      <div class="topo">
-        <div>
-          <h2>Arquivos do projeto</h2>
-          <p class="sub">Conferir no repositório mostra a versão publicada e quem a enviou por último. Somente leitura.</p>
-        </div>
-        <button class="mini" id="btConferirRepo" style="background:var(--superficie);box-shadow:var(--sombra)">Conferir no repositório</button>
-      </div>
-      <div class="lista" id="arquivos">
-        <div class="linhaArq"><span class="nm mono">produtos.csv</span>
-          <span class="tag t-ci" id="stCsv">verificando</span></div>
-        <div class="linhaArq"><span class="nm mono">imagens/</span>
-          <span class="tag t-ci" id="stImg">verificando</span></div>
-        <div class="linhaArq"><span class="nm mono">descritivos/descritivos.csv</span>
-          <span class="tag t-ci" id="stDesc">verificando</span></div>
-        <div class="linhaArq"><span class="nm mono">branet/branet.csv</span>
-          <span class="tag t-ci" id="stBranet">verificando</span></div>
-        <div class="linhaArq"><span class="nm mono">editor-catalogo/historico.md</span>
-          <span class="tag t-ci" id="stLog">verificando</span></div>
-      </div>
-      <div id="repoResultado" style="margin-top:10px"></div>
-    </section>
+    </div>
 
     <div class="rodape">
       Este painel mostra a situação do catálogo e leva às ferramentas. Ele não altera a lista de
@@ -423,16 +392,14 @@ function anelSvg(pct,cor,texto,sub){
       'fill="var(--secundario)" font-family="inherit">'+sub+'</text></svg>';
 }
 
-/* Os dois anéis agora moram dentro do cartão da saudação, então cada um
-   é só o gráfico mais duas linhas de texto ao lado. */
-function desenharAnel(id,titulo,pct,cor,sub,lado){
+/* Cada anel mora no seu cartão: o gráfico com a porcentagem e, ao lado,
+   o que ainda falta, em número grande, que é o que a pessoa procura. */
+const nf=new Intl.NumberFormat('pt-BR');
+function desenharAnel(id,pct,cor,sub,falta,rotulo){
   const el=document.getElementById('anel-'+id);
   if(!el)return;
-  /* Cada anel tem a própria cor, aplicada ao arco, ao número e ao
-     título: no cartão compartilhado, é a cor que diz de que frente
-     cada um está falando. */
   el.innerHTML=anelSvg(pct,cor,pct+'%',sub)+
-    '<div class="lado"><b style="color:'+cor+'">'+titulo+'</b><br>'+lado+'</div>';
+    '<div class="info"><b>'+(falta===null?'—':nf.format(falta))+'</b><span>'+rotulo+'</span></div>';
 }
 
 function cartaoNumero(valor,rotulo,extra,cor){
@@ -448,15 +415,16 @@ fetch('produtos.csv').then(r=>{if(!r.ok)throw 0;return r.text()}).then(async t=>
   const ceo=ativos.filter(r=>(r.acesso||'').toUpperCase()==='CEO').length;
   const coord=ativos.filter(r=>(r.acesso||'').toUpperCase()==='COORDENACAO').length;
   const inativos=todos.length-ativos.length;
-  $('#stCsv').textContent=todos.length+' linhas';
+  $('#stCsv').textContent=nf.format(todos.length)+' linhas';
   $('#stCsv').className='tag t-vd';
 
-  $('#numeros').innerHTML=
-    cartaoNumero(ativos.length,'materiais ativos no catálogo','','var(--texto)')+
-    cartaoNumero(basica,'rede básica, grupos 12 e 13','','var(--corn)')+
-    cartaoNumero(ceo,'exclusivos do CEO, grupos 14 e 15','','var(--corallite)')+
-    cartaoNumero(coord,'interesse odontológico','','var(--sawtooth)')+
-    (inativos?cartaoNumero(inativos,'inativos, fora do catálogo','','var(--secundario)'):'');
+  $('#catAtivos').textContent=nf.format(ativos.length);
+  $('#catBasica').textContent=nf.format(basica);
+  $('#catCeo').textContent=nf.format(ceo);
+  $('#catCoord').textContent=nf.format(coord);
+  $('#catInativos').textContent=inativos?nf.format(inativos)+(inativos===1?' inativo':' inativos')+' fora do catálogo':'';
+  const faixa=(n,cor)=>n?'<i style="width:'+(n/ativos.length*100)+'%;background:'+cor+'" title="'+nf.format(n)+'"></i>':'';
+  $('#catFaixa').innerHTML=faixa(basica,'var(--corn)')+faixa(ceo,'var(--corallite)')+faixa(coord,'var(--sawtooth)');
 
   /* Os dois anéis mostram o quanto de cada frente já está pronto:
      as fotos do catálogo e os descritivos. Eles ficam no cartão da
@@ -472,9 +440,9 @@ fetch('produtos.csv').then(r=>{if(!r.ok)throw 0;return r.text()}).then(async t=>
   const fila=[...ativos];
   while(fila.length)await Promise.all(fila.splice(0,24).map(testar));
   const pct=ativos.length?Math.round(com/ativos.length*100):0;
-  desenharAnel('fotos','Catálogo ilustrado',pct,'var(--curacao)','com foto',
-    '<b>'+(ativos.length-com)+'</b> fotos a coletar');
-  $('#stImg').textContent=com+' fotos';
+  desenharAnel('fotos',pct,'var(--curacao)','com foto',ativos.length-com,
+    (ativos.length-com)===1?'foto a coletar':'fotos a coletar');
+  $('#stImg').textContent=nf.format(com)+' fotos';
   $('#stImg').className='tag '+(pct>=100?'t-vd':'t-lr');
 
   // ---- descritivos: lidos do arquivo próprio ----
@@ -488,26 +456,31 @@ fetch('produtos.csv').then(r=>{if(!r.ok)throw 0;return r.text()}).then(async t=>
     const alvo=ativos.filter(p=>(p.acesso||'').toUpperCase()!=='COORDENACAO');
     const preenchidos=alvo.filter(p=>((desc[p.codigo]||{}).descritivo||'').trim()).length;
     const pd=alvo.length?Math.round(preenchidos/alvo.length*100):0;
-    desenharAnel('desc','Descritivos',pd,'var(--corallite)','preenchidos',
-      '<b>'+(alvo.length-preenchidos)+'</b> descritivos a redigir');
-    $('#stDesc').textContent=preenchidos+' de '+alvo.length+' preenchidos';
+    desenharAnel('desc',pd,'var(--corallite)','preenchidos',alvo.length-preenchidos,
+      (alvo.length-preenchidos)===1?'descritivo a redigir':'descritivos a redigir');
+    $('#stDesc').textContent=nf.format(preenchidos)+' de '+nf.format(alvo.length);
     $('#stDesc').className='tag '+(preenchidos?(preenchidos===alvo.length?'t-vd':'t-lr'):'t-ci');
   }catch(e){
-    desenharAnel('desc','Descritivos',0,'var(--corallite)','preenchidos',
-      'arquivo não encontrado');
+    desenharAnel('desc',0,'var(--corallite)','preenchidos',null,'arquivo não encontrado');
     $('#stDesc').textContent='não encontrado';
   }
+  /* Com a lista de materiais em mãos, a conferência de imagens roda
+     sozinha: pelo GitHub quando ele já foi configurado neste navegador,
+     que informa também as imagens que sobraram, ou pelo próprio site. */
+  if(lerGh())analisarGithub();else analisarServidor();
 }).catch(()=>{
-  $('#numeros').innerHTML='<div class="numero" style="grid-column:1/-1"><div class="r">'+
+  $('#numeros').innerHTML='<p class="sub" style="grid-column:1/-1;margin:0">'+
     'Os números aparecem quando esta página é aberta pelo endereço publicado. '+
-    'Abrindo o arquivo direto do disco, o navegador bloqueia a leitura do produtos.csv.</div></div>';
+    'Abrindo o arquivo direto do disco, o navegador bloqueia a leitura do produtos.csv.</p>';
+  $('#cfOrigem').textContent='lista de materiais indisponível';
   ['stCsv','stImg','stLog','stDesc'].forEach(id=>{const e=$('#'+id);if(e)e.textContent='não verificado'});
 });
 
 /* Códigos da BRANET: conta os materiais com pelo menos um dos dois códigos. */
 fetch('branet/branet.csv?t='+Date.now()).then(r=>{if(!r.ok)throw 0;return r.text()}).then(t=>{
   const n=lerCsv(t).filter(b=>b.codigo&&((b.branet_codigo||'').trim()||(b.branet_codigo_cliente||'').trim())).length;
-  $('#stBranet').textContent=n?n+' materiais vinculados':'nenhum vínculo ainda';
+  $('#stBranet').textContent=n?nf.format(n)+' vínculos':'nenhum vínculo ainda';
+  $('#catBranet').textContent=nf.format(n);
   $('#stBranet').className='tag '+(n?'t-vd':'t-ci');
 }).catch(()=>{$('#stBranet').textContent='não encontrado'});
 
@@ -517,7 +490,7 @@ fetch('editor-catalogo/historico.md?t='+Date.now()).then(r=>{if(!r.ok)throw 0;re
   const meta=Publicar.metaHistorico(t);
   const n=meta.anteriores+(t.match(/<!--\s*sessao:/g)||[]).length;
   const arqs=meta.arquivos.length+1;
-  $('#stLog').textContent=n+' sessão(ões)'+(arqs>1?' em '+arqs+' arquivos':'');
+  $('#stLog').textContent=nf.format(n)+(n===1?' sessão':' sessões');
   $('#stLog').className='tag '+(n?'t-vd':'t-ci');
 }).catch(()=>{});
 
@@ -758,119 +731,73 @@ function analisar(nomesArquivos,origem,listagemCompleta){
   const comFoto=ativos.length-semFotoAtivos.length;
   const pct=ativos.length?Math.round(comFoto/ativos.length*100):0;
 
-  const bloco=(classe,qt,titulo,itens,aberto,acao)=>
-    '<div class="bloco"><div class="cab '+classe+'" data-abrir>'+
-    '<span class="qt">'+qt+'</span><span class="tt">'+titulo+'</span>'+
-    (itens.length?'<span class="seta">'+(aberto?'ocultar':'ver a lista')+'</span>':'')+'</div>'+
-    (itens.length?'<div class="conteudo2'+(aberto?'':' oculto')+'">'+itens.join('')+
-      (acao?'<div class="item" style="background:var(--neutro)"><button class="mini plana" data-lista="'+acao+
-        '">Baixar esta lista em CSV</button></div>':'')+'</div>':'')+'</div>';
-
-  const linha=(cd,txt,obs)=>'<div class="item"><span class="cd">'+esc(cd)+'</span>'+
-    '<span>'+esc(txt)+'</span>'+(obs?'<span class="obs">'+esc(obs)+'</span>':'')+'</div>';
-
-  /* Linha com caixa de marcar, usada nas duas listas de imagens que
-     podem ser excluídas: órfãs e de materiais inativos. data-caminho
-     é o caminho completo no repositório, o que a exclusão de fato usa;
+  /* O resultado sai em abas, uma por tipo de problema, cada uma com a
+     contagem. A primeira aberta é a primeira que tem algo a resolver.
+     Linhas com caixa de marcar (data-caminho) entram na exclusão;
      data-cd guarda o código, para o registro no histórico depois. */
-  const linhaChk=(caminho,cd,txt,obs)=>'<div class="item"><label style="display:flex;gap:9px;'+
-    'align-items:center;flex:1;cursor:pointer;margin:0">'+
+  const blocoDe=p=>{const a=(p&&p.acesso||'').toUpperCase();
+    return a==='CEO'?['t-rx','CEO']:a==='COORDENACAO'?['t-lr','Enfermagem']:['t-az','Rede básica']};
+  const linhaFoto=p=>{const [cor,nome]=blocoDe(p);
+    return '<div class="item"><span class="ph" aria-hidden="true">&#9635;</span>'+
+      '<span class="tx"><b title="'+esc(p.material)+'">'+esc(p.material)+'</b><span><span class="cd">'+esc(p.codigo)+'</span>'+
+      (p.familia?' · '+esc(p.familia.split(';')[0]):'')+'</span></span>'+
+      '<span class="tag '+cor+'">'+nome+'</span>'+
+      '<a class="pilula mini acento" href="preparar-imagens.html">Enviar foto</a></div>'};
+  const linha=(cd,txt,obs)=>'<div class="item"><span class="tx"><b title="'+esc(txt)+'">'+esc(txt)+'</b>'+
+    '<span><span class="cd">'+esc(cd)+'</span>'+(obs?' · '+esc(obs):'')+'</span></span></div>';
+  const linhaChk=(caminho,cd,txt,obs)=>'<label class="item">'+
     '<input type="checkbox" class="chkImg" data-caminho="'+esc(caminho)+'" data-cd="'+esc(cd)+'">'+
-    '<span class="cd">'+esc(cd)+'</span><span>'+esc(txt)+'</span></label>'+
-    (obs?'<span class="obs">'+esc(obs)+'</span>':'')+'</div>';
+    '<span class="tx"><b title="'+esc(txt)+'">'+esc(txt)+'</b><span><span class="cd">'+esc(cd)+'</span>'+
+    (obs?' · '+esc(obs):'')+'</span></span></label>';
+  const rodapeExclusao=(grupo,csv)=>'<div class="rodapeExcluir">'+
+    '<label><input type="checkbox" class="chkTudo" data-grupo="'+grupo+'"> selecionar todas</label>'+
+    (csv?'<button class="mini" data-lista="'+csv+'">Baixar em CSV</button>':'')+
+    '<button class="mini excluir" data-excluir="'+grupo+'" disabled>Excluir selecionadas</button></div>';
+  const vazio=(t,d)=>'<div class="cfVazio"><span class="okc">&#10003;</span><b>'+t+'</b><span>'+d+'</span></div>';
+  const semLista='<div class="cfVazio"><b>Esta hospedagem não lista a pasta</b><span>Para descobrir as imagens que '+
+    'sobraram e os nomes fora do padrão, analise pelo GitHub ou escolha a pasta imagens do computador.</span>'+
+    '<div class="barra" style="justify-content:center;margin-top:10px"><button class="mini" id="btGhAqui">Pelo GitHub</button>'+
+    '<button class="mini" id="btPastaAqui">Pasta do computador</button></div></div>';
 
-  /* Bloco igual ao de bloco(), mas com caixas de marcar e um rodapé
-     próprio para excluir do repositório as imagens escolhidas. grupo
-     identifica o bloco, para achar as caixas dele sem misturar com as
-     do outro bloco excluível da mesma tela. */
-  const blocoExclusao=(classe,qt,titulo,itensHtml,grupo,aberto,acaoCsv)=>
-    '<div class="bloco"><div class="cab '+classe+'" data-abrir>'+
-    '<span class="qt">'+qt+'</span><span class="tt">'+titulo+'</span>'+
-    (itensHtml.length?'<span class="seta">'+(aberto?'ocultar':'ver a lista')+'</span>':'')+'</div>'+
-    (itensHtml.length?'<div class="conteudo2'+(aberto?'':' oculto')+'" data-grupo="'+grupo+'">'+
-      itensHtml.join('')+
-      '<div class="item rodapeExcluir" style="background:var(--neutro);flex-wrap:wrap;gap:10px">'+
-      '<label style="display:flex;align-items:center;gap:7px;margin:0">'+
-      '<input type="checkbox" class="chkTudo" data-grupo="'+grupo+'"> selecionar todas</label>'+
-      (acaoCsv?'<button class="mini plana" data-lista="'+acaoCsv+'">Baixar esta lista em CSV</button>':'')+
-      '<button class="mini" style="margin-left:auto;background:var(--geranium);color:#fff" '+
-      'data-excluir="'+grupo+'" disabled>Excluir selecionadas</button></div></div>':'')+'</div>';
+  const padrao=foraDoPadrao.map(f=>linha(f.cod,f.nome,f.motivos.join(', ')))
+    .concat(duplicados.map(d=>linha(d.cod,d.lista.join('  ·  '),'mais de um arquivo; o site usa só o .jpg')))
+    .concat(outros.map(n=>linha('—',n,'não é imagem')));
+  const abas=[
+    {k:'semfoto',rot:'Sem foto',n:semFoto.length,
+     html:semFoto.length
+       ? semFoto.map(linhaFoto).join('')+'<div class="rodapeExcluir"><button class="mini" data-lista="semfoto">Baixar a lista em CSV</button></div>'
+       : vazio('Todos os materiais ativos têm foto','O catálogo ilustrado está completo.')},
+    {k:'orfaos',rot:'Sem material',n:listagemCompleta?orfaos.length:null,grupo:'orfaos',
+     html:!listagemCompleta?semLista
+       : orfaos.length
+         ? orfaos.map(n=>linhaChk('imagens/'+n,n.replace(/\.[^.]+$/,''),n,'código não existe no produtos.csv')).join('')+rodapeExclusao('orfaos','orfaos')
+         : vazio('Nenhuma imagem sobrando','Todo arquivo da pasta imagens corresponde a um material do produtos.csv.')},
+    {k:'padrao',rot:'Fora do padrão',n:listagemCompleta?padrao.length:null,
+     html:!listagemCompleta?semLista.replace(/id="bt(Gh|Pasta)Aqui"/g,'data-$1Aqui')
+       : padrao.length?padrao.join('')
+         : vazio('Todos os nomes no padrão','Todos os arquivos estão em .jpg, sem espaços, nomeados pelo código.')}
+  ];
+  if(arquivosInativos.length)abas.push({k:'inativos',rot:'De inativos',n:arquivosInativos.length,grupo:'inativos',
+    html:arquivosInativos.map(a=>linhaChk('imagens/'+a.arquivo,a.codigo,a.material,
+      a.arquivo+' · material fora do catálogo')).join('')+rodapeExclusao('inativos')});
+  const aberta=(abas.find(a=>a.n)||abas[0]).k;
 
-  let html='<p class="sub" style="margin:0 0 12px">Origem da lista de arquivos: '+esc(origem)+
-    ' · '+arquivos.length+' imagem(ns) encontrada(s) · '+PRODUTOS_TODOS.length+' linha(s) no produtos.csv</p>';
-
-  html+=bloco(pct>=100?'b-ok':'b-nt',pct+'%',
-    'do catálogo ilustrado, '+comFoto+' de '+ativos.length+' materiais ativos com foto',[]);
-
-  // ---- Lista 1: materiais do CSV sem imagem correspondente ----
-  html+=bloco(semFoto.length?'b-al':'b-ok',semFoto.length,
-    semFoto.length===1?'material ativo sem imagem na pasta'
-                      :'materiais ativos sem imagem na pasta',
-    semFoto.map(p=>linha(p.codigo,p.material,p.familia||p.subgrupo||'')),
-    true,'semfoto');
-
-  // ---- Lista 2: imagens sem material correspondente no CSV ----
-  if(listagemCompleta){
-    html+=blocoExclusao(orfaos.length?'b-al':'b-ok',orfaos.length,
-      orfaos.length===1?'imagem na pasta sem material correspondente no produtos.csv'
-                       :'imagens na pasta sem material correspondente no produtos.csv',
-      orfaos.map(n=>linhaChk('imagens/'+n,n.replace(/\.[^.]+$/,''),n,'código não existe no produtos.csv')),
-      'orfaos',true,'orfaos');
-  }else{
-    html+='<div class="bloco b-nt"><div class="cab"><span class="qt">?</span>'+
-      '<span class="tt">imagens sem material correspondente</span></div>'+
-      '<div class="conteudo2"><div class="item" style="display:block">'+
-      '<p style="margin:0 0 8px">Esta hospedagem não permite listar os arquivos da pasta, então não é '+
-      'possível descobrir daqui quais imagens sobraram. A lista acima, de materiais sem imagem, '+
-      'é confiável e completa.</p>'+
-      '<p style="margin:0 0 10px" class="sub">Para conferir as sobras, use uma destas duas opções: '+
-      'analisar pelo GitHub, que informa todos os arquivos da pasta do repositório, '+
-      'ou escolher a pasta <span class="mono">imagens</span> do seu computador.</p>'+
-      '<div class="barra"><button class="mini plana" id="btGhAqui">Analisar pelo GitHub</button>'+
-      '<button class="mini plana" id="btPastaAqui">Conferir a pasta do computador</button></div>'+
-      '</div></div></div>';
-  }
-
-  if(duplicados.length&&listagemCompleta)
-    html+=bloco('b-er',duplicados.length,'código(s) com mais de um arquivo de imagem',
-      duplicados.map(d=>linha(d.cod,d.lista.join('  ·  '),'o site usa apenas o .jpg')));
-
-  if(foraDoPadrao.length&&listagemCompleta)
-    html+=bloco('b-er',foraDoPadrao.length,'arquivo(s) com nome fora do padrão',
-      foraDoPadrao.map(f=>linha(f.cod,f.nome,f.motivos.join(', '))));
-
-  if(arquivosInativos.length)
-    html+=blocoExclusao('b-nt',arquivosInativos.length,
-      arquivosInativos.length===1?'imagem de material inativo':'imagens de materiais inativos',
-      arquivosInativos.map(a=>linhaChk('imagens/'+a.arquivo,a.codigo,a.material,
-        a.arquivo+' · material fora do catálogo')),
-      'inativos',false);
-
-  if(outros.length&&listagemCompleta)
-    html+=bloco('b-nt',outros.length,'arquivo(s) que não são imagens na pasta',
-      outros.map(n=>linha('—',n,'')));
-
-  const problemas=semFoto.length+orfaos.length+duplicados.length+foraDoPadrao.length;
-  if(!problemas&&listagemCompleta)
-    html+='<div class="bloco b-ok"><div class="cab"><span class="tt">'+
-      'Nenhuma inconsistência encontrada. Todos os materiais têm imagem e todos os arquivos '+
-      'correspondem a um material do produtos.csv.</span></div></div>';
-
-  html+='<div class="barra" style="margin-top:12px">'+
-    '<button class="mini plana" id="btBaixarRel">Baixar relatório completo em CSV</button>'+
-    '<span class="sub">útil para dividir o trabalho de coletar as fotos que faltam</span></div>';
-
-  $('#resultado').innerHTML=html;
-
-  $('#resultado').querySelectorAll('[data-abrir]').forEach(cab=>{
-    cab.onclick=()=>{
-      const c=cab.parentElement.querySelector('.conteudo2');
-      if(!c)return;
-      c.classList.toggle('oculto');
-      const s=cab.querySelector('.seta');
-      if(s)s.textContent=c.classList.contains('oculto')?'ver a lista':'ocultar';
+  $('#resultado').innerHTML='<div class="cfAbas" role="tablist">'+abas.map(a=>
+      '<button type="button" role="tab" data-cf="'+a.k+'" aria-selected="'+(a.k===aberta)+'">'+a.rot+
+      ' <span class="n'+(a.n?' tem':'')+'">'+(a.n===null?'?':nf.format(a.n))+'</span></button>').join('')+'</div>'+
+    abas.map(a=>'<div class="cfPainel'+(a.k===aberta?'':' oculto')+'" data-painel="'+a.k+'"'+
+      (a.grupo?' data-grupo="'+a.grupo+'"':'')+'>'+a.html+'</div>').join('');
+  $('#cfOrigem').textContent='analisado agora · '+origem;
+  $('#cfOrigem').title=nf.format(arquivos.length)+' imagens encontradas · '+nf.format(PRODUTOS_TODOS.length)+' linhas no produtos.csv';
+  $('#btBaixarRel').classList.remove('oculto');
+  $('#resultado').querySelectorAll('[data-cf]').forEach(b=>{
+    b.onclick=()=>{
+      $('#resultado').querySelectorAll('[data-cf]').forEach(x=>x.setAttribute('aria-selected',x===b));
+      $('#resultado').querySelectorAll('[data-painel]').forEach(p=>p.classList.toggle('oculto',p.dataset.painel!==b.dataset.cf));
     };
   });
+  $('#resultado').querySelectorAll('[data-GhAqui]').forEach(b=>b.onclick=()=>$('#btAnalisarGh').click());
+  $('#resultado').querySelectorAll('[data-PastaAqui]').forEach(b=>b.onclick=()=>$('#entradaPasta').click());
 
   const dados={semFoto,orfaos,duplicados,foraDoPadrao,inativosComFoto,origem};
   $('#resultado').querySelectorAll('[data-lista]').forEach(bt=>{
@@ -992,11 +919,11 @@ async function excluirImagens(lista,botao,grupo){
   excluidos.forEach(item=>{
     const chk=caixasDoGrupo(grupo).find(c=>c.dataset.caminho===item.caminho);
     const linhaEl=chk&&chk.closest('.item');
-    const blocoEl=chk&&chk.closest('.bloco');
+    const painel=chk&&chk.closest('[data-painel]');
     if(linhaEl)linhaEl.remove();
-    if(blocoEl){
-      const qtEl=blocoEl.querySelector('.cab .qt');
-      if(qtEl)qtEl.textContent=String(Math.max(0,parseInt(qtEl.textContent,10)-1));
+    if(painel){
+      const qtEl=$('#resultado [data-cf="'+painel.dataset.painel+'"] .n');
+      if(qtEl){const n=Math.max(0,parseInt(qtEl.textContent,10)-1);qtEl.textContent=String(n);qtEl.classList.toggle('tem',n>0)}
     }
   });
 
@@ -1073,7 +1000,18 @@ function selo(texto,classe){
   const el=$('#chaveSelo');
   el.textContent=texto;
   el.className='tag '+(classe||'t-ci');
+  $('#chaveW').classList.toggle('ok',classe==='t-vd');
 }
+
+/* A chave é configurada uma vez e quase nunca mexida: ela fica numa
+   janela que o cartão de Publicação abre, e não ocupa a página inicial. */
+function abrirJanelaChave(){$('#janelaChave').classList.remove('oculto');$('#chaveToken').focus()}
+function fecharJanelaChave(){$('#janelaChave').classList.add('oculto');$('#btGerenciarChave').focus()}
+$('#btGerenciarChave').onclick=abrirJanelaChave;
+$('#janelaChave').addEventListener('click',e=>{
+  if(e.target===e.currentTarget||e.target.closest('[data-fechar-chave]'))fecharJanelaChave()});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&!$('#janelaChave').classList.contains('oculto'))fecharJanelaChave()});
 
 function avisoChave(html,tipo){
   $('#chaveResultado').innerHTML='<div class="bloco b-'+(tipo||'nt')+
@@ -1242,12 +1180,15 @@ function guardarNome(){
    --------------------------------------------------------------------- */
 function atualizarSaudacao(){
   const nome=(localStorage.getItem(CHAVE_AUTOR)||'').trim();
+  const w=$('#wAutor');
+  w.textContent=nome?nome.split(' ')[0]:'ninguém, escolha o seu nome';
+  w.classList.toggle('falta',!nome);
   const oi=$('#olaOi'), foto=$('#olaFoto'), iniciais=$('#olaIniciais');
 
   if(!nome){
     oi.textContent='Olá';
-    $('#olaDizer').innerHTML='Escolha o seu nome no cartão <b>Chave de publicação</b>, '+
-      'mais abaixo, para o painel saber quem é você.';
+    $('#olaDizer').innerHTML='Escolha o seu nome em <b>Gerenciar a chave</b>, '+
+      'no cartão Publicação, para o painel saber quem é você.';
     foto.classList.add('oculto');
     iniciais.textContent='?';
     iniciais.classList.remove('oculto');
