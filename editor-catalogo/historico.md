@@ -4,13 +4,24 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 102  
-Última atualização: 21/10/2026, 16:51  
+Total de sessões registradas: 103  
+Última atualização: 21/10/2026, 17:10  
 Este arquivo guarda a partir da sessão 101. As anteriores estão no arquivo fechado `historico-001.md`, com até 100 sessões cada.
 
 <!-- volumes:{"anteriores":100,"arquivos":["historico-001.md"],"ate":"2026-10-15T13:18:34.568Z"} -->
 
 ---
+
+## 21/10/2026, 17:10 — Ana Carolina Oliveira Peres
+
+Sessão 103 · 1 alteração(ões) · 844 itens no arquivo após a edição
+
+**Resumo:** 1 descritivo
+
+- **[DESCRITIVO]** `4150520` ESPELHO BUCAL Nº 5
+    - Descritivo: "" → "ESPELHO BUCAL PLANO Nº 05. Indicado para visualização indireta da cavidade oral, iluminação do campo operatório e afastamento de tecidos moles durante procedimentos odontológicos. Fabricado em aço inoxidável e vidro com camada refletiva localizada na parte posterior, proporcionando imagem nítida e sem distorções. Possui encaixe e vedação mecânica do vidro contra o estojo de aço inoxidável, visando reduzir a infiltração de líquidos. Apresenta resistência à corrosão, é autoclavável sem sofrer oxidação interna e possui rosca universal compatível com diferentes tipos de cabo. Deve apresentar durabilidade comprovada de, no mínimo, 70 ciclos de esterilização. O corpo do instrumental deve apresentar marca e lote impressos. Apresentação em embalagem plástica contendo 1 unidade. A embalagem deve conter dados de identificação, lote, procedência, rastreabilidade, responsável técnico, garantia, certificações de qualidade conforme padrões internacionais e normas da ABNT, além do registro na ANVISA."
+
+<!-- sessao:{"data":"2026-10-21T20:10:10.570Z","autor":"Ana Carolina Oliveira Peres","origem":"","total":844,"alteracoes":[{"tipo":"descritivo","codigo":"4150520","material":"ESPELHO BUCAL Nº 5","campos":[{"campo":"descritivo","de":"","para":"ESPELHO BUCAL PLANO Nº 05. Indicado para visualização indireta da cavidade oral, iluminação do campo operatório e afastamento de tecidos moles durante procedimentos odontológicos. Fabricado em aço inoxidável e vidro com camada refletiva localizada na parte posterior, proporcionando imagem nítida e sem distorções. Possui encaixe e vedação mecânica do vidro contra o estojo de aço inoxidável, visando reduzir a infiltração de líquidos. Apresenta resistência à corrosão, é autoclavável sem sofrer oxidação interna e possui rosca universal compatível com diferentes tipos de cabo. Deve apresentar durabilidade comprovada de, no mínimo, 70 ciclos de esterilização. O corpo do instrumental deve apresentar marca e lote impressos. Apresentação em embalagem plástica contendo 1 unidade. A embalagem deve conter dados de identificação, lote, procedência, rastreabilidade, responsável técnico, garantia, certificações de qualidade conforme padrões internacionais e normas da ABNT, além do registro na ANVISA."}]}]} -->
 
 ## 21/10/2026, 16:51 — Naiara Cristine
 
