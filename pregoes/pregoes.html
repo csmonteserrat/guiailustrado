@@ -205,6 +205,7 @@ button.perigo{background:none;color:var(--geranium);padding-left:6px;padding-rig
         <label class="busca"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
           <input type="search" id="busca" placeholder="Buscar no pregão ou adicionar do catálogo" autocomplete="off"></label>
         <div class="chips" id="chips"></div>
+        <button class="mini acento" id="btNovoMat" style="align-self:flex-start">+ Material novo, aguardando compra</button>
       </div>
       <div class="rolagem" id="lista" role="listbox" aria-label="Itens do pregão"></div>
     </div>
@@ -232,8 +233,25 @@ button.perigo{background:none;color:var(--geranium);padding-left:6px;padding-rig
   </div>
 </div>
 
+<!-- ================= janela: material novo ================= -->
+<div class="fundo-modal oculto" id="janelaMat" role="dialog" aria-modal="true" aria-labelledby="tituloMat">
+  <div class="modal">
+    <header><h2 id="tituloMat">Material novo, aguardando compra</h2></header>
+    <form class="corpo" id="formMat">
+      <p class="sub" style="margin:0">Para um material que ainda não existe no CELK. Ele entra no catálogo com o código provisório
+        <b class="mono" id="mCodigo"></b>, <b>inativo</b> (o dentista não vê no catálogo) e marcado como <b>aguardando compra</b>.
+        O descritivo você escreve aqui mesmo, no item. Quando a compra sair, troque o código provisório pelo do CELK no Editor.</p>
+      <label>Nome do material<input id="mNome" required autocomplete="off" placeholder="Ex.: ESPÁTULA DUPLA Nº 72"></label>
+      <label>Unidade de compra<input id="mUnidCompra" list="lUnidMat" autocomplete="off" placeholder="Ex.: Unidade, Kit, Caixa com 50 unidades"></label>
+      <label>Família (opcional)<input id="mFamilia" list="lFamMat" autocomplete="off"></label>
+      <datalist id="lUnidMat"></datalist><datalist id="lFamMat"></datalist>
+      <div class="barra"><button type="button" id="btCancelarMat">Cancelar</button><button class="principal" type="submit">Criar e adicionar</button></div>
+    </form>
+  </div>
 </div>
-<div id="versaoPagina">pregões · versão 2026-10-28a</div>
+
+</div>
+<div id="versaoPagina">pregões · versão 2026-10-28b</div>
 </div>
 </div>
 
@@ -490,7 +508,8 @@ function estado(it){
     semDesc:!tx,
     alterado:!!cat&&!!tx&&tx!==cat&&!!it.alterado,
     catMudou:!!cat&&!!tx&&tx!==cat&&!it.alterado,
-    vaiCatalogo:!cat&&!!tx&&!!it.paraCatalogo,
+    novoMat:!!(it.novoMaterial||it.aguardando),
+    vaiCatalogo:(!cat&&!!tx&&!!it.paraCatalogo)||!!it.novoMaterial||!!it.aguardando,
     catVazio:!cat&&!!tx&&!it.paraCatalogo,
     semQtd:!String(it.quantidade||'').trim()
   };
@@ -499,7 +518,9 @@ function etiquetas(it){
   const e=estado(it),L=[];
   if(e.alterado)L.push('<span class="tag t-az">Alterado neste pregão</span>');
   if(e.catMudou)L.push('<span class="tag t-rx">Catálogo mudou depois</span>');
-  if(e.vaiCatalogo)L.push('<span class="tag t-vd">Vai para o catálogo</span>');
+  if(e.novoMat)L.push('<span class="tag t-vd">Novo · aguardando compra</span>');
+  else if((DESC[it.codigo]||{}).situacao_compra==='AGUARDANDO_COMPRA')L.push('<span class="tag t-ci">Aguardando compra</span>');
+  if(!e.novoMat&&e.vaiCatalogo)L.push('<span class="tag t-vd">Vai para o catálogo</span>');
   if(e.catVazio)L.push('<span class="tag t-ci">Catálogo sem texto</span>');
   if(e.semDesc)L.push('<span class="tag t-lr">Sem descritivo</span>');
   return L.join('');
@@ -561,6 +582,10 @@ function desenharLista(){
         ((p.ativo||'SIM').toUpperCase()==='NAO'?'<span class="tag t-ci">Inativo</span>':'')+'</span></span>'+
         '<button class="mais" data-add="'+esc(p.codigo)+'" aria-label="Adicionar ao pregão" title="Adicionar ao pregão">+</button></div>').join('');
     }
+    h+='<div class="mr add"><span class="n"></span><div class="semfoto">+</div><span class="tx">'+
+      '<span class="nome">'+(achados.length?'Não é nenhum destes? ':'')+'Criar “'+esc($('#busca').value.trim())+'” como material novo</span>'+
+      '<span class="meta">entra inativo no catálogo, aguardando compra</span></span>'+
+      '<button class="mais" data-novo="1" aria-label="Criar material novo" title="Criar material novo">+</button></div>';
   }
   const vis=P.itens.map((it,i)=>[it,i]).filter(([it])=>f(it)&&(!termos.length||casa(normalizar([it.codigo,it.material,it.nome,it.descritivo].join(' ')))));
   if(termos.length)h+='<div class="secao">Neste pregão</div>';
@@ -571,6 +596,7 @@ function desenharLista(){
 }
 $('#busca').addEventListener('input',desenharLista);
 $('#lista').addEventListener('click',e=>{
+  if(e.target.closest('[data-novo]')){abrirMat($('#busca').value.trim());return}
   const add=e.target.closest('[data-add]');
   if(add){adicionar(add.dataset.add);return}
   const b=e.target.closest('.mr[data-cod]');
@@ -584,6 +610,40 @@ function atualizarLinha(cod){
   const t=document.createElement('div');t.innerHTML=linhaItem(P.itens[i],i);b.replaceWith(t.firstChild);
   desenharChips();
 }
+
+/* ---------- material novo, aguardando compra ----------
+   Mesma regra do catálogo: código provisório a partir de 9000001,
+   material inativo e descritivo com situação AGUARDANDO_COMPRA. */
+const PROVISORIO=c=>/^9\d{6}$/.test(c||'');
+function proximoProvisorio(extras){
+  const usados=Object.keys(PROD).concat(P?P.itens.map(i=>i.codigo):[],extras||[]).filter(PROVISORIO).map(Number);
+  return String(Math.max(9000000,...usados)+1);
+}
+function abrirMat(nome){
+  $('#mCodigo').textContent=proximoProvisorio();
+  $('#mNome').value=(nome||'').toUpperCase();$('#mUnidCompra').value='';$('#mFamilia').value='';
+  $('#lUnidMat').innerHTML=[...new Set(Object.values(DESC).map(d=>(d.unidade_compra||'').trim()).filter(Boolean))]
+    .sort((a,b)=>a.localeCompare(b,'pt-BR')).map(u=>'<option value="'+esc(u)+'">').join('');
+  $('#lFamMat').innerHTML=[...new Set(Object.values(PROD).flatMap(p=>(p.familia||'').split(';').map(f=>f.trim())).filter(Boolean))]
+    .sort((a,b)=>a.localeCompare(b,'pt-BR')).map(f=>'<option value="'+esc(f)+'">').join('');
+  $('#janelaMat').classList.remove('oculto');$('#mNome').focus();
+}
+function fecharMat(){$('#janelaMat').classList.add('oculto')}
+$('#btNovoMat').onclick=()=>abrirMat($('#busca').value.trim());
+$('#btCancelarMat').onclick=fecharMat;
+$('#janelaMat').addEventListener('click',e=>{if(e.target===$('#janelaMat'))fecharMat()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#janelaMat').classList.contains('oculto'))fecharMat()});
+$('#formMat').addEventListener('submit',e=>{
+  e.preventDefault();
+  const nome=$('#mNome').value.trim();if(!nome)return;
+  const cod=proximoProvisorio(),familia=$('#mFamilia').value.trim();
+  PROD[cod]={codigo:cod,material:nome,familia,imagem:cod+'.jpg',ativo:'NAO'};
+  P.itens.push({codigo:cod,material:nome,nome:'',unidade_compra:$('#mUnidCompra').value.trim(),quantidade:'',
+    descritivo:'',obs:'',alterado:false,novoMaterial:true,paraCatalogo:true,familia});
+  aberto=cod;fecharMat();$('#busca').value='';marcarSujo();desenharLista();desenharDetalhe();
+  const b=$('#lista .mr[data-cod="'+CSS.escape(cod)+'"]');if(b)b.scrollIntoView({block:'nearest'});
+  $('#dDesc').focus();
+});
 
 function adicionar(cod){
   if(P.itens.some(i=>i.codigo===cod))return;
@@ -663,6 +723,9 @@ function usarHtml(it,cat){
 }
 function notaHtml(it,cat){
   const e=estado(it);
+  if(it.novoMaterial)return '<div class="nota laranja">Material novo, com o código provisório <b class="mono">'+esc(it.codigo)+'</b>. '+
+    'Ao salvar o pregão, ele entra no catálogo <b>inativo</b> (o dentista não vê) e marcado como <b>aguardando compra</b>, '+
+    'com o descritivo escrito acima. Quando a compra sair, troque o código provisório pelo do CELK no Editor.</div>';
   if(!cat&&e.catVazio)return '<div class="nota laranja">O catálogo não tem descritivo para este material hoje. '+
     'O texto acima é o que foi usado neste pregão e fica só aqui.'+
     '<div style="margin-top:8px"><button class="mini" id="btLevarCat">Levar este texto para o catálogo</button></div></div>';
@@ -705,10 +768,13 @@ async function salvar(){
          !confirm((remoto.atualizado_por||'Outra pessoa')+' salvou este pregão em '+dataHora(remoto.atualizado_em)+
                   ', depois que você abriu. Salvar por cima, ficando com a sua versão?')){salvando=false;desenharEstado();return}
     }
-    /* 2. Descritivos novos para o catálogo. */
+    /* 2. Materiais novos no produtos.csv, e descritivos novos no catálogo. */
+    let altNovos=[];
+    const novosMat=P.itens.filter(it=>it.novoMaterial);
+    if(novosMat.length)altNovos=await gravarMateriaisNovos(novosMat);
     const novos=P.itens.filter(it=>estado(it).vaiCatalogo);
     let recusados=[];
-    if(novos.length)recusados=await gravarDescritivosNovos(novos);
+    if(novos.length||altNovos.length)recusados=await gravarDescritivosNovos(novos,altNovos);
     /* 3. O pregão. */
     P.atualizado_em=new Date().toISOString();P.atualizado_por=autor();
     if(!P.criado_em){P.criado_em=P.atualizado_em;P.criado_por=autor()}
@@ -745,7 +811,7 @@ async function gravarIndice(){
 /* Grava no descritivos.csv o texto dos materiais que não tinham
    descritivo, e registra a sessão no histórico. Devolve os códigos que
    não foram gravados porque, no meio tempo, alguém escreveu um texto. */
-async function gravarDescritivosNovos(novos){
+async function gravarDescritivosNovos(novos,altNovos){
   const r=await Publicar.obterTexto(ARQ_DESC);
   const linhas=lerCsv(r.texto||'');
   const colunas=COLUNAS_DESC.slice();
@@ -756,24 +822,70 @@ async function gravarDescritivosNovos(novos){
     let l=porCod.get(it.codigo);
     if(l&&(l.descritivo||'').trim()){recusados.push(it.codigo);return}
     if(!l){l={codigo:it.codigo};porCod.set(it.codigo,l);linhas.push(l)}
-    const campos=[{campo:'descritivo',de:'',para:it.descritivo.trim()}];
+    const campos=[];
+    if((it.descritivo||'').trim())campos.push({campo:'descritivo',de:'',para:it.descritivo.trim()});
+    if(it.aguardando&&(l.situacao_compra||'')!=='AGUARDANDO_COMPRA')
+      campos.push({campo:'situacao_compra',de:l.situacao_compra||'',para:'AGUARDANDO_COMPRA'});
     if(!(l.unidade_compra||'').trim()&&(it.unidade_compra||'').trim())
       campos.push({campo:'unidade_compra',de:'',para:it.unidade_compra.trim()});
     if(!(l.nome_descritivo||'').trim()&&(it.nome||'').trim())
       campos.push({campo:'nome_descritivo',de:'',para:it.nome.trim()});
+    if(!campos.length)return;
     campos.forEach(c=>l[c.campo]=c.para);
     l.modificado_em=dataCurta(new Date());l.modificado_por=autor();
     alteracoes.push({tipo:'descritivo',codigo:it.codigo,material:it.material,campos});
   });
-  if(!alteracoes.length)return recusados;
+  if(alteracoes.length){
   const texto='﻿'+[colunas.join(',')].concat(linhas.map(l=>colunas.map(c=>campoCsv(l[c]||'')).join(','))).join('\r\n')+'\r\n';
   await Publicar.enviar({caminho:ARQ_DESC,texto,sha:r.sha,
     mensagem:Publicar.mensagem('Pregões',ARQ_DESC,alteracoes.length,'descritivo')});
-  await Publicar.registrarHistorico({data:new Date().toISOString(),autor:autor(),origem:'Pregão '+P.numero,alteracoes},
-    'Pregões: registra a sessão no histórico');
+  }
+  const todas=(altNovos||[]).concat(alteracoes);
+  if(todas.length){
+    const sessao={data:new Date().toISOString(),autor:autor(),origem:'Pregão '+P.numero,alteracoes:todas};
+    if(TOTAL_PROD)sessao.total=TOTAL_PROD;
+    await Publicar.registrarHistorico(sessao,'Pregões: registra a sessão no histórico');
+  }
   alteracoes.forEach(a=>{const l=porCod.get(a.codigo);DESC[a.codigo]=Object.assign({},l)});
-  novos.forEach(it=>{if(!recusados.includes(it.codigo))delete it.paraCatalogo});
+  novos.forEach(it=>{if(!recusados.includes(it.codigo)){delete it.paraCatalogo;delete it.aguardando}});
   return recusados;
+}
+
+/* Acrescenta ao fim do produtos.csv os materiais novos, inativos. O
+   arquivo não é reescrito: as linhas novas só são somadas ao texto
+   publicado. Se outra pessoa já usou o código provisório, o material
+   ganha o próximo livre. */
+let TOTAL_PROD=0;
+async function gravarMateriaisNovos(lista){
+  const r=await Publicar.obterTexto('produtos.csv');
+  let texto=r.texto||'';
+  const cab=texto.replace(/^\uFEFF/,'').split(/\r?\n/)[0].split(',').map(c=>c.trim());
+  const existentes=new Set(lerCsv(texto).map(x=>x.codigo));
+  const linhas=[],alteracoes=[];
+  lista.forEach(it=>{
+    if(existentes.has(it.codigo)){
+      const novo=proximoProvisorio([...existentes]);
+      if(aberto===it.codigo)aberto=novo;
+      PROD[novo]=Object.assign({},PROD[it.codigo],{codigo:novo,imagem:novo+'.jpg'});delete PROD[it.codigo];
+      it.codigo=novo;
+    }
+    existentes.add(it.codigo);
+    const reg={codigo:it.codigo,material:it.material,familia:it.familia||'',imagem:it.codigo+'.jpg',ativo:'NAO'};
+    linhas.push(cab.map(c=>campoCsv(reg[c]||'')).join(','));
+    const dados={};Object.keys(reg).forEach(c=>{if(reg[c])dados[c]=reg[c]});
+    alteracoes.push({tipo:'novo',codigo:it.codigo,material:it.material,campos:[],dados});
+  });
+  /* O produtos.csv é gravado sempre com BOM, como faz o editor. */
+  texto='\uFEFF'+texto.replace(/^\uFEFF/,'');
+  if(!/\n$/.test(texto))texto+='\r\n';
+  texto+=linhas.join('\r\n')+'\r\n';
+  await Publicar.enviar({caminho:'produtos.csv',texto,sha:r.sha,
+    mensagem:Publicar.mensagem('Pregões','produtos.csv',linhas.length)});
+  TOTAL_PROD=existentes.size;
+  /* Já está no catálogo: falta só o descritivo com a marca de aguardando compra. */
+  lista.forEach(it=>{delete it.novoMaterial;it.aguardando=true;it.paraCatalogo=true});
+  gravarRascunho();
+  return alteracoes;
 }
 
 function baixar(blob,nome){
