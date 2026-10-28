@@ -27,12 +27,12 @@
 4150789,ARCO DE OSTBY PLASTICO,U - Unidade,14,CEO Instrumental,CEO,Instrumental,"Dentística;Endodontia",Isolamento absoluto,4150789.jpg,,SIM
 4150790,ARTICULADOR CHARNEIRA,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Prótese,Ajuste oclusal e protético,4150790.jpg,,SIM
 4150792,AVENTAL DE CHUMBO ADULTO COM PROTETOR TIREOIDE 90X60CM,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Radiologia,Radiologia,4150792.jpg,,SIM
-4150128,AVENTAL DESCARTAVEL GRAMATURA 40 (PACOTE COM 10 UNIDADES) TAMANHO G,U - Unidade,13,Odontologia,TODOS,Consumo,Biossegurança,Descartáveis e barreiras,4150128.jpg,,SIM
+4150128,AVENTAL DESCARTAVEL GRAMATURA 40 (PACOTE COM 10 UNIDADES) TAMANHO G,U - Unidade,13,Odontologia,TODOS,Consumo,Biossegurança,Descartáveis e barreiras,4150128.jpg,,NAO
 4150129,AVENTAL DESCARTAVEL GRAMATURA 50 (UNIDADE) TAMANHO G,U - Unidade,15,CEO,CEO,Consumo,Biossegurança,Descartáveis e barreiras,4150129.jpg,,SIM
 4150481,BANDEJA DE INOX,U - Unidade,13,Odontologia,TODOS,Consumo,Uso geral,Caixas e recipientes,4150481.jpg,,SIM
 4150793,BARRA DE EIRICH 20 CM PARA AMARRIA,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Cirurgia,Instrumental cirúrgico,4150793.jpg,,SIM
 4150528,BARREIRA DE RESINA FOTOPOLIMERIZÁVEL,U - Unidade,15,CEO,CEO,Consumo,Dentística,Resinas restauradoras,4150528.jpg,,SIM
-4150524,BENZOCAINA ANESTESICO TOPICO 200MG/G (12G),U - Unidade,13,Odontologia,TODOS,Consumo,Odontopediatria,Anestesia,4150524.jpg,,SIM
+4150524,ANESTÉSICO TÓPICO À BASE DE BENZOCAÍNA 200mg/g 12g,U - Unidade,13,Odontologia,TODOS,Consumo,Odontopediatria,Anestesia,4150524.jpg,,SIM
 4150530,BICARBONATO DE SÓDIO PÓ (200g),U - Unidade,13,Odontologia,TODOS,Consumo,Prevenção,Profilaxia e flúor,4150530.jpg,,SIM
 4150482,BICHO DE PELUCIA COM MACRO ARCADA SUP E INF,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,"Prevenção;Odontopediatria","Material educativo;PSE",4150482.jpg,,SIM
 4150750,BORRACHA ABRASIVA FINA PARA PEÇA DE MÃO,U - Unidade,13,Odontologia,TODOS,Consumo,Dentística,"Matrizes, tiras e acabamento",4150750.jpg,,SIM
@@ -154,7 +154,7 @@
 4150805,DESTACA PERIOSTEO DE MOLT,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Cirurgia,Instrumental cirúrgico,4150805.jpg,,SIM
 4150778,DISCO DE FELTRO PARA CONTRA ÂNGULO,U - Unidade,15,CEO,CEO,Consumo,Prótese,Polimento de prótese,4150778.jpg,,SIM
 4151174,EDTA SOLUÇÃO QUELANTE 17% AQUOSA (20ML),U - Unidade,15,CEO,CEO,Consumo,Endodontia,Soluções e medicamentos,4151174.jpg,,SIM
-4151173,EDTA SOLUÇÃO QUELANTE 24% GEL (2 SERINGAS),SER - Seringa,15,CEO,CEO,Consumo,Endodontia,Soluções e medicamentos,4151173.jpg,,SIM
+4151173,EDTA SOLUÇÃO QUELANTE 24% GEL (1 SERINGA),SER - Seringa,15,CEO,CEO,Consumo,Endodontia,Soluções e medicamentos,4151173.jpg,,SIM
 4150633,ESCOVA DENTAL PLASTICA ADULTO,U - Unidade,13,Odontologia,TODOS,Consumo,Prevenção,"Higiene bucal;PSE",4150633.jpg,,SIM
 4150635,ESCOVA DENTAL PLASTICA INFANTIL,U - Unidade,13,Odontologia,TODOS,Consumo,Prevenção,"Higiene bucal;PSE",4150635.jpg,,SIM
 4150641,ESCOVA DENTAL PLASTICA PARA BEBE,U - Unidade,13,Odontologia,TODOS,Consumo,Prevenção,"Higiene bucal;PSE",4150641.jpg,,SIM
@@ -523,7 +523,7 @@
 4150849,VIBRADOR DE GESSO,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Prótese,Equipamentos de laboratório,4150849.jpg,,SIM
 4151188,ABRITEC ADULTO (COM 2 UNIDADES),U - Unidade,13,Odontologia,TODOS,Consumo,Dentística,Auxiliares de abertura,4151188.jpg,,SIM
 4151189,AGULHA GENGIVAL LONGA 27 G DESCARTÁVEL (CAIXA COM 100 UNIDADES),CA - Caixa,13,Odontologia,TODOS,Consumo,"Cirurgia;Clínica Geral",Anestesia,4151189.jpg,,SIM
-4151187,KIT CIRÚRGICO DESCATÁVEL ESTÉRIL (AVENTAL + PANO DE CAMPO),KI - Kit,15,CEO,CEO,Consumo,"Cirurgia;Biossegurança",Descartáveis e barreiras,4151187.jpg,,SIM
+4151187,KIT CIRÚRGICO DESCARTÁVEL ESTÉRIL (AVENTAL + PANO DE CAMPO),KI - Kit,15,CEO,CEO,Consumo,"Cirurgia;Biossegurança",Descartáveis e barreiras,4151187.jpg,,SIM
 4151192,PLÁSTICO BOLHA (BOBINA),U - Unidade,15,CEO,CEO,Consumo,Prótese,Equipamentos de laboratório,4151192.jpg,,SIM
 4151195,"ALAVANCA APEXO 301, 302, 303 (KIT COM 3 PEÇAS)",KI - Kit,14,CEO Instrumental,CEO,Instrumental,Cirurgia,Alavancas,4151195.jpg,,SIM
 4150724,RESINA FOTOPOLIMERIZAVEL COR A4 ESMALTE ERRADA,U - Unidade,13,Odontologia,,,,,4150724.jpg,,NAO
@@ -537,7 +537,7 @@
 4151209,CERA Nº7 (PROTESE),U - Unidade,15,CEO,CEO,Consumo,Prótese,Escultura em cera,4151209.jpg,,SIM
 4151210,CIMENTO MTA PARA PERFURACAO ENDO (CEO),U - Unidade,15,CEO,CEO,Consumo,Endodontia,Cimentos,4151210.jpg,,SIM
 4151211,CURSOR EM SILICONE (CEO),U - Unidade,15,CEO,CEO,Consumo,Endodontia,Limas de canal,4151211.jpg,,SIM
-4151212,DETERGENTE NEUTRO 500 ML - FRS,U - Unidade,15,CEO,CEO,Consumo,Biossegurança,Insumos diversos,4151212.jpg,,SIM
+4151212,DETERGENTE NEUTRO 500 ML - FRS,U - Unidade,13,Odontologia,TODOS,Consumo,Biossegurança,Insumos diversos,4151212.jpg,,SIM
 4151213,DISCO DE CARBURUNDUM UN,U - Unidade,15,CEO,CEO,Consumo,Prótese,Pontas de desgaste,4151213.jpg,,SIM
 4151214,DISCO DE LIXA DE OXIDO DE AL PARA ACABAM RESINA FOTO (COM 50 DISCOS),U - Unidade,13,Odontologia,TODOS,Consumo,Dentística,"Matrizes, tiras e acabamento",4151214.jpg,,SIM
 4151215,DISCO DIAMANTADO PICOTADO PARA PEÇA DE MAO,U - Unidade,15,CEO,CEO,Consumo,Prótese,Pontas de desgaste,4151215.jpg,,SIM
@@ -555,7 +555,7 @@
 4151227,ALICATE ORTODONTICO 139,U - Unidade,14,CEO Instrumental,CEO,Instrumental,"Prótese;Ortodontia",Alicates,4151227.jpg,,SIM
 4151228,ALICATE PARA CORTE DE FIO DE ACO,U - Unidade,14,CEO Instrumental,CEO,Instrumental,"Prótese;Ortodontia",Alicates,4151228.jpg,,SIM
 4151229,ALICATE PARA TECIDOS GOLDMAN FOX,U - Unidade,14,CEO Instrumental,CEO,Instrumental,"Cirurgia;Periodontia",Instrumental cirúrgico,4151229.jpg,,SIM
-4151230,AMALGAMADOR DE BORRACHA (DEDEIRA),U - Unidade,14,CEO Instrumental,CEO,Instrumental,Dentística,Amálgama,4151230.jpg,,SIM
+4151230,DEDEIRA PARA AMÁLGAMA,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Dentística,Amálgama,4151230.jpg,,SIM
 4151231,ARCO INOX PARA ISOLAMENTO COM DIQUE,U - Unidade,14,CEO Instrumental,CEO,Instrumental,"Dentística;Endodontia",Isolamento absoluto,4151231.jpg,,SIM
 4151232,CALCADOR DE AMALGAMA Nº 01,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Dentística,Amálgama,4151232.jpg,,SIM
 4151233,CALCADOR DE AMALGAMA Nº 02,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Dentística,Amálgama,4151233.jpg,,SIM
@@ -590,7 +590,7 @@
 4151262,POTE PARA INSTRUMENTAIS,U - Unidade,13,Odontologia,TODOS,Consumo,Uso geral,Caixas e recipientes,4151262.jpg,,SIM
 4151265,FILME PERIAPICAL INFANTIL 22X35MM (CAIXA COM 100) (CEO + POLI),U - Unidade,15,CEO,CEO,Consumo,"Odontopediatria;Radiologia",Radiologia,4151265.jpg,,SIM
 4151267,GESSO PEDRA AMARELO TIPO III PACT 1KG (PROTESE),U - Unidade,15,CEO,CEO,Consumo,Prótese,"Materiais de moldagem;Equipamentos de laboratório",4151267.jpg,,SIM
-4151268,BENZOCAINA ANESTESICO TOPICO 200MG/G (30G),U - Unidade,13,Odontologia,TODOS,Consumo,Odontopediatria,Anestesia,4151268.jpg,,SIM
+4151268,ANESTÉSICO TÓPICO À BASE DE BENZOCAÍNA 200mg/g 30g,U - Unidade,13,Odontologia,TODOS,Consumo,Odontopediatria,Anestesia,4151268.jpg,,SIM
 4151270,FRESA TUNGSTENIO PARA PEÇA DE MÃO MAXI CUT,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Prótese,Brocas,4151270.jpg,,SIM
 4151271,FRESA TUNGSTENIO PARA PEÇA DE MÃO MINI CUT,U - Unidade,14,CEO Instrumental,CEO,Instrumental,Prótese,Brocas,4151271.jpg,,SIM
 4151272,CLOREXIDINA 2% GEL (CAIXA COM 2 SERINGAS),CA - Caixa,15,CEO,CEO,Consumo,Endodontia,Soluções e medicamentos,4151272.jpg,,SIM
@@ -843,3 +843,4 @@
 9000096,SUGADOR ENDODÔNTICO DESCARTÁVEL,,,,,,,,9000096.jpg,,NAO
 9000097,SUPORTE PARA PANO,,,,,,,,9000097.jpg,,NAO
 4151287,CARIOSTATICO 30% 5ML,U - Unidade,13,Odontologia,TODOS,Consumo,"Odontopediatria;Prevenção",Selantes e cariostático,4151287.jpg,,SIM
+4151312,CONTRA ANGULO PARA BAIXA ROTACAO,U - Unidade,12,Odontologia Instrumental,TODOS,Instrumental,,,4151312.jpg,,SIM
