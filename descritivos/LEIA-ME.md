@@ -36,7 +36,7 @@ Quatro campos são preenchidos ali:
 * **Unidade de compra.** Diferente da unidade de pedido do CELK. A unidade de pedido é como o dentista solicita; a de compra é como o material é adquirido na licitação.
 * **Situação da compra.** Normalmente fica em branco. Use "Aguardando compra e código do CELK" só para um material que ainda não existe no catálogo (foi criado com um código provisório, começando em 9000001, só para deixar o descritivo pronto). Não afeta a Situação (ativo/inativo) do material, que continua controlada no cartão do catálogo, e some sozinha quando o material for comprado e o código provisório for substituído pelo código real do CELK.
 
-A data e o autor da última modificação são preenchidos automaticamente, e **só mudam quando algum desses quatro campos muda**. Corrigir uma tag ou uma família no catálogo não altera o registro de modificação do descritivo.
+A data e o autor da última modificação são preenchidos automaticamente, e **só mudam quando algum desses quatro campos muda**. Corrigir uma especialidade ou uma família no catálogo não altera o registro de modificação do descritivo.
 
 ## Sobre os arquivos gerados
 

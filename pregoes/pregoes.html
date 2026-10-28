@@ -122,6 +122,9 @@ button.perigo{background:none;color:var(--geranium);padding-left:6px;padding-rig
 .modal label{display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:600;color:var(--secundario)}
 .modal input,.modal select{font-size:16px;font-weight:400}
 .modal .barra{justify-content:flex-end;margin-top:6px}
+.rotMat{font-size:12px;font-weight:600;color:var(--secundario);margin-bottom:-4px}
+.rotMat .sub{font-weight:400;font-size:12px}
+#mEspec button{font-size:13px;padding:6px 12px}
 @keyframes surgir{from{opacity:0}to{opacity:1}}
 @keyframes subir{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
 
@@ -243,6 +246,8 @@ button.perigo{background:none;color:var(--geranium);padding-left:6px;padding-rig
         O descritivo você escreve aqui mesmo, no item. Quando a compra sair, troque o código provisório pelo do CELK no Editor.</p>
       <label>Nome do material<input id="mNome" required autocomplete="off" placeholder="Ex.: ESPÁTULA DUPLA Nº 72"></label>
       <label>Unidade de compra<input id="mUnidCompra" list="lUnidMat" autocomplete="off" placeholder="Ex.: Unidade, Kit, Caixa com 50 unidades"></label>
+      <div class="rotMat">Especialidade<span class="sub"> · pode marcar mais de uma</span></div>
+      <div class="chips" id="mEspec" role="group" aria-label="Especialidade"></div>
       <label>Família (opcional)<input id="mFamilia" list="lFamMat" autocomplete="off"></label>
       <datalist id="lUnidMat"></datalist><datalist id="lFamMat"></datalist>
       <div class="barra"><button type="button" id="btCancelarMat">Cancelar</button><button class="principal" type="submit">Criar e adicionar</button></div>
@@ -251,7 +256,7 @@ button.perigo{background:none;color:var(--geranium);padding-left:6px;padding-rig
 </div>
 
 </div>
-<div id="versaoPagina">pregões · versão 2026-10-28b</div>
+<div id="versaoPagina">pregões · versão 2026-10-28c</div>
 </div>
 </div>
 
@@ -626,8 +631,13 @@ function abrirMat(nome){
     .sort((a,b)=>a.localeCompare(b,'pt-BR')).map(u=>'<option value="'+esc(u)+'">').join('');
   $('#lFamMat').innerHTML=[...new Set(Object.values(PROD).flatMap(p=>(p.familia||'').split(';').map(f=>f.trim())).filter(Boolean))]
     .sort((a,b)=>a.localeCompare(b,'pt-BR')).map(f=>'<option value="'+esc(f)+'">').join('');
+  const esp=[...new Set(Object.values(PROD).flatMap(p=>(p.especialidade||'').split(';').map(f=>f.trim())).filter(Boolean))]
+    .sort((a,b)=>a.localeCompare(b,'pt-BR'));
+  $('#mEspec').innerHTML=esp.map(e=>'<button type="button" aria-pressed="false">'+esc(e)+'</button>').join('');
   $('#janelaMat').classList.remove('oculto');$('#mNome').focus();
 }
+$('#mEspec').addEventListener('click',e=>{const b=e.target.closest('button');
+  if(b)b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true')});
 function fecharMat(){$('#janelaMat').classList.add('oculto')}
 $('#btNovoMat').onclick=()=>abrirMat($('#busca').value.trim());
 $('#btCancelarMat').onclick=fecharMat;
@@ -637,9 +647,10 @@ $('#formMat').addEventListener('submit',e=>{
   e.preventDefault();
   const nome=$('#mNome').value.trim();if(!nome)return;
   const cod=proximoProvisorio(),familia=$('#mFamilia').value.trim();
-  PROD[cod]={codigo:cod,material:nome,familia,imagem:cod+'.jpg',ativo:'NAO'};
+  const especialidade=[...document.querySelectorAll('#mEspec button[aria-pressed="true"]')].map(b=>b.textContent).join(';');
+  PROD[cod]={codigo:cod,material:nome,especialidade,familia,imagem:cod+'.jpg',ativo:'NAO'};
   P.itens.push({codigo:cod,material:nome,nome:'',unidade_compra:$('#mUnidCompra').value.trim(),quantidade:'',
-    descritivo:'',obs:'',alterado:false,novoMaterial:true,paraCatalogo:true,familia});
+    descritivo:'',obs:'',alterado:false,novoMaterial:true,paraCatalogo:true,especialidade,familia});
   aberto=cod;fecharMat();$('#busca').value='';marcarSujo();desenharLista();desenharDetalhe();
   const b=$('#lista .mr[data-cod="'+CSS.escape(cod)+'"]');if(b)b.scrollIntoView({block:'nearest'});
   $('#dDesc').focus();
@@ -665,6 +676,7 @@ function desenharDetalhe(){
     '<button class="voltar" id="btVoltar">‹ Itens</button>'+
     '<div class="hd">'+imgHtml(it.codigo,'fotoGrande',it.material)+
     '<div><div class="linha1">Item '+(i+1)+' de '+fmt(P.itens.length)+' · <span class="cd">'+esc(it.codigo)+'</span>'+
+      (p.especialidade?' · '+esc(p.especialidade.split(';').join(', ')):'')+
       (p.familia?' · '+esc(p.familia.split(';').join(', ')):'')+'</div>'+
     '<h2>'+esc(it.material)+'</h2>'+
     '<div class="campos">'+
@@ -870,7 +882,8 @@ async function gravarMateriaisNovos(lista){
       it.codigo=novo;
     }
     existentes.add(it.codigo);
-    const reg={codigo:it.codigo,material:it.material,familia:it.familia||'',imagem:it.codigo+'.jpg',ativo:'NAO'};
+    const reg={codigo:it.codigo,material:it.material,especialidade:it.especialidade||'',familia:it.familia||'',
+               imagem:it.codigo+'.jpg',ativo:'NAO'};
     linhas.push(cab.map(c=>campoCsv(reg[c]||'')).join(','));
     const dados={};Object.keys(reg).forEach(c=>{if(reg[c])dados[c]=reg[c]});
     alteracoes.push({tipo:'novo',codigo:it.codigo,material:it.material,campos:[],dados});

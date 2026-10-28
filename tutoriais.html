@@ -141,7 +141,7 @@
   <p>Tudo o que aparece no catálogo vem de dois arquivos de dados e de uma pasta de fotos:</p>
 
   <ul>
-    <li><code>produtos.csv</code>, a lista de materiais, com código, nome, unidade, bloco, tags e famílias;</li>
+    <li><code>produtos.csv</code>, a lista de materiais, com código, nome, unidade, bloco, especialidades e famílias;</li>
     <li><code>descritivos/descritivos.csv</code>, os textos técnicos que compõem os empenhos, ligados
       ao material pelo código;</li>
     <li><code>imagens/</code>, uma foto por material, nomeada com o código.</li>
@@ -297,8 +297,8 @@
     alterações vão se acumulando numa <b>sessão</b>, que só vira realidade quando você publica.</p>
 
   <h3>Encontrar o material</h3>
-  <p>A busca aceita nome, código, tag ou família, e também os códigos e o nome do material na BRANET.
-    Os seletores ao lado filtram por bloco, tag,
+  <p>A busca aceita nome, código, especialidade ou família, e também os códigos e o nome do material na BRANET.
+    Os seletores ao lado filtram por bloco, especialidade,
     família e situação. A lista mostra os primeiros 400 itens: se o que você procura não aparecer,
     refine a busca.</p>
 
@@ -322,8 +322,8 @@
           frasco ou cartela. É o que evita pedir uma caixa quando se queria uma peça.</span></li>
         <li><span class="num">4</span><span><b>Bloco e acesso.</b> Definem em que seção do catálogo o
           material aparece e quem faz a solicitação dele.</span></li>
-        <li><span class="num">5</span><span><b>Tags e família.</b> Aceitam mais de um valor. A família
-          reúne materiais do mesmo tipo; as tags são as especialidades. As duas viram filtros no site.</span></li>
+        <li><span class="num">5</span><span><b>Especialidade e família.</b> Aceitam mais de um valor. A família
+          reúne materiais do mesmo tipo; a especialidade diz de que área é o material. As duas viram filtros no site.</span></li>
         <li><span class="num">6</span><span><b>Observação.</b> Um recado curto que aparece em itálico no
           cartão do material. Serve para o que ajuda na hora de pedir: o que vem na embalagem, se é
           autoclavável, para que serve cada ponta de um conjunto.</span></li>
@@ -406,7 +406,7 @@
     <li><b>Na BRANET.</b> No fim do item, abaixo da unidade de compra, os dois códigos e o nome do
       material na BRANET. Quando o nome é igual ao do catálogo, aparece a indicação "igual ao catálogo".</li>
     <li><b>Data e autor da última modificação.</b> Mudam apenas quando algum campo do descritivo muda.
-      Corrigir uma tag no catálogo não altera esse registro.</li>
+      Corrigir uma especialidade no catálogo não altera esse registro.</li>
   </ul>
 
   <p>O botão <b>Exportar</b> gera um CSV com os itens que estiverem na listagem no momento, respeitando
@@ -545,7 +545,7 @@
   </ul>
 
   <p>Confira também os avisos que aparecem nessa janela. Eles não impedem a publicação, mas apontam
-    coisas que costumam passar batido: item novo sem tag ou sem família, código alterado sem a foto
+    coisas que costumam passar batido: item novo sem especialidade ou sem família, código alterado sem a foto
     correspondente ter sido renomeada, material novo ainda sem foto.</p>
 
   <div class="aviso bom"><b>Publicar envia só o que mudou.</b> Se você editou apenas descritivos, o

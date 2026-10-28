@@ -348,7 +348,7 @@ function configurar(novo){
 var TIPOS_HIST={novo:'novo',editado:'editado',inativado:'inativado',reativado:'reativado',
                 excluido:'excluído',descritivo:'descritivo',branet:'BRANET',imagem:'foto'};
 var ROTULOS_HIST={codigo:'Código',material:'Material',unidade:'Unidade de pedido',grupo:'Grupo',
-  subgrupo:'Subgrupo',acesso:'Acesso',tipo:'Tipo',especialidade:'Tags',familia:'Família',
+  subgrupo:'Subgrupo',acesso:'Acesso',tipo:'Tipo',especialidade:'Especialidades',familia:'Família',
   nome_descritivo:'Nome no descritivo',nome_pregao:'Nome no descritivo',descritivo:'Descritivo',
   unidade_compra:'Unidade de compra',situacao_compra:'Situação da compra',
   branet_codigo:'Código na BRANET',branet_codigo_cliente:'Código cliente na BRANET',branet_nome:'Nome na BRANET',

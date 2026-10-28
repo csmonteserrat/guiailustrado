@@ -569,7 +569,7 @@ function detalhe(it,termos){
         fato('Unidade de compra',esc(it.unidadeCompra)||'—')+
         fato('Tipo',esc(it.tipo)||'—')+
         fato('Famílias',it.familias.length?esc(it.familias.join(' · ')):'—')+
-        fato('Tags',it.tags.length?esc(it.tags.join(' · ')):'—')+
+        fato('Especialidades',it.tags.length?esc(it.tags.join(' · ')):'—')+
         fato('Última modificação',it.modificadoEm?esc(it.modificadoEm)+(it.modificadoPor?' · '+esc(it.modificadoPor):''):'—')+
         (it.observacao?fato('Observação',esc(it.observacao)):'')+
       '</div></div>'+

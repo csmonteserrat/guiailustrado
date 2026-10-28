@@ -269,16 +269,16 @@ button.perigo{background:var(--geranium-suave);color:var(--geranium)}
       </div>
     </div>
     <div class="filtros">
-      <label class="busca"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><input type="search" id="busca" placeholder="Buscar por nome, código, tag ou família" autocomplete="off"></label>
+      <label class="busca"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><input type="search" id="busca" placeholder="Buscar por nome, código, especialidade ou família" autocomplete="off"></label>
       <span class="menu"><select id="fBloco" aria-label="Bloco"></select></span>
-      <span class="menu"><select id="fTag" aria-label="Tag"></select></span>
+      <span class="menu"><select id="fTag" aria-label="Especialidade"></select></span>
       <span class="menu"><select id="fFamilia" aria-label="Família"></select></span>
       <span class="menu"><select id="fSituacao" aria-label="Situação">
         <option value="">Todas as situações</option>
         <option value="ativos">Somente ativos</option>
         <option value="inativos">Somente inativos</option>
         <option value="alterados">Somente alterados nesta sessão</option>
-        <option value="semtag">Sem tag ou sem família</option>
+        <option value="semtag">Sem especialidade ou sem família</option>
         <option value="comdesc">Com descritivo</option>
         <option value="semdesc">Sem descritivo</option>
         <option value="aguardandocompra">Aguardando compra</option>
@@ -294,7 +294,7 @@ button.perigo{background:var(--geranium-suave);color:var(--geranium)}
         <thead><tr>
           <th style="width:110px">Código</th>
           <th>Material</th>
-          <th style="width:30%">Família e tags</th>
+          <th style="width:30%">Família e especialidades</th>
           <th style="width:70px">Un.</th>
           <th style="width:170px">Bloco</th>
         </tr></thead>
@@ -327,9 +327,9 @@ const normalizar=s=>(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLo
 const escapar=s=>(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 
 /* Rótulos de interface. A coluna do arquivo continua sendo "especialidade",
-   mas em toda a interface ela é apresentada como "Tags", como no site. */
+   e é assim, "Especialidade", que ela aparece em toda a interface. */
 const ROTULOS={codigo:'Código',material:'Material',unidade:'Unidade de pedido',grupo:'Grupo',
-  subgrupo:'Subgrupo',acesso:'Acesso',tipo:'Tipo',especialidade:'Tags',familia:'Família',
+  subgrupo:'Subgrupo',acesso:'Acesso',tipo:'Tipo',especialidade:'Especialidades',familia:'Família',
   nome_descritivo:'Nome no descritivo',nome_pregao:'Nome no descritivo',descritivo:'Descritivo',unidade_compra:'Unidade de compra',
   situacao_compra:'Situação da compra',
   branet_codigo:'Código na BRANET',branet_codigo_cliente:'Código cliente na BRANET',branet_nome:'Nome na BRANET',
@@ -731,7 +731,7 @@ function montarFiltros(){
     subgruposDisponiveis().map(s=>'<option value="'+escapar(separarGrupo(s).subgrupo)+'">'+
       escapar(s)+'</option>').join('');
   const tag=$('#fTag');
-  tag.innerHTML='<option value="">Todas as tags</option>'+
+  tag.innerHTML='<option value="">Todas as especialidades</option>'+
     todasTags().map(t=>'<option>'+escapar(t)+'</option>').join('');
   const fam=$('#fFamilia');
   fam.innerHTML='<option value="">Todas as famílias</option>'+
@@ -1031,7 +1031,7 @@ function abrirEdicao(id,novo,semPerguntar){
       '<select data-add="'+col+'" style="flex:1">'+
         '<option value="">adicionar '+singular+' existente...</option>'+
         todosValores(col).map(v=>'<option>'+escapar(v)+'</option>').join('')+
-        '<option value="__novo">criar '+(singular==='tag'?'uma tag nova':'uma família nova')+'...</option>'+
+        '<option value="__novo">criar '+(singular==='especialidade'?'uma especialidade nova':'uma família nova')+'...</option>'+
       '</select></div></div>';
   }
 
@@ -1061,7 +1061,7 @@ function abrirEdicao(id,novo,semPerguntar){
       '</div>'+
       '<div class="nota info oculto" id="notaAuto" style="margin-top:-4px"></div>'+
       campoFichas('familia','Família','família')+
-      campoFichas('especialidade','Tags','tag')+
+      campoFichas('especialidade','Especialidades','especialidade')+
       '<div><label class="rot">Observação</label><textarea data-campo="observacao">'+escapar(it.observacao||'')+'</textarea></div>'+
       '<div><label class="rot">Situação</label>'+
         '<div class="segmento" role="radiogroup" aria-label="Situação">'+
@@ -1115,8 +1115,8 @@ function abrirEdicao(id,novo,semPerguntar){
     INSP.sujo=false;abrirEdicao(it.__id,null,true);
   };
 
-  const VAZIO={especialidade:'nenhuma tag',familia:'nenhuma família'};
-  const NOVO={especialidade:'Nome da nova tag:',familia:'Nome da nova família:'};
+  const VAZIO={especialidade:'nenhuma especialidade',familia:'nenhuma família'};
+  const NOVO={especialidade:'Nome da nova especialidade:',familia:'Nome da nova família:'};
 
   function desenharFichas(col){
     const cols=col?[col]:MULTIVALOR;
@@ -1545,7 +1545,7 @@ function validar(){
   Object.keys(vistos).forEach(c=>{if(vistos[c]>1)problemas.push('Código repetido '+c+' em '+vistos[c]+' itens')});
   mudancas().forEach(m=>{
     if(m.tipo==='novo'){
-      if(!tagsDe(m.item).length)avisos.push('O novo item '+m.item.codigo+' está sem tag');
+      if(!tagsDe(m.item).length)avisos.push('O novo item '+m.item.codigo+' está sem especialidade');
       if(!familiasDe(m.item).length)avisos.push('O novo item '+m.item.codigo+' está sem família');
       avisos.push('O novo item '+m.item.codigo+' precisa da foto '+m.item.codigo+'.jpg para aparecer ilustrado');
     }
