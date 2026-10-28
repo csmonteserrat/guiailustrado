@@ -256,7 +256,7 @@ button.perigo{background:none;color:var(--geranium);padding-left:6px;padding-rig
 </div>
 
 </div>
-<div id="versaoPagina">pregões · versão 2026-10-28c</div>
+<div id="versaoPagina">pregões · versão 2026-10-28d</div>
 </div>
 </div>
 
@@ -514,7 +514,8 @@ function estado(it){
     alterado:!!cat&&!!tx&&tx!==cat&&!!it.alterado,
     catMudou:!!cat&&!!tx&&tx!==cat&&!it.alterado,
     novoMat:!!(it.novoMaterial||it.aguardando),
-    vaiCatalogo:(!cat&&!!tx&&!!it.paraCatalogo)||!!it.novoMaterial||!!it.aguardando,
+    atualizaCat:!!cat&&!!tx&&tx!==cat&&!!it.alterado&&!!it.atualizarCatalogo,
+    vaiCatalogo:(!cat&&!!tx&&!!it.paraCatalogo)||!!it.novoMaterial||!!it.aguardando||(!!cat&&!!tx&&tx!==cat&&!!it.alterado&&!!it.atualizarCatalogo),
     catVazio:!cat&&!!tx&&!it.paraCatalogo,
     semQtd:!String(it.quantidade||'').trim()
   };
@@ -522,10 +523,11 @@ function estado(it){
 function etiquetas(it){
   const e=estado(it),L=[];
   if(e.alterado)L.push('<span class="tag t-az">Alterado neste pregão</span>');
+  if(e.atualizaCat)L.push('<span class="tag t-vd">Vai atualizar o catálogo</span>');
   if(e.catMudou)L.push('<span class="tag t-rx">Catálogo mudou depois</span>');
   if(e.novoMat)L.push('<span class="tag t-vd">Novo · aguardando compra</span>');
   else if((DESC[it.codigo]||{}).situacao_compra==='AGUARDANDO_COMPRA')L.push('<span class="tag t-ci">Aguardando compra</span>');
-  if(!e.novoMat&&e.vaiCatalogo)L.push('<span class="tag t-vd">Vai para o catálogo</span>');
+  if(!e.novoMat&&!e.atualizaCat&&e.vaiCatalogo)L.push('<span class="tag t-vd">Vai para o catálogo</span>');
   if(e.catVazio)L.push('<span class="tag t-ci">Catálogo sem texto</span>');
   if(e.semDesc)L.push('<span class="tag t-lr">Sem descritivo</span>');
   return L.join('');
@@ -701,11 +703,16 @@ function desenharDetalhe(){
   $('#dQtd').oninput=ev=>{it.quantidade=ev.target.value.trim();marcarSujo();atualizarLinha(it.codigo);desenharEstado()};
   const ligarNota=()=>{
     const o=$('#dObs');if(o)o.oninput=ev=>{it.obs=ev.target.value;marcarSujo()};
+    const ac=$('#btAtualCat');if(ac)ac.onclick=()=>{
+      if(it.atualizarCatalogo)delete it.atualizarCatalogo;else it.atualizarCatalogo=true;
+      marcarSujo();atualizarLinha(it.codigo);$('#selos').innerHTML=etiquetas(it);
+      const n=notaHtml(it,cat);$('#notaBox').innerHTML=n;$('#notaBox').dataset.v=n;ligarNota()};
     const lv=$('#btLevarCat');if(lv)lv.onclick=()=>{it.paraCatalogo=true;marcarSujo();atualizarLinha(it.codigo);desenharDetalhe()};
     const u=$('#btUsarCat');if(u)u.onclick=()=>{it.descritivo=cat;it.alterado=false;marcarSujo();atualizarLinha(it.codigo);desenharDetalhe()};
   };
   $('#dDesc').oninput=ev=>{
     it.descritivo=ev.target.value;it.alterado=!!cat&&ev.target.value.trim()!==cat;
+    if(!it.alterado)delete it.atualizarCatalogo;
     if(!cat)it.paraCatalogo=true;
     ajustarAltura(ev.target);marcarSujo();atualizarLinha(it.codigo);$('#selos').innerHTML=etiquetas(it);
     /* A observação e o botão do catálogo aparecem ou somem conforme o texto,
@@ -745,6 +752,12 @@ function notaHtml(it,cat){
     'também será gravado no catálogo quando salvar o pregão.</div>';
   if(e.alterado||e.catMudou||(it.obs||'').trim())return '<div class="nota azul"><label for="dObs">Observação da mudança</label>'+
     '<input id="dObs" value="'+esc(it.obs||'')+'" placeholder="Ex.: o texto de 2025 era para rosca universal; de 2027 em diante vale este">'+
+    (e.alterado?'<div style="margin-top:10px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">'+
+      (it.atualizarCatalogo
+        ?'<span><b>Ao salvar, este texto também substitui o do catálogo</b> e a troca entra no histórico.</span>'+
+         '<button type="button" class="mini" id="btAtualCat">Não atualizar o catálogo</button>'
+        :'<button type="button" class="mini acento" id="btAtualCat">Atualizar também no catálogo</button>'+
+         '<span class="sub">Sem isso, a mudança vale só para este pregão.</span>')+'</div>':'')+
     '<details><summary>Ver o texto atual do catálogo</summary><p>'+esc(cat)+'</p></details></div>';
   return '';
 }
@@ -796,7 +809,7 @@ async function salvar(){
     await gravarIndice();
     BASE=P.atualizado_em;sujo=false;apagarRascunho(P.id);
     $('#avisoPregao').innerHTML=avisoRamo()+(recusados.length?'<div class="aviso">'+recusados.length+
-      ' descritivo(s) não foram para o catálogo porque alguém já tinha escrito um texto para esses materiais: '+
+      ' descritivo(s) não foram para o catálogo porque o texto do catálogo mudou enquanto você editava: '+
       recusados.map(esc).join(', ')+'. No pregão, fica valendo o texto daqui.</div>':'');
   }catch(e){
     alert('Não consegui salvar: '+(e.message||e)+'\n\nAs alterações continuam guardadas neste navegador.');
@@ -832,10 +845,15 @@ async function gravarDescritivosNovos(novos,altNovos){
   const alteracoes=[],recusados=[];
   novos.forEach(it=>{
     let l=porCod.get(it.codigo);
-    if(l&&(l.descritivo||'').trim()){recusados.push(it.codigo);return}
+    /* Troca de um texto que já existe: só se o catálogo ainda estiver
+       como estava quando a página abriu. Se alguém mudou no meio tempo,
+       não sobrescreve. */
+    const troca=!!it.atualizarCatalogo&&!!catalogoDe(it.codigo);
+    const doSite=l?(l.descritivo||'').trim():'';
+    if(troca?doSite!==catalogoDe(it.codigo):!!doSite){recusados.push(it.codigo);return}
     if(!l){l={codigo:it.codigo};porCod.set(it.codigo,l);linhas.push(l)}
     const campos=[];
-    if((it.descritivo||'').trim())campos.push({campo:'descritivo',de:'',para:it.descritivo.trim()});
+    if((it.descritivo||'').trim())campos.push({campo:'descritivo',de:doSite,para:it.descritivo.trim()});
     if(it.aguardando&&(l.situacao_compra||'')!=='AGUARDANDO_COMPRA')
       campos.push({campo:'situacao_compra',de:l.situacao_compra||'',para:'AGUARDANDO_COMPRA'});
     if(!(l.unidade_compra||'').trim()&&(it.unidade_compra||'').trim())
@@ -859,7 +877,7 @@ async function gravarDescritivosNovos(novos,altNovos){
     await Publicar.registrarHistorico(sessao,'Pregões: registra a sessão no histórico');
   }
   alteracoes.forEach(a=>{const l=porCod.get(a.codigo);DESC[a.codigo]=Object.assign({},l)});
-  novos.forEach(it=>{if(!recusados.includes(it.codigo)){delete it.paraCatalogo;delete it.aguardando}});
+  novos.forEach(it=>{if(!recusados.includes(it.codigo)){delete it.paraCatalogo;delete it.aguardando;delete it.atualizarCatalogo}});
   return recusados;
 }
 
