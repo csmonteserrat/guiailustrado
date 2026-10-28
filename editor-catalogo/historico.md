@@ -4,13 +4,50 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 104  
-Última atualização: 28/10/2026, 13:37  
+Total de sessões registradas: 105  
+Última atualização: 28/10/2026, 15:33  
 Este arquivo guarda a partir da sessão 101. As anteriores estão no arquivo fechado `historico-001.md`, com até 100 sessões cada.
 
 <!-- volumes:{"anteriores":100,"arquivos":["historico-001.md"],"ate":"2026-10-15T13:18:34.568Z"} -->
 
 ---
+
+## 28/10/2026, 15:33 — Caio César Borges de Oliveira
+
+Sessão 105 · 8 alteração(ões) · 845 itens no arquivo após a edição
+
+**Origem:** relatório do CELK emitido em 28/10/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 13, 12, 15, 14.
+
+**Resumo:** 1 inativado · 6 editado · 1 novo
+
+- **[INATIVADO]** `4150128` AVENTAL DESCARTAVEL GRAMATURA 40 (PACOTE COM 10 UNIDADES) TAMANHO G
+    - Situação: "SIM" → "NAO"
+- **[EDITADO]** `4150524` ANESTÉSICO TÓPICO À BASE DE BENZOCAÍNA 200mg/g 12g
+    - Material: "BENZOCAINA ANESTESICO TOPICO 200MG/G (12G)" → "ANESTÉSICO TÓPICO À BASE DE BENZOCAÍNA 200mg/g 12g"
+- **[EDITADO]** `4151173` EDTA SOLUÇÃO QUELANTE 24% GEL (1 SERINGA)
+    - Material: "EDTA SOLUÇÃO QUELANTE 24% GEL (2 SERINGAS)" → "EDTA SOLUÇÃO QUELANTE 24% GEL (1 SERINGA)"
+- **[EDITADO]** `4151187` KIT CIRÚRGICO DESCARTÁVEL ESTÉRIL (AVENTAL + PANO DE CAMPO)
+    - Material: "KIT CIRÚRGICO DESCATÁVEL ESTÉRIL (AVENTAL + PANO DE CAMPO)" → "KIT CIRÚRGICO DESCARTÁVEL ESTÉRIL (AVENTAL + PANO DE CAMPO)"
+- **[EDITADO]** `4151212` DETERGENTE NEUTRO 500 ML - FRS
+    - Grupo: "15" → "13"
+    - Subgrupo: "CEO" → "Odontologia"
+    - Acesso: "CEO" → "TODOS"
+- **[EDITADO]** `4151230` DEDEIRA PARA AMÁLGAMA
+    - Material: "AMALGAMADOR DE BORRACHA (DEDEIRA)" → "DEDEIRA PARA AMÁLGAMA"
+- **[EDITADO]** `4151268` ANESTÉSICO TÓPICO À BASE DE BENZOCAÍNA 200mg/g 30g
+    - Material: "BENZOCAINA ANESTESICO TOPICO 200MG/G (30G)" → "ANESTÉSICO TÓPICO À BASE DE BENZOCAÍNA 200mg/g 30g"
+- **[NOVO]** `4151312` CONTRA ANGULO PARA BAIXA ROTACAO
+    - Código: 4151312
+    - Material: CONTRA ANGULO PARA BAIXA ROTACAO
+    - Unidade de pedido: U - Unidade
+    - Grupo: 12
+    - Subgrupo: Odontologia Instrumental
+    - Acesso: TODOS
+    - Tipo: Instrumental
+    - Arquivo da imagem: 4151312.jpg
+    - Situação: SIM
+
+<!-- sessao:{"data":"2026-10-28T18:33:21.193Z","autor":"Caio César Borges de Oliveira","origem":"relatório do CELK emitido em 28/10/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 13, 12, 15, 14","total":845,"alteracoes":[{"tipo":"inativado","codigo":"4150128","material":"AVENTAL DESCARTAVEL GRAMATURA 40 (PACOTE COM 10 UNIDADES) TAMANHO G","campos":[{"campo":"ativo","de":"SIM","para":"NAO"}]},{"tipo":"editado","codigo":"4150524","material":"ANESTÉSICO TÓPICO À BASE DE BENZOCAÍNA 200mg/g 12g","campos":[{"campo":"material","de":"BENZOCAINA ANESTESICO TOPICO 200MG/G (12G)","para":"ANESTÉSICO TÓPICO À BASE DE BENZOCAÍNA 200mg/g 12g"}]},{"tipo":"editado","codigo":"4151173","material":"EDTA SOLUÇÃO QUELANTE 24% GEL (1 SERINGA)","campos":[{"campo":"material","de":"EDTA SOLUÇÃO QUELANTE 24% GEL (2 SERINGAS)","para":"EDTA SOLUÇÃO QUELANTE 24% GEL (1 SERINGA)"}]},{"tipo":"editado","codigo":"4151187","material":"KIT CIRÚRGICO DESCARTÁVEL ESTÉRIL (AVENTAL + PANO DE CAMPO)","campos":[{"campo":"material","de":"KIT CIRÚRGICO DESCATÁVEL ESTÉRIL (AVENTAL + PANO DE CAMPO)","para":"KIT CIRÚRGICO DESCARTÁVEL ESTÉRIL (AVENTAL + PANO DE CAMPO)"}]},{"tipo":"editado","codigo":"4151212","material":"DETERGENTE NEUTRO 500 ML - FRS","campos":[{"campo":"grupo","de":"15","para":"13"},{"campo":"subgrupo","de":"CEO","para":"Odontologia"},{"campo":"acesso","de":"CEO","para":"TODOS"}]},{"tipo":"editado","codigo":"4151230","material":"DEDEIRA PARA AMÁLGAMA","campos":[{"campo":"material","de":"AMALGAMADOR DE BORRACHA (DEDEIRA)","para":"DEDEIRA PARA AMÁLGAMA"}]},{"tipo":"editado","codigo":"4151268","material":"ANESTÉSICO TÓPICO À BASE DE BENZOCAÍNA 200mg/g 30g","campos":[{"campo":"material","de":"BENZOCAINA ANESTESICO TOPICO 200MG/G (30G)","para":"ANESTÉSICO TÓPICO À BASE DE BENZOCAÍNA 200mg/g 30g"}]},{"tipo":"novo","codigo":"4151312","material":"CONTRA ANGULO PARA BAIXA ROTACAO","campos":[],"dados":{"codigo":"4151312","material":"CONTRA ANGULO PARA BAIXA ROTACAO","unidade":"U - Unidade","grupo":"12","subgrupo":"Odontologia Instrumental","acesso":"TODOS","tipo":"Instrumental","imagem":"4151312.jpg","ativo":"SIM"}}]} -->
 
 ## 28/10/2026, 13:37 — Caio César Borges de Oliveira
 
