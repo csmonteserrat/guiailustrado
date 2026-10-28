@@ -4,13 +4,74 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 103  
-Última atualização: 21/10/2026, 17:10  
+Total de sessões registradas: 104  
+Última atualização: 28/10/2026, 13:37  
 Este arquivo guarda a partir da sessão 101. As anteriores estão no arquivo fechado `historico-001.md`, com até 100 sessões cada.
 
 <!-- volumes:{"anteriores":100,"arquivos":["historico-001.md"],"ate":"2026-10-15T13:18:34.568Z"} -->
 
 ---
+
+## 28/10/2026, 13:37 — Caio César Borges de Oliveira
+
+Sessão 104 · 26 alteração(ões) · 844 itens no arquivo após a edição
+
+**Resumo:** 26 editado
+
+- **[EDITADO]** `4150491` CHAVE PARA PONTA DE ULTRASSOM UNIVERSAL
+    - Família: "Insertos de ultrassom" → "Pontas de ultrassom"
+- **[EDITADO]** `4150819` INSERTO PARA APARELHO JET SONIC DA GNATUS
+    - Família: "Insertos de ultrassom" → "Pontas de ultrassom"
+- **[EDITADO]** `4150614` PONTA PARA ULTRASSOM - SCHUSTER (T1-S, T2-S, T3-S)
+    - Família: "Insertos de ultrassom" → "Pontas de ultrassom"
+- **[EDITADO]** `4150624` PONTA PARA ULTRASSOM - ORTUS (G1)
+    - Família: "Insertos de ultrassom" → "Pontas de ultrassom"
+- **[EDITADO]** `4150620` PONTA PARA ULTRASSOM - ORTUS (G1, G2, G4)
+    - Família: "Insertos de ultrassom" → "Pontas de ultrassom"
+- **[EDITADO]** `4150627` PONTA PARA ULTRASSOM - ORTUS (G2)
+    - Família: "Insertos de ultrassom" → "Pontas de ultrassom"
+- **[EDITADO]** `4150628` PONTA PARA ULTRASSOM - ORTUS (G4)
+    - Família: "Insertos de ultrassom" → "Pontas de ultrassom"
+- **[EDITADO]** `4150610` PONTA PARA ULTRASSOM - ALT (G1)
+    - Família: "Insertos de ultrassom" → "Pontas de ultrassom"
+- **[EDITADO]** `4150608` PONTA PARA ULTRASSOM - ALT (G1, G2, P4)
+    - Família: "Insertos de ultrassom" → "Pontas de ultrassom"
+- **[EDITADO]** `4150611` PONTA PARA ULTRASSOM - ALT (G2)
+    - Família: "Insertos de ultrassom" → "Pontas de ultrassom"
+- **[EDITADO]** `4150612` PONTA PARA ULTRASSOM - ALT (G3)
+    - Família: "Insertos de ultrassom" → "Pontas de ultrassom"
+- **[EDITADO]** `4150598` PONTA PARA ULTRASSOM - ALT (Nº 1)
+    - Família: "Insertos de ultrassom" → "Pontas de ultrassom"
+- **[EDITADO]** `4150603` PONTA PARA ULTRASSOM - ALT (Nº 2)
+    - Família: "Insertos de ultrassom" → "Pontas de ultrassom"
+- **[EDITADO]** `4150604` PONTA PARA ULTRASSOM - ALT (Nº 3)
+    - Família: "Insertos de ultrassom" → "Pontas de ultrassom"
+- **[EDITADO]** `4150630` PONTA PARA ULTRASSOM - DABI ATLANTE (PERIO SUB)
+    - Família: "Insertos de ultrassom" → "Pontas de ultrassom"
+- **[EDITADO]** `4150632` PONTA PARA ULTRASSOM - ECEL (Nº 2)
+    - Família: "Insertos de ultrassom" → "Pontas de ultrassom"
+- **[EDITADO]** `4150634` PONTA PARA ULTRASSOM - DABI ATLANTE (PERIO SUPRA)
+    - Família: "Insertos de ultrassom" → "Pontas de ultrassom"
+- **[EDITADO]** `4150639` PONTA PARA ULTRASSOM - SCHUSTER (T1-S)
+    - Família: "Insertos de ultrassom" → "Pontas de ultrassom"
+- **[EDITADO]** `4150640` PONTA PARA ULTRASSOM - SCHUSTER (T3-S)
+    - Família: "Insertos de ultrassom" → "Pontas de ultrassom"
+- **[EDITADO]** `4150642` PONTA PARA ULTRASSOM - SCHUSTER (T4-S)
+    - Família: "Insertos de ultrassom" → "Pontas de ultrassom"
+- **[EDITADO]** `4150618` PONTA PARA ULTRASSOM - ECEL (Nº 1)
+    - Família: "Insertos de ultrassom" → "Pontas de ultrassom"
+- **[EDITADO]** `4150647` KIT P/ APARELHO ULTRASSOM DABI ATLANTE PROFI NEO US - COMPLETO
+    - Família: "Insertos de ultrassom" → "Pontas de ultrassom"
+- **[EDITADO]** `4150617` KIT PONTEIRAS (TIPS) ULTRASSOM P/ PROFI NEO US DABI ATLANTE
+    - Família: "Insertos de ultrassom" → "Pontas de ultrassom"
+- **[EDITADO]** `4150637` PONTA PARA ULTRASSOM - KAVO (Nº 5)
+    - Família: "Insertos de ultrassom" → "Pontas de ultrassom"
+- **[EDITADO]** `4150638` PONTA PARA ULTRASSOM - KAVO (Nº 6)
+    - Família: "Insertos de ultrassom" → "Pontas de ultrassom"
+- **[EDITADO]** `4150636` PONTA PARA ULTRASSOM - KAVO (Nº 7)
+    - Família: "Insertos de ultrassom" → "Pontas de ultrassom"
+
+<!-- sessao:{"data":"2026-10-28T16:37:36.000Z","autor":"Caio César Borges de Oliveira","origem":"","total":844,"alteracoes":[{"tipo":"editado","codigo":"4150491","material":"CHAVE PARA PONTA DE ULTRASSOM UNIVERSAL","campos":[{"campo":"familia","de":"Insertos de ultrassom","para":"Pontas de ultrassom"}]},{"tipo":"editado","codigo":"4150819","material":"INSERTO PARA APARELHO JET SONIC DA GNATUS","campos":[{"campo":"familia","de":"Insertos de ultrassom","para":"Pontas de ultrassom"}]},{"tipo":"editado","codigo":"4150614","material":"PONTA PARA ULTRASSOM - SCHUSTER (T1-S, T2-S, T3-S)","campos":[{"campo":"familia","de":"Insertos de ultrassom","para":"Pontas de ultrassom"}]},{"tipo":"editado","codigo":"4150624","material":"PONTA PARA ULTRASSOM - ORTUS (G1)","campos":[{"campo":"familia","de":"Insertos de ultrassom","para":"Pontas de ultrassom"}]},{"tipo":"editado","codigo":"4150620","material":"PONTA PARA ULTRASSOM - ORTUS (G1, G2, G4)","campos":[{"campo":"familia","de":"Insertos de ultrassom","para":"Pontas de ultrassom"}]},{"tipo":"editado","codigo":"4150627","material":"PONTA PARA ULTRASSOM - ORTUS (G2)","campos":[{"campo":"familia","de":"Insertos de ultrassom","para":"Pontas de ultrassom"}]},{"tipo":"editado","codigo":"4150628","material":"PONTA PARA ULTRASSOM - ORTUS (G4)","campos":[{"campo":"familia","de":"Insertos de ultrassom","para":"Pontas de ultrassom"}]},{"tipo":"editado","codigo":"4150610","material":"PONTA PARA ULTRASSOM - ALT (G1)","campos":[{"campo":"familia","de":"Insertos de ultrassom","para":"Pontas de ultrassom"}]},{"tipo":"editado","codigo":"4150608","material":"PONTA PARA ULTRASSOM - ALT (G1, G2, P4)","campos":[{"campo":"familia","de":"Insertos de ultrassom","para":"Pontas de ultrassom"}]},{"tipo":"editado","codigo":"4150611","material":"PONTA PARA ULTRASSOM - ALT (G2)","campos":[{"campo":"familia","de":"Insertos de ultrassom","para":"Pontas de ultrassom"}]},{"tipo":"editado","codigo":"4150612","material":"PONTA PARA ULTRASSOM - ALT (G3)","campos":[{"campo":"familia","de":"Insertos de ultrassom","para":"Pontas de ultrassom"}]},{"tipo":"editado","codigo":"4150598","material":"PONTA PARA ULTRASSOM - ALT (Nº 1)","campos":[{"campo":"familia","de":"Insertos de ultrassom","para":"Pontas de ultrassom"}]},{"tipo":"editado","codigo":"4150603","material":"PONTA PARA ULTRASSOM - ALT (Nº 2)","campos":[{"campo":"familia","de":"Insertos de ultrassom","para":"Pontas de ultrassom"}]},{"tipo":"editado","codigo":"4150604","material":"PONTA PARA ULTRASSOM - ALT (Nº 3)","campos":[{"campo":"familia","de":"Insertos de ultrassom","para":"Pontas de ultrassom"}]},{"tipo":"editado","codigo":"4150630","material":"PONTA PARA ULTRASSOM - DABI ATLANTE (PERIO SUB)","campos":[{"campo":"familia","de":"Insertos de ultrassom","para":"Pontas de ultrassom"}]},{"tipo":"editado","codigo":"4150632","material":"PONTA PARA ULTRASSOM - ECEL (Nº 2)","campos":[{"campo":"familia","de":"Insertos de ultrassom","para":"Pontas de ultrassom"}]},{"tipo":"editado","codigo":"4150634","material":"PONTA PARA ULTRASSOM - DABI ATLANTE (PERIO SUPRA)","campos":[{"campo":"familia","de":"Insertos de ultrassom","para":"Pontas de ultrassom"}]},{"tipo":"editado","codigo":"4150639","material":"PONTA PARA ULTRASSOM - SCHUSTER (T1-S)","campos":[{"campo":"familia","de":"Insertos de ultrassom","para":"Pontas de ultrassom"}]},{"tipo":"editado","codigo":"4150640","material":"PONTA PARA ULTRASSOM - SCHUSTER (T3-S)","campos":[{"campo":"familia","de":"Insertos de ultrassom","para":"Pontas de ultrassom"}]},{"tipo":"editado","codigo":"4150642","material":"PONTA PARA ULTRASSOM - SCHUSTER (T4-S)","campos":[{"campo":"familia","de":"Insertos de ultrassom","para":"Pontas de ultrassom"}]},{"tipo":"editado","codigo":"4150618","material":"PONTA PARA ULTRASSOM - ECEL (Nº 1)","campos":[{"campo":"familia","de":"Insertos de ultrassom","para":"Pontas de ultrassom"}]},{"tipo":"editado","codigo":"4150647","material":"KIT P/ APARELHO ULTRASSOM DABI ATLANTE PROFI NEO US - COMPLETO","campos":[{"campo":"familia","de":"Insertos de ultrassom","para":"Pontas de ultrassom"}]},{"tipo":"editado","codigo":"4150617","material":"KIT PONTEIRAS (TIPS) ULTRASSOM P/ PROFI NEO US DABI ATLANTE","campos":[{"campo":"familia","de":"Insertos de ultrassom","para":"Pontas de ultrassom"}]},{"tipo":"editado","codigo":"4150637","material":"PONTA PARA ULTRASSOM - KAVO (Nº 5)","campos":[{"campo":"familia","de":"Insertos de ultrassom","para":"Pontas de ultrassom"}]},{"tipo":"editado","codigo":"4150638","material":"PONTA PARA ULTRASSOM - KAVO (Nº 6)","campos":[{"campo":"familia","de":"Insertos de ultrassom","para":"Pontas de ultrassom"}]},{"tipo":"editado","codigo":"4150636","material":"PONTA PARA ULTRASSOM - KAVO (Nº 7)","campos":[{"campo":"familia","de":"Insertos de ultrassom","para":"Pontas de ultrassom"}]}]} -->
 
 ## 21/10/2026, 17:10 — Ana Carolina Oliveira Peres
 
