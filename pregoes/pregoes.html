@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pregões</title>
+<link rel="stylesheet" href="../admin.css">
+<style>
+/* Identidade comum (cores, estrutura, barra lateral, botões e
+   etiquetas) fica em admin.css. Aqui ficam só as regras desta
+   página.
+
+   Duas telas na mesma página: a lista dos pregões e o pregão aberto.
+   O pregão aberto segue a disposição em lista e detalhe dos
+   Descritivos: os itens à esquerda, o item escolhido à direita, com
+   tudo editável ali mesmo. */
+
+.wrap{display:flex;flex-direction:column;gap:14px}
+.cabecalho{display:flex;flex-direction:column;gap:6px;padding-top:6px}
+.cabecalho .l1{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.cabecalho h1{font-size:30px;letter-spacing:-.028em}
+.cabecalho .acoes{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.cabecalho .voltarLista{font-size:13px;text-decoration:none;font-weight:500}
+.aviso{border-radius:14px;background:var(--sawtooth-suave);color:var(--texto);padding:11px 14px;font-size:13px;
+  display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.aviso.info{background:var(--curacao-suave)}
+.aviso .barra{margin-left:auto}
+.estado{font-size:12.5px;color:var(--secundario)}
+.estado.sujo{color:var(--sawtooth);font-weight:600}
+.estado.ok{color:var(--ok)}
+
+/* ---------- lista dos pregões ---------- */
+.cartoes{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.cartao{background:var(--superficie);border-radius:18px;box-shadow:var(--sombra);padding:18px 20px;display:flex;
+  flex-direction:column;gap:8px;text-align:left;white-space:normal;color:inherit;font-weight:400;cursor:pointer;
+  transition:transform .12s,box-shadow .15s}
+.cartao:hover{box-shadow:var(--sombra-alta)}
+.cartao .num{font:700 22px/1.15 var(--fonte-titulo);letter-spacing:-.02em}
+.cartao .obj{font-size:13.5px;color:var(--secundario);min-height:20px}
+.cartao .rod{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--terciario);margin-top:4px}
+.vazio{padding:40px 18px;text-align:center;color:var(--secundario);font-size:13px}
+.vazio b{display:block;font:600 16px var(--fonte-titulo);color:var(--texto);margin-bottom:4px}
+
+/* ---------- pregão aberto: lista e detalhe ---------- */
+.md{display:grid;grid-template-columns:minmax(380px,34%) minmax(0,1fr);height:calc(100vh - 160px);min-height:560px;
+  background:var(--superficie);border-radius:20px;box-shadow:var(--sombra);overflow:hidden;position:relative}
+.ml{display:flex;flex-direction:column;min-height:0;border-right:1px solid var(--linha)}
+.ml .topo{padding:12px 12px 8px;display:flex;flex-direction:column;gap:9px;border-bottom:1px solid var(--linha)}
+.busca{display:flex;align-items:center;gap:8px;background:var(--neutro);border-radius:12px;padding:0 12px;height:40px;color:var(--terciario)}
+.busca:focus-within{box-shadow:0 0 0 3px var(--acento-suave),0 0 0 1.5px var(--acento)}
+.busca svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;flex:none}
+.busca input{flex:1;min-width:0;background:none;padding:0;height:100%;font-size:16px}
+.busca input:focus{box-shadow:none}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chips button{font-size:12px;padding:4px 11px;background:var(--neutro);font-weight:500}
+.chips button[aria-pressed="true"]{background:var(--texto);color:var(--superficie)}
+.rolagem{overflow:auto;flex:1;min-height:0;padding:4px 8px 12px;overscroll-behavior:contain}
+.secao{font-size:11.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--terciario);padding:12px 10px 4px}
+.mr{display:flex;gap:12px;align-items:center;width:100%;text-align:left;padding:8px 10px;border-radius:12px;position:relative;
+  background:none;color:inherit;font-weight:400;white-space:normal;transition:background .1s}
+.mr:active:not(:disabled){transform:none}
+.mr+.mr::before{content:"";position:absolute;top:0;left:86px;right:10px;height:1px;background:var(--linha)}
+.mr:hover{background:var(--neutro)}
+.mr[aria-selected="true"]{background:var(--acento)}
+.mr[aria-selected="true"],.mr[aria-selected="true"] *{color:#fff !important}
+.mr[aria-selected="true"] .tag{background:rgba(255,255,255,.22)}
+.mr[aria-selected="true"]::before,.mr[aria-selected="true"]+.mr::before{opacity:0}
+.mr .n{width:24px;flex:none;text-align:right;font-size:12px;color:var(--terciario);font-variant-numeric:tabular-nums}
+.foto{width:44px;height:44px;flex:none;border-radius:10px;background:#fff;box-shadow:0 0 0 1px var(--linha);object-fit:contain;display:block}
+.semfoto{width:44px;height:44px;flex:none;border-radius:10px;background:var(--neutro);display:grid;place-items:center;color:var(--terciario);font-size:15px}
+.mr .tx{flex:1;min-width:0}
+.mr .nome{display:block;font-size:13px;font-weight:500;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mr .meta{display:flex;gap:7px;align-items:center;font-size:12px;color:var(--terciario);margin-top:2px;flex-wrap:wrap}
+.mr .meta .cd{font-family:var(--fonte-mono);font-size:11.5px;color:var(--corn)}
+.mr .meta .tag{font-size:10.5px;padding:1px 7px}
+.mr.add{cursor:default}
+.mr.add:hover{background:none}
+.mr .mais{flex:none;width:32px;height:32px;padding:0;border-radius:50%;background:var(--acento-suave);color:var(--acento-texto);
+  font-size:19px;line-height:32px;font-weight:600;text-align:center}
+.mr .ja{flex:none;font-size:12px;color:var(--ok);font-weight:600}
+.contagemLista{font-size:12px;color:var(--terciario);padding:10px 10px 2px}
+
+.mdd{overflow:auto;min-width:0;overscroll-behavior:contain}
+.mdd .hd{display:grid;grid-template-columns:160px minmax(0,1fr);gap:24px;padding:24px 30px 20px;align-items:start}
+.fotoGrande{width:100%;aspect-ratio:1;border-radius:18px;background:#fff;box-shadow:0 0 0 1px var(--linha);object-fit:contain;display:block}
+.semfotoGrande{width:100%;aspect-ratio:1;border-radius:18px;background:var(--neutro);display:flex;align-items:center;
+  justify-content:center;flex-direction:column;gap:6px;color:var(--terciario);font-size:26px}
+.semfotoGrande span{font-size:12px}
+.mdd .linha1{font-size:12.5px;color:var(--secundario)}
+.mdd .linha1 .cd{font-family:var(--fonte-mono);color:var(--corn)}
+.mdd h2{font:700 22px/1.2 var(--fonte-titulo);letter-spacing:-.022em;margin:3px 0 12px;text-wrap:balance}
+.campos{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) 130px;gap:12px}
+.campos label{display:flex;flex-direction:column;gap:5px;font-size:12px;font-weight:600;color:var(--secundario);min-width:0}
+.campos input{font-size:16px;font-weight:400;width:100%}
+.campos input.qtd{font-weight:600;font-variant-numeric:tabular-nums}
+.mdd .bd{padding:0 30px 26px;display:flex;flex-direction:column;gap:18px}
+.mdd .sep{height:1px;background:var(--linha);margin:0 30px 20px}
+.rotuloLinha{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.rotulo{font-size:11.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--terciario)}
+.rotuloLinha .espaco{margin-left:auto}
+textarea.desc{width:100%;min-height:200px;font-size:16px;line-height:1.6;resize:vertical;background:var(--superficie);
+  box-shadow:0 0 0 1px var(--linha);padding:14px 16px;border-radius:14px}
+.nota{border-radius:14px;padding:12px 14px;font-size:13px;line-height:1.5}
+.nota.laranja{background:var(--sawtooth-suave)}
+.nota.azul{background:var(--corn-suave)}
+.nota label{display:block;font-weight:600;margin-bottom:6px}
+.nota input{width:100%;font-size:16px;background:var(--superficie)}
+.nota details{margin-top:10px;color:var(--secundario)}
+.nota summary{cursor:pointer;color:var(--texto);font-weight:500}
+.nota details p{white-space:pre-wrap;margin:8px 0 0;max-width:72ch}
+.rodItem{display:flex;gap:8px;align-items:center;flex-wrap:wrap;border-top:1px solid var(--linha);padding:14px 30px 18px}
+button.perigo{background:none;color:var(--geranium);padding-left:6px;padding-right:6px}
+.voltar{display:none;background:none;padding:14px 18px 0;color:var(--acento-texto);font-size:15px;font-weight:500}
+
+/* ---------- janelas ---------- */
+.fundo-modal{position:fixed;inset:0;background:var(--veu);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;
+  align-items:flex-start;justify-content:center;padding:8vh 14px;z-index:70;overflow:auto;animation:surgir .2s ease}
+.modal{background:var(--superficie);border-radius:24px;width:100%;max-width:560px;box-shadow:var(--sombra-alta);animation:subir .3s cubic-bezier(.23,1,.32,1)}
+.modal header{padding:20px 22px 4px}
+.modal header h2{font-size:19px;margin:0}
+.modal .corpo{padding:8px 22px 22px;display:flex;flex-direction:column;gap:12px}
+.modal label{display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:600;color:var(--secundario)}
+.modal input,.modal select{font-size:16px;font-weight:400}
+.modal .barra{justify-content:flex-end;margin-top:6px}
+@keyframes surgir{from{opacity:0}to{opacity:1}}
+@keyframes subir{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+
+.rodape{font-size:12px;color:var(--terciario);text-align:center;padding:6px 0 0}
+
+@media(max-width:1000px){
+  .md{grid-template-columns:minmax(0,1fr)}
+  .mdd{position:fixed;inset:0;z-index:50;background:var(--superficie);transform:translateX(104%);
+    transition:transform .4s var(--mola);visibility:hidden}
+  .mdd.aberto{transform:none;visibility:visible}
+  .voltar{display:inline-block}
+}
+@media(max-width:640px){
+  .md{height:calc(100dvh - 150px)}
+  .mdd .hd{grid-template-columns:1fr;padding:16px 18px}
+  .mdd .hd .fotoGrande,.mdd .hd .semfotoGrande{max-width:180px}
+  .campos{grid-template-columns:1fr 1fr}
+  .campos label:first-child{grid-column:1/-1}
+  .mdd .bd{padding:0 18px 24px}.mdd .sep{margin:0 18px 18px}.rodItem{padding:14px 18px 18px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+<nav class="lateral" aria-label="Seções do admin">
+  <div class="luzes" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="marca"><b>Catálogo</b>GT Padronização</div>
+  <a class="nav" href="../admin.html"><span class="ic i-painel"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.6"/></svg></span><span class="tx">Painel</span></a>
+  <div class="grupo">Trabalho</div>
+  <a class="nav" href="../editor-catalogo/editor-catalogo.html"><span class="ic i-editor"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1-4L16.5 4.5a2 2 0 013 3L8 19z"/><path d="M14.5 6.5l3 3"/></svg></span><span class="tx">Editor</span></a>
+  <a class="nav" href="../editor-catalogo/comparar-celk.html"><span class="ic i-celk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h13M14 4l4 4-4 4M19 16H6M10 12l-4 4 4 4"/></svg></span><span class="tx">Comparar CELK</span></a>
+  <a class="nav" href="../descritivos/descritivos.html"><span class="ic i-desc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7h11M8 12h11M8 17h11M4.5 7h.01M4.5 12h.01M4.5 17h.01"/></svg></span><span class="tx">Descritivos</span></a>
+  <a class="nav ativo" aria-current="page" href="pregoes.html"><span class="ic i-preg"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3.5" width="14" height="17" rx="2.5"/><path d="M9 3.5v2h6v-2M8.5 10h7M8.5 13.5h7M8.5 17h4"/></svg></span><span class="tx">Pregões</span></a>
+  <a class="nav" href="../preparar-imagens.html"><span class="ic i-imagens"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2.5"/><circle cx="9" cy="10.5" r="1.6"/><path d="M4 17l5-4.5 4 3.5 3-2.5 4 3.5"/></svg></span><span class="tx">Imagens</span></a>
+  <div class="grupo">Registro</div>
+  <a class="nav" href="../editor-catalogo/historico.html"><span class="ic i-hist"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><span class="tx">Histórico</span></a>
+  <a class="nav" href="../tutoriais.html"><span class="ic i-tut"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5.5A2.5 2.5 0 017.5 3H19v15H7.5A2.5 2.5 0 005 20.5z"/><path d="M5 20.5A2.5 2.5 0 007.5 23H19v-5"/></svg></span><span class="tx">Tutoriais</span></a>
+  <div class="vao"></div>
+  <div class="grupo">Abrir fora</div>
+  <a class="nav saida" href="../index.html" target="_blank" rel="noopener"><span class="tx">Catálogo</span><svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6H6.5A2.5 2.5 0 004 8.5v9A2.5 2.5 0 006.5 20h9a2.5 2.5 0 002.5-2.5V15M13 4h7v7M20 4l-9 9"/></svg></a>
+  <a class="nav saida" href="../branet.html" target="_blank" rel="noopener"><span class="tx">Catálogo BRANET</span><svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6H6.5A2.5 2.5 0 004 8.5v9A2.5 2.5 0 006.5 20h9a2.5 2.5 0 002.5-2.5V15M13 4h7v7M20 4l-9 9"/></svg></a>
+</nav>
+<div class="coluna">
+<div class="wrap">
+
+<!-- ================= lista dos pregões ================= -->
+<section id="vLista">
+  <div class="cabecalho">
+    <div class="l1">
+      <div>
+        <h1>Pregões</h1>
+        <div class="sub" id="contagemPregoes">carregando...</div>
+      </div>
+      <div class="acoes"><button class="principal" id="btNovo">Novo pregão</button></div>
+    </div>
+  </div>
+  <div id="avisoLista" style="margin-top:14px"></div>
+  <div class="cartoes" id="cartoes" style="margin-top:14px"></div>
+</section>
+
+<!-- ================= pregão aberto ================= -->
+<section id="vPregao" class="oculto">
+  <div class="cabecalho">
+    <a class="voltarLista" href="#">‹ Todos os pregões</a>
+    <div class="l1">
+      <div style="min-width:0">
+        <h1 id="tituloPregao"></h1>
+        <div class="estado" id="estadoPregao"></div>
+      </div>
+      <div class="acoes">
+        <button id="btDados">Dados do pregão</button>
+        <button id="btDocx">Exportar .docx</button>
+        <button class="principal" id="btSalvar">Salvar</button>
+      </div>
+    </div>
+  </div>
+  <div id="avisoPregao" style="margin:10px 0"></div>
+  <div class="md">
+    <div class="ml">
+      <div class="topo">
+        <label class="busca"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+          <input type="search" id="busca" placeholder="Buscar no pregão ou adicionar do catálogo" autocomplete="off"></label>
+        <div class="chips" id="chips"></div>
+      </div>
+      <div class="rolagem" id="lista" role="listbox" aria-label="Itens do pregão"></div>
+    </div>
+    <div class="mdd" id="detalhe" aria-live="polite"></div>
+  </div>
+  <div class="rodape">Enquanto você edita, as alterações ficam guardadas neste navegador. O botão Salvar grava o pregão no site,
+    na pasta <span class="mono">pregoes/</span>, e vale para todos.</div>
+</section>
+
+<!-- ================= janela: dados do pregão ================= -->
+<div class="fundo-modal oculto" id="janelaDados" role="dialog" aria-modal="true" aria-labelledby="tituloDados">
+  <div class="modal">
+    <header><h2 id="tituloDados">Dados do pregão</h2></header>
+    <form class="corpo" id="formDados">
+      <label>Número do pregão<input id="dNumero" required placeholder="Ex.: PE 018/2027" autocomplete="off"></label>
+      <label>Objeto<input id="dObjeto" placeholder="Ex.: aquisição de instrumental odontológico" autocomplete="off"></label>
+      <label>Situação<select id="dSituacao">
+        <option value="elaboracao">Em elaboração</option>
+        <option value="enviado">Enviado para licitação</option>
+        <option value="concluido">Concluído</option>
+      </select></label>
+      <label id="rotBase">Começar com<select id="dBase"></select></label>
+      <div class="barra"><button type="button" id="btCancelarDados">Cancelar</button><button class="principal" type="submit" id="btOkDados">Criar</button></div>
+    </form>
+  </div>
+</div>
+
+</div>
+<div id="versaoPagina">pregões · versão 2026-10-28a</div>
+</div>
+</div>
+
+<script src="../publicar.js"></script>
+<script>
+/* =====================================================================
+   PREGÕES
+   Monta a lista de materiais de um Pregão Eletrônico: quais entram,
+   quantos de cada, com que unidade de compra e com que descritivo.
+
+   Onde cada coisa fica:
+   - pregoes/indice.json      a lista dos pregões, para a tela inicial;
+   - pregoes/<id>.json        um arquivo por pregão, com os itens;
+   - descritivos.csv          só recebe o texto escrito aqui para um
+                              material que ainda não tinha descritivo.
+
+   Regra dos descritivos: o texto de cada item é uma cópia guardada no
+   pregão. Mudar o texto aqui vale só para este pregão, e a observação
+   da mudança fica registrada no item. O catálogo não muda, com uma
+   exceção: material sem descritivo nenhum, em que o texto escrito aqui
+   também vai para o descritivos.csv e para o histórico.
+
+   Enquanto se edita, o pregão inteiro é guardado no localStorage a
+   cada alteração. Salvar grava no repositório pelo publicar.js.
+   ===================================================================== */
+const $=s=>document.querySelector(s);
+const normalizar=s=>(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+const esc=s=>String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const ARQ_INDICE='pregoes/indice.json', ARQ_DESC='descritivos/descritivos.csv';
+const COLUNAS_DESC=['codigo','nome_descritivo','descritivo','unidade_compra','modificado_em','modificado_por','situacao_compra'];
+const SITUACOES={elaboracao:['Em elaboração','t-lr'],enviado:['Enviado para licitação','t-az'],concluido:['Concluído','t-vd']};
+const CHAVE_RASCUNHO='pregao-rascunho:';
+
+let PROD={},DESC={},LISTA_PROD=[];   // catálogo
+let INDICE=[];                        // pregões publicados
+let P=null;                           // pregão aberto
+let BASE=null;                        // atualizado_em do arquivo publicado que serviu de base
+let aberto=null, filtro='todos', sujo=false, salvando=false;
+
+/* Na versão de teste (raw.githack.com/<dono>/<repo>/<ramo>/pregoes/...),
+   o salvamento vai para o mesmo ramo da página, e não para a main. */
+const RAMO_TESTE=(()=>{
+  if(!/githack\.com$/.test(location.hostname))return '';
+  const m=location.pathname.match(/^\/[^/]+\/[^/]+\/(.+)\/pregoes\/[^/]*$/);
+  return m?decodeURIComponent(m[1]):'';
+})();
+if(RAMO_TESTE&&window.Publicar)Publicar.configurar({ramo:RAMO_TESTE});
+
+/* ---------- leitura de CSV (mesma dos Descritivos) ---------- */
+function lerCsv(texto){
+  texto=texto.replace(/^﻿/,'');
+  const corte=texto.indexOf('\n');
+  const primeira=corte>0?texto.slice(0,corte):texto;
+  const sep=(primeira.split(';').length>primeira.split(',').length)?';':',';
+  const linhas=[];let campo='',linha=[],aspas=false;
+  for(let i=0;i<texto.length;i++){
+    const c=texto[i];
+    if(aspas){
+      if(c==='"'&&texto[i+1]==='"'){campo+='"';i++}
+      else if(c==='"')aspas=false;
+      else campo+=c;
+    }else{
+      if(c==='"')aspas=true;
+      else if(c===sep){linha.push(campo);campo=''}
+      else if(c==='\n'){linha.push(campo);linhas.push(linha);linha=[];campo=''}
+      else if(c!=='\r')campo+=c;
+    }
+  }
+  if(campo||linha.length){linha.push(campo);linhas.push(linha)}
+  if(!linhas.length)return [];
+  const cab=linhas.shift().map(h=>normalizar(h.trim()).replace(/\s+/g,''));
+  return linhas.filter(l=>l.some(v=>v.trim())).map(l=>{
+    const o={};cab.forEach((h,i)=>o[h]=(l[i]||'').trim());return o});
+}
+function campoCsv(v){v=(v==null?'':String(v));return /[",;\n\r]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v}
+
+/* ---------- apoio ---------- */
+const dataCurta=d=>{const p=n=>String(n).padStart(2,'0');return p(d.getDate())+'/'+p(d.getMonth()+1)+'/'+d.getFullYear()};
+const dataHora=iso=>{try{return new Date(iso).toLocaleString('pt-BR',{dateStyle:'short',timeStyle:'short'})}catch(e){return ''}};
+const fmt=n=>new Intl.NumberFormat('pt-BR').format(n);
+const plural=(n,s,p)=>fmt(n)+' '+(n===1?s:p);
+const autor=()=>(window.Publicar&&Publicar.autor())||'';
+const catalogoDe=c=>((DESC[c]||{}).descritivo||'').trim();
+const unidadeCurta=u=>(u||'').replace(/^[A-Z]{1,3}\s*-\s*/,'').trim();
+function imgHtml(cod,classe,alt){
+  const p=PROD[cod]||{};const arq=p.imagem||(cod+'.jpg');
+  return '<img class="'+classe+'" src="../imagens/'+encodeURIComponent(arq)+'" alt="'+esc(alt||'')+'" loading="lazy" onerror="semFoto(this)">';
+}
+/* Material sem foto: troca a imagem quebrada pelo quadro cinza. */
+function semFoto(img){
+  const d=document.createElement('div');
+  if(img.classList.contains('fotoGrande')){d.className='semfotoGrande';d.innerHTML='◻︎<span>sem foto</span>'}
+  else{d.className='semfoto';d.textContent='◻︎'}
+  img.replaceWith(d);
+}
+function slug(s){return normalizar(s).replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'')||'pregao'}
+
+/* ---------- carregamento ---------- */
+Promise.all([
+  fetch('../produtos.csv').then(r=>{if(!r.ok)throw new Error('produtos');return r.text()}),
+  fetch('../descritivos/descritivos.csv?t='+Date.now()).then(r=>r.ok?r.text():''),
+  fetch('indice.json?t='+Date.now()).then(r=>r.ok?r.json():{pregoes:[]}).catch(()=>({pregoes:[]}))
+]).then(([tp,td,ti])=>{
+  lerCsv(tp).forEach(p=>{if(p.codigo)PROD[p.codigo]=p});
+  lerCsv(td).forEach(d=>{if(d.codigo)DESC[d.codigo]=d});
+  LISTA_PROD=Object.values(PROD).map(p=>({p,chave:normalizar([p.codigo,p.material,p.familia,(DESC[p.codigo]||{}).nome_descritivo].join(' '))}));
+  INDICE=(ti&&ti.pregoes)||[];
+  rotear();
+}).catch(()=>{
+  $('#cartoes').innerHTML='<div class="vazio">Não consegui carregar o <span class="mono">produtos.csv</span>. '+
+    'Esta página precisa ser aberta pelo endereço publicado, e não pelo arquivo direto no disco.</div>';
+  $('#contagemPregoes').textContent='';
+});
+
+window.addEventListener('hashchange',rotear);
+function rotear(){
+  const id=decodeURIComponent(location.hash.replace(/^#/,''));
+  if(id&&(!P||P.id!==id)){abrirPregao(id);return}
+  if(!id){P=null;mostrarLista()}
+}
+
+/* ---------- rascunhos no navegador ---------- */
+function lerRascunho(id){try{return JSON.parse(localStorage.getItem(CHAVE_RASCUNHO+id)||'null')}catch(e){return null}}
+function gravarRascunho(){
+  if(!P)return;
+  try{localStorage.setItem(CHAVE_RASCUNHO+P.id,JSON.stringify({pregao:P,base:BASE,em:new Date().toISOString()}))}catch(e){}
+}
+function apagarRascunho(id){try{localStorage.removeItem(CHAVE_RASCUNHO+id)}catch(e){}}
+function rascunhos(){
+  const r=[];
+  try{for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);
+    if(k&&k.startsWith(CHAVE_RASCUNHO)){const v=JSON.parse(localStorage.getItem(k)||'null');if(v&&v.pregao)r.push(v)}}}catch(e){}
+  return r;
+}
+let tRasc=null;
+function marcarSujo(){
+  sujo=true;clearTimeout(tRasc);tRasc=setTimeout(gravarRascunho,400);desenharEstado();
+}
+
+/* =====================================================================
+   LISTA DOS PREGÕES
+   ===================================================================== */
+function mostrarLista(){
+  $('#vPregao').classList.add('oculto');$('#vLista').classList.remove('oculto');
+  document.title='Pregões';
+  const rs=rascunhos();
+  const porId=new Map(INDICE.map(x=>[x.id,Object.assign({},x)]));
+  rs.forEach(r=>{
+    const x=porId.get(r.pregao.id)||{id:r.pregao.id,numero:r.pregao.numero,objeto:r.pregao.objeto,novo:true};
+    Object.assign(x,{numero:r.pregao.numero,objeto:r.pregao.objeto,situacao:r.pregao.situacao,itens:r.pregao.itens.length,rascunho:r.em});
+    porId.set(x.id,x);
+  });
+  const todos=[...porId.values()].sort((a,b)=>String(b.rascunho||b.atualizado_em||'').localeCompare(String(a.rascunho||a.atualizado_em||'')));
+  $('#contagemPregoes').textContent=todos.length?plural(todos.length,'pregão','pregões'):'Nenhum pregão ainda';
+  $('#cartoes').innerHTML=todos.length?todos.map(x=>{
+    const s=SITUACOES[x.situacao]||SITUACOES.elaboracao;
+    return '<button class="cartao" data-id="'+esc(x.id)+'">'+
+      '<span class="num">'+esc(x.numero)+'</span>'+
+      '<span class="obj">'+(x.objeto?esc(x.objeto):'<span style="color:var(--terciario)">Sem objeto definido</span>')+'</span>'+
+      '<span class="rod"><span class="tag '+s[1]+'">'+s[0]+'</span>'+
+        (x.rascunho?'<span class="tag t-vm">'+(x.novo?'Ainda não salvo':'Alterações não salvas')+'</span>':'')+
+        '<span>'+plural(x.itens||0,'item','itens')+'</span>'+
+        (x.atualizado_em?'<span>· salvo em '+esc(dataCurta(new Date(x.atualizado_em)))+(x.atualizado_por?' por '+esc(x.atualizado_por.split(' ')[0]):'')+'</span>':'')+
+      '</span></button>';
+  }).join(''):'<div class="vazio"><b>Nenhum pregão ainda</b>Use Novo pregão para começar.</div>';
+  $('#avisoLista').innerHTML=avisoRamo();
+}
+$('#cartoes').addEventListener('click',e=>{const b=e.target.closest('.cartao');if(b)location.hash=encodeURIComponent(b.dataset.id)});
+function avisoRamo(){
+  return RAMO_TESTE?'<div class="aviso info">Versão de teste: o Salvar desta página grava no ramo <b class="mono">'+esc(RAMO_TESTE)+'</b>, e não no site oficial.</div>':'';
+}
+
+/* ---------- novo pregão e dados do pregão ---------- */
+let modoDados='novo';
+$('#btNovo').onclick=()=>abrirDados('novo');
+$('#btDados').onclick=()=>abrirDados('editar');
+function abrirDados(modo){
+  modoDados=modo;
+  $('#tituloDados').textContent=modo==='novo'?'Novo pregão':'Dados do pregão';
+  $('#btOkDados').textContent=modo==='novo'?'Criar':'Pronto';
+  $('#rotBase').classList.toggle('oculto',modo!=='novo');
+  $('#dNumero').value=modo==='novo'?'':P.numero;
+  $('#dObjeto').value=modo==='novo'?'':(P.objeto||'');
+  $('#dSituacao').value=modo==='novo'?'elaboracao':(P.situacao||'elaboracao');
+  $('#dBase').innerHTML='<option value="">Lista vazia</option>'+
+    INDICE.map(x=>'<option value="'+esc(x.id)+'">Os itens do '+esc(x.numero)+' ('+fmt(x.itens||0)+')</option>').join('');
+  $('#janelaDados').classList.remove('oculto');$('#dNumero').focus();
+}
+function fecharDados(){$('#janelaDados').classList.add('oculto')}
+$('#btCancelarDados').onclick=fecharDados;
+$('#janelaDados').addEventListener('click',e=>{if(e.target===$('#janelaDados'))fecharDados()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#janelaDados').classList.contains('oculto'))fecharDados()});
+$('#formDados').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const numero=$('#dNumero').value.trim();if(!numero)return;
+  if(modoDados==='editar'){
+    P.numero=numero;P.objeto=$('#dObjeto').value.trim();P.situacao=$('#dSituacao').value;
+    fecharDados();marcarSujo();desenharTopo();return;
+  }
+  let id=slug(numero),k=2;
+  const usados=new Set(INDICE.map(x=>x.id).concat(rascunhos().map(r=>r.pregao.id)));
+  while(usados.has(id))id=slug(numero)+'-'+(k++);
+  let itens=[];
+  const base=$('#dBase').value;
+  if(base){
+    try{const r=await fetch(encodeURIComponent(base)+'.json?t='+Date.now());const j=await r.json();
+      itens=(j.itens||[]).map(it=>Object.assign({},it,{quantidade:'',obs:''}))}
+    catch(err){alert('Não consegui ler o pregão escolhido como base. O novo pregão começa vazio.')}
+  }
+  const agora=new Date().toISOString();
+  P={id,numero,objeto:$('#dObjeto').value.trim(),situacao:$('#dSituacao').value,
+     criado_em:agora,criado_por:autor(),atualizado_em:'',atualizado_por:'',itens};
+  BASE=null;aberto=itens.length?itens[0].codigo:null;sujo=true;gravarRascunho();
+  fecharDados();
+  location.hash=encodeURIComponent(id);
+});
+
+/* =====================================================================
+   PREGÃO ABERTO
+   ===================================================================== */
+async function abrirPregao(id){
+  const rasc=lerRascunho(id);
+  let publicado=null;
+  try{const r=await fetch(encodeURIComponent(id)+'.json?t='+Date.now());if(r.ok)publicado=await r.json()}catch(e){}
+  if(!publicado&&!rasc){alert('Não encontrei esse pregão.');location.hash='';return}
+  let aviso='';
+  if(rasc){
+    P=rasc.pregao;BASE=rasc.base;sujo=true;
+    if(publicado&&publicado.atualizado_em&&publicado.atualizado_em!==rasc.base)
+      aviso='<div class="aviso">Este pregão foi salvo no site por '+esc(publicado.atualizado_por||'outra pessoa')+' em '+
+        esc(dataHora(publicado.atualizado_em))+', depois que você começou estas alterações. '+
+        'Se salvar, a versão daqui substitui a de lá.<span class="barra"><button class="mini" id="btDescartar">Descartar as minhas e abrir a do site</button></span></div>';
+    else if(publicado)
+      aviso='<div class="aviso info">Você tem alterações ainda não salvas neste pregão (de '+esc(dataHora(rasc.em))+').'+
+        '<span class="barra"><button class="mini" id="btDescartar">Descartar</button><button class="mini principal" id="btSalvarAviso">Salvar agora</button></span></div>';
+  }else{
+    P=publicado;BASE=publicado.atualizado_em||null;sujo=false;
+  }
+  P.itens=P.itens||[];
+  if(!aberto||!P.itens.some(i=>i.codigo===aberto))aberto=P.itens.length?P.itens[0].codigo:null;
+  filtro='todos';$('#busca').value='';
+  $('#vLista').classList.add('oculto');$('#vPregao').classList.remove('oculto');
+  $('#avisoPregao').innerHTML=avisoRamo()+aviso+(P.origem?'<div class="sub" style="padding:0 2px">'+esc(P.origem)+'</div>':'');
+  const d=$('#btDescartar');
+  if(d)d.onclick=()=>{if(confirm('Descartar as alterações feitas neste navegador?')){apagarRascunho(id);P=null;abrirPregao(id)}};
+  const s=$('#btSalvarAviso');if(s)s.onclick=salvar;
+  desenharTopo();desenharLista();desenharDetalhe();
+}
+
+/* ---------- estados de cada item ---------- */
+function estado(it){
+  const cat=catalogoDe(it.codigo),tx=(it.descritivo||'').trim();
+  return {
+    semDesc:!tx,
+    alterado:!!cat&&!!tx&&tx!==cat&&!!it.alterado,
+    catMudou:!!cat&&!!tx&&tx!==cat&&!it.alterado,
+    vaiCatalogo:!cat&&!!tx&&!!it.paraCatalogo,
+    catVazio:!cat&&!!tx&&!it.paraCatalogo,
+    semQtd:!String(it.quantidade||'').trim()
+  };
+}
+function etiquetas(it){
+  const e=estado(it),L=[];
+  if(e.alterado)L.push('<span class="tag t-az">Alterado neste pregão</span>');
+  if(e.catMudou)L.push('<span class="tag t-rx">Catálogo mudou depois</span>');
+  if(e.vaiCatalogo)L.push('<span class="tag t-vd">Vai para o catálogo</span>');
+  if(e.catVazio)L.push('<span class="tag t-ci">Catálogo sem texto</span>');
+  if(e.semDesc)L.push('<span class="tag t-lr">Sem descritivo</span>');
+  return L.join('');
+}
+
+/* ---------- topo ---------- */
+function desenharTopo(){
+  $('#tituloPregao').textContent=P.numero+(P.objeto?' · '+P.objeto:'');
+  document.title=P.numero+' · Pregões';
+  desenharEstado();
+}
+function desenharEstado(){
+  if(!P)return;
+  const n=P.itens.length,comQtd=P.itens.filter(i=>String(i.quantidade||'').trim()).length;
+  const s=SITUACOES[P.situacao]||SITUACOES.elaboracao;
+  let st;
+  if(salvando)st='<span class="estado">Salvando...</span>';
+  else if(sujo)st='<span class="estado sujo">Alterações ainda não salvas no site (guardadas neste navegador)</span>';
+  else st='<span class="estado ok">Salvo no site'+(P.atualizado_em?' em '+esc(dataHora(P.atualizado_em))+(P.atualizado_por?' por '+esc(P.atualizado_por):''):'')+'</span>';
+  $('#estadoPregao').innerHTML=esc(s[0])+' · '+plural(n,'item','itens')+' · '+fmt(comQtd)+' com quantidade · '+st;
+  $('#btSalvar').disabled=!sujo||salvando;
+}
+
+/* ---------- lista da esquerda ---------- */
+const FILTROS=[['todos','Todos',()=>true],['alterados','Alterados',it=>{const e=estado(it);return e.alterado||e.catMudou||e.catVazio}],
+  ['semdesc','Sem descritivo',it=>estado(it).semDesc],['semqtd','Sem quantidade',it=>estado(it).semQtd]];
+function desenharChips(){
+  $('#chips').innerHTML=FILTROS.map(([k,r,f])=>{
+    const n=P.itens.filter(f).length;
+    return '<button aria-pressed="'+(filtro===k)+'" data-f="'+k+'">'+r+' '+fmt(n)+'</button>';
+  }).join('');
+}
+$('#chips').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;filtro=b.dataset.f;desenharLista()});
+
+function linhaItem(it,i){
+  const p=PROD[it.codigo]||{},q=String(it.quantidade||'').trim();
+  return '<button class="mr" role="option" data-cod="'+esc(it.codigo)+'" aria-selected="'+(it.codigo===aberto)+'">'+
+    '<span class="n">'+(i+1)+'</span>'+imgHtml(it.codigo,'foto','')+
+    '<span class="tx"><span class="nome" title="'+esc(it.material)+'">'+esc(it.material)+'</span>'+
+    '<span class="meta"><span class="cd">'+esc(it.codigo)+'</span><span>'+(q?esc(q)+' '+esc(it.unidade_compra||unidadeCurta(p.unidade)):'sem quantidade')+'</span>'+
+    etiquetas(it)+'</span></span></button>';
+}
+function desenharLista(){
+  desenharChips();
+  const termos=normalizar($('#busca').value).split(/\s+/).filter(Boolean);
+  const casa=ch=>termos.every(t=>ch.includes(t));
+  const f=FILTROS.find(x=>x[0]===filtro)[2];
+  const noPregao=new Set(P.itens.map(i=>i.codigo));
+  let h='';
+  if(termos.length){
+    const achados=LISTA_PROD.filter(x=>casa(x.chave)&&!noPregao.has(x.p.codigo))
+      .sort((a,b)=>((a.p.ativo||'SIM')==='NAO')-((b.p.ativo||'SIM')==='NAO')).slice(0,12);
+    if(achados.length){
+      h+='<div class="secao">Adicionar do catálogo</div>'+achados.map(({p})=>
+        '<div class="mr add"><span class="n"></span>'+imgHtml(p.codigo,'foto','')+
+        '<span class="tx"><span class="nome" title="'+esc(p.material)+'">'+esc(p.material)+'</span>'+
+        '<span class="meta"><span class="cd">'+esc(p.codigo)+'</span>'+(p.familia?'<span>'+esc(p.familia.split(';')[0])+'</span>':'')+
+        (catalogoDe(p.codigo)?'':'<span class="tag t-lr">Sem descritivo</span>')+
+        ((p.ativo||'SIM').toUpperCase()==='NAO'?'<span class="tag t-ci">Inativo</span>':'')+'</span></span>'+
+        '<button class="mais" data-add="'+esc(p.codigo)+'" aria-label="Adicionar ao pregão" title="Adicionar ao pregão">+</button></div>').join('');
+    }
+  }
+  const vis=P.itens.map((it,i)=>[it,i]).filter(([it])=>f(it)&&(!termos.length||casa(normalizar([it.codigo,it.material,it.nome,it.descritivo].join(' ')))));
+  if(termos.length)h+='<div class="secao">Neste pregão</div>';
+  h+=vis.length?vis.map(([it,i])=>linhaItem(it,i)).join(''):
+    '<div class="vazio">'+(P.itens.length?'Nenhum item do pregão com esse filtro.':'<b>O pregão ainda está vazio</b>Busque acima um material pelo nome, código ou família e toque em + para adicionar.')+'</div>';
+  if(vis.length&&vis.length!==P.itens.length)h+='<div class="contagemLista">'+fmt(vis.length)+' de '+fmt(P.itens.length)+' itens</div>';
+  $('#lista').innerHTML=h;
+}
+$('#busca').addEventListener('input',desenharLista);
+$('#lista').addEventListener('click',e=>{
+  const add=e.target.closest('[data-add]');
+  if(add){adicionar(add.dataset.add);return}
+  const b=e.target.closest('.mr[data-cod]');
+  if(b){aberto=b.dataset.cod;
+    document.querySelectorAll('#lista .mr[aria-selected="true"]').forEach(x=>x.setAttribute('aria-selected','false'));
+    b.setAttribute('aria-selected','true');desenharDetalhe();$('#detalhe').classList.add('aberto')}
+});
+function atualizarLinha(cod){
+  const i=P.itens.findIndex(x=>x.codigo===cod),b=$('#lista .mr[data-cod="'+CSS.escape(cod)+'"]');
+  if(i<0||!b)return;
+  const t=document.createElement('div');t.innerHTML=linhaItem(P.itens[i],i);b.replaceWith(t.firstChild);
+  desenharChips();
+}
+
+function adicionar(cod){
+  if(P.itens.some(i=>i.codigo===cod))return;
+  const p=PROD[cod]||{},d=DESC[cod]||{};
+  P.itens.push({codigo:cod,material:p.material||'',nome:(d.nome_descritivo||'').trim(),
+    unidade_compra:(d.unidade_compra||'').trim()||unidadeCurta(p.unidade),quantidade:'',
+    descritivo:(d.descritivo||'').trim(),obs:'',alterado:false});
+  aberto=cod;marcarSujo();desenharLista();desenharDetalhe();
+  $('#busca').focus();
+}
+
+/* ---------- detalhe ---------- */
+function desenharDetalhe(){
+  const i=P.itens.findIndex(x=>x.codigo===aberto);
+  if(i<0){$('#detalhe').innerHTML='<div class="vazio" style="padding-top:80px"><b>Nenhum item aberto</b>Escolha um item na lista ou adicione materiais pela busca.</div>';return}
+  const it=P.itens[i],p=PROD[it.codigo]||{},cat=catalogoDe(it.codigo),e=estado(it);
+  const unidades=[...new Set(Object.values(DESC).map(d=>(d.unidade_compra||'').trim()).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'pt-BR'));
+  $('#detalhe').innerHTML=
+    '<button class="voltar" id="btVoltar">‹ Itens</button>'+
+    '<div class="hd">'+imgHtml(it.codigo,'fotoGrande',it.material)+
+    '<div><div class="linha1">Item '+(i+1)+' de '+fmt(P.itens.length)+' · <span class="cd">'+esc(it.codigo)+'</span>'+
+      (p.familia?' · '+esc(p.familia.split(';').join(', ')):'')+'</div>'+
+    '<h2>'+esc(it.material)+'</h2>'+
+    '<div class="campos">'+
+      '<label>Nome no documento<input id="dNome" value="'+esc(it.nome||'')+'" placeholder="'+esc(it.material)+'"></label>'+
+      '<label>Unidade de compra<input id="dUnid" list="lUnid" value="'+esc(it.unidade_compra||'')+'"></label>'+
+      '<label>Quantidade<input id="dQtd" class="qtd" inputmode="numeric" value="'+esc(it.quantidade||'')+'" placeholder="0"></label>'+
+    '</div><datalist id="lUnid">'+unidades.map(u=>'<option value="'+esc(u)+'">').join('')+'</datalist>'+
+    '<div class="selos" style="display:flex;gap:6px;flex-wrap:wrap;margin-top:10px" id="selos">'+etiquetas(it)+'</div></div></div>'+
+    '<div class="sep"></div>'+
+    '<div class="bd"><div><div class="rotuloLinha"><span class="rotulo">Descritivo neste pregão</span>'+
+      '<span class="espaco"></span><span id="usarBox">'+usarHtml(it,cat)+'</span></div>'+
+    '<textarea class="desc" id="dDesc" spellcheck="true" placeholder="Escreva o descritivo deste material">'+esc(it.descritivo||'')+'</textarea></div>'+
+    '<div id="notaBox">'+notaHtml(it,cat)+'</div></div>'+
+    '<div class="rodItem"><button class="perigo" id="btTirar">Tirar do pregão</button>'+
+      '<button class="mini" id="btSubir" '+(i===0?'disabled':'')+' aria-label="Mover para cima">↑ Subir</button>'+
+      '<button class="mini" id="btDescer" '+(i===P.itens.length-1?'disabled':'')+' aria-label="Mover para baixo">↓ Descer</button>'+
+      '<span class="espaco"></span>'+
+      '<button id="btAnt" '+(i===0?'disabled':'')+'>‹ Anterior</button><button id="btProx" '+(i===P.itens.length-1?'disabled':'')+'>Próximo ›</button></div>';
+  ajustarAltura($('#dDesc'));
+  $('#dNome').oninput=ev=>{it.nome=ev.target.value;marcarSujo()};
+  $('#dUnid').oninput=ev=>{it.unidade_compra=ev.target.value;marcarSujo();atualizarLinha(it.codigo)};
+  $('#dQtd').oninput=ev=>{it.quantidade=ev.target.value.trim();marcarSujo();atualizarLinha(it.codigo);desenharEstado()};
+  const ligarNota=()=>{
+    const o=$('#dObs');if(o)o.oninput=ev=>{it.obs=ev.target.value;marcarSujo()};
+    const lv=$('#btLevarCat');if(lv)lv.onclick=()=>{it.paraCatalogo=true;marcarSujo();atualizarLinha(it.codigo);desenharDetalhe()};
+    const u=$('#btUsarCat');if(u)u.onclick=()=>{it.descritivo=cat;it.alterado=false;marcarSujo();atualizarLinha(it.codigo);desenharDetalhe()};
+  };
+  $('#dDesc').oninput=ev=>{
+    it.descritivo=ev.target.value;it.alterado=!!cat&&ev.target.value.trim()!==cat;
+    if(!cat)it.paraCatalogo=true;
+    ajustarAltura(ev.target);marcarSujo();atualizarLinha(it.codigo);$('#selos').innerHTML=etiquetas(it);
+    /* A observação e o botão do catálogo aparecem ou somem conforme o texto,
+       sem redesenhar o campo em que se está escrevendo. */
+    const n=notaHtml(it,cat),u=usarHtml(it,cat);
+    if($('#notaBox').dataset.v!==n){$('#notaBox').innerHTML=n;$('#notaBox').dataset.v=n}
+    if($('#usarBox').innerHTML!==u)$('#usarBox').innerHTML=u;
+    ligarNota();
+  };
+  $('#notaBox').dataset.v=notaHtml(it,cat);
+  ligarNota();
+  $('#btTirar').onclick=()=>{
+    if(!confirm('Tirar '+it.material+' deste pregão?'))return;
+    P.itens.splice(i,1);aberto=P.itens.length?P.itens[Math.min(i,P.itens.length-1)].codigo:null;
+    marcarSujo();desenharLista();desenharDetalhe();
+  };
+  const mover=d=>{const j=i+d;[P.itens[i],P.itens[j]]=[P.itens[j],P.itens[i]];marcarSujo();desenharLista();desenharDetalhe()};
+  $('#btSubir').onclick=()=>mover(-1);$('#btDescer').onclick=()=>mover(1);
+  const ir=d=>{aberto=P.itens[i+d].codigo;desenharLista();desenharDetalhe();
+    const b=$('#lista .mr[data-cod="'+CSS.escape(aberto)+'"]');if(b)b.scrollIntoView({block:'nearest'})};
+  $('#btAnt').onclick=()=>ir(-1);$('#btProx').onclick=()=>ir(1);
+  $('#btVoltar').onclick=()=>$('#detalhe').classList.remove('aberto');
+  $('#detalhe').scrollTop=0;
+}
+function usarHtml(it,cat){
+  return cat&&(it.descritivo||'').trim()!==cat?'<button class="mini acento" id="btUsarCat">Usar o texto atual do catálogo</button>':'';
+}
+function notaHtml(it,cat){
+  const e=estado(it);
+  if(!cat&&e.catVazio)return '<div class="nota laranja">O catálogo não tem descritivo para este material hoje. '+
+    'O texto acima é o que foi usado neste pregão e fica só aqui.'+
+    '<div style="margin-top:8px"><button class="mini" id="btLevarCat">Levar este texto para o catálogo</button></div></div>';
+  if(!cat)return '<div class="nota laranja">Este material não tem descritivo no catálogo. O texto que você escrever acima '+
+    'também será gravado no catálogo quando salvar o pregão.</div>';
+  if(e.alterado||e.catMudou||(it.obs||'').trim())return '<div class="nota azul"><label for="dObs">Observação da mudança</label>'+
+    '<input id="dObs" value="'+esc(it.obs||'')+'" placeholder="Ex.: o texto de 2025 era para rosca universal; de 2027 em diante vale este">'+
+    '<details><summary>Ver o texto atual do catálogo</summary><p>'+esc(cat)+'</p></details></div>';
+  return '';
+}
+function ajustarAltura(t){t.style.height='auto';t.style.height=Math.max(200,t.scrollHeight+4)+'px'}
+
+$('.voltarLista').onclick=e=>{e.preventDefault();if(sujo)gravarRascunho();P=null;location.hash=''};
+document.addEventListener('keydown',e=>{
+  if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='s'&&P){e.preventDefault();if(sujo)salvar()}
+});
+
+/* =====================================================================
+   SALVAR
+   ===================================================================== */
+$('#btSalvar').onclick=salvar;
+async function salvar(){
+  if(!P||salvando)return;
+  if(!window.Publicar){alert('O arquivo publicar.js não foi carregado.');return}
+  if(!Publicar.temChave()){
+    if(confirm('Nenhuma chave de publicação está cadastrada neste navegador, então não dá para salvar no site daqui. '+
+               'As alterações continuam guardadas neste navegador.\n\nQuer baixar o arquivo do pregão (.json) para enviar à mão?'))
+      baixar(new Blob([JSON.stringify(P,null,1)+'\n'],{type:'application/json'}),P.id+'.json');
+    return;
+  }
+  if(!autor()){alert('Cadastre seu nome junto da chave, no Painel, para o salvamento ficar registrado com o seu nome.');return}
+  salvando=true;desenharEstado();
+  const caminho='pregoes/'+P.id+'.json';
+  try{
+    /* 1. Quem salvou este pregão desde que ele foi aberto? */
+    const atual=await Publicar.obterTexto(caminho);
+    if(atual.existe){
+      let remoto=null;try{remoto=JSON.parse(atual.texto)}catch(e){}
+      if(remoto&&remoto.atualizado_em&&remoto.atualizado_em!==BASE&&
+         !confirm((remoto.atualizado_por||'Outra pessoa')+' salvou este pregão em '+dataHora(remoto.atualizado_em)+
+                  ', depois que você abriu. Salvar por cima, ficando com a sua versão?')){salvando=false;desenharEstado();return}
+    }
+    /* 2. Descritivos novos para o catálogo. */
+    const novos=P.itens.filter(it=>estado(it).vaiCatalogo);
+    let recusados=[];
+    if(novos.length)recusados=await gravarDescritivosNovos(novos);
+    /* 3. O pregão. */
+    P.atualizado_em=new Date().toISOString();P.atualizado_por=autor();
+    if(!P.criado_em){P.criado_em=P.atualizado_em;P.criado_por=autor()}
+    await Publicar.enviar({caminho,texto:JSON.stringify(P,null,1)+'\n',sha:atual.sha,
+      mensagem:'Pregões: salva '+P.numero+' ('+plural(P.itens.length,'item','itens')+')'});
+    /* 4. A lista dos pregões. */
+    await gravarIndice();
+    BASE=P.atualizado_em;sujo=false;apagarRascunho(P.id);
+    $('#avisoPregao').innerHTML=avisoRamo()+(recusados.length?'<div class="aviso">'+recusados.length+
+      ' descritivo(s) não foram para o catálogo porque alguém já tinha escrito um texto para esses materiais: '+
+      recusados.map(esc).join(', ')+'. No pregão, fica valendo o texto daqui.</div>':'');
+  }catch(e){
+    alert('Não consegui salvar: '+(e.message||e)+'\n\nAs alterações continuam guardadas neste navegador.');
+  }
+  salvando=false;desenharEstado();desenharLista();desenharDetalhe();
+}
+
+async function gravarIndice(){
+  for(let t=0;t<3;t++){
+    const r=await Publicar.obterTexto(ARQ_INDICE);
+    let j={pregoes:[]};try{if(r.existe)j=JSON.parse(r.texto)}catch(e){}
+    const lista=(j.pregoes||[]).filter(x=>x.id!==P.id);
+    lista.push({id:P.id,numero:P.numero,objeto:P.objeto||'',situacao:P.situacao||'elaboracao',itens:P.itens.length,
+                atualizado_em:P.atualizado_em,atualizado_por:P.atualizado_por});
+    INDICE=lista;
+    try{
+      await Publicar.enviar({caminho:ARQ_INDICE,texto:JSON.stringify({pregoes:lista},null,1)+'\n',sha:r.sha,
+        mensagem:'Pregões: atualiza a lista dos pregões ('+P.numero+')'});
+      return;
+    }catch(e){if(e.tipo!=='conflito'||t===2)throw e}
+  }
+}
+
+/* Grava no descritivos.csv o texto dos materiais que não tinham
+   descritivo, e registra a sessão no histórico. Devolve os códigos que
+   não foram gravados porque, no meio tempo, alguém escreveu um texto. */
+async function gravarDescritivosNovos(novos){
+  const r=await Publicar.obterTexto(ARQ_DESC);
+  const linhas=lerCsv(r.texto||'');
+  const colunas=COLUNAS_DESC.slice();
+  linhas.forEach(l=>Object.keys(l).forEach(c=>{if(!colunas.includes(c)&&c!=='nome_pregao')colunas.push(c)}));
+  const porCod=new Map(linhas.map(l=>[l.codigo,l]));
+  const alteracoes=[],recusados=[];
+  novos.forEach(it=>{
+    let l=porCod.get(it.codigo);
+    if(l&&(l.descritivo||'').trim()){recusados.push(it.codigo);return}
+    if(!l){l={codigo:it.codigo};porCod.set(it.codigo,l);linhas.push(l)}
+    const campos=[{campo:'descritivo',de:'',para:it.descritivo.trim()}];
+    if(!(l.unidade_compra||'').trim()&&(it.unidade_compra||'').trim())
+      campos.push({campo:'unidade_compra',de:'',para:it.unidade_compra.trim()});
+    if(!(l.nome_descritivo||'').trim()&&(it.nome||'').trim())
+      campos.push({campo:'nome_descritivo',de:'',para:it.nome.trim()});
+    campos.forEach(c=>l[c.campo]=c.para);
+    l.modificado_em=dataCurta(new Date());l.modificado_por=autor();
+    alteracoes.push({tipo:'descritivo',codigo:it.codigo,material:it.material,campos});
+  });
+  if(!alteracoes.length)return recusados;
+  const texto='﻿'+[colunas.join(',')].concat(linhas.map(l=>colunas.map(c=>campoCsv(l[c]||'')).join(','))).join('\r\n')+'\r\n';
+  await Publicar.enviar({caminho:ARQ_DESC,texto,sha:r.sha,
+    mensagem:Publicar.mensagem('Pregões',ARQ_DESC,alteracoes.length,'descritivo')});
+  await Publicar.registrarHistorico({data:new Date().toISOString(),autor:autor(),origem:'Pregão '+P.numero,alteracoes},
+    'Pregões: registra a sessão no histórico');
+  alteracoes.forEach(a=>{const l=porCod.get(a.codigo);DESC[a.codigo]=Object.assign({},l)});
+  novos.forEach(it=>{if(!recusados.includes(it.codigo))delete it.paraCatalogo});
+  return recusados;
+}
+
+function baixar(blob,nome){
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=nome;a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),4000);
+}
+
+/* =====================================================================
+   EXPORTAÇÃO .DOCX
+   O Word aceita um .docx montado à mão: um zip, sem compressão, com o
+   XML mínimo. Assim a página não depende de biblioteca externa.
+   Folha A4 deitada, para a tabela caber com o descritivo largo.
+   ===================================================================== */
+$('#btDocx').onclick=()=>{
+  if(!P.itens.length){alert('O pregão ainda não tem itens.');return}
+  const semQtd=P.itens.filter(i=>!String(i.quantidade||'').trim()).length;
+  if(semQtd&&!confirm(plural(semQtd,'item está','itens estão')+' sem quantidade. Exportar assim mesmo?'))return;
+  baixar(gerarDocx(P),'Termo de referencia - '+P.numero.replace(/[\\/:*?"<>|]+/g,'-')+'.docx');
+};
+
+function xml(s){return String(s==null?'':s).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g,'')
+  .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function run(t,o){o=o||{};
+  return '<w:r><w:rPr>'+(o.b?'<w:b/>':'')+(o.cor?'<w:color w:val="'+o.cor+'"/>':'')+(o.tam?'<w:sz w:val="'+o.tam+'"/><w:szCs w:val="'+o.tam+'"/>':'')+
+    '</w:rPr><w:t xml:space="preserve">'+xml(t)+'</w:t></w:r>'}
+function par(conteudo,o){o=o||{};
+  return '<w:p><w:pPr>'+(o.centro?'<w:jc w:val="center"/>':o.just?'<w:jc w:val="both"/>':'')+
+    '<w:spacing w:before="'+(o.antes||0)+'" w:after="'+(o.depois==null?60:o.depois)+'"/></w:pPr>'+conteudo+'</w:p>'}
+function celula(larg,paragrafos,o){o=o||{};
+  return '<w:tc><w:tcPr><w:tcW w:w="'+larg+'" w:type="dxa"/>'+(o.fundo?'<w:shd w:val="clear" w:color="auto" w:fill="'+o.fundo+'"/>':'')+
+    '<w:vAlign w:val="'+(o.meio?'center':'top')+'"/></w:tcPr>'+(paragrafos||par(''))+'</w:tc>'}
+
+function gerarDocx(pg){
+  const L=[700,1150,2850,1500,1250,7686];   // soma = largura útil da folha deitada com margens de 1,5 cm
+  const cab=['Item','Código','Material','Unidade de compra','Quantidade','Descritivo'];
+  const linhaCab='<w:tr><w:trPr><w:tblHeader/><w:cantSplit/></w:trPr>'+cab.map((c,i)=>
+    celula(L[i],par(run(c,{b:true,tam:18,cor:'FFFFFF'}),{centro:i!==5,depois:0}),{fundo:'1F4E5A',meio:true})).join('')+'</w:tr>';
+  const linhas=pg.itens.map((it,i)=>{
+    const paras=(it.descritivo||'').trim().split(/\n+/).map(t=>t.trim()).filter(Boolean)
+      .map(t=>par(run(t,{tam:18}),{just:true,depois:40})).join('')||par('');
+    const fundo=i%2?'F3F6F8':null;
+    return '<w:tr><w:trPr><w:cantSplit/></w:trPr>'+
+      celula(L[0],par(run(String(i+1),{tam:18}),{centro:true,depois:0}),{fundo})+
+      celula(L[1],par(run(it.codigo,{tam:18}),{centro:true,depois:0}),{fundo})+
+      celula(L[2],par(run(it.nome||it.material,{b:true,tam:18}),{depois:0}),{fundo})+
+      celula(L[3],par(run(it.unidade_compra||'',{tam:18}),{centro:true,depois:0}),{fundo})+
+      celula(L[4],par(run(it.quantidade||'',{b:true,tam:18}),{centro:true,depois:0}),{fundo})+
+      celula(L[5],paras,{fundo})+'</w:tr>';
+  }).join('');
+  const borda='<w:top w:val="single" w:sz="4" w:color="BFC6CF"/><w:left w:val="single" w:sz="4" w:color="BFC6CF"/>'+
+    '<w:bottom w:val="single" w:sz="4" w:color="BFC6CF"/><w:right w:val="single" w:sz="4" w:color="BFC6CF"/>'+
+    '<w:insideH w:val="single" w:sz="4" w:color="BFC6CF"/><w:insideV w:val="single" w:sz="4" w:color="BFC6CF"/>';
+  const tabela='<w:tbl><w:tblPr><w:tblW w:w="'+L.reduce((a,b)=>a+b,0)+'" w:type="dxa"/><w:tblLayout w:type="fixed"/>'+
+    '<w:tblBorders>'+borda+'</w:tblBorders><w:tblCellMar><w:top w:w="60" w:type="dxa"/><w:left w:w="90" w:type="dxa"/>'+
+    '<w:bottom w:w="60" w:type="dxa"/><w:right w:w="90" w:type="dxa"/></w:tblCellMar></w:tblPr>'+
+    '<w:tblGrid>'+L.map(w=>'<w:gridCol w:w="'+w+'"/>').join('')+'</w:tblGrid>'+linhaCab+linhas+'</w:tbl>';
+  const hoje=dataCurta(new Date());
+  const corpo=
+    par(run('ASSESSORIA DE RECURSOS DE MATERIAIS',{b:true,tam:24}),{centro:true,depois:40})+
+    par(run('ANEXO I — TERMO DE REFERÊNCIA',{b:true,tam:28}),{centro:true,depois:40})+
+    par(run('Pregão Eletrônico ',{tam:22})+run(pg.numero,{b:true,tam:22}),{centro:true,depois:pg.objeto?40:200})+
+    (pg.objeto?par(run('Objeto: ',{b:true,tam:20})+run(pg.objeto,{tam:20}),{centro:true,depois:200}):'')+
+    par(run('Relação dos itens',{b:true,tam:22}),{depois:100})+
+    tabela+
+    par(run('Total: '+plural(pg.itens.length,'item','itens')+'.',{tam:18}),{antes:160,depois:40})+
+    par(run('Documento gerado em '+hoje+(autor()?' por '+autor():'')+' a partir do catálogo do GT Padronização.',{tam:16,cor:'6B7280'}),{depois:0});
+  const documento='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'+
+    '<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" '+
+    'xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><w:body>'+corpo+
+    '<w:sectPr><w:pgSz w:w="16838" w:h="11906" w:orient="landscape"/>'+
+    '<w:pgMar w:top="851" w:right="851" w:bottom="851" w:left="851" w:header="567" w:footer="567" w:gutter="0"/></w:sectPr>'+
+    '</w:body></w:document>';
+  const estilos='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'+
+    '<w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:docDefaults><w:rPrDefault><w:rPr>'+
+    '<w:rFonts w:ascii="Calibri" w:hAnsi="Calibri" w:eastAsia="Calibri" w:cs="Calibri"/><w:sz w:val="20"/><w:szCs w:val="20"/>'+
+    '<w:lang w:val="pt-BR"/></w:rPr></w:rPrDefault><w:pPrDefault><w:pPr><w:spacing w:after="60" w:line="259" w:lineRule="auto"/>'+
+    '</w:pPr></w:pPrDefault></w:docDefaults><w:style w:type="paragraph" w:default="1" w:styleId="Normal"><w:name w:val="Normal"/></w:style></w:styles>';
+  const arquivos=[
+    ['[Content_Types].xml','<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'+
+      '<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">'+
+      '<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>'+
+      '<Default Extension="xml" ContentType="application/xml"/>'+
+      '<Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/>'+
+      '<Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/>'+
+      '<Override PartName="/docProps/core.xml" ContentType="application/vnd.openxmlformats-package.core-properties+xml"/></Types>'],
+    ['_rels/.rels','<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'+
+      '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'+
+      '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/>'+
+      '<Relationship Id="rId2" Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="docProps/core.xml"/></Relationships>'],
+    ['docProps/core.xml','<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'+
+      '<cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" '+
+      'xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" '+
+      'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><dc:title>'+xml('Termo de referência — '+pg.numero)+'</dc:title>'+
+      '<dc:creator>'+xml(autor()||'GT Padronização')+'</dc:creator>'+
+      '<dcterms:created xsi:type="dcterms:W3CDTF">'+new Date().toISOString().replace(/\.\d+Z$/,'Z')+'</dcterms:created></cp:coreProperties>'],
+    ['word/_rels/document.xml.rels','<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'+
+      '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'+
+      '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>'],
+    ['word/document.xml',documento],
+    ['word/styles.xml',estilos]];
+  return new Blob([zip(arquivos)],{type:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
+}
+
+/* Zip sem compressão (método 0). */
+const TABELA_CRC=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
+function crc32(b){let c=0xFFFFFFFF;for(let i=0;i<b.length;i++)c=TABELA_CRC[(c^b[i])&0xFF]^(c>>>8);return (c^0xFFFFFFFF)>>>0}
+function zip(arquivos){
+  const enc=new TextEncoder(),partes=[],central=[];let pos=0;
+  const d=new Date(),hora=(d.getHours()<<11)|(d.getMinutes()<<5)|(d.getSeconds()>>1),
+        dia=((d.getFullYear()-1980)<<9)|((d.getMonth()+1)<<5)|d.getDate();
+  arquivos.forEach(([nome,texto])=>{
+    const n=enc.encode(nome),dados=enc.encode(texto),crc=crc32(dados);
+    const h=new DataView(new ArrayBuffer(30));
+    h.setUint32(0,0x04034b50,true);h.setUint16(4,20,true);h.setUint16(6,0x0800,true);h.setUint16(8,0,true);
+    h.setUint16(10,hora,true);h.setUint16(12,dia,true);h.setUint32(14,crc,true);
+    h.setUint32(18,dados.length,true);h.setUint32(22,dados.length,true);h.setUint16(26,n.length,true);h.setUint16(28,0,true);
+    partes.push(new Uint8Array(h.buffer),n,dados);
+    const c=new DataView(new ArrayBuffer(46));
+    c.setUint32(0,0x02014b50,true);c.setUint16(4,20,true);c.setUint16(6,20,true);c.setUint16(8,0x0800,true);c.setUint16(10,0,true);
+    c.setUint16(12,hora,true);c.setUint16(14,dia,true);c.setUint32(16,crc,true);c.setUint32(20,dados.length,true);
+    c.setUint32(24,dados.length,true);c.setUint16(28,n.length,true);c.setUint32(42,pos,true);
+    central.push(new Uint8Array(c.buffer),n);
+    pos+=30+n.length+dados.length;
+  });
+  const tamCentral=central.reduce((a,b)=>a+b.length,0);
+  const fim=new DataView(new ArrayBuffer(22));
+  fim.setUint32(0,0x06054b50,true);fim.setUint16(8,arquivos.length,true);fim.setUint16(10,arquivos.length,true);
+  fim.setUint32(12,tamCentral,true);fim.setUint32(16,pos,true);
+  return new Blob(partes.concat(central,[new Uint8Array(fim.buffer)]));
+}
+</script>
+</body>
+</html>
