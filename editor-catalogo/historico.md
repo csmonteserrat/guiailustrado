@@ -4,13 +4,26 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 108  
-Última atualização: 28/10/2026, 22:25  
+Total de sessões registradas: 109  
+Última atualização: 28/10/2026, 22:31  
 Este arquivo guarda a partir da sessão 101. As anteriores estão no arquivo fechado `historico-001.md`, com até 100 sessões cada.
 
 <!-- volumes:{"anteriores":100,"arquivos":["historico-001.md"],"ate":"2026-10-15T13:18:34.568Z"} -->
 
 ---
+
+## 28/10/2026, 22:31 — Naiara Cristine
+
+Sessão 109 · 1 alteração(ões) · 844 itens no arquivo após a edição
+
+**Resumo:** 1 descritivo
+
+- **[DESCRITIVO]** `4150551` FORCEPS INFANTIL Nº 18 R
+    - Descritivo: "SIM
+
+Fórceps odontológico infantil número dezoito R indicado para procedimentos cirúrgicos de odontopediatria, especificamente para a exodontia de molares superiores decíduos no lado direito da maxila. Composto por aço inoxidável de uso cirúrgico. Apresenta características específicas que compreendem design com pontas ativas anatômicas adaptadas ao tamanho da boca infantil e à anatomia dos molares superiores direitos, consistindo em um produto totalmente autoclavável que suporta esterilização em autoclave. Comercializado em apresentação de embalagem individual com uma unidade. A embalagem deve conter dados de identificação, lote, procedência, rastreabilidade, responsável técnico, garantia, certificações de qualidade conforme padrões internacionais e normas da ABNT, além do registro na ANVISA." → "Fórceps odontológico infantil número dezoito R indicado para procedimentos cirúrgicos de odontopediatria, especificamente para a exodontia de molares superiores decíduos no lado direito da maxila. Composto por aço inoxidável de uso cirúrgico. Apresenta características específicas que compreendem design com pontas ativas anatômicas adaptadas ao tamanho da boca infantil e à anatomia dos molares superiores direitos, consistindo em um produto totalmente autoclavável que suporta esterilização em autoclave. Comercializado em apresentação de embalagem individual com uma unidade. A embalagem deve conter dados de identificação, lote, procedência, rastreabilidade, responsável técnico, garantia, certificações de qualidade conforme padrões internacionais e normas da ABNT, além do registro na ANVISA."
+
+<!-- sessao:{"data":"2026-10-29T01:31:53.238Z","autor":"Naiara Cristine","origem":"","total":844,"alteracoes":[{"tipo":"descritivo","codigo":"4150551","material":"FORCEPS INFANTIL Nº 18 R","campos":[{"campo":"descritivo","de":"SIM\n\nFórceps odontológico infantil número dezoito R indicado para procedimentos cirúrgicos de odontopediatria, especificamente para a exodontia de molares superiores decíduos no lado direito da maxila. Composto por aço inoxidável de uso cirúrgico. Apresenta características específicas que compreendem design com pontas ativas anatômicas adaptadas ao tamanho da boca infantil e à anatomia dos molares superiores direitos, consistindo em um produto totalmente autoclavável que suporta esterilização em autoclave. Comercializado em apresentação de embalagem individual com uma unidade. A embalagem deve conter dados de identificação, lote, procedência, rastreabilidade, responsável técnico, garantia, certificações de qualidade conforme padrões internacionais e normas da ABNT, além do registro na ANVISA.","para":"Fórceps odontológico infantil número dezoito R indicado para procedimentos cirúrgicos de odontopediatria, especificamente para a exodontia de molares superiores decíduos no lado direito da maxila. Composto por aço inoxidável de uso cirúrgico. Apresenta características específicas que compreendem design com pontas ativas anatômicas adaptadas ao tamanho da boca infantil e à anatomia dos molares superiores direitos, consistindo em um produto totalmente autoclavável que suporta esterilização em autoclave. Comercializado em apresentação de embalagem individual com uma unidade. A embalagem deve conter dados de identificação, lote, procedência, rastreabilidade, responsável técnico, garantia, certificações de qualidade conforme padrões internacionais e normas da ABNT, além do registro na ANVISA."}]}]} -->
 
 ## 28/10/2026, 22:25 — Naiara Cristine
 
