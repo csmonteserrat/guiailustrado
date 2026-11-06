@@ -8,7 +8,7 @@ Esta pasta guarda a página de análise do consumo dos materiais e os arquivos q
 | `saidas.csv` | Saídas da BRANET por código e por mês, somadas para o município. |
 | `importacoes.csv` | Registro de cada relatório importado: período, recorte, meses gravados e ignorados. |
 | `unioes.csv` | Códigos da BRANET ligados a um material do catálogo por esta página, com o fator de conversão. |
-| `marcacoes.csv` | Meses marcados à mão, por material: falta no almoxarifado ou saída atípica. |
+| `marcacoes.csv` | Meses marcados à mão (falta de estoque, saída atípica maior ou menor) e observações escritas, por material. |
 | `lib/xlsx.full.min.js` | Biblioteca SheetJS 0.18.5, que lê os relatórios .xls no navegador. Licença Apache 2.0, em `lib/xlsx.LICENSE.txt`. |
 | `LEIA-ME.md` | Este arquivo. |
 
@@ -37,10 +37,11 @@ Os pedidos do CELK não entram por enquanto.
 * `decisao` é `unir` ou `fora_do_catalogo`.
 * `fator` divide a quantidade da BRANET para chegar à unidade do catálogo. O sacolé sai da BRANET por unidade e o catálogo conta em pacote com 100: fator 100.
 
-`marcacoes.csv`: `codigo_catalogo`, `mes`, `tipo`, `motivo`, `marcado_em`, `marcado_por`.
+`marcacoes.csv`: `codigo_catalogo`, `mes`, `tipo`, `observacao`, `marcado_em`, `marcado_por`.
 
-* `tipo` é `falta` (falta no almoxarifado, com o mês zerado ou com saída menor por racionamento) ou `atipico` (saída fora do normal: pedido administrativo, remanejamento por validade, campanha).
-* `motivo` é opcional.
+* `tipo` é `falta` (mês sem saída por falta de estoque), `atipico_maior` (saída acima do normal: pedido administrativo, remanejamento por validade, campanha), `atipico_menor` (saída abaixo do normal: racionamento, falta parcial) ou vazio.
+* `observacao` é opcional. Linha com tipo vazio é só uma observação sobre o mês; linha com `mes` vazio é uma observação geral do material.
+* Na página: clicar num mês sem saída marca ou desmarca falta, sem perguntar; clicar num mês com saída abre a escolha entre atípica maior e menor. As observações aparecem nas **Notas** do material, recolhidas, com data e autor. Marca sem observação não vira nota.
 
 ## Como a página liga os códigos
 

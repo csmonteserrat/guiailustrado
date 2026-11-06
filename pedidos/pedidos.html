@@ -79,7 +79,40 @@ svg.spark{display:block}
 .tabMat tr.aberta td{background:var(--acento-suave)}
 .tabMat td:first-child{padding-left:8px}
 .detalhe td{background:var(--neutro);padding:14px 16px}
-.editor-mes{margin-top:10px;background:var(--superficie);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:8px;font-size:13px;cursor:default}
+.grafm{position:relative}
+.menu-mes{position:absolute;top:44px;z-index:6;width:260px;background:var(--superficie);border-radius:14px;box-shadow:var(--sombra-alta);border:1px solid var(--borda);padding:10px;display:flex;flex-direction:column;gap:6px;cursor:default}
+.menu-mes .tit{font-size:12px;color:var(--secundario);padding:0 4px 2px}
+.menu-mes .tit b{color:var(--texto)}
+.menu-mes button{text-align:left;border-radius:10px;padding:8px 10px;display:flex;gap:8px;align-items:center;font-size:13px;white-space:normal}
+.menu-mes button:hover{background:var(--acento-suave)}
+.menu-mes button.on{box-shadow:0 0 0 2px var(--acento)}
+.menu-mes input{width:100%}
+.icm{width:18px;height:18px;border-radius:50%;display:inline-grid;place-items:center;color:#fff;font-size:11px;font-weight:800;flex:none}
+.icm.f,.icm.me{background:var(--sawtooth)}.icm.ma{background:var(--corallite)}.icm.g{background:var(--terciario)}
+.icm svg{width:10px;height:10px;fill:none;stroke:#fff;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.recado{margin-top:8px;font-size:12.5px;color:var(--secundario)}
+.link{background:none;padding:0;color:var(--acento-texto);font-weight:600;font-size:12.5px}
+details.notas{margin-top:12px;background:var(--superficie);border-radius:12px}
+details.notas summary{cursor:pointer;list-style:none;padding:9px 12px;display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600}
+details.notas summary::-webkit-details-marker{display:none}
+details.notas summary::before{content:"";width:7px;height:7px;border-right:2px solid var(--terciario);border-bottom:2px solid var(--terciario);transform:rotate(-45deg);transition:transform .15s;margin-right:2px}
+details.notas[open] summary::before{transform:rotate(45deg)}
+.badge{font-size:11px;font-weight:700;border-radius:999px;padding:1px 8px;background:var(--neutro);color:var(--secundario)}
+.badge.pend{background:var(--sawtooth-suave);color:var(--sawtooth)}
+details.notas .corpo{padding:0 10px 10px;display:flex;flex-direction:column;gap:6px}
+.nota{display:flex;gap:10px;align-items:flex-start;background:var(--neutro);border-radius:10px;padding:8px 10px;font-size:13px}
+.nota .tx{flex:1;min-width:0}
+.nota .tx .cab{font-size:12px;color:var(--secundario)}
+.nota .tx .cab b{color:var(--texto)}
+.nota .tx p{margin:2px 0 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.nota .tx small{display:block;color:var(--terciario);font-size:11.5px;margin-top:2px}
+.nota.pend{box-shadow:inset 0 0 0 1.5px var(--sawtooth);background:var(--sawtooth-suave)}
+.nota .acoes{display:flex;flex-direction:column;gap:2px}
+.nota .acoes button{font-size:12px;background:none;color:var(--secundario);padding:2px 6px;border-radius:8px;text-align:right}
+.nota .acoes button:hover{background:var(--superficie);color:var(--texto)}
+.form-nota{display:flex;flex-direction:column;gap:6px;background:var(--neutro);border-radius:10px;padding:10px}
+.form-nota textarea{width:100%;min-height:64px;resize:vertical;background:var(--superficie)}
+.form-nota select{width:100%;background:var(--superficie)}
 .det{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:18px}
 @media(max-width:900px){.det{grid-template-columns:1fr}}
 .det dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:12.5px;align-content:start}
@@ -352,7 +385,7 @@ pre.csv{margin:0;font-family:var(--fonte-mono);font-size:12px;background:var(--n
   <div class="pendente oculto" id="pendFaltas"><span id="pendTexto"></span><span class="barra"><button class="mini principal" id="btGravarFaltas">Gravar</button><button class="mini" id="btDescartarFaltas">Descartar</button></span></div>
 
 </div>
-<div id="versaoPagina">pedidos · versão 2026-11-06c</div>
+<div id="versaoPagina">pedidos · versão 2026-11-06d</div>
 </div>
 </div>
 
@@ -370,7 +403,7 @@ const ARQ={saidas:'pedidos/saidas.csv',unioes:'pedidos/unioes.csv',marcacoes:'pe
 const CAB={
   saidas:'codigo_branet,nome_branet,mes,quantidade',
   unioes:'codigo_branet,nome_branet,codigo_catalogo,fator,decisao,decidido_em,decidido_por',
-  marcacoes:'codigo_catalogo,mes,tipo,motivo,marcado_em,marcado_por',
+  marcacoes:'codigo_catalogo,mes,tipo,observacao,marcado_em,marcado_por',
   importacoes:'arquivo,data_inicio,data_fim,grupo,classificacao,itens,meses_gravados,meses_ignorados,emitido_em,importado_por'
 };
 
@@ -446,7 +479,7 @@ function podeGravar(){
 /* =====================================================================
    DADOS
    ===================================================================== */
-let PROD={},DESC={},ATIVOS=[],BN={},SAIDAS=[],UNIOES=[],MARCAS=[],IMPORTS=[],PREG_INDICE=[];
+let PROD={},DESC={},ATIVOS=[],BN={},SAIDAS=[],UNIOES=[],MARCAS=[],REGM={},NOTASG={},IMPORTS=[],PREG_INDICE=[];
 let MES=[],N=0,J12=[],M=[],POR_COD={},SOLTOS=[],NOMEB={},SB={},MAPA={};
 
 async function carregar(){
@@ -495,19 +528,20 @@ function construir(){
   });
   SOLTOS=Object.keys(SB).filter(b=>!MAPA[b]&&!ignorados.has(b)&&SB[b].some(v=>v>0));
 
-  /* marcas gravadas, com as alterações ainda não gravadas por cima */
-  const marcas={};
-  MARCAS.forEach(x=>{if(x.tipo==='falta'||x.tipo==='atipico')(marcas[x.codigo_catalogo]=marcas[x.codigo_catalogo]||{})[x.mes]={tipo:x.tipo,motivo:x.motivo||''}});
-  Object.keys(mPend).forEach(k=>{const [c,m]=k.split('|');const o=(marcas[c]=marcas[c]||{});if(mPend[k].tipo)o[m]=mPend[k];else delete o[m]});
+  /* marcas e observações gravadas (marcacoes.csv); as alterações ainda
+     não gravadas entram por cima, em regEf() */
+  REGM={};NOTASG={};
+  MARCAS.forEach((x,idx)=>{const c=x.codigo_catalogo;if(!c)return;
+    const r={tipo:x.tipo||'',obs:x.observacao||'',em:x.marcado_em||'',por:x.marcado_por||''};
+    if(x.mes)(REGM[c]=REGM[c]||{})[x.mes]=r;else (NOTASG[c]=NOTASG[c]||{})['r'+idx]=r});
 
   POR_COD={};
   M=ATIVOS.map(p=>{
     const codigos=Object.keys(MAPA).filter(b=>MAPA[b].c===p.codigo);
     const q=new Array(N).fill(0),porB={};
     codigos.forEach(b=>{const s=SB[b];if(!s)return;const f=MAPA[b].f||1;porB[b]=s.map(v=>v/f);porB[b].forEach((v,i)=>q[i]+=v)});
-    const mk=marcas[p.codigo]||{};
     const m={c:p.codigo,m:p.material,u:unidadeCurta(p.unidade),fam:(p.familia||'').split(';')[0].trim()||'Sem família',
-      t:p.tipo||'',a:p.acesso||'',codigos,porB,q,marca:MES.map(x=>(mk[x]||{}).tipo||''),motivo:MES.map(x=>(mk[x]||{}).motivo||''),temCodigo:codigos.length>0||!!(BN[p.codigo]&&BN[p.codigo].branet_codigo)};
+      t:p.tipo||'',a:p.acesso||'',codigos,porB,q,marca:MES.map(x=>(regEf(p.codigo,x)||{}).tipo||''),obs:MES.map(x=>(regEf(p.codigo,x)||{}).obs||''),temCodigo:codigos.length>0||!!(BN[p.codigo]&&BN[p.codigo].branet_codigo)};
     POR_COD[m.c]=m;return m;
   });
   M.forEach(indicadores);
@@ -532,8 +566,9 @@ function indicadores(m){
   m.cmmBruto=J12.length?m.q12/J12.length:0;
   m.mesesCom=J12.filter(i=>m.q[i]>0).length;
   m.nFalta=J12.filter(i=>m.marca[i]==='falta').length;
-  m.nAtip=J12.filter(i=>m.marca[i]==='atipico').length;
-  m.mesesFalta=m.nFalta+m.nAtip;
+  m.nMaior=J12.filter(i=>m.marca[i]==='atipico_maior').length;
+  m.nMenor=J12.filter(i=>m.marca[i]==='atipico_menor').length;
+  m.mesesFalta=J12.filter(i=>m.marca[i]).length;
   let u=-1;for(let i=N-1;i>=0;i--)if(m.q[i]>0){u=i;break}
   m.desde=u>=0?N-u:Infinity;m.ultRot=u>=0?rotMes(MES[u]):'—';
   const r3=soma(m.q,N-3,N),p3=soma(m.q,N-6,N-3);
@@ -566,9 +601,10 @@ function indicadores(m){
     m.mediana=med;
     if(med>0){
       for(const i of J12){if(!ok(i)||!(m.q[i]>0))continue;
-        const aposFalta=m.marca[i-1]==='falta'||m.marca[i-2]==='falta';
+        const faltou=k=>m.marca[k]==='falta'||m.marca[k]==='atipico_menor';
+        const aposFalta=faltou(i-1)||faltou(i-2);
         if(m.q[i]>(aposFalta?1.5:3)*med)m.susPico[i]=true}
-      for(let i=0;i<N;i++){if(m.marca[i]!=='atipico')continue;
+      for(let i=0;i<N;i++){if(m.marca[i]!=='atipico_maior')continue;
         for(let k=i+1;k<=i+3&&k<N;k++){if(!ok(k))continue;if(m.q[k]<.5*med){if(noJ12.has(k))m.susEfeito[k]=true}else break}}
     }
   }
@@ -648,27 +684,35 @@ function barras(camadas,opt){
   }
   return s+'</svg>';
 }
-/* Gráfico do detalhe do material. Clicar num mês seleciona o mês, e
-   abaixo do gráfico aparecem as opções de marca:
-   - mês sem saída: coluna transparente pontilhada (azul; laranja
-     quando a página suspeita de falta; roxa quando suspeita de efeito
-     de uma saída atípica);
-   - falta no almoxarifado: barra laranja com "!" (barrinha, se o mês
-     não teve saída; a própria barra, se saiu menos por racionamento);
-   - saída atípica: barra roxa com seta para cima;
-   - possível pico ou efeito: contorno roxo pontilhado em volta da barra. */
+/* Gráfico do detalhe do material.
+   - mês sem saída: coluna transparente pontilhada. Um clique marca falta
+     de estoque (barrinha laranja com "!"), outro desmarca. Não pergunta.
+   - mês com saída: o clique abre um menu pequeno com saída atípica maior
+     (barra roxa, seta para cima) ou menor (barra laranja, seta para
+     baixo) e uma observação opcional.
+   - sugestões da página: contorno pontilhado laranja (possível falta)
+     ou roxo (possível pico ou efeito).
+   - pontinho cinza embaixo do mês: há observação escrita. */
+const NOME_MARCA={falta:'Falta de estoque',atipico_maior:'Saída atípica maior',atipico_menor:'Saída atípica menor'};
+const ICONE={
+  falta:'<span class="icm f">!</span>',
+  atipico_maior:'<span class="icm ma"><svg viewBox="0 0 10 10"><path d="M5 8.5V1.5M2 4.5l3-3 3 3"/></svg></span>',
+  atipico_menor:'<span class="icm me"><svg viewBox="0 0 10 10"><path d="M5 1.5v7M2 5.5l3 3 3-3"/></svg></span>',
+  nota:'<span class="icm g">✎</span>'};
+function setaSvg(cx,cy,up){const u=up?1:-1;
+  return '<path d="M'+cx.toFixed(1)+' '+(cy+4.5*u).toFixed(1)+'v'+(-9*u)+'M'+(cx-3.5).toFixed(1)+' '+(cy-1*u).toFixed(1)+'l3.5 '+(-3.5*u)+' 3.5 '+(3.5*u)+'" style="fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;pointer-events:none"/>'}
 function barrasMaterial(m){
   const n=MES.length,W=760,H=210,L=44,R=8,T=18,B=26,cores=['var(--acento)','var(--corn)','var(--curacao)','var(--ok)'];
   const cods=m.codigos.filter(b=>m.porB[b]);const camadas=cods.length?cods.map(b=>m.porB[b]):[m.q];
   const es=escala4(Math.max(...m.q,0)),top=es.topo,ph=H-T-B,pw=(W-L-R)/n,bw=Math.max(4,pw*.64);
-  const sel=selMes&&selMes.c===m.c?selMes.i:-1;
+  const sel=uMenu&&uMenu.c===m.c?uMenu.i:-1;
   let s='<svg class="grafico clicavel" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Saída por mês de '+esc(m.m)+'">'+eixo(W,H,L,R,T,B,es);
   for(let i=0;i<n;i++){
     const x=L+i*pw+(pw-bw)/2,cx=x+bw/2,mk=m.marca[i],zero=!(m.q[i]>0),rot=rotMes(MES[i]);
-    const corMk=mk==='falta'?'var(--sawtooth)':'var(--corallite)';
+    const corMk=mk==='atipico_maior'?'var(--corallite)':'var(--sawtooth)';
     if(i===sel)s+='<rect x="'+(L+i*pw).toFixed(1)+'" y="'+T+'" width="'+pw.toFixed(1)+'" height="'+ph+'" rx="3" style="fill:var(--acento-suave);pointer-events:none"/>';
     s+='<rect class="alvo" data-i="'+i+'" x="'+(L+i*pw).toFixed(1)+'" y="'+T+'" width="'+pw.toFixed(1)+'" height="'+ph+'" fill="transparent"><title>'+rot+': '+fmt(m.q[i],1)+' '+esc(m.u)+
-      (mk?' · '+(mk==='falta'?'falta marcada':'saída atípica marcada'):'')+'. Clique para escolher a marca.</title></rect>';
+      (mk?' · '+NOME_MARCA[mk]:'')+(zero?' · clique para '+(mk?'desmarcar':'marcar falta de estoque'):' · clique para escolher')+'</title></rect>';
     if(zero&&!mk){const tipo=m.susFalta[i]?'sawtooth':m.susEfeito[i]?'corallite':'corn';
       s+='<rect x="'+(x+.75).toFixed(1)+'" y="'+(T+.75)+'" width="'+(bw-1.5).toFixed(1)+'" height="'+(ph-1.5)+'" rx="3" style="fill:var(--'+tipo+'-suave);fill-opacity:.55;stroke:var(--'+tipo+');stroke-width:1.2;stroke-dasharray:3 3;pointer-events:none"/>';
     }
@@ -681,38 +725,79 @@ function barrasMaterial(m){
       if(zero){topoBarra=H-B-14;s+='<rect x="'+x.toFixed(1)+'" y="'+topoBarra+'" width="'+bw.toFixed(1)+'" height="14" rx="3" style="fill:'+corMk+';pointer-events:none"/>'}
       const cy=Math.max(T-2,topoBarra-11);
       s+='<circle cx="'+cx.toFixed(1)+'" cy="'+cy.toFixed(1)+'" r="8" style="fill:'+corMk+';stroke:var(--superficie);stroke-width:2;pointer-events:none"/>'+
-        (mk==='falta'?'<text x="'+cx.toFixed(1)+'" y="'+(cy+4).toFixed(1)+'" text-anchor="middle" style="fill:#fff;font-size:11px;font-weight:800;pointer-events:none">!</text>'
-                     :'<path d="M'+cx.toFixed(1)+' '+(cy-4.5).toFixed(1)+'v9M'+(cx-3.5).toFixed(1)+' '+(cy-1).toFixed(1)+'l3.5-3.5 3.5 3.5" style="fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;pointer-events:none"/>');
+        (mk==='falta'?'<text x="'+cx.toFixed(1)+'" y="'+(cy+4).toFixed(1)+'" text-anchor="middle" style="fill:#fff;font-size:11px;font-weight:800;pointer-events:none">!</text>':setaSvg(cx,cy,mk==='atipico_maior'));
     }
+    if(m.obs[i])s+='<circle cx="'+(cx+7).toFixed(1)+'" cy="'+(H-B+6)+'" r="2.6" style="fill:var(--secundario);pointer-events:none"><title>tem observação</title></circle>';
     if(i%3===0)s+='<text x="'+cx.toFixed(1)+'" y="'+(H-8)+'" text-anchor="middle">'+rot+'</text>';
   }
-  return s+'</svg>';
+  s+='</svg>';
+  if(sel>=0){
+    const mk=m.marca[sel],pos=((L+sel*pw+pw/2)/W*100).toFixed(2);
+    const bt=(t,txt)=>'<button data-t="'+t+'"'+(mk===t?' class="on"':'')+'>'+(ICONE[t]||'')+txt+'</button>';
+    s+='<div class="menu-mes" style="left:clamp(0px,calc('+pos+'% - 130px),calc(100% - 260px))"><div class="tit"><b>'+rotMes(MES[sel])+'</b> · saída de '+fmt(m.q[sel],1)+' '+esc(m.u)+'</div>'+
+      bt('atipico_maior','Saída atípica maior')+bt('atipico_menor','Saída atípica menor')+(mk?'<button data-t="">Tirar a marca</button>':'')+
+      '<input id="mObs" placeholder="Observação (opcional)" value="'+esc(m.obs[sel]||'')+'" aria-label="Observação"></div>';
+  }
+  return s;
 }
 function legendaMaterial(m){
   const amostra=(estilo,txt)=>'<span><svg width="14" height="14" aria-hidden="true" style="vertical-align:-2px;margin-right:6px">'+estilo+'</svg>'+txt+'</span>';
   const tracejado=c=>'<rect x="1" y="1" width="12" height="12" rx="2" style="fill:var(--'+c+'-suave);stroke:var(--'+c+');stroke-dasharray:2 2"/>';
+  const seta=(c,up)=>'<circle cx="7" cy="7" r="6" style="fill:var(--'+c+')"/><path d="'+(up?'M7 10.2V3.8M4.6 6.2L7 3.8l2.4 2.4':'M7 3.8v6.4M4.6 7.8L7 10.2l2.4-2.4')+'" style="fill:none;stroke:#fff;stroke-width:1.4;stroke-linecap:round"/>';
   return '<div class="leg" style="margin-top:6px">'+
-    amostra(tracejado('corn'),'mês sem saída')+
+    amostra(tracejado('corn'),'mês sem saída: clique para marcar falta')+
     (m.temSusFalta?amostra(tracejado('sawtooth'),'possível falta'):'')+
     (m.temSusPico?amostra('<rect x="1" y="1" width="12" height="12" rx="2" style="fill:none;stroke:var(--corallite);stroke-width:1.5;stroke-dasharray:2 2"/>','possível pico ou efeito'):'')+
-    amostra('<circle cx="7" cy="7" r="6" style="fill:var(--sawtooth)"/><text x="7" y="10.5" text-anchor="middle" style="fill:#fff;font-size:9px;font-weight:800">!</text>','falta no almoxarifado')+
-    amostra('<circle cx="7" cy="7" r="6" style="fill:var(--corallite)"/><path d="M7 3.8v6.4M4.6 6.2L7 3.8l2.4 2.4" style="fill:none;stroke:#fff;stroke-width:1.4;stroke-linecap:round"/>','saída atípica')+
+    amostra('<circle cx="7" cy="7" r="6" style="fill:var(--sawtooth)"/><text x="7" y="10.5" text-anchor="middle" style="fill:#fff;font-size:9px;font-weight:800">!</text>','falta de estoque')+
+    amostra(seta('corallite',true),'saída atípica maior')+amostra(seta('sawtooth',false),'saída atípica menor')+
+    amostra('<circle cx="7" cy="7" r="2.6" style="fill:var(--secundario)"/>','mês com observação')+
     '</div>';
 }
-/* Painel abaixo do gráfico, para o mês selecionado */
-function editorMes(m){
-  if(!selMes||selMes.c!==m.c)return '<p class="ajuda">Clique num mês do gráfico para marcar <b>falta no almoxarifado</b> (mês sem saída, ou que saiu menos por racionamento) ou <b>saída atípica</b> (pedido administrativo, remanejamento por validade, campanha). O mês marcado sai do CMM e da classe.'+
-    (m.temPossivel?' Os contornos pontilhados em laranja e roxo são sugestões da página.':'')+'</p>';
-  const i=selMes.i,mk=m.marca[i],rot=rotMes(MES[i]);
-  const dica=m.susFalta[i]?'A página sugere falta: material regular com meses seguidos sem saída.':
-    m.susPico[i]?'A página sugere pico: saída acima do normal'+(m.mediana?' (mediana de '+fmt(m.mediana,1)+' '+esc(m.u)+')':'')+'.':
-    m.susEfeito[i]?'A página sugere efeito de uma saída atípica anterior: saída abaixo da metade do normal.':'';
-  const bt=(tipo,txt)=>'<button class="mini'+(mk===tipo?' principal':'')+'" data-marca="'+tipo+'">'+txt+'</button>';
-  return '<div class="editor-mes"><div><b>'+rot+'</b> · saída de '+fmt(m.q[i],1)+' '+esc(m.u)+' · '+(mk==='falta'?'marcado como falta':mk==='atipico'?'marcado como saída atípica':'sem marca')+
-    (dica?'<div class="sub">'+dica+'</div>':'')+'</div>'+
-    '<div class="barra">'+bt('falta','Falta no almoxarifado')+bt('atipico','Saída atípica')+bt('','Normal')+
-    '<input type="text" id="mMotivo" placeholder="Motivo (opcional)" value="'+esc(m.motivo[i]||'')+'" aria-label="Motivo da marca" style="min-width:0;flex:1 1 200px"></div></div>';
+/* Linha embaixo do gráfico depois de marcar ou desmarcar um mês sem saída */
+function recadoMes(m){
+  if(!ultimoMes||ultimoMes.c!==m.c)return '';
+  const i=ultimoMes.i,mk=m.marca[i];
+  return '<div class="recado">'+rotMes(MES[i])+(mk?' marcado como falta de estoque.':' desmarcado.')+
+    (mk?' <button class="link" data-obsmes="'+MES[i]+'">'+(m.obs[i]?'Editar observação':'Escrever observação')+'</button>':'')+'</div>';
 }
+/* Notas: só observações escritas, de um mês ou gerais do material.
+   Ficam recolhidas; o número mostra quantas há. */
+function notasMaterial(m){
+  const c=m.c,pref=c+'|';
+  const chaves=new Set();
+  MES.forEach(x=>{if(regSalvo(c,x)||mPend.hasOwnProperty(pref+x))chaves.add(x)});
+  Object.keys(NOTASG[c]||{}).forEach(u=>chaves.add('g'+u));
+  Object.keys(mPend).forEach(pk=>{if(pk.startsWith(pref+'g'))chaves.add(pk.slice(pref.length))});
+  const lista=[...chaves].map(k=>{const r=regEf(c,k),sv=regSalvo(c,k),obs=r&&r.obs||'',obsS=sv&&sv.obs||'';
+      const p=obs!==obsS;if(!obs&&!obsS)return null;return {k,r,sv,p,obs}}).filter(Boolean)
+    .sort((a,b)=>{const ga=a.k[0]==='g',gb=b.k[0]==='g';if(ga!==gb)return ga?-1:1;return b.k.localeCompare(a.k)});
+  const nTot=lista.filter(x=>x.obs).length,nPend=lista.filter(x=>x.p).length;
+  const ed=notaEd&&notaEd.c===c?notaEd.k:null;
+  const rotK=k=>k[0]==='g'?'Geral':rotMesLongo(k);
+  let h=lista.map(x=>{
+    if(ed===x.k)return formNota(m,x.k);
+    if(!x.obs)return '<div class="nota pend">'+ICONE.nota+'<div class="tx"><div class="cab"><b>'+rotK(x.k)+'</b> · observação removida</div><small>não salvo</small></div><div class="acoes"><button data-desf="'+x.k+'">desfazer</button></div></div>';
+    const t=x.r&&x.r.tipo;
+    return '<div class="nota'+(x.p?' pend':'')+'">'+(t?ICONE[t]:ICONE.nota)+'<div class="tx"><div class="cab"><b>'+rotK(x.k)+'</b>'+(t?' · '+NOME_MARCA[t]:'')+'</div><p>'+esc(x.obs)+'</p>'+
+      '<small>'+(x.p?'não salvo':'salvo em '+dataBr(x.sv.em)+(x.sv.por?' por '+esc(x.sv.por):''))+'</small></div>'+
+      '<div class="acoes"><button data-ed="'+x.k+'">editar</button><button data-rem="'+x.k+'">remover</button></div></div>'}).join('');
+  if(ed==='novo'||(ed&&!lista.some(x=>x.k===ed)))h=formNota(m,ed)+h;
+  else if(!ed)h='<button class="mini" data-novo="1" style="align-self:flex-start">+ Escrever observação</button>'+h;
+  if(!lista.length&&!ed)h+='<div class="sub">Nenhuma observação. As faltas marcadas no gráfico não entram aqui, só o que for escrito.</div>';
+  return '<details class="notas"'+(notasAbertas.has(c)||ed?' open':'')+'><summary>Notas <span class="badge">'+nTot+'</span>'+(nPend?'<span class="badge pend">'+nPend+' não salva'+(nPend>1?'s':'')+'</span>':'')+'</summary><div class="corpo">'+h+'</div></details>';
+}
+function formNota(m,k){
+  let opts='';
+  if(k==='novo'){opts='<option value="geral">Geral do material</option>';for(let i=N-1;i>=0;i--)opts+='<option value="'+MES[i]+'">'+rotMes(MES[i])+(m.marca[i]?' · '+NOME_MARCA[m.marca[i]].toLowerCase():'')+'</option>'}
+  else opts='<option>'+(k[0]==='g'?'Geral do material':rotMesLongo(k))+'</option>';
+  const r=k==='novo'?null:regEf(m.c,k);
+  return '<div class="form-nota"><label class="sub" for="fNotaMes">Sobre</label><select id="fNotaMes"'+(k!=='novo'?' disabled':'')+'>'+opts+'</select>'+
+    '<label class="sub" for="fNotaTxt">Observação</label><textarea id="fNotaTxt" placeholder="Ex.: BRANET sem estoque; remanejamento por validade; campanha nas escolas">'+esc(r&&r.obs||'')+'</textarea>'+
+    '<div class="barra" style="justify-content:flex-end"><button class="mini" data-cancel="1">Cancelar</button><button class="mini principal" data-ok="1">Guardar</button></div></div>';
+}
+const MESES_LONGOS=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+function rotMesLongo(x){const [a,b]=x.split('-');return MESES_LONGOS[+b-1]+' de '+a}
+function dataBr(d){const m=/^(\d{4})-(\d{2})-(\d{2})/.exec(d||'');return m?m[3]+'/'+m[2]+'/'+m[1]:(d||'')}
 function tendHtml(m){
   if(m.sit==='sem'||m.sit==='semcod')return '<span class="tend neutra">—</span>';
   if(m.sit==='parada')return '<span class="tend parado">'+m.desde+' meses</span>';
@@ -784,48 +869,56 @@ function materiais(){
 }
 function detalhe(m){
   const cods=m.codigos.filter(b=>m.porB[b]);
-  const g=N?barrasMaterial(m)+legendaMaterial(m):'';
+  const g=N?barrasMaterial(m):'';
   const pregs=Object.keys(PREG_ITENS).filter(id=>PREG_ITENS[id].some(it=>it.codigo===m.c)).map(id=>(PREG_INDICE.find(p=>p.id===id)||{}).numero||id);
   return '<div class="det"><div><div class="sub" style="margin-bottom:6px">Saída por mês, em '+esc(m.u)+', de '+(MES[0]?rotMes(MES[0]):'')+' a '+(MES[N-1]?rotMes(MES[N-1]):'')+
-    (cods.length>1?' · cada cor é um código da BRANET':'')+'</div>'+g+
-    editorMes(m)+'</div>'+
+    (cods.length>1?' · cada cor é um código da BRANET':'')+'</div><div class="grafm">'+g+'</div>'+legendaMaterial(m)+recadoMes(m)+'</div><div>'+
     '<dl><dt>Saída em 12 meses</dt><dd>'+fmt(m.q12,1)+' '+esc(m.u)+'</dd>'+
     '<dt>CMM</dt><dd>'+fmt(m.cmm,2)+' '+esc(m.u)+' <span class="sub">'+(m.insuf?'histórico insuficiente: menos de 6 meses válidos em 24':
       (m.jan24?'calculado em 24 meses, por haver menos de 6 meses válidos em 12; ':'')+(m.mesesFalta?'sem os meses marcados; com eles seria '+fmt(m.cmmBruto,2):''))+'</span></dd>'+
     '<dt>Meses com saída</dt><dd>'+m.mesesCom+' de '+J12.length+'</dd>'+
-    '<dt>Meses marcados</dt><dd>'+(m.nFalta||m.nAtip?[m.nFalta?m.nFalta+' de falta':'',m.nAtip?m.nAtip+' de saída atípica':''].filter(Boolean).join(', ')+' <span class="sub">nos últimos 12 meses</span>':'nenhum')+'</dd>'+
+    '<dt>Meses marcados</dt><dd>'+(m.mesesFalta?[m.nFalta?m.nFalta+' de falta':'',m.nMaior?m.nMaior+' atípica maior':'',m.nMenor?m.nMenor+' atípica menor':''].filter(Boolean).join(', ')+' <span class="sub">nos últimos 12 meses</span>':'nenhum')+'</dd>'+
     '<dt>Classe</dt><dd>'+(m.classe||'sem saída suficiente em 12 meses')+(m.abc?' <span class="sub">(ABC dentro de '+esc(m.fam)+')</span>':'')+'</dd>'+
     '<dt>Tipo e bloco</dt><dd>'+esc(m.t)+' · '+({TODOS:'Rede básica',CEO:'Exclusivo CEO',COORDENACAO:'Interesse odontológico'}[m.a]||esc(m.a))+'</dd>'+
     '<dt>Códigos na BRANET</dt><dd>'+(m.codigos.length?m.codigos.map(b=>b+' <span class="sub">('+MAPA[b].origem+(MAPA[b].f!==1?', ÷ '+fmt(MAPA[b].f,4):'')+')</span>').join('<br>'):'nenhum')+'</dd>'+
-    '<dt>Em pregão</dt><dd>'+(pregs.length?pregs.map(esc).join(', '):'não')+'</dd></dl></div>';
+    '<dt>Em pregão</dt><dd>'+(pregs.length?pregs.map(esc).join(', '):'não')+'</dd></dl>'+notasMaterial(m)+'</div></div>';
 }
 
-/* ---------- meses marcados à mão ---------- */
-const mPend={};let selMes=null;
-function marcarMes(c,i,tipo,motivo){
-  const k=c+'|'+MES[i];
-  const g=MARCAS.find(x=>x.codigo_catalogo===c&&x.mes===MES[i]);
-  const gravado={tipo:g?g.tipo:'',motivo:g?(g.motivo||''):''};
-  if(!tipo)motivo='';
-  if(gravado.tipo===tipo&&gravado.motivo===motivo)delete mPend[k];else mPend[k]={tipo,motivo};
+/* ---------- marcas e observações ----------
+   Chave de um registro: o mês (aaaa-mm) ou "g" + identificador, para as
+   observações gerais do material. mPend guarda as alterações ainda não
+   gravadas, por "código|chave". */
+const mPend={},notasAbertas=new Set();let uMenu=null,ultimoMes=null,notaEd=null,contaNova=0;
+function regSalvo(c,k){return k[0]==='g'?((NOTASG[c]||{})[k.slice(1)]||null):((REGM[c]||{})[k]||null)}
+function regEf(c,k){const pk=c+'|'+k;return mPend.hasOwnProperty(pk)?mPend[pk]:regSalvo(c,k)}
+function mudarReg(c,k,r){
+  if(r&&!r.tipo&&!r.obs)r=null;const sv=regSalvo(c,k),pk=c+'|'+k;
+  const igual=(!r&&!sv)||(r&&sv&&r.tipo===sv.tipo&&(r.obs||'')===(sv.obs||''));
+  if(igual)delete mPend[pk];else mPend[pk]=r?{tipo:r.tipo||'',obs:r.obs||''}:null;
   tudo();
 }
 function desenharPendFaltas(){
   const n=Object.keys(mPend).length;$('#pendFaltas').classList.toggle('oculto',!n);
-  $('#pendTexto').textContent=n+(n===1?' mês com marca alterada e ainda não gravada':' meses com marca alterada e ainda não gravada');
+  $('#pendTexto').textContent=n+(n===1?' alteração em marcas ou notas ainda não salva':' alterações em marcas ou notas ainda não salvas');
+  $('#btGravarFaltas').textContent='Salvar';
 }
-$('#btDescartarFaltas').onclick=()=>{Object.keys(mPend).forEach(k=>delete mPend[k]);tudo()};
+$('#btDescartarFaltas').onclick=()=>{Object.keys(mPend).forEach(k=>delete mPend[k]);uMenu=null;ultimoMes=null;notaEd=null;tudo()};
 $('#btGravarFaltas').onclick=async()=>{
   if(!podeGravar())return;const bt=$('#btGravarFaltas');bt.disabled=true;
   try{
-    const n=Object.keys(mPend).length;
+    const n=Object.keys(mPend).length,quem=autor(),dia=hoje();
     await gravarCsv('marcacoes',rem=>{
-      const mapa=new Map(rem.map(x=>[x.codigo_catalogo+'|'+x.mes,[x.codigo_catalogo,x.mes,x.tipo,x.motivo,x.marcado_em,x.marcado_por]]));
-      Object.keys(mPend).forEach(k=>{const [c,m]=k.split('|'),p=mPend[k];
-        if(p.tipo)mapa.set(k,[c,m,p.tipo,p.motivo||'',hoje(),autor()]);else mapa.delete(k)});
-      return [...mapa.values()].sort((a,b)=>(a[0]+a[1]).localeCompare(b[0]+b[1]));
-    },Publicar.mensagem('Pedidos',ARQ.marcacoes,n,'mês','meses'));
-    MARCAS=lerCsv(await fetchSemCache('marcacoes.csv'));Object.keys(mPend).forEach(k=>delete mPend[k]);tudo();
+      let L=rem.map(x=>[x.codigo_catalogo,x.mes||'',x.tipo||'',x.observacao||'',x.marcado_em||'',x.marcado_por||'']);
+      Object.keys(mPend).forEach(pk=>{const i=pk.indexOf('|'),c=pk.slice(0,i),k=pk.slice(i+1),r=mPend[pk];
+        if(k[0]==='g'){const u=k.slice(1);
+          if(u[0]==='r'){const orig=MARCAS[+u.slice(1)];const ix=L.findIndex(l=>l[0]===c&&!l[1]&&l[3]===((orig&&orig.observacao)||''));if(ix>=0)L.splice(ix,1)}
+          if(r)L.push([c,'','',r.obs,dia,quem]);
+        }else{L=L.filter(l=>!(l[0]===c&&l[1]===k));if(r)L.push([c,k,r.tipo,r.obs,dia,quem])}
+      });
+      return L.sort((a,b)=>(a[0]+'|'+a[1]).localeCompare(b[0]+'|'+b[1]));
+    },Publicar.mensagem('Pedidos',ARQ.marcacoes,n,'alteração','alterações'));
+    MARCAS=lerCsv(await fetchSemCache('marcacoes.csv'));Object.keys(mPend).forEach(k=>delete mPend[k]);
+    uMenu=null;ultimoMes=null;notaEd=null;notasAbertas.clear();tudo();
   }catch(e){alert('Não consegui gravar: '+(e.message||e))}
   bt.disabled=false;
 };
@@ -918,7 +1011,7 @@ function pregao(){
 $('#btExportar').onclick=()=>{
   const vig=+$('#pVig').value,mg={A:+$('#pA').value||0,B:+$('#pB').value||0,C:+$('#pC').value||0};
   const per=J12.length?rotMes(MES[J12[0]])+' a '+rotMes(MES[J12[J12.length-1]]):'';
-  const ls=ultimaTabela.map(x=>{const m=x.m;const retirados=MES.map((mes,i)=>m.marca[i]?mes+' ('+(m.marca[i]==='falta'?'falta':'atípico')+(m.motivo[i]?': '+m.motivo[i]:'')+')':'').filter(Boolean).join('; ');
+  const ls=ultimaTabela.map(x=>{const m=x.m;const retirados=MES.map((mes,i)=>m.marca[i]?mes+' ('+NOME_MARCA[m.marca[i]].toLowerCase()+(m.obs[i]?': '+m.obs[i]:'')+')':'').filter(Boolean).join('; ');
     return [m.c,m.m,m.u,m.fam,m.jan24?'24 meses':per,fmt(m.q12,2),retirados,fmt(m.cmm,4),fmt(m.cmmBruto,4),m.classe,vig,m.abc?mg[m.abc]:0,fmt(x.nec,2),x.fc.f,x.comp,x.unc,x.q==null?'':x.q,SITP[x.s][0]]});
   const cab='codigo,material,unidade,familia,periodo,saida_12_meses,meses_retirados,cmm_ajustado,cmm_simples,classe,vigencia_meses,margem_percentual,necessidade,fator_embalagem,necessidade_un_compra,unidade_compra,quantidade_no_pregao,situacao';
   baixar(montarCsv(cab,ls),'memoria-calculo-'+($('#pPregao').value||'pregao')+'.csv');
@@ -1156,12 +1249,27 @@ window.addEventListener('hashchange',()=>abrir(location.hash.slice(1)));
 ['#fBusca','#fSit','#fFam','#fTipo','#fBloco','#fOrd'].forEach(s=>$(s).addEventListener('input',()=>{limiteMat=150;materiais()}));
 $('#maisMat').addEventListener('click',e=>{if(e.target.id==='btMaisMat'){limiteMat+=150;materiais()}});
 $('#corpoMat').addEventListener('click',e=>{
-  const alvo=e.target.closest('rect.alvo');if(alvo&&aberto){const i=+alvo.dataset.i;selMes=selMes&&selMes.c===aberto&&selMes.i===i?null:{c:aberto,i};materiais();return}
-  const bm=e.target.closest('[data-marca]');if(bm&&selMes){const mo=$('#mMotivo');marcarMes(selMes.c,selMes.i,bm.dataset.marca,mo?mo.value.trim():'');return}
-  if(e.target.closest('.editor-mes'))return;
+  const m=aberto&&POR_COD[aberto];let b;
+  if(m&&(b=e.target.closest('rect.alvo'))){const i=+b.dataset.i,x=MES[i],r=regEf(m.c,x);
+    if(!(m.q[i]>0)){uMenu=null;ultimoMes={c:m.c,i};mudarReg(m.c,x,r&&r.tipo?{tipo:'',obs:r.obs}:{tipo:'falta',obs:r?r.obs:''});return}
+    ultimoMes=null;uMenu=uMenu&&uMenu.c===m.c&&uMenu.i===i?null:{c:m.c,i};materiais();return}
+  if(m&&(b=e.target.closest('.menu-mes [data-t]'))){const i=uMenu.i,o=($('#mObs')||{}).value||'';uMenu=null;if(o.trim())notasAbertas.add(m.c);
+    mudarReg(m.c,MES[i],{tipo:b.dataset.t,obs:o.trim()});return}
+  if(m&&(b=e.target.closest('[data-obsmes]'))){notaEd={c:m.c,k:b.dataset.obsmes};notasAbertas.add(m.c);materiais();focarNota();return}
+  if(m&&e.target.closest('details.notas summary')){setTimeout(()=>{const d=e.target.closest('details');if(d&&d.open)notasAbertas.add(m.c);else notasAbertas.delete(m.c)},0);return}
+  if(m&&(b=e.target.closest('[data-novo]'))){notaEd={c:m.c,k:'novo'};materiais();focarNota();return}
+  if(m&&(b=e.target.closest('[data-cancel]'))){notaEd=null;materiais();return}
+  if(m&&(b=e.target.closest('[data-ed]'))){notaEd={c:m.c,k:b.dataset.ed};materiais();focarNota();return}
+  if(m&&(b=e.target.closest('[data-rem]'))){const k=b.dataset.rem,r=regEf(m.c,k);mudarReg(m.c,k,{tipo:r&&r.tipo||'',obs:''});return}
+  if(m&&(b=e.target.closest('[data-desf]'))){delete mPend[m.c+'|'+b.dataset.desf];tudo();return}
+  if(m&&(b=e.target.closest('[data-ok]'))){let k=notaEd.k;const txt=($('#fNotaTxt')||{}).value||'';
+    if(k==='novo'){const v=$('#fNotaMes').value;k=v==='geral'?'gn'+(++contaNova):v}
+    const r=regEf(m.c,k);notaEd=null;notasAbertas.add(m.c);mudarReg(m.c,k,{tipo:r&&r.tipo||'',obs:txt.trim()});return}
+  if(e.target.closest('.menu-mes,details.notas,.recado'))return;
   const tr=e.target.closest('tr.lin');if(!tr)return;aberto=aberto===tr.dataset.c?null:tr.dataset.c;materiais()});
-$('#corpoMat').addEventListener('change',e=>{if(e.target.id==='mMotivo'&&selMes){const m=POR_COD[selMes.c];if(m&&m.marca[selMes.i])marcarMes(selMes.c,selMes.i,m.marca[selMes.i],e.target.value.trim())}});
-$('#corpoMat').addEventListener('keydown',e=>{if(e.target.id==='mMotivo')return;if(e.key!=='Enter'&&e.key!==' ')return;const tr=e.target.closest('tr.lin');if(!tr)return;e.preventDefault();
+function focarNota(){const t=$('#fNotaTxt');if(t)t.focus()}
+document.addEventListener('click',e=>{if(uMenu&&!e.target.closest('.menu-mes')&&!e.target.closest('rect.alvo')){uMenu=null;materiais()}});
+$('#corpoMat').addEventListener('keydown',e=>{if(e.target.closest('input,textarea,select,summary,button'))return;if(e.key!=='Enter'&&e.key!==' ')return;const tr=e.target.closest('tr.lin');if(!tr)return;e.preventDefault();
   aberto=aberto===tr.dataset.c?null:tr.dataset.c;materiais();const n=document.querySelector('tr.lin[data-c="'+tr.dataset.c+'"]');if(n)n.focus()});
 $('#legendaStatus').addEventListener('click',e=>{const b=e.target.closest('[data-sit]');if(!b)return;$('#fSit').value=b.dataset.sit;$('#fOrd').value=b.dataset.sit==='parada'?'parado':'nome';materiais();irPara('materiais')});
 document.addEventListener('click',e=>{const b=e.target.closest('[data-ir]');if(!b)return;const k=b.dataset.ir;
