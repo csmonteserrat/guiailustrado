@@ -54,7 +54,7 @@ Motivos de descontinuado (os mesmos nos dois arquivos): `substituido` (substitu�
 ## Descontinuados
 
 * **Código solto da BRANET** (aba Unir códigos, botão **Descontinuado**): o código sai da lista para revisar e das contas, e não volta nas próximas importações. As saídas continuam no `saidas.csv`, porque o próximo relatório as traria de volta; a marca é que faz a página ignorá-las.
-* **Material do catálogo** (aba Materiais, no detalhe do material, **Marcar como descontinuado**): a situação vira Descontinuado e a sugestão, Fora do próximo pregão. O material sai do ABC × XYZ (não tira posição dos outros da família) e da lista de candidatos a entrar no pregão. Se estiver num pregão, aparece como Descontinuado, com necessidade zero. O histórico de saída e o gráfico continuam à vista.
+* **Material do catálogo** (aba Materiais, no detalhe do material, **Marcar como descontinuado**): a situação vira Descontinuado e a sugestão, Fora do próximo pregão. O material sai do ABC × XYZ (não tira posição dos outros da família) e da lista de candidatos a entrar no pregão. Se estiver num pregão, aparece como Descontinuado, com necessidade zero. Na lista da aba Materiais, os descontinuados ficam escondidos: aparecem só escolhendo a situação **Descontinuados** (ou no link **Ver**, ao lado da contagem). Abertos, o histórico de saída e o gráfico continuam à vista.
 * Nos dois casos, o catálogo (`produtos.csv`) não muda. Para tirar o material do catálogo, use o Editor.
 
 ## Como a página liga os códigos

@@ -303,7 +303,7 @@ pre.csv{margin:0;font-family:var(--fonte-mono);font-size:12px;background:var(--n
     <div class="cartao">
       <div class="filtros">
         <input type="search" id="fBusca" placeholder="Buscar por nome ou código" aria-label="Buscar material">
-        <select id="fSit" aria-label="Situação"><option value="">Todas as situações</option><option value="alta">Alta saída</option><option value="regular">Regular</option><option value="lenta">Lenta</option><option value="parada">Parada há 12 meses ou mais</option><option value="sem">Sem saída no período</option><option value="semcod">Sem código na BRANET</option><option value="desc">Descontinuado</option><option value="falta">Com mês a conferir</option></select>
+        <select id="fSit" aria-label="Situação"><option value="">Todas as situações</option><option value="alta">Alta saída</option><option value="regular">Regular</option><option value="lenta">Lenta</option><option value="parada">Parada há 12 meses ou mais</option><option value="sem">Sem saída no período</option><option value="semcod">Sem código na BRANET</option><option value="desc">Descontinuados</option><option value="falta">Com mês a conferir</option></select>
         <select id="fFam" aria-label="Família"><option value="">Todas as famílias</option></select>
         <select id="fTipo" aria-label="Tipo"><option value="">Consumo e instrumental</option><option>Consumo</option><option>Instrumental</option></select>
         <select id="fBloco" aria-label="Bloco"><option value="">Todos os blocos</option><option value="TODOS">Rede básica</option><option value="CEO">Exclusivo CEO</option></select>
@@ -403,7 +403,7 @@ pre.csv{margin:0;font-family:var(--fonte-mono);font-size:12px;background:var(--n
   <div class="pendente oculto" id="pendFaltas"><span id="pendTexto"></span><span class="barra"><button class="mini principal" id="btGravarFaltas">Gravar</button><button class="mini" id="btDescartarFaltas">Descartar</button></span></div>
 
 </div>
-<div id="versaoPagina">consumo · versão 2026-11-06g</div>
+<div id="versaoPagina">consumo · versão 2026-11-06h</div>
 </div>
 </div>
 
@@ -892,15 +892,19 @@ function visaoGeral(){
 let aberto=null,limiteMat=150;
 function materiais(){
   const b=normalizar($('#fBusca').value.trim()),s=$('#fSit').value,fa=$('#fFam').value,t=$('#fTipo').value,bl=$('#fBloco').value,o=$('#fOrd').value;
-  const l=M.filter(m=>(!b||normalizar(m.m).includes(b)||m.c.includes(b)||m.codigos.some(x=>x.includes(b)))&&
+  const base=M.filter(m=>(!b||normalizar(m.m).includes(b)||m.c.includes(b)||m.codigos.some(x=>x.includes(b)))&&
     (!s||(s==='falta'?m.temPossivel:m.sit===s))&&(!fa||m.fam===fa)&&(!t||m.t===t)&&(!bl||m.a===bl));
+  /* descontinuados ficam escondidos, a não ser na situação Descontinuado;
+     o material aberto continua na tela até ser fechado */
+  const l=base.filter(m=>s==='desc'||!m.desc||m.c===aberto),ocultos=base.length-l.length;
   l.sort((a,b)=>{
     if(o==='parado')return (b.desde===Infinity?1e9:b.desde)-(a.desde===Infinity?1e9:a.desde)||a.m.localeCompare(b.m,'pt');
     if(o==='queda')return (a.tend==null?9:a.tend)-(b.tend==null?9:b.tend);
     if(o==='cmm')return b.cmm-a.cmm;
     return a.m.localeCompare(b.m,'pt');
   });
-  $('#contMat').textContent='Mostrando '+Math.min(l.length,limiteMat)+' de '+l.length+(l.length!==M.length?' (de '+M.length+')':'');
+  $('#contMat').innerHTML='Mostrando '+Math.min(l.length,limiteMat)+' de '+l.length+
+    (ocultos?' · '+ocultos+(ocultos>1?' descontinuados escondidos':' descontinuado escondido')+' <button class="link" id="btVerDesc">Ver</button>':'');
   $('#corpoMat').innerHTML=l.length?l.slice(0,limiteMat).map(m=>{
     let h='<tr class="lin'+(aberto===m.c?' aberta':'')+'" data-c="'+m.c+'" tabindex="0" aria-expanded="'+(aberto===m.c)+'">'+
       '<td class="mat">'+esc(m.m)+'<small>'+m.c+' · '+esc(m.fam)+'</small></td>'+
@@ -1340,6 +1344,7 @@ document.querySelector('.abas').addEventListener('keydown',e=>{
 window.addEventListener('hashchange',()=>abrir(location.hash.slice(1)));
 ['#fBusca','#fSit','#fFam','#fTipo','#fBloco','#fOrd'].forEach(s=>$(s).addEventListener('input',()=>{limiteMat=150;materiais()}));
 $('#maisMat').addEventListener('click',e=>{if(e.target.id==='btMaisMat'){limiteMat+=150;materiais()}});
+$('#contMat').addEventListener('click',e=>{if(e.target.id==='btVerDesc'){$('#fSit').value='desc';limiteMat=150;materiais()}});
 $('#corpoMat').addEventListener('click',e=>{
   const m=aberto&&POR_COD[aberto];let b;
   if(m&&(b=e.target.closest('rect.alvo'))){const i=+b.dataset.i,x=MES[i],r=regEf(m.c,x);

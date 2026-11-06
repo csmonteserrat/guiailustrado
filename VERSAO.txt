@@ -12,7 +12,8 @@ v2.9 — 06/11/2026
     catálogo; ele não volta para revisão nas próximas importações.
   - Na aba Materiais, o material marcado como descontinuado sai da
     classe ABC × XYZ e dos candidatos ao próximo pregão; no pregão
-    aparece como Descontinuado. Fica gravado em
+    aparece como Descontinuado. Na lista, os descontinuados ficam
+    escondidos; aparecem na situação Descontinuados. Fica gravado em
     consumo/descontinuados.csv. O produtos.csv não muda.
 
 v2.8 — 06/11/2026
