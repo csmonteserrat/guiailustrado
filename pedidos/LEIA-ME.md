@@ -8,7 +8,7 @@ Esta pasta guarda a página de análise do consumo dos materiais e os arquivos q
 | `saidas.csv` | Saídas da BRANET por código e por mês, somadas para o município. |
 | `importacoes.csv` | Registro de cada relatório importado: período, recorte, meses gravados e ignorados. |
 | `unioes.csv` | Códigos da BRANET ligados a um material do catálogo por esta página, com o fator de conversão. |
-| `faltas.csv` | Meses marcados como falta no almoxarifado, por material. |
+| `marcacoes.csv` | Meses marcados à mão, por material: falta no almoxarifado ou saída atípica. |
 | `lib/xlsx.full.min.js` | Biblioteca SheetJS 0.18.5, que lê os relatórios .xls no navegador. Licença Apache 2.0, em `lib/xlsx.LICENSE.txt`. |
 | `LEIA-ME.md` | Este arquivo. |
 
@@ -37,7 +37,10 @@ Os pedidos do CELK não entram por enquanto.
 * `decisao` é `unir` ou `fora_do_catalogo`.
 * `fator` divide a quantidade da BRANET para chegar à unidade do catálogo. O sacolé sai da BRANET por unidade e o catálogo conta em pacote com 100: fator 100.
 
-`faltas.csv`: `codigo_catalogo`, `mes`, `motivo`, `marcado_em`, `marcado_por`.
+`marcacoes.csv`: `codigo_catalogo`, `mes`, `tipo`, `motivo`, `marcado_em`, `marcado_por`.
+
+* `tipo` é `falta` (falta no almoxarifado, com o mês zerado ou com saída menor por racionamento) ou `atipico` (saída fora do normal: pedido administrativo, remanejamento por validade, campanha).
+* `motivo` é opcional.
 
 ## Como a página liga os códigos
 
@@ -48,10 +51,10 @@ A aba **Unir códigos** lista os códigos com saída que ainda não estão ligad
 
 ## Os cálculos
 
-* **CMM**: média dos últimos 12 meses, sem os meses marcados como falta.
-* **ABC**: dentro de cada família do catálogo, pela quantidade convertida para a unidade do catálogo. A até 80%, B até 95%, C o resto.
+* **CMM**: média dos últimos 12 meses, sem os meses marcados (falta ou atípico). Se sobrarem menos de 6 meses válidos, usa os últimos 24; se ainda faltar, o material aparece como histórico insuficiente.
+* **ABC**: dentro de cada família do catálogo, pelo CMM × 12, na unidade do catálogo. A até 80%, B até 95%, C o resto.
 * **XYZ**: coeficiente de variação mensal. X abaixo de 0,5, Y até 1, Z acima de 1.
-* **Possível falta**: dois ou mais meses seguidos sem saída num material que sai com regularidade. A página só aponta; a confirmação é feita clicando no mês, na aba Materiais.
+* **Sugestões**: só nos últimos 12 meses e só para material com saída em pelo menos 2 de cada 3 meses. **Possível falta**: dois ou mais meses seguidos sem saída. **Possível pico**: mês acima de 3 vezes a mediana dos meses normais, ou de 1,5 vez logo depois de um mês marcado como falta. **Possível efeito**: até 3 meses depois de uma saída atípica, abaixo da metade da mediana. A página só aponta; a marca é feita clicando no mês, na aba Materiais. Não há limite automático de pico.
 * **Próximo pregão**: CMM × vigência × (1 + margem da classe) ÷ fator da embalagem. Ainda não desconta o saldo em estoque, porque esse dado não existe aqui. Quando houver a posição de estoque mensal, ela deve entrar numa pasta `estoque/` desta.
 
 O documento com a explicação completa, os exemplos e as referências é o **Cálculo da página Pedidos**.

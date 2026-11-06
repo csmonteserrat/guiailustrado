@@ -12,8 +12,9 @@ v2.8 — 06/11/2026
   - Os dados vêm do relatório Consumo por Período (12 meses) da
     BRANET, importado pela própria página. Já estão gravadas as
     saídas de jan/2025 a out/2026 (pedidos/saidas.csv).
-  - As uniões de códigos antigos e os meses de falta ficam em
-    arquivos da pasta pedidos/. A página não altera o produtos.csv
+  - As uniões de códigos antigos e os meses marcados (falta no
+    almoxarifado ou saída atípica) ficam em arquivos da pasta
+    pedidos/. Mês marcado sai do CMM e da classe. A página não altera o produtos.csv
     nem o branet.csv.
   - O item Pedidos entrou no menu lateral de todas as páginas do
     painel e nos atalhos do Painel.

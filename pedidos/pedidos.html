@@ -79,6 +79,7 @@ svg.spark{display:block}
 .tabMat tr.aberta td{background:var(--acento-suave)}
 .tabMat td:first-child{padding-left:8px}
 .detalhe td{background:var(--neutro);padding:14px 16px}
+.editor-mes{margin-top:10px;background:var(--superficie);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:8px;font-size:13px;cursor:default}
 .det{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:18px}
 @media(max-width:900px){.det{grid-template-columns:1fr}}
 .det dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:12.5px;align-content:start}
@@ -251,7 +252,7 @@ pre.csv{margin:0;font-family:var(--fonte-mono);font-size:12px;background:var(--n
     <div class="cartao">
       <div class="filtros">
         <input type="search" id="fBusca" placeholder="Buscar por nome ou código" aria-label="Buscar material">
-        <select id="fSit" aria-label="Situação"><option value="">Todas as situações</option><option value="alta">Alta saída</option><option value="regular">Regular</option><option value="lenta">Lenta</option><option value="parada">Parada há 12 meses ou mais</option><option value="sem">Sem saída no período</option><option value="semcod">Sem código na BRANET</option><option value="falta">Com possível falta</option></select>
+        <select id="fSit" aria-label="Situação"><option value="">Todas as situações</option><option value="alta">Alta saída</option><option value="regular">Regular</option><option value="lenta">Lenta</option><option value="parada">Parada há 12 meses ou mais</option><option value="sem">Sem saída no período</option><option value="semcod">Sem código na BRANET</option><option value="falta">Com mês a conferir</option></select>
         <select id="fFam" aria-label="Família"><option value="">Todas as famílias</option></select>
         <select id="fTipo" aria-label="Tipo"><option value="">Consumo e instrumental</option><option>Consumo</option><option>Instrumental</option></select>
         <select id="fBloco" aria-label="Bloco"><option value="">Todos os blocos</option><option value="TODOS">Rede básica</option><option value="CEO">Exclusivo CEO</option></select>
@@ -288,7 +289,7 @@ pre.csv{margin:0;font-family:var(--fonte-mono);font-size:12px;background:var(--n
           <div><i style="background:var(--corn)"></i><span><b>BX, BY, CX, CY</b> · repor pelo CMM com a margem da classe.</span></div>
           <div><i style="background:var(--sawtooth)"></i><span><b>AZ, BZ</b> · sai em picos. Ver se é sazonal ou se faltou no almoxarifado.</span></div>
           <div><i style="background:var(--geranium)"></i><span><b>CZ</b> · pouco e raro. Candidato a sair do pregão ou virar compra sob demanda.</span></div>
-          <p class="sub" style="margin:0">ABC: dentro de cada família do catálogo, os materiais que somam 80% da quantidade que saiu nos últimos 12 meses são A, até 95% são B, o resto é C. A quantidade é convertida para a unidade do catálogo antes da conta. XYZ: coeficiente de variação mensal abaixo de 0,5 é X, até 1 é Y, acima de 1 é Z. Os meses marcados como falta ficam fora das duas contas.</p>
+          <p class="sub" style="margin:0">ABC: dentro de cada família do catálogo, os materiais que somam 80% da quantidade que saiu nos últimos 12 meses são A, até 95% são B, o resto é C. A quantidade é convertida para a unidade do catálogo antes da conta. XYZ: coeficiente de variação mensal abaixo de 0,5 é X, até 1 é Y, acima de 1 é Z. Os meses marcados (falta no almoxarifado ou saída atípica) ficam fora das duas contas, e a base do ABC é o CMM × 12.</p>
         </div>
       </div>
     </div>
@@ -314,7 +315,7 @@ pre.csv{margin:0;font-family:var(--fonte-mono);font-size:12px;background:var(--n
         <label for="pC">Margem classe C (%)<input type="number" id="pC" value="0" min="0" max="200" step="5"></label>
       </div>
       <div class="formula" aria-label="Fórmula da necessidade">
-        <span class="f">CMM sem meses de falta</span>×<span class="f">vigência</span>×<span class="f">(1 + margem da classe)</span>÷<span class="f">fator da embalagem</span>=<span class="f res">necessidade em unidade de compra</span>
+        <span class="f">CMM sem os meses marcados</span>×<span class="f">vigência</span>×<span class="f">(1 + margem da classe)</span>÷<span class="f">fator da embalagem</span>=<span class="f res">necessidade em unidade de compra</span>
       </div>
       <p class="sub" style="margin:10px 0 0">Ainda sem dado de estoque: a necessidade não desconta o saldo na BRANET. O fator da embalagem é lido da unidade de compra do pregão (por exemplo, "embalagem com 6 unidades" quando o catálogo conta por unidade). Confira os itens marcados.</p>
     </div>
@@ -351,7 +352,7 @@ pre.csv{margin:0;font-family:var(--fonte-mono);font-size:12px;background:var(--n
   <div class="pendente oculto" id="pendFaltas"><span id="pendTexto"></span><span class="barra"><button class="mini principal" id="btGravarFaltas">Gravar</button><button class="mini" id="btDescartarFaltas">Descartar</button></span></div>
 
 </div>
-<div id="versaoPagina">pedidos · versão 2026-11-06b</div>
+<div id="versaoPagina">pedidos · versão 2026-11-06c</div>
 </div>
 </div>
 
@@ -365,11 +366,11 @@ pre.csv{margin:0;font-family:var(--fonte-mono);font-size:12px;background:var(--n
    como os outros arquivos de dados do catálogo. O LEIA-ME da pasta
    descreve cada um.
    ===================================================================== */
-const ARQ={saidas:'pedidos/saidas.csv',unioes:'pedidos/unioes.csv',faltas:'pedidos/faltas.csv',importacoes:'pedidos/importacoes.csv'};
+const ARQ={saidas:'pedidos/saidas.csv',unioes:'pedidos/unioes.csv',marcacoes:'pedidos/marcacoes.csv',importacoes:'pedidos/importacoes.csv'};
 const CAB={
   saidas:'codigo_branet,nome_branet,mes,quantidade',
   unioes:'codigo_branet,nome_branet,codigo_catalogo,fator,decisao,decidido_em,decidido_por',
-  faltas:'codigo_catalogo,mes,motivo,marcado_em,marcado_por',
+  marcacoes:'codigo_catalogo,mes,tipo,motivo,marcado_em,marcado_por',
   importacoes:'arquivo,data_inicio,data_fim,grupo,classificacao,itens,meses_gravados,meses_ignorados,emitido_em,importado_por'
 };
 
@@ -445,7 +446,7 @@ function podeGravar(){
 /* =====================================================================
    DADOS
    ===================================================================== */
-let PROD={},DESC={},ATIVOS=[],BN={},SAIDAS=[],UNIOES=[],FALTAS=[],IMPORTS=[],PREG_INDICE=[];
+let PROD={},DESC={},ATIVOS=[],BN={},SAIDAS=[],UNIOES=[],MARCAS=[],IMPORTS=[],PREG_INDICE=[];
 let MES=[],N=0,J12=[],M=[],POR_COD={},SOLTOS=[],NOMEB={},SB={},MAPA={};
 
 async function carregar(){
@@ -455,7 +456,7 @@ async function carregar(){
     fetch('../branet/branet.csv'+t()).then(r=>r.ok?r.text():''),
     fetch('saidas.csv'+t()).then(r=>r.ok?r.text():''),
     fetch('unioes.csv'+t()).then(r=>r.ok?r.text():''),
-    fetch('faltas.csv'+t()).then(r=>r.ok?r.text():''),
+    fetch('marcacoes.csv'+t()).then(r=>r.ok?r.text():''),
     fetch('importacoes.csv'+t()).then(r=>r.ok?r.text():''),
     fetch('../pregoes/indice.json'+t()).then(r=>r.ok?r.json():{pregoes:[]}).catch(()=>({pregoes:[]})),
     fetch('../descritivos/descritivos.csv'+t()).then(r=>r.ok?r.text():'')
@@ -468,7 +469,7 @@ async function carregar(){
   ATIVOS=Object.values(PROD).filter(x=>(x.ativo||'').toUpperCase()==='SIM'&&[12,13,14,15].includes(parseInt(x.grupo,10))&&
     ((DESC[x.codigo]||{}).situacao_compra||'')!=='AGUARDANDO_COMPRA');
   lerCsv(b).forEach(x=>{if(x.codigo)BN[x.codigo]=x});
-  SAIDAS=lerCsv(s);UNIOES=lerCsv(u);FALTAS=lerCsv(f);IMPORTS=lerCsv(i);
+  SAIDAS=lerCsv(s);UNIOES=lerCsv(u);MARCAS=lerCsv(f);IMPORTS=lerCsv(i);
   PREG_INDICE=(pi.pregoes||[]);
 }
 
@@ -494,17 +495,19 @@ function construir(){
   });
   SOLTOS=Object.keys(SB).filter(b=>!MAPA[b]&&!ignorados.has(b)&&SB[b].some(v=>v>0));
 
-  const faltas={};FALTAS.forEach(x=>{(faltas[x.codigo_catalogo]=faltas[x.codigo_catalogo]||new Set()).add(x.mes)});
-  Object.keys(fPend).forEach(k=>{const [c,m]=k.split('|');const s=(faltas[c]=faltas[c]||new Set());if(fPend[k])s.add(m);else s.delete(m)});
+  /* marcas gravadas, com as alterações ainda não gravadas por cima */
+  const marcas={};
+  MARCAS.forEach(x=>{if(x.tipo==='falta'||x.tipo==='atipico')(marcas[x.codigo_catalogo]=marcas[x.codigo_catalogo]||{})[x.mes]={tipo:x.tipo,motivo:x.motivo||''}});
+  Object.keys(mPend).forEach(k=>{const [c,m]=k.split('|');const o=(marcas[c]=marcas[c]||{});if(mPend[k].tipo)o[m]=mPend[k];else delete o[m]});
 
   POR_COD={};
   M=ATIVOS.map(p=>{
     const codigos=Object.keys(MAPA).filter(b=>MAPA[b].c===p.codigo);
     const q=new Array(N).fill(0),porB={};
     codigos.forEach(b=>{const s=SB[b];if(!s)return;const f=MAPA[b].f||1;porB[b]=s.map(v=>v/f);porB[b].forEach((v,i)=>q[i]+=v)});
-    const fs=faltas[p.codigo]||new Set();
+    const mk=marcas[p.codigo]||{};
     const m={c:p.codigo,m:p.material,u:unidadeCurta(p.unidade),fam:(p.familia||'').split(';')[0].trim()||'Sem família',
-      t:p.tipo||'',a:p.acesso||'',codigos,porB,q,falta:MES.map(x=>fs.has(x)),temCodigo:codigos.length>0||!!(BN[p.codigo]&&BN[p.codigo].branet_codigo)};
+      t:p.tipo||'',a:p.acesso||'',codigos,porB,q,marca:MES.map(x=>(mk[x]||{}).tipo||''),motivo:MES.map(x=>(mk[x]||{}).motivo||''),temCodigo:codigos.length>0||!!(BN[p.codigo]&&BN[p.codigo].branet_codigo)};
     POR_COD[m.c]=m;return m;
   });
   M.forEach(indicadores);
@@ -512,39 +515,74 @@ function construir(){
   M.forEach(situacaoDe);
 }
 
+/* Meses marcados (falta no almoxarifado ou saída atípica) saem do CMM
+   e da classe. Se sobrarem menos de 6 meses válidos nos últimos 12, a
+   conta usa os últimos 24; se ainda faltar, o material fica marcado
+   como histórico insuficiente. */
 function indicadores(m){
   const soma=(a,i,j)=>{let s=0;for(let k=i;k<j;k++)s+=a[k]||0;return s};
-  const val=J12.filter(i=>!m.falta[i]);
+  const ok=i=>!m.marca[i];
+  let val=J12.filter(ok);m.jan24=false;m.insuf=false;
+  if(val.length<6){const J24=[];for(let i=Math.max(0,N-24);i<N;i++)J24.push(i);const v24=J24.filter(ok);
+    if(v24.length>=6){val=v24;m.jan24=true}else m.insuf=true}
+  m.mesesValidos=val.length;
   m.q12=J12.reduce((s,i)=>s+m.q[i],0);
-  m.q12v=val.reduce((s,i)=>s+m.q[i],0);
-  m.cmm=val.length?m.q12v/val.length:0;
+  m.cmm=val.length?val.reduce((s,i)=>s+m.q[i],0)/val.length:0;
+  m.base=m.cmm*12;
   m.cmmBruto=J12.length?m.q12/J12.length:0;
   m.mesesCom=J12.filter(i=>m.q[i]>0).length;
-  m.mesesFalta=J12.length-val.length;
+  m.nFalta=J12.filter(i=>m.marca[i]==='falta').length;
+  m.nAtip=J12.filter(i=>m.marca[i]==='atipico').length;
+  m.mesesFalta=m.nFalta+m.nAtip;
   let u=-1;for(let i=N-1;i>=0;i--)if(m.q[i]>0){u=i;break}
   m.desde=u>=0?N-u:Infinity;m.ultRot=u>=0?rotMes(MES[u]):'—';
   const r3=soma(m.q,N-3,N),p3=soma(m.q,N-6,N-3);
   m.tend=p3>0?(r3-p3)/p3:(r3>0?1:null);
   if(m.cmm>0&&val.length>=3){const v=val.reduce((s,i)=>s+Math.pow(m.q[i]-m.cmm,2),0)/val.length;m.cv=Math.sqrt(v)/m.cmm;m.xyz=m.cv<.5?'X':m.cv<=1?'Y':'Z'}
   else{m.cv=null;m.xyz=''}
-  /* possível falta: material que sai com regularidade e tem 2 ou mais
-     meses seguidos sem saída entre a primeira e a última saída */
-  m.possivel=new Array(N).fill(false);
+  /* Sugestões, só nos últimos 12 meses (os que entram no CMM) e só
+     para material que sai com regularidade: com saída em pelo menos
+     2 de cada 3 meses do período. A página só aponta; quem marca é você.
+     - possível falta: 2 ou mais meses seguidos sem saída entre a
+       primeira e a última saída;
+     - possível pico: mês acima de 3 vezes a mediana dos meses normais,
+       ou de 1,5 vez logo depois de um mês marcado como falta. Com 2
+       vezes, como no documento, quase um terço dos materiais seria
+       apontado, porque as unidades pedem em meses alternados;
+     - possível efeito: até 3 meses depois de uma saída atípica, abaixo
+       da metade da mediana (as unidades ainda usando o que receberam). */
+  m.susFalta=new Array(N).fill(false);m.susPico=new Array(N).fill(false);m.susEfeito=new Array(N).fill(false);
   const ativos=m.q.map((v,i)=>v>0?i:-1).filter(i=>i>=0);
-  if(ativos.length>=6){let ini=-1;
+  const noJ12=new Set(J12);
+  if(ativos.length>=6&&ativos.length>=N*2/3){
+    let ini=-1;
     for(let i=ativos[0];i<=ativos[ativos.length-1]+1;i++){
-      const zero=i<=ativos[ativos.length-1]&&m.q[i]===0&&!m.falta[i];
+      const zero=i<=ativos[ativos.length-1]&&m.q[i]===0&&ok(i);
       if(zero&&ini<0)ini=i;
-      if(!zero&&ini>=0){if(i-ini>=2)for(let k=ini;k<i;k++)m.possivel[k]=true;ini=-1}
-    }}
-  m.temPossivel=m.possivel.some(Boolean);
+      if(!zero&&ini>=0){if(i-ini>=2)for(let k=ini;k<i;k++)if(noJ12.has(k))m.susFalta[k]=true;ini=-1}
+    }
+    const normais=m.q.filter((v,i)=>v>0&&ok(i)).sort((x,y)=>x-y);
+    const med=normais.length?(normais.length%2?normais[(normais.length-1)/2]:(normais[normais.length/2-1]+normais[normais.length/2])/2):0;
+    m.mediana=med;
+    if(med>0){
+      for(const i of J12){if(!ok(i)||!(m.q[i]>0))continue;
+        const aposFalta=m.marca[i-1]==='falta'||m.marca[i-2]==='falta';
+        if(m.q[i]>(aposFalta?1.5:3)*med)m.susPico[i]=true}
+      for(let i=0;i<N;i++){if(m.marca[i]!=='atipico')continue;
+        for(let k=i+1;k<=i+3&&k<N;k++){if(!ok(k))continue;if(m.q[k]<.5*med){if(noJ12.has(k))m.susEfeito[k]=true}else break}}
+    }
+  }
+  m.temSusFalta=m.susFalta.some(Boolean);m.temSusPico=m.susPico.some(Boolean)||m.susEfeito.some(Boolean);
+  m.temPossivel=m.temSusFalta||m.temSusPico;
 }
 function classificarABC(){
   const grupos={};
-  M.forEach(m=>{m.abc='';if(m.q12v>0)(grupos[m.fam]=grupos[m.fam]||[]).push(m)});
+  /* a base é o CMM × 12: assim um material com meses marcados não
+     perde posição por ter tido falta */
+  M.forEach(m=>{m.abc='';if(m.base>0&&m.mesesCom>0)(grupos[m.fam]=grupos[m.fam]||[]).push(m)});
   Object.values(grupos).forEach(g=>{
-    g.sort((a,b)=>b.q12v-a.q12v);const tot=g.reduce((s,m)=>s+m.q12v,0);let ac=0;
-    g.forEach(m=>{const antes=ac/tot;ac+=m.q12v;m.abc=antes<.8?'A':antes<.95?'B':'C'});
+    g.sort((a,b)=>b.base-a.base);const tot=g.reduce((s,m)=>s+m.base,0);let ac=0;
+    g.forEach(m=>{const antes=ac/tot;ac+=m.base;m.abc=antes<.8?'A':antes<.95?'B':'C'});
   });
   M.forEach(m=>m.classe=m.abc&&m.xyz?m.abc+m.xyz:'');
 }
@@ -558,7 +596,8 @@ function situacaoDe(m){
   if(m.sit==='semcod')m.sug=['Ligar à BRANET','t-ci'];
   else if(m.sit==='sem')m.sug=['Sem saída no período','t-vm'];
   else if(m.sit==='parada')m.sug=['Rever no pregão','t-az'];
-  else if(m.temPossivel)m.sug=['Conferir falta','t-lr'];
+  else if(m.temSusFalta)m.sug=['Conferir falta','t-lr'];
+  else if(m.temSusPico)m.sug=['Conferir pico','t-rx'];
   else if(m.classe==='CZ')m.sug=['Sob demanda','t-rx'];
   else if(m.tend!=null&&m.tend<-.25&&m.mesesCom>=6)m.sug=['Ver a queda','t-lr'];
   else m.sug=['Manter','t-vd'];
@@ -609,32 +648,41 @@ function barras(camadas,opt){
   }
   return s+'</svg>';
 }
-/* Gráfico do detalhe do material. Cada mês pode ser clicado para
-   marcar ou desmarcar falta no almoxarifado:
-   - mês sem saída: coluna transparente com contorno pontilhado,
-     em laranja quando a página suspeita de falta;
-   - mês sem saída marcado como falta: barrinha laranja com "!";
-   - mês com saída marcado como falta (racionamento): a barra fica
-     laranja e ganha o mesmo "!" em cima. */
+/* Gráfico do detalhe do material. Clicar num mês seleciona o mês, e
+   abaixo do gráfico aparecem as opções de marca:
+   - mês sem saída: coluna transparente pontilhada (azul; laranja
+     quando a página suspeita de falta; roxa quando suspeita de efeito
+     de uma saída atípica);
+   - falta no almoxarifado: barra laranja com "!" (barrinha, se o mês
+     não teve saída; a própria barra, se saiu menos por racionamento);
+   - saída atípica: barra roxa com seta para cima;
+   - possível pico ou efeito: contorno roxo pontilhado em volta da barra. */
 function barrasMaterial(m){
-  const n=MES.length,W=760,H=210,L=44,R=8,T=18,B=26,cores=['var(--acento)','var(--corallite)','var(--corn)','var(--curacao)'];
+  const n=MES.length,W=760,H=210,L=44,R=8,T=18,B=26,cores=['var(--acento)','var(--corn)','var(--curacao)','var(--ok)'];
   const cods=m.codigos.filter(b=>m.porB[b]);const camadas=cods.length?cods.map(b=>m.porB[b]):[m.q];
   const es=escala4(Math.max(...m.q,0)),top=es.topo,ph=H-T-B,pw=(W-L-R)/n,bw=Math.max(4,pw*.64);
+  const sel=selMes&&selMes.c===m.c?selMes.i:-1;
   let s='<svg class="grafico clicavel" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Saída por mês de '+esc(m.m)+'">'+eixo(W,H,L,R,T,B,es);
   for(let i=0;i<n;i++){
-    const x=L+i*pw+(pw-bw)/2,cx=x+bw/2,falta=m.falta[i],zero=!(m.q[i]>0),rot=rotMes(MES[i]);
-    s+='<rect class="alvo" data-i="'+i+'" x="'+(L+i*pw).toFixed(1)+'" y="'+T+'" width="'+pw.toFixed(1)+'" height="'+ph+'" fill="transparent"><title>'+rot+': '+(falta?'falta marcada. Clique para desmarcar':'clique para marcar falta no almoxarifado')+'</title></rect>';
-    if(zero&&!falta){const sus=m.possivel[i];
-      s+='<rect x="'+(x+.75).toFixed(1)+'" y="'+(T+.75)+'" width="'+(bw-1.5).toFixed(1)+'" height="'+(ph-1.5)+'" rx="3" style="fill:'+(sus?'var(--sawtooth-suave)':'var(--corn-suave)')+';fill-opacity:.55;stroke:'+(sus?'var(--sawtooth)':'var(--corn)')+';stroke-width:1.2;stroke-dasharray:3 3;pointer-events:none"/>';
+    const x=L+i*pw+(pw-bw)/2,cx=x+bw/2,mk=m.marca[i],zero=!(m.q[i]>0),rot=rotMes(MES[i]);
+    const corMk=mk==='falta'?'var(--sawtooth)':'var(--corallite)';
+    if(i===sel)s+='<rect x="'+(L+i*pw).toFixed(1)+'" y="'+T+'" width="'+pw.toFixed(1)+'" height="'+ph+'" rx="3" style="fill:var(--acento-suave);pointer-events:none"/>';
+    s+='<rect class="alvo" data-i="'+i+'" x="'+(L+i*pw).toFixed(1)+'" y="'+T+'" width="'+pw.toFixed(1)+'" height="'+ph+'" fill="transparent"><title>'+rot+': '+fmt(m.q[i],1)+' '+esc(m.u)+
+      (mk?' · '+(mk==='falta'?'falta marcada':'saída atípica marcada'):'')+'. Clique para escolher a marca.</title></rect>';
+    if(zero&&!mk){const tipo=m.susFalta[i]?'sawtooth':m.susEfeito[i]?'corallite':'corn';
+      s+='<rect x="'+(x+.75).toFixed(1)+'" y="'+(T+.75)+'" width="'+(bw-1.5).toFixed(1)+'" height="'+(ph-1.5)+'" rx="3" style="fill:var(--'+tipo+'-suave);fill-opacity:.55;stroke:var(--'+tipo+');stroke-width:1.2;stroke-dasharray:3 3;pointer-events:none"/>';
     }
     let topoBarra=H-B;
     camadas.forEach((v,k)=>{const q=v[i]||0;if(!q)return;const h=ph*(q/top);topoBarra-=h;
-      s+='<rect x="'+x.toFixed(1)+'" y="'+topoBarra.toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+h.toFixed(1)+'" rx="2" style="fill:'+(falta?'var(--sawtooth)':cores[k%cores.length])+';pointer-events:none"/>'});
-    if(falta){
-      if(zero){topoBarra=H-B-14;s+='<rect x="'+x.toFixed(1)+'" y="'+topoBarra+'" width="'+bw.toFixed(1)+'" height="14" rx="3" style="fill:var(--sawtooth);pointer-events:none"/>'}
+      s+='<rect x="'+x.toFixed(1)+'" y="'+topoBarra.toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+h.toFixed(1)+'" rx="2" style="fill:'+(mk?corMk:cores[k%cores.length])+';pointer-events:none"/>'});
+    if(!zero&&!mk&&(m.susPico[i]||m.susEfeito[i]))
+      s+='<rect x="'+(x-2.5).toFixed(1)+'" y="'+(topoBarra-2.5).toFixed(1)+'" width="'+(bw+5).toFixed(1)+'" height="'+(H-B-topoBarra+2.5).toFixed(1)+'" rx="3" style="fill:none;stroke:var(--corallite);stroke-width:1.5;stroke-dasharray:3 3;pointer-events:none"/>';
+    if(mk){
+      if(zero){topoBarra=H-B-14;s+='<rect x="'+x.toFixed(1)+'" y="'+topoBarra+'" width="'+bw.toFixed(1)+'" height="14" rx="3" style="fill:'+corMk+';pointer-events:none"/>'}
       const cy=Math.max(T-2,topoBarra-11);
-      s+='<circle cx="'+cx.toFixed(1)+'" cy="'+cy.toFixed(1)+'" r="8" style="fill:var(--sawtooth);stroke:var(--superficie);stroke-width:2;pointer-events:none"/>'+
-         '<text x="'+cx.toFixed(1)+'" y="'+(cy+4).toFixed(1)+'" text-anchor="middle" style="fill:#fff;font-size:11px;font-weight:800;pointer-events:none">!</text>';
+      s+='<circle cx="'+cx.toFixed(1)+'" cy="'+cy.toFixed(1)+'" r="8" style="fill:'+corMk+';stroke:var(--superficie);stroke-width:2;pointer-events:none"/>'+
+        (mk==='falta'?'<text x="'+cx.toFixed(1)+'" y="'+(cy+4).toFixed(1)+'" text-anchor="middle" style="fill:#fff;font-size:11px;font-weight:800;pointer-events:none">!</text>'
+                     :'<path d="M'+cx.toFixed(1)+' '+(cy-4.5).toFixed(1)+'v9M'+(cx-3.5).toFixed(1)+' '+(cy-1).toFixed(1)+'l3.5-3.5 3.5 3.5" style="fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;pointer-events:none"/>');
     }
     if(i%3===0)s+='<text x="'+cx.toFixed(1)+'" y="'+(H-8)+'" text-anchor="middle">'+rot+'</text>';
   }
@@ -642,12 +690,28 @@ function barrasMaterial(m){
 }
 function legendaMaterial(m){
   const amostra=(estilo,txt)=>'<span><svg width="14" height="14" aria-hidden="true" style="vertical-align:-2px;margin-right:6px">'+estilo+'</svg>'+txt+'</span>';
+  const tracejado=c=>'<rect x="1" y="1" width="12" height="12" rx="2" style="fill:var(--'+c+'-suave);stroke:var(--'+c+');stroke-dasharray:2 2"/>';
   return '<div class="leg" style="margin-top:6px">'+
-    amostra('<rect x="1" y="1" width="12" height="12" rx="2" style="fill:var(--corn-suave);stroke:var(--corn);stroke-dasharray:2 2"/>','mês sem saída: clique para marcar falta')+
-    (m.temPossivel?amostra('<rect x="1" y="1" width="12" height="12" rx="2" style="fill:var(--sawtooth-suave);stroke:var(--sawtooth);stroke-dasharray:2 2"/>','possível falta'):'')+
-    amostra('<circle cx="7" cy="7" r="6" style="fill:var(--sawtooth)"/><text x="7" y="10.5" text-anchor="middle" style="fill:#fff;font-size:9px;font-weight:800">!</text>','falta marcada')+
-    amostra('<rect x="3" y="4" width="8" height="10" rx="1" style="fill:var(--sawtooth)"/>','saída reduzida por falta (racionamento)')+
+    amostra(tracejado('corn'),'mês sem saída')+
+    (m.temSusFalta?amostra(tracejado('sawtooth'),'possível falta'):'')+
+    (m.temSusPico?amostra('<rect x="1" y="1" width="12" height="12" rx="2" style="fill:none;stroke:var(--corallite);stroke-width:1.5;stroke-dasharray:2 2"/>','possível pico ou efeito'):'')+
+    amostra('<circle cx="7" cy="7" r="6" style="fill:var(--sawtooth)"/><text x="7" y="10.5" text-anchor="middle" style="fill:#fff;font-size:9px;font-weight:800">!</text>','falta no almoxarifado')+
+    amostra('<circle cx="7" cy="7" r="6" style="fill:var(--corallite)"/><path d="M7 3.8v6.4M4.6 6.2L7 3.8l2.4 2.4" style="fill:none;stroke:#fff;stroke-width:1.4;stroke-linecap:round"/>','saída atípica')+
     '</div>';
+}
+/* Painel abaixo do gráfico, para o mês selecionado */
+function editorMes(m){
+  if(!selMes||selMes.c!==m.c)return '<p class="ajuda">Clique num mês do gráfico para marcar <b>falta no almoxarifado</b> (mês sem saída, ou que saiu menos por racionamento) ou <b>saída atípica</b> (pedido administrativo, remanejamento por validade, campanha). O mês marcado sai do CMM e da classe.'+
+    (m.temPossivel?' Os contornos pontilhados em laranja e roxo são sugestões da página.':'')+'</p>';
+  const i=selMes.i,mk=m.marca[i],rot=rotMes(MES[i]);
+  const dica=m.susFalta[i]?'A página sugere falta: material regular com meses seguidos sem saída.':
+    m.susPico[i]?'A página sugere pico: saída acima do normal'+(m.mediana?' (mediana de '+fmt(m.mediana,1)+' '+esc(m.u)+')':'')+'.':
+    m.susEfeito[i]?'A página sugere efeito de uma saída atípica anterior: saída abaixo da metade do normal.':'';
+  const bt=(tipo,txt)=>'<button class="mini'+(mk===tipo?' principal':'')+'" data-marca="'+tipo+'">'+txt+'</button>';
+  return '<div class="editor-mes"><div><b>'+rot+'</b> · saída de '+fmt(m.q[i],1)+' '+esc(m.u)+' · '+(mk==='falta'?'marcado como falta':mk==='atipico'?'marcado como saída atípica':'sem marca')+
+    (dica?'<div class="sub">'+dica+'</div>':'')+'</div>'+
+    '<div class="barra">'+bt('falta','Falta no almoxarifado')+bt('atipico','Saída atípica')+bt('','Normal')+
+    '<input type="text" id="mMotivo" placeholder="Motivo (opcional)" value="'+esc(m.motivo[i]||'')+'" aria-label="Motivo da marca" style="min-width:0;flex:1 1 200px"></div></div>';
 }
 function tendHtml(m){
   if(m.sit==='sem'||m.sit==='semcod')return '<span class="tend neutra">—</span>';
@@ -681,7 +745,7 @@ function visaoGeral(){
   $('#legendaStatus').innerHTML=ordem.map(k=>'<button data-sit="'+k+'"><i class="'+SIT[k][1]+'"'+(k==='semcod'?' style="opacity:.45"':'')+'></i>'+SIT[k][0]+' <b>'+cont[k]+'</b></button>').join('');
   const porMes=MES.map((_,i)=>M.filter(m=>m.q[i]>0).length);
   $('#grafMes').innerHTML=N?barras([{v:porMes,cor:i=>J12.includes(i)?'var(--acento)':'var(--terciario)'}],{rot:'Materiais com saída por mês'}):'<div class="vazio">Nenhuma saída importada ainda.</div>';
-  const fams={};M.forEach(m=>{if(m.q12v>0)(fams[m.fam]=fams[m.fam]||[]).push(m)});
+  const fams={};M.forEach(m=>{if(m.q12>0)(fams[m.fam]=fams[m.fam]||[]).push(m)});
   $('#porFamilia').innerHTML=Object.keys(fams).sort((a,b)=>a.localeCompare(b,'pt')).map(f=>{const g=fams[f].sort((a,b)=>b.cmm-a.cmm),l=g[0];
     return '<tr><td>'+esc(f)+'</td><td class="n">'+g.length+'</td><td class="mat">'+esc(l.m)+'<small>'+l.c+'</small></td><td class="n">'+fmt(l.cmm,1)+' '+esc(l.u)+'</td></tr>'}).join('')||'<tr><td class="vazio">Sem dados.</td></tr>';
   const p=M.filter(m=>m.sit==='parada').sort((a,b)=>b.desde-a.desde).slice(0,12);
@@ -721,47 +785,47 @@ function materiais(){
 function detalhe(m){
   const cods=m.codigos.filter(b=>m.porB[b]);
   const g=N?barrasMaterial(m)+legendaMaterial(m):'';
-  const qtdFalta=m.falta.filter(Boolean).length;
   const pregs=Object.keys(PREG_ITENS).filter(id=>PREG_ITENS[id].some(it=>it.codigo===m.c)).map(id=>(PREG_INDICE.find(p=>p.id===id)||{}).numero||id);
   return '<div class="det"><div><div class="sub" style="margin-bottom:6px">Saída por mês, em '+esc(m.u)+', de '+(MES[0]?rotMes(MES[0]):'')+' a '+(MES[N-1]?rotMes(MES[N-1]):'')+
     (cods.length>1?' · cada cor é um código da BRANET':'')+'</div>'+g+
-    '<p class="ajuda">Clique em qualquer mês para marcar ou desmarcar falta no almoxarifado: no mês sem saída, ou no mês em que saiu menos por racionamento. O mês marcado sai do CMM e da classe.'+
-    (m.temPossivel?' A página sugere falta, em laranja pontilhado, quando um material que sai com regularidade fica dois meses ou mais sem saída.':'')+'</p></div>'+
+    editorMes(m)+'</div>'+
     '<dl><dt>Saída em 12 meses</dt><dd>'+fmt(m.q12,1)+' '+esc(m.u)+'</dd>'+
-    '<dt>CMM</dt><dd>'+fmt(m.cmm,2)+' '+esc(m.u)+(m.mesesFalta?' <span class="sub">sem '+m.mesesFalta+' mês(es) de falta; com eles seria '+fmt(m.cmmBruto,2)+'</span>':'')+'</dd>'+
+    '<dt>CMM</dt><dd>'+fmt(m.cmm,2)+' '+esc(m.u)+' <span class="sub">'+(m.insuf?'histórico insuficiente: menos de 6 meses válidos em 24':
+      (m.jan24?'calculado em 24 meses, por haver menos de 6 meses válidos em 12; ':'')+(m.mesesFalta?'sem os meses marcados; com eles seria '+fmt(m.cmmBruto,2):''))+'</span></dd>'+
     '<dt>Meses com saída</dt><dd>'+m.mesesCom+' de '+J12.length+'</dd>'+
-    '<dt>Meses de falta</dt><dd>'+(qtdFalta?qtdFalta+' marcados':'nenhum marcado')+'</dd>'+
+    '<dt>Meses marcados</dt><dd>'+(m.nFalta||m.nAtip?[m.nFalta?m.nFalta+' de falta':'',m.nAtip?m.nAtip+' de saída atípica':''].filter(Boolean).join(', ')+' <span class="sub">nos últimos 12 meses</span>':'nenhum')+'</dd>'+
     '<dt>Classe</dt><dd>'+(m.classe||'sem saída suficiente em 12 meses')+(m.abc?' <span class="sub">(ABC dentro de '+esc(m.fam)+')</span>':'')+'</dd>'+
     '<dt>Tipo e bloco</dt><dd>'+esc(m.t)+' · '+({TODOS:'Rede básica',CEO:'Exclusivo CEO',COORDENACAO:'Interesse odontológico'}[m.a]||esc(m.a))+'</dd>'+
     '<dt>Códigos na BRANET</dt><dd>'+(m.codigos.length?m.codigos.map(b=>b+' <span class="sub">('+MAPA[b].origem+(MAPA[b].f!==1?', ÷ '+fmt(MAPA[b].f,4):'')+')</span>').join('<br>'):'nenhum')+'</dd>'+
     '<dt>Em pregão</dt><dd>'+(pregs.length?pregs.map(esc).join(', '):'não')+'</dd></dl></div>';
 }
 
-/* ---------- faltas marcadas à mão ---------- */
-const fPend={};
-function alternarFalta(c,i){
-  const m=POR_COD[c];if(!m)return;const k=c+'|'+MES[i];
-  const gravada=FALTAS.some(x=>x.codigo_catalogo===c&&x.mes===MES[i]);
-  const agora=!m.falta[i];
-  if(agora===gravada)delete fPend[k];else fPend[k]=agora;
+/* ---------- meses marcados à mão ---------- */
+const mPend={};let selMes=null;
+function marcarMes(c,i,tipo,motivo){
+  const k=c+'|'+MES[i];
+  const g=MARCAS.find(x=>x.codigo_catalogo===c&&x.mes===MES[i]);
+  const gravado={tipo:g?g.tipo:'',motivo:g?(g.motivo||''):''};
+  if(!tipo)motivo='';
+  if(gravado.tipo===tipo&&gravado.motivo===motivo)delete mPend[k];else mPend[k]={tipo,motivo};
   tudo();
 }
 function desenharPendFaltas(){
-  const n=Object.keys(fPend).length;$('#pendFaltas').classList.toggle('oculto',!n);
-  $('#pendTexto').textContent=n+(n===1?' mês de falta alterado e ainda não gravado':' meses de falta alterados e ainda não gravados');
+  const n=Object.keys(mPend).length;$('#pendFaltas').classList.toggle('oculto',!n);
+  $('#pendTexto').textContent=n+(n===1?' mês com marca alterada e ainda não gravada':' meses com marca alterada e ainda não gravada');
 }
-$('#btDescartarFaltas').onclick=()=>{Object.keys(fPend).forEach(k=>delete fPend[k]);tudo()};
+$('#btDescartarFaltas').onclick=()=>{Object.keys(mPend).forEach(k=>delete mPend[k]);tudo()};
 $('#btGravarFaltas').onclick=async()=>{
   if(!podeGravar())return;const bt=$('#btGravarFaltas');bt.disabled=true;
   try{
-    const n=Object.keys(fPend).length;
-    await gravarCsv('faltas',rem=>{
-      const mapa=new Map(rem.map(x=>[x.codigo_catalogo+'|'+x.mes,x]));
-      Object.keys(fPend).forEach(k=>{const [c,m]=k.split('|');
-        if(fPend[k])mapa.set(k,{codigo_catalogo:c,mes:m,motivo:'marcado na página Pedidos',marcado_em:hoje(),marcado_por:autor()});else mapa.delete(k)});
-      return [...mapa.values()].sort((a,b)=>(a.codigo_catalogo+a.mes).localeCompare(b.codigo_catalogo+b.mes)).map(x=>[x.codigo_catalogo,x.mes,x.motivo,x.marcado_em,x.marcado_por]);
-    },Publicar.mensagem('Pedidos',ARQ.faltas,n,'mês','meses'));
-    FALTAS=lerCsv(await fetchSemCache('faltas.csv'));Object.keys(fPend).forEach(k=>delete fPend[k]);tudo();
+    const n=Object.keys(mPend).length;
+    await gravarCsv('marcacoes',rem=>{
+      const mapa=new Map(rem.map(x=>[x.codigo_catalogo+'|'+x.mes,[x.codigo_catalogo,x.mes,x.tipo,x.motivo,x.marcado_em,x.marcado_por]]));
+      Object.keys(mPend).forEach(k=>{const [c,m]=k.split('|'),p=mPend[k];
+        if(p.tipo)mapa.set(k,[c,m,p.tipo,p.motivo||'',hoje(),autor()]);else mapa.delete(k)});
+      return [...mapa.values()].sort((a,b)=>(a[0]+a[1]).localeCompare(b[0]+b[1]));
+    },Publicar.mensagem('Pedidos',ARQ.marcacoes,n,'mês','meses'));
+    MARCAS=lerCsv(await fetchSemCache('marcacoes.csv'));Object.keys(mPend).forEach(k=>delete mPend[k]);tudo();
   }catch(e){alert('Não consegui gravar: '+(e.message||e))}
   bt.disabled=false;
 };
@@ -784,10 +848,10 @@ function classificacao(){
   $('#matriz').innerHTML=h;
   const fora=M.filter(m=>!m.classe&&(!cTipo||m.t===cTipo)&&(!fa||m.fam===fa)).length;
   $('#notaMatriz').textContent=g.length+' materiais classificados. '+fora+' ficam fora: sem saída nos últimos 12 meses, ou com menos de 3 meses válidos.';
-  const l=g.filter(m=>m.classe===casaSel).sort((a,b)=>a.fam.localeCompare(b.fam,'pt')||b.q12v-a.q12v);
+  const l=g.filter(m=>m.classe===casaSel).sort((a,b)=>a.fam.localeCompare(b.fam,'pt')||b.base-a.base);
   $('#tituloCasa').textContent='Casa '+casaSel+(cTipo?' · '+cTipo:'')+(fa?' · '+fa:'');
   $('#contCasa').textContent=l.length+' materiais';
-  $('#corpoCasa').innerHTML=l.length?l.map(m=>'<tr><td class="mat">'+esc(m.m)+'<small>'+m.c+'</small></td><td>'+spark(J12.map(i=>m.q[i]),COR[m.sit])+'</td><td class="n">'+fmt(m.q12v,1)+' '+esc(m.u)+'</td><td class="n">'+fmt(m.cmm,1)+'</td><td class="n">'+fmt(m.cv,2)+'</td><td>'+esc(m.fam)+'</td></tr>').join('')
+  $('#corpoCasa').innerHTML=l.length?l.map(m=>'<tr><td class="mat">'+esc(m.m)+'<small>'+m.c+'</small></td><td>'+spark(J12.map(i=>m.q[i]),COR[m.sit])+'</td><td class="n">'+fmt(m.q12,1)+' '+esc(m.u)+'</td><td class="n">'+fmt(m.cmm,1)+'</td><td class="n">'+fmt(m.cv,2)+'</td><td>'+esc(m.fam)+'</td></tr>').join('')
     :'<tr><td colspan="6" class="vazio">Nenhum material nesta casa.</td></tr>';
 }
 
@@ -795,7 +859,7 @@ function classificacao(){
    PRÓXIMO PREGÃO
    ===================================================================== */
 const PREG_ITENS={};let filtroP='',ultimaTabela=[];
-const SITP={embalagem:['Confira a embalagem','t-lr'],abaixo:['Abaixo','t-lr'],acima:['Acima','t-rx'],sem:['Sem saída em 12 meses','t-vm'],semcod:['Sem código na BRANET','t-ci'],entra:['Fora do pregão, com saída','t-az'],confere:['Confere','t-vd']};
+const SITP={insuf:['Histórico insuficiente','t-vm'],embalagem:['Confira a embalagem','t-lr'],abaixo:['Abaixo','t-lr'],acima:['Acima','t-rx'],sem:['Sem saída em 12 meses','t-vm'],semcod:['Sem código na BRANET','t-ci'],entra:['Fora do pregão, com saída','t-az'],confere:['Confere','t-vd']};
 async function carregarPregoes(){
   for(const p of PREG_INDICE){try{const r=await fetch('../pregoes/'+encodeURIComponent(p.id)+'.json?t='+Date.now());if(r.ok)PREG_ITENS[p.id]=(await r.json()).itens||[]}catch(e){}}
   $('#pPregao').innerHTML=PREG_INDICE.map(p=>'<option value="'+esc(p.id)+'">'+esc(p.numero)+(p.situacao==='elaboracao'?' (em elaboração)':'')+'</option>').join('')||'<option value="">nenhum pregão</option>';
@@ -816,6 +880,7 @@ function pregao(){
     const fc=fatorCompra(m,it);const nec=m.cmm*vig*(1+(mg[m.abc]||0));const comp=Math.ceil(nec/fc.f);let s;
     if(m.sit==='semcod')s='semcod';
     else if(m.q12===0)s='sem';
+    else if(m.insuf)s='insuf';
     else if(comp===0)s=q>0?'acima':'confere';
     else{
       /* "Confira a embalagem" só quando a diferença bate com o tamanho
@@ -842,7 +907,7 @@ function pregao(){
     if(x.s==='abaixo')pct=' −'+Math.round((1-x.q/x.comp)*100)+'%';
     if(x.s==='embalagem')pct=' · '+fmt(x.q/x.comp,1)+'×';
     return '<tr><td class="mat">'+esc(m.m)+'<small>'+m.c+'</small></td>'+
-      '<td class="n">'+fmt(m.cmm,1)+' '+esc(m.u)+(m.mesesFalta?' <span class="tag t-lr" title="CMM sem os meses de falta">falta</span>':'')+'</td>'+
+      '<td class="n">'+fmt(m.cmm,1)+' '+esc(m.u)+(m.insuf?' <span class="tag t-vm" title="menos de 6 meses válidos em 24">insuficiente</span>':m.mesesFalta?' <span class="tag t-lr" title="CMM sem os meses marcados">'+m.mesesFalta+' marcado'+(m.mesesFalta>1?'s':'')+'</span>':'')+'</td>'+
       '<td class="n">'+(m.classe||'—')+'</td><td class="n">'+fmt(x.nec,0)+' '+esc(m.u)+'</td>'+
       '<td class="fator'+(x.fc.f>1?' alerta':'')+'">÷ '+x.fc.f+(x.fc.sug?' <span title="lido da unidade de compra">?</span>':'')+'</td>'+
       '<td class="n uc"><b>'+fmt(x.comp)+'</b><span class="sub">'+esc(x.unc?x.unc.toLowerCase():m.u)+'</span></td>'+
@@ -853,9 +918,9 @@ function pregao(){
 $('#btExportar').onclick=()=>{
   const vig=+$('#pVig').value,mg={A:+$('#pA').value||0,B:+$('#pB').value||0,C:+$('#pC').value||0};
   const per=J12.length?rotMes(MES[J12[0]])+' a '+rotMes(MES[J12[J12.length-1]]):'';
-  const ls=ultimaTabela.map(x=>{const m=x.m;const faltas=MES.filter((_,i)=>m.falta[i]&&J12.includes(i)).join(' ');
-    return [m.c,m.m,m.u,m.fam,per,fmt(m.q12,2),faltas,fmt(m.cmm,4),fmt(m.cmmBruto,4),m.classe,vig,m.abc?mg[m.abc]:0,fmt(x.nec,2),x.fc.f,x.comp,x.unc,x.q==null?'':x.q,SITP[x.s][0]]});
-  const cab='codigo,material,unidade,familia,periodo,saida_12_meses,meses_de_falta_retirados,cmm_ajustado,cmm_simples,classe,vigencia_meses,margem_percentual,necessidade,fator_embalagem,necessidade_un_compra,unidade_compra,quantidade_no_pregao,situacao';
+  const ls=ultimaTabela.map(x=>{const m=x.m;const retirados=MES.map((mes,i)=>m.marca[i]?mes+' ('+(m.marca[i]==='falta'?'falta':'atípico')+(m.motivo[i]?': '+m.motivo[i]:'')+')':'').filter(Boolean).join('; ');
+    return [m.c,m.m,m.u,m.fam,m.jan24?'24 meses':per,fmt(m.q12,2),retirados,fmt(m.cmm,4),fmt(m.cmmBruto,4),m.classe,vig,m.abc?mg[m.abc]:0,fmt(x.nec,2),x.fc.f,x.comp,x.unc,x.q==null?'':x.q,SITP[x.s][0]]});
+  const cab='codigo,material,unidade,familia,periodo,saida_12_meses,meses_retirados,cmm_ajustado,cmm_simples,classe,vigencia_meses,margem_percentual,necessidade,fator_embalagem,necessidade_un_compra,unidade_compra,quantidade_no_pregao,situacao';
   baixar(montarCsv(cab,ls),'memoria-calculo-'+($('#pPregao').value||'pregao')+'.csv');
 };
 
@@ -1091,9 +1156,12 @@ window.addEventListener('hashchange',()=>abrir(location.hash.slice(1)));
 ['#fBusca','#fSit','#fFam','#fTipo','#fBloco','#fOrd'].forEach(s=>$(s).addEventListener('input',()=>{limiteMat=150;materiais()}));
 $('#maisMat').addEventListener('click',e=>{if(e.target.id==='btMaisMat'){limiteMat+=150;materiais()}});
 $('#corpoMat').addEventListener('click',e=>{
-  const alvo=e.target.closest('rect.alvo');if(alvo&&aberto){alternarFalta(aberto,+alvo.dataset.i);return}
+  const alvo=e.target.closest('rect.alvo');if(alvo&&aberto){const i=+alvo.dataset.i;selMes=selMes&&selMes.c===aberto&&selMes.i===i?null:{c:aberto,i};materiais();return}
+  const bm=e.target.closest('[data-marca]');if(bm&&selMes){const mo=$('#mMotivo');marcarMes(selMes.c,selMes.i,bm.dataset.marca,mo?mo.value.trim():'');return}
+  if(e.target.closest('.editor-mes'))return;
   const tr=e.target.closest('tr.lin');if(!tr)return;aberto=aberto===tr.dataset.c?null:tr.dataset.c;materiais()});
-$('#corpoMat').addEventListener('keydown',e=>{if(e.key!=='Enter'&&e.key!==' ')return;const tr=e.target.closest('tr.lin');if(!tr)return;e.preventDefault();
+$('#corpoMat').addEventListener('change',e=>{if(e.target.id==='mMotivo'&&selMes){const m=POR_COD[selMes.c];if(m&&m.marca[selMes.i])marcarMes(selMes.c,selMes.i,m.marca[selMes.i],e.target.value.trim())}});
+$('#corpoMat').addEventListener('keydown',e=>{if(e.target.id==='mMotivo')return;if(e.key!=='Enter'&&e.key!==' ')return;const tr=e.target.closest('tr.lin');if(!tr)return;e.preventDefault();
   aberto=aberto===tr.dataset.c?null:tr.dataset.c;materiais();const n=document.querySelector('tr.lin[data-c="'+tr.dataset.c+'"]');if(n)n.focus()});
 $('#legendaStatus').addEventListener('click',e=>{const b=e.target.closest('[data-sit]');if(!b)return;$('#fSit').value=b.dataset.sit;$('#fOrd').value=b.dataset.sit==='parada'?'parado':'nome';materiais();irPara('materiais')});
 document.addEventListener('click',e=>{const b=e.target.closest('[data-ir]');if(!b)return;const k=b.dataset.ir;
@@ -1105,7 +1173,7 @@ $('#cFam').addEventListener('input',classificacao);
 $('#matriz').addEventListener('click',e=>{const b=e.target.closest('[data-casa]');if(!b)return;casaSel=b.dataset.casa;classificacao()});
 ['#pPregao','#pVig','#pA','#pB','#pC'].forEach(s=>$(s).addEventListener('input',pregao));
 $('#pills').addEventListener('click',e=>{const b=e.target.closest('[data-p]');if(!b)return;filtroP=b.dataset.p;pregao()});
-window.addEventListener('beforeunload',e=>{if(Object.keys(uDec).length||Object.keys(fPend).length){e.preventDefault();e.returnValue=''}});
+window.addEventListener('beforeunload',e=>{if(Object.keys(uDec).length||Object.keys(mPend).length){e.preventDefault();e.returnValue=''}});
 
 function tudo(){construir();visaoGeral();materiais();classificacao();pregao();unir();desenharPendFaltas();subtitulo()}
 function subtitulo(){
