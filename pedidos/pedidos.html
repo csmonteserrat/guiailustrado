@@ -225,7 +225,7 @@ pre.csv{margin:0;font-family:var(--fonte-mono);font-size:12px;background:var(--n
   <section class="painel" id="p-visao-geral" role="tabpanel" aria-labelledby="tb-visao-geral">
     <div class="kpis" id="kpis"></div>
     <div class="cartao">
-      <div class="tt"><h2>Situação dos materiais ativos</h2><span class="sub" id="totSit"></span></div>
+      <div class="tt"><h2>Situação dos materiais da odontologia</h2><span class="sub" id="totSit"></span></div>
       <div class="barra-status" id="barraStatus"></div>
       <div class="legenda" id="legendaStatus"></div>
     </div>
@@ -254,7 +254,7 @@ pre.csv{margin:0;font-family:var(--fonte-mono);font-size:12px;background:var(--n
         <select id="fSit" aria-label="Situação"><option value="">Todas as situações</option><option value="alta">Alta saída</option><option value="regular">Regular</option><option value="lenta">Lenta</option><option value="parada">Parada há 12 meses ou mais</option><option value="sem">Sem saída no período</option><option value="semcod">Sem código na BRANET</option><option value="falta">Com possível falta</option></select>
         <select id="fFam" aria-label="Família"><option value="">Todas as famílias</option></select>
         <select id="fTipo" aria-label="Tipo"><option value="">Consumo e instrumental</option><option>Consumo</option><option>Instrumental</option></select>
-        <select id="fBloco" aria-label="Bloco"><option value="">Todos os blocos</option><option value="TODOS">Rede básica</option><option value="CEO">Exclusivo CEO</option><option value="COORDENACAO">Interesse odontológico</option></select>
+        <select id="fBloco" aria-label="Bloco"><option value="">Todos os blocos</option><option value="TODOS">Rede básica</option><option value="CEO">Exclusivo CEO</option></select>
         <select id="fOrd" aria-label="Ordenar"><option value="nome">Nome</option><option value="cmm">Maior CMM</option><option value="parado">Mais tempo parado</option><option value="queda">Maior queda</option></select>
       </div>
     </div>
@@ -351,7 +351,7 @@ pre.csv{margin:0;font-family:var(--fonte-mono);font-size:12px;background:var(--n
   <div class="pendente oculto" id="pendFaltas"><span id="pendTexto"></span><span class="barra"><button class="mini principal" id="btGravarFaltas">Gravar</button><button class="mini" id="btDescartarFaltas">Descartar</button></span></div>
 
 </div>
-<div id="versaoPagina">pedidos · versão 2026-11-06a</div>
+<div id="versaoPagina">pedidos · versão 2026-11-06b</div>
 </div>
 </div>
 
@@ -445,22 +445,28 @@ function podeGravar(){
 /* =====================================================================
    DADOS
    ===================================================================== */
-let PROD={},ATIVOS=[],BN={},SAIDAS=[],UNIOES=[],FALTAS=[],IMPORTS=[],PREG_INDICE=[];
+let PROD={},DESC={},ATIVOS=[],BN={},SAIDAS=[],UNIOES=[],FALTAS=[],IMPORTS=[],PREG_INDICE=[];
 let MES=[],N=0,J12=[],M=[],POR_COD={},SOLTOS=[],NOMEB={},SB={},MAPA={};
 
 async function carregar(){
   const t=s=>'?t='+Date.now();
-  const [p,b,s,u,f,i,pi]=await Promise.all([
+  const [p,b,s,u,f,i,pi,dsc]=await Promise.all([
     fetch('../produtos.csv'+t()).then(r=>{if(!r.ok)throw new Error('produtos.csv');return r.text()}),
     fetch('../branet/branet.csv'+t()).then(r=>r.ok?r.text():''),
     fetch('saidas.csv'+t()).then(r=>r.ok?r.text():''),
     fetch('unioes.csv'+t()).then(r=>r.ok?r.text():''),
     fetch('faltas.csv'+t()).then(r=>r.ok?r.text():''),
     fetch('importacoes.csv'+t()).then(r=>r.ok?r.text():''),
-    fetch('../pregoes/indice.json'+t()).then(r=>r.ok?r.json():{pregoes:[]}).catch(()=>({pregoes:[]}))
+    fetch('../pregoes/indice.json'+t()).then(r=>r.ok?r.json():{pregoes:[]}).catch(()=>({pregoes:[]})),
+    fetch('../descritivos/descritivos.csv'+t()).then(r=>r.ok?r.text():'')
   ]);
   lerCsv(p).forEach(x=>{if(x.codigo)PROD[x.codigo]=x});
-  ATIVOS=Object.values(PROD).filter(x=>(x.ativo||'').toUpperCase()==='SIM');
+  lerCsv(dsc).forEach(x=>{if(x.codigo)DESC[x.codigo]=x});
+  /* Só a odontologia: grupos 12 a 15 do CELK. Ficam de fora a lista da
+     Enfermagem (outros grupos) e os materiais novos ainda aguardando
+     compra, que não têm saída para analisar. */
+  ATIVOS=Object.values(PROD).filter(x=>(x.ativo||'').toUpperCase()==='SIM'&&[12,13,14,15].includes(parseInt(x.grupo,10))&&
+    ((DESC[x.codigo]||{}).situacao_compra||'')!=='AGUARDANDO_COMPRA');
   lerCsv(b).forEach(x=>{if(x.codigo)BN[x.codigo]=x});
   SAIDAS=lerCsv(s);UNIOES=lerCsv(u);FALTAS=lerCsv(f);IMPORTS=lerCsv(i);
   PREG_INDICE=(pi.pregoes||[]);
@@ -571,24 +577,77 @@ function spark(vals,cor){
     '<polygon points="2,'+(h-2)+' '+l+' '+(w-2)+','+(h-2)+'" style="fill:'+cor+';opacity:.15"/><polyline points="'+l+'" fill="none" style="stroke:'+cor+'" stroke-width="1.6" stroke-linejoin="round"/>'+
     '<circle cx="'+u[0].toFixed(1)+'" cy="'+u[1].toFixed(1)+'" r="2.3" style="fill:'+cor+'"/></svg>';
 }
-function passo(mx){const e=Math.pow(10,Math.floor(Math.log10(mx||1))),c=[1,2,5,10];for(const k of c)if(mx/(k*e)<=5)return k*e;return 10*e}
+/* Eixo sempre com 4 gradações acima do zero, em passos redondos
+   (1, 2, 2,5 ou 5 vezes uma potência de 10). */
+function escala4(mx){
+  if(!(mx>0))return {passo:1,topo:4};
+  const bruto=mx/4,e=Math.pow(10,Math.floor(Math.log10(bruto)));
+  for(const k of [1,2,2.5,5,10])if(k*e>=bruto-1e-9)return {passo:k*e,topo:4*k*e};
+  return {passo:10*e,topo:40*e};
+}
+function eixo(W,H,L,R,T,B,es){
+  let s='';
+  for(let k=0;k<=4;k++){const v=es.passo*k,y=T+(H-T-B)*(1-k/4);
+    s+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y.toFixed(1)+'" y2="'+y.toFixed(1)+'" style="stroke:var(--linha)"/><text x="'+(L-6)+'" y="'+(y+4).toFixed(1)+'" text-anchor="end">'+fmt(v,es.passo<1?2:(es.passo%1?1:0))+'</text>'}
+  return s;
+}
 /* Barras empilhadas; camadas = [{v:[...],cor}]. opt.clicavel põe um
    alvo transparente por mês, com data-i. opt.contorno marca meses. */
 function barras(camadas,opt){
   opt=opt||{};const n=MES.length,W=760,H=opt.h||200,L=44,R=8,T=10,B=26;
-  const tot=MES.map((_,i)=>camadas.reduce((s,c)=>s+(c.v[i]||0),0)),mx=Math.max(...tot,0)||1,st=passo(mx),top=Math.ceil(mx/st)*st;
+  const tot=MES.map((_,i)=>camadas.reduce((s,c)=>s+(c.v[i]||0),0)),es=escala4(Math.max(...tot,0)),top=es.topo;
   const pw=(W-L-R)/n,bw=Math.max(4,pw*.64);
   let s='<svg class="grafico'+(opt.clicavel?' clicavel':'')+'" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+esc(opt.rot||'Gráfico de barras por mês')+'">';
-  for(let v=0;v<=top;v+=st){const y=T+(H-T-B)*(1-v/top);s+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y.toFixed(1)+'" y2="'+y.toFixed(1)+'" style="stroke:var(--linha)"/><text x="'+(L-6)+'" y="'+(y+4).toFixed(1)+'" text-anchor="end">'+fmt(v)+'</text>'}
+  s+=eixo(W,H,L,R,T,B,es);
   for(let i=0;i<n;i++){
     const x=L+i*pw+(pw-bw)/2;let base=H-B;
-    if(opt.clicavel)s+='<rect class="alvo" data-i="'+i+'" x="'+(L+i*pw).toFixed(1)+'" y="'+T+'" width="'+pw.toFixed(1)+'" height="'+(H-T-B)+'" style="fill:transparent"><title>'+rotMes(MES[i])+': clique para marcar ou desmarcar falta</title></rect>';
+    if(opt.clicavel)s+='<rect class="alvo" data-i="'+i+'" x="'+(L+i*pw).toFixed(1)+'" y="'+T+'" width="'+pw.toFixed(1)+'" height="'+(H-T-B)+'" fill="transparent"><title>'+rotMes(MES[i])+': clique para marcar ou desmarcar falta</title></rect>';
     if(opt.contorno&&opt.contorno[i])s+='<rect x="'+x.toFixed(1)+'" y="'+T+'" width="'+bw.toFixed(1)+'" height="'+(H-T-B)+'" rx="2" style="fill:var(--sawtooth-suave);pointer-events:none"/>';
     camadas.forEach(c=>{const v=c.v[i]||0;if(!v)return;const h=(H-T-B)*(v/top);base-=h;
       s+='<rect x="'+x.toFixed(1)+'" y="'+base.toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+h.toFixed(1)+'" rx="2" style="fill:'+(typeof c.cor==='function'?c.cor(i):c.cor)+';pointer-events:none"><title>'+rotMes(MES[i])+': '+fmt(v,1)+'</title></rect>'});
     if(i%3===0)s+='<text x="'+(x+bw/2).toFixed(1)+'" y="'+(H-8)+'" text-anchor="middle">'+rotMes(MES[i])+'</text>';
   }
   return s+'</svg>';
+}
+/* Gráfico do detalhe do material. Cada mês pode ser clicado para
+   marcar ou desmarcar falta no almoxarifado:
+   - mês sem saída: coluna transparente com contorno pontilhado,
+     em laranja quando a página suspeita de falta;
+   - mês sem saída marcado como falta: barrinha laranja com "!";
+   - mês com saída marcado como falta (racionamento): a barra fica
+     laranja e ganha o mesmo "!" em cima. */
+function barrasMaterial(m){
+  const n=MES.length,W=760,H=210,L=44,R=8,T=18,B=26,cores=['var(--acento)','var(--corallite)','var(--corn)','var(--curacao)'];
+  const cods=m.codigos.filter(b=>m.porB[b]);const camadas=cods.length?cods.map(b=>m.porB[b]):[m.q];
+  const es=escala4(Math.max(...m.q,0)),top=es.topo,ph=H-T-B,pw=(W-L-R)/n,bw=Math.max(4,pw*.64);
+  let s='<svg class="grafico clicavel" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Saída por mês de '+esc(m.m)+'">'+eixo(W,H,L,R,T,B,es);
+  for(let i=0;i<n;i++){
+    const x=L+i*pw+(pw-bw)/2,cx=x+bw/2,falta=m.falta[i],zero=!(m.q[i]>0),rot=rotMes(MES[i]);
+    s+='<rect class="alvo" data-i="'+i+'" x="'+(L+i*pw).toFixed(1)+'" y="'+T+'" width="'+pw.toFixed(1)+'" height="'+ph+'" fill="transparent"><title>'+rot+': '+(falta?'falta marcada. Clique para desmarcar':'clique para marcar falta no almoxarifado')+'</title></rect>';
+    if(zero&&!falta){const sus=m.possivel[i];
+      s+='<rect x="'+(x+.75).toFixed(1)+'" y="'+(T+.75)+'" width="'+(bw-1.5).toFixed(1)+'" height="'+(ph-1.5)+'" rx="3" style="fill:'+(sus?'var(--sawtooth-suave)':'var(--corn-suave)')+';fill-opacity:.55;stroke:'+(sus?'var(--sawtooth)':'var(--corn)')+';stroke-width:1.2;stroke-dasharray:3 3;pointer-events:none"/>';
+    }
+    let topoBarra=H-B;
+    camadas.forEach((v,k)=>{const q=v[i]||0;if(!q)return;const h=ph*(q/top);topoBarra-=h;
+      s+='<rect x="'+x.toFixed(1)+'" y="'+topoBarra.toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+h.toFixed(1)+'" rx="2" style="fill:'+(falta?'var(--sawtooth)':cores[k%cores.length])+';pointer-events:none"/>'});
+    if(falta){
+      if(zero){topoBarra=H-B-14;s+='<rect x="'+x.toFixed(1)+'" y="'+topoBarra+'" width="'+bw.toFixed(1)+'" height="14" rx="3" style="fill:var(--sawtooth);pointer-events:none"/>'}
+      const cy=Math.max(T-2,topoBarra-11);
+      s+='<circle cx="'+cx.toFixed(1)+'" cy="'+cy.toFixed(1)+'" r="8" style="fill:var(--sawtooth);stroke:var(--superficie);stroke-width:2;pointer-events:none"/>'+
+         '<text x="'+cx.toFixed(1)+'" y="'+(cy+4).toFixed(1)+'" text-anchor="middle" style="fill:#fff;font-size:11px;font-weight:800;pointer-events:none">!</text>';
+    }
+    if(i%3===0)s+='<text x="'+cx.toFixed(1)+'" y="'+(H-8)+'" text-anchor="middle">'+rot+'</text>';
+  }
+  return s+'</svg>';
+}
+function legendaMaterial(m){
+  const amostra=(estilo,txt)=>'<span><svg width="14" height="14" aria-hidden="true" style="vertical-align:-2px;margin-right:6px">'+estilo+'</svg>'+txt+'</span>';
+  return '<div class="leg" style="margin-top:6px">'+
+    amostra('<rect x="1" y="1" width="12" height="12" rx="2" style="fill:var(--corn-suave);stroke:var(--corn);stroke-dasharray:2 2"/>','mês sem saída: clique para marcar falta')+
+    (m.temPossivel?amostra('<rect x="1" y="1" width="12" height="12" rx="2" style="fill:var(--sawtooth-suave);stroke:var(--sawtooth);stroke-dasharray:2 2"/>','possível falta'):'')+
+    amostra('<circle cx="7" cy="7" r="6" style="fill:var(--sawtooth)"/><text x="7" y="10.5" text-anchor="middle" style="fill:#fff;font-size:9px;font-weight:800">!</text>','falta marcada')+
+    amostra('<rect x="3" y="4" width="8" height="10" rx="1" style="fill:var(--sawtooth)"/>','saída reduzida por falta (racionamento)')+
+    '</div>';
 }
 function tendHtml(m){
   if(m.sit==='sem'||m.sit==='semcod')return '<span class="tend neutra">—</span>';
@@ -609,10 +668,10 @@ function visaoGeral(){
   const pregao=PREG_INDICE.find(p=>p.situacao==='elaboracao')||PREG_INDICE[0];
   let kpiPreg='<div class="kpi"><span class="v">—</span><span class="l">nenhum pregão cadastrado</span></div>';
   if(pregao&&PREG_ITENS[pregao.id]){const its=PREG_ITENS[pregao.id].filter(it=>POR_COD[it.codigo]);const sem=its.filter(it=>POR_COD[it.codigo].q12===0).length;
-    kpiPreg='<button class="kpi alerta" data-ir="pregao"><span class="v">'+sem+'</span><span class="l">itens do '+esc(pregao.numero)+' sem saída em 12 meses</span><span class="d">de '+its.length+' itens ativos no pregão</span></button>'}
+    kpiPreg='<button class="kpi alerta" data-ir="pregao"><span class="v">'+sem+'</span><span class="l">itens do '+esc(pregao.numero)+' sem saída em 12 meses</span><span class="d">de '+its.length+' itens do pregão em análise</span></button>'}
   $('#kpis').innerHTML=
-    '<div class="kpi"><span class="v">'+com12.length+'</span><span class="l">materiais com saída em 12 meses</span><span class="d">de '+M.length+' ativos no catálogo</span></div>'+
-    '<button class="kpi alerta" data-ir="parados"><span class="v">'+parados.length+'</span><span class="l">ativos sem saída há 12 meses ou mais</span><span class="d">'+M.filter(m=>m.sit==='sem').length+' sem nenhuma saída desde '+rotMes(MES[0]||'2025-01')+'</span></button>'+
+    '<div class="kpi"><span class="v">'+com12.length+'</span><span class="l">materiais com saída em 12 meses</span><span class="d">de '+M.length+' materiais da odontologia em análise</span></div>'+
+    '<button class="kpi alerta" data-ir="parados"><span class="v">'+parados.length+'</span><span class="l">sem saída há 12 meses ou mais</span><span class="d">'+M.filter(m=>m.sit==='sem').length+' sem nenhuma saída desde '+rotMes(MES[0]||'2025-01')+'</span></button>'+
     kpiPreg+
     '<button class="kpi" data-ir="unir"><span class="v">'+SOLTOS.length+'</span><span class="l">códigos da BRANET para unir</span><span class="d">com saída e sem material ligado</span></button>';
   const ordem=['alta','regular','lenta','parada','sem','semcod'],cont={};ordem.forEach(k=>cont[k]=M.filter(m=>m.sit===k).length);
@@ -660,16 +719,14 @@ function materiais(){
   $('#maisMat').innerHTML=l.length>limiteMat?'<button class="mini" id="btMaisMat">Mostrar mais '+Math.min(150,l.length-limiteMat)+'</button>':'';
 }
 function detalhe(m){
-  const cores=['var(--acento)','var(--corallite)','var(--corn)','var(--curacao)'];
   const cods=m.codigos.filter(b=>m.porB[b]);
-  const camadas=cods.length?cods.map((b,k)=>({v:m.porB[b],cor:i=>m.falta[i]?'var(--sawtooth)':cores[k%cores.length]})):[{v:m.q,cor:'var(--acento)'}];
-  const g=N?barras(camadas,{h:180,clicavel:true,contorno:m.possivel,rot:'Saída por mês de '+m.m}):'';
+  const g=N?barrasMaterial(m)+legendaMaterial(m):'';
   const qtdFalta=m.falta.filter(Boolean).length;
   const pregs=Object.keys(PREG_ITENS).filter(id=>PREG_ITENS[id].some(it=>it.codigo===m.c)).map(id=>(PREG_INDICE.find(p=>p.id===id)||{}).numero||id);
   return '<div class="det"><div><div class="sub" style="margin-bottom:6px">Saída por mês, em '+esc(m.u)+', de '+(MES[0]?rotMes(MES[0]):'')+' a '+(MES[N-1]?rotMes(MES[N-1]):'')+
     (cods.length>1?' · cada cor é um código da BRANET':'')+'</div>'+g+
-    '<p class="ajuda">Clique num mês para marcar ou desmarcar falta no almoxarifado. Mês de falta fica em laranja e sai do CMM e da classe. '+
-    (m.temPossivel?'<b style="color:var(--sawtooth)">Fundo laranja claro: possível falta</b>, meses seguidos sem saída num material que sai com regularidade.':'')+'</p></div>'+
+    '<p class="ajuda">Clique em qualquer mês para marcar ou desmarcar falta no almoxarifado: no mês sem saída, ou no mês em que saiu menos por racionamento. O mês marcado sai do CMM e da classe.'+
+    (m.temPossivel?' A página sugere falta, em laranja pontilhado, quando um material que sai com regularidade fica dois meses ou mais sem saída.':'')+'</p></div>'+
     '<dl><dt>Saída em 12 meses</dt><dd>'+fmt(m.q12,1)+' '+esc(m.u)+'</dd>'+
     '<dt>CMM</dt><dd>'+fmt(m.cmm,2)+' '+esc(m.u)+(m.mesesFalta?' <span class="sub">sem '+m.mesesFalta+' mês(es) de falta; com eles seria '+fmt(m.cmmBruto,2)+'</span>':'')+'</dd>'+
     '<dt>Meses com saída</dt><dd>'+m.mesesCom+' de '+J12.length+'</dd>'+
