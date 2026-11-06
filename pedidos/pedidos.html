@@ -80,6 +80,8 @@ svg.spark{display:block}
 .tabMat td:first-child{padding-left:8px}
 .detalhe td{background:var(--neutro);padding:14px 16px}
 .grafm{position:relative}
+.cab-graf{display:flex;gap:8px 12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:6px}
+.seg-jan button{padding:3px 10px;font-size:12px}
 .menu-mes{position:absolute;top:44px;z-index:6;width:260px;background:var(--superficie);border-radius:14px;box-shadow:var(--sombra-alta);border:1px solid var(--borda);padding:10px;display:flex;flex-direction:column;gap:6px;cursor:default}
 .menu-mes .tit{font-size:12px;color:var(--secundario);padding:0 4px 2px}
 .menu-mes .tit b{color:var(--texto)}
@@ -385,7 +387,7 @@ pre.csv{margin:0;font-family:var(--fonte-mono);font-size:12px;background:var(--n
   <div class="pendente oculto" id="pendFaltas"><span id="pendTexto"></span><span class="barra"><button class="mini principal" id="btGravarFaltas">Gravar</button><button class="mini" id="btDescartarFaltas">Descartar</button></span></div>
 
 </div>
-<div id="versaoPagina">pedidos · versão 2026-11-06d</div>
+<div id="versaoPagina">pedidos · versão 2026-11-06e</div>
 </div>
 </div>
 
@@ -702,16 +704,17 @@ const ICONE={
 function setaSvg(cx,cy,up){const u=up?1:-1;
   return '<path d="M'+cx.toFixed(1)+' '+(cy+4.5*u).toFixed(1)+'v'+(-9*u)+'M'+(cx-3.5).toFixed(1)+' '+(cy-1*u).toFixed(1)+'l3.5 '+(-3.5*u)+' 3.5 '+(3.5*u)+'" style="fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;pointer-events:none"/>'}
 function barrasMaterial(m){
-  const n=MES.length,W=760,H=210,L=44,R=8,T=18,B=26,cores=['var(--acento)','var(--corn)','var(--curacao)','var(--ok)'];
+  /* Janela do gráfico: os últimos 12, 24 (padrão) ou 36 meses, ou tudo */
+  const nT=MES.length,n=janelaGraf?Math.min(nT,janelaGraf):nT,o=nT-n,W=760,H=210,L=44,R=8,T=18,B=26,cores=['var(--acento)','var(--corn)','var(--curacao)','var(--ok)'];
   const cods=m.codigos.filter(b=>m.porB[b]);const camadas=cods.length?cods.map(b=>m.porB[b]):[m.q];
-  const es=escala4(Math.max(...m.q,0)),top=es.topo,ph=H-T-B,pw=(W-L-R)/n,bw=Math.max(4,pw*.64);
+  const es=escala4(Math.max(...m.q.slice(o),0)),top=es.topo,ph=H-T-B,pw=(W-L-R)/n,bw=Math.max(4,pw*.64);
   const sel=uMenu&&uMenu.c===m.c?uMenu.i:-1;
   let s='<svg class="grafico clicavel" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Saída por mês de '+esc(m.m)+'">'+eixo(W,H,L,R,T,B,es);
-  for(let i=0;i<n;i++){
-    const x=L+i*pw+(pw-bw)/2,cx=x+bw/2,mk=m.marca[i],zero=!(m.q[i]>0),rot=rotMes(MES[i]);
+  for(let i=o;i<nT;i++){
+    const x=L+(i-o)*pw+(pw-bw)/2,cx=x+bw/2,mk=m.marca[i],zero=!(m.q[i]>0),rot=rotMes(MES[i]);
     const corMk=mk==='atipico_maior'?'var(--corallite)':'var(--sawtooth)';
-    if(i===sel)s+='<rect x="'+(L+i*pw).toFixed(1)+'" y="'+T+'" width="'+pw.toFixed(1)+'" height="'+ph+'" rx="3" style="fill:var(--acento-suave);pointer-events:none"/>';
-    s+='<rect class="alvo" data-i="'+i+'" x="'+(L+i*pw).toFixed(1)+'" y="'+T+'" width="'+pw.toFixed(1)+'" height="'+ph+'" fill="transparent"><title>'+rot+': '+fmt(m.q[i],1)+' '+esc(m.u)+
+    if(i===sel)s+='<rect x="'+(L+(i-o)*pw).toFixed(1)+'" y="'+T+'" width="'+pw.toFixed(1)+'" height="'+ph+'" rx="3" style="fill:var(--acento-suave);pointer-events:none"/>';
+    s+='<rect class="alvo" data-i="'+i+'" x="'+(L+(i-o)*pw).toFixed(1)+'" y="'+T+'" width="'+pw.toFixed(1)+'" height="'+ph+'" fill="transparent"><title>'+rot+': '+fmt(m.q[i],1)+' '+esc(m.u)+
       (mk?' · '+NOME_MARCA[mk]:'')+(zero?' · clique para '+(mk?'desmarcar':'marcar falta de estoque'):' · clique para escolher')+'</title></rect>';
     if(zero&&!mk){const tipo=m.susFalta[i]?'sawtooth':m.susEfeito[i]?'corallite':'corn';
       s+='<rect x="'+(x+.75).toFixed(1)+'" y="'+(T+.75)+'" width="'+(bw-1.5).toFixed(1)+'" height="'+(ph-1.5)+'" rx="3" style="fill:var(--'+tipo+'-suave);fill-opacity:.55;stroke:var(--'+tipo+');stroke-width:1.2;stroke-dasharray:3 3;pointer-events:none"/>';
@@ -728,11 +731,11 @@ function barrasMaterial(m){
         (mk==='falta'?'<text x="'+cx.toFixed(1)+'" y="'+(cy+4).toFixed(1)+'" text-anchor="middle" style="fill:#fff;font-size:11px;font-weight:800;pointer-events:none">!</text>':setaSvg(cx,cy,mk==='atipico_maior'));
     }
     if(m.obs[i])s+='<circle cx="'+(cx+7).toFixed(1)+'" cy="'+(H-B+6)+'" r="2.6" style="fill:var(--secundario);pointer-events:none"><title>tem observação</title></circle>';
-    if(i%3===0)s+='<text x="'+cx.toFixed(1)+'" y="'+(H-8)+'" text-anchor="middle">'+rot+'</text>';
+    if((i-o)%3===0)s+='<text x="'+cx.toFixed(1)+'" y="'+(H-8)+'" text-anchor="middle">'+rot+'</text>';
   }
   s+='</svg>';
-  if(sel>=0){
-    const mk=m.marca[sel],pos=((L+sel*pw+pw/2)/W*100).toFixed(2);
+  if(sel>=o){
+    const mk=m.marca[sel],pos=((L+(sel-o)*pw+pw/2)/W*100).toFixed(2);
     const bt=(t,txt)=>'<button data-t="'+t+'"'+(mk===t?' class="on"':'')+'>'+(ICONE[t]||'')+txt+'</button>';
     s+='<div class="menu-mes" style="left:clamp(0px,calc('+pos+'% - 130px),calc(100% - 260px))"><div class="tit"><b>'+rotMes(MES[sel])+'</b> · saída de '+fmt(m.q[sel],1)+' '+esc(m.u)+'</div>'+
       bt('atipico_maior','Saída atípica maior')+bt('atipico_menor','Saída atípica menor')+(mk?'<button data-t="">Tirar a marca</button>':'')+
@@ -871,8 +874,9 @@ function detalhe(m){
   const cods=m.codigos.filter(b=>m.porB[b]);
   const g=N?barrasMaterial(m):'';
   const pregs=Object.keys(PREG_ITENS).filter(id=>PREG_ITENS[id].some(it=>it.codigo===m.c)).map(id=>(PREG_INDICE.find(p=>p.id===id)||{}).numero||id);
-  return '<div class="det"><div><div class="sub" style="margin-bottom:6px">Saída por mês, em '+esc(m.u)+', de '+(MES[0]?rotMes(MES[0]):'')+' a '+(MES[N-1]?rotMes(MES[N-1]):'')+
-    (cods.length>1?' · cada cor é um código da BRANET':'')+'</div><div class="grafm">'+g+'</div>'+legendaMaterial(m)+recadoMes(m)+'</div><div>'+
+  const ini=janelaGraf?Math.max(0,N-janelaGraf):0;
+  const seg='<span class="seg seg-jan" role="group" aria-label="Meses no gráfico">'+[[12,'12 meses'],[24,'24 meses'],[36,'36 meses'],[0,'Tudo']].map(x=>'<button data-jan="'+x[0]+'" aria-pressed="'+(janelaGraf===x[0])+'">'+x[1]+'</button>').join('')+'</span>';
+  return '<div class="det"><div><div class="cab-graf"><span class="sub">Saída por mês, em '+esc(m.u)+', de '+(MES[ini]?rotMes(MES[ini]):'')+' a '+(MES[N-1]?rotMes(MES[N-1]):'')+(cods.length>1?' · cada cor é um código da BRANET':'')+'</span>'+seg+'</div><div class="grafm">'+g+'</div>'+legendaMaterial(m)+recadoMes(m)+'</div><div>'+
     '<dl><dt>Saída em 12 meses</dt><dd>'+fmt(m.q12,1)+' '+esc(m.u)+'</dd>'+
     '<dt>CMM</dt><dd>'+fmt(m.cmm,2)+' '+esc(m.u)+' <span class="sub">'+(m.insuf?'histórico insuficiente: menos de 6 meses válidos em 24':
       (m.jan24?'calculado em 24 meses, por haver menos de 6 meses válidos em 12; ':'')+(m.mesesFalta?'sem os meses marcados; com eles seria '+fmt(m.cmmBruto,2):''))+'</span></dd>'+
@@ -888,6 +892,8 @@ function detalhe(m){
    Chave de um registro: o mês (aaaa-mm) ou "g" + identificador, para as
    observações gerais do material. mPend guarda as alterações ainda não
    gravadas, por "código|chave". */
+/* quantos meses o gráfico do material mostra; 0 = todos. Lembrado neste navegador. */
+let janelaGraf=24;try{const v=localStorage.getItem('pedidos-janela-grafico');if(v!==null&&['0','12','24','36'].includes(v))janelaGraf=+v}catch(e){}
 const mPend={},notasAbertas=new Set();let uMenu=null,ultimoMes=null,notaEd=null,contaNova=0;
 function regSalvo(c,k){return k[0]==='g'?((NOTASG[c]||{})[k.slice(1)]||null):((REGM[c]||{})[k]||null)}
 function regEf(c,k){const pk=c+'|'+k;return mPend.hasOwnProperty(pk)?mPend[pk]:regSalvo(c,k)}
@@ -1253,6 +1259,7 @@ $('#corpoMat').addEventListener('click',e=>{
   if(m&&(b=e.target.closest('rect.alvo'))){const i=+b.dataset.i,x=MES[i],r=regEf(m.c,x);
     if(!(m.q[i]>0)){uMenu=null;ultimoMes={c:m.c,i};mudarReg(m.c,x,r&&r.tipo?{tipo:'',obs:r.obs}:{tipo:'falta',obs:r?r.obs:''});return}
     ultimoMes=null;uMenu=uMenu&&uMenu.c===m.c&&uMenu.i===i?null:{c:m.c,i};materiais();return}
+  if(m&&(b=e.target.closest('[data-jan]'))){janelaGraf=+b.dataset.jan;uMenu=null;try{localStorage.setItem('pedidos-janela-grafico',String(janelaGraf))}catch(err){}materiais();return}
   if(m&&(b=e.target.closest('.menu-mes [data-t]'))){const i=uMenu.i,o=($('#mObs')||{}).value||'';uMenu=null;if(o.trim())notasAbertas.add(m.c);
     mudarReg(m.c,MES[i],{tipo:b.dataset.t,obs:o.trim()});return}
   if(m&&(b=e.target.closest('[data-obsmes]'))){notaEd={c:m.c,k:b.dataset.obsmes};notasAbertas.add(m.c);materiais();focarNota();return}
