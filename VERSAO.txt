@@ -1,8 +1,20 @@
 CATÁLOGO ILUSTRADO DE MATERIAIS ODONTOLÓGICOS — PMF
-Versão 2.8 — 06/11/2026
+Versão 2.9 — 06/11/2026
 
 HISTÓRICO
 ---------
+v2.9 — 06/11/2026
+  - Análise de Consumo: opção de marcar material como descontinuado,
+    com o motivo (substituído, deixou de ser usado, pouca saída, saiu
+    de linha, problema de qualidade ou outro) e uma observação.
+  - Na aba Unir códigos, o botão Descontinuado tira das contas um
+    código antigo da BRANET de um material que não existe mais no
+    catálogo; ele não volta para revisão nas próximas importações.
+  - Na aba Materiais, o material marcado como descontinuado sai da
+    classe ABC × XYZ e dos candidatos ao próximo pregão; no pregão
+    aparece como Descontinuado. Fica gravado em
+    consumo/descontinuados.csv. O produtos.csv não muda.
+
 v2.8 — 06/11/2026
   - Página nova no painel: Análise de Consumo (consumo/consumo.html),
     no item Consumo do menu. Analisa as saídas dos materiais da

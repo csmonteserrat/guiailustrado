@@ -59,7 +59,7 @@ table.t{border-collapse:collapse;width:100%}
 .legenda button{display:inline-flex;align-items:center;gap:6px;color:var(--secundario);background:none;padding:2px 4px;font-size:12.5px}
 .legenda i{width:10px;height:10px;border-radius:3px;display:inline-block}
 .legenda b{color:var(--texto);font-variant-numeric:tabular-nums}
-.s-alta{background:var(--ok)}.s-regular{background:var(--corn)}.s-lenta{background:var(--sawtooth)}.s-parada{background:var(--geranium)}.s-sem{background:var(--terciario)}
+.s-alta{background:var(--ok)}.s-regular{background:var(--corn)}.s-lenta{background:var(--sawtooth)}.s-parada{background:var(--geranium)}.s-sem{background:var(--terciario)}.s-desc{background:var(--secundario)}
 .duas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 @media(max-width:1000px){.duas{grid-template-columns:1fr}}
 .alta-lista{max-height:420px;overflow:auto}
@@ -115,6 +115,22 @@ details.notas .corpo{padding:0 10px 10px;display:flex;flex-direction:column;gap:
 .form-nota{display:flex;flex-direction:column;gap:6px;background:var(--neutro);border-radius:10px;padding:10px}
 .form-nota textarea{width:100%;min-height:64px;resize:vertical;background:var(--superficie)}
 .form-nota select{width:100%;background:var(--superficie)}
+/* descontinuado */
+.descont{display:flex;gap:10px;align-items:flex-start;background:var(--superficie);border-radius:12px;padding:10px 12px;font-size:13px;margin-top:12px;box-shadow:inset 3px 0 0 var(--secundario)}
+.descont.pend{box-shadow:inset 0 0 0 1.5px var(--sawtooth);background:var(--sawtooth-suave)}
+.descont .tx{flex:1;min-width:0}
+.descont .tx p{margin:2px 0 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.descont .tx small{display:block;color:var(--terciario);font-size:11.5px;margin-top:2px}
+.descont .acoes{display:flex;flex-direction:column;gap:2px}
+.descont .acoes button{font-size:12px;background:none;color:var(--secundario);padding:2px 6px;border-radius:8px;text-align:right}
+.descont .acoes button:hover{background:var(--neutro);color:var(--texto)}
+.desc-acao{margin-top:12px}
+.form-desc{display:flex;flex-direction:column;gap:6px;background:var(--superficie);border-radius:12px;padding:10px 12px;margin-top:12px}
+.form-desc .tit{font-size:13px;font-weight:600}
+.form-desc select,.form-desc textarea{width:100%}
+.form-desc textarea{min-height:56px;resize:vertical}
+.form-desc .erro{font-size:12px;color:var(--geranium)}
+.udet .form-desc{background:var(--neutro);margin-top:0}
 .det{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:18px}
 @media(max-width:900px){.det{grid-template-columns:1fr}}
 .det dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:12.5px;align-content:start}
@@ -287,7 +303,7 @@ pre.csv{margin:0;font-family:var(--fonte-mono);font-size:12px;background:var(--n
     <div class="cartao">
       <div class="filtros">
         <input type="search" id="fBusca" placeholder="Buscar por nome ou código" aria-label="Buscar material">
-        <select id="fSit" aria-label="Situação"><option value="">Todas as situações</option><option value="alta">Alta saída</option><option value="regular">Regular</option><option value="lenta">Lenta</option><option value="parada">Parada há 12 meses ou mais</option><option value="sem">Sem saída no período</option><option value="semcod">Sem código na BRANET</option><option value="falta">Com mês a conferir</option></select>
+        <select id="fSit" aria-label="Situação"><option value="">Todas as situações</option><option value="alta">Alta saída</option><option value="regular">Regular</option><option value="lenta">Lenta</option><option value="parada">Parada há 12 meses ou mais</option><option value="sem">Sem saída no período</option><option value="semcod">Sem código na BRANET</option><option value="desc">Descontinuado</option><option value="falta">Com mês a conferir</option></select>
         <select id="fFam" aria-label="Família"><option value="">Todas as famílias</option></select>
         <select id="fTipo" aria-label="Tipo"><option value="">Consumo e instrumental</option><option>Consumo</option><option>Instrumental</option></select>
         <select id="fBloco" aria-label="Bloco"><option value="">Todos os blocos</option><option value="TODOS">Rede básica</option><option value="CEO">Exclusivo CEO</option></select>
@@ -368,7 +384,7 @@ pre.csv{margin:0;font-family:var(--fonte-mono);font-size:12px;background:var(--n
 
   <!-- ===== UNIR CÓDIGOS ===== -->
   <section class="painel" id="p-unir-codigos" role="tabpanel" aria-labelledby="tb-unir-codigos" hidden>
-    <div class="aviso info">Aqui aparecem os códigos da BRANET <b>com saída</b> que não estão ligados a nenhum material do catálogo: códigos antigos de um material que mudou de código, ou materiais fora do catálogo. Unir faz as saídas daquele código contarem para o material escolhido, divididas pelo fator. Vale só para esta página: o branet.csv e o produtos.csv não mudam.</div>
+    <div class="aviso info"><span>Aqui aparecem os códigos da BRANET <b>com saída</b> que não estão ligados a nenhum material do catálogo: códigos antigos de um material que mudou de código, materiais que foram descontinuados ou materiais fora do catálogo. Unir faz as saídas daquele código contarem para o material escolhido, divididas pelo fator. Vale só para esta página: o branet.csv e o produtos.csv não mudam.</span></div>
     <div class="pills" id="uPills"></div>
     <div class="md">
       <div class="ml">
@@ -387,7 +403,7 @@ pre.csv{margin:0;font-family:var(--fonte-mono);font-size:12px;background:var(--n
   <div class="pendente oculto" id="pendFaltas"><span id="pendTexto"></span><span class="barra"><button class="mini principal" id="btGravarFaltas">Gravar</button><button class="mini" id="btDescartarFaltas">Descartar</button></span></div>
 
 </div>
-<div id="versaoPagina">consumo · versão 2026-11-06f</div>
+<div id="versaoPagina">consumo · versão 2026-11-06g</div>
 </div>
 </div>
 
@@ -401,11 +417,12 @@ pre.csv{margin:0;font-family:var(--fonte-mono);font-size:12px;background:var(--n
    como os outros arquivos de dados do catálogo. O LEIA-ME da pasta
    descreve cada um.
    ===================================================================== */
-const ARQ={saidas:'consumo/saidas.csv',unioes:'consumo/unioes.csv',marcacoes:'consumo/marcacoes.csv',importacoes:'consumo/importacoes.csv'};
+const ARQ={saidas:'consumo/saidas.csv',unioes:'consumo/unioes.csv',marcacoes:'consumo/marcacoes.csv',importacoes:'consumo/importacoes.csv',descontinuados:'consumo/descontinuados.csv'};
 const CAB={
   saidas:'codigo_branet,nome_branet,mes,quantidade',
-  unioes:'codigo_branet,nome_branet,codigo_catalogo,fator,decisao,decidido_em,decidido_por',
+  unioes:'codigo_branet,nome_branet,codigo_catalogo,fator,decisao,motivo,observacao,decidido_em,decidido_por',
   marcacoes:'codigo_catalogo,mes,tipo,observacao,marcado_em,marcado_por',
+  descontinuados:'codigo_catalogo,material,motivo,observacao,decidido_em,decidido_por',
   importacoes:'arquivo,data_inicio,data_fim,grupo,classificacao,itens,meses_gravados,meses_ignorados,emitido_em,importado_por'
 };
 
@@ -426,6 +443,28 @@ const hoje=()=>{const d=new Date(),p=n=>String(n).padStart(2,'0');return d.getFu
 const MESES=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
 const rotMes=m=>{const [a,b]=m.split('-');return MESES[+b-1]+'/'+a.slice(2)};
 const unidadeCurta=u=>{const k=(u||'').split(' - ')[0].trim();return ({U:'un',PC:'pc',CA:'cx',KI:'kit',FR:'fr',CT:'ct',RL:'rl',TB:'tb',PT:'pt',GL:'gl',BL:'bl'})[k]||(u||'').replace(/^[A-Z]{1,3}\s*-\s*/,'').toLowerCase()};
+
+/* Motivos de um material descontinuado: os mesmos para um material do
+   catálogo (aba Materiais) e para um código solto da BRANET (aba Unir
+   códigos). "Outro motivo" pede a observação. */
+const MOTIVOS=[['substituido','Substituído por outro material'],['sem_uso','Deixou de ser usado (mudança de técnica ou protocolo)'],
+  ['baixa_saida','Pouca ou nenhuma saída'],['fora_de_linha','Saiu de linha no mercado'],['qualidade','Problema de qualidade ou segurança'],['outro','Outro motivo']];
+const NOME_MOTIVO=Object.fromEntries(MOTIVOS);
+const nomeMotivo=k=>NOME_MOTIVO[k]||k||'motivo não informado';
+function formDesc(pre,motivo,obs,erro,tit){
+  return '<div class="form-desc"><div class="tit">'+tit+'</div>'+
+    '<label class="sub" for="'+pre+'Mot">Por que foi descontinuado?</label><select id="'+pre+'Mot"><option value="">Escolha o motivo</option>'+
+    MOTIVOS.map(x=>'<option value="'+x[0]+'"'+(x[0]===motivo?' selected':'')+'>'+x[1]+'</option>').join('')+'</select>'+
+    '<textarea id="'+pre+'Obs" placeholder="Observação (opcional; obrigatória em Outro motivo). Ex.: substituído pelo código 1234." aria-label="Observação">'+esc(obs||'')+'</textarea>'+
+    (erro?'<div class="erro">'+esc(erro)+'</div>':'')+
+    '<span class="barra"><button class="mini principal" data-dok="'+pre+'">Confirmar</button><button class="mini" data-dcancel="'+pre+'">Cancelar</button></span></div>';
+}
+function lerFormDesc(pre){
+  const motivo=($('#'+pre+'Mot')||{}).value||'',obs=(($('#'+pre+'Obs')||{}).value||'').trim();
+  if(!motivo)return {erro:'Escolha o motivo.',motivo,obs};
+  if(motivo==='outro'&&!obs)return {erro:'Em "Outro motivo", escreva a observação.',motivo,obs};
+  return {motivo,obs};
+}
 
 /* ---------- leitura e escrita de CSV ---------- */
 function normalizar(s){return String(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase()}
@@ -481,12 +520,12 @@ function podeGravar(){
 /* =====================================================================
    DADOS
    ===================================================================== */
-let PROD={},DESC={},ATIVOS=[],BN={},SAIDAS=[],UNIOES=[],MARCAS=[],REGM={},NOTASG={},IMPORTS=[],PREG_INDICE=[];
+let PROD={},DESC={},ATIVOS=[],BN={},SAIDAS=[],UNIOES=[],MARCAS=[],DESCONT={},REGM={},NOTASG={},IMPORTS=[],PREG_INDICE=[];
 let MES=[],N=0,J12=[],M=[],POR_COD={},SOLTOS=[],NOMEB={},SB={},MAPA={};
 
 async function carregar(){
   const t=s=>'?t='+Date.now();
-  const [p,b,s,u,f,i,pi,dsc]=await Promise.all([
+  const [p,b,s,u,f,i,pi,dsc,dct]=await Promise.all([
     fetch('../produtos.csv'+t()).then(r=>{if(!r.ok)throw new Error('produtos.csv');return r.text()}),
     fetch('../branet/branet.csv'+t()).then(r=>r.ok?r.text():''),
     fetch('saidas.csv'+t()).then(r=>r.ok?r.text():''),
@@ -494,7 +533,8 @@ async function carregar(){
     fetch('marcacoes.csv'+t()).then(r=>r.ok?r.text():''),
     fetch('importacoes.csv'+t()).then(r=>r.ok?r.text():''),
     fetch('../pregoes/indice.json'+t()).then(r=>r.ok?r.json():{pregoes:[]}).catch(()=>({pregoes:[]})),
-    fetch('../descritivos/descritivos.csv'+t()).then(r=>r.ok?r.text():'')
+    fetch('../descritivos/descritivos.csv'+t()).then(r=>r.ok?r.text():''),
+    fetch('descontinuados.csv'+t()).then(r=>r.ok?r.text():'')
   ]);
   lerCsv(p).forEach(x=>{if(x.codigo)PROD[x.codigo]=x});
   lerCsv(dsc).forEach(x=>{if(x.codigo)DESC[x.codigo]=x});
@@ -504,9 +544,11 @@ async function carregar(){
   ATIVOS=Object.values(PROD).filter(x=>(x.ativo||'').toUpperCase()==='SIM'&&[12,13,14,15].includes(parseInt(x.grupo,10))&&
     ((DESC[x.codigo]||{}).situacao_compra||'')!=='AGUARDANDO_COMPRA');
   lerCsv(b).forEach(x=>{if(x.codigo)BN[x.codigo]=x});
-  SAIDAS=lerCsv(s);UNIOES=lerCsv(u);MARCAS=lerCsv(f);IMPORTS=lerCsv(i);
+  SAIDAS=lerCsv(s);UNIOES=lerCsv(u);MARCAS=lerCsv(f);IMPORTS=lerCsv(i);lerDescont(dct);
   PREG_INDICE=(pi.pregoes||[]);
 }
+
+function lerDescont(texto){DESCONT={};lerCsv(texto).forEach(x=>{if(x.codigo_catalogo)DESCONT[x.codigo_catalogo]={motivo:x.motivo||'',obs:x.observacao||'',em:x.decidido_em||'',por:x.decidido_por||''}})}
 
 /* Liga cada código da BRANET a um material, monta as séries mensais
    e calcula os indicadores. Roda de novo depois de cada decisão. */
@@ -526,7 +568,7 @@ function construir(){
   const decs={};UNIOES.forEach(x=>decs[x.codigo_branet]=x);Object.keys(uDec).forEach(k=>decs[k]=uDec[k]);
   Object.values(decs).forEach(x=>{
     if(x.decisao==='unir'&&x.codigo_catalogo)MAPA[x.codigo_branet]={c:x.codigo_catalogo,f:parseFloat(String(x.fator).replace(',','.'))||1,origem:uDec[x.codigo_branet]?'união não gravada':'união'};
-    if(x.decisao==='fora_do_catalogo')ignorados.add(x.codigo_branet);
+    if(x.decisao==='fora_do_catalogo'||x.decisao==='descontinuado')ignorados.add(x.codigo_branet);
   });
   SOLTOS=Object.keys(SB).filter(b=>!MAPA[b]&&!ignorados.has(b)&&SB[b].some(v=>v>0));
 
@@ -543,7 +585,7 @@ function construir(){
     const q=new Array(N).fill(0),porB={};
     codigos.forEach(b=>{const s=SB[b];if(!s)return;const f=MAPA[b].f||1;porB[b]=s.map(v=>v/f);porB[b].forEach((v,i)=>q[i]+=v)});
     const m={c:p.codigo,m:p.material,u:unidadeCurta(p.unidade),fam:(p.familia||'').split(';')[0].trim()||'Sem família',
-      t:p.tipo||'',a:p.acesso||'',codigos,porB,q,marca:MES.map(x=>(regEf(p.codigo,x)||{}).tipo||''),obs:MES.map(x=>(regEf(p.codigo,x)||{}).obs||''),temCodigo:codigos.length>0||!!(BN[p.codigo]&&BN[p.codigo].branet_codigo)};
+      t:p.tipo||'',a:p.acesso||'',codigos,porB,q,marca:MES.map(x=>(regEf(p.codigo,x)||{}).tipo||''),obs:MES.map(x=>(regEf(p.codigo,x)||{}).obs||''),desc:descEf(p.codigo),temCodigo:codigos.length>0||!!(BN[p.codigo]&&BN[p.codigo].branet_codigo)};
     POR_COD[m.c]=m;return m;
   });
   M.forEach(indicadores);
@@ -617,7 +659,9 @@ function classificarABC(){
   const grupos={};
   /* a base é o CMM × 12: assim um material com meses marcados não
      perde posição por ter tido falta */
-  M.forEach(m=>{m.abc='';if(m.base>0&&m.mesesCom>0)(grupos[m.fam]=grupos[m.fam]||[]).push(m)});
+  /* material descontinuado fica fora da classe: não deve tirar posição
+     dos que continuam na família */
+  M.forEach(m=>{m.abc='';if(!m.desc&&m.base>0&&m.mesesCom>0)(grupos[m.fam]=grupos[m.fam]||[]).push(m)});
   Object.values(grupos).forEach(g=>{
     g.sort((a,b)=>b.base-a.base);const tot=g.reduce((s,m)=>s+m.base,0);let ac=0;
     g.forEach(m=>{const antes=ac/tot;ac+=m.base;m.abc=antes<.8?'A':antes<.95?'B':'C'});
@@ -625,6 +669,7 @@ function classificarABC(){
   M.forEach(m=>m.classe=m.abc&&m.xyz?m.abc+m.xyz:'');
 }
 function situacaoDe(m){
+  if(m.desc){m.sit='desc';m.sug=['Fora do próximo pregão','t-ci'];return}
   if(!m.temCodigo)m.sit='semcod';
   else if(m.desde===Infinity)m.sit='sem';
   else if(m.desde>12)m.sit='parada';
@@ -640,8 +685,8 @@ function situacaoDe(m){
   else if(m.tend!=null&&m.tend<-.25&&m.mesesCom>=6)m.sug=['Ver a queda','t-lr'];
   else m.sug=['Manter','t-vd'];
 }
-const SIT={alta:['Alta saída','s-alta','t-vd'],regular:['Regular','s-regular','t-az'],lenta:['Lenta','s-lenta','t-lr'],parada:['Parada','s-parada','t-vm'],sem:['Sem saída no período','s-sem','t-ci'],semcod:['Sem código na BRANET','s-sem','t-ci']};
-const COR={alta:'var(--ok)',regular:'var(--corn)',lenta:'var(--sawtooth)',parada:'var(--geranium)',sem:'var(--terciario)',semcod:'var(--terciario)'};
+const SIT={alta:['Alta saída','s-alta','t-vd'],regular:['Regular','s-regular','t-az'],lenta:['Lenta','s-lenta','t-lr'],parada:['Parada','s-parada','t-vm'],sem:['Sem saída no período','s-sem','t-ci'],semcod:['Sem código na BRANET','s-sem','t-ci'],desc:['Descontinuado','s-desc','t-ci']};
+const COR={alta:'var(--ok)',regular:'var(--corn)',lenta:'var(--sawtooth)',parada:'var(--geranium)',sem:'var(--terciario)',semcod:'var(--terciario)',desc:'var(--terciario)'};
 
 /* =====================================================================
    DESENHO
@@ -819,14 +864,14 @@ function visaoGeral(){
   const parados=M.filter(m=>m.sit==='parada'||m.sit==='sem');
   const pregao=PREG_INDICE.find(p=>p.situacao==='elaboracao')||PREG_INDICE[0];
   let kpiPreg='<div class="kpi"><span class="v">—</span><span class="l">nenhum pregão cadastrado</span></div>';
-  if(pregao&&PREG_ITENS[pregao.id]){const its=PREG_ITENS[pregao.id].filter(it=>POR_COD[it.codigo]);const sem=its.filter(it=>POR_COD[it.codigo].q12===0).length;
+  if(pregao&&PREG_ITENS[pregao.id]){const its=PREG_ITENS[pregao.id].filter(it=>POR_COD[it.codigo]);const sem=its.filter(it=>POR_COD[it.codigo].q12===0&&!POR_COD[it.codigo].desc).length;
     kpiPreg='<button class="kpi alerta" data-ir="pregao"><span class="v">'+sem+'</span><span class="l">itens do '+esc(pregao.numero)+' sem saída em 12 meses</span><span class="d">de '+its.length+' itens do pregão em análise</span></button>'}
   $('#kpis').innerHTML=
     '<div class="kpi"><span class="v">'+com12.length+'</span><span class="l">materiais com saída em 12 meses</span><span class="d">de '+M.length+' materiais da odontologia em análise</span></div>'+
     '<button class="kpi alerta" data-ir="parados"><span class="v">'+parados.length+'</span><span class="l">sem saída há 12 meses ou mais</span><span class="d">'+M.filter(m=>m.sit==='sem').length+' sem nenhuma saída desde '+rotMes(MES[0]||'2025-01')+'</span></button>'+
     kpiPreg+
     '<button class="kpi" data-ir="unir"><span class="v">'+SOLTOS.length+'</span><span class="l">códigos da BRANET para unir</span><span class="d">com saída e sem material ligado</span></button>';
-  const ordem=['alta','regular','lenta','parada','sem','semcod'],cont={};ordem.forEach(k=>cont[k]=M.filter(m=>m.sit===k).length);
+  const ordem=['alta','regular','lenta','parada','sem','semcod','desc'],cont={};ordem.forEach(k=>cont[k]=M.filter(m=>m.sit===k).length);
   $('#totSit').textContent=M.length+' materiais';
   const bs=$('#barraStatus');bs.setAttribute('role','img');bs.setAttribute('aria-label',ordem.map(k=>SIT[k][0]+' '+cont[k]).join(', '));
   bs.innerHTML=ordem.map(k=>cont[k]?'<span class="'+SIT[k][1]+'" style="width:'+(cont[k]/M.length*100).toFixed(2)+'%'+(k==='semcod'?';opacity:.45':'')+'" title="'+SIT[k][0]+': '+cont[k]+'"></span>':'').join('');
@@ -885,13 +930,35 @@ function detalhe(m){
     '<dt>Classe</dt><dd>'+(m.classe||'sem saída suficiente em 12 meses')+(m.abc?' <span class="sub">(ABC dentro de '+esc(m.fam)+')</span>':'')+'</dd>'+
     '<dt>Tipo e bloco</dt><dd>'+esc(m.t)+' · '+({TODOS:'Rede básica',CEO:'Exclusivo CEO',COORDENACAO:'Interesse odontológico'}[m.a]||esc(m.a))+'</dd>'+
     '<dt>Códigos na BRANET</dt><dd>'+(m.codigos.length?m.codigos.map(b=>b+' <span class="sub">('+MAPA[b].origem+(MAPA[b].f!==1?', ÷ '+fmt(MAPA[b].f,4):'')+')</span>').join('<br>'):'nenhum')+'</dd>'+
-    '<dt>Em pregão</dt><dd>'+(pregs.length?pregs.map(esc).join(', '):'não')+'</dd></dl>'+notasMaterial(m)+'</div></div>';
+    '<dt>Em pregão</dt><dd>'+(pregs.length?pregs.map(esc).join(', '):'não')+'</dd></dl>'+descMaterial(m)+notasMaterial(m)+'</div></div>';
 }
 
 /* ---------- marcas e observações ----------
    Chave de um registro: o mês (aaaa-mm) ou "g" + identificador, para as
    observações gerais do material. mPend guarda as alterações ainda não
    gravadas, por "código|chave". */
+/* ---------- material descontinuado ----------
+   dPend guarda, por código do catálogo, a marca ainda não gravada
+   ({motivo, obs}) ou null para reativar. Gravado em descontinuados.csv. */
+const dPend={};let dForm=null;
+function descSalvo(c){return DESCONT[c]||null}
+function descEf(c){return dPend.hasOwnProperty(c)?dPend[c]:descSalvo(c)}
+function mudarDesc(c,r){
+  const sv=descSalvo(c);
+  const igual=(!r&&!sv)||(r&&sv&&r.motivo===sv.motivo&&(r.obs||'')===(sv.obs||''));
+  if(igual)delete dPend[c];else dPend[c]=r?{motivo:r.motivo,obs:r.obs||''}:null;
+  tudo();
+}
+function descMaterial(m){
+  const c=m.c,d=m.desc,pend=dPend.hasOwnProperty(c),sv=descSalvo(c);
+  if(dForm&&dForm.c===c)return formDesc('d',dForm.motivo,dForm.obs,dForm.erro,d?'Editar descontinuado':'Marcar como descontinuado');
+  if(!d)return '<div class="desc-acao">'+(pend&&sv?'<div class="descont pend"><div class="tx"><b>Será reativado</b><small>ainda não salvo</small></div><div class="acoes"><button data-desc="desfazer">Desfazer</button></div></div>':
+    '<button class="link" data-desc="abrir">Marcar como descontinuado</button>')+'</div>';
+  return '<div class="descont'+(pend?' pend':'')+'"><div class="tx"><b>Descontinuado</b> · '+esc(nomeMotivo(d.motivo))+(d.obs?'<p>'+esc(d.obs)+'</p>':'')+
+    '<small>'+(pend?'ainda não salvo':[dataBr(d.em),d.por].filter(Boolean).map(esc).join(' · '))+' · fica fora da classe e do próximo pregão</small></div>'+
+    '<div class="acoes"><button data-desc="editar">Editar</button><button data-desc="reativar">Reativar</button>'+(pend?'<button data-desc="desfazer">Desfazer</button>':'')+'</div></div>';
+}
+
 /* quantos meses o gráfico do material mostra; 0 = todos. Lembrado neste navegador. */
 let janelaGraf=24;try{const v=localStorage.getItem('consumo-janela-grafico');if(v!==null&&['0','12','24','36'].includes(v))janelaGraf=+v}catch(e){}
 const mPend={},notasAbertas=new Set();let uMenu=null,ultimoMes=null,notaEd=null,contaNova=0;
@@ -904,16 +971,16 @@ function mudarReg(c,k,r){
   tudo();
 }
 function desenharPendFaltas(){
-  const n=Object.keys(mPend).length;$('#pendFaltas').classList.toggle('oculto',!n);
-  $('#pendTexto').textContent=n+(n===1?' alteração em marcas ou notas ainda não salva':' alterações em marcas ou notas ainda não salvas');
+  const n=Object.keys(mPend).length+Object.keys(dPend).length;$('#pendFaltas').classList.toggle('oculto',!n);
+  $('#pendTexto').textContent=n+(n===1?' alteração em marcas, notas ou descontinuados ainda não salva':' alterações em marcas, notas ou descontinuados ainda não salvas');
   $('#btGravarFaltas').textContent='Salvar';
 }
-$('#btDescartarFaltas').onclick=()=>{Object.keys(mPend).forEach(k=>delete mPend[k]);uMenu=null;ultimoMes=null;notaEd=null;tudo()};
+$('#btDescartarFaltas').onclick=()=>{Object.keys(mPend).forEach(k=>delete mPend[k]);Object.keys(dPend).forEach(k=>delete dPend[k]);uMenu=null;ultimoMes=null;notaEd=null;dForm=null;tudo()};
 $('#btGravarFaltas').onclick=async()=>{
   if(!podeGravar())return;const bt=$('#btGravarFaltas');bt.disabled=true;
   try{
     const n=Object.keys(mPend).length,quem=autor(),dia=hoje();
-    await gravarCsv('marcacoes',rem=>{
+    if(n)await gravarCsv('marcacoes',rem=>{
       let L=rem.map(x=>[x.codigo_catalogo,x.mes||'',x.tipo||'',x.observacao||'',x.marcado_em||'',x.marcado_por||'']);
       Object.keys(mPend).forEach(pk=>{const i=pk.indexOf('|'),c=pk.slice(0,i),k=pk.slice(i+1),r=mPend[pk];
         if(k[0]==='g'){const u=k.slice(1);
@@ -923,7 +990,16 @@ $('#btGravarFaltas').onclick=async()=>{
       });
       return L.sort((a,b)=>(a[0]+'|'+a[1]).localeCompare(b[0]+'|'+b[1]));
     },Publicar.mensagem('Consumo',ARQ.marcacoes,n,'alteração','alterações'));
-    MARCAS=lerCsv(await fetchSemCache('marcacoes.csv'));Object.keys(mPend).forEach(k=>delete mPend[k]);
+    if(n){MARCAS=lerCsv(await fetchSemCache('marcacoes.csv'));Object.keys(mPend).forEach(k=>delete mPend[k])}
+    const nd=Object.keys(dPend).length;
+    if(nd){
+      await gravarCsv('descontinuados',rem=>{
+        const mapa=new Map(rem.map(x=>[x.codigo_catalogo,[x.codigo_catalogo,x.material,x.motivo,x.observacao,x.decidido_em,x.decidido_por]]));
+        Object.keys(dPend).forEach(c=>{const r=dPend[c];if(r)mapa.set(c,[c,(PROD[c]||{}).material||'',r.motivo,r.obs,dia,quem]);else mapa.delete(c)});
+        return [...mapa.values()].sort((a,b)=>a[0].localeCompare(b[0]));
+      },Publicar.mensagem('Consumo',ARQ.descontinuados,nd,'material','materiais'));
+      lerDescont(await fetchSemCache('descontinuados.csv'));Object.keys(dPend).forEach(k=>delete dPend[k]);
+    }
     uMenu=null;ultimoMes=null;notaEd=null;notasAbertas.clear();tudo();
   }catch(e){alert('Não consegui gravar: '+(e.message||e))}
   bt.disabled=false;
@@ -946,7 +1022,7 @@ function classificacao(){
       h+='<button class="casa '+CORCASA[k]+'" data-casa="'+k+'" aria-pressed="'+(casaSel===k)+'" aria-label="'+k+': '+c+' materiais"><span class="c">'+k+'</span><span class="n">'+c+'</span></button>'})});
   $('#matriz').innerHTML=h;
   const fora=M.filter(m=>!m.classe&&(!cTipo||m.t===cTipo)&&(!fa||m.fam===fa)).length;
-  $('#notaMatriz').textContent=g.length+' materiais classificados. '+fora+' ficam fora: sem saída nos últimos 12 meses, ou com menos de 3 meses válidos.';
+  $('#notaMatriz').textContent=g.length+' materiais classificados. '+fora+' ficam fora: sem saída nos últimos 12 meses, com menos de 3 meses válidos, ou descontinuados.';
   const l=g.filter(m=>m.classe===casaSel).sort((a,b)=>a.fam.localeCompare(b.fam,'pt')||b.base-a.base);
   $('#tituloCasa').textContent='Casa '+casaSel+(cTipo?' · '+cTipo:'')+(fa?' · '+fa:'');
   $('#contCasa').textContent=l.length+' materiais';
@@ -958,7 +1034,7 @@ function classificacao(){
    PRÓXIMO PREGÃO
    ===================================================================== */
 const PREG_ITENS={};let filtroP='',ultimaTabela=[];
-const SITP={insuf:['Histórico insuficiente','t-vm'],embalagem:['Confira a embalagem','t-lr'],abaixo:['Abaixo','t-lr'],acima:['Acima','t-rx'],sem:['Sem saída em 12 meses','t-vm'],semcod:['Sem código na BRANET','t-ci'],entra:['Fora do pregão, com saída','t-az'],confere:['Confere','t-vd']};
+const SITP={desc:['Descontinuado','t-ci'],insuf:['Histórico insuficiente','t-vm'],embalagem:['Confira a embalagem','t-lr'],abaixo:['Abaixo','t-lr'],acima:['Acima','t-rx'],sem:['Sem saída em 12 meses','t-vm'],semcod:['Sem código na BRANET','t-ci'],entra:['Fora do pregão, com saída','t-az'],confere:['Confere','t-vd']};
 async function carregarPregoes(){
   for(const p of PREG_INDICE){try{const r=await fetch('../pregoes/'+encodeURIComponent(p.id)+'.json?t='+Date.now());if(r.ok)PREG_ITENS[p.id]=(await r.json()).itens||[]}catch(e){}}
   $('#pPregao').innerHTML=PREG_INDICE.map(p=>'<option value="'+esc(p.id)+'">'+esc(p.numero)+(p.situacao==='elaboracao'?' (em elaboração)':'')+'</option>').join('')||'<option value="">nenhum pregão</option>';
@@ -977,6 +1053,7 @@ function pregao(){
     const m=POR_COD[it.codigo];const q=parseFloat(String(it.quantidade||'').replace(/\./g,'').replace(',','.'))||0;
     if(!m)return null;
     const fc=fatorCompra(m,it);const nec=m.cmm*vig*(1+(mg[m.abc]||0));const comp=Math.ceil(nec/fc.f);let s;
+    if(m.desc)return {m,it,q,fc,nec:0,comp:0,s:'desc',unc:it.unidade_compra||''};
     if(m.sit==='semcod')s='semcod';
     else if(m.q12===0)s='sem';
     else if(m.insuf)s='insuf';
@@ -991,7 +1068,7 @@ function pregao(){
     }
     return {m,it,q,fc,nec,comp,s,unc:it.unidade_compra||''};
   }).filter(Boolean);
-  M.filter(m=>!noPreg.has(m.c)&&m.mesesCom>=6&&m.sit!=='parada').forEach(m=>{const nec=m.cmm*vig*(1+(mg[m.abc]||0));
+  M.filter(m=>!noPreg.has(m.c)&&!m.desc&&m.mesesCom>=6&&m.sit!=='parada').forEach(m=>{const nec=m.cmm*vig*(1+(mg[m.abc]||0));
     linhas.push({m,it:null,q:null,fc:{f:1,sug:false},nec,comp:Math.ceil(nec),s:'entra',unc:''})});
   ultimaTabela=linhas;
   const cont={};Object.keys(SITP).forEach(k=>cont[k]=linhas.filter(x=>x.s===k).length);
@@ -1011,22 +1088,22 @@ function pregao(){
       '<td class="fator'+(x.fc.f>1?' alerta':'')+'">÷ '+x.fc.f+(x.fc.sug?' <span title="lido da unidade de compra">?</span>':'')+'</td>'+
       '<td class="n uc"><b>'+fmt(x.comp)+'</b><span class="sub">'+esc(x.unc?x.unc.toLowerCase():m.u)+'</span></td>'+
       '<td class="n">'+(x.q==null?'—':fmt(x.q))+'</td>'+
-      '<td><span class="tag '+SITP[x.s][1]+'">'+SITP[x.s][0]+pct+'</span></td></tr>'}).join('')
+      '<td><span class="tag '+SITP[x.s][1]+'"'+(x.s==='desc'?' title="'+esc(nomeMotivo(m.desc.motivo)+(m.desc.obs?': '+m.desc.obs:''))+'"':'')+'>'+SITP[x.s][0]+pct+'</span></td></tr>'}).join('')
     :'<tr><td colspan="8" class="vazio">Nenhum item nesta situação.</td></tr>';
 }
 $('#btExportar').onclick=()=>{
   const vig=+$('#pVig').value,mg={A:+$('#pA').value||0,B:+$('#pB').value||0,C:+$('#pC').value||0};
   const per=J12.length?rotMes(MES[J12[0]])+' a '+rotMes(MES[J12[J12.length-1]]):'';
   const ls=ultimaTabela.map(x=>{const m=x.m;const retirados=MES.map((mes,i)=>m.marca[i]?mes+' ('+NOME_MARCA[m.marca[i]].toLowerCase()+(m.obs[i]?': '+m.obs[i]:'')+')':'').filter(Boolean).join('; ');
-    return [m.c,m.m,m.u,m.fam,m.jan24?'24 meses':per,fmt(m.q12,2),retirados,fmt(m.cmm,4),fmt(m.cmmBruto,4),m.classe,vig,m.abc?mg[m.abc]:0,fmt(x.nec,2),x.fc.f,x.comp,x.unc,x.q==null?'':x.q,SITP[x.s][0]]});
-  const cab='codigo,material,unidade,familia,periodo,saida_12_meses,meses_retirados,cmm_ajustado,cmm_simples,classe,vigencia_meses,margem_percentual,necessidade,fator_embalagem,necessidade_un_compra,unidade_compra,quantidade_no_pregao,situacao';
+    return [m.c,m.m,m.u,m.fam,m.jan24?'24 meses':per,fmt(m.q12,2),retirados,fmt(m.cmm,4),fmt(m.cmmBruto,4),m.classe,vig,m.abc?mg[m.abc]:0,fmt(x.nec,2),x.fc.f,x.comp,x.unc,x.q==null?'':x.q,SITP[x.s][0],m.desc?nomeMotivo(m.desc.motivo)+(m.desc.obs?': '+m.desc.obs:''):'']});
+  const cab='codigo,material,unidade,familia,periodo,saida_12_meses,meses_retirados,cmm_ajustado,cmm_simples,classe,vigencia_meses,margem_percentual,necessidade,fator_embalagem,necessidade_un_compra,unidade_compra,quantidade_no_pregao,situacao,motivo_descontinuado';
   baixar(montarCsv(cab,ls),'memoria-calculo-'+($('#pPregao').value||'pregao')+'.csv');
 };
 
 /* =====================================================================
    UNIR CÓDIGOS
    ===================================================================== */
-const uDec={},uEscolha={},uFator={};let uSel=null,uFiltro='revisar',uBuscaOutro='';
+const uDec={},uEscolha={},uFator={};let uSel=null,uFiltro='revisar',uBuscaOutro='',uForm=null;
 const ABREV={AR:['ALTA','ROTACAO'],BR:['BAIXA','ROTACAO'],ESF:['ESFERICA'],DESC:['DESCARTAVEL'],FOSFORICO:['FOSFORICO','CONDICIONADOR']};
 const STOP=new Set(['CARTELA','EMBALAGEM','PLASTICA','PLASTICO','DE','DA','DO','DAS','DOS','COM','C','P','PARA','E','A','O','EM','TIPO','UNIDADE','UNIDADES','UN','UNID','CEO','ODONTO','PCT','PACOTE','CX','CAIXA','KIT','MM','ML','G','N','NO','LT','L','SACO']);
 function tokens(t){
@@ -1075,19 +1152,20 @@ function listaUnir(){
 function uEstado(b){return uDec[b]?uDec[b].decisao:'revisar'}
 function unir(){
   const lista=listaUnir();if(!uSel||!lista.includes(uSel))uSel=lista.find(b=>uEstado(b)==='revisar')||lista[0]||null;
-  const n={revisar:0,forte:0,unir:0,fora_do_catalogo:0,todos:lista.length};
+  const n={revisar:0,forte:0,unir:0,descontinuado:0,fora_do_catalogo:0,todos:lista.length};
   lista.forEach(b=>{const e=uEstado(b);n[e]++;if(e==='revisar'&&(sugestoes(b)[0]||{}).s>=.7)n.forte++});
   $('#uCont').textContent=n.revisar||'';
-  const P=[['revisar','Para revisar','t-lr'],['forte','Com sugestão forte','t-vd'],['unir','Unidos agora','t-az'],['fora_do_catalogo','Não é do catálogo','t-ci'],['todos','Todos','t-ci']];
+  const P=[['revisar','Para revisar','t-lr'],['forte','Com sugestão forte','t-vd'],['unir','Unidos agora','t-az'],['descontinuado','Descontinuados','t-ci'],['fora_do_catalogo','Não é do catálogo','t-ci'],['todos','Todos','t-ci']];
   $('#uPills').innerHTML=P.map(p=>'<button class="'+p[2]+'" data-u="'+p[0]+'" aria-pressed="'+(uFiltro===p[0])+'">'+p[1]+' <b>'+n[p[0]]+'</b></button>').join('');
   const q=normalizar($('#uBusca').value.trim());
   const l=lista.filter(b=>{const e=uEstado(b);
     if(uFiltro==='revisar'&&e!=='revisar')return false;
     if(uFiltro==='forte'&&!(e==='revisar'&&(sugestoes(b)[0]||{}).s>=.7))return false;
-    if((uFiltro==='unir'||uFiltro==='fora_do_catalogo')&&e!==uFiltro)return false;
+    if((uFiltro==='unir'||uFiltro==='descontinuado'||uFiltro==='fora_do_catalogo')&&e!==uFiltro)return false;
     return !q||normalizar(NOMEB[b]).includes(q)||b.includes(q)});
   $('#uLista').innerHTML=l.length?l.map(b=>{const f=faixa(SB[b]),e=uEstado(b),sg=sugestoes(b)[0];let t;
     if(e==='unir')t='<span class="tag t-az">unido</span>';else if(e==='fora_do_catalogo')t='<span class="tag t-ci">não é do catálogo</span>';
+    else if(e==='descontinuado')t='<span class="tag t-ci">descontinuado</span>';
     else t=sg?'<span class="tag '+corSc(sg.s)+'">sugestão '+Math.round(sg.s*100)+'%</span>':'<span class="tag t-vm">sem sugestão</span>';
     return '<button class="ui" data-b="'+b+'" aria-current="'+(b===uSel)+'"><span class="nm">'+esc(NOMEB[b])+'</span><span class="mt"><span class="mono">'+b+'</span><span>'+fmt(somaS(SB[b]))+' saídas</span><span>'+(f?rotMes(MES[f[0]])+' a '+rotMes(MES[f[1]]):'')+'</span>'+t+'</span></button>'}).join('')
     :'<div class="vazio">'+(SOLTOS.length||Object.keys(uDec).length?'Nada nesta lista.':'Todos os códigos com saída estão ligados ao catálogo.')+'</div>';
@@ -1100,7 +1178,9 @@ function uDetalhe(){
   const fs=c?fatorSugerido(NOMEB[b],PROD[c].material):[1,''];
   const f=uFator[b]!==undefined?uFator[b]:(d&&+d.fator)||fs[0];const fx=faixa(s),tot=somaS(s);
   let h='<div><div class="rot">Código solto na BRANET</div><h2>'+esc(NOMEB[b])+'</h2><p class="resumo"><span class="num">'+b+'</span> · '+fmt(tot)+' saídas em '+(fx?fx[2]:0)+' meses · com saída de '+(fx?rotMes(MES[fx[0]])+' a '+rotMes(MES[fx[1]]):'—')+'</p></div>';
-  if(d)h+='<div class="feito '+(d.decisao==='unir'?'t-az':'t-ci')+'">'+(d.decisao==='unir'?'<b>Unido</b> a '+esc(PROD[d.codigo_catalogo].material)+' ('+d.codigo_catalogo+'), dividindo por '+fmt(d.fator,4)+'.':'<b>Marcado como não é do catálogo.</b> Fica fora das contas.')+' Ainda não gravado. <button class="mini" id="uDesfaz">Desfazer</button></div>';
+  if(d)h+='<div class="feito '+(d.decisao==='unir'?'t-az':'t-ci')+'">'+(d.decisao==='unir'?'<b>Unido</b> a '+esc(PROD[d.codigo_catalogo].material)+' ('+d.codigo_catalogo+'), dividindo por '+fmt(d.fator,4)+'.':
+    d.decisao==='descontinuado'?'<b>Marcado como descontinuado:</b> '+esc(nomeMotivo(d.motivo))+'.'+(d.observacao?' '+esc(d.observacao):'')+' Fica fora das contas e não volta para revisão nas próximas importações.':
+    '<b>Marcado como não é do catálogo.</b> Fica fora das contas.')+' Ainda não gravado. <button class="mini" id="uDesfaz">Desfazer</button></div>';
   h+='<div><div class="rot">Unir com o material do catálogo</div><div class="sugs">'+
     (sugs.length?sugs.map(sg=>{const p=PROD[sg.c],bc=(BN[sg.c]||{}).branet_codigo,fy=bc&&SB[bc]?faixa(SB[bc]):null;
       return '<label class="sug'+(c===sg.c?' on':'')+'"><input type="radio" name="uS" value="'+sg.c+'"'+(c===sg.c?' checked':'')+'><span><b>'+esc(p.material)+'</b><small>'+sg.c+' · '+esc((p.familia||'').split(';')[0]||'sem família')+' · '+esc(unidadeCurta(p.unidade))+' · código atual na BRANET: '+(bc||'nenhum')+(bc?(fy?' (saídas de '+rotMes(MES[fy[0]])+' a '+rotMes(MES[fy[1]])+')':' (sem saída no período)'):'')+'</small></span><span class="tag '+corSc(sg.s)+'">'+Math.round(sg.s*100)+'%</span></label>'}).join('')
@@ -1113,7 +1193,8 @@ function uDetalhe(){
     h+='<div><div class="rot">Como fica a série unida</div><div class="leg"><span><i style="background:var(--acento)"></i>código atual '+(bc||'(nenhum)')+'</span><span><i style="background:var(--sawtooth)"></i>código solto '+b+', convertido</span></div>'+
       barras([{v:cur,cor:'var(--acento)'},{v:conv,cor:'var(--sawtooth)'}],{h:190,rot:'Saídas por mês do código atual e do código solto'})+'</div>';
   }
-  h+='<div class="barra"><button class="principal" id="uUnir"'+(c?'':' disabled')+'>Unir</button><button id="uIgn">Não é do catálogo</button><button id="uProx">Pular</button></div>';
+  if(uForm&&uForm.b===b)h+=formDesc('u',uForm.motivo,uForm.obs,uForm.erro,'Material descontinuado: não existe mais no catálogo para unir');
+  else h+='<div class="barra"><button class="principal" id="uUnir"'+(c?'':' disabled')+'>Unir</button><button id="uDescont">Descontinuado</button><button id="uIgn">Não é do catálogo</button><button id="uProx">Pular</button></div>';
   $('#uDet').innerHTML=h;uResultados();
 }
 function uResultados(){
@@ -1122,17 +1203,17 @@ function uResultados(){
   const r=ATIVOS.filter(p=>normalizar(p.material).includes(q)||p.codigo.includes(q)).slice(0,8);
   el.innerHTML=r.length?r.map(p=>'<button data-c="'+p.codigo+'">'+esc(p.material)+' <span class="sub">'+p.codigo+'</span></button>').join(''):'<span class="sub">Nenhum material com esse nome.</span>';
 }
-function uLinhas(){return Object.values(uDec).map(d=>[d.codigo_branet,d.nome_branet,d.codigo_catalogo||'',d.decisao==='unir'?d.fator:'',d.decisao,d.decidido_em,d.decidido_por])}
+function uLinhas(){return Object.values(uDec).map(d=>[d.codigo_branet,d.nome_branet,d.codigo_catalogo||'',d.decisao==='unir'?d.fator:'',d.decisao,d.motivo||'',d.observacao||'',d.decidido_em,d.decidido_por])}
 function uCsv(){
   const l=uLinhas();
   $('#uCsv').textContent=CAB.unioes+'\n'+(l.length?l.map(x=>x.map(campoCsv).join(',')).join('\n'):'(nenhuma decisão nova)');
   $('#btGravarUnioes').disabled=!l.length;$('#btDescartarUnioes').disabled=!l.length;
 }
 function uProximo(){const l=listaUnir().filter(b=>uEstado(b)==='revisar'&&b!==uSel);uSel=l[0]||uSel;uBuscaOutro=''}
-function uDecidir(b,dec){uDec[b]=Object.assign({codigo_branet:b,nome_branet:NOMEB[b],decidido_em:hoje(),decidido_por:autor()},dec);uProximo();tudo()}
+function uDecidir(b,dec){uForm=null;uDec[b]=Object.assign({codigo_branet:b,nome_branet:NOMEB[b],decidido_em:hoje(),decidido_por:autor()},dec);uProximo();tudo()}
 $('#uPills').addEventListener('click',e=>{const b=e.target.closest('[data-u]');if(!b)return;uFiltro=b.dataset.u;unir()});
 $('#uBusca').addEventListener('input',unir);
-$('#uLista').addEventListener('click',e=>{const b=e.target.closest('[data-b]');if(!b)return;uSel=b.dataset.b;uBuscaOutro='';unir()});
+$('#uLista').addEventListener('click',e=>{const b=e.target.closest('[data-b]');if(!b)return;uSel=b.dataset.b;uBuscaOutro='';uForm=null;unir()});
 $('#uDet').addEventListener('change',e=>{
   if(e.target.name==='uS'){uEscolha[uSel]=e.target.value;delete uFator[uSel];uDetalhe()}
   if(e.target.id==='uFat'){const v=parseFloat(e.target.value);if(v>0){uFator[uSel]=v;uDetalhe()}}
@@ -1144,7 +1225,12 @@ $('#uDet').addEventListener('click',e=>{
   if(e.target.id==='uUnir'){const sg=sugestoes(b)[0];const c=uEscolha[b]||(uDec[b]&&uDec[b].codigo_catalogo)||(sg&&sg.c);if(!c)return;
     const f=uFator[b]!==undefined?uFator[b]:fatorSugerido(NOMEB[b],PROD[c].material)[0];uDecidir(b,{codigo_catalogo:c,fator:f,decisao:'unir'})}
   if(e.target.id==='uIgn')uDecidir(b,{codigo_catalogo:'',fator:'',decisao:'fora_do_catalogo'});
-  if(e.target.id==='uProx'){uProximo();unir()}
+  if(e.target.id==='uDescont'){const d=uDec[b];uForm={b,motivo:d&&d.motivo||'',obs:d&&d.observacao||''};uDetalhe();const s=$('#uMot');if(s)s.focus();return}
+  if(e.target.closest('[data-dok="u"]')){const r=lerFormDesc('u');
+    if(r.erro){uForm={b,motivo:r.motivo,obs:r.obs,erro:r.erro};uDetalhe();return}
+    uDecidir(b,{codigo_catalogo:'',fator:'',decisao:'descontinuado',motivo:r.motivo,observacao:r.obs});return}
+  if(e.target.closest('[data-dcancel="u"]')){uForm=null;uDetalhe();return}
+  if(e.target.id==='uProx'){uForm=null;uProximo();unir()}
   if(e.target.id==='uDesfaz'){delete uDec[b];tudo()}
 });
 $('#btDescartarUnioes').onclick=()=>{if(!confirm('Descartar as decisões ainda não gravadas?'))return;Object.keys(uDec).forEach(k=>delete uDec[k]);tudo()};
@@ -1153,7 +1239,7 @@ $('#btGravarUnioes').onclick=async()=>{
   try{
     const n=Object.keys(uDec).length;
     await gravarCsv('unioes',rem=>{
-      const mapa=new Map(rem.map(x=>[x.codigo_branet,[x.codigo_branet,x.nome_branet,x.codigo_catalogo,x.fator,x.decisao,x.decidido_em,x.decidido_por]]));
+      const mapa=new Map(rem.map(x=>[x.codigo_branet,[x.codigo_branet,x.nome_branet,x.codigo_catalogo,x.fator,x.decisao,x.motivo||'',x.observacao||'',x.decidido_em,x.decidido_por]]));
       uLinhas().forEach(l=>mapa.set(l[0],l));
       return [...mapa.values()].sort((a,b)=>a[0].localeCompare(b[0]));
     },Publicar.mensagem('Consumo',ARQ.unioes,n,'código','códigos'));
@@ -1272,7 +1358,17 @@ $('#corpoMat').addEventListener('click',e=>{
   if(m&&(b=e.target.closest('[data-ok]'))){let k=notaEd.k;const txt=($('#fNotaTxt')||{}).value||'';
     if(k==='novo'){const v=$('#fNotaMes').value;k=v==='geral'?'gn'+(++contaNova):v}
     const r=regEf(m.c,k);notaEd=null;notasAbertas.add(m.c);mudarReg(m.c,k,{tipo:r&&r.tipo||'',obs:txt.trim()});return}
-  if(e.target.closest('.menu-mes,details.notas,.recado'))return;
+  if(m&&(b=e.target.closest('[data-desc]'))){const a=b.dataset.desc,d=m.desc;
+    if(a==='abrir')dForm={c:m.c,motivo:'',obs:''};
+    if(a==='editar')dForm={c:m.c,motivo:d.motivo,obs:d.obs};
+    if(a==='reativar'){dForm=null;if(dPend.hasOwnProperty(m.c)&&!descSalvo(m.c))delete dPend[m.c];else{mudarDesc(m.c,null);return}}
+    if(a==='desfazer'){dForm=null;delete dPend[m.c]}
+    tudo();if(dForm){const s=$('#dMot');if(s)s.focus()}return}
+  if(m&&(b=e.target.closest('[data-dok="d"]'))){const r=lerFormDesc('d');
+    if(r.erro){dForm={c:m.c,motivo:r.motivo,obs:r.obs,erro:r.erro};materiais();return}
+    dForm=null;mudarDesc(m.c,r);return}
+  if(m&&e.target.closest('[data-dcancel="d"]')){dForm=null;materiais();return}
+  if(e.target.closest('.menu-mes,details.notas,.recado,.form-desc,.descont,.desc-acao'))return;
   const tr=e.target.closest('tr.lin');if(!tr)return;aberto=aberto===tr.dataset.c?null:tr.dataset.c;materiais()});
 function focarNota(){const t=$('#fNotaTxt');if(t)t.focus()}
 document.addEventListener('click',e=>{if(uMenu&&!e.target.closest('.menu-mes')&&!e.target.closest('rect.alvo')){uMenu=null;materiais()}});
@@ -1288,7 +1384,7 @@ $('#cFam').addEventListener('input',classificacao);
 $('#matriz').addEventListener('click',e=>{const b=e.target.closest('[data-casa]');if(!b)return;casaSel=b.dataset.casa;classificacao()});
 ['#pPregao','#pVig','#pA','#pB','#pC'].forEach(s=>$(s).addEventListener('input',pregao));
 $('#pills').addEventListener('click',e=>{const b=e.target.closest('[data-p]');if(!b)return;filtroP=b.dataset.p;pregao()});
-window.addEventListener('beforeunload',e=>{if(Object.keys(uDec).length||Object.keys(mPend).length){e.preventDefault();e.returnValue=''}});
+window.addEventListener('beforeunload',e=>{if(Object.keys(uDec).length||Object.keys(mPend).length||Object.keys(dPend).length){e.preventDefault();e.returnValue=''}});
 
 function tudo(){construir();visaoGeral();materiais();classificacao();pregao();unir();desenharPendFaltas();subtitulo()}
 function subtitulo(){
