@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pedidos</title>
+<title>Análise de Consumo</title>
 <link rel="stylesheet" href="../admin.css">
 <style>
 /* Identidade comum (cores, estrutura, barra lateral, botões e
@@ -219,7 +219,7 @@ pre.csv{margin:0;font-family:var(--fonte-mono);font-size:12px;background:var(--n
   <a class="nav" href="../editor-catalogo/comparar-celk.html"><span class="ic i-celk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h13M14 4l4 4-4 4M19 16H6M10 12l-4 4 4 4"/></svg></span><span class="tx">Comparar CELK</span></a>
   <a class="nav" href="../descritivos/descritivos.html"><span class="ic i-desc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7h11M8 12h11M8 17h11M4.5 7h.01M4.5 12h.01M4.5 17h.01"/></svg></span><span class="tx">Descritivos</span></a>
   <a class="nav" href="../pregoes/pregoes.html"><span class="ic i-preg"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3.5" width="14" height="17" rx="2.5"/><path d="M9 3.5v2h6v-2M8.5 10h7M8.5 13.5h7M8.5 17h4"/></svg></span><span class="tx">Pregões</span></a>
-  <a class="nav ativo" aria-current="page" href="pedidos.html"><span class="ic i-ped"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 16v-5M12 16V6M17 16v-8"/></svg></span><span class="tx">Pedidos</span></a>
+  <a class="nav ativo" aria-current="page" href="consumo.html"><span class="ic i-cons"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 16v-5M12 16V6M17 16v-8"/></svg></span><span class="tx">Consumo</span></a>
   <a class="nav" href="../preparar-imagens.html"><span class="ic i-imagens"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2.5"/><circle cx="9" cy="10.5" r="1.6"/><path d="M4 17l5-4.5 4 3.5 3-2.5 4 3.5"/></svg></span><span class="tx">Imagens</span></a>
   <div class="grupo">Registro</div>
   <a class="nav" href="../editor-catalogo/historico.html"><span class="ic i-hist"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><span class="tx">Histórico</span></a>
@@ -234,7 +234,7 @@ pre.csv{margin:0;font-family:var(--fonte-mono);font-size:12px;background:var(--n
 
   <div class="cabecalho">
     <div>
-      <h1>Pedidos</h1>
+      <h1>Análise de Consumo</h1>
       <div class="sub" id="subtitulo">carregando...</div>
     </div>
     <div class="acoes"><button class="acento" id="btImportar">Importar relatórios</button></div>
@@ -378,7 +378,7 @@ pre.csv{margin:0;font-family:var(--fonte-mono);font-size:12px;background:var(--n
       <div class="udet" id="uDet"></div>
     </div>
     <div class="cartao">
-      <div class="tt"><h2>Decisões ainda não gravadas</h2><span class="sub">pedidos/unioes.csv</span></div>
+      <div class="tt"><h2>Decisões ainda não gravadas</h2><span class="sub">consumo/unioes.csv</span></div>
       <pre class="csv" id="uCsv"></pre>
       <div class="barra" style="margin-top:12px"><button class="principal" id="btGravarUnioes" disabled>Gravar no repositório</button><button id="btDescartarUnioes" disabled>Descartar</button></div>
     </div>
@@ -387,7 +387,7 @@ pre.csv{margin:0;font-family:var(--fonte-mono);font-size:12px;background:var(--n
   <div class="pendente oculto" id="pendFaltas"><span id="pendTexto"></span><span class="barra"><button class="mini principal" id="btGravarFaltas">Gravar</button><button class="mini" id="btDescartarFaltas">Descartar</button></span></div>
 
 </div>
-<div id="versaoPagina">pedidos · versão 2026-11-06e</div>
+<div id="versaoPagina">consumo · versão 2026-11-06f</div>
 </div>
 </div>
 
@@ -397,11 +397,11 @@ pre.csv{margin:0;font-family:var(--fonte-mono);font-size:12px;background:var(--n
 'use strict';
 /* =====================================================================
    ARQUIVOS
-   Tudo fica na pasta pedidos/, em CSV com BOM e fim de linha CRLF,
+   Tudo fica na pasta consumo/, em CSV com BOM e fim de linha CRLF,
    como os outros arquivos de dados do catálogo. O LEIA-ME da pasta
    descreve cada um.
    ===================================================================== */
-const ARQ={saidas:'pedidos/saidas.csv',unioes:'pedidos/unioes.csv',marcacoes:'pedidos/marcacoes.csv',importacoes:'pedidos/importacoes.csv'};
+const ARQ={saidas:'consumo/saidas.csv',unioes:'consumo/unioes.csv',marcacoes:'consumo/marcacoes.csv',importacoes:'consumo/importacoes.csv'};
 const CAB={
   saidas:'codigo_branet,nome_branet,mes,quantidade',
   unioes:'codigo_branet,nome_branet,codigo_catalogo,fator,decisao,decidido_em,decidido_por',
@@ -413,7 +413,7 @@ const CAB={
    salvamento vai para o mesmo ramo da página, e não para a main. */
 const RAMO_TESTE=(()=>{
   if(!/githack\.com$/.test(location.hostname))return '';
-  const m=location.pathname.match(/^\/[^/]+\/[^/]+\/(.+)\/pedidos\/[^/]*$/);
+  const m=location.pathname.match(/^\/[^/]+\/[^/]+\/(.+)\/consumo\/[^/]*$/);
   return m?decodeURIComponent(m[1]):'';
 })();
 if(RAMO_TESTE&&window.Publicar)Publicar.configurar({ramo:RAMO_TESTE});
@@ -893,7 +893,7 @@ function detalhe(m){
    observações gerais do material. mPend guarda as alterações ainda não
    gravadas, por "código|chave". */
 /* quantos meses o gráfico do material mostra; 0 = todos. Lembrado neste navegador. */
-let janelaGraf=24;try{const v=localStorage.getItem('pedidos-janela-grafico');if(v!==null&&['0','12','24','36'].includes(v))janelaGraf=+v}catch(e){}
+let janelaGraf=24;try{const v=localStorage.getItem('consumo-janela-grafico');if(v!==null&&['0','12','24','36'].includes(v))janelaGraf=+v}catch(e){}
 const mPend={},notasAbertas=new Set();let uMenu=null,ultimoMes=null,notaEd=null,contaNova=0;
 function regSalvo(c,k){return k[0]==='g'?((NOTASG[c]||{})[k.slice(1)]||null):((REGM[c]||{})[k]||null)}
 function regEf(c,k){const pk=c+'|'+k;return mPend.hasOwnProperty(pk)?mPend[pk]:regSalvo(c,k)}
@@ -922,14 +922,14 @@ $('#btGravarFaltas').onclick=async()=>{
         }else{L=L.filter(l=>!(l[0]===c&&l[1]===k));if(r)L.push([c,k,r.tipo,r.obs,dia,quem])}
       });
       return L.sort((a,b)=>(a[0]+'|'+a[1]).localeCompare(b[0]+'|'+b[1]));
-    },Publicar.mensagem('Pedidos',ARQ.marcacoes,n,'alteração','alterações'));
+    },Publicar.mensagem('Consumo',ARQ.marcacoes,n,'alteração','alterações'));
     MARCAS=lerCsv(await fetchSemCache('marcacoes.csv'));Object.keys(mPend).forEach(k=>delete mPend[k]);
     uMenu=null;ultimoMes=null;notaEd=null;notasAbertas.clear();tudo();
   }catch(e){alert('Não consegui gravar: '+(e.message||e))}
   bt.disabled=false;
 };
 async function fetchSemCache(n){
-  try{const r=await Publicar.obterTexto('pedidos/'+n);return r.texto}catch(e){const r=await fetch(n+'?t='+Date.now());return r.ok?r.text():''}
+  try{const r=await Publicar.obterTexto('consumo/'+n);return r.texto}catch(e){const r=await fetch(n+'?t='+Date.now());return r.ok?r.text():''}
 }
 
 /* =====================================================================
@@ -1156,7 +1156,7 @@ $('#btGravarUnioes').onclick=async()=>{
       const mapa=new Map(rem.map(x=>[x.codigo_branet,[x.codigo_branet,x.nome_branet,x.codigo_catalogo,x.fator,x.decisao,x.decidido_em,x.decidido_por]]));
       uLinhas().forEach(l=>mapa.set(l[0],l));
       return [...mapa.values()].sort((a,b)=>a[0].localeCompare(b[0]));
-    },Publicar.mensagem('Pedidos',ARQ.unioes,n,'código','códigos'));
+    },Publicar.mensagem('Consumo',ARQ.unioes,n,'código','códigos'));
     UNIOES=lerCsv(await fetchSemCache('unioes.csv'));Object.keys(uDec).forEach(k=>delete uDec[k]);tudo();
   }catch(e){alert('Não consegui gravar: '+(e.message||e)+'\n\nAs decisões continuam na tela.')}
   bt.disabled=false;
@@ -1227,10 +1227,10 @@ function juntarSaidas(rem){
 async function gravarImp(){
   if(!podeGravar())return;const ok=IMP.filter(x=>!x.erro);const bt=$('#btGravarImp');bt.disabled=true;bt.textContent='Gravando...';
   try{
-    await gravarCsv('saidas',juntarSaidas,'Pedidos: importa '+ok.length+' relatório(s) de consumo da BRANET');
+    await gravarCsv('saidas',juntarSaidas,'Consumo: importa '+ok.length+' relatório(s) de consumo da BRANET');
     await gravarCsv('importacoes',rem=>rem.map(x=>[x.arquivo,x.data_inicio,x.data_fim,x.grupo,x.classificacao,x.itens,x.meses_gravados,x.meses_ignorados,x.emitido_em,x.importado_por])
       .concat(ok.map(x=>[x.nome,x.ini,x.fim,x.grupo,x.clas,x.itens,x.gravados.length?x.gravados[0]+' a '+x.gravados[x.gravados.length-1]:'',x.ignorados.join(' '),x.emitido,autor()])),
-      'Pedidos: registra a importação de '+ok.length+' relatório(s)');
+      'Consumo: registra a importação de '+ok.length+' relatório(s)');
     SAIDAS=lerCsv(await fetchSemCache('saidas.csv'));IMPORTS=lerCsv(await fetchSemCache('importacoes.csv'));
     IMP=[];desenharImp();$('#importacao').classList.add('oculto');tudo();
   }catch(e){alert('Não consegui gravar: '+(e.message||e));bt.disabled=false;bt.textContent='Gravar no repositório'}
@@ -1259,7 +1259,7 @@ $('#corpoMat').addEventListener('click',e=>{
   if(m&&(b=e.target.closest('rect.alvo'))){const i=+b.dataset.i,x=MES[i],r=regEf(m.c,x);
     if(!(m.q[i]>0)){uMenu=null;ultimoMes={c:m.c,i};mudarReg(m.c,x,r&&r.tipo?{tipo:'',obs:r.obs}:{tipo:'falta',obs:r?r.obs:''});return}
     ultimoMes=null;uMenu=uMenu&&uMenu.c===m.c&&uMenu.i===i?null:{c:m.c,i};materiais();return}
-  if(m&&(b=e.target.closest('[data-jan]'))){janelaGraf=+b.dataset.jan;uMenu=null;try{localStorage.setItem('pedidos-janela-grafico',String(janelaGraf))}catch(err){}materiais();return}
+  if(m&&(b=e.target.closest('[data-jan]'))){janelaGraf=+b.dataset.jan;uMenu=null;try{localStorage.setItem('consumo-janela-grafico',String(janelaGraf))}catch(err){}materiais();return}
   if(m&&(b=e.target.closest('.menu-mes [data-t]'))){const i=uMenu.i,o=($('#mObs')||{}).value||'';uMenu=null;if(o.trim())notasAbertas.add(m.c);
     mudarReg(m.c,MES[i],{tipo:b.dataset.t,obs:o.trim()});return}
   if(m&&(b=e.target.closest('[data-obsmes]'))){notaEd={c:m.c,k:b.dataset.obsmes};notasAbertas.add(m.c);materiais();focarNota();return}

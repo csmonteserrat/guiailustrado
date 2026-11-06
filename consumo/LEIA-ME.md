@@ -1,10 +1,10 @@
-# Pedidos
+# Análise de Consumo
 
 Esta pasta guarda a página de análise do consumo dos materiais e os arquivos que ela lê. A página serve para decidir quais materiais entram no próximo pregão, quais podem sair e em que quantidade, olhando o município como um todo.
 
 | Arquivo | Para que serve |
 |---|---|
-| `pedidos.html` | A página. Abre pelo painel de administração, no item **Pedidos**. |
+| `consumo.html` | A página Análise de Consumo. Abre pelo painel de administração, no item **Consumo**. |
 | `saidas.csv` | Saídas da BRANET por código e por mês, somadas para o município. |
 | `importacoes.csv` | Registro de cada relatório importado: período, recorte, meses gravados e ignorados. |
 | `unioes.csv` | Códigos da BRANET ligados a um material do catálogo por esta página, com o fator de conversão. |
@@ -58,4 +58,4 @@ A aba **Unir códigos** lista os códigos com saída que ainda não estão ligad
 * **Sugestões**: só nos últimos 12 meses e só para material com saída em pelo menos 2 de cada 3 meses. **Possível falta**: dois ou mais meses seguidos sem saída. **Possível pico**: mês acima de 3 vezes a mediana dos meses normais, ou de 1,5 vez logo depois de um mês marcado como falta. **Possível efeito**: até 3 meses depois de uma saída atípica, abaixo da metade da mediana. A página só aponta; a marca é feita clicando no mês, na aba Materiais. Não há limite automático de pico.
 * **Próximo pregão**: CMM × vigência × (1 + margem da classe) ÷ fator da embalagem. Ainda não desconta o saldo em estoque, porque esse dado não existe aqui. Quando houver a posição de estoque mensal, ela deve entrar numa pasta `estoque/` desta.
 
-O documento com a explicação completa, os exemplos e as referências é o **Cálculo da página Pedidos**.
+O documento com a explicação completa, os exemplos e as referências é o **Cálculo da Análise de Consumo**.
