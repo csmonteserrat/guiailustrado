@@ -71,6 +71,8 @@ svg.spark{display:block}
 .filtros{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .filtros input[type=search]{flex:1 1 220px;min-width:0}
 .filtros select{flex:0 1 auto;max-width:100%}
+.chk{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--secundario);cursor:pointer;white-space:nowrap}
+.chk input{margin:0;width:16px;height:16px;accent-color:var(--acento)}
 @media(max-width:640px){.filtros select{flex:1 1 45%}}
 .contagem{font-size:12.5px;color:var(--secundario)}
 .tabMat{min-width:880px}
@@ -307,7 +309,8 @@ pre.csv{margin:0;font-family:var(--fonte-mono);font-size:12px;background:var(--n
         <select id="fFam" aria-label="Família"><option value="">Todas as famílias</option></select>
         <select id="fTipo" aria-label="Tipo"><option value="">Consumo e instrumental</option><option>Consumo</option><option>Instrumental</option></select>
         <select id="fBloco" aria-label="Bloco"><option value="">Todos os blocos</option><option value="TODOS">Rede básica</option><option value="CEO">Exclusivo CEO</option></select>
-        <select id="fOrd" aria-label="Ordenar"><option value="nome">Nome</option><option value="cmm">Maior CMM</option><option value="parado">Mais tempo parado</option><option value="queda">Maior queda</option></select>
+        <select id="fOrd" aria-label="Ordenar"><option value="nome">Nome</option><option value="cmm">Maior CMM</option><option value="parado">Mais tempo parado</option><option value="queda">Tendência: maior queda</option><option value="alta">Tendência: maior alta</option></select>
+        <label class="chk"><input type="checkbox" id="fSemSaida" checked> Mostrar os sem saída no período</label>
       </div>
     </div>
     <div class="cartao">
@@ -403,7 +406,7 @@ pre.csv{margin:0;font-family:var(--fonte-mono);font-size:12px;background:var(--n
   <div class="pendente oculto" id="pendFaltas"><span id="pendTexto"></span><span class="barra"><button class="mini principal" id="btGravarFaltas">Gravar</button><button class="mini" id="btDescartarFaltas">Descartar</button></span></div>
 
 </div>
-<div id="versaoPagina">consumo · versão 2026-11-06h</div>
+<div id="versaoPagina">consumo · versão 2026-11-06i</div>
 </div>
 </div>
 
@@ -896,15 +899,23 @@ function materiais(){
     (!s||(s==='falta'?m.temPossivel:m.sit===s))&&(!fa||m.fam===fa)&&(!t||m.t===t)&&(!bl||m.a===bl));
   /* descontinuados ficam escondidos, a não ser na situação Descontinuado;
      o material aberto continua na tela até ser fechado */
-  const l=base.filter(m=>s==='desc'||!m.desc||m.c===aberto),ocultos=base.length-l.length;
+  const verSem=$('#fSemSaida').checked||s==='sem';
+  const l=base.filter(m=>m.c===aberto||((s==='desc'||!m.desc)&&(verSem||m.sit!=='sem')));
+  const ocDesc=s==='desc'?0:base.filter(m=>m.desc&&m.c!==aberto).length,ocSem=verSem?0:base.filter(m=>m.sit==='sem'&&m.c!==aberto).length;
+  /* tendência que a coluna mostra em porcentagem; "parado", "esporádico"
+     e "—" vão para o fim quando a lista é ordenada pela tendência */
+  const tv=m=>(m.sit==='sem'||m.sit==='semcod'||m.sit==='parada'||m.sit==='desc'||m.xyz==='Z'||m.tend==null)?null:m.tend;
+  const porTend=(a,b,sinal)=>{const x=tv(a),y=tv(b);if(x==null||y==null)return (x==null)-(y==null)||a.m.localeCompare(b.m,'pt');return sinal*(x-y)||a.m.localeCompare(b.m,'pt')};
   l.sort((a,b)=>{
     if(o==='parado')return (b.desde===Infinity?1e9:b.desde)-(a.desde===Infinity?1e9:a.desde)||a.m.localeCompare(b.m,'pt');
-    if(o==='queda')return (a.tend==null?9:a.tend)-(b.tend==null?9:b.tend);
+    if(o==='queda')return porTend(a,b,1);
+    if(o==='alta')return porTend(a,b,-1);
     if(o==='cmm')return b.cmm-a.cmm;
     return a.m.localeCompare(b.m,'pt');
   });
   $('#contMat').innerHTML='Mostrando '+Math.min(l.length,limiteMat)+' de '+l.length+
-    (ocultos?' · '+ocultos+(ocultos>1?' descontinuados escondidos':' descontinuado escondido')+' <button class="link" id="btVerDesc">Ver</button>':'');
+    (ocSem?' · '+ocSem+' sem saída no período escondido'+(ocSem>1?'s':'')+' <button class="link" id="btVerSem">Mostrar</button>':'')+
+    (ocDesc?' · '+ocDesc+(ocDesc>1?' descontinuados escondidos':' descontinuado escondido')+' <button class="link" id="btVerDesc">Ver</button>':'');
   $('#corpoMat').innerHTML=l.length?l.slice(0,limiteMat).map(m=>{
     let h='<tr class="lin'+(aberto===m.c?' aberta':'')+'" data-c="'+m.c+'" tabindex="0" aria-expanded="'+(aberto===m.c)+'">'+
       '<td class="mat">'+esc(m.m)+'<small>'+m.c+' · '+esc(m.fam)+'</small></td>'+
@@ -1344,7 +1355,12 @@ document.querySelector('.abas').addEventListener('keydown',e=>{
 window.addEventListener('hashchange',()=>abrir(location.hash.slice(1)));
 ['#fBusca','#fSit','#fFam','#fTipo','#fBloco','#fOrd'].forEach(s=>$(s).addEventListener('input',()=>{limiteMat=150;materiais()}));
 $('#maisMat').addEventListener('click',e=>{if(e.target.id==='btMaisMat'){limiteMat+=150;materiais()}});
-$('#contMat').addEventListener('click',e=>{if(e.target.id==='btVerDesc'){$('#fSit').value='desc';limiteMat=150;materiais()}});
+$('#contMat').addEventListener('click',e=>{if(e.target.id==='btVerDesc'){$('#fSit').value='desc';limiteMat=150;materiais()}
+  if(e.target.id==='btVerSem'){$('#fSemSaida').checked=true;guardarSemSaida();limiteMat=150;materiais()}});
+/* mostrar ou não os sem saída no período: lembrado neste navegador */
+function guardarSemSaida(){try{localStorage.setItem('consumo-mostrar-sem-saida',$('#fSemSaida').checked?'1':'0')}catch(e){}}
+try{if(localStorage.getItem('consumo-mostrar-sem-saida')==='0')$('#fSemSaida').checked=false}catch(e){}
+$('#fSemSaida').addEventListener('change',()=>{guardarSemSaida();limiteMat=150;materiais()});
 $('#corpoMat').addEventListener('click',e=>{
   const m=aberto&&POR_COD[aberto];let b;
   if(m&&(b=e.target.closest('rect.alvo'))){const i=+b.dataset.i,x=MES[i],r=regEf(m.c,x);

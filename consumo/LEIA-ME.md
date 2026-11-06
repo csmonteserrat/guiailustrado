@@ -69,6 +69,8 @@ A aba **Unir códigos** lista os códigos com saída que ainda não estão ligad
 * **CMM**: média dos últimos 12 meses, sem os meses marcados (falta ou atípico). Se sobrarem menos de 6 meses válidos, usa os últimos 24; se ainda faltar, o material aparece como histórico insuficiente.
 * **ABC**: dentro de cada família do catálogo, pelo CMM × 12, na unidade do catálogo. A até 80%, B até 95%, C o resto.
 * **XYZ**: coeficiente de variação mensal. X abaixo de 0,5, Y até 1, Z acima de 1.
+* **Tendência** (aba Materiais): soma dos últimos 3 meses comparada com a dos 3 anteriores, em porcentagem. Entre −10% e +10% aparece estável. Material parado, esporádico (Z) ou sem saída mostra isso no lugar da porcentagem e vai para o fim quando a lista é ordenada por tendência (maior queda ou maior alta). Usa as saídas brutas, sem tirar os meses marcados.
+* Na aba Materiais, a caixa **Mostrar os sem saída no período** esconde ou mostra os materiais sem nenhuma saída desde o início dos dados. A escolha fica lembrada no navegador.
 * **Sugestões**: só nos últimos 12 meses e só para material com saída em pelo menos 2 de cada 3 meses. **Possível falta**: dois ou mais meses seguidos sem saída. **Possível pico**: mês acima de 3 vezes a mediana dos meses normais, ou de 1,5 vez logo depois de um mês marcado como falta. **Possível efeito**: até 3 meses depois de uma saída atípica, abaixo da metade da mediana. A página só aponta; a marca é feita clicando no mês, na aba Materiais. Não há limite automático de pico.
 * **Próximo pregão**: CMM × vigência × (1 + margem da classe) ÷ fator da embalagem. Ainda não desconta o saldo em estoque, porque esse dado não existe aqui. Quando houver a posição de estoque mensal, ela deve entrar numa pasta `estoque/` desta.
 

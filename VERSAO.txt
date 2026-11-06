@@ -15,6 +15,9 @@ v2.9 — 06/11/2026
     aparece como Descontinuado. Na lista, os descontinuados ficam
     escondidos; aparecem na situação Descontinuados. Fica gravado em
     consumo/descontinuados.csv. O produtos.csv não muda.
+  - Na aba Materiais: ordenar pela tendência (maior queda ou maior
+    alta) e a caixa Mostrar os sem saída no período, para esconder
+    os materiais que não tiveram nenhuma saída.
 
 v2.8 — 06/11/2026
   - Página nova no painel: Análise de Consumo (consumo/consumo.html),
