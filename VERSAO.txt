@@ -1,8 +1,24 @@
 CATÁLOGO ILUSTRADO DE MATERIAIS ODONTOLÓGICOS — PMF
-Versão 2.7 — 21/08/2026
+Versão 2.8 — 06/11/2026
 
 HISTÓRICO
 ---------
+v2.8 — 06/11/2026
+  - Página nova no painel: Pedidos (pedidos/pedidos.html). Analisa o
+    consumo dos materiais, somado para o município, para decidir o
+    que entra no próximo pregão, o que pode sair e em que quantidade.
+    Tem cinco abas: Visão geral, Materiais, Classificação (ABC × XYZ),
+    Próximo pregão e Unir códigos.
+  - Os dados vêm do relatório Consumo por Período (12 meses) da
+    BRANET, importado pela própria página. Já estão gravadas as
+    saídas de jan/2025 a out/2026 (pedidos/saidas.csv).
+  - As uniões de códigos antigos e os meses de falta ficam em
+    arquivos da pasta pedidos/. A página não altera o produtos.csv
+    nem o branet.csv.
+  - O item Pedidos entrou no menu lateral de todas as páginas do
+    painel e nos atalhos do Painel.
+  - Detalhes em pedidos/LEIA-ME.md.
+
 v2.7 — 21/08/2026
   - Os materiais da lista da Enfermagem passaram a sair em planilha
     separada, lista-para-o-coordenador.csv, quando houver algum na
