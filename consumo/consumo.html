@@ -63,7 +63,21 @@ table.t{border-collapse:collapse;width:100%}
 .duas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 @media(max-width:1000px){.duas{grid-template-columns:1fr}}
 .alta-lista{max-height:420px;overflow:auto}
-.vg{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)}
+.vg{grid-template-columns:repeat(2,minmax(0,1fr))}
+.resumo-vg{padding:6px 6px 14px}
+.resumo-vg .kpis{gap:0}
+.resumo-vg .kpi{box-shadow:none;background:none;border-radius:12px;padding:10px 14px;position:relative}
+.resumo-vg .kpi+.kpi::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:1px;background:var(--linha)}
+.resumo-vg button.kpi:hover{background:var(--neutro)}
+@media(max-width:1000px){.resumo-vg .kpi+.kpi::before{display:none}}
+.sit-vg{border-top:1px solid var(--linha);margin:6px 12px 0;padding-top:12px}
+.sit-vg .tt{display:flex;align-items:baseline;gap:8px;margin-bottom:8px}
+.sit-vg h3{margin:0 auto 0 0;font-size:14px}
+.vg .tt select{font-size:12.5px;padding:4px 8px;max-width:200px}
+.vg tr[data-abrir]{cursor:pointer}
+.vg tr[data-abrir]:hover td{background:var(--neutro)}
+.vg .cmm{font-weight:650}
+.vg .cmm small{display:block;font-weight:400;color:var(--terciario);font-size:11px}
 @media(max-width:1000px){.vg{grid-template-columns:1fr}}
 .t.compacta td{padding:5px 10px 5px 0}
 .t.compacta .mat{min-width:0}
@@ -287,16 +301,19 @@ pre.csv{margin:0;font-family:var(--fonte-mono);font-size:12px;background:var(--n
 
   <!-- ===== VISÃO GERAL ===== -->
   <section class="painel" id="p-visao-geral" role="tabpanel" aria-labelledby="tb-visao-geral">
-    <div class="kpis" id="kpis"></div>
-    <div class="cartao">
-      <div class="tt"><h2>Situação dos materiais da odontologia</h2><span class="sub" id="totSit"></span></div>
-      <div class="barra-status" id="barraStatus"></div>
-      <div class="legenda" id="legendaStatus"></div>
+    <div class="cartao resumo-vg">
+      <div class="kpis" id="kpis"></div>
+      <div class="sit-vg">
+        <div class="tt"><h3>Situação dos materiais da odontologia</h3><span class="sub" id="totSit"></span></div>
+        <div class="barra-status" id="barraStatus"></div>
+        <div class="legenda" id="legendaStatus"></div>
+      </div>
     </div>
     <div class="duas vg">
       <div class="cartao">
-        <div class="tt"><h2>Materiais com saída por mês</h2><span class="sub">conta materiais, não quantidades</span></div>
-        <div id="grafMes"></div>
+        <div class="tt"><h2>Mais saída nos últimos 12 meses</h2><select id="vgFam" aria-label="Família da lista de mais saída"><option value="">Todas as famílias</option></select></div>
+        <table class="t compacta"><tbody id="topSaida"></tbody></table>
+        <p class="sub" style="margin:8px 0 0">Pelo CMM, na unidade do catálogo. Cada material tem a sua unidade: compare dentro da família.</p>
       </div>
       <div class="cartao">
         <div class="tt"><h2>Parados há mais tempo</h2><span class="sub">último mês com saída</span></div>
@@ -416,7 +433,7 @@ pre.csv{margin:0;font-family:var(--fonte-mono);font-size:12px;background:var(--n
   <div class="pendente oculto" id="pendFaltas"><span id="pendTexto"></span><span class="barra"><button class="mini principal" id="btGravarFaltas">Gravar</button><button class="mini" id="btDescartarFaltas">Descartar</button></span></div>
 
 </div>
-<div id="versaoPagina">consumo · versão 2026-11-09a</div>
+<div id="versaoPagina">consumo · versão 2026-11-09b</div>
 </div>
 </div>
 
@@ -872,16 +889,16 @@ function tendHtml(m){
 /* =====================================================================
    VISÃO GERAL
    ===================================================================== */
-/* O gráfico da visão geral é desenhado na largura real do cartão, com
-   altura fixa: assim não cresce em tela larga. Redesenha ao mudar o
-   tamanho da janela e ao voltar para a aba. */
-function grafVisao(){
-  const el=$('#grafMes');if(!N){el.innerHTML='<div class="vazio">Nenhuma saída importada ainda.</div>';return}
-  const w=el.clientWidth;if(!w)return;
-  const porMes=MES.map((_,i)=>M.filter(m=>m.q[i]>0).length);
-  el.innerHTML=barras([{v:porMes,cor:i=>J12.includes(i)?'var(--acento)':'var(--terciario)'}],{rot:'Materiais com saída por mês',w:Math.round(w),h:180});
+/* Os 5 materiais com maior CMM, de todas as famílias ou de uma só.
+   O CMM está na unidade de cada material: entre famílias diferentes a
+   comparação é só de quantidade de unidades. */
+function maisSaida(){
+  const fa=$('#vgFam').value;
+  const l=M.filter(m=>!m.desc&&m.cmm>0&&(!fa||m.fam===fa)).sort((a,b)=>b.cmm-a.cmm).slice(0,5);
+  $('#topSaida').innerHTML=l.length?l.map(m=>'<tr data-abrir="'+m.c+'" title="Abrir em Materiais"><td class="mat">'+esc(m.m)+'<small>'+m.c+' · '+esc(m.fam)+'</small></td>'+
+    '<td>'+spark(J12.map(i=>m.q[i]),COR[m.sit])+'</td><td class="n cmm">'+fmt(m.cmm,1)+' '+esc(m.u)+'<small>por mês</small></td></tr>').join(''):
+    '<tr><td class="vazio">Nenhum material com saída'+(fa?' nesta família':'')+'.</td></tr>';
 }
-let tGraf=null;window.addEventListener('resize',()=>{clearTimeout(tGraf);tGraf=setTimeout(grafVisao,150)});
 function visaoGeral(){
   const comCod=M.filter(m=>m.temCodigo),com12=M.filter(m=>m.q12>0);
   const parados=M.filter(m=>m.sit==='parada'||m.sit==='sem');
@@ -899,13 +916,13 @@ function visaoGeral(){
   const bs=$('#barraStatus');bs.setAttribute('role','img');bs.setAttribute('aria-label',ordem.map(k=>SIT[k][0]+' '+cont[k]).join(', '));
   bs.innerHTML=ordem.map(k=>cont[k]?'<span class="'+SIT[k][1]+'" style="width:'+(cont[k]/M.length*100).toFixed(2)+'%'+(k==='semcod'?';opacity:.45':'')+'" title="'+SIT[k][0]+': '+cont[k]+'"></span>':'').join('');
   $('#legendaStatus').innerHTML=ordem.map(k=>'<button data-sit="'+k+'"><i class="'+SIT[k][1]+'"'+(k==='semcod'?' style="opacity:.45"':'')+'></i>'+SIT[k][0]+' <b>'+cont[k]+'</b></button>').join('');
-  grafVisao();
-  const fams={};M.forEach(m=>{if(m.q12>0)(fams[m.fam]=fams[m.fam]||[]).push(m)});
+  maisSaida();
+  const fams={};M.forEach(m=>{if(m.q12>0&&!m.desc)(fams[m.fam]=fams[m.fam]||[]).push(m)});
   $('#totFam').textContent='últimos 12 meses · '+Object.keys(fams).length+' famílias';
   $('#porFamilia').innerHTML=Object.keys(fams).sort((a,b)=>a.localeCompare(b,'pt')).map(f=>{const g=fams[f].sort((a,b)=>b.cmm-a.cmm),l=g[0];
     return '<tr><td>'+esc(f)+'</td><td class="n">'+g.length+'</td><td class="mat">'+esc(l.m)+'<small>'+l.c+'</small></td><td class="n">'+fmt(l.cmm,1)+' '+esc(l.u)+'</td></tr>'}).join('')||'<tr><td class="vazio">Sem dados.</td></tr>';
   const p=M.filter(m=>m.sit==='parada').sort((a,b)=>b.desde-a.desde).slice(0,5);
-  $('#topParados').innerHTML=p.length?p.map(m=>'<tr><td class="mat">'+esc(m.m)+'<small>'+m.c+' · '+esc(m.fam)+'</small></td><td class="n" style="color:var(--geranium);font-weight:600">'+m.ultRot+'</td></tr>').join(''):
+  $('#topParados').innerHTML=p.length?p.map(m=>'<tr data-abrir="'+m.c+'" title="Abrir em Materiais"><td class="mat">'+esc(m.m)+'<small>'+m.c+' · '+esc(m.fam)+'</small></td><td class="n" style="color:var(--geranium);font-weight:600">'+m.ultRot+'</td></tr>').join(''):
     '<tr><td class="vazio">Nenhum material parado com saída registrada no período.</td></tr>';
 }
 
@@ -1365,7 +1382,6 @@ function abrir(id,focar){
   if(!ABAS.includes(id))id='visao-geral';
   ABAS.forEach(a=>{$('#p-'+a).hidden=a!==id;$('#tb-'+a).setAttribute('aria-selected',a===id)});
   if(focar)$('#tb-'+id).focus();
-  if(id==='visao-geral')grafVisao();
 }
 function irPara(id){if(location.hash!=='#'+id)location.hash=id;else abrir(id)}
 document.querySelector('.abas').addEventListener('click',e=>{const b=e.target.closest('[role=tab]');if(b)irPara(b.id.slice(3))});
@@ -1423,6 +1439,10 @@ document.addEventListener('click',e=>{const b=e.target.closest('[data-ir]');if(!
   if(k==='unir')irPara('unir-codigos')});
 $('#segTipo').addEventListener('click',e=>{const b=e.target.closest('[data-t]');if(!b)return;cTipo=b.dataset.t;document.querySelectorAll('#segTipo button').forEach(x=>x.setAttribute('aria-pressed',x===b));classificacao()});
 $('#cFam').addEventListener('input',classificacao);
+$('#vgFam').addEventListener('input',maisSaida);
+/* clique num material das listas da visão geral: abre o detalhe dele em Materiais */
+document.addEventListener('click',e=>{const tr=e.target.closest('[data-abrir]');if(!tr)return;const c=tr.dataset.abrir;
+  $('#fBusca').value=c;$('#fSit').value='';limiteMat=150;aberto=c;materiais();irPara('materiais')});
 $('#matriz').addEventListener('click',e=>{const b=e.target.closest('[data-casa]');if(!b)return;casaSel=b.dataset.casa;classificacao()});
 ['#pPregao','#pVig','#pA','#pB','#pC'].forEach(s=>$(s).addEventListener('input',pregao));
 $('#pills').addEventListener('click',e=>{const b=e.target.closest('[data-p]');if(!b)return;filtroP=b.dataset.p;pregao()});
@@ -1443,7 +1463,7 @@ function avisos(){
   try{await carregar()}catch(e){$('#subtitulo').textContent='Não consegui ler '+e.message+'. Abra a página pelo endereço do site.';return}
   await carregarPregoes();
   const fams=[...new Set(ATIVOS.map(p=>(p.familia||'').split(';')[0].trim()||'Sem família'))].sort((a,b)=>a.localeCompare(b,'pt'));
-  const opt=fams.map(f=>'<option>'+esc(f)+'</option>').join('');$('#fFam').innerHTML+=opt;$('#cFam').innerHTML+=opt;
+  const opt=fams.map(f=>'<option>'+esc(f)+'</option>').join('');$('#fFam').innerHTML+=opt;$('#cFam').innerHTML+=opt;$('#vgFam').innerHTML+=opt;
   avisos();tudo();abrir(location.hash.slice(1));
 })();
 </script>
