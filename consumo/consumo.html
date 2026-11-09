@@ -62,7 +62,6 @@ table.t{border-collapse:collapse;width:100%}
 .s-alta{background:var(--ok)}.s-regular{background:var(--corn)}.s-lenta{background:var(--sawtooth)}.s-parada{background:var(--geranium)}.s-sem{background:var(--terciario)}.s-desc{background:var(--secundario)}
 .duas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 @media(max-width:1000px){.duas{grid-template-columns:1fr}}
-.alta-lista{max-height:420px;overflow:auto}
 .vg{grid-template-columns:repeat(2,minmax(0,1fr))}
 .resumo-vg{padding:6px 6px 14px}
 .resumo-vg .kpis{gap:0}
@@ -81,12 +80,6 @@ table.t{border-collapse:collapse;width:100%}
 @media(max-width:1000px){.vg{grid-template-columns:1fr}}
 .t.compacta td{padding:5px 10px 5px 0}
 .t.compacta .mat{min-width:0}
-details.dobra summary{cursor:pointer;list-style:none;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
-details.dobra summary::-webkit-details-marker{display:none}
-details.dobra summary h2{margin:0}
-details.dobra summary::before{content:"";width:7px;height:7px;border-right:2px solid var(--terciario);border-bottom:2px solid var(--terciario);transform:rotate(-45deg);transition:transform .15s;margin-right:4px;align-self:center}
-details.dobra[open] summary::before{transform:rotate(45deg)}
-details.dobra[open] summary{margin-bottom:10px}
 svg.grafico{display:block;width:100%;height:auto}
 svg.grafico text{font-family:var(--fonte);font-size:11px;fill:var(--terciario)}
 svg.spark{display:block}
@@ -321,10 +314,6 @@ pre.csv{margin:0;font-family:var(--fonte-mono);font-size:12px;background:var(--n
         <button class="mini" data-ir="parados" style="margin-top:8px">Ver todos em Materiais</button>
       </div>
     </div>
-    <details class="cartao dobra">
-      <summary><h2>Maior saída em cada família</h2><span class="sub" id="totFam">últimos 12 meses</span></summary>
-      <div class="alta-lista rolagem"><table class="t" style="min-width:460px"><thead><tr><th>Família</th><th class="n">Com saída</th><th>Material com mais saída</th><th class="n">CMM</th></tr></thead><tbody id="porFamilia"></tbody></table></div>
-    </details>
   </section>
 
   <!-- ===== MATERIAIS ===== -->
@@ -433,7 +422,7 @@ pre.csv{margin:0;font-family:var(--fonte-mono);font-size:12px;background:var(--n
   <div class="pendente oculto" id="pendFaltas"><span id="pendTexto"></span><span class="barra"><button class="mini principal" id="btGravarFaltas">Gravar</button><button class="mini" id="btDescartarFaltas">Descartar</button></span></div>
 
 </div>
-<div id="versaoPagina">consumo · versão 2026-11-09b</div>
+<div id="versaoPagina">consumo · versão 2026-11-09c</div>
 </div>
 </div>
 
@@ -917,10 +906,6 @@ function visaoGeral(){
   bs.innerHTML=ordem.map(k=>cont[k]?'<span class="'+SIT[k][1]+'" style="width:'+(cont[k]/M.length*100).toFixed(2)+'%'+(k==='semcod'?';opacity:.45':'')+'" title="'+SIT[k][0]+': '+cont[k]+'"></span>':'').join('');
   $('#legendaStatus').innerHTML=ordem.map(k=>'<button data-sit="'+k+'"><i class="'+SIT[k][1]+'"'+(k==='semcod'?' style="opacity:.45"':'')+'></i>'+SIT[k][0]+' <b>'+cont[k]+'</b></button>').join('');
   maisSaida();
-  const fams={};M.forEach(m=>{if(m.q12>0&&!m.desc)(fams[m.fam]=fams[m.fam]||[]).push(m)});
-  $('#totFam').textContent='últimos 12 meses · '+Object.keys(fams).length+' famílias';
-  $('#porFamilia').innerHTML=Object.keys(fams).sort((a,b)=>a.localeCompare(b,'pt')).map(f=>{const g=fams[f].sort((a,b)=>b.cmm-a.cmm),l=g[0];
-    return '<tr><td>'+esc(f)+'</td><td class="n">'+g.length+'</td><td class="mat">'+esc(l.m)+'<small>'+l.c+'</small></td><td class="n">'+fmt(l.cmm,1)+' '+esc(l.u)+'</td></tr>'}).join('')||'<tr><td class="vazio">Sem dados.</td></tr>';
   const p=M.filter(m=>m.sit==='parada').sort((a,b)=>b.desde-a.desde).slice(0,5);
   $('#topParados').innerHTML=p.length?p.map(m=>'<tr data-abrir="'+m.c+'" title="Abrir em Materiais"><td class="mat">'+esc(m.m)+'<small>'+m.c+' · '+esc(m.fam)+'</small></td><td class="n" style="color:var(--geranium);font-weight:600">'+m.ultRot+'</td></tr>').join(''):
     '<tr><td class="vazio">Nenhum material parado com saída registrada no período.</td></tr>';

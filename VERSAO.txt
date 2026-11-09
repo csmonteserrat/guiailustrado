@@ -18,6 +18,11 @@ v2.9 — 06/11/2026
   - Na aba Materiais: ordenar pela tendência (maior queda ou maior
     alta) e a caixa Mostrar os sem saída no período, para esconder
     os materiais que não tiveram nenhuma saída.
+  - Visão geral mais compacta: os quatro números e a barra de situação
+    num cartão só, e a lista dos 5 materiais com mais saída (maior CMM,
+    com escolha de família) ao lado dos parados há mais tempo. Saíram o
+    gráfico de materiais por mês e a tabela de maior saída por família.
+    Clicar num material das listas abre o detalhe dele em Materiais.
 
 v2.8 — 06/11/2026
   - Página nova no painel: Análise de Consumo (consumo/consumo.html),
