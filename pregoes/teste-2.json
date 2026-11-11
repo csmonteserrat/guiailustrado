@@ -1,0 +1,34 @@
+{
+ "id": "teste-2",
+ "numero": "Teste",
+ "objeto": "dddd",
+ "situacao": "elaboracao",
+ "criado_em": "2026-11-11T18:20:55.421Z",
+ "criado_por": "Caio César Borges de Oliveira",
+ "atualizado_em": "2026-11-11T18:24:11.727Z",
+ "atualizado_por": "Caio César Borges de Oliveira",
+ "itens": [
+  {
+   "codigo": "9000098",
+   "material": "Espátula Plástica para Ionomero",
+   "nome": "",
+   "unidade_compra": "Unidade",
+   "quantidade": "",
+   "descritivo": "sbsjbdjsbdjsbdjw djdbwj w",
+   "obs": "",
+   "alterado": false,
+   "especialidade": "Dentística;Odontopediatria",
+   "familia": "Instrumental de inserção"
+  },
+  {
+   "codigo": "4150514",
+   "material": "ESPATULA DUPLA Nº 50",
+   "nome": "",
+   "unidade_compra": "Unidade",
+   "quantidade": "50",
+   "descritivo": "lalalalala",
+   "obs": "",
+   "alterado": false
+  }
+ ]
+}
