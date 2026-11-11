@@ -4,13 +4,38 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 117  
-Última atualização: 11/11/2026, 15:15  
+Total de sessões registradas: 118  
+Última atualização: 11/11/2026, 15:24  
 Este arquivo guarda a partir da sessão 101. As anteriores estão no arquivo fechado `historico-001.md`, com até 100 sessões cada.
 
 <!-- volumes:{"anteriores":100,"arquivos":["historico-001.md"],"ate":"2026-10-15T13:18:34.568Z"} -->
 
 ---
+
+## 11/11/2026, 15:24 — Caio César Borges de Oliveira
+
+Sessão 118 · 3 alteração(ões) · 847 itens no arquivo após a edição
+
+**Origem:** Pregão Teste.
+
+**Resumo:** 1 novo · 2 descritivo
+
+- **[NOVO]** `9000098` Espátula Plástica para Ionomero
+    - Código: 9000098
+    - Material: Espátula Plástica para Ionomero
+    - Especialidades: Dentística;Odontopediatria
+    - Família: Instrumental de inserção
+    - Arquivo da imagem: 9000098.jpg
+    - Situação: NAO
+- **[DESCRITIVO]** `9000098` Espátula Plástica para Ionomero
+    - Descritivo: "" → "sbsjbdjsbdjsbdjw djdbwj w"
+    - Situação da compra: "" → "AGUARDANDO_COMPRA"
+    - Unidade de compra: "" → "Unidade"
+- **[DESCRITIVO]** `4150514` ESPATULA DUPLA Nº 50
+    - Descritivo: "" → "lalalalala"
+    - Unidade de compra: "" → "Unidade"
+
+<!-- sessao:{"data":"2026-11-11T18:24:09.631Z","autor":"Caio César Borges de Oliveira","origem":"Pregão Teste","alteracoes":[{"tipo":"novo","codigo":"9000098","material":"Espátula Plástica para Ionomero","campos":[],"dados":{"codigo":"9000098","material":"Espátula Plástica para Ionomero","especialidade":"Dentística;Odontopediatria","familia":"Instrumental de inserção","imagem":"9000098.jpg","ativo":"NAO"}},{"tipo":"descritivo","codigo":"9000098","material":"Espátula Plástica para Ionomero","campos":[{"campo":"descritivo","de":"","para":"sbsjbdjsbdjsbdjw djdbwj w"},{"campo":"situacao_compra","de":"","para":"AGUARDANDO_COMPRA"},{"campo":"unidade_compra","de":"","para":"Unidade"}]},{"tipo":"descritivo","codigo":"4150514","material":"ESPATULA DUPLA Nº 50","campos":[{"campo":"descritivo","de":"","para":"lalalalala"},{"campo":"unidade_compra","de":"","para":"Unidade"}]}],"total":847} -->
 
 ## 11/11/2026, 15:15 — Caio César Borges de Oliveira
 
