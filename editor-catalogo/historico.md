@@ -4,13 +4,24 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 116  
-Última atualização: 11/11/2026, 15:11  
+Total de sessões registradas: 117  
+Última atualização: 11/11/2026, 15:15  
 Este arquivo guarda a partir da sessão 101. As anteriores estão no arquivo fechado `historico-001.md`, com até 100 sessões cada.
 
 <!-- volumes:{"anteriores":100,"arquivos":["historico-001.md"],"ate":"2026-10-15T13:18:34.568Z"} -->
 
 ---
+
+## 11/11/2026, 15:15 — Caio César Borges de Oliveira
+
+Sessão 117 · 1 alteração(ões)
+
+**Resumo:** 1 foto
+
+- **[FOTO]** `4151287` CARIOSTATICO 30% 5ML
+    - foto adicionada · imagens/4151287.jpg
+
+<!-- sessao:{"data":"2026-11-11T18:15:12.029Z","autor":"Caio César Borges de Oliveira","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4151287","material":"CARIOSTATICO 30% 5ML","resumo":"foto adicionada · imagens/4151287.jpg"}]} -->
 
 ## 11/11/2026, 15:11 — Caio César Borges de Oliveira
 
