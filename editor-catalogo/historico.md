@@ -4,13 +4,49 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 115  
-Última atualização: 05/11/2026, 16:27  
+Total de sessões registradas: 116  
+Última atualização: 11/11/2026, 15:11  
 Este arquivo guarda a partir da sessão 101. As anteriores estão no arquivo fechado `historico-001.md`, com até 100 sessões cada.
 
 <!-- volumes:{"anteriores":100,"arquivos":["historico-001.md"],"ate":"2026-10-15T13:18:34.568Z"} -->
 
 ---
+
+## 11/11/2026, 15:11 — Caio César Borges de Oliveira
+
+Sessão 116 · 5 alteração(ões) · 846 itens no arquivo após a edição
+
+**Origem:** relatório do CELK emitido em 11/11/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 13, 12, 15, 14.
+
+**Resumo:** 4 editado · 1 novo
+
+- **[EDITADO]** `4150803` CURETA CIRURGICA LUCAS Nº85
+    - Grupo: "14" → "12"
+    - Subgrupo: "CEO Instrumental" → "Odontologia Instrumental"
+    - Acesso: "CEO" → "TODOS"
+- **[EDITADO]** `4150514` ESPATULA DUPLA Nº 50
+    - Grupo: "14" → "12"
+    - Subgrupo: "CEO Instrumental" → "Odontologia Instrumental"
+    - Acesso: "CEO" → "TODOS"
+- **[EDITADO]** `4150682` LAMINA BISTURI ACO CARBONO Nº 12
+    - Grupo: "15" → "13"
+    - Subgrupo: "CEO" → "Odontologia"
+    - Acesso: "CEO" → "TODOS"
+- **[EDITADO]** `4150822` LIMA DE SCHLUGER
+    - Especialidades: "Endodontia" → "Periodontia;Cirurgia"
+    - Família: "Limas de canal" → "Insumos cirúrgicos"
+- **[NOVO]** `4151318` LIMA RECIPROCANTE PARA RETRATAMENTO (CAIXA COM 6 UNIDADES)
+    - Código: 4151318
+    - Material: LIMA RECIPROCANTE PARA RETRATAMENTO (CAIXA COM 6 UNIDADES)
+    - Unidade de pedido: CA - Caixa
+    - Grupo: 15
+    - Subgrupo: CEO
+    - Acesso: CEO
+    - Tipo: Consumo
+    - Arquivo da imagem: 4151318.jpg
+    - Situação: SIM
+
+<!-- sessao:{"data":"2026-11-11T18:11:48.934Z","autor":"Caio César Borges de Oliveira","origem":"relatório do CELK emitido em 11/11/2026 por MIGUEL CARDOSO NORA, subgrupo(s) 13, 12, 15, 14","total":846,"alteracoes":[{"tipo":"editado","codigo":"4150803","material":"CURETA CIRURGICA LUCAS Nº85","campos":[{"campo":"grupo","de":"14","para":"12"},{"campo":"subgrupo","de":"CEO Instrumental","para":"Odontologia Instrumental"},{"campo":"acesso","de":"CEO","para":"TODOS"}]},{"tipo":"editado","codigo":"4150514","material":"ESPATULA DUPLA Nº 50","campos":[{"campo":"grupo","de":"14","para":"12"},{"campo":"subgrupo","de":"CEO Instrumental","para":"Odontologia Instrumental"},{"campo":"acesso","de":"CEO","para":"TODOS"}]},{"tipo":"editado","codigo":"4150682","material":"LAMINA BISTURI ACO CARBONO Nº 12","campos":[{"campo":"grupo","de":"15","para":"13"},{"campo":"subgrupo","de":"CEO","para":"Odontologia"},{"campo":"acesso","de":"CEO","para":"TODOS"}]},{"tipo":"editado","codigo":"4150822","material":"LIMA DE SCHLUGER","campos":[{"campo":"especialidade","de":"Endodontia","para":"Periodontia;Cirurgia"},{"campo":"familia","de":"Limas de canal","para":"Insumos cirúrgicos"}]},{"tipo":"novo","codigo":"4151318","material":"LIMA RECIPROCANTE PARA RETRATAMENTO (CAIXA COM 6 UNIDADES)","campos":[],"dados":{"codigo":"4151318","material":"LIMA RECIPROCANTE PARA RETRATAMENTO (CAIXA COM 6 UNIDADES)","unidade":"CA - Caixa","grupo":"15","subgrupo":"CEO","acesso":"CEO","tipo":"Consumo","imagem":"4151318.jpg","ativo":"SIM"}}]} -->
 
 ## 05/11/2026, 16:27 — Ana Carolina Oliveira Peres
 
