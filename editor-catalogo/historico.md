@@ -4,13 +4,24 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 122  
-Última atualização: 18/11/2026, 15:59  
+Total de sessões registradas: 123  
+Última atualização: 18/11/2026, 16:02  
 Este arquivo guarda a partir da sessão 101. As anteriores estão no arquivo fechado `historico-001.md`, com até 100 sessões cada.
 
 <!-- volumes:{"anteriores":100,"arquivos":["historico-001.md"],"ate":"2026-10-15T13:18:34.568Z"} -->
 
 ---
+
+## 18/11/2026, 16:02 — Fabiana Cunha Bleyer
+
+Sessão 123 · 1 alteração(ões)
+
+**Resumo:** 1 foto
+
+- **[FOTO]** `4151205` ADESIVO PARA MAT MOLDAGEM A BASE DE POLIETER 10 ML
+    - foto substituída · imagens/4151205.jpg
+
+<!-- sessao:{"data":"2026-11-18T19:02:55.797Z","autor":"Fabiana Cunha Bleyer","origem":"","alteracoes":[{"tipo":"imagem","codigo":"4151205","material":"ADESIVO PARA MAT MOLDAGEM A BASE DE POLIETER 10 ML","resumo":"foto substituída · imagens/4151205.jpg"}]} -->
 
 ## 18/11/2026, 15:59 — Fabiana Cunha Bleyer
 
