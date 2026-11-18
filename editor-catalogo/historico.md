@@ -4,13 +4,28 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 119  
-Última atualização: 18/11/2026, 15:15  
+Total de sessões registradas: 120  
+Última atualização: 18/11/2026, 15:31  
 Este arquivo guarda a partir da sessão 101. As anteriores estão no arquivo fechado `historico-001.md`, com até 100 sessões cada.
 
 <!-- volumes:{"anteriores":100,"arquivos":["historico-001.md"],"ate":"2026-10-15T13:18:34.568Z"} -->
 
 ---
+
+## 18/11/2026, 15:31 — Fabiana Cunha Bleyer
+
+Sessão 120 · 2 alteração(ões) · 847 itens no arquivo após a edição
+
+**Resumo:** 1 editado · 1 descritivo
+
+- **[EDITADO]** `4151318` LIMA RECIPROCANTE PARA RETRATAMENTO 25MM (CAIXA COM 6 UNIDADES)
+    - Material: "LIMA RECIPROCANTE PARA RETRATAMENTO (CAIXA COM 6 UNIDADES)" → "LIMA RECIPROCANTE PARA RETRATAMENTO 25MM (CAIXA COM 6 UNIDADES)"
+    - Especialidades: "" → "Endodontia"
+    - Família: "" → "Limas de canal"
+- **[DESCRITIVO]** `4151318` LIMA RECIPROCANTE PARA RETRATAMENTO 25MM (CAIXA COM 6 UNIDADES)
+    - Descritivo: "" → "Lima reciprocante projetada para o preparo mecanizado e retratamento de canais radiculares, fabricada em liga de níquel-titânio M-Wire, com seção transversal em forma de "S", ponta inativa, comprimento de 25mm, diâmetro da ponta 0,25, 0,40 e 0,50mm e conicidade inicial .08, .06 e .05 respectivamente. Apresentação em forma de blister estéril com dados de identificação, lote, procedência e rastreabilidade, responsável técnico, garantia, certificações (fabricado de acordo com padrões internacionais de qualidade, normas da ABNT) e registro na ANVISA."
+
+<!-- sessao:{"data":"2026-11-18T18:31:27.384Z","autor":"Fabiana Cunha Bleyer","origem":"","total":847,"alteracoes":[{"tipo":"editado","codigo":"4151318","material":"LIMA RECIPROCANTE PARA RETRATAMENTO 25MM (CAIXA COM 6 UNIDADES)","campos":[{"campo":"material","de":"LIMA RECIPROCANTE PARA RETRATAMENTO (CAIXA COM 6 UNIDADES)","para":"LIMA RECIPROCANTE PARA RETRATAMENTO 25MM (CAIXA COM 6 UNIDADES)"},{"campo":"especialidade","de":"","para":"Endodontia"},{"campo":"familia","de":"","para":"Limas de canal"}]},{"tipo":"descritivo","codigo":"4151318","material":"LIMA RECIPROCANTE PARA RETRATAMENTO 25MM (CAIXA COM 6 UNIDADES)","campos":[{"campo":"descritivo","de":"","para":"Lima reciprocante projetada para o preparo mecanizado e retratamento de canais radiculares, fabricada em liga de níquel-titânio M-Wire, com seção transversal em forma de \"S\", ponta inativa, comprimento de 25mm, diâmetro da ponta 0,25, 0,40 e 0,50mm e conicidade inicial .08, .06 e .05 respectivamente. Apresentação em forma de blister estéril com dados de identificação, lote, procedência e rastreabilidade, responsável técnico, garantia, certificações (fabricado de acordo com padrões internacionais de qualidade, normas da ABNT) e registro na ANVISA."}]}]} -->
 
 ## 18/11/2026, 15:15 — Fabiana Cunha Bleyer
 
