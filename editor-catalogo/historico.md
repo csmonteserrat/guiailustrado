@@ -4,13 +4,27 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 124  
-Última atualização: 18/11/2026, 16:11  
+Total de sessões registradas: 125  
+Última atualização: 18/11/2026, 16:31  
 Este arquivo guarda a partir da sessão 101. As anteriores estão no arquivo fechado `historico-001.md`, com até 100 sessões cada.
 
 <!-- volumes:{"anteriores":100,"arquivos":["historico-001.md"],"ate":"2026-10-15T13:18:34.568Z"} -->
 
 ---
+
+## 18/11/2026, 16:31 — Fabiana Cunha Bleyer
+
+Sessão 125 · 2 alteração(ões) · 847 itens no arquivo após a edição
+
+**Resumo:** 1 editado · 1 descritivo
+
+- **[EDITADO]** `4150853` TAMBOREL EM PLASTICO AUTOCLAVAVEL
+    - Especialidades: "Prótese" → "Endodontia"
+    - Família: "Equipamentos de laboratório" → "Limas de canal"
+- **[DESCRITIVO]** `4150853` TAMBOREL EM PLASTICO AUTOCLAVAVEL
+    - Descritivo: "Tamborel de plástico. Confeccionado em polímero de alta performance. Autoclavável. Em formato oval, com as medidas: 70 x 54 x 43 mm. Indicado para apoio de limas endodônticas. Utilizado juntamente com refis descartáveis e substituíveis. Apresentação: embalagem plástica contendo 1 unidade, com informações de modelo, constando dados de identificação, procedência, validade, garantia, nº do lote de fabricação e o nº indicativo do modelo gravados no corpo da peça, o que permite a rastreabilidade, certificações (fabricado de acordo com padrões internacionais de qualidade, normas da ABNT) e registro na ANVISA." → "Tamborel de plástico utilizado na endodontia para apoiar, organizar e limpar limas manuais ou rotatórias durante o tratamento de canal. Confeccionado em polímero de alta performance. Autoclavável. Em formato circular, com as medidas:  39 x 27,7mm. Indicado para apoio de limas endodônticas. Utilizado juntamente com refis descartáveis e substituíveis. Apresentação: embalagem plástica contendo 1 unidade, com informações de modelo, constando dados de identificação, procedência, validade, garantia, nº do lote de fabricação e o nº indicativo do modelo gravados no corpo da peça, o que permite a rastreabilidade, certificações (fabricado de acordo com padrões internacionais de qualidade, normas da ABNT) e registro na ANVISA."
+
+<!-- sessao:{"data":"2026-11-18T19:31:37.113Z","autor":"Fabiana Cunha Bleyer","origem":"","total":847,"alteracoes":[{"tipo":"editado","codigo":"4150853","material":"TAMBOREL EM PLASTICO AUTOCLAVAVEL","campos":[{"campo":"especialidade","de":"Prótese","para":"Endodontia"},{"campo":"familia","de":"Equipamentos de laboratório","para":"Limas de canal"}]},{"tipo":"descritivo","codigo":"4150853","material":"TAMBOREL EM PLASTICO AUTOCLAVAVEL","campos":[{"campo":"descritivo","de":"Tamborel de plástico. Confeccionado em polímero de alta performance. Autoclavável. Em formato oval, com as medidas: 70 x 54 x 43 mm. Indicado para apoio de limas endodônticas. Utilizado juntamente com refis descartáveis e substituíveis. Apresentação: embalagem plástica contendo 1 unidade, com informações de modelo, constando dados de identificação, procedência, validade, garantia, nº do lote de fabricação e o nº indicativo do modelo gravados no corpo da peça, o que permite a rastreabilidade, certificações (fabricado de acordo com padrões internacionais de qualidade, normas da ABNT) e registro na ANVISA.","para":"Tamborel de plástico utilizado na endodontia para apoiar, organizar e limpar limas manuais ou rotatórias durante o tratamento de canal. Confeccionado em polímero de alta performance. Autoclavável. Em formato circular, com as medidas:  39 x 27,7mm. Indicado para apoio de limas endodônticas. Utilizado juntamente com refis descartáveis e substituíveis. Apresentação: embalagem plástica contendo 1 unidade, com informações de modelo, constando dados de identificação, procedência, validade, garantia, nº do lote de fabricação e o nº indicativo do modelo gravados no corpo da peça, o que permite a rastreabilidade, certificações (fabricado de acordo com padrões internacionais de qualidade, normas da ABNT) e registro na ANVISA."}]}]} -->
 
 ## 18/11/2026, 16:11 — Fabiana Cunha Bleyer
 
