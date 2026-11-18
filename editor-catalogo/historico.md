@@ -4,13 +4,24 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 120  
-Última atualização: 18/11/2026, 15:31  
+Total de sessões registradas: 121  
+Última atualização: 18/11/2026, 15:37  
 Este arquivo guarda a partir da sessão 101. As anteriores estão no arquivo fechado `historico-001.md`, com até 100 sessões cada.
 
 <!-- volumes:{"anteriores":100,"arquivos":["historico-001.md"],"ate":"2026-10-15T13:18:34.568Z"} -->
 
 ---
+
+## 18/11/2026, 15:37 — Fabiana Cunha Bleyer
+
+Sessão 121 · 1 alteração(ões) · 847 itens no arquivo após a edição
+
+**Resumo:** 1 descritivo
+
+- **[DESCRITIVO]** `4151318` LIMA RECIPROCANTE PARA RETRATAMENTO 25MM (CAIXA COM 6 UNIDADES)
+    - Unidade de compra: "" → "Blister com 6 unidades"
+
+<!-- sessao:{"data":"2026-11-18T18:37:09.155Z","autor":"Fabiana Cunha Bleyer","origem":"","total":847,"alteracoes":[{"tipo":"descritivo","codigo":"4151318","material":"LIMA RECIPROCANTE PARA RETRATAMENTO 25MM (CAIXA COM 6 UNIDADES)","campos":[{"campo":"unidade_compra","de":"","para":"Blister com 6 unidades"}]}]} -->
 
 ## 18/11/2026, 15:31 — Fabiana Cunha Bleyer
 
