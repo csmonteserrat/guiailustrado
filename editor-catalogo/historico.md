@@ -4,13 +4,27 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 125  
-Última atualização: 18/11/2026, 16:31  
+Total de sessões registradas: 126  
+Última atualização: 18/11/2026, 16:44  
 Este arquivo guarda a partir da sessão 101. As anteriores estão no arquivo fechado `historico-001.md`, com até 100 sessões cada.
 
 <!-- volumes:{"anteriores":100,"arquivos":["historico-001.md"],"ate":"2026-10-15T13:18:34.568Z"} -->
 
 ---
+
+## 18/11/2026, 16:44 — Fabiana Cunha Bleyer
+
+Sessão 126 · 2 alteração(ões) · 847 itens no arquivo após a edição
+
+**Resumo:** 1 editado · 1 descritivo
+
+- **[EDITADO]** `4151205` ADESIVO PARA MAT MOLDAGEM A BASE DE POLIETER 17 ML
+    - Material: "ADESIVO PARA MAT MOLDAGEM A BASE DE POLIETER 10 ML" → "ADESIVO PARA MAT MOLDAGEM A BASE DE POLIETER 17 ML"
+- **[DESCRITIVO]** `4151205` ADESIVO PARA MAT MOLDAGEM A BASE DE POLIETER 17 ML
+    - Descritivo: "" → "Adesivo odontológico que promove aderência entre o material de moldagem à base de poliéter e a moldeira, evitando deslocamento ou distorção na remoção do molde. Indicado para moldeiras metálicas ou de metacrilato. Composição: acetato de etila, resina adesiva e pigmento. Frasco com dados de identificação, lote, procedência e rastreabilidade, responsável técnico, garantia, certificações (fabricado de acordo com padrões internacionais de qualidade, normas da ABNT) e registro na ANVISA."
+    - Unidade de compra: "" → "Frasco"
+
+<!-- sessao:{"data":"2026-11-18T19:44:13.722Z","autor":"Fabiana Cunha Bleyer","origem":"","total":847,"alteracoes":[{"tipo":"editado","codigo":"4151205","material":"ADESIVO PARA MAT MOLDAGEM A BASE DE POLIETER 17 ML","campos":[{"campo":"material","de":"ADESIVO PARA MAT MOLDAGEM A BASE DE POLIETER 10 ML","para":"ADESIVO PARA MAT MOLDAGEM A BASE DE POLIETER 17 ML"}]},{"tipo":"descritivo","codigo":"4151205","material":"ADESIVO PARA MAT MOLDAGEM A BASE DE POLIETER 17 ML","campos":[{"campo":"descritivo","de":"","para":"Adesivo odontológico que promove aderência entre o material de moldagem à base de poliéter e a moldeira, evitando deslocamento ou distorção na remoção do molde. Indicado para moldeiras metálicas ou de metacrilato. Composição: acetato de etila, resina adesiva e pigmento. Frasco com dados de identificação, lote, procedência e rastreabilidade, responsável técnico, garantia, certificações (fabricado de acordo com padrões internacionais de qualidade, normas da ABNT) e registro na ANVISA."},{"campo":"unidade_compra","de":"","para":"Frasco"}]}]} -->
 
 ## 18/11/2026, 16:31 — Fabiana Cunha Bleyer
 
