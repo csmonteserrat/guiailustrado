@@ -4,13 +4,24 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 121  
-Última atualização: 18/11/2026, 15:37  
+Total de sessões registradas: 122  
+Última atualização: 18/11/2026, 15:59  
 Este arquivo guarda a partir da sessão 101. As anteriores estão no arquivo fechado `historico-001.md`, com até 100 sessões cada.
 
 <!-- volumes:{"anteriores":100,"arquivos":["historico-001.md"],"ate":"2026-10-15T13:18:34.568Z"} -->
 
 ---
+
+## 18/11/2026, 15:59 — Fabiana Cunha Bleyer
+
+Sessão 122 · 1 alteração(ões) · 847 itens no arquivo após a edição
+
+**Resumo:** 1 descritivo
+
+- **[DESCRITIVO]** `4150754` BRANCO DE ESPANHA 200G
+    - Descritivo: "" → "Pó abrasivo fino à base de carbonato de cálcio, com dureza relativamente baixa de granulometria fina, usado no polimento e acabamento das próteses em acrílico. Embalagem de 200g com dados de identificação, lote, procedência e rastreabilidade, responsável técnico, garantia, certificações (fabricado de acordo com padrões internacionais de qualidade, normas da ABNT) e registro na ANVISA."
+
+<!-- sessao:{"data":"2026-11-18T18:59:00.260Z","autor":"Fabiana Cunha Bleyer","origem":"","total":847,"alteracoes":[{"tipo":"descritivo","codigo":"4150754","material":"BRANCO DE ESPANHA 200G","campos":[{"campo":"descritivo","de":"","para":"Pó abrasivo fino à base de carbonato de cálcio, com dureza relativamente baixa de granulometria fina, usado no polimento e acabamento das próteses em acrílico. Embalagem de 200g com dados de identificação, lote, procedência e rastreabilidade, responsável técnico, garantia, certificações (fabricado de acordo com padrões internacionais de qualidade, normas da ABNT) e registro na ANVISA."}]}]} -->
 
 ## 18/11/2026, 15:37 — Fabiana Cunha Bleyer
 
