@@ -4,13 +4,27 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 129  
-Última atualização: 25/11/2026, 15:04  
+Total de sessões registradas: 130  
+Última atualização: 25/11/2026, 15:10  
 Este arquivo guarda a partir da sessão 101. As anteriores estão no arquivo fechado `historico-001.md`, com até 100 sessões cada.
 
 <!-- volumes:{"anteriores":100,"arquivos":["historico-001.md"],"ate":"2026-10-15T13:18:34.568Z"} -->
 
 ---
+
+## 25/11/2026, 15:10 — Caio César Borges de Oliveira
+
+Sessão 130 · 2 alteração(ões) · 847 itens no arquivo após a edição
+
+**Resumo:** 2 descritivo
+
+- **[DESCRITIVO]** `4150664` PONTEIRA UNIVERSAL COMP COM TDS APAR FOTOP 15 MM
+    - Descritivo: "" → "Ponteira universal para fotopolimerizador. Indicação: Compatível com qualquer fotopolimerizador em que a medida da base metálica seja 15 mm. Composição: Fibra óptica e material escuro para evitar dispersão de luz e aumentar eficiência. Características específicas: Base metálica de 15 mm, compatibilidade universal, material escuro que reduz dispersão luminosa, maior eficiência, garantia de 12 meses, necessidade de apresentação de amostra do produto para avaliação técnica da equipe de engenharia clínica, emissão de parecer técnico favorável ou não conforme edital, exigência de apresentação de catálogos e/ou manuais referentes ao modelo do produto ofertado. Apresentação: Embalagem unitária. A embalagem deve conter dados de identificação, lote, procedência, rastreabilidade, responsável técnico, garantia, certificações de qualidade conforme padrões internacionais e normas da ABNT, além do registro na ANVISA."
+    - Unidade de compra: "" → "Unidade"
+- **[DESCRITIVO]** `4151280` RESINA COMPOSTA FLUIDA COR A2
+    - Descritivo: "" → "Material por uso temporário - CINCATARINA"
+
+<!-- sessao:{"data":"2026-11-25T18:10:58.412Z","autor":"Caio César Borges de Oliveira","origem":"","total":847,"alteracoes":[{"tipo":"descritivo","codigo":"4150664","material":"PONTEIRA UNIVERSAL COMP COM TDS APAR FOTOP 15 MM","campos":[{"campo":"descritivo","de":"","para":"Ponteira universal para fotopolimerizador. Indicação: Compatível com qualquer fotopolimerizador em que a medida da base metálica seja 15 mm. Composição: Fibra óptica e material escuro para evitar dispersão de luz e aumentar eficiência. Características específicas: Base metálica de 15 mm, compatibilidade universal, material escuro que reduz dispersão luminosa, maior eficiência, garantia de 12 meses, necessidade de apresentação de amostra do produto para avaliação técnica da equipe de engenharia clínica, emissão de parecer técnico favorável ou não conforme edital, exigência de apresentação de catálogos e/ou manuais referentes ao modelo do produto ofertado. Apresentação: Embalagem unitária. A embalagem deve conter dados de identificação, lote, procedência, rastreabilidade, responsável técnico, garantia, certificações de qualidade conforme padrões internacionais e normas da ABNT, além do registro na ANVISA."},{"campo":"unidade_compra","de":"","para":"Unidade"}]},{"tipo":"descritivo","codigo":"4151280","material":"RESINA COMPOSTA FLUIDA COR A2","campos":[{"campo":"descritivo","de":"","para":"Material por uso temporário - CINCATARINA"}]}]} -->
 
 ## 25/11/2026, 15:04 — Fabiana Cunha Bleyer
 
