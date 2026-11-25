@@ -4,13 +4,29 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 136  
-Última atualização: 25/11/2026, 16:20  
+Total de sessões registradas: 137  
+Última atualização: 25/11/2026, 16:27  
 Este arquivo guarda a partir da sessão 101. As anteriores estão no arquivo fechado `historico-001.md`, com até 100 sessões cada.
 
 <!-- volumes:{"anteriores":100,"arquivos":["historico-001.md"],"ate":"2026-10-15T13:18:34.568Z"} -->
 
 ---
+
+## 25/11/2026, 16:27 — Fabiana Cunha Bleyer
+
+Sessão 137 · 2 alteração(ões) · 847 itens no arquivo após a edição
+
+**Resumo:** 1 editado · 1 descritivo
+
+- **[EDITADO]** `4150794` BROCA BAIXA ROTAÇÃO CIRUR ESFER PARA PEÇA RETA Nº 08
+    - Especialidades: "Dentística" → "Cirurgia;Periodontia"
+- **[DESCRITIVO]** `4150794` BROCA BAIXA ROTAÇÃO CIRUR ESFER PARA PEÇA RETA Nº 08
+    - Descritivo: "" → "Características: broca cirúrgica esférica para peça reta n.º 8 confeccionada em carbeto de tungstênio e a haste em aço inoxidável cirúrgico. Diâmetro da parte ativa esférica de 3,5mm, comprimento total de 45mm e diâmetro da haste de 2,35mm. Autoclavável.
+ Indicação: osteotomias, desgaste ósseo e abertura de janela do seio maxilar.
+ Apresentação: embalagem contendo 1 blister com 1 unidade, com dados de identificação, lote, procedência e rastreabilidade, responsável técnico, garantia, certificações (fabricado de acordo com padrões internacionais de qualidade, normas da ABNT) e registro na ANVISA."
+    - Unidade de compra: "" → "Blister com 1 unidade"
+
+<!-- sessao:{"data":"2026-11-25T19:27:59.234Z","autor":"Fabiana Cunha Bleyer","origem":"","total":847,"alteracoes":[{"tipo":"editado","codigo":"4150794","material":"BROCA BAIXA ROTAÇÃO CIRUR ESFER PARA PEÇA RETA Nº 08","campos":[{"campo":"especialidade","de":"Dentística","para":"Cirurgia;Periodontia"}]},{"tipo":"descritivo","codigo":"4150794","material":"BROCA BAIXA ROTAÇÃO CIRUR ESFER PARA PEÇA RETA Nº 08","campos":[{"campo":"descritivo","de":"","para":"Características: broca cirúrgica esférica para peça reta n.º 8 confeccionada em carbeto de tungstênio e a haste em aço inoxidável cirúrgico. Diâmetro da parte ativa esférica de 3,5mm, comprimento total de 45mm e diâmetro da haste de 2,35mm. Autoclavável.\n Indicação: osteotomias, desgaste ósseo e abertura de janela do seio maxilar.\n Apresentação: embalagem contendo 1 blister com 1 unidade, com dados de identificação, lote, procedência e rastreabilidade, responsável técnico, garantia, certificações (fabricado de acordo com padrões internacionais de qualidade, normas da ABNT) e registro na ANVISA."},{"campo":"unidade_compra","de":"","para":"Blister com 1 unidade"}]}]} -->
 
 ## 25/11/2026, 16:20 — Fabiana Cunha Bleyer
 
