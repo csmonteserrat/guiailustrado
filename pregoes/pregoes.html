@@ -122,6 +122,7 @@ button.perigo{background:none;color:var(--geranium);padding-left:6px;padding-rig
 .modal label{display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:600;color:var(--secundario)}
 .modal input,.modal select{font-size:16px;font-weight:400}
 .modal .barra{justify-content:flex-end;margin-top:6px}
+.modal .barra .excluir{margin-right:auto;background:var(--geranium-suave);color:var(--geranium)}
 .rotMat{font-size:12px;font-weight:600;color:var(--secundario);margin-bottom:-4px}
 .rotMat .sub{font-weight:400;font-size:12px}
 #mEspec button{font-size:13px;padding:6px 12px}
@@ -232,7 +233,7 @@ button.perigo{background:none;color:var(--geranium);padding-left:6px;padding-rig
         <option value="concluido">Concluído</option>
       </select></label>
       <label id="rotBase">Começar com<select id="dBase"></select></label>
-      <div class="barra"><button type="button" id="btCancelarDados">Cancelar</button><button class="principal" type="submit" id="btOkDados">Criar</button></div>
+      <div class="barra"><button type="button" class="excluir" id="btExcluirPregao">Excluir pregão</button><button type="button" id="btCancelarDados">Cancelar</button><button class="principal" type="submit" id="btOkDados">Criar</button></div>
     </form>
   </div>
 </div>
@@ -257,7 +258,7 @@ button.perigo{background:none;color:var(--geranium);padding-left:6px;padding-rig
 </div>
 
 </div>
-<div id="versaoPagina">pregões · versão 2026-10-28d</div>
+<div id="versaoPagina">pregões · versão 2026-11-25a</div>
 </div>
 </div>
 
@@ -439,6 +440,7 @@ function abrirDados(modo){
   $('#tituloDados').textContent=modo==='novo'?'Novo pregão':'Dados do pregão';
   $('#btOkDados').textContent=modo==='novo'?'Criar':'Pronto';
   $('#rotBase').classList.toggle('oculto',modo!=='novo');
+  $('#btExcluirPregao').classList.toggle('oculto',modo==='novo');
   $('#dNumero').value=modo==='novo'?'':P.numero;
   $('#dObjeto').value=modo==='novo'?'':(P.objeto||'');
   $('#dSituacao').value=modo==='novo'?'elaboracao':(P.situacao||'elaboracao');
@@ -474,6 +476,53 @@ $('#formDados').addEventListener('submit',async e=>{
   fecharDados();
   location.hash=encodeURIComponent(id);
 });
+
+/* ---------- excluir o pregão ----------
+   Pregão que nunca foi salvo só existe neste navegador: basta apagar o
+   rascunho. O salvo no site sai do repositório (o arquivo e a linha do
+   indice.json) pelo publicar.js; a versão anterior continua no
+   histórico de commits do GitHub. */
+$('#btExcluirPregao').onclick=excluirPregao;
+async function excluirPregao(){
+  if(!P||salvando)return;
+  const id=P.id,numero=P.numero;
+  const noSite=INDICE.some(x=>x.id===id)||!!P.atualizado_em;
+  const outro=P.criado_por&&autor()&&P.criado_por!==autor()?'\n\nAtenção: este pregão foi criado por '+P.criado_por+'.':'';
+  if(!noSite){
+    if(!confirm('Excluir o pregão '+numero+'? Ele ainda não foi salvo no site, então só existe neste navegador e vai sumir de vez.'+outro))return;
+    apagarRascunho(id);sujo=false;P=null;fecharDados();location.hash='';mostrarLista();return;
+  }
+  if(!window.Publicar){alert('O arquivo publicar.js não foi carregado.');return}
+  if(!Publicar.temChave()){alert('Nenhuma chave de publicação está cadastrada neste navegador, então não dá para excluir o pregão do site daqui. Cadastre a chave no Painel.');return}
+  if(!confirm('Excluir o pregão '+numero+' ('+plural(P.itens.length,'item','itens')+') do site? Ele some da lista para todos. '+
+              'Os descritivos e materiais que ele levou ao catálogo continuam lá.'+outro))return;
+  if(prompt('Para confirmar, digite o número do pregão: '+numero)!==numero){alert('Número diferente. Nada foi excluído.');return}
+  salvando=true;desenharEstado();
+  const caminho='pregoes/'+id+'.json';
+  try{
+    const atual=await Publicar.obterTexto(caminho);
+    if(atual.existe)await Publicar.excluir({caminho,sha:atual.sha,mensagem:'Pregões: exclui '+numero});
+    await removerDoIndice(id,numero);
+    apagarRascunho(id);sujo=false;P=null;salvando=false;fecharDados();location.hash='';mostrarLista();
+  }catch(e){
+    salvando=false;desenharEstado();
+    alert('Não consegui excluir: '+(e.message||e));
+  }
+}
+async function removerDoIndice(id,numero){
+  for(let t=0;t<3;t++){
+    const r=await Publicar.obterTexto(ARQ_INDICE);
+    let j={pregoes:[]};try{if(r.existe)j=JSON.parse(r.texto)}catch(e){}
+    const lista=(j.pregoes||[]).filter(x=>x.id!==id);
+    INDICE=lista;
+    if(!r.existe||lista.length===(j.pregoes||[]).length)return;
+    try{
+      await Publicar.enviar({caminho:ARQ_INDICE,texto:JSON.stringify({pregoes:lista},null,1)+'\n',sha:r.sha,
+        mensagem:'Pregões: tira '+numero+' da lista dos pregões'});
+      return;
+    }catch(e){if(e.tipo!=='conflito'||t===2)throw e}
+  }
+}
 
 /* =====================================================================
    PREGÃO ABERTO
