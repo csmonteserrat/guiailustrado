@@ -4,13 +4,34 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 135  
-Última atualização: 25/11/2026, 16:19  
+Total de sessões registradas: 136  
+Última atualização: 25/11/2026, 16:20  
 Este arquivo guarda a partir da sessão 101. As anteriores estão no arquivo fechado `historico-001.md`, com até 100 sessões cada.
 
 <!-- volumes:{"anteriores":100,"arquivos":["historico-001.md"],"ate":"2026-10-15T13:18:34.568Z"} -->
 
 ---
+
+## 25/11/2026, 16:20 — Fabiana Cunha Bleyer
+
+Sessão 136 · 2 alteração(ões) · 847 itens no arquivo após a edição
+
+**Resumo:** 2 descritivo
+
+- **[DESCRITIVO]** `4150756` BROCA BAIXA ROTAÇÃO CIRUR ESFER PARA PEÇA RETA N° 04
+    - Descritivo: "Características: broca cirúrgica esférica para peça reta n.º 4 confeccionada em carbeto de tungstênio e a haste em aço inoxidável cirúrgico. Diâmetro da parte ativa esférica de 1,4mm, comprimento total de 44,5, e diâmetro da haste de 2,35mm. Autoclavável.
+ Indicação: osteotomias delicadas, regularização de rebordo alveolar, confecção de canaletas ósseas e desgastes pontuais nas próteses em resina.
+ Apresentação: embalagem contendo 1 blister com 1 unidade, com dados de identificação, lote, procedência e rastreabilidade, responsável técnico, garantia, certificações (fabricado de acordo com padrões internacionais de qualidade, normas da ABNT) e registro na ANVISA." → "Características: broca cirúrgica esférica para peça reta n.º 4 confeccionada em carbeto de tungstênio e a haste em aço inoxidável cirúrgico. Diâmetro da parte ativa esférica de 1,4mm, comprimento total de 44,5mm e diâmetro da haste de 2,35mm. Autoclavável.
+ Indicação: osteotomias delicadas, regularização de rebordo alveolar, confecção de canaletas ósseas e desgastes pontuais nas próteses em resina.
+ Apresentação: embalagem contendo 1 blister com 1 unidade, com dados de identificação, lote, procedência e rastreabilidade, responsável técnico, garantia, certificações (fabricado de acordo com padrões internacionais de qualidade, normas da ABNT) e registro na ANVISA."
+- **[DESCRITIVO]** `4150757` BROCA BAIXA ROTAÇÃO CIRUR ESFER PARA PEÇA RETA N° 06
+    - Descritivo: "Características: broca cirúrgica esférica para peça reta n.º 6 confeccionada em carbeto de tungstênio e a haste em aço inoxidável cirúrgico. Diâmetro da parte ativa esférica de 1,8mm, comprimento total de 44,5mm, e diâmetro da haste de 2,35mm. Autoclavável.
+ Indicação: remoção de tecido ósseo ao redor de dentes inclusos ou impactados, regularização de rebordo alveolar e desgastes pontuais nas próteses em resina.
+ Apresentação: embalagem contendo 1 blister com 1 unidade, com dados de identificação, lote, procedência e rastreabilidade, responsável técnico, garantia, certificações (fabricado de acordo com padrões internacionais de qualidade, normas da ABNT) e registro na ANVISA." → "Características: broca cirúrgica esférica para peça reta n.º 6 confeccionada em carbeto de tungstênio e a haste em aço inoxidável cirúrgico. Diâmetro da parte ativa esférica de 1,8mm, comprimento total de 44,5mm e diâmetro da haste de 2,35mm. Autoclavável.
+ Indicação: remoção de tecido ósseo ao redor de dentes inclusos ou impactados, regularização de rebordo alveolar e desgastes pontuais nas próteses em resina.
+ Apresentação: embalagem contendo 1 blister com 1 unidade, com dados de identificação, lote, procedência e rastreabilidade, responsável técnico, garantia, certificações (fabricado de acordo com padrões internacionais de qualidade, normas da ABNT) e registro na ANVISA."
+
+<!-- sessao:{"data":"2026-11-25T19:20:08.782Z","autor":"Fabiana Cunha Bleyer","origem":"","total":847,"alteracoes":[{"tipo":"descritivo","codigo":"4150756","material":"BROCA BAIXA ROTAÇÃO CIRUR ESFER PARA PEÇA RETA N° 04","campos":[{"campo":"descritivo","de":"Características: broca cirúrgica esférica para peça reta n.º 4 confeccionada em carbeto de tungstênio e a haste em aço inoxidável cirúrgico. Diâmetro da parte ativa esférica de 1,4mm, comprimento total de 44,5, e diâmetro da haste de 2,35mm. Autoclavável.\n Indicação: osteotomias delicadas, regularização de rebordo alveolar, confecção de canaletas ósseas e desgastes pontuais nas próteses em resina.\n Apresentação: embalagem contendo 1 blister com 1 unidade, com dados de identificação, lote, procedência e rastreabilidade, responsável técnico, garantia, certificações (fabricado de acordo com padrões internacionais de qualidade, normas da ABNT) e registro na ANVISA.","para":"Características: broca cirúrgica esférica para peça reta n.º 4 confeccionada em carbeto de tungstênio e a haste em aço inoxidável cirúrgico. Diâmetro da parte ativa esférica de 1,4mm, comprimento total de 44,5mm e diâmetro da haste de 2,35mm. Autoclavável.\n Indicação: osteotomias delicadas, regularização de rebordo alveolar, confecção de canaletas ósseas e desgastes pontuais nas próteses em resina.\n Apresentação: embalagem contendo 1 blister com 1 unidade, com dados de identificação, lote, procedência e rastreabilidade, responsável técnico, garantia, certificações (fabricado de acordo com padrões internacionais de qualidade, normas da ABNT) e registro na ANVISA."}]},{"tipo":"descritivo","codigo":"4150757","material":"BROCA BAIXA ROTAÇÃO CIRUR ESFER PARA PEÇA RETA N° 06","campos":[{"campo":"descritivo","de":"Características: broca cirúrgica esférica para peça reta n.º 6 confeccionada em carbeto de tungstênio e a haste em aço inoxidável cirúrgico. Diâmetro da parte ativa esférica de 1,8mm, comprimento total de 44,5mm, e diâmetro da haste de 2,35mm. Autoclavável.\n Indicação: remoção de tecido ósseo ao redor de dentes inclusos ou impactados, regularização de rebordo alveolar e desgastes pontuais nas próteses em resina.\n Apresentação: embalagem contendo 1 blister com 1 unidade, com dados de identificação, lote, procedência e rastreabilidade, responsável técnico, garantia, certificações (fabricado de acordo com padrões internacionais de qualidade, normas da ABNT) e registro na ANVISA.","para":"Características: broca cirúrgica esférica para peça reta n.º 6 confeccionada em carbeto de tungstênio e a haste em aço inoxidável cirúrgico. Diâmetro da parte ativa esférica de 1,8mm, comprimento total de 44,5mm e diâmetro da haste de 2,35mm. Autoclavável.\n Indicação: remoção de tecido ósseo ao redor de dentes inclusos ou impactados, regularização de rebordo alveolar e desgastes pontuais nas próteses em resina.\n Apresentação: embalagem contendo 1 blister com 1 unidade, com dados de identificação, lote, procedência e rastreabilidade, responsável técnico, garantia, certificações (fabricado de acordo com padrões internacionais de qualidade, normas da ABNT) e registro na ANVISA."}]}]} -->
 
 ## 25/11/2026, 16:19 — Fabiana Cunha Bleyer
 
