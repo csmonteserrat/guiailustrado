@@ -4,13 +4,26 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 127  
-Última atualização: 25/11/2026, 14:22  
+Total de sessões registradas: 128  
+Última atualização: 25/11/2026, 15:00  
 Este arquivo guarda a partir da sessão 101. As anteriores estão no arquivo fechado `historico-001.md`, com até 100 sessões cada.
 
 <!-- volumes:{"anteriores":100,"arquivos":["historico-001.md"],"ate":"2026-10-15T13:18:34.568Z"} -->
 
 ---
+
+## 25/11/2026, 15:00 — Fabiana Cunha Bleyer
+
+Sessão 128 · 2 alteração(ões) · 847 itens no arquivo após a edição
+
+**Resumo:** 1 editado · 1 descritivo
+
+- **[EDITADO]** `4151130` BROCA ALTA ROTAÇÃO DIAMANTADA 1033
+    - Especialidades: "Dentística" → "Dentística;Clínica Geral"
+- **[DESCRITIVO]** `4151130` BROCA ALTA ROTAÇÃO DIAMANTADA 1033
+    - Descritivo: "" → "Broca de alta rotação diamantada nº 1034, formato cônico invertido (ou cônica invertida), indicada para uso odontológico em operações rotineiras em esmalte, dentina e preparações cavitárias em geral. Trata-se de broca autoclavável, com parte ativa formada por microgrãos de diamantes naturais e/ou sintéticos fixados por processo galvânico,  diâmetro da parte ativa de aproximadamente 1,2 mm e comprimento da parte ativa de 1,2 mm. Apresentada em blister contendo 1 unidade. A embalagem deve conter dados de identificação, lote, procedência, rastreabilidade, responsável técnico, garantia, certificações de qualidade conforme padrões internacionais e normas da ABNT, além do registro na ANVISA."
+
+<!-- sessao:{"data":"2026-11-25T18:00:31.642Z","autor":"Fabiana Cunha Bleyer","origem":"","total":847,"alteracoes":[{"tipo":"editado","codigo":"4151130","material":"BROCA ALTA ROTAÇÃO DIAMANTADA 1033","campos":[{"campo":"especialidade","de":"Dentística","para":"Dentística;Clínica Geral"}]},{"tipo":"descritivo","codigo":"4151130","material":"BROCA ALTA ROTAÇÃO DIAMANTADA 1033","campos":[{"campo":"descritivo","de":"","para":"Broca de alta rotação diamantada nº 1034, formato cônico invertido (ou cônica invertida), indicada para uso odontológico em operações rotineiras em esmalte, dentina e preparações cavitárias em geral. Trata-se de broca autoclavável, com parte ativa formada por microgrãos de diamantes naturais e/ou sintéticos fixados por processo galvânico,  diâmetro da parte ativa de aproximadamente 1,2 mm e comprimento da parte ativa de 1,2 mm. Apresentada em blister contendo 1 unidade. A embalagem deve conter dados de identificação, lote, procedência, rastreabilidade, responsável técnico, garantia, certificações de qualidade conforme padrões internacionais e normas da ABNT, além do registro na ANVISA."}]}]} -->
 
 ## 25/11/2026, 14:22 — Caio César Borges de Oliveira
 
