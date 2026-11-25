@@ -4,13 +4,26 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 131  
-Última atualização: 25/11/2026, 15:16  
+Total de sessões registradas: 132  
+Última atualização: 25/11/2026, 15:37  
 Este arquivo guarda a partir da sessão 101. As anteriores estão no arquivo fechado `historico-001.md`, com até 100 sessões cada.
 
 <!-- volumes:{"anteriores":100,"arquivos":["historico-001.md"],"ate":"2026-10-15T13:18:34.568Z"} -->
 
 ---
+
+## 25/11/2026, 15:37 — Fabiana Cunha Bleyer
+
+Sessão 132 · 2 alteração(ões) · 847 itens no arquivo após a edição
+
+**Resumo:** 1 editado · 1 descritivo
+
+- **[EDITADO]** `4150605` BROCA ALTA ROTAÇÃO DIAMANTADA CÔNICA Nº 3082
+    - Especialidades: "Dentística" → "Clínica Geral;Endodontia;Dentística"
+- **[DESCRITIVO]** `4150605` BROCA ALTA ROTAÇÃO DIAMANTADA CÔNICA Nº 3082
+    - Descritivo: "" → "Broca de alta rotação diamantada nº 3082, formato cônico de extremidade inativa, indicada como complemento da abertura coronária endodôntica retificando as paredes da câmara pulpar sem risco de perfurar o assoalho e como acabamento de limites cervicais  sem lesionar o epitélio sulcular. Trata-se de broca autoclavável, com parte ativa formada por microgrãos de diamantes naturais e/ou sintéticos fixados por processo galvânico,  diâmetro da parte ativa de aproximadamente 1,6 mm, referente à base mais larga do cone e comprimento da parte ativa de 8,0 mm. Apresentada em blister contendo 1 unidade. A embalagem deve conter dados de identificação, lote, procedência, rastreabilidade, responsável técnico, garantia, certificações de qualidade conforme padrões internacionais e normas da ABNT, além do registro na ANVISA."
+
+<!-- sessao:{"data":"2026-11-25T18:37:22.082Z","autor":"Fabiana Cunha Bleyer","origem":"","total":847,"alteracoes":[{"tipo":"editado","codigo":"4150605","material":"BROCA ALTA ROTAÇÃO DIAMANTADA CÔNICA Nº 3082","campos":[{"campo":"especialidade","de":"Dentística","para":"Clínica Geral;Endodontia;Dentística"}]},{"tipo":"descritivo","codigo":"4150605","material":"BROCA ALTA ROTAÇÃO DIAMANTADA CÔNICA Nº 3082","campos":[{"campo":"descritivo","de":"","para":"Broca de alta rotação diamantada nº 3082, formato cônico de extremidade inativa, indicada como complemento da abertura coronária endodôntica retificando as paredes da câmara pulpar sem risco de perfurar o assoalho e como acabamento de limites cervicais  sem lesionar o epitélio sulcular. Trata-se de broca autoclavável, com parte ativa formada por microgrãos de diamantes naturais e/ou sintéticos fixados por processo galvânico,  diâmetro da parte ativa de aproximadamente 1,6 mm, referente à base mais larga do cone e comprimento da parte ativa de 8,0 mm. Apresentada em blister contendo 1 unidade. A embalagem deve conter dados de identificação, lote, procedência, rastreabilidade, responsável técnico, garantia, certificações de qualidade conforme padrões internacionais e normas da ABNT, além do registro na ANVISA."}]}]} -->
 
 ## 25/11/2026, 15:16 — Fabiana Cunha Bleyer
 
