@@ -4,13 +4,25 @@ Registro automático das edições feitas no `produtos.csv` pelo editor do catá
 As sessões aparecem da mais recente para a mais antiga.
 Não edite este arquivo à mão: ele é lido e reescrito pelo editor.
 
-Total de sessões registradas: 139  
-Última atualização: 25/11/2026, 17:11  
+Total de sessões registradas: 140  
+Última atualização: 25/11/2026, 17:19  
 Este arquivo guarda a partir da sessão 101. As anteriores estão no arquivo fechado `historico-001.md`, com até 100 sessões cada.
 
 <!-- volumes:{"anteriores":100,"arquivos":["historico-001.md"],"ate":"2026-10-15T13:18:34.568Z"} -->
 
 ---
+
+## 25/11/2026, 17:19 — Fabiana Cunha Bleyer
+
+Sessão 140 · 1 alteração(ões) · 847 itens no arquivo após a edição
+
+**Resumo:** 1 descritivo
+
+- **[DESCRITIVO]** `4150786` ALAVANCAS CRYER Nº 27, 28, 31 E 32
+    - Descritivo: "" → "As alavancas cryer são instrumentais cirúrgicos odontológicos com ponta ativa triangular e se apresentam em pares. Indicadas para remoção de raízes residuais fraturadas na mandíbula e para exodontia de terceiros molares inferiores. Confeccionadas em aço inoxidável cirúrgico autoclavável. Possui formato de triângulo pontiagudo com uma face plana/côncava e outra convexa. Fabricado em pares espelhados para a remoção das raízes inferiores em ambos os lados da arcada. Marca e lote impressos no corpo do instrumental. Apresentação: embalagem plástica contendo 1 unidade. A embalagem deve conter dados de identificação, lote, procedência, rastreabilidade, responsável técnico, garantia, certificações de qualidade conforme padrões internacionais e normas da ABNT, além do registro na ANVISA."
+    - Unidade de compra: "" → "Kit com 2 unidades"
+
+<!-- sessao:{"data":"2026-11-25T20:19:16.496Z","autor":"Fabiana Cunha Bleyer","origem":"","total":847,"alteracoes":[{"tipo":"descritivo","codigo":"4150786","material":"ALAVANCAS CRYER Nº 27, 28, 31 E 32","campos":[{"campo":"descritivo","de":"","para":"As alavancas cryer são instrumentais cirúrgicos odontológicos com ponta ativa triangular e se apresentam em pares. Indicadas para remoção de raízes residuais fraturadas na mandíbula e para exodontia de terceiros molares inferiores. Confeccionadas em aço inoxidável cirúrgico autoclavável. Possui formato de triângulo pontiagudo com uma face plana/côncava e outra convexa. Fabricado em pares espelhados para a remoção das raízes inferiores em ambos os lados da arcada. Marca e lote impressos no corpo do instrumental. Apresentação: embalagem plástica contendo 1 unidade. A embalagem deve conter dados de identificação, lote, procedência, rastreabilidade, responsável técnico, garantia, certificações de qualidade conforme padrões internacionais e normas da ABNT, além do registro na ANVISA."},{"campo":"unidade_compra","de":"","para":"Kit com 2 unidades"}]}]} -->
 
 ## 25/11/2026, 17:11 — Naiara Cristine
 
